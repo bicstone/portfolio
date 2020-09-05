@@ -11,6 +11,9 @@ module.exports = {
   /* Your site config here */
   plugins: [
     {
+      resolve: 'gatsby-theme-material-ui',
+    },
+    {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
         path: path.join(__dirname, 'src', 'locales'),
