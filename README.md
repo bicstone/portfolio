@@ -1,3 +1,9 @@
+![Node.js test](https://github.com/bicstone/masshiro.me/workflows/Node.js%20test/badge.svg)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0ac6360e-ecae-4d83-b096-913d7c85fe84/deploy-status)](https://app.netlify.com/sites/masshiro-me/deploys)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fmasshiro.me.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fmasshiro.me?ref=badge_shield)
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fmasshiro.me.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fmasshiro.me?ref=badge_large)
+
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
