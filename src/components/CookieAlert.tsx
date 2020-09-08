@@ -4,10 +4,10 @@ import { Snackbar, Button, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 
 interface Props {
-  cookieName: string;
-  cookieTrue: string;
-  cookieFalse: string;
-  cookieOptions: Cookies.CookieAttributes;
+  cookieName?: string;
+  cookieTrue?: string;
+  cookieFalse?: string;
+  cookieOptions?: Cookies.CookieAttributes;
 }
 
 const CookieAlert: React.FC<Props> = ({
@@ -34,11 +34,11 @@ const CookieAlert: React.FC<Props> = ({
 
   const agreeButton = (
     <>
-      <Button color="primary" onClick={agreeAction}>
-        OK
-      </Button>
       <Button color="secondary" size="small" onClick={closeAction}>
         拒否
+      </Button>
+      <Button color="primary" onClick={agreeAction}>
+        OK
       </Button>
     </>
   );
