@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { jaJP } from '@material-ui/core/locale';
 
 import CookieAlert from '../../components/CookieAlert';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 const useStyles = makeStyles(() => ({
@@ -38,6 +39,7 @@ export const TopLayout: React.FC = props => {
       <ThemeProvider theme={theme}>
         <div className={classes.root}>
           <CssBaseline />
+          <Header />
           {props.children}
           <CookieAlert />
           <Footer />
