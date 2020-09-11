@@ -1,14 +1,47 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const { NODE_ENV } = process.env;
+
+const title = {
+  ja: 'Takanori Oishi Portfolio',
+  en: 'Takanori Oishi Portfolio',
+};
+const shortTitle = {
+  ja: 'まっしろ',
+  en: 'masshiro',
+};
+const url = {
+  ja: 'https://masshiro.me/',
+  en: 'https://masshiro.me/en/',
+};
+const description = {
+  ja:
+    'Webディベロッパー/機械エンジニア Takanori Oishi (オオイシ タカノリ) のポートフォリオサイトです。',
+  en: "Web developer / Mechanical engineer Takanori Oishi's Portfolio site.",
+};
+const author = {
+  ja: 'Takanori Oishi',
+  en: 'Takanori Oishi',
+};
+const icon = {
+  src: '/android-chrome-512x512.png',
+  sizes: '512x512',
+  type: 'image/png',
+};
+const backgroundColor = '#ffffff';
+const themeColor = '#ffffff';
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title,
+    shortTitle,
+    url,
+    description,
+    author,
+    icon,
+    backgroundColor,
+    themeColor,
+  },
   plugins: [
     {
       resolve: 'gatsby-theme-material-ui',
@@ -34,7 +67,8 @@ module.exports = {
           "X-Hello-Human: I'm Takanori Oishi. see humans.txt.",
           'X-Content-Type-Options: nosniff',
           'X-XSS-Protection: 1; mode=block',
-          // "Content-Security-Policy: default-src 'self' 'unsafe-inline' object-src 'none'",
+          'X-UA-Compatible: IE=edge',
+          // "Content-Security-Policy: default-src "self" "unsafe-inline" object-src "none"",
         ],
       },
     },
@@ -55,13 +89,14 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Takanori Oishi's portfolio`,
-        short_name: `masshiro`,
-        description: `Takanori Oishi's portfolio site.`,
-        lang: `ja`,
-        display: `standalone`,
+        lang: 'ja',
+        name: title.ja,
+        short_name: shortTitle.ja,
+        description: description.ja,
+        start_url: url.ja,
+        display: 'standalone',
         icons: [
           {
             src: '/android-chrome-192x192.png',
@@ -69,28 +104,33 @@ module.exports = {
             type: 'image/png',
           },
           {
-            src: '/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
+            src: icon.src,
+            sizes: icon.sizes,
+            type: icon.type,
           },
         ],
-        start_url: `/`,
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
+        theme_color: themeColor,
+        background_color: backgroundColor,
+        localize: [
+          {
+            lang: 'en',
+            name: title.en,
+            short_name: shortTitle.en,
+            description: description.en,
+            start_url: url.en,
+          },
+        ],
         cache_busting_mode: 'none',
       },
     },
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        // precachePages: [`/about-us/`, `/projects/*`],
+        // precachePages: ["/about-us/", "/projects/*"],
         workboxConfig: {
           globPatterns: ['**/*.png', '**/*.ico', '**/*.svg'],
         },
       },
-    },
-    {
-      resolve: 'gatsby-plugin-react-helmet',
     },
   ],
 };
