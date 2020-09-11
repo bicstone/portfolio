@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const { NODE_ENV } = process.env;
 
 const title = {
   ja: 'Takanori Oishi Portfolio',
@@ -120,6 +121,14 @@ module.exports = {
           },
         ],
         cache_busting_mode: 'none',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: url.ja,
+        // sitemap: `${url.ja}sitemap.xml`,
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
