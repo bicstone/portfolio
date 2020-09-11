@@ -124,14 +124,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        host: url.ja,
-        // sitemap: `${url.ja}sitemap.xml`,
-        policy: [{ userAgent: '*', allow: '/' }],
-      },
-    },
-    {
       resolve: 'gatsby-plugin-offline',
       options: {
         // precachePages: ["/about-us/", "/projects/*"],
