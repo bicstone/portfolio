@@ -26,7 +26,8 @@
     "@typescript-eslint/no-useless-constructor": "error",
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "import/order": ["error"]
+    "import/order": ["error"],
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   },
   "settings": {
     "react": {
