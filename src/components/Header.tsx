@@ -14,7 +14,10 @@ import {
   IconButton as ExternalIconButton,
   Tooltip,
 } from '@material-ui/core';
+import { WbSunny, Brightness2 } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
+
+import useDarkMode from '../hooks/use-darkmode';
 
 interface props {
   isHome?: boolean;
@@ -36,6 +39,7 @@ const Header: React.FC<props> = ({ isHome = false }) => {
   const classes = useStyles();
   const { t, language, languages, changeLanguage } = useI18next();
   const nextLanguage = languages.filter(lang => lang !== language)[0];
+  const [isDarkMode, toggleDarkMode] = useDarkMode();
 
   return (
     <header>
@@ -64,6 +68,11 @@ const Header: React.FC<props> = ({ isHome = false }) => {
               {t('header.title')}
             </Typography>
           )}
+          <Tooltip arrow title={t('header.toggleDarkTheme-title') as string}>
+            <IconButton size="small" onClick={toggleDarkMode} className={classes.link}>
+              {isDarkMode ? <Brightness2 /> : <WbSunny />}
+            </IconButton>
+          </Tooltip>
           <Tooltip arrow title={t('header.changeLanguage-title') as string}>
             <IconButton
               size="small"
