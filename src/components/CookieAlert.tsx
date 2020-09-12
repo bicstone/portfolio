@@ -3,7 +3,6 @@ import Cookies from 'js-cookie';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 import { Snackbar, Button, Typography } from '@material-ui/core';
-import { Link } from 'gatsby-theme-material-ui';
 
 interface Props {
   cookieName?: string;

@@ -1118,6 +1118,7 @@ export type SiteEdge = {
 
 export enum SiteFieldsEnum {
   BuildTime = 'buildTime',
+  SiteMetadataSiteUrl = 'siteMetadata___siteUrl',
   SiteMetadataTitleJa = 'siteMetadata___title___ja',
   SiteMetadataTitleEn = 'siteMetadata___title___en',
   SiteMetadataShortTitleJa = 'siteMetadata___shortTitle___ja',
@@ -1305,6 +1306,7 @@ export type SitePageContextI18n = {
   languages?: Maybe<Array<Maybe<Scalars['String']>>>;
   defaultLanguage?: Maybe<Scalars['String']>;
   routed?: Maybe<Scalars['Boolean']>;
+  resources?: Maybe<SitePageContextI18nResources>;
   originalPath?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
 };
@@ -1314,8 +1316,144 @@ export type SitePageContextI18nFilterInput = {
   languages?: Maybe<StringQueryOperatorInput>;
   defaultLanguage?: Maybe<StringQueryOperatorInput>;
   routed?: Maybe<BooleanQueryOperatorInput>;
+  resources?: Maybe<SitePageContextI18nResourcesFilterInput>;
   originalPath?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResources = {
+  __typename?: 'SitePageContextI18nResources';
+  ja?: Maybe<SitePageContextI18nResourcesJa>;
+  en?: Maybe<SitePageContextI18nResourcesEn>;
+};
+
+export type SitePageContextI18nResourcesEn = {
+  __typename?: 'SitePageContextI18nResourcesEn';
+  translation?: Maybe<SitePageContextI18nResourcesEnTranslation>;
+};
+
+export type SitePageContextI18nResourcesEnFilterInput = {
+  translation?: Maybe<SitePageContextI18nResourcesEnTranslationFilterInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslation = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslation';
+  Hello_world_?: Maybe<Scalars['String']>;
+  cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_Alert>;
+  header?: Maybe<SitePageContextI18nResourcesEnTranslationHeader>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationCookie_Alert = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationCookie_alert';
+  accept?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  dicline?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput = {
+  accept?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  dicline?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationFilterInput = {
+  Hello_world_?: Maybe<StringQueryOperatorInput>;
+  cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput>;
+  header?: Maybe<SitePageContextI18nResourcesEnTranslationHeaderFilterInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHeader = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHeader';
+  blog_title?: Maybe<Scalars['String']>;
+  blog_url?: Maybe<Scalars['String']>;
+  changeLanguage_title?: Maybe<Scalars['String']>;
+  contact_title?: Maybe<Scalars['String']>;
+  github_title?: Maybe<Scalars['String']>;
+  github_url?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  title_home?: Maybe<Scalars['String']>;
+  twitter_title?: Maybe<Scalars['String']>;
+  twitter_url?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHeaderFilterInput = {
+  blog_title?: Maybe<StringQueryOperatorInput>;
+  blog_url?: Maybe<StringQueryOperatorInput>;
+  changeLanguage_title?: Maybe<StringQueryOperatorInput>;
+  contact_title?: Maybe<StringQueryOperatorInput>;
+  github_title?: Maybe<StringQueryOperatorInput>;
+  github_url?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  title_home?: Maybe<StringQueryOperatorInput>;
+  twitter_title?: Maybe<StringQueryOperatorInput>;
+  twitter_url?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesFilterInput = {
+  ja?: Maybe<SitePageContextI18nResourcesJaFilterInput>;
+  en?: Maybe<SitePageContextI18nResourcesEnFilterInput>;
+};
+
+export type SitePageContextI18nResourcesJa = {
+  __typename?: 'SitePageContextI18nResourcesJa';
+  translation?: Maybe<SitePageContextI18nResourcesJaTranslation>;
+};
+
+export type SitePageContextI18nResourcesJaFilterInput = {
+  translation?: Maybe<SitePageContextI18nResourcesJaTranslationFilterInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslation = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslation';
+  Hello_world_?: Maybe<Scalars['String']>;
+  cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_Alert>;
+  header?: Maybe<SitePageContextI18nResourcesJaTranslationHeader>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationCookie_Alert = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationCookie_alert';
+  accept?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  dicline?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput = {
+  accept?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  dicline?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationFilterInput = {
+  Hello_world_?: Maybe<StringQueryOperatorInput>;
+  cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput>;
+  header?: Maybe<SitePageContextI18nResourcesJaTranslationHeaderFilterInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHeader = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHeader';
+  blog_title?: Maybe<Scalars['String']>;
+  blog_url?: Maybe<Scalars['String']>;
+  changeLanguage_title?: Maybe<Scalars['String']>;
+  contact_title?: Maybe<Scalars['String']>;
+  github_title?: Maybe<Scalars['String']>;
+  github_url?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  title_home?: Maybe<Scalars['String']>;
+  twitter_title?: Maybe<Scalars['String']>;
+  twitter_url?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHeaderFilterInput = {
+  blog_title?: Maybe<StringQueryOperatorInput>;
+  blog_url?: Maybe<StringQueryOperatorInput>;
+  changeLanguage_title?: Maybe<StringQueryOperatorInput>;
+  contact_title?: Maybe<StringQueryOperatorInput>;
+  github_title?: Maybe<StringQueryOperatorInput>;
+  github_url?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  title_home?: Maybe<StringQueryOperatorInput>;
+  twitter_title?: Maybe<StringQueryOperatorInput>;
+  twitter_url?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -1472,7 +1610,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsLanguages = 'pluginCreator___pluginOptions___languages',
   PluginCreatorPluginOptionsDefaultLanguage = 'pluginCreator___pluginOptions___defaultLanguage',
-  PluginCreatorPluginOptionsI18nextOptionsSaveMissing = 'pluginCreator___pluginOptions___i18nextOptions___saveMissing',
+  PluginCreatorPluginOptionsDebug = 'pluginCreator___pluginOptions___debug',
   PluginCreatorPluginOptionsAllPageHeaders = 'pluginCreator___pluginOptions___allPageHeaders',
   PluginCreatorPluginOptionsGoogleAnalyticsTrackingId = 'pluginCreator___pluginOptions___googleAnalytics___trackingId',
   PluginCreatorPluginOptionsGoogleAnalyticsAnonymize = 'pluginCreator___pluginOptions___googleAnalytics___anonymize',
@@ -1500,7 +1638,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsLegacy = 'pluginCreator___pluginOptions___legacy',
   PluginCreatorPluginOptionsThemeColorInHead = 'pluginCreator___pluginOptions___theme_color_in_head',
   PluginCreatorPluginOptionsWorkboxConfigGlobPatterns = 'pluginCreator___pluginOptions___workboxConfig___globPatterns',
-  PluginCreatorPluginOptionsConfigDir = 'pluginCreator___pluginOptions___configDir',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
@@ -1702,7 +1839,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsLanguages = 'pluginOptions___languages',
   PluginOptionsDefaultLanguage = 'pluginOptions___defaultLanguage',
-  PluginOptionsI18nextOptionsSaveMissing = 'pluginOptions___i18nextOptions___saveMissing',
+  PluginOptionsDebug = 'pluginOptions___debug',
   PluginOptionsAllPageHeaders = 'pluginOptions___allPageHeaders',
   PluginOptionsGoogleAnalyticsTrackingId = 'pluginOptions___googleAnalytics___trackingId',
   PluginOptionsGoogleAnalyticsAnonymize = 'pluginOptions___googleAnalytics___anonymize',
@@ -1730,7 +1867,6 @@ export enum SitePluginFieldsEnum {
   PluginOptionsLegacy = 'pluginOptions___legacy',
   PluginOptionsThemeColorInHead = 'pluginOptions___theme_color_in_head',
   PluginOptionsWorkboxConfigGlobPatterns = 'pluginOptions___workboxConfig___globPatterns',
-  PluginOptionsConfigDir = 'pluginOptions___configDir',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
@@ -1860,7 +1996,7 @@ export type SitePluginPluginOptions = {
   path?: Maybe<Scalars['String']>;
   languages?: Maybe<Array<Maybe<Scalars['String']>>>;
   defaultLanguage?: Maybe<Scalars['String']>;
-  i18nextOptions?: Maybe<SitePluginPluginOptionsI18nextOptions>;
+  debug?: Maybe<Scalars['Boolean']>;
   allPageHeaders?: Maybe<Array<Maybe<Scalars['String']>>>;
   googleAnalytics?: Maybe<SitePluginPluginOptionsGoogleAnalytics>;
   environments?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -1879,7 +2015,6 @@ export type SitePluginPluginOptions = {
   legacy?: Maybe<Scalars['Boolean']>;
   theme_color_in_head?: Maybe<Scalars['Boolean']>;
   workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfig>;
-  configDir?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -1890,7 +2025,7 @@ export type SitePluginPluginOptionsFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
   languages?: Maybe<StringQueryOperatorInput>;
   defaultLanguage?: Maybe<StringQueryOperatorInput>;
-  i18nextOptions?: Maybe<SitePluginPluginOptionsI18nextOptionsFilterInput>;
+  debug?: Maybe<BooleanQueryOperatorInput>;
   allPageHeaders?: Maybe<StringQueryOperatorInput>;
   googleAnalytics?: Maybe<SitePluginPluginOptionsGoogleAnalyticsFilterInput>;
   environments?: Maybe<StringQueryOperatorInput>;
@@ -1909,7 +2044,6 @@ export type SitePluginPluginOptionsFilterInput = {
   legacy?: Maybe<BooleanQueryOperatorInput>;
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
   workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfigFilterInput>;
-  configDir?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -1946,15 +2080,6 @@ export type SitePluginPluginOptionsGoogleAnalytics = {
 export type SitePluginPluginOptionsGoogleAnalyticsFilterInput = {
   trackingId?: Maybe<StringQueryOperatorInput>;
   anonymize?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsI18nextOptions = {
-  __typename?: 'SitePluginPluginOptionsI18nextOptions';
-  saveMissing?: Maybe<Scalars['Boolean']>;
-};
-
-export type SitePluginPluginOptionsI18nextOptionsFilterInput = {
-  saveMissing?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsIcons = {
@@ -2020,6 +2145,7 @@ export type SitePluginSortInput = {
 
 export type SiteSiteMetadata = {
   __typename?: 'SiteSiteMetadata';
+  siteUrl?: Maybe<Scalars['String']>;
   title?: Maybe<SiteSiteMetadataTitle>;
   shortTitle?: Maybe<SiteSiteMetadataShortTitle>;
   url?: Maybe<SiteSiteMetadataUrl>;
@@ -2053,6 +2179,7 @@ export type SiteSiteMetadataDescriptionFilterInput = {
 };
 
 export type SiteSiteMetadataFilterInput = {
+  siteUrl?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<SiteSiteMetadataTitleFilterInput>;
   shortTitle?: Maybe<SiteSiteMetadataShortTitleFilterInput>;
   url?: Maybe<SiteSiteMetadataUrlFilterInput>;

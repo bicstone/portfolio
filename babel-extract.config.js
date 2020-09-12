@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const languages = require('./languages');
+
 module.exports = {
   presets: ['babel-preset-gatsby'],
   plugins: [
     [
       'i18next-extract',
       {
-        locales: ['ja', 'en'],
-        useI18nextDefaultValue: ['ja'],
+        locales: languages.locales,
+        useI18nextDefaultValue: [languages.defaultLanguage],
         // 整理する場合は外す(存在しない翻訳が消える)
         // discardOldKeys: true,
         outputPath: 'src/locales/{{locale}}/{{ns}}.json',

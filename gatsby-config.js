@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const languages = require('./languages');
 
 const title = {
   ja: 'Takanori Oishi Portfolio',
@@ -46,13 +47,18 @@ module.exports = {
   plugins: [
     {
       resolve: 'gatsby-theme-material-ui',
+      options: {
+        webFontsConfig: {
+          fonts: {},
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
         path: path.join(__dirname, 'src', 'locales'),
-        languages: ['ja', 'en'],
-        defaultLanguage: 'ja',
+        languages: languages.languages,
+        defaultLanguage: languages.defaultLanguage,
       },
     },
     {

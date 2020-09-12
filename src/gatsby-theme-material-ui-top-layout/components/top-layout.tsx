@@ -1,24 +1,10 @@
 import React from 'react';
 
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import { jaJP } from '@material-ui/core/locale';
-
-import CookieAlert from '../../components/CookieAlert';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-  },
-}));
 
 export const TopLayout: React.FC = props => {
   // const defaultTheme = createMuiTheme();
-  const classes = useStyles();
   const theme = createMuiTheme(
     {
       palette: {
@@ -30,6 +16,10 @@ export const TopLayout: React.FC = props => {
         //   main: '',
         // },
       },
+      typography: {
+        fontFamily:
+          '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+      },
     },
     jaJP,
   );
@@ -37,13 +27,8 @@ export const TopLayout: React.FC = props => {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <CssBaseline />
-          <Header />
-          {props.children}
-          <CookieAlert />
-          <Footer />
-        </div>
+        <CssBaseline />
+        {props.children}
       </ThemeProvider>
     </>
   );

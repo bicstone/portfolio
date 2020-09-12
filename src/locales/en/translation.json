@@ -2,7 +2,7 @@
   "Hello world!": "test",
   "cookie-alert": {
     "accept": "Accept",
-    "description": "This site uses cookies for improvement.",
+    "description": "We uses cookies for improvement.",
     "dicline": "Dicline"
   },
   "header": {

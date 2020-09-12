@@ -34,7 +34,8 @@ const useStyles = makeStyles(theme => ({
 
 const Header: React.FC<props> = ({ isHome = false }) => {
   const classes = useStyles();
-  const { t, language, changeLanguage } = useI18next();
+  const { t, language, languages, changeLanguage } = useI18next();
+  const nextLanguage = languages.filter(lang => lang !== language)[0];
 
   return (
     <header>
@@ -68,7 +69,7 @@ const Header: React.FC<props> = ({ isHome = false }) => {
               size="small"
               onClick={e => {
                 e.preventDefault();
-                changeLanguage(language === 'ja' ? 'en' : 'ja');
+                changeLanguage(nextLanguage);
               }}
               className={classes.link}
             >
