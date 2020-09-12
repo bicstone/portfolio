@@ -8,12 +8,13 @@
   "header": {
     "blog-title": "ブログ",
     "blog-url": "https://masshiro.me/",
-    "changeLanguage-title": "",
+    "changeLanguage-title": "言語切替",
     "contact-title": "お問い合わせ",
     "github-title": "GitHub",
     "github-url": "https://github.com/bicstone/",
     "title": "masshiro.me",
     "title-home": "Takanori Oishi",
+    "toggleDarkTheme-title": "ダークモード切替",
     "twitter-title": "Twitter",
     "twitter-url": "https://twitter.com/masshiro_me/"
   }

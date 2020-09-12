@@ -3,12 +3,21 @@ import React from 'react';
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
 import { jaJP } from '@material-ui/core/locale';
 
+import { themeReducer, themeInitialState, themeInitial } from '../../reducer/themeReducer';
+import { ThemeContext } from '../../hooks/use-darkmode';
+
 export const TopLayout: React.FC = props => {
+  const [themeState, themeDispatch] = React.useReducer(
+    themeReducer,
+    themeInitialState,
+    themeInitial,
+  );
+  const { darkMode } = themeState;
   // const defaultTheme = createMuiTheme();
   const theme = createMuiTheme(
     {
       palette: {
-        // type: darkMode ? 'dark' : 'light',
+        type: darkMode ? 'dark' : 'light',
         // primary: {
         //   main: '',
         // },
@@ -28,7 +37,7 @@ export const TopLayout: React.FC = props => {
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {props.children}
+        <ThemeContext.Provider value={themeDispatch}>{props.children}</ThemeContext.Provider>
       </ThemeProvider>
     </>
   );
