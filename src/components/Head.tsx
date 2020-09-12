@@ -2,8 +2,9 @@ import React from 'react';
 import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
 import useSiteMetadata from '../hooks/use-site-metadata';
 import useBuildTime from '../hooks/use-buildtime';
+import { Languages } from '../types/languages';
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
   pathname?: string;
@@ -15,10 +16,10 @@ const Head: React.FC<Props> = ({ title = '', description = '', pathname = '', im
   const buildTime = useBuildTime();
   const { language } = useI18next();
   const defaultMetadata = {
-    title: siteMetadata?.title?.[language === 'en' ? 'en' : 'ja'] || '',
-    shortTitle: siteMetadata?.shortTitle?.[language === 'en' ? 'en' : 'ja'] || '',
-    description: siteMetadata?.description?.[language === 'en' ? 'en' : 'ja'] || '',
-    author: siteMetadata?.author?.[language === 'en' ? 'en' : 'ja'] || '',
+    title: siteMetadata?.title?.[language as Languages] || '',
+    shortTitle: siteMetadata?.shortTitle?.[language as Languages] || '',
+    description: siteMetadata?.description?.[language as Languages] || '',
+    author: siteMetadata?.author?.[language as Languages] || '',
     image: siteMetadata?.icon?.src || '',
   };
   const seo = {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 import TwitterIcon from '@material-ui/icons/Twitter';
 import EmailIcon from '@material-ui/icons/Email';
@@ -33,6 +34,8 @@ const useStyles = makeStyles(theme => ({
 
 const Header: React.FC<props> = ({ isHome = false }) => {
   const classes = useStyles();
+  const { t, language, languages, changeLanguage } = useI18next();
+  const nextLanguage = languages.filter(lang => lang !== language)[0];
 
   return (
     <header>
@@ -47,7 +50,7 @@ const Header: React.FC<props> = ({ isHome = false }) => {
                 className={classes.link}
                 gutterBottom
               >
-                masshiro.me
+                {t('header.title-home')}
               </Typography>
             </Link>
           ) : (
@@ -58,23 +61,40 @@ const Header: React.FC<props> = ({ isHome = false }) => {
               className={classes.link}
               gutterBottom
             >
-              Takanori Oishi
+              {t('header.title')}
             </Typography>
           )}
+          <Tooltip arrow title={t('header.changeLanguage-title') as string}>
+            <IconButton
+              size="small"
+              onClick={e => {
+                e.preventDefault();
+                changeLanguage(nextLanguage);
+              }}
+              className={classes.link}
+            >
+              {language.toUpperCase()}
+            </IconButton>
+          </Tooltip>
           <div className={classes.spacer} />
           <nav>
-            <ExternalButton size="small" href="https://masshiro.blog/" className={classes.link}>
-              Blog
+            <ExternalButton
+              size="small"
+              title={t('header.blog-title') as string}
+              href={t('header.blog-url') as string}
+              className={classes.link}
+            >
+              {t('header.blog-title')}
             </ExternalButton>
-            <Tooltip arrow title="お問い合わせ">
+            <Tooltip arrow title={t('header.contact-title') as string}>
               <IconButton size="small" to="/contact" className={classes.link}>
                 <EmailIcon />
               </IconButton>
             </Tooltip>
-            <Tooltip arrow title="Twitter">
+            <Tooltip arrow title={t('header.twitter-title') as string}>
               <ExternalIconButton
                 size="small"
-                href="https://twitter.com/masshiro_me"
+                href={t('header.twitter-url') as string}
                 target="_blank"
                 rel="external"
                 className={classes.link}
@@ -82,10 +102,10 @@ const Header: React.FC<props> = ({ isHome = false }) => {
                 <TwitterIcon />
               </ExternalIconButton>
             </Tooltip>
-            <Tooltip arrow title="GitHub">
+            <Tooltip arrow title={t('header.github-title') as string}>
               <ExternalIconButton
                 size="small"
-                href="https://github.com/bicstone"
+                href={t('header.github-url') as string}
                 target="_blank"
                 rel="external"
                 className={classes.link}
