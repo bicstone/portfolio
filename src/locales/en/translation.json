@@ -1,5 +1,10 @@
 {
   "Hello world!": "test",
+  "cookie-alert": {
+    "accept": "Accept",
+    "description": "This site uses cookies for improvement.",
+    "dicline": "Dicline"
+  },
   "header": {
     "blog-title": "Blog",
     "blog-url": "https://masshiro.me/",

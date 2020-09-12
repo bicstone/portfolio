@@ -66,8 +66,10 @@ const Header: React.FC<props> = ({ isHome = false }) => {
           <Tooltip arrow title={t('header.changeLanguage-title') as string}>
             <IconButton
               size="small"
-              title={t('header.changeLanguage-title') as string}
-              onClick={() => changeLanguage(language === 'ja' ? 'en' : 'ja')}
+              onClick={e => {
+                e.preventDefault();
+                changeLanguage(language === 'ja' ? 'en' : 'ja');
+              }}
               className={classes.link}
             >
               {language.toUpperCase()}
@@ -84,19 +86,13 @@ const Header: React.FC<props> = ({ isHome = false }) => {
               {t('header.blog-title')}
             </ExternalButton>
             <Tooltip arrow title={t('header.contact-title') as string}>
-              <IconButton
-                size="small"
-                title={t('header.blog-title') as string}
-                to="/contact"
-                className={classes.link}
-              >
+              <IconButton size="small" to="/contact" className={classes.link}>
                 <EmailIcon />
               </IconButton>
             </Tooltip>
             <Tooltip arrow title={t('header.twitter-title') as string}>
               <ExternalIconButton
                 size="small"
-                title={t('header.twitter-title') as string}
                 href={t('header.twitter-url') as string}
                 target="_blank"
                 rel="external"
@@ -108,7 +104,6 @@ const Header: React.FC<props> = ({ isHome = false }) => {
             <Tooltip arrow title={t('header.github-title') as string}>
               <ExternalIconButton
                 size="small"
-                title={t('header.github-title') as string}
                 href={t('header.github-url') as string}
                 target="_blank"
                 rel="external"

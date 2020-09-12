@@ -1,5 +1,7 @@
 import React from 'react';
 import Cookies from 'js-cookie';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { Snackbar, Button, Typography } from '@material-ui/core';
 import { Link } from 'gatsby-theme-material-ui';
 
@@ -20,6 +22,7 @@ const CookieAlert: React.FC<Props> = ({
     sameSite: 'Strict',
   },
 }) => {
+  const { t } = useI18next();
   const [agree, setAgree] = React.useState(Cookies.get(cookieName));
 
   const agreeAction = () => {
@@ -35,10 +38,10 @@ const CookieAlert: React.FC<Props> = ({
   const agreeButton = (
     <>
       <Button color="secondary" size="small" onClick={closeAction}>
-        拒否
+        {t('cookie-alert.dicline')}
       </Button>
       <Button color="primary" onClick={agreeAction}>
-        OK
+        {t('cookie-alert.accept')}
       </Button>
     </>
   );
@@ -47,12 +50,7 @@ const CookieAlert: React.FC<Props> = ({
     <Snackbar
       open={agree === undefined}
       action={agreeButton}
-      message={
-        <Typography>
-          このウェブサイトは機能改善のためにCookieを使用しています。
-          <Link to="/privacy">プライバシーポリシー</Link>
-        </Typography>
-      }
+      message={<Typography>{t('cookie-alert.description')}</Typography>}
     />
   );
 };

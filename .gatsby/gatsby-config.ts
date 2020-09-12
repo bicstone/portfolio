@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const { NODE_ENV } = process.env;
 
 const title = {
   ja: 'Takanori Oishi Portfolio',
@@ -33,6 +32,8 @@ const themeColor = '#ffffff';
 
 module.exports = {
   siteMetadata: {
+    // gatsby-plugin-react-i18next で必要なパラメータ
+    siteUrl: url.ja,
     title,
     shortTitle,
     url,
@@ -52,9 +53,6 @@ module.exports = {
         path: path.join(__dirname, 'src', 'locales'),
         languages: ['ja', 'en'],
         defaultLanguage: 'ja',
-        i18nextOptions: {
-          saveMissing: true,
-        },
       },
     },
     {

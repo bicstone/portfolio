@@ -1,5 +1,10 @@
 {
   "Hello world!": "テストです",
+  "cookie-alert": {
+    "accept": "OK",
+    "description": "機能改善のためにCookieを使用しています。",
+    "dicline": "拒否"
+  },
   "header": {
     "blog-title": "ブログ",
     "blog-url": "https://masshiro.me/",
