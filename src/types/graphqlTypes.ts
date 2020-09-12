@@ -2161,6 +2161,9 @@ export type SiteMetaDataQuery = (
       )>, description?: Maybe<(
         { __typename?: 'SiteSiteMetadataDescription' }
         & Pick<SiteSiteMetadataDescription, 'ja' | 'en'>
+      )>, author?: Maybe<(
+        { __typename?: 'SiteSiteMetadataAuthor' }
+        & Pick<SiteSiteMetadataAuthor, 'ja' | 'en'>
       )>, icon?: Maybe<(
         { __typename?: 'SiteSiteMetadataIcon' }
         & Pick<SiteSiteMetadataIcon, 'src' | 'sizes' | 'type'>

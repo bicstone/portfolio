@@ -99,14 +99,14 @@ module.exports = {
         display: 'standalone',
         icons: [
           {
-            src: '/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
             src: icon.src,
             sizes: icon.sizes,
             type: icon.type,
+          },
+          {
+            src: '/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
           },
         ],
         theme_color: themeColor,
