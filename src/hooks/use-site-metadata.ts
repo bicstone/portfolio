@@ -23,6 +23,10 @@ const useSiteMetadata = () => {
               ja
               en
             }
+            author {
+              ja
+              en
+            }
             icon {
               src
               sizes
