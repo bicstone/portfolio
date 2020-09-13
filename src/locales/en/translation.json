@@ -17,5 +17,17 @@
     "toggleDarkTheme-title": "Change DarkMode",
     "twitter-title": "Twitter",
     "twitter-url": "https://twitter.com/masshiro_me/"
-  }
+  },
+  "hello": {
+    "title": {
+      "1": "Frontend Web Developer!",
+      "2": "Backend Web Developer!",
+      "3": "Security Specialist!",
+      "4": "Embedded Systems Developer!",
+      "5": "Mechanical Engineer!",
+      "6": "Qualified Electrician!",
+      "pref": "I'm a "
+    }
+  },
+  "hello-message": "オオイシタカノリと申します。Web開発者 / 組込みシステム開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。"
 }

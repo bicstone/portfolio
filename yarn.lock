@@ -13816,6 +13816,10 @@ type@^2.0.0:
   resolved "https://registry.yarnpkg.com/type/-/type-2.1.0.tgz#9bdc22c648cf8cf86dd23d32336a41cfb6475e3f"
   integrity sha512-G9absDWvhAWCV2gmF1zKud3OyC61nZDwWvBL2DApaVFogI07CprggiQAOOjvp2NRjYWFzPyu7vwtDrQFq8jeSA==
 
+"typed.js@https://github.com/bicstone/typed.js#68fe9c26c8a8366446c0ebd5383d6a47d23dffa5":
+  version "2.0.11"
+  resolved "https://github.com/bicstone/typed.js#68fe9c26c8a8366446c0ebd5383d6a47d23dffa5"
+
 typedarray-to-buffer@^3.1.5:
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz#a97ee7a9ff42691b9f783ff1bc5112fe3fca9080"

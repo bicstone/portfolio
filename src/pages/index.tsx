@@ -1,11 +1,24 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+
+import { Container } from '@material-ui/core/';
+import { makeStyles } from '@material-ui/core/styles';
+
+import Hello from '../components/Hello';
 import Layout from '../components/Layout';
 
+const useStyles = makeStyles(theme => ({}));
+
 const home: React.FC<PageProps> = ({ path }) => {
-  const { t } = useI18next();
-  return <Layout pathname={path}>{t('Hello world!')}</Layout>;
+  const classes = useStyles();
+
+  return (
+    <Layout pathname={path} isHome>
+      <Container maxWidth="lg">
+        <Hello />
+      </Container>
+    </Layout>
+  );
 };
 
 export default home;

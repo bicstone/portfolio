@@ -29,6 +29,11 @@ export const TopLayout: React.FC = props => {
         fontFamily:
           '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
       },
+      props: {
+        MuiButton: {
+          size: 'small',
+        },
+      },
     },
     jaJP,
   );
