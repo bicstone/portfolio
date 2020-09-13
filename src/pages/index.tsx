@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import Hello from '../components/Hello';
 import WhatIDo from '../components/WhatIDo';
 import Skill from '../components/Skill';
+import Contact from '../components/Contact';
 
 const useStyles = makeStyles(theme => ({}));
 
@@ -18,6 +19,7 @@ const home: React.FC<PageProps> = ({ path }) => {
       <Hello />
       <WhatIDo />
       <Skill />
+      <Contact />
     </Layout>
   );
 };

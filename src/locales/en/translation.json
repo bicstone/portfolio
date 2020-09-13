@@ -1,5 +1,23 @@
 {
   "Hello world!": "test",
+  "contact": {
+    "email": {
+      "href": "mailto:takanori0014@live.jp",
+      "subTitle": "takanori0014@live.jp",
+      "title": "E-mail"
+    },
+    "key": {
+      "href": "/takanori0014.asc",
+      "subTitle": "9FD7 E9DB 64FB 0FCE",
+      "title": "PGP Key"
+    },
+    "title": "GET IN TOUCH",
+    "twitter": {
+      "href": "https://twitter.com/masshiro_me",
+      "subTitle": "@masshiro_me",
+      "title": "Twitter"
+    }
+  },
   "cookie-alert": {
     "accept": "Accept",
     "description": "We uses cookies for improvement.",
@@ -30,6 +48,9 @@
     }
   },
   "hello-message": "オオイシタカノリと申します。Web開発者 / 組込みシステム開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",
+  "skill-map": {
+    "title": "SKILLS"
+  },
   "what-i-do": {
     "backend-message": "Djangoが最も得意です。会員数が100万以上のBtoCサービスの経験があります。WordPressの経験が長いです。",
     "backend-tags": "Node.js,Python,django,PHP,WordPress,Laravel,CodeIgniter,GO,contentful,MariaDB,MySQL,PostgreSQL,SQLite",
