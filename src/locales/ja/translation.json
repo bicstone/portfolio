@@ -29,5 +29,26 @@
       "pref": "I'm a "
     }
   },
-  "hello-message": "オオイシタカノリと申します。Web開発者 / 組込みシステム開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。"
+  "hello-message": "オオイシタカノリと申します。Web開発者 / 組込みシステム開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",
+  "what-i-do": {
+    "backend-message": "Djangoが最も得意です。会員数が100万以上のBtoCサービスの経験があります。WordPressの経験が長いです。",
+    "backend-tags": "Node.js,Python,django,PHP,WordPress,Laravel,CodeIgniter,GO,contentful,MariaDB,MySQL,PostgreSQL,SQLite",
+    "backend-title": "Back-end Web",
+    "devops-message": "開発経験を意識した、コンパイラやリンターの設定、CI/CD環境、Dockerの設定などを含めた立ち上げと運用の経験があります。",
+    "devops-tags": "",
+    "devops-title": "DevOps",
+    "frontend-message": "TypeScript×Reactが最も得意です。SPA/SSR/SSGそれぞれ経験があります。Headless CMSも使えます。jQueryやPure JSの経験が長いです。",
+    "frontend-tags": "HTML,Pug,TypeScript,JavaScript,React,Redux,Vue.js,Nuxt.js,jQuery,Lodash,Stylus,Sass,CSS,Bootstrap,Material UI,webpack,babel,ESLint,Prettier,yarn,npm,gulp.js",
+    "frontend-title": "Front-end Web",
+    "iot-message": "Arduinoの他、H8・PICなど産業用マイコンの開発、電子基板の設計も経験があります。Azure IoTを用いたクラウドの活用経験があります。",
+    "iot-tags": "",
+    "iot-title": "IoT / Embedded Systems",
+    "mechanical-message": "3D・2DCADなどを用いた機械設計や強度計算ができます。3Dプリンター・NC工作機械・旋盤など各種工作機械も使えます。",
+    "mechanical-tags": "",
+    "mechanical-title": "Mechanical",
+    "security-message": "開発する上で最重要視しています。情報収集を欠かしていません。経済産業省に認定された情報処理安全確保支援士です(第017758号)。",
+    "security-tags": "",
+    "security-title": "Security",
+    "title": "WHAT I DO"
+  }
 }

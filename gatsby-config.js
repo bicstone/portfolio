@@ -136,5 +136,8 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+    },
   ],
 };

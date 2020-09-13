@@ -1,11 +1,11 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
 
-import { Container } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Hello from '../components/Hello';
 import Layout from '../components/Layout';
+import Hello from '../components/Hello';
+import WhatIDo from '../components/WhatIDo';
 
 const useStyles = makeStyles(theme => ({}));
 
@@ -14,9 +14,8 @@ const home: React.FC<PageProps> = ({ path }) => {
 
   return (
     <Layout pathname={path} isHome>
-      <Container maxWidth="lg">
-        <Hello />
-      </Container>
+      <Hello />
+      <WhatIDo />
     </Layout>
   );
 };
