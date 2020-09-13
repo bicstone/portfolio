@@ -25,7 +25,7 @@
     "gatsby": "^2.24.50",
     "gatsby-plugin-gdpr-cookies": "^1.0.7",
     "gatsby-plugin-manifest": "^2.4.28",
-    "gatsby-plugin-netlify": "^2.3.13",
+    "gatsby-plugin-netlify": "^2.3.14",
     "gatsby-plugin-netlify-cache": "^1.2.0",
     "gatsby-plugin-offline": "^3.2.27",
     "gatsby-plugin-react-i18next": "^0.0.27",
