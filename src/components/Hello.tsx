@@ -24,7 +24,7 @@ const Hello: React.FC = () => {
     if (stringsEl.current && wrapEl.current) {
       const options: TypedOptions = {
         backDelay: 2000,
-        typeSpeed: 50,
+        typeSpeed: 40,
         showCursor: false,
         autoInsertCss: false,
         fadeOut: true,

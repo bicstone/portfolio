@@ -20,6 +20,1009 @@ export type BooleanQueryOperatorInput = {
   nin?: Maybe<Array<Maybe<Scalars['Boolean']>>>;
 };
 
+export type ContentfulContentType = Node & {
+  __typename?: 'ContentfulContentType';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  displayField?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulContentTypeConnection = {
+  __typename?: 'ContentfulContentTypeConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulContentTypeEdge>;
+  nodes: Array<ContentfulContentType>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulContentTypeGroupConnection>;
+};
+
+
+export type ContentfulContentTypeConnectionDistinctArgs = {
+  field: ContentfulContentTypeFieldsEnum;
+};
+
+
+export type ContentfulContentTypeConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulContentTypeFieldsEnum;
+};
+
+export type ContentfulContentTypeEdge = {
+  __typename?: 'ContentfulContentTypeEdge';
+  next?: Maybe<ContentfulContentType>;
+  node: ContentfulContentType;
+  previous?: Maybe<ContentfulContentType>;
+};
+
+export enum ContentfulContentTypeFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Name = 'name',
+  DisplayField = 'displayField',
+  Description = 'description'
+}
+
+export type ContentfulContentTypeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  displayField?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulContentTypeGroupConnection = {
+  __typename?: 'ContentfulContentTypeGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulContentTypeEdge>;
+  nodes: Array<ContentfulContentType>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulContentTypeSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulContentTypeFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulRole = Node & {
+  __typename?: 'ContentfulRole';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulRoleSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulRoleCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulRoleUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulRoleConnection = {
+  __typename?: 'ContentfulRoleConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulRoleEdge>;
+  nodes: Array<ContentfulRole>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulRoleGroupConnection>;
+};
+
+
+export type ContentfulRoleConnectionDistinctArgs = {
+  field: ContentfulRoleFieldsEnum;
+};
+
+
+export type ContentfulRoleConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulRoleFieldsEnum;
+};
+
+export type ContentfulRoleEdge = {
+  __typename?: 'ContentfulRoleEdge';
+  next?: Maybe<ContentfulRole>;
+  node: ContentfulRole;
+  previous?: Maybe<ContentfulRole>;
+};
+
+export enum ContentfulRoleFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Name = 'name',
+  SpaceId = 'spaceId',
+  ContentfulId = 'contentful_id',
+  CreatedAt = 'createdAt',
+  UpdatedAt = 'updatedAt',
+  SysRevision = 'sys___revision',
+  SysContentTypeSysType = 'sys___contentType___sys___type',
+  SysContentTypeSysLinkType = 'sys___contentType___sys___linkType',
+  SysContentTypeSysId = 'sys___contentType___sys___id',
+  SysContentTypeSysContentfulId = 'sys___contentType___sys___contentful_id',
+  NodeLocale = 'node_locale'
+}
+
+export type ContentfulRoleFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulRoleSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulRoleGroupConnection = {
+  __typename?: 'ContentfulRoleGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulRoleEdge>;
+  nodes: Array<ContentfulRole>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulRoleSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulRoleFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulRoleSys = {
+  __typename?: 'ContentfulRoleSys';
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulRoleSysContentType>;
+};
+
+export type ContentfulRoleSysContentType = {
+  __typename?: 'ContentfulRoleSysContentType';
+  sys?: Maybe<ContentfulRoleSysContentTypeSys>;
+};
+
+export type ContentfulRoleSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulRoleSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulRoleSysContentTypeSys = {
+  __typename?: 'ContentfulRoleSysContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulRoleSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulRoleSysFilterInput = {
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulRoleSysContentTypeFilterInput>;
+};
+
+export type ContentfulSkill = Node & {
+  __typename?: 'ContentfulSkill';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  level?: Maybe<Scalars['Int']>;
+  skillmap?: Maybe<Array<Maybe<ContentfulSkillMap>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulSkillSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulSkillCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulSkillUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulSkillConnection = {
+  __typename?: 'ContentfulSkillConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulSkillEdge>;
+  nodes: Array<ContentfulSkill>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulSkillGroupConnection>;
+};
+
+
+export type ContentfulSkillConnectionDistinctArgs = {
+  field: ContentfulSkillFieldsEnum;
+};
+
+
+export type ContentfulSkillConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulSkillFieldsEnum;
+};
+
+export type ContentfulSkillEdge = {
+  __typename?: 'ContentfulSkillEdge';
+  next?: Maybe<ContentfulSkill>;
+  node: ContentfulSkill;
+  previous?: Maybe<ContentfulSkill>;
+};
+
+export enum ContentfulSkillFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Name = 'name',
+  Level = 'level',
+  Skillmap = 'skillmap',
+  SkillmapId = 'skillmap___id',
+  SkillmapParentId = 'skillmap___parent___id',
+  SkillmapParentParentId = 'skillmap___parent___parent___id',
+  SkillmapParentParentChildren = 'skillmap___parent___parent___children',
+  SkillmapParentChildren = 'skillmap___parent___children',
+  SkillmapParentChildrenId = 'skillmap___parent___children___id',
+  SkillmapParentChildrenChildren = 'skillmap___parent___children___children',
+  SkillmapParentInternalContent = 'skillmap___parent___internal___content',
+  SkillmapParentInternalContentDigest = 'skillmap___parent___internal___contentDigest',
+  SkillmapParentInternalDescription = 'skillmap___parent___internal___description',
+  SkillmapParentInternalFieldOwners = 'skillmap___parent___internal___fieldOwners',
+  SkillmapParentInternalIgnoreType = 'skillmap___parent___internal___ignoreType',
+  SkillmapParentInternalMediaType = 'skillmap___parent___internal___mediaType',
+  SkillmapParentInternalOwner = 'skillmap___parent___internal___owner',
+  SkillmapParentInternalType = 'skillmap___parent___internal___type',
+  SkillmapChildren = 'skillmap___children',
+  SkillmapChildrenId = 'skillmap___children___id',
+  SkillmapChildrenParentId = 'skillmap___children___parent___id',
+  SkillmapChildrenParentChildren = 'skillmap___children___parent___children',
+  SkillmapChildrenChildren = 'skillmap___children___children',
+  SkillmapChildrenChildrenId = 'skillmap___children___children___id',
+  SkillmapChildrenChildrenChildren = 'skillmap___children___children___children',
+  SkillmapChildrenInternalContent = 'skillmap___children___internal___content',
+  SkillmapChildrenInternalContentDigest = 'skillmap___children___internal___contentDigest',
+  SkillmapChildrenInternalDescription = 'skillmap___children___internal___description',
+  SkillmapChildrenInternalFieldOwners = 'skillmap___children___internal___fieldOwners',
+  SkillmapChildrenInternalIgnoreType = 'skillmap___children___internal___ignoreType',
+  SkillmapChildrenInternalMediaType = 'skillmap___children___internal___mediaType',
+  SkillmapChildrenInternalOwner = 'skillmap___children___internal___owner',
+  SkillmapChildrenInternalType = 'skillmap___children___internal___type',
+  SkillmapInternalContent = 'skillmap___internal___content',
+  SkillmapInternalContentDigest = 'skillmap___internal___contentDigest',
+  SkillmapInternalDescription = 'skillmap___internal___description',
+  SkillmapInternalFieldOwners = 'skillmap___internal___fieldOwners',
+  SkillmapInternalIgnoreType = 'skillmap___internal___ignoreType',
+  SkillmapInternalMediaType = 'skillmap___internal___mediaType',
+  SkillmapInternalOwner = 'skillmap___internal___owner',
+  SkillmapInternalType = 'skillmap___internal___type',
+  SkillmapName = 'skillmap___name',
+  SkillmapSkills = 'skillmap___skills',
+  SkillmapSkillsId = 'skillmap___skills___id',
+  SkillmapSkillsParentId = 'skillmap___skills___parent___id',
+  SkillmapSkillsParentChildren = 'skillmap___skills___parent___children',
+  SkillmapSkillsChildren = 'skillmap___skills___children',
+  SkillmapSkillsChildrenId = 'skillmap___skills___children___id',
+  SkillmapSkillsChildrenChildren = 'skillmap___skills___children___children',
+  SkillmapSkillsInternalContent = 'skillmap___skills___internal___content',
+  SkillmapSkillsInternalContentDigest = 'skillmap___skills___internal___contentDigest',
+  SkillmapSkillsInternalDescription = 'skillmap___skills___internal___description',
+  SkillmapSkillsInternalFieldOwners = 'skillmap___skills___internal___fieldOwners',
+  SkillmapSkillsInternalIgnoreType = 'skillmap___skills___internal___ignoreType',
+  SkillmapSkillsInternalMediaType = 'skillmap___skills___internal___mediaType',
+  SkillmapSkillsInternalOwner = 'skillmap___skills___internal___owner',
+  SkillmapSkillsInternalType = 'skillmap___skills___internal___type',
+  SkillmapSkillsName = 'skillmap___skills___name',
+  SkillmapSkillsLevel = 'skillmap___skills___level',
+  SkillmapSkillsSkillmap = 'skillmap___skills___skillmap',
+  SkillmapSkillsSkillmapId = 'skillmap___skills___skillmap___id',
+  SkillmapSkillsSkillmapChildren = 'skillmap___skills___skillmap___children',
+  SkillmapSkillsSkillmapName = 'skillmap___skills___skillmap___name',
+  SkillmapSkillsSkillmapSkills = 'skillmap___skills___skillmap___skills',
+  SkillmapSkillsSkillmapSpaceId = 'skillmap___skills___skillmap___spaceId',
+  SkillmapSkillsSkillmapContentfulId = 'skillmap___skills___skillmap___contentful_id',
+  SkillmapSkillsSkillmapCreatedAt = 'skillmap___skills___skillmap___createdAt',
+  SkillmapSkillsSkillmapUpdatedAt = 'skillmap___skills___skillmap___updatedAt',
+  SkillmapSkillsSkillmapNodeLocale = 'skillmap___skills___skillmap___node_locale',
+  SkillmapSkillsSpaceId = 'skillmap___skills___spaceId',
+  SkillmapSkillsContentfulId = 'skillmap___skills___contentful_id',
+  SkillmapSkillsCreatedAt = 'skillmap___skills___createdAt',
+  SkillmapSkillsUpdatedAt = 'skillmap___skills___updatedAt',
+  SkillmapSkillsSysRevision = 'skillmap___skills___sys___revision',
+  SkillmapSkillsNodeLocale = 'skillmap___skills___node_locale',
+  SkillmapSpaceId = 'skillmap___spaceId',
+  SkillmapContentfulId = 'skillmap___contentful_id',
+  SkillmapCreatedAt = 'skillmap___createdAt',
+  SkillmapUpdatedAt = 'skillmap___updatedAt',
+  SkillmapSysRevision = 'skillmap___sys___revision',
+  SkillmapNodeLocale = 'skillmap___node_locale',
+  SpaceId = 'spaceId',
+  ContentfulId = 'contentful_id',
+  CreatedAt = 'createdAt',
+  UpdatedAt = 'updatedAt',
+  SysRevision = 'sys___revision',
+  SysContentTypeSysType = 'sys___contentType___sys___type',
+  SysContentTypeSysLinkType = 'sys___contentType___sys___linkType',
+  SysContentTypeSysId = 'sys___contentType___sys___id',
+  SysContentTypeSysContentfulId = 'sys___contentType___sys___contentful_id',
+  NodeLocale = 'node_locale'
+}
+
+export type ContentfulSkillFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  level?: Maybe<IntQueryOperatorInput>;
+  skillmap?: Maybe<ContentfulSkillMapFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulSkillSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulSkillFilterListInput = {
+  elemMatch?: Maybe<ContentfulSkillFilterInput>;
+};
+
+export type ContentfulSkillGroupConnection = {
+  __typename?: 'ContentfulSkillGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulSkillEdge>;
+  nodes: Array<ContentfulSkill>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulSkillMap = Node & {
+  __typename?: 'ContentfulSkillMap';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  name?: Maybe<Scalars['String']>;
+  skills?: Maybe<Array<Maybe<ContentfulSkill>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulSkillMapSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulSkillMapCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulSkillMapUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulSkillMapConnection = {
+  __typename?: 'ContentfulSkillMapConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulSkillMapEdge>;
+  nodes: Array<ContentfulSkillMap>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulSkillMapGroupConnection>;
+};
+
+
+export type ContentfulSkillMapConnectionDistinctArgs = {
+  field: ContentfulSkillMapFieldsEnum;
+};
+
+
+export type ContentfulSkillMapConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulSkillMapFieldsEnum;
+};
+
+export type ContentfulSkillMapEdge = {
+  __typename?: 'ContentfulSkillMapEdge';
+  next?: Maybe<ContentfulSkillMap>;
+  node: ContentfulSkillMap;
+  previous?: Maybe<ContentfulSkillMap>;
+};
+
+export enum ContentfulSkillMapFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Name = 'name',
+  Skills = 'skills',
+  SkillsId = 'skills___id',
+  SkillsParentId = 'skills___parent___id',
+  SkillsParentParentId = 'skills___parent___parent___id',
+  SkillsParentParentChildren = 'skills___parent___parent___children',
+  SkillsParentChildren = 'skills___parent___children',
+  SkillsParentChildrenId = 'skills___parent___children___id',
+  SkillsParentChildrenChildren = 'skills___parent___children___children',
+  SkillsParentInternalContent = 'skills___parent___internal___content',
+  SkillsParentInternalContentDigest = 'skills___parent___internal___contentDigest',
+  SkillsParentInternalDescription = 'skills___parent___internal___description',
+  SkillsParentInternalFieldOwners = 'skills___parent___internal___fieldOwners',
+  SkillsParentInternalIgnoreType = 'skills___parent___internal___ignoreType',
+  SkillsParentInternalMediaType = 'skills___parent___internal___mediaType',
+  SkillsParentInternalOwner = 'skills___parent___internal___owner',
+  SkillsParentInternalType = 'skills___parent___internal___type',
+  SkillsChildren = 'skills___children',
+  SkillsChildrenId = 'skills___children___id',
+  SkillsChildrenParentId = 'skills___children___parent___id',
+  SkillsChildrenParentChildren = 'skills___children___parent___children',
+  SkillsChildrenChildren = 'skills___children___children',
+  SkillsChildrenChildrenId = 'skills___children___children___id',
+  SkillsChildrenChildrenChildren = 'skills___children___children___children',
+  SkillsChildrenInternalContent = 'skills___children___internal___content',
+  SkillsChildrenInternalContentDigest = 'skills___children___internal___contentDigest',
+  SkillsChildrenInternalDescription = 'skills___children___internal___description',
+  SkillsChildrenInternalFieldOwners = 'skills___children___internal___fieldOwners',
+  SkillsChildrenInternalIgnoreType = 'skills___children___internal___ignoreType',
+  SkillsChildrenInternalMediaType = 'skills___children___internal___mediaType',
+  SkillsChildrenInternalOwner = 'skills___children___internal___owner',
+  SkillsChildrenInternalType = 'skills___children___internal___type',
+  SkillsInternalContent = 'skills___internal___content',
+  SkillsInternalContentDigest = 'skills___internal___contentDigest',
+  SkillsInternalDescription = 'skills___internal___description',
+  SkillsInternalFieldOwners = 'skills___internal___fieldOwners',
+  SkillsInternalIgnoreType = 'skills___internal___ignoreType',
+  SkillsInternalMediaType = 'skills___internal___mediaType',
+  SkillsInternalOwner = 'skills___internal___owner',
+  SkillsInternalType = 'skills___internal___type',
+  SkillsName = 'skills___name',
+  SkillsLevel = 'skills___level',
+  SkillsSkillmap = 'skills___skillmap',
+  SkillsSkillmapId = 'skills___skillmap___id',
+  SkillsSkillmapParentId = 'skills___skillmap___parent___id',
+  SkillsSkillmapParentChildren = 'skills___skillmap___parent___children',
+  SkillsSkillmapChildren = 'skills___skillmap___children',
+  SkillsSkillmapChildrenId = 'skills___skillmap___children___id',
+  SkillsSkillmapChildrenChildren = 'skills___skillmap___children___children',
+  SkillsSkillmapInternalContent = 'skills___skillmap___internal___content',
+  SkillsSkillmapInternalContentDigest = 'skills___skillmap___internal___contentDigest',
+  SkillsSkillmapInternalDescription = 'skills___skillmap___internal___description',
+  SkillsSkillmapInternalFieldOwners = 'skills___skillmap___internal___fieldOwners',
+  SkillsSkillmapInternalIgnoreType = 'skills___skillmap___internal___ignoreType',
+  SkillsSkillmapInternalMediaType = 'skills___skillmap___internal___mediaType',
+  SkillsSkillmapInternalOwner = 'skills___skillmap___internal___owner',
+  SkillsSkillmapInternalType = 'skills___skillmap___internal___type',
+  SkillsSkillmapName = 'skills___skillmap___name',
+  SkillsSkillmapSkills = 'skills___skillmap___skills',
+  SkillsSkillmapSkillsId = 'skills___skillmap___skills___id',
+  SkillsSkillmapSkillsChildren = 'skills___skillmap___skills___children',
+  SkillsSkillmapSkillsName = 'skills___skillmap___skills___name',
+  SkillsSkillmapSkillsLevel = 'skills___skillmap___skills___level',
+  SkillsSkillmapSkillsSkillmap = 'skills___skillmap___skills___skillmap',
+  SkillsSkillmapSkillsSpaceId = 'skills___skillmap___skills___spaceId',
+  SkillsSkillmapSkillsContentfulId = 'skills___skillmap___skills___contentful_id',
+  SkillsSkillmapSkillsCreatedAt = 'skills___skillmap___skills___createdAt',
+  SkillsSkillmapSkillsUpdatedAt = 'skills___skillmap___skills___updatedAt',
+  SkillsSkillmapSkillsNodeLocale = 'skills___skillmap___skills___node_locale',
+  SkillsSkillmapSpaceId = 'skills___skillmap___spaceId',
+  SkillsSkillmapContentfulId = 'skills___skillmap___contentful_id',
+  SkillsSkillmapCreatedAt = 'skills___skillmap___createdAt',
+  SkillsSkillmapUpdatedAt = 'skills___skillmap___updatedAt',
+  SkillsSkillmapSysRevision = 'skills___skillmap___sys___revision',
+  SkillsSkillmapNodeLocale = 'skills___skillmap___node_locale',
+  SkillsSpaceId = 'skills___spaceId',
+  SkillsContentfulId = 'skills___contentful_id',
+  SkillsCreatedAt = 'skills___createdAt',
+  SkillsUpdatedAt = 'skills___updatedAt',
+  SkillsSysRevision = 'skills___sys___revision',
+  SkillsNodeLocale = 'skills___node_locale',
+  SpaceId = 'spaceId',
+  ContentfulId = 'contentful_id',
+  CreatedAt = 'createdAt',
+  UpdatedAt = 'updatedAt',
+  SysRevision = 'sys___revision',
+  SysContentTypeSysType = 'sys___contentType___sys___type',
+  SysContentTypeSysLinkType = 'sys___contentType___sys___linkType',
+  SysContentTypeSysId = 'sys___contentType___sys___id',
+  SysContentTypeSysContentfulId = 'sys___contentType___sys___contentful_id',
+  NodeLocale = 'node_locale'
+}
+
+export type ContentfulSkillMapFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  skills?: Maybe<ContentfulSkillFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulSkillMapSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulSkillMapFilterListInput = {
+  elemMatch?: Maybe<ContentfulSkillMapFilterInput>;
+};
+
+export type ContentfulSkillMapGroupConnection = {
+  __typename?: 'ContentfulSkillMapGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulSkillMapEdge>;
+  nodes: Array<ContentfulSkillMap>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulSkillMapSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulSkillMapFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulSkillMapSys = {
+  __typename?: 'ContentfulSkillMapSys';
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulSkillMapSysContentType>;
+};
+
+export type ContentfulSkillMapSysContentType = {
+  __typename?: 'ContentfulSkillMapSysContentType';
+  sys?: Maybe<ContentfulSkillMapSysContentTypeSys>;
+};
+
+export type ContentfulSkillMapSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulSkillMapSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulSkillMapSysContentTypeSys = {
+  __typename?: 'ContentfulSkillMapSysContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulSkillMapSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulSkillMapSysFilterInput = {
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulSkillMapSysContentTypeFilterInput>;
+};
+
+export type ContentfulSkillSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulSkillFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulSkillSys = {
+  __typename?: 'ContentfulSkillSys';
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulSkillSysContentType>;
+};
+
+export type ContentfulSkillSysContentType = {
+  __typename?: 'ContentfulSkillSysContentType';
+  sys?: Maybe<ContentfulSkillSysContentTypeSys>;
+};
+
+export type ContentfulSkillSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulSkillSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulSkillSysContentTypeSys = {
+  __typename?: 'ContentfulSkillSysContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulSkillSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulSkillSysFilterInput = {
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulSkillSysContentTypeFilterInput>;
+};
+
 
 export type DateQueryOperatorInput = {
   eq?: Maybe<Scalars['Date']>;
@@ -716,6 +1719,14 @@ export type Query = {
   allSitePage: SitePageConnection;
   site?: Maybe<Site>;
   allSite: SiteConnection;
+  contentfulRole?: Maybe<ContentfulRole>;
+  allContentfulRole: ContentfulRoleConnection;
+  contentfulSkillMap?: Maybe<ContentfulSkillMap>;
+  allContentfulSkillMap: ContentfulSkillMapConnection;
+  contentfulSkill?: Maybe<ContentfulSkill>;
+  allContentfulSkill: ContentfulSkillConnection;
+  contentfulContentType?: Maybe<ContentfulContentType>;
+  allContentfulContentType: ContentfulContentTypeConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -860,6 +1871,97 @@ export type QuerySiteArgs = {
 export type QueryAllSiteArgs = {
   filter?: Maybe<SiteFilterInput>;
   sort?: Maybe<SiteSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulRoleArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulRoleSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulRoleArgs = {
+  filter?: Maybe<ContentfulRoleFilterInput>;
+  sort?: Maybe<ContentfulRoleSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulSkillMapArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  skills?: Maybe<ContentfulSkillFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulSkillMapSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulSkillMapArgs = {
+  filter?: Maybe<ContentfulSkillMapFilterInput>;
+  sort?: Maybe<ContentfulSkillMapSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulSkillArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  level?: Maybe<IntQueryOperatorInput>;
+  skillmap?: Maybe<ContentfulSkillMapFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulSkillSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulSkillArgs = {
+  filter?: Maybe<ContentfulSkillFilterInput>;
+  sort?: Maybe<ContentfulSkillSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulContentTypeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  displayField?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllContentfulContentTypeArgs = {
+  filter?: Maybe<ContentfulContentTypeFilterInput>;
+  sort?: Maybe<ContentfulContentTypeSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -1341,6 +2443,9 @@ export type SitePageContextI18nResourcesEnTranslation = {
   Hello_world_?: Maybe<Scalars['String']>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_Alert>;
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeader>;
+  hello?: Maybe<SitePageContextI18nResourcesEnTranslationHello>;
+  hello_message?: Maybe<Scalars['String']>;
+  what_i_do?: Maybe<SitePageContextI18nResourcesEnTranslationWhat_I_Do>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationCookie_Alert = {
@@ -1360,6 +2465,9 @@ export type SitePageContextI18nResourcesEnTranslationFilterInput = {
   Hello_world_?: Maybe<StringQueryOperatorInput>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput>;
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeaderFilterInput>;
+  hello?: Maybe<SitePageContextI18nResourcesEnTranslationHelloFilterInput>;
+  hello_message?: Maybe<StringQueryOperatorInput>;
+  what_i_do?: Maybe<SitePageContextI18nResourcesEnTranslationWhat_I_DoFilterInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHeader = {
@@ -1372,6 +2480,7 @@ export type SitePageContextI18nResourcesEnTranslationHeader = {
   github_url?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   title_home?: Maybe<Scalars['String']>;
+  toggleDarkTheme_title?: Maybe<Scalars['String']>;
   twitter_title?: Maybe<Scalars['String']>;
   twitter_url?: Maybe<Scalars['String']>;
 };
@@ -1385,8 +2494,84 @@ export type SitePageContextI18nResourcesEnTranslationHeaderFilterInput = {
   github_url?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   title_home?: Maybe<StringQueryOperatorInput>;
+  toggleDarkTheme_title?: Maybe<StringQueryOperatorInput>;
   twitter_title?: Maybe<StringQueryOperatorInput>;
   twitter_url?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHello = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHello';
+  title?: Maybe<SitePageContextI18nResourcesEnTranslationHelloTitle>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHelloFilterInput = {
+  title?: Maybe<SitePageContextI18nResourcesEnTranslationHelloTitleFilterInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHelloTitle = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHelloTitle';
+  _1?: Maybe<Scalars['String']>;
+  _2?: Maybe<Scalars['String']>;
+  _3?: Maybe<Scalars['String']>;
+  _4?: Maybe<Scalars['String']>;
+  _5?: Maybe<Scalars['String']>;
+  _6?: Maybe<Scalars['String']>;
+  pref?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHelloTitleFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>;
+  _2?: Maybe<StringQueryOperatorInput>;
+  _3?: Maybe<StringQueryOperatorInput>;
+  _4?: Maybe<StringQueryOperatorInput>;
+  _5?: Maybe<StringQueryOperatorInput>;
+  _6?: Maybe<StringQueryOperatorInput>;
+  pref?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationWhat_I_Do = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationWhat_i_do';
+  backend_message?: Maybe<Scalars['String']>;
+  backend_tags?: Maybe<Scalars['String']>;
+  backend_title?: Maybe<Scalars['String']>;
+  devops_message?: Maybe<Scalars['String']>;
+  devops_tags?: Maybe<Scalars['String']>;
+  devops_title?: Maybe<Scalars['String']>;
+  frontend_message?: Maybe<Scalars['String']>;
+  frontend_tags?: Maybe<Scalars['String']>;
+  frontend_title?: Maybe<Scalars['String']>;
+  iot_message?: Maybe<Scalars['String']>;
+  iot_tags?: Maybe<Scalars['String']>;
+  iot_title?: Maybe<Scalars['String']>;
+  mechanical_message?: Maybe<Scalars['String']>;
+  mechanical_tags?: Maybe<Scalars['String']>;
+  mechanical_title?: Maybe<Scalars['String']>;
+  security_message?: Maybe<Scalars['String']>;
+  security_tags?: Maybe<Scalars['String']>;
+  security_title?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationWhat_I_DoFilterInput = {
+  backend_message?: Maybe<StringQueryOperatorInput>;
+  backend_tags?: Maybe<StringQueryOperatorInput>;
+  backend_title?: Maybe<StringQueryOperatorInput>;
+  devops_message?: Maybe<StringQueryOperatorInput>;
+  devops_tags?: Maybe<StringQueryOperatorInput>;
+  devops_title?: Maybe<StringQueryOperatorInput>;
+  frontend_message?: Maybe<StringQueryOperatorInput>;
+  frontend_tags?: Maybe<StringQueryOperatorInput>;
+  frontend_title?: Maybe<StringQueryOperatorInput>;
+  iot_message?: Maybe<StringQueryOperatorInput>;
+  iot_tags?: Maybe<StringQueryOperatorInput>;
+  iot_title?: Maybe<StringQueryOperatorInput>;
+  mechanical_message?: Maybe<StringQueryOperatorInput>;
+  mechanical_tags?: Maybe<StringQueryOperatorInput>;
+  mechanical_title?: Maybe<StringQueryOperatorInput>;
+  security_message?: Maybe<StringQueryOperatorInput>;
+  security_tags?: Maybe<StringQueryOperatorInput>;
+  security_title?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesFilterInput = {
@@ -1408,6 +2593,9 @@ export type SitePageContextI18nResourcesJaTranslation = {
   Hello_world_?: Maybe<Scalars['String']>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_Alert>;
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeader>;
+  hello?: Maybe<SitePageContextI18nResourcesJaTranslationHello>;
+  hello_message?: Maybe<Scalars['String']>;
+  what_i_do?: Maybe<SitePageContextI18nResourcesJaTranslationWhat_I_Do>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationCookie_Alert = {
@@ -1427,6 +2615,9 @@ export type SitePageContextI18nResourcesJaTranslationFilterInput = {
   Hello_world_?: Maybe<StringQueryOperatorInput>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput>;
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeaderFilterInput>;
+  hello?: Maybe<SitePageContextI18nResourcesJaTranslationHelloFilterInput>;
+  hello_message?: Maybe<StringQueryOperatorInput>;
+  what_i_do?: Maybe<SitePageContextI18nResourcesJaTranslationWhat_I_DoFilterInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHeader = {
@@ -1439,6 +2630,7 @@ export type SitePageContextI18nResourcesJaTranslationHeader = {
   github_url?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
   title_home?: Maybe<Scalars['String']>;
+  toggleDarkTheme_title?: Maybe<Scalars['String']>;
   twitter_title?: Maybe<Scalars['String']>;
   twitter_url?: Maybe<Scalars['String']>;
 };
@@ -1452,8 +2644,84 @@ export type SitePageContextI18nResourcesJaTranslationHeaderFilterInput = {
   github_url?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
   title_home?: Maybe<StringQueryOperatorInput>;
+  toggleDarkTheme_title?: Maybe<StringQueryOperatorInput>;
   twitter_title?: Maybe<StringQueryOperatorInput>;
   twitter_url?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHello = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHello';
+  title?: Maybe<SitePageContextI18nResourcesJaTranslationHelloTitle>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHelloFilterInput = {
+  title?: Maybe<SitePageContextI18nResourcesJaTranslationHelloTitleFilterInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHelloTitle = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHelloTitle';
+  _1?: Maybe<Scalars['String']>;
+  _2?: Maybe<Scalars['String']>;
+  _3?: Maybe<Scalars['String']>;
+  _4?: Maybe<Scalars['String']>;
+  _5?: Maybe<Scalars['String']>;
+  _6?: Maybe<Scalars['String']>;
+  pref?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHelloTitleFilterInput = {
+  _1?: Maybe<StringQueryOperatorInput>;
+  _2?: Maybe<StringQueryOperatorInput>;
+  _3?: Maybe<StringQueryOperatorInput>;
+  _4?: Maybe<StringQueryOperatorInput>;
+  _5?: Maybe<StringQueryOperatorInput>;
+  _6?: Maybe<StringQueryOperatorInput>;
+  pref?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationWhat_I_Do = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationWhat_i_do';
+  backend_message?: Maybe<Scalars['String']>;
+  backend_tags?: Maybe<Scalars['String']>;
+  backend_title?: Maybe<Scalars['String']>;
+  devops_message?: Maybe<Scalars['String']>;
+  devops_tags?: Maybe<Scalars['String']>;
+  devops_title?: Maybe<Scalars['String']>;
+  frontend_message?: Maybe<Scalars['String']>;
+  frontend_tags?: Maybe<Scalars['String']>;
+  frontend_title?: Maybe<Scalars['String']>;
+  iot_message?: Maybe<Scalars['String']>;
+  iot_tags?: Maybe<Scalars['String']>;
+  iot_title?: Maybe<Scalars['String']>;
+  mechanical_message?: Maybe<Scalars['String']>;
+  mechanical_tags?: Maybe<Scalars['String']>;
+  mechanical_title?: Maybe<Scalars['String']>;
+  security_message?: Maybe<Scalars['String']>;
+  security_tags?: Maybe<Scalars['String']>;
+  security_title?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationWhat_I_DoFilterInput = {
+  backend_message?: Maybe<StringQueryOperatorInput>;
+  backend_tags?: Maybe<StringQueryOperatorInput>;
+  backend_title?: Maybe<StringQueryOperatorInput>;
+  devops_message?: Maybe<StringQueryOperatorInput>;
+  devops_tags?: Maybe<StringQueryOperatorInput>;
+  devops_title?: Maybe<StringQueryOperatorInput>;
+  frontend_message?: Maybe<StringQueryOperatorInput>;
+  frontend_tags?: Maybe<StringQueryOperatorInput>;
+  frontend_title?: Maybe<StringQueryOperatorInput>;
+  iot_message?: Maybe<StringQueryOperatorInput>;
+  iot_tags?: Maybe<StringQueryOperatorInput>;
+  iot_title?: Maybe<StringQueryOperatorInput>;
+  mechanical_message?: Maybe<StringQueryOperatorInput>;
+  mechanical_tags?: Maybe<StringQueryOperatorInput>;
+  mechanical_title?: Maybe<StringQueryOperatorInput>;
+  security_message?: Maybe<StringQueryOperatorInput>;
+  security_tags?: Maybe<StringQueryOperatorInput>;
+  security_title?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -1604,13 +2872,14 @@ export enum SitePageFieldsEnum {
   PluginCreatorResolve = 'pluginCreator___resolve',
   PluginCreatorName = 'pluginCreator___name',
   PluginCreatorVersion = 'pluginCreator___version',
+  PluginCreatorPluginOptionsSpaceId = 'pluginCreator___pluginOptions___spaceId',
+  PluginCreatorPluginOptionsAccessToken = 'pluginCreator___pluginOptions___accessToken',
+  PluginCreatorPluginOptionsDownloadLocal = 'pluginCreator___pluginOptions___downloadLocal',
   PluginCreatorPluginOptionsStylesProviderInjectFirst = 'pluginCreator___pluginOptions___stylesProvider___injectFirst',
-  PluginCreatorPluginOptionsFontsGoogle = 'pluginCreator___pluginOptions___fonts___google',
   PluginCreatorPluginOptionsModules = 'pluginCreator___pluginOptions___modules',
   PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsLanguages = 'pluginCreator___pluginOptions___languages',
   PluginCreatorPluginOptionsDefaultLanguage = 'pluginCreator___pluginOptions___defaultLanguage',
-  PluginCreatorPluginOptionsDebug = 'pluginCreator___pluginOptions___debug',
   PluginCreatorPluginOptionsAllPageHeaders = 'pluginCreator___pluginOptions___allPageHeaders',
   PluginCreatorPluginOptionsGoogleAnalyticsTrackingId = 'pluginCreator___pluginOptions___googleAnalytics___trackingId',
   PluginCreatorPluginOptionsGoogleAnalyticsAnonymize = 'pluginCreator___pluginOptions___googleAnalytics___anonymize',
@@ -1831,15 +3100,14 @@ export enum SitePluginFieldsEnum {
   Resolve = 'resolve',
   Name = 'name',
   Version = 'version',
+  PluginOptionsSpaceId = 'pluginOptions___spaceId',
+  PluginOptionsAccessToken = 'pluginOptions___accessToken',
+  PluginOptionsDownloadLocal = 'pluginOptions___downloadLocal',
   PluginOptionsStylesProviderInjectFirst = 'pluginOptions___stylesProvider___injectFirst',
-  PluginOptionsFontsGoogle = 'pluginOptions___fonts___google',
-  PluginOptionsFontsGoogleFamily = 'pluginOptions___fonts___google___family',
-  PluginOptionsFontsGoogleVariants = 'pluginOptions___fonts___google___variants',
   PluginOptionsModules = 'pluginOptions___modules',
   PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsLanguages = 'pluginOptions___languages',
   PluginOptionsDefaultLanguage = 'pluginOptions___defaultLanguage',
-  PluginOptionsDebug = 'pluginOptions___debug',
   PluginOptionsAllPageHeaders = 'pluginOptions___allPageHeaders',
   PluginOptionsGoogleAnalyticsTrackingId = 'pluginOptions___googleAnalytics___trackingId',
   PluginOptionsGoogleAnalyticsAnonymize = 'pluginOptions___googleAnalytics___anonymize',
@@ -1990,13 +3258,14 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   __typename?: 'SitePluginPluginOptions';
+  spaceId?: Maybe<Scalars['String']>;
+  accessToken?: Maybe<Scalars['String']>;
+  downloadLocal?: Maybe<Scalars['Boolean']>;
   stylesProvider?: Maybe<SitePluginPluginOptionsStylesProvider>;
-  fonts?: Maybe<SitePluginPluginOptionsFonts>;
   modules?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
   languages?: Maybe<Array<Maybe<Scalars['String']>>>;
   defaultLanguage?: Maybe<Scalars['String']>;
-  debug?: Maybe<Scalars['Boolean']>;
   allPageHeaders?: Maybe<Array<Maybe<Scalars['String']>>>;
   googleAnalytics?: Maybe<SitePluginPluginOptionsGoogleAnalytics>;
   environments?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -2019,13 +3288,14 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  accessToken?: Maybe<StringQueryOperatorInput>;
+  downloadLocal?: Maybe<BooleanQueryOperatorInput>;
   stylesProvider?: Maybe<SitePluginPluginOptionsStylesProviderFilterInput>;
-  fonts?: Maybe<SitePluginPluginOptionsFontsFilterInput>;
   modules?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   languages?: Maybe<StringQueryOperatorInput>;
   defaultLanguage?: Maybe<StringQueryOperatorInput>;
-  debug?: Maybe<BooleanQueryOperatorInput>;
   allPageHeaders?: Maybe<StringQueryOperatorInput>;
   googleAnalytics?: Maybe<SitePluginPluginOptionsGoogleAnalyticsFilterInput>;
   environments?: Maybe<StringQueryOperatorInput>;
@@ -2045,30 +3315,6 @@ export type SitePluginPluginOptionsFilterInput = {
   theme_color_in_head?: Maybe<BooleanQueryOperatorInput>;
   workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfigFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFonts = {
-  __typename?: 'SitePluginPluginOptionsFonts';
-  google?: Maybe<Array<Maybe<SitePluginPluginOptionsFontsGoogle>>>;
-};
-
-export type SitePluginPluginOptionsFontsFilterInput = {
-  google?: Maybe<SitePluginPluginOptionsFontsGoogleFilterListInput>;
-};
-
-export type SitePluginPluginOptionsFontsGoogle = {
-  __typename?: 'SitePluginPluginOptionsFontsGoogle';
-  family?: Maybe<Scalars['String']>;
-  variants?: Maybe<Array<Maybe<Scalars['String']>>>;
-};
-
-export type SitePluginPluginOptionsFontsGoogleFilterInput = {
-  family?: Maybe<StringQueryOperatorInput>;
-  variants?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePluginPluginOptionsFontsGoogleFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsFontsGoogleFilterInput>;
 };
 
 export type SitePluginPluginOptionsGoogleAnalytics = {
@@ -2254,6 +3500,27 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type SkillDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SkillDataQuery = (
+  { __typename?: 'Query' }
+  & { allContentfulSkillMap: (
+    { __typename?: 'ContentfulSkillMapConnection' }
+    & { edges: Array<(
+      { __typename?: 'ContentfulSkillMapEdge' }
+      & { node: (
+        { __typename?: 'ContentfulSkillMap' }
+        & Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale'>
+        & { skills?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulSkill' }
+          & Pick<ContentfulSkill, 'id' | 'level' | 'name'>
+        )>>> }
+      ) }
+    )> }
+  ) }
+);
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
