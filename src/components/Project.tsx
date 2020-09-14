@@ -100,7 +100,7 @@ const Project: React.FC = () => {
                         {node.name}
                       </Typography>
                     }
-                    subheader="新規開発"
+                    subheader={node.role ? node.role.map(role => role?.name).join(' / ') : ''}
                   />
                   <CardMedia
                     image="http://placekitten.com/1600/900"
@@ -108,10 +108,14 @@ const Project: React.FC = () => {
                     style={{ paddingTop: '56.25%' }}
                   />
                   <CardContent>
-                    <Chip label="Vue.js" size="small" />
-                    <Chip label="Next.js" size="small" />
+                    {node?.language?.map(language => (
+                      <Chip label={language?.name} size="small" key={language?.name} />
+                    ))}
+                    {node?.system?.map(system => (
+                      <Chip label={system?.name} size="small" key={system?.name} />
+                    ))}
                   </CardContent>
-                  <CardContent>
+                  <CardContent className={classes.cardContent}>
                     <Typography variant="body2">{node.comment}</Typography>
                   </CardContent>
                 </Card>

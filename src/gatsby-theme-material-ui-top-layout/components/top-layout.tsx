@@ -12,7 +12,7 @@ export const TopLayout: React.FC = props => {
     themeInitial,
   );
   const { darkMode } = themeState;
-  // const defaultTheme = createMuiTheme();
+  const defaultTheme = createMuiTheme();
   const theme = createMuiTheme({
     palette: {
       type: darkMode ? 'dark' : 'light',
@@ -26,6 +26,18 @@ export const TopLayout: React.FC = props => {
     typography: {
       fontFamily:
         '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+    },
+    overrides: {
+      MuiChip: {
+        root: {
+          margin: defaultTheme.spacing(0.5),
+        },
+      },
+      MuiLinearProgress: {
+        root: {
+          height: defaultTheme.spacing(0.5),
+        },
+      },
     },
     props: {
       MuiButton: {
