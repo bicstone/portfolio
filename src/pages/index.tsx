@@ -6,6 +6,7 @@ import Hello from '../components/Hello';
 import Project from '../components/Project';
 import WhatIDo from '../components/WhatIDo';
 import Skill from '../components/Skill';
+import Qualifications from '../components/Qualifications';
 import Contact from '../components/Contact';
 
 const home: React.FC<PageProps> = ({ path }) => {
@@ -15,6 +16,7 @@ const home: React.FC<PageProps> = ({ path }) => {
       <WhatIDo />
       <Project />
       <Skill />
+      <Qualifications />
       <Contact />
     </Layout>
   );
