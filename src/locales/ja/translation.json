@@ -57,7 +57,7 @@
     "backend-title": "Back-end Web",
     "devops-message": "開発経験を意識した、コンパイラやリンターの設定、CI/CD環境、Dockerの設定などを含めた立ち上げと運用の経験があります。",
     "devops-tags": "",
-    "devops-title": "DevOps",
+    "devops-title": "DevSecOps",
     "frontend-message": "TypeScript×Reactが最も得意です。SPA/SSR/SSGそれぞれ経験があります。Headless CMSも使えます。jQueryやPure JSの経験が長いです。",
     "frontend-tags": "HTML,Pug,TypeScript,JavaScript,React,Redux,Vue.js,Nuxt.js,jQuery,Lodash,Stylus,Sass,CSS,Bootstrap,Material UI,webpack,babel,ESLint,Prettier,yarn,npm,gulp.js",
     "frontend-title": "Front-end Web",
