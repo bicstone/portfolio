@@ -1,4 +1,9 @@
-name: Node.js test
+name: Node.js CI
+
+env:
+  CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+  QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
 
 on:
   push:
@@ -23,4 +28,4 @@ jobs:
       - run: yarn install
       - run: yarn lint
       - run: yarn build
-    # - run: npm test
+    # - run: yarn test
