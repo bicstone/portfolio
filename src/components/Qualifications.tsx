@@ -2,15 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import {
-  Typography,
-  Grid,
-  Container,
-  CardHeader,
-  CardContent,
-  Card,
-  LinearProgress,
-} from '@material-ui/core/';
+import { Typography, Grid, Container, Card } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import { QualificationsDataQuery } from '../types/graphqlTypes';
 
