@@ -81,7 +81,7 @@ const Skill: React.FC = () => {
                         <Grid item xs={8}>
                           <LinearProgress
                             variant="determinate"
-                            value={skill ? skill.level * 20 : 0}
+                            value={skill?.level ? skill.level * 20 : 0}
                           />
                         </Grid>
                       </Grid>
