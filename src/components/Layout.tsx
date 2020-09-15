@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     minHeight: '100vh',
   },
   main: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(8),
   },
 }));
 
@@ -23,7 +23,7 @@ export const Layout: React.FC<Props> = ({ children, ...props }) => {
     <>
       <Head {...props} />
       <div className={classes.root}>
-        <Header />
+        <Header {...props} />
         <main className={classes.main} role="main">
           {children}
         </main>

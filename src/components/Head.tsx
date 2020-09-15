@@ -9,6 +9,7 @@ export interface Props {
   description?: string;
   pathname?: string;
   image?: string;
+  isHome?: boolean;
 }
 
 const Head: React.FC<Props> = ({ title = '', description = '', pathname = '', image = '' }) => {

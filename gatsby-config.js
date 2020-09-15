@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+require('dotenv').config();
+
 const languages = require('./languages');
 
 const title = {
@@ -45,6 +47,17 @@ module.exports = {
     themeColor,
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typescript',
+    },
     {
       resolve: 'gatsby-theme-material-ui',
       options: {
@@ -135,6 +148,9 @@ module.exports = {
           globPatterns: ['**/*.png', '**/*.ico', '**/*.svg'],
         },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
     },
   ],
 };

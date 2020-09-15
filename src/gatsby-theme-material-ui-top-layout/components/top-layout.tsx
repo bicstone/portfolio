@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
-import { jaJP } from '@material-ui/core/locale';
 
 import { themeReducer, themeInitialState, themeInitial } from '../../reducer/themeReducer';
 import { ThemeContext } from '../../hooks/use-darkmode';
@@ -13,25 +12,39 @@ export const TopLayout: React.FC = props => {
     themeInitial,
   );
   const { darkMode } = themeState;
-  // const defaultTheme = createMuiTheme();
-  const theme = createMuiTheme(
-    {
-      palette: {
-        type: darkMode ? 'dark' : 'light',
-        // primary: {
-        //   main: '',
-        // },
-        // secondary: {
-        //   main: '',
-        // },
+  const defaultTheme = createMuiTheme();
+  const theme = createMuiTheme({
+    palette: {
+      type: darkMode ? 'dark' : 'light',
+      // primary: {
+      //   main: '',
+      // },
+      // secondary: {
+      //   main: '',
+      // },
+    },
+    typography: {
+      fontFamily:
+        '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+    },
+    overrides: {
+      MuiChip: {
+        root: {
+          margin: defaultTheme.spacing(0.5),
+        },
       },
-      typography: {
-        fontFamily:
-          '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+      MuiLinearProgress: {
+        root: {
+          height: defaultTheme.spacing(0.5),
+        },
       },
     },
-    jaJP,
-  );
+    props: {
+      MuiButton: {
+        size: 'small',
+      },
+    },
+  });
 
   return (
     <>
