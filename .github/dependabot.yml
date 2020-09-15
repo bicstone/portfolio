@@ -15,3 +15,4 @@ updates:
       - 'bicstone'
     reviewers:
       - 'bicstone'
+    open-pull-requests-limit: 0
