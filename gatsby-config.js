@@ -81,7 +81,7 @@ module.exports = {
           'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
           'Referrer-Policy: unsafe-url',
           'X-Frame-Options: DENY',
-          "X-Hello-Human: I'm Takanori Oishi. see humans.txt.",
+          "X-Hello-Human: Hey there! I'm Takanori Oishi.",
           'X-Content-Type-Options: nosniff',
           'X-XSS-Protection: 1; mode=block',
           'X-UA-Compatible: IE=edge',
