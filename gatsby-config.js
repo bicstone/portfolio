@@ -141,6 +141,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        exclude: [`/offline-plugin-app-shell-fallback`],
+        createLinkInHead: true,
+        addUncaughtPages: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-offline',
       options: {
         // precachePages: ["/about-us/", "/projects/*"],
