@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const home: React.FC<PageProps> = ({ path }) => {
+const NotFound: React.FC<PageProps> = ({ path }) => {
   const classes = useStyles();
   const { t } = useI18next();
   return (
@@ -39,4 +39,4 @@ const home: React.FC<PageProps> = ({ path }) => {
   );
 };
 
-export default home;
+export default NotFound;
