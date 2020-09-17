@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 import {
@@ -25,6 +26,9 @@ const useStyles = makeStyles(theme => ({
   cardContent: {
     paddingTop: 0,
   },
+  cardMedia: {
+    height: theme.spacing(20),
+  },
 }));
 
 const Project: React.FC = () => {
@@ -36,6 +40,7 @@ const Project: React.FC = () => {
         allContentfulProject {
           edges {
             node {
+              id
               node_locale
               name
               slug
@@ -46,10 +51,14 @@ const Project: React.FC = () => {
                 title
                 file {
                   url
-                  details {
-                    image {
-                      height
-                      width
+                }
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      sizes
+                      src
+                      srcSet
+                      aspectRatio
                     }
                   }
                 }
@@ -87,7 +96,7 @@ const Project: React.FC = () => {
         {allContentfulProject.edges.map(
           ({ node }) =>
             node.node_locale === language && (
-              <Grid item xs={12} sm={6} md={4}>
+              <Grid item xs={12} sm={6} md={4} key={node.id}>
                 <Card>
                   <CardHeader
                     avatar={
@@ -102,11 +111,15 @@ const Project: React.FC = () => {
                     }
                     subheader={node.role ? node.role.map(role => role?.name).join(' / ') : ''}
                   />
-                  <CardMedia
-                    image="http://placekitten.com/1600/900"
-                    title="G3M"
-                    style={{ paddingTop: '56.25%' }}
-                  />
+                  <CardMedia>
+                    {node?.mainImage?.localFile?.childImageSharp?.fluid && (
+                      <Img
+                        fluid={node.mainImage.localFile.childImageSharp.fluid}
+                        alt={node.mainImage.title ?? ''}
+                        className={classes.cardMedia}
+                      />
+                    )}
+                  </CardMedia>
                   <CardContent>
                     {node?.language?.map(language => (
                       <Chip label={language?.name} size="small" key={language?.name} />
