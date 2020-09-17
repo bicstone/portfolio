@@ -6,5 +6,10 @@
     "src/types/graphqlTypes.ts": {
       "plugins": ["typescript", "typescript-operations"]
     }
+  },
+  "config": {
+    "namingConvention": {
+      "enumValues": "keep"
+    }
   }
 }
