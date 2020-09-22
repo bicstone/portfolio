@@ -1,8 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import TwitterIcon from '@material-ui/icons/Twitter';
-import EmailIcon from '@material-ui/icons/Email';
 import GitHubIcon from '@material-ui/icons/GitHub';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,7 +8,6 @@ import {
   Toolbar,
   AppBar,
   Typography,
-  Button as ExternalButton,
   IconButton as ExternalIconButton,
   Tooltip,
   useScrollTrigger,
@@ -51,7 +48,17 @@ const Header: React.FC<props> = ({ isHome = false }) => {
         elevation={scrollTrigger ? 4 : 0}
       >
         <Toolbar variant="dense" className={classes.toolbar}>
-          {!isHome ? (
+          {isHome ? (
+            <Typography
+              color="textPrimary"
+              variant="h6"
+              component="h1"
+              className={classes.link}
+              gutterBottom
+            >
+              {t('header.title-home')}
+            </Typography>
+          ) : (
             <Link to="/">
               <Typography
                 color="textPrimary"
@@ -60,19 +67,9 @@ const Header: React.FC<props> = ({ isHome = false }) => {
                 className={classes.link}
                 gutterBottom
               >
-                {t('header.title-home')}
+                {t('header.title')}
               </Typography>
             </Link>
-          ) : (
-            <Typography
-              color="textPrimary"
-              variant="h6"
-              component="h1"
-              className={classes.link}
-              gutterBottom
-            >
-              {t('header.title')}
-            </Typography>
           )}
           <Tooltip arrow title={t('header.toggleDarkTheme-title') as string}>
             <IconButton size="small" onClick={toggleDarkMode} className={classes.link}>
@@ -93,30 +90,6 @@ const Header: React.FC<props> = ({ isHome = false }) => {
           </Tooltip>
           <div className={classes.spacer} />
           <nav>
-            <ExternalButton
-              size="small"
-              title={t('header.blog-title') as string}
-              href={t('header.blog-url') as string}
-              className={classes.link}
-            >
-              {t('header.blog-title')}
-            </ExternalButton>
-            <Tooltip arrow title={t('header.contact-title') as string}>
-              <IconButton size="small" to="/contact" className={classes.link}>
-                <EmailIcon />
-              </IconButton>
-            </Tooltip>
-            <Tooltip arrow title={t('header.twitter-title') as string}>
-              <ExternalIconButton
-                size="small"
-                href={t('header.twitter-url') as string}
-                target="_blank"
-                rel="external"
-                className={classes.link}
-              >
-                <TwitterIcon />
-              </ExternalIconButton>
-            </Tooltip>
             <Tooltip arrow title={t('header.github-title') as string}>
               <ExternalIconButton
                 size="small"
@@ -124,6 +97,7 @@ const Header: React.FC<props> = ({ isHome = false }) => {
                 target="_blank"
                 rel="external"
                 className={classes.link}
+                style={{ color: '#171515' }}
               >
                 <GitHubIcon />
               </ExternalIconButton>
