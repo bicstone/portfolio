@@ -4,7 +4,7 @@ import { PageProps } from 'gatsby';
 import { Container, Typography } from '@material-ui/core';
 import Layout from '../components/Layout';
 
-const home: React.FC<PageProps> = ({ path }) => {
+const privacy: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout pathname={path} isHome>
       <Container maxWidth="md">
@@ -27,4 +27,4 @@ const home: React.FC<PageProps> = ({ path }) => {
   );
 };
 
-export default home;
+export default privacy;
