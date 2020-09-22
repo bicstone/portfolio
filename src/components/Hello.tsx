@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import Typed, { TypedOptions } from 'typed.js';
-import { Button } from 'gatsby-theme-material-ui';
 
 import { Typography, Grid, Container } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
@@ -62,7 +61,6 @@ const Hello: React.FC = () => {
               <Typography variant="body1" paragraph>
                 {t('hello-message')}
               </Typography>
-              <Button variant="contained">BUTTON</Button>
             </Grid>
           </Grid>
         </Grid>
