@@ -39,13 +39,13 @@ const Hello: React.FC = () => {
 
   return (
     <Container maxWidth="md">
-      <Grid container spacing={2} className={classes.mainGrid}>
+      <Grid container className={classes.mainGrid}>
         <Grid item xs={12}>
           <Grid container spacing={2} justify="center" alignItems="center">
             <Grid item>
               <MasshiroIcon width={100} height={100} />
             </Grid>
-            <Grid item xs={10} sm>
+            <Grid item xs={11} sm={10}>
               <ul ref={stringsEl}>
                 <li>{t('hello.title.1')}</li>
                 <li>{t('hello.title.2')}</li>
@@ -54,7 +54,7 @@ const Hello: React.FC = () => {
                 <li>{t('hello.title.5')}</li>
                 <li>{t('hello.title.6')}</li>
               </ul>
-              <Typography component="span" variant="h6">
+              <Typography component="span" variant="body2">
                 {t('hello.title.pref')}
                 <span ref={wrapEl} />
               </Typography>
