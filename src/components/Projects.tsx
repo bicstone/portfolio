@@ -16,6 +16,8 @@ import {
 } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import DevicesIcon from '@material-ui/icons/Devices';
+import { CardActionArea } from 'gatsby-theme-material-ui';
+
 import { ProjectDataQuery } from '../types/graphqlTypes';
 
 const useStyles = makeStyles(theme => ({
@@ -97,41 +99,43 @@ const Projects: React.FC = () => {
           ({ node }) =>
             node.node_locale === language && (
               <Grid item xs={12} sm={6} md={4} key={node.id}>
-                <Card>
-                  <CardHeader
-                    avatar={
-                      <Avatar>
-                        <DevicesIcon />
-                      </Avatar>
-                    }
-                    title={
-                      <Typography component="h3" variant="h6">
-                        {node.name}
-                      </Typography>
-                    }
-                    subheader={node.roles ? node.roles.map(role => role?.name).join(' / ') : ''}
-                  />
-                  <CardMedia>
-                    {node?.mainImage?.localFile?.childImageSharp?.fluid && (
-                      <Img
-                        fluid={node.mainImage.localFile.childImageSharp.fluid}
-                        alt={node.mainImage.title ?? ''}
-                        className={classes.cardMedia}
-                      />
-                    )}
-                  </CardMedia>
-                  <CardContent>
-                    {node?.languages?.map(language => (
-                      <Chip label={language?.name} size="small" key={language?.name} />
-                    ))}
-                    {node?.systems?.map(system => (
-                      <Chip label={system?.name} size="small" key={system?.name} />
-                    ))}
-                  </CardContent>
-                  <CardContent className={classes.cardContent}>
-                    <Typography variant="body2">{node.comment}</Typography>
-                  </CardContent>
-                </Card>
+                <CardActionArea title={node?.name || ''} to={`/project/${node.slug}`}>
+                  <Card>
+                    <CardHeader
+                      avatar={
+                        <Avatar>
+                          <DevicesIcon />
+                        </Avatar>
+                      }
+                      title={
+                        <Typography component="h3" variant="h6">
+                          {node.name}
+                        </Typography>
+                      }
+                      subheader={node.roles ? node.roles.map(role => role?.name).join(' / ') : ''}
+                    />
+                    <CardMedia>
+                      {node?.mainImage?.localFile?.childImageSharp?.fluid && (
+                        <Img
+                          fluid={node.mainImage.localFile.childImageSharp.fluid}
+                          alt={node.mainImage.title ?? ''}
+                          className={classes.cardMedia}
+                        />
+                      )}
+                    </CardMedia>
+                    <CardContent>
+                      {node?.languages?.map(language => (
+                        <Chip label={language?.name} size="small" key={language?.name} />
+                      ))}
+                      {node?.systems?.map(system => (
+                        <Chip label={system?.name} size="small" key={system?.name} />
+                      ))}
+                    </CardContent>
+                    <CardContent className={classes.cardContent}>
+                      <Typography variant="body2">{node.comment}</Typography>
+                    </CardContent>
+                  </Card>
+                </CardActionArea>
               </Grid>
             ),
         )}

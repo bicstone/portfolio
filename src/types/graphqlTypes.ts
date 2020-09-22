@@ -6927,11 +6927,13 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   __typename?: 'SitePageContext';
+  id?: Maybe<Scalars['String']>;
   language?: Maybe<Scalars['String']>;
   i18n?: Maybe<SitePageContextI18n>;
 };
 
 export type SitePageContextFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
   language?: Maybe<StringQueryOperatorInput>;
   i18n?: Maybe<SitePageContextI18nFilterInput>;
 };
@@ -7582,6 +7584,7 @@ export enum SitePageFieldsEnum {
   internal___owner = 'internal___owner',
   internal___type = 'internal___type',
   isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  context___id = 'context___id',
   context___language = 'context___language',
   context___i18n___language = 'context___i18n___language',
   context___i18n___languages = 'context___i18n___languages',
