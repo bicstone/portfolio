@@ -94,8 +94,8 @@ const Header: React.FC<props> = ({ isHome = false }) => {
               <ExternalIconButton
                 size="small"
                 href={t('header.github-url') as string}
+                rel="external noreferrer nofollow"
                 target="_blank"
-                rel="external"
                 className={classes.link}
                 style={{ color: '#171515' }}
               >

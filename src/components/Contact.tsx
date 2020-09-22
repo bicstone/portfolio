@@ -69,8 +69,8 @@ const Contact: React.FC = () => {
             <CardActionArea
               title={contact.title}
               href={contact.href}
+              rel="external noreferrer nofollow"
               target="_blank"
-              rel="external"
             >
               <Card>
                 <Avatar className={classes.avatarLarge}>{contact.icon}</Avatar>

@@ -117,12 +117,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        lang: 'ja',
-        name: title.ja,
-        short_name: shortTitle.ja,
-        description: description.ja,
-        start_url: url.ja,
-        display: 'standalone',
+        lang: 'en',
+        name: title.en,
+        short_name: shortTitle.en,
+        description: description.en,
+        start_url: '/en/',
+        display: 'minimal-ui',
         icons: [
           {
             src: icon.src,
@@ -139,11 +139,11 @@ module.exports = {
         background_color: backgroundColor,
         localize: [
           {
-            lang: 'en',
-            name: title.en,
-            short_name: shortTitle.en,
-            description: description.en,
-            start_url: url.en,
+            lang: 'ja',
+            name: title.ja,
+            short_name: shortTitle.ja,
+            description: description.ja,
+            start_url: '/',
           },
         ],
         cache_busting_mode: 'none',
