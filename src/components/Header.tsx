@@ -13,6 +13,7 @@ import {
   Button as ExternalButton,
   IconButton as ExternalIconButton,
   Tooltip,
+  useScrollTrigger,
 } from '@material-ui/core';
 import { WbSunny, Brightness2 } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
@@ -40,10 +41,15 @@ const Header: React.FC<props> = ({ isHome = false }) => {
   const { t, language, languages, changeLanguage } = useI18next();
   const nextLanguage = languages.filter(lang => lang !== language)[0];
   const [isDarkMode, toggleDarkMode] = useDarkMode();
+  const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
 
   return (
     <header>
-      <AppBar position="fixed">
+      <AppBar
+        position="fixed"
+        color={scrollTrigger ? 'inherit' : 'transparent'}
+        elevation={scrollTrigger ? 4 : 0}
+      >
         <Toolbar variant="dense" className={classes.toolbar}>
           {!isHome ? (
             <Link to="/">
