@@ -16,12 +16,12 @@ export const TopLayout: React.FC = props => {
   const theme = createMuiTheme({
     palette: {
       type: darkMode ? 'dark' : 'light',
-      // primary: {
-      //   main: '',
-      // },
-      // secondary: {
-      //   main: '',
-      // },
+      primary: {
+        main: '#8fbc8f',
+      },
+      secondary: {
+        main: '#8fbc8f',
+      },
     },
     typography: {
       fontFamily:
@@ -36,6 +36,11 @@ export const TopLayout: React.FC = props => {
       MuiLinearProgress: {
         root: {
           height: defaultTheme.spacing(0.5),
+        },
+      },
+      MuiAvatar: {
+        colorDefault: {
+          backgroundColor: '#8fbc8f',
         },
       },
     },
