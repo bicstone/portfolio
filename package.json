@@ -9,6 +9,7 @@
     "dev": "gatsby develop",
     "t": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js src/**/*.{js,jsx,ts,tsx} && rimraf tmp",
     "g": "graphql-codegen",
+    "tc": "tsc -p . --noEmit",
     "lint": "eslint --max-warnings=0 --ext .js,.ts,.tsx .",
     "lint:fix": "eslint --max-warnings=0 --fix --ext .js,.ts,.tsx .",
     "serve": "gatsby serve",
@@ -16,7 +17,8 @@
     "develop": "yarn dev",
     "start": "yarn dev",
     "extract": "yarn t",
-    "gql-codegen": "yarn g"
+    "gql-codegen": "yarn g",
+    "typecheck": "yarn tc"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
