@@ -109,7 +109,7 @@ const Projects: React.FC = () => {
                         {node.name}
                       </Typography>
                     }
-                    subheader={node.role ? node.role.map(role => role?.name).join(' / ') : ''}
+                    subheader={node.roles ? node.roles.map(role => role?.name).join(' / ') : ''}
                   />
                   <CardMedia>
                     {node?.mainImage?.localFile?.childImageSharp?.fluid && (
@@ -121,10 +121,10 @@ const Projects: React.FC = () => {
                     )}
                   </CardMedia>
                   <CardContent>
-                    {node?.language?.map(language => (
+                    {node?.languages?.map(language => (
                       <Chip label={language?.name} size="small" key={language?.name} />
                     ))}
-                    {node?.system?.map(system => (
+                    {node?.systems?.map(system => (
                       <Chip label={system?.name} size="small" key={system?.name} />
                     ))}
                   </CardContent>
