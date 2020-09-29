@@ -65,16 +65,16 @@ const Projects: React.FC = () => {
               }
               siteUrl
               sourceUrl
-              role {
+              roles {
                 name
               }
-              assigne {
+              assigns {
                 name
               }
-              system {
+              systems {
                 name
               }
-              language {
+              languages {
                 name
               }
               tools {
