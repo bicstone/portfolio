@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Skill: React.FC = () => {
+const Skills: React.FC = () => {
   const classes = useStyles();
   const { language, t } = useI18next();
   const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
@@ -96,4 +96,4 @@ const Skill: React.FC = () => {
   );
 };
 
-export default Skill;
+export default Skills;
