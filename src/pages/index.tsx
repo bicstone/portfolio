@@ -3,19 +3,19 @@ import { PageProps } from 'gatsby';
 
 import Layout from '../components/Layout';
 import Hello from '../components/Hello';
-import Project from '../components/Project';
-import WhatIDo from '../components/WhatIDo';
-import Skill from '../components/Skill';
-import Contact from '../components/Contact';
+import Projects from '../components/Projects';
+import WhatIDos from '../components/WhatIDos';
+import Skills from '../components/Skills';
+import Contacts from '../components/Contacts';
 
 const home: React.FC<PageProps> = ({ path }) => {
   return (
     <Layout pathname={path} isHome>
       <Hello />
-      <WhatIDo />
-      <Project />
-      <Skill />
-      <Contact />
+      <WhatIDos />
+      <Projects />
+      <Skills />
+      <Contacts />
     </Layout>
   );
 };
