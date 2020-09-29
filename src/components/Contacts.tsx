@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Contact: React.FC = () => {
+const Contacts: React.FC = () => {
   const classes = useStyles();
   const { t } = useI18next();
 
@@ -91,4 +91,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+export default Contacts;

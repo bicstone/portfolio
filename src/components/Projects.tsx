@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Project: React.FC = () => {
+const Projects: React.FC = () => {
   const classes = useStyles();
   const { t, language } = useI18next();
   const { allContentfulProject }: ProjectDataQuery = useStaticQuery(
@@ -65,16 +65,16 @@ const Project: React.FC = () => {
               }
               siteUrl
               sourceUrl
-              role {
+              roles {
                 name
               }
-              assigne {
+              assigns {
                 name
               }
-              system {
+              systems {
                 name
               }
-              language {
+              languages {
                 name
               }
               tools {
@@ -109,7 +109,7 @@ const Project: React.FC = () => {
                         {node.name}
                       </Typography>
                     }
-                    subheader={node.role ? node.role.map(role => role?.name).join(' / ') : ''}
+                    subheader={node.roles ? node.roles.map(role => role?.name).join(' / ') : ''}
                   />
                   <CardMedia>
                     {node?.mainImage?.localFile?.childImageSharp?.fluid && (
@@ -121,10 +121,10 @@ const Project: React.FC = () => {
                     )}
                   </CardMedia>
                   <CardContent>
-                    {node?.language?.map(language => (
+                    {node?.languages?.map(language => (
                       <Chip label={language?.name} size="small" key={language?.name} />
                     ))}
-                    {node?.system?.map(system => (
+                    {node?.systems?.map(system => (
                       <Chip label={system?.name} size="small" key={system?.name} />
                     ))}
                   </CardContent>
@@ -140,4 +140,4 @@ const Project: React.FC = () => {
   );
 };
 
-export default Project;
+export default Projects;
