@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
           ({ node }) =>
             node.node_locale === language && (
               <Grid item xs={12} sm={6} md={4} key={node.id}>
-                <CardActionArea title={node?.name || ''} to={`/project/${node.slug}`}>
+                <CardActionArea title={node?.name || ''} to={`/projects/${node.slug}`}>
                   <Card>
                     <CardHeader
                       avatar={
