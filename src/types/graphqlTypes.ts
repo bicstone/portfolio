@@ -8326,3 +8326,48 @@ export type BuildTimeDataQuery = (
     & Pick<Site, 'buildTime'>
   )> }
 );
+
+export type ProjectDetailDataQueryVariables = Exact<{
+  id?: Maybe<Scalars['String']>;
+}>;
+
+
+export type ProjectDetailDataQuery = (
+  { __typename?: 'Query' }
+  & { contentfulProject?: Maybe<(
+    { __typename?: 'ContentfulProject' }
+    & Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'slug' | 'startDate' | 'during' | 'comment' | 'siteUrl' | 'sourceUrl'>
+    & { mainImage?: Maybe<(
+      { __typename?: 'ContentfulAsset' }
+      & Pick<ContentfulAsset, 'title'>
+      & { file?: Maybe<(
+        { __typename?: 'ContentfulAssetFile' }
+        & Pick<ContentfulAssetFile, 'url'>
+      )>, localFile?: Maybe<(
+        { __typename?: 'File' }
+        & { childImageSharp?: Maybe<(
+          { __typename?: 'ImageSharp' }
+          & { fluid?: Maybe<(
+            { __typename?: 'ImageSharpFluid' }
+            & Pick<ImageSharpFluid, 'sizes' | 'src' | 'srcSet' | 'aspectRatio'>
+          )> }
+        )> }
+      )> }
+    )>, roles?: Maybe<Array<Maybe<(
+      { __typename?: 'ContentfulRole' }
+      & Pick<ContentfulRole, 'name'>
+    )>>>, assigns?: Maybe<Array<Maybe<(
+      { __typename?: 'ContentfulAssigne' }
+      & Pick<ContentfulAssigne, 'name'>
+    )>>>, systems?: Maybe<Array<Maybe<(
+      { __typename?: 'ContentfulSkill' }
+      & Pick<ContentfulSkill, 'name'>
+    )>>>, languages?: Maybe<Array<Maybe<(
+      { __typename?: 'ContentfulSkill' }
+      & Pick<ContentfulSkill, 'name'>
+    )>>>, tools?: Maybe<Array<Maybe<(
+      { __typename?: 'ContentfulSkill' }
+      & Pick<ContentfulSkill, 'name'>
+    )>>> }
+  )> }
+);
