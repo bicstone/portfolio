@@ -2,13 +2,13 @@ import React from 'react';
 import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
 import useBuildTime from '../hooks/use-buildtime';
 
-export interface Props {
+export type Props = {
   title?: string;
   description?: string;
   pathname?: string;
   image?: string;
   isHome?: boolean;
-}
+};
 
 const Head: React.FC<Props> = ({ title = '', description = '', pathname = '', image = '' }) => {
   const buildTime = useBuildTime();

@@ -17,9 +17,9 @@ import { Link, IconButton } from 'gatsby-theme-material-ui';
 
 import useDarkMode from '../hooks/use-darkmode';
 
-interface props {
+export type Props = {
   isHome?: boolean;
-}
+};
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header: React.FC<props> = ({ isHome = false }) => {
+const Header: React.FC<Props> = ({ isHome = false }) => {
   const classes = useStyles();
   const { t, language, languages, changeLanguage } = useI18next();
   const nextLanguage = languages.filter(lang => lang !== language)[0];
