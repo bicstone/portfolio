@@ -56,6 +56,13 @@
   "project": {
     "title": "PROJECTS"
   },
+  "siteMetadata": {
+    "author": "Takanori Oishi",
+    "description": "Web developer / Mechanical engineer Takanori Oishi's Portfolio site.",
+    "image": "/android-chrome-512x512.png",
+    "shortTitle": "bicstone",
+    "title": "Takanori Oishi Portfolio"
+  },
   "skill-map": {
     "title": "SKILLS"
   },

@@ -3,48 +3,14 @@ const path = require('path');
 require('dotenv').config();
 
 const languages = require('./languages');
-
-const title = {
-  ja: 'Takanori Oishi Portfolio',
-  en: 'Takanori Oishi Portfolio',
+const t = {
+  en: require('./src/locales/en/translation.json'),
+  ja: require('./src/locales/ja/translation.json'),
 };
-const shortTitle = {
-  ja: 'まっしろ',
-  en: 'masshiro',
-};
-const url = {
-  ja: 'https://masshiro.me/',
-  en: 'https://masshiro.me/en/',
-};
-const description = {
-  ja:
-    'Webディベロッパー/機械エンジニア Takanori Oishi (オオイシ タカノリ) のポートフォリオサイトです。',
-  en: "Web developer / Mechanical engineer Takanori Oishi's Portfolio site.",
-};
-const author = {
-  ja: 'Takanori Oishi',
-  en: 'Takanori Oishi',
-};
-const icon = {
-  src: '/android-chrome-512x512.png',
-  sizes: '512x512',
-  type: 'image/png',
-};
-const backgroundColor = '#ffffff';
-const themeColor = '#ffffff';
 
 module.exports = {
   siteMetadata: {
-    // gatsby-plugin-react-i18next で必要なパラメータ
-    siteUrl: url.ja,
-    title,
-    shortTitle,
-    url,
-    description,
-    author,
-    icon,
-    backgroundColor,
-    themeColor,
+    siteUrl: 'https://masshiro-portfolio.netlify.app/',
   },
   plugins: [
     {
@@ -118,16 +84,16 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'en',
-        name: title.en,
-        short_name: shortTitle.en,
-        description: description.en,
+        name: t.en.siteMetadata.title,
+        short_name: t.en.siteMetadata.shortTitle,
+        description: t.en.siteMetadata.description,
         start_url: '/en/',
         display: 'minimal-ui',
         icons: [
           {
-            src: icon.src,
-            sizes: icon.sizes,
-            type: icon.type,
+            src: '/android-chrome-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
           },
           {
             src: '/android-chrome-192x192.png',
@@ -135,14 +101,14 @@ module.exports = {
             type: 'image/png',
           },
         ],
-        theme_color: themeColor,
-        background_color: backgroundColor,
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
         localize: [
           {
             lang: 'ja',
-            name: title.ja,
-            short_name: shortTitle.ja,
-            description: description.ja,
+            name: t.ja.siteMetadata.title,
+            short_name: t.ja.siteMetadata.shortTitle,
+            description: t.ja.siteMetadata.description,
             start_url: '/',
           },
         ],

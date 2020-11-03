@@ -56,6 +56,13 @@
   "project": {
     "title": "PROJECTS"
   },
+  "siteMetadata": {
+    "author": "Takanori Oishi",
+    "description": "Webディベロッパー/機械エンジニア Takanori Oishi (おおいし たかのり) のポートフォリオサイトです。",
+    "image": "/android-chrome-512x512.png",
+    "shortTitle": "bicstone",
+    "title": "Takanori Oishi Portfolio"
+  },
   "skill-map": {
     "title": "SKILLS"
   },

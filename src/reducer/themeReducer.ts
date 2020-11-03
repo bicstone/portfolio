@@ -41,7 +41,7 @@ export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, acti
  * 2. OS設定でナイトモードならダークモード
  * 3. ライトモード
  */
-export const themeInitial = (): any => {
+export const themeInitial = (): ThemeState => {
   const localStorageDarkMode = inBrowser() && window.localStorage.getItem(LOCAL_STORAGE_NAME);
   const prefersDarkMode = inBrowser() && window.matchMedia('(prefers-color-scheme: dark)').matches;
   if (localStorageDarkMode === LOCAL_STORAGE_TRUE) {
