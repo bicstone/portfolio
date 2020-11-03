@@ -1,14 +1,14 @@
 import React from 'react';
 
-interface MasshiroProps {
+export type Props = {
   width: number;
   height: number;
-}
+};
 
 /**
  * まっしろアイコン
  */
-const Masshiro: React.FC<MasshiroProps> = ({ width, height }) => (
+const Masshiro: React.FC<Props> = ({ width, height }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 100 100">
     <path
       fill="#2d1e1e"

@@ -6,9 +6,10 @@ const LOCAL_STORAGE_TRUE = 'dark';
 const LOCAL_STORAGE_FALSE = 'light';
 export const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
 
-export interface ThemeState {
+export type ThemeState = {
   darkMode: boolean;
-}
+};
+
 export type ThemeAction = { type: typeof TOGGLE_DARKMODE };
 
 export const themeInitialState = {
