@@ -10,8 +10,8 @@
     "t": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js src/**/*.{js,jsx,ts,tsx} && rimraf tmp",
     "g": "graphql-codegen",
     "tc": "tsc -p . --noEmit",
-    "lint": "eslint --max-warnings=0 --ext .js,.ts,.tsx .",
-    "lint:fix": "eslint --max-warnings=0 --fix --ext .js,.ts,.tsx .",
+    "lint": "eslint --max-warnings=0 --cache --ext .js,.ts,.tsx .",
+    "lint:fix": "eslint --fix --max-warnings=0 --cache --ext .js,.ts,.tsx .",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "develop": "yarn dev",
@@ -90,7 +90,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn g && yarn tc && yarn lint"
+      "pre-commit": "yarn tc && yarn lint"
     }
   }
 }
