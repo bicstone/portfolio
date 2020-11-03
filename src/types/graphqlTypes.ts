@@ -248,6 +248,7 @@ export enum ContentfulAssetFieldsEnum {
   title = 'title',
   description = 'description',
   node_locale = 'node_locale',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   localFile___sourceInstanceName = 'localFile___sourceInstanceName',
   localFile___absolutePath = 'localFile___absolutePath',
@@ -327,6 +328,7 @@ export enum ContentfulAssetFieldsEnum {
   localFile___childImageSharp___sizes___originalName = 'localFile___childImageSharp___sizes___originalName',
   localFile___childImageSharp___sizes___presentationWidth = 'localFile___childImageSharp___sizes___presentationWidth',
   localFile___childImageSharp___sizes___presentationHeight = 'localFile___childImageSharp___sizes___presentationHeight',
+  localFile___childImageSharp___gatsbyImage___imageData = 'localFile___childImageSharp___gatsbyImage___imageData',
   localFile___childImageSharp___original___width = 'localFile___childImageSharp___original___width',
   localFile___childImageSharp___original___height = 'localFile___childImageSharp___original___height',
   localFile___childImageSharp___original___src = 'localFile___childImageSharp___original___src',
@@ -506,10 +508,12 @@ export type ContentfulAssetSortInput = {
 
 export type ContentfulAssetSys = {
   __typename?: 'ContentfulAssetSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
 };
 
@@ -732,6 +736,7 @@ export enum ContentfulAssigneFieldsEnum {
   project___mainImage___title = 'project___mainImage___title',
   project___mainImage___description = 'project___mainImage___description',
   project___mainImage___node_locale = 'project___mainImage___node_locale',
+  project___mainImage___sys___type = 'project___mainImage___sys___type',
   project___mainImage___sys___revision = 'project___mainImage___sys___revision',
   project___mainImage___localFile___sourceInstanceName = 'project___mainImage___localFile___sourceInstanceName',
   project___mainImage___localFile___absolutePath = 'project___mainImage___localFile___absolutePath',
@@ -849,6 +854,7 @@ export enum ContentfulAssigneFieldsEnum {
   project___roles___contentful_id = 'project___roles___contentful_id',
   project___roles___createdAt = 'project___roles___createdAt',
   project___roles___updatedAt = 'project___roles___updatedAt',
+  project___roles___sys___type = 'project___roles___sys___type',
   project___roles___sys___revision = 'project___roles___sys___revision',
   project___roles___node_locale = 'project___roles___node_locale',
   project___assigns = 'project___assigns',
@@ -891,6 +897,7 @@ export enum ContentfulAssigneFieldsEnum {
   project___assigns___contentful_id = 'project___assigns___contentful_id',
   project___assigns___createdAt = 'project___assigns___createdAt',
   project___assigns___updatedAt = 'project___assigns___updatedAt',
+  project___assigns___sys___type = 'project___assigns___sys___type',
   project___assigns___sys___revision = 'project___assigns___sys___revision',
   project___assigns___node_locale = 'project___assigns___node_locale',
   project___systems = 'project___systems',
@@ -934,6 +941,7 @@ export enum ContentfulAssigneFieldsEnum {
   project___systems___contentful_id = 'project___systems___contentful_id',
   project___systems___createdAt = 'project___systems___createdAt',
   project___systems___updatedAt = 'project___systems___updatedAt',
+  project___systems___sys___type = 'project___systems___sys___type',
   project___systems___sys___revision = 'project___systems___sys___revision',
   project___systems___node_locale = 'project___systems___node_locale',
   project___systems___skillmap = 'project___systems___skillmap',
@@ -987,6 +995,7 @@ export enum ContentfulAssigneFieldsEnum {
   project___languages___contentful_id = 'project___languages___contentful_id',
   project___languages___createdAt = 'project___languages___createdAt',
   project___languages___updatedAt = 'project___languages___updatedAt',
+  project___languages___sys___type = 'project___languages___sys___type',
   project___languages___sys___revision = 'project___languages___sys___revision',
   project___languages___node_locale = 'project___languages___node_locale',
   project___languages___skillmap = 'project___languages___skillmap',
@@ -1040,6 +1049,7 @@ export enum ContentfulAssigneFieldsEnum {
   project___tools___contentful_id = 'project___tools___contentful_id',
   project___tools___createdAt = 'project___tools___createdAt',
   project___tools___updatedAt = 'project___tools___updatedAt',
+  project___tools___sys___type = 'project___tools___sys___type',
   project___tools___sys___revision = 'project___tools___sys___revision',
   project___tools___node_locale = 'project___tools___node_locale',
   project___tools___skillmap = 'project___tools___skillmap',
@@ -1056,17 +1066,18 @@ export enum ContentfulAssigneFieldsEnum {
   project___contentful_id = 'project___contentful_id',
   project___createdAt = 'project___createdAt',
   project___updatedAt = 'project___updatedAt',
+  project___sys___type = 'project___sys___type',
   project___sys___revision = 'project___sys___revision',
   project___node_locale = 'project___node_locale',
   spaceId = 'spaceId',
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   sys___contentType___sys___type = 'sys___contentType___sys___type',
   sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
   sys___contentType___sys___id = 'sys___contentType___sys___id',
-  sys___contentType___sys___contentful_id = 'sys___contentType___sys___contentful_id',
   node_locale = 'node_locale'
 }
 
@@ -1106,6 +1117,7 @@ export type ContentfulAssigneSortInput = {
 
 export type ContentfulAssigneSys = {
   __typename?: 'ContentfulAssigneSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulAssigneSysContentType>;
 };
@@ -1124,17 +1136,16 @@ export type ContentfulAssigneSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssigneSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulAssigneSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulAssigneSysContentTypeFilterInput>;
 };
@@ -1148,6 +1159,7 @@ export type ContentfulContentType = Node & {
   name?: Maybe<Scalars['String']>;
   displayField?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulContentTypeSys>;
 };
 
 export type ContentfulContentTypeConnection = {
@@ -1268,7 +1280,8 @@ export enum ContentfulContentTypeFieldsEnum {
   internal___type = 'internal___type',
   name = 'name',
   displayField = 'displayField',
-  description = 'description'
+  description = 'description',
+  sys___type = 'sys___type'
 }
 
 export type ContentfulContentTypeFilterInput = {
@@ -1279,6 +1292,7 @@ export type ContentfulContentTypeFilterInput = {
   name?: Maybe<StringQueryOperatorInput>;
   displayField?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulContentTypeSysFilterInput>;
 };
 
 export type ContentfulContentTypeGroupConnection = {
@@ -1294,6 +1308,15 @@ export type ContentfulContentTypeGroupConnection = {
 export type ContentfulContentTypeSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulContentTypeFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulContentTypeSys = {
+  __typename?: 'ContentfulContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulFixed = {
@@ -1588,6 +1611,7 @@ export enum ContentfulProjectFieldsEnum {
   mainImage___title = 'mainImage___title',
   mainImage___description = 'mainImage___description',
   mainImage___node_locale = 'mainImage___node_locale',
+  mainImage___sys___type = 'mainImage___sys___type',
   mainImage___sys___revision = 'mainImage___sys___revision',
   mainImage___localFile___sourceInstanceName = 'mainImage___localFile___sourceInstanceName',
   mainImage___localFile___absolutePath = 'mainImage___localFile___absolutePath',
@@ -1810,12 +1834,14 @@ export enum ContentfulProjectFieldsEnum {
   roles___project___contentful_id = 'roles___project___contentful_id',
   roles___project___createdAt = 'roles___project___createdAt',
   roles___project___updatedAt = 'roles___project___updatedAt',
+  roles___project___sys___type = 'roles___project___sys___type',
   roles___project___sys___revision = 'roles___project___sys___revision',
   roles___project___node_locale = 'roles___project___node_locale',
   roles___spaceId = 'roles___spaceId',
   roles___contentful_id = 'roles___contentful_id',
   roles___createdAt = 'roles___createdAt',
   roles___updatedAt = 'roles___updatedAt',
+  roles___sys___type = 'roles___sys___type',
   roles___sys___revision = 'roles___sys___revision',
   roles___node_locale = 'roles___node_locale',
   assigns = 'assigns',
@@ -1949,12 +1975,14 @@ export enum ContentfulProjectFieldsEnum {
   assigns___project___contentful_id = 'assigns___project___contentful_id',
   assigns___project___createdAt = 'assigns___project___createdAt',
   assigns___project___updatedAt = 'assigns___project___updatedAt',
+  assigns___project___sys___type = 'assigns___project___sys___type',
   assigns___project___sys___revision = 'assigns___project___sys___revision',
   assigns___project___node_locale = 'assigns___project___node_locale',
   assigns___spaceId = 'assigns___spaceId',
   assigns___contentful_id = 'assigns___contentful_id',
   assigns___createdAt = 'assigns___createdAt',
   assigns___updatedAt = 'assigns___updatedAt',
+  assigns___sys___type = 'assigns___sys___type',
   assigns___sys___revision = 'assigns___sys___revision',
   assigns___node_locale = 'assigns___node_locale',
   systems = 'systems',
@@ -2089,12 +2117,14 @@ export enum ContentfulProjectFieldsEnum {
   systems___project___contentful_id = 'systems___project___contentful_id',
   systems___project___createdAt = 'systems___project___createdAt',
   systems___project___updatedAt = 'systems___project___updatedAt',
+  systems___project___sys___type = 'systems___project___sys___type',
   systems___project___sys___revision = 'systems___project___sys___revision',
   systems___project___node_locale = 'systems___project___node_locale',
   systems___spaceId = 'systems___spaceId',
   systems___contentful_id = 'systems___contentful_id',
   systems___createdAt = 'systems___createdAt',
   systems___updatedAt = 'systems___updatedAt',
+  systems___sys___type = 'systems___sys___type',
   systems___sys___revision = 'systems___sys___revision',
   systems___node_locale = 'systems___node_locale',
   systems___skillmap = 'systems___skillmap',
@@ -2129,6 +2159,7 @@ export enum ContentfulProjectFieldsEnum {
   systems___skillmap___contentful_id = 'systems___skillmap___contentful_id',
   systems___skillmap___createdAt = 'systems___skillmap___createdAt',
   systems___skillmap___updatedAt = 'systems___skillmap___updatedAt',
+  systems___skillmap___sys___type = 'systems___skillmap___sys___type',
   systems___skillmap___sys___revision = 'systems___skillmap___sys___revision',
   systems___skillmap___node_locale = 'systems___skillmap___node_locale',
   languages = 'languages',
@@ -2263,12 +2294,14 @@ export enum ContentfulProjectFieldsEnum {
   languages___project___contentful_id = 'languages___project___contentful_id',
   languages___project___createdAt = 'languages___project___createdAt',
   languages___project___updatedAt = 'languages___project___updatedAt',
+  languages___project___sys___type = 'languages___project___sys___type',
   languages___project___sys___revision = 'languages___project___sys___revision',
   languages___project___node_locale = 'languages___project___node_locale',
   languages___spaceId = 'languages___spaceId',
   languages___contentful_id = 'languages___contentful_id',
   languages___createdAt = 'languages___createdAt',
   languages___updatedAt = 'languages___updatedAt',
+  languages___sys___type = 'languages___sys___type',
   languages___sys___revision = 'languages___sys___revision',
   languages___node_locale = 'languages___node_locale',
   languages___skillmap = 'languages___skillmap',
@@ -2303,6 +2336,7 @@ export enum ContentfulProjectFieldsEnum {
   languages___skillmap___contentful_id = 'languages___skillmap___contentful_id',
   languages___skillmap___createdAt = 'languages___skillmap___createdAt',
   languages___skillmap___updatedAt = 'languages___skillmap___updatedAt',
+  languages___skillmap___sys___type = 'languages___skillmap___sys___type',
   languages___skillmap___sys___revision = 'languages___skillmap___sys___revision',
   languages___skillmap___node_locale = 'languages___skillmap___node_locale',
   tools = 'tools',
@@ -2437,12 +2471,14 @@ export enum ContentfulProjectFieldsEnum {
   tools___project___contentful_id = 'tools___project___contentful_id',
   tools___project___createdAt = 'tools___project___createdAt',
   tools___project___updatedAt = 'tools___project___updatedAt',
+  tools___project___sys___type = 'tools___project___sys___type',
   tools___project___sys___revision = 'tools___project___sys___revision',
   tools___project___node_locale = 'tools___project___node_locale',
   tools___spaceId = 'tools___spaceId',
   tools___contentful_id = 'tools___contentful_id',
   tools___createdAt = 'tools___createdAt',
   tools___updatedAt = 'tools___updatedAt',
+  tools___sys___type = 'tools___sys___type',
   tools___sys___revision = 'tools___sys___revision',
   tools___node_locale = 'tools___node_locale',
   tools___skillmap = 'tools___skillmap',
@@ -2477,17 +2513,18 @@ export enum ContentfulProjectFieldsEnum {
   tools___skillmap___contentful_id = 'tools___skillmap___contentful_id',
   tools___skillmap___createdAt = 'tools___skillmap___createdAt',
   tools___skillmap___updatedAt = 'tools___skillmap___updatedAt',
+  tools___skillmap___sys___type = 'tools___skillmap___sys___type',
   tools___skillmap___sys___revision = 'tools___skillmap___sys___revision',
   tools___skillmap___node_locale = 'tools___skillmap___node_locale',
   spaceId = 'spaceId',
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   sys___contentType___sys___type = 'sys___contentType___sys___type',
   sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
   sys___contentType___sys___id = 'sys___contentType___sys___id',
-  sys___contentType___sys___contentful_id = 'sys___contentType___sys___contentful_id',
   node_locale = 'node_locale'
 }
 
@@ -2538,6 +2575,7 @@ export type ContentfulProjectSortInput = {
 
 export type ContentfulProjectSys = {
   __typename?: 'ContentfulProjectSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulProjectSysContentType>;
 };
@@ -2556,17 +2594,16 @@ export type ContentfulProjectSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProjectSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulProjectSysContentTypeFilterInput>;
 };
@@ -2735,11 +2772,11 @@ export enum ContentfulQualificationsFieldsEnum {
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   sys___contentType___sys___type = 'sys___contentType___sys___type',
   sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
   sys___contentType___sys___id = 'sys___contentType___sys___id',
-  sys___contentType___sys___contentful_id = 'sys___contentType___sys___contentful_id',
   node_locale = 'node_locale'
 }
 
@@ -2776,6 +2813,7 @@ export type ContentfulQualificationsSortInput = {
 
 export type ContentfulQualificationsSys = {
   __typename?: 'ContentfulQualificationsSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulQualificationsSysContentType>;
 };
@@ -2794,17 +2832,16 @@ export type ContentfulQualificationsSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationsSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationsSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulQualificationsSysContentTypeFilterInput>;
 };
@@ -3072,6 +3109,7 @@ export enum ContentfulRoleFieldsEnum {
   project___mainImage___title = 'project___mainImage___title',
   project___mainImage___description = 'project___mainImage___description',
   project___mainImage___node_locale = 'project___mainImage___node_locale',
+  project___mainImage___sys___type = 'project___mainImage___sys___type',
   project___mainImage___sys___revision = 'project___mainImage___sys___revision',
   project___mainImage___localFile___sourceInstanceName = 'project___mainImage___localFile___sourceInstanceName',
   project___mainImage___localFile___absolutePath = 'project___mainImage___localFile___absolutePath',
@@ -3189,6 +3227,7 @@ export enum ContentfulRoleFieldsEnum {
   project___roles___contentful_id = 'project___roles___contentful_id',
   project___roles___createdAt = 'project___roles___createdAt',
   project___roles___updatedAt = 'project___roles___updatedAt',
+  project___roles___sys___type = 'project___roles___sys___type',
   project___roles___sys___revision = 'project___roles___sys___revision',
   project___roles___node_locale = 'project___roles___node_locale',
   project___assigns = 'project___assigns',
@@ -3231,6 +3270,7 @@ export enum ContentfulRoleFieldsEnum {
   project___assigns___contentful_id = 'project___assigns___contentful_id',
   project___assigns___createdAt = 'project___assigns___createdAt',
   project___assigns___updatedAt = 'project___assigns___updatedAt',
+  project___assigns___sys___type = 'project___assigns___sys___type',
   project___assigns___sys___revision = 'project___assigns___sys___revision',
   project___assigns___node_locale = 'project___assigns___node_locale',
   project___systems = 'project___systems',
@@ -3274,6 +3314,7 @@ export enum ContentfulRoleFieldsEnum {
   project___systems___contentful_id = 'project___systems___contentful_id',
   project___systems___createdAt = 'project___systems___createdAt',
   project___systems___updatedAt = 'project___systems___updatedAt',
+  project___systems___sys___type = 'project___systems___sys___type',
   project___systems___sys___revision = 'project___systems___sys___revision',
   project___systems___node_locale = 'project___systems___node_locale',
   project___systems___skillmap = 'project___systems___skillmap',
@@ -3327,6 +3368,7 @@ export enum ContentfulRoleFieldsEnum {
   project___languages___contentful_id = 'project___languages___contentful_id',
   project___languages___createdAt = 'project___languages___createdAt',
   project___languages___updatedAt = 'project___languages___updatedAt',
+  project___languages___sys___type = 'project___languages___sys___type',
   project___languages___sys___revision = 'project___languages___sys___revision',
   project___languages___node_locale = 'project___languages___node_locale',
   project___languages___skillmap = 'project___languages___skillmap',
@@ -3380,6 +3422,7 @@ export enum ContentfulRoleFieldsEnum {
   project___tools___contentful_id = 'project___tools___contentful_id',
   project___tools___createdAt = 'project___tools___createdAt',
   project___tools___updatedAt = 'project___tools___updatedAt',
+  project___tools___sys___type = 'project___tools___sys___type',
   project___tools___sys___revision = 'project___tools___sys___revision',
   project___tools___node_locale = 'project___tools___node_locale',
   project___tools___skillmap = 'project___tools___skillmap',
@@ -3396,17 +3439,18 @@ export enum ContentfulRoleFieldsEnum {
   project___contentful_id = 'project___contentful_id',
   project___createdAt = 'project___createdAt',
   project___updatedAt = 'project___updatedAt',
+  project___sys___type = 'project___sys___type',
   project___sys___revision = 'project___sys___revision',
   project___node_locale = 'project___node_locale',
   spaceId = 'spaceId',
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   sys___contentType___sys___type = 'sys___contentType___sys___type',
   sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
   sys___contentType___sys___id = 'sys___contentType___sys___id',
-  sys___contentType___sys___contentful_id = 'sys___contentType___sys___contentful_id',
   node_locale = 'node_locale'
 }
 
@@ -3446,6 +3490,7 @@ export type ContentfulRoleSortInput = {
 
 export type ContentfulRoleSys = {
   __typename?: 'ContentfulRoleSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulRoleSysContentType>;
 };
@@ -3464,17 +3509,16 @@ export type ContentfulRoleSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulRoleSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulRoleSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulRoleSysContentTypeFilterInput>;
 };
@@ -3724,6 +3768,7 @@ export enum ContentfulSkillFieldsEnum {
   project___mainImage___title = 'project___mainImage___title',
   project___mainImage___description = 'project___mainImage___description',
   project___mainImage___node_locale = 'project___mainImage___node_locale',
+  project___mainImage___sys___type = 'project___mainImage___sys___type',
   project___mainImage___sys___revision = 'project___mainImage___sys___revision',
   project___mainImage___localFile___sourceInstanceName = 'project___mainImage___localFile___sourceInstanceName',
   project___mainImage___localFile___absolutePath = 'project___mainImage___localFile___absolutePath',
@@ -3841,6 +3886,7 @@ export enum ContentfulSkillFieldsEnum {
   project___roles___contentful_id = 'project___roles___contentful_id',
   project___roles___createdAt = 'project___roles___createdAt',
   project___roles___updatedAt = 'project___roles___updatedAt',
+  project___roles___sys___type = 'project___roles___sys___type',
   project___roles___sys___revision = 'project___roles___sys___revision',
   project___roles___node_locale = 'project___roles___node_locale',
   project___assigns = 'project___assigns',
@@ -3883,6 +3929,7 @@ export enum ContentfulSkillFieldsEnum {
   project___assigns___contentful_id = 'project___assigns___contentful_id',
   project___assigns___createdAt = 'project___assigns___createdAt',
   project___assigns___updatedAt = 'project___assigns___updatedAt',
+  project___assigns___sys___type = 'project___assigns___sys___type',
   project___assigns___sys___revision = 'project___assigns___sys___revision',
   project___assigns___node_locale = 'project___assigns___node_locale',
   project___systems = 'project___systems',
@@ -3926,6 +3973,7 @@ export enum ContentfulSkillFieldsEnum {
   project___systems___contentful_id = 'project___systems___contentful_id',
   project___systems___createdAt = 'project___systems___createdAt',
   project___systems___updatedAt = 'project___systems___updatedAt',
+  project___systems___sys___type = 'project___systems___sys___type',
   project___systems___sys___revision = 'project___systems___sys___revision',
   project___systems___node_locale = 'project___systems___node_locale',
   project___systems___skillmap = 'project___systems___skillmap',
@@ -3979,6 +4027,7 @@ export enum ContentfulSkillFieldsEnum {
   project___languages___contentful_id = 'project___languages___contentful_id',
   project___languages___createdAt = 'project___languages___createdAt',
   project___languages___updatedAt = 'project___languages___updatedAt',
+  project___languages___sys___type = 'project___languages___sys___type',
   project___languages___sys___revision = 'project___languages___sys___revision',
   project___languages___node_locale = 'project___languages___node_locale',
   project___languages___skillmap = 'project___languages___skillmap',
@@ -4032,6 +4081,7 @@ export enum ContentfulSkillFieldsEnum {
   project___tools___contentful_id = 'project___tools___contentful_id',
   project___tools___createdAt = 'project___tools___createdAt',
   project___tools___updatedAt = 'project___tools___updatedAt',
+  project___tools___sys___type = 'project___tools___sys___type',
   project___tools___sys___revision = 'project___tools___sys___revision',
   project___tools___node_locale = 'project___tools___node_locale',
   project___tools___skillmap = 'project___tools___skillmap',
@@ -4048,17 +4098,18 @@ export enum ContentfulSkillFieldsEnum {
   project___contentful_id = 'project___contentful_id',
   project___createdAt = 'project___createdAt',
   project___updatedAt = 'project___updatedAt',
+  project___sys___type = 'project___sys___type',
   project___sys___revision = 'project___sys___revision',
   project___node_locale = 'project___node_locale',
   spaceId = 'spaceId',
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   sys___contentType___sys___type = 'sys___contentType___sys___type',
   sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
   sys___contentType___sys___id = 'sys___contentType___sys___id',
-  sys___contentType___sys___contentful_id = 'sys___contentType___sys___contentful_id',
   node_locale = 'node_locale',
   skillmap = 'skillmap',
   skillmap___id = 'skillmap___id',
@@ -4141,6 +4192,7 @@ export enum ContentfulSkillFieldsEnum {
   skillmap___skills___contentful_id = 'skillmap___skills___contentful_id',
   skillmap___skills___createdAt = 'skillmap___skills___createdAt',
   skillmap___skills___updatedAt = 'skillmap___skills___updatedAt',
+  skillmap___skills___sys___type = 'skillmap___skills___sys___type',
   skillmap___skills___sys___revision = 'skillmap___skills___sys___revision',
   skillmap___skills___node_locale = 'skillmap___skills___node_locale',
   skillmap___skills___skillmap = 'skillmap___skills___skillmap',
@@ -4157,6 +4209,7 @@ export enum ContentfulSkillFieldsEnum {
   skillmap___contentful_id = 'skillmap___contentful_id',
   skillmap___createdAt = 'skillmap___createdAt',
   skillmap___updatedAt = 'skillmap___updatedAt',
+  skillmap___sys___type = 'skillmap___sys___type',
   skillmap___sys___revision = 'skillmap___sys___revision',
   skillmap___node_locale = 'skillmap___node_locale'
 }
@@ -4473,12 +4526,14 @@ export enum ContentfulSkillMapFieldsEnum {
   skills___project___contentful_id = 'skills___project___contentful_id',
   skills___project___createdAt = 'skills___project___createdAt',
   skills___project___updatedAt = 'skills___project___updatedAt',
+  skills___project___sys___type = 'skills___project___sys___type',
   skills___project___sys___revision = 'skills___project___sys___revision',
   skills___project___node_locale = 'skills___project___node_locale',
   skills___spaceId = 'skills___spaceId',
   skills___contentful_id = 'skills___contentful_id',
   skills___createdAt = 'skills___createdAt',
   skills___updatedAt = 'skills___updatedAt',
+  skills___sys___type = 'skills___sys___type',
   skills___sys___revision = 'skills___sys___revision',
   skills___node_locale = 'skills___node_locale',
   skills___skillmap = 'skills___skillmap',
@@ -4513,17 +4568,18 @@ export enum ContentfulSkillMapFieldsEnum {
   skills___skillmap___contentful_id = 'skills___skillmap___contentful_id',
   skills___skillmap___createdAt = 'skills___skillmap___createdAt',
   skills___skillmap___updatedAt = 'skills___skillmap___updatedAt',
+  skills___skillmap___sys___type = 'skills___skillmap___sys___type',
   skills___skillmap___sys___revision = 'skills___skillmap___sys___revision',
   skills___skillmap___node_locale = 'skills___skillmap___node_locale',
   spaceId = 'spaceId',
   contentful_id = 'contentful_id',
   createdAt = 'createdAt',
   updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
   sys___revision = 'sys___revision',
   sys___contentType___sys___type = 'sys___contentType___sys___type',
   sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
   sys___contentType___sys___id = 'sys___contentType___sys___id',
-  sys___contentType___sys___contentful_id = 'sys___contentType___sys___contentful_id',
   node_locale = 'node_locale'
 }
 
@@ -4563,6 +4619,7 @@ export type ContentfulSkillMapSortInput = {
 
 export type ContentfulSkillMapSys = {
   __typename?: 'ContentfulSkillMapSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulSkillMapSysContentType>;
 };
@@ -4581,17 +4638,16 @@ export type ContentfulSkillMapSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillMapSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillMapSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulSkillMapSysContentTypeFilterInput>;
 };
@@ -4603,6 +4659,7 @@ export type ContentfulSkillSortInput = {
 
 export type ContentfulSkillSys = {
   __typename?: 'ContentfulSkillSys';
+  type?: Maybe<Scalars['String']>;
   revision?: Maybe<Scalars['Int']>;
   contentType?: Maybe<ContentfulSkillSysContentType>;
 };
@@ -4621,17 +4678,16 @@ export type ContentfulSkillSysContentTypeSys = {
   type?: Maybe<Scalars['String']>;
   linkType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillSysContentTypeSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   linkType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
   contentType?: Maybe<ContentfulSkillSysContentTypeFilterInput>;
 };
@@ -5162,6 +5218,7 @@ export enum FileFieldsEnum {
   childImageSharp___sizes___originalName = 'childImageSharp___sizes___originalName',
   childImageSharp___sizes___presentationWidth = 'childImageSharp___sizes___presentationWidth',
   childImageSharp___sizes___presentationHeight = 'childImageSharp___sizes___presentationHeight',
+  childImageSharp___gatsbyImage___imageData = 'childImageSharp___gatsbyImage___imageData',
   childImageSharp___original___width = 'childImageSharp___original___width',
   childImageSharp___original___height = 'childImageSharp___original___height',
   childImageSharp___original___src = 'childImageSharp___original___src',
@@ -5394,6 +5451,19 @@ export enum ImageFormat {
   WEBP = 'WEBP'
 }
 
+export enum ImageLayout {
+  FIXED = 'FIXED',
+  FLUID = 'FLUID',
+  CONSTRAINED = 'CONSTRAINED'
+}
+
+export enum ImagePlaceholder {
+  DOMINANT_COLOR = 'DOMINANT_COLOR',
+  TRACED_SVG = 'TRACED_SVG',
+  BASE64 = 'BASE64',
+  NONE = 'NONE'
+}
+
 export enum ImageResizingBehavior {
   NO_CHANGE = 'NO_CHANGE',
   /** Same as the default resizing, but adds padding so that the generated image has the specified dimensions. */
@@ -5419,6 +5489,7 @@ export type ImageSharp = Node & {
   fluid?: Maybe<ImageSharpFluid>;
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ImageSharpSizes>;
+  gatsbyImage?: Maybe<ImageSharpGatsbyImage>;
   original?: Maybe<ImageSharpOriginal>;
   resize?: Maybe<ImageSharpResize>;
   id: Scalars['ID'];
@@ -5524,6 +5595,37 @@ export type ImageSharpSizesArgs = {
 };
 
 
+export type ImageSharpGatsbyImageArgs = {
+  layout?: Maybe<ImageLayout>;
+  maxWidth?: Maybe<Scalars['Int']>;
+  maxHeight?: Maybe<Scalars['Int']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+  placeholder?: Maybe<ImagePlaceholder>;
+  tracedSVGOptions?: Maybe<Potrace>;
+  webP?: Maybe<Scalars['Boolean']>;
+  outputPixelDensities?: Maybe<Array<Maybe<Scalars['Float']>>>;
+  sizes?: Maybe<Scalars['String']>;
+  base64Width?: Maybe<Scalars['Int']>;
+  grayscale?: Maybe<Scalars['Boolean']>;
+  jpegProgressive?: Maybe<Scalars['Boolean']>;
+  pngCompressionSpeed?: Maybe<Scalars['Int']>;
+  duotone?: Maybe<DuotoneGradient>;
+  quality?: Maybe<Scalars['Int']>;
+  jpegQuality?: Maybe<Scalars['Int']>;
+  pngQuality?: Maybe<Scalars['Int']>;
+  webpQuality?: Maybe<Scalars['Int']>;
+  toFormat?: Maybe<ImageFormat>;
+  toFormatBase64?: Maybe<ImageFormat>;
+  cropFocus?: Maybe<ImageCropFocus>;
+  fit?: Maybe<ImageFit>;
+  background?: Maybe<Scalars['String']>;
+  rotate?: Maybe<Scalars['Int']>;
+  trim?: Maybe<Scalars['Float']>;
+  srcSetBreakpoints?: Maybe<Array<Maybe<Scalars['Int']>>>;
+};
+
+
 export type ImageSharpResizeArgs = {
   width?: Maybe<Scalars['Int']>;
   height?: Maybe<Scalars['Int']>;
@@ -5620,6 +5722,7 @@ export enum ImageSharpFieldsEnum {
   sizes___originalName = 'sizes___originalName',
   sizes___presentationWidth = 'sizes___presentationWidth',
   sizes___presentationHeight = 'sizes___presentationHeight',
+  gatsbyImage___imageData = 'gatsbyImage___imageData',
   original___width = 'original___width',
   original___height = 'original___height',
   original___src = 'original___src',
@@ -5722,6 +5825,7 @@ export type ImageSharpFilterInput = {
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImage?: Maybe<ImageSharpGatsbyImageFilterInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -5786,6 +5890,15 @@ export type ImageSharpFluidFilterInput = {
   originalName?: Maybe<StringQueryOperatorInput>;
   presentationWidth?: Maybe<IntQueryOperatorInput>;
   presentationHeight?: Maybe<IntQueryOperatorInput>;
+};
+
+export type ImageSharpGatsbyImage = {
+  __typename?: 'ImageSharpGatsbyImage';
+  imageData: Scalars['JSON'];
+};
+
+export type ImageSharpGatsbyImageFilterInput = {
+  imageData?: Maybe<JsonQueryOperatorInput>;
 };
 
 export type ImageSharpGroupConnection = {
@@ -5928,6 +6041,15 @@ export type IntQueryOperatorInput = {
 };
 
 
+export type JsonQueryOperatorInput = {
+  eq?: Maybe<Scalars['JSON']>;
+  ne?: Maybe<Scalars['JSON']>;
+  in?: Maybe<Array<Maybe<Scalars['JSON']>>>;
+  nin?: Maybe<Array<Maybe<Scalars['JSON']>>>;
+  regex?: Maybe<Scalars['JSON']>;
+  glob?: Maybe<Scalars['JSON']>;
+};
+
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
@@ -5985,10 +6107,10 @@ export type Query = {
   allFile: FileConnection;
   directory?: Maybe<Directory>;
   allDirectory: DirectoryConnection;
-  sitePage?: Maybe<SitePage>;
-  allSitePage: SitePageConnection;
   site?: Maybe<Site>;
   allSite: SiteConnection;
+  sitePage?: Maybe<SitePage>;
+  allSitePage: SitePageConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
@@ -6112,6 +6234,28 @@ export type QueryAllDirectoryArgs = {
 };
 
 
+export type QuerySiteArgs = {
+  buildTime?: Maybe<DateQueryOperatorInput>;
+  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllSiteArgs = {
+  filter?: Maybe<SiteFilterInput>;
+  sort?: Maybe<SiteSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QuerySitePageArgs = {
   path?: Maybe<StringQueryOperatorInput>;
   component?: Maybe<StringQueryOperatorInput>;
@@ -6138,33 +6282,12 @@ export type QueryAllSitePageArgs = {
 };
 
 
-export type QuerySiteArgs = {
-  buildTime?: Maybe<DateQueryOperatorInput>;
-  siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
-  polyfill?: Maybe<BooleanQueryOperatorInput>;
-  pathPrefix?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-};
-
-
-export type QueryAllSiteArgs = {
-  filter?: Maybe<SiteFilterInput>;
-  sort?: Maybe<SiteSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryImageSharpArgs = {
   fixed?: Maybe<ImageSharpFixedFilterInput>;
   resolutions?: Maybe<ImageSharpResolutionsFilterInput>;
   fluid?: Maybe<ImageSharpFluidFilterInput>;
   sizes?: Maybe<ImageSharpSizesFilterInput>;
+  gatsbyImage?: Maybe<ImageSharpGatsbyImageFilterInput>;
   original?: Maybe<ImageSharpOriginalFilterInput>;
   resize?: Maybe<ImageSharpResizeFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -6379,6 +6502,7 @@ export type QueryContentfulContentTypeArgs = {
   name?: Maybe<StringQueryOperatorInput>;
   displayField?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulContentTypeSysFilterInput>;
 };
 
 
@@ -6643,22 +6767,9 @@ export type SiteEdge = {
 
 export enum SiteFieldsEnum {
   buildTime = 'buildTime',
+  siteMetadata___title = 'siteMetadata___title',
+  siteMetadata___description = 'siteMetadata___description',
   siteMetadata___siteUrl = 'siteMetadata___siteUrl',
-  siteMetadata___title___ja = 'siteMetadata___title___ja',
-  siteMetadata___title___en = 'siteMetadata___title___en',
-  siteMetadata___shortTitle___ja = 'siteMetadata___shortTitle___ja',
-  siteMetadata___shortTitle___en = 'siteMetadata___shortTitle___en',
-  siteMetadata___url___ja = 'siteMetadata___url___ja',
-  siteMetadata___url___en = 'siteMetadata___url___en',
-  siteMetadata___description___ja = 'siteMetadata___description___ja',
-  siteMetadata___description___en = 'siteMetadata___description___en',
-  siteMetadata___author___ja = 'siteMetadata___author___ja',
-  siteMetadata___author___en = 'siteMetadata___author___en',
-  siteMetadata___icon___src = 'siteMetadata___icon___src',
-  siteMetadata___icon___sizes = 'siteMetadata___icon___sizes',
-  siteMetadata___icon___type = 'siteMetadata___icon___type',
-  siteMetadata___backgroundColor = 'siteMetadata___backgroundColor',
-  siteMetadata___themeColor = 'siteMetadata___themeColor',
   port = 'port',
   host = 'host',
   polyfill = 'polyfill',
@@ -6871,6 +6982,7 @@ export type SitePageContextI18nResourcesEnTranslation = {
   hello_message?: Maybe<Scalars['String']>;
   not_found?: Maybe<SitePageContextI18nResourcesEnTranslationNot_Found>;
   project?: Maybe<SitePageContextI18nResourcesEnTranslationProject>;
+  siteMetadata?: Maybe<SitePageContextI18nResourcesEnTranslationSiteMetadata>;
   skill_map?: Maybe<SitePageContextI18nResourcesEnTranslationSkill_Map>;
   what_i_do?: Maybe<SitePageContextI18nResourcesEnTranslationWhat_I_Do>;
 };
@@ -6951,6 +7063,7 @@ export type SitePageContextI18nResourcesEnTranslationFilterInput = {
   hello_message?: Maybe<StringQueryOperatorInput>;
   not_found?: Maybe<SitePageContextI18nResourcesEnTranslationNot_FoundFilterInput>;
   project?: Maybe<SitePageContextI18nResourcesEnTranslationProjectFilterInput>;
+  siteMetadata?: Maybe<SitePageContextI18nResourcesEnTranslationSiteMetadataFilterInput>;
   skill_map?: Maybe<SitePageContextI18nResourcesEnTranslationSkill_MapFilterInput>;
   what_i_do?: Maybe<SitePageContextI18nResourcesEnTranslationWhat_I_DoFilterInput>;
 };
@@ -7036,6 +7149,23 @@ export type SitePageContextI18nResourcesEnTranslationProjectFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
+export type SitePageContextI18nResourcesEnTranslationSiteMetadata = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationSiteMetadata';
+  author?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  shortTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationSiteMetadataFilterInput = {
+  author?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<StringQueryOperatorInput>;
+  shortTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+};
+
 export type SitePageContextI18nResourcesEnTranslationSkill_Map = {
   __typename?: 'SitePageContextI18nResourcesEnTranslationSkill_map';
   title?: Maybe<Scalars['String']>;
@@ -7114,6 +7244,7 @@ export type SitePageContextI18nResourcesJaTranslation = {
   hello_message?: Maybe<Scalars['String']>;
   not_found?: Maybe<SitePageContextI18nResourcesJaTranslationNot_Found>;
   project?: Maybe<SitePageContextI18nResourcesJaTranslationProject>;
+  siteMetadata?: Maybe<SitePageContextI18nResourcesJaTranslationSiteMetadata>;
   skill_map?: Maybe<SitePageContextI18nResourcesJaTranslationSkill_Map>;
   what_i_do?: Maybe<SitePageContextI18nResourcesJaTranslationWhat_I_Do>;
 };
@@ -7194,6 +7325,7 @@ export type SitePageContextI18nResourcesJaTranslationFilterInput = {
   hello_message?: Maybe<StringQueryOperatorInput>;
   not_found?: Maybe<SitePageContextI18nResourcesJaTranslationNot_FoundFilterInput>;
   project?: Maybe<SitePageContextI18nResourcesJaTranslationProjectFilterInput>;
+  siteMetadata?: Maybe<SitePageContextI18nResourcesJaTranslationSiteMetadataFilterInput>;
   skill_map?: Maybe<SitePageContextI18nResourcesJaTranslationSkill_MapFilterInput>;
   what_i_do?: Maybe<SitePageContextI18nResourcesJaTranslationWhat_I_DoFilterInput>;
 };
@@ -7276,6 +7408,23 @@ export type SitePageContextI18nResourcesJaTranslationProject = {
 };
 
 export type SitePageContextI18nResourcesJaTranslationProjectFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationSiteMetadata = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationSiteMetadata';
+  author?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  shortTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationSiteMetadataFilterInput = {
+  author?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<StringQueryOperatorInput>;
+  shortTitle?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -7481,9 +7630,22 @@ export enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator___resolve',
   pluginCreator___name = 'pluginCreator___name',
   pluginCreator___version = 'pluginCreator___version',
+  pluginCreator___pluginOptions___base64Width = 'pluginCreator___pluginOptions___base64Width',
+  pluginCreator___pluginOptions___stripMetadata = 'pluginCreator___pluginOptions___stripMetadata',
+  pluginCreator___pluginOptions___defaultQuality = 'pluginCreator___pluginOptions___defaultQuality',
+  pluginCreator___pluginOptions___failOnError = 'pluginCreator___pluginOptions___failOnError',
   pluginCreator___pluginOptions___spaceId = 'pluginCreator___pluginOptions___spaceId',
   pluginCreator___pluginOptions___accessToken = 'pluginCreator___pluginOptions___accessToken',
   pluginCreator___pluginOptions___downloadLocal = 'pluginCreator___pluginOptions___downloadLocal',
+  pluginCreator___pluginOptions___host = 'pluginCreator___pluginOptions___host',
+  pluginCreator___pluginOptions___environment = 'pluginCreator___pluginOptions___environment',
+  pluginCreator___pluginOptions___forceFullSync = 'pluginCreator___pluginOptions___forceFullSync',
+  pluginCreator___pluginOptions___pageLimit = 'pluginCreator___pluginOptions___pageLimit',
+  pluginCreator___pluginOptions___assetDownloadWorkers = 'pluginCreator___pluginOptions___assetDownloadWorkers',
+  pluginCreator___pluginOptions___useNameForId = 'pluginCreator___pluginOptions___useNameForId',
+  pluginCreator___pluginOptions___isTSX = 'pluginCreator___pluginOptions___isTSX',
+  pluginCreator___pluginOptions___jsxPragma = 'pluginCreator___pluginOptions___jsxPragma',
+  pluginCreator___pluginOptions___allExtensions = 'pluginCreator___pluginOptions___allExtensions',
   pluginCreator___pluginOptions___stylesProvider___injectFirst = 'pluginCreator___pluginOptions___stylesProvider___injectFirst',
   pluginCreator___pluginOptions___modules = 'pluginCreator___pluginOptions___modules',
   pluginCreator___pluginOptions___path = 'pluginCreator___pluginOptions___path',
@@ -7712,9 +7874,22 @@ export enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___base64Width = 'pluginOptions___base64Width',
+  pluginOptions___stripMetadata = 'pluginOptions___stripMetadata',
+  pluginOptions___defaultQuality = 'pluginOptions___defaultQuality',
+  pluginOptions___failOnError = 'pluginOptions___failOnError',
   pluginOptions___spaceId = 'pluginOptions___spaceId',
   pluginOptions___accessToken = 'pluginOptions___accessToken',
   pluginOptions___downloadLocal = 'pluginOptions___downloadLocal',
+  pluginOptions___host = 'pluginOptions___host',
+  pluginOptions___environment = 'pluginOptions___environment',
+  pluginOptions___forceFullSync = 'pluginOptions___forceFullSync',
+  pluginOptions___pageLimit = 'pluginOptions___pageLimit',
+  pluginOptions___assetDownloadWorkers = 'pluginOptions___assetDownloadWorkers',
+  pluginOptions___useNameForId = 'pluginOptions___useNameForId',
+  pluginOptions___isTSX = 'pluginOptions___isTSX',
+  pluginOptions___jsxPragma = 'pluginOptions___jsxPragma',
+  pluginOptions___allExtensions = 'pluginOptions___allExtensions',
   pluginOptions___stylesProvider___injectFirst = 'pluginOptions___stylesProvider___injectFirst',
   pluginOptions___modules = 'pluginOptions___modules',
   pluginOptions___path = 'pluginOptions___path',
@@ -7873,9 +8048,22 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 
 export type SitePluginPluginOptions = {
   __typename?: 'SitePluginPluginOptions';
+  base64Width?: Maybe<Scalars['Int']>;
+  stripMetadata?: Maybe<Scalars['Boolean']>;
+  defaultQuality?: Maybe<Scalars['Int']>;
+  failOnError?: Maybe<Scalars['Boolean']>;
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
   downloadLocal?: Maybe<Scalars['Boolean']>;
+  host?: Maybe<Scalars['String']>;
+  environment?: Maybe<Scalars['String']>;
+  forceFullSync?: Maybe<Scalars['Boolean']>;
+  pageLimit?: Maybe<Scalars['Int']>;
+  assetDownloadWorkers?: Maybe<Scalars['Int']>;
+  useNameForId?: Maybe<Scalars['Boolean']>;
+  isTSX?: Maybe<Scalars['Boolean']>;
+  jsxPragma?: Maybe<Scalars['String']>;
+  allExtensions?: Maybe<Scalars['Boolean']>;
   stylesProvider?: Maybe<SitePluginPluginOptionsStylesProvider>;
   modules?: Maybe<Array<Maybe<Scalars['String']>>>;
   path?: Maybe<Scalars['String']>;
@@ -7906,9 +8094,22 @@ export type SitePluginPluginOptions = {
 };
 
 export type SitePluginPluginOptionsFilterInput = {
+  base64Width?: Maybe<IntQueryOperatorInput>;
+  stripMetadata?: Maybe<BooleanQueryOperatorInput>;
+  defaultQuality?: Maybe<IntQueryOperatorInput>;
+  failOnError?: Maybe<BooleanQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
   downloadLocal?: Maybe<BooleanQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
+  environment?: Maybe<StringQueryOperatorInput>;
+  forceFullSync?: Maybe<BooleanQueryOperatorInput>;
+  pageLimit?: Maybe<IntQueryOperatorInput>;
+  assetDownloadWorkers?: Maybe<IntQueryOperatorInput>;
+  useNameForId?: Maybe<BooleanQueryOperatorInput>;
+  isTSX?: Maybe<BooleanQueryOperatorInput>;
+  jsxPragma?: Maybe<StringQueryOperatorInput>;
+  allExtensions?: Maybe<BooleanQueryOperatorInput>;
   stylesProvider?: Maybe<SitePluginPluginOptionsStylesProviderFilterInput>;
   modules?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
@@ -8012,95 +8213,15 @@ export type SitePluginSortInput = {
 
 export type SiteSiteMetadata = {
   __typename?: 'SiteSiteMetadata';
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   siteUrl?: Maybe<Scalars['String']>;
-  title?: Maybe<SiteSiteMetadataTitle>;
-  shortTitle?: Maybe<SiteSiteMetadataShortTitle>;
-  url?: Maybe<SiteSiteMetadataUrl>;
-  description?: Maybe<SiteSiteMetadataDescription>;
-  author?: Maybe<SiteSiteMetadataAuthor>;
-  icon?: Maybe<SiteSiteMetadataIcon>;
-  backgroundColor?: Maybe<Scalars['String']>;
-  themeColor?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataAuthor = {
-  __typename?: 'SiteSiteMetadataAuthor';
-  ja?: Maybe<Scalars['String']>;
-  en?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataAuthorFilterInput = {
-  ja?: Maybe<StringQueryOperatorInput>;
-  en?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SiteSiteMetadataDescription = {
-  __typename?: 'SiteSiteMetadataDescription';
-  ja?: Maybe<Scalars['String']>;
-  en?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataDescriptionFilterInput = {
-  ja?: Maybe<StringQueryOperatorInput>;
-  en?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSiteMetadataFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   siteUrl?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<SiteSiteMetadataTitleFilterInput>;
-  shortTitle?: Maybe<SiteSiteMetadataShortTitleFilterInput>;
-  url?: Maybe<SiteSiteMetadataUrlFilterInput>;
-  description?: Maybe<SiteSiteMetadataDescriptionFilterInput>;
-  author?: Maybe<SiteSiteMetadataAuthorFilterInput>;
-  icon?: Maybe<SiteSiteMetadataIconFilterInput>;
-  backgroundColor?: Maybe<StringQueryOperatorInput>;
-  themeColor?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SiteSiteMetadataIcon = {
-  __typename?: 'SiteSiteMetadataIcon';
-  src?: Maybe<Scalars['String']>;
-  sizes?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataIconFilterInput = {
-  src?: Maybe<StringQueryOperatorInput>;
-  sizes?: Maybe<StringQueryOperatorInput>;
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SiteSiteMetadataShortTitle = {
-  __typename?: 'SiteSiteMetadataShortTitle';
-  ja?: Maybe<Scalars['String']>;
-  en?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataShortTitleFilterInput = {
-  ja?: Maybe<StringQueryOperatorInput>;
-  en?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SiteSiteMetadataTitle = {
-  __typename?: 'SiteSiteMetadataTitle';
-  ja?: Maybe<Scalars['String']>;
-  en?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataTitleFilterInput = {
-  ja?: Maybe<StringQueryOperatorInput>;
-  en?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SiteSiteMetadataUrl = {
-  __typename?: 'SiteSiteMetadataUrl';
-  ja?: Maybe<Scalars['String']>;
-  en?: Maybe<Scalars['String']>;
-};
-
-export type SiteSiteMetadataUrlFilterInput = {
-  ja?: Maybe<StringQueryOperatorInput>;
-  en?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
@@ -8200,38 +8321,5 @@ export type BuildTimeDataQuery = (
   & { site?: Maybe<(
     { __typename?: 'Site' }
     & Pick<Site, 'buildTime'>
-  )> }
-);
-
-export type SiteMetaDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SiteMetaDataQuery = (
-  { __typename?: 'Query' }
-  & { site?: Maybe<(
-    { __typename?: 'Site' }
-    & { siteMetadata?: Maybe<(
-      { __typename?: 'SiteSiteMetadata' }
-      & Pick<SiteSiteMetadata, 'backgroundColor' | 'themeColor'>
-      & { title?: Maybe<(
-        { __typename?: 'SiteSiteMetadataTitle' }
-        & Pick<SiteSiteMetadataTitle, 'ja' | 'en'>
-      )>, shortTitle?: Maybe<(
-        { __typename?: 'SiteSiteMetadataShortTitle' }
-        & Pick<SiteSiteMetadataShortTitle, 'ja' | 'en'>
-      )>, url?: Maybe<(
-        { __typename?: 'SiteSiteMetadataUrl' }
-        & Pick<SiteSiteMetadataUrl, 'ja' | 'en'>
-      )>, description?: Maybe<(
-        { __typename?: 'SiteSiteMetadataDescription' }
-        & Pick<SiteSiteMetadataDescription, 'ja' | 'en'>
-      )>, author?: Maybe<(
-        { __typename?: 'SiteSiteMetadataAuthor' }
-        & Pick<SiteSiteMetadataAuthor, 'ja' | 'en'>
-      )>, icon?: Maybe<(
-        { __typename?: 'SiteSiteMetadataIcon' }
-        & Pick<SiteSiteMetadataIcon, 'src' | 'sizes' | 'type'>
-      )> }
-    )> }
   )> }
 );

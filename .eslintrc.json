@@ -22,13 +22,11 @@
   },
   "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "rules": {
-    "no-useless-constructor": "off",
-    "@typescript-eslint/no-useless-constructor": "error",
     "react/prop-types": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "import/order": ["error"],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "no-use-before-define": "off"
   },
   "settings": {
     "react": {
