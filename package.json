@@ -34,7 +34,7 @@
     "gatsby-plugin-offline": "^3.3.1",
     "gatsby-plugin-react-i18next": "^0.0.27",
     "gatsby-plugin-sharp": "^2.7.0",
-    "gatsby-source-filesystem": "^2.4.0",
+    "gatsby-source-filesystem": "^2.4.1",
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-sharp": "^2.5.21",
     "i18next": "^19.8.3",
