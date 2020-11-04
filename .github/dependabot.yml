@@ -15,4 +15,5 @@ updates:
       - 'bicstone'
     reviewers:
       - 'bicstone'
-    open-pull-requests-limit: 10
+    # 依存関係の数と更新頻度が多すぎるため、対応を検討中
+    open-pull-requests-limit: 0
