@@ -7,6 +7,7 @@ import Projects from '../components/Projects';
 import WhatIDos from '../components/WhatIDos';
 import Skills from '../components/Skills';
 import Contacts from '../components/Contacts';
+import Historys from '../components/Historys';
 
 const home: React.FC<PageProps> = ({ path }) => {
   return (
@@ -16,6 +17,7 @@ const home: React.FC<PageProps> = ({ path }) => {
       <Projects />
       <Skills />
       <Contacts />
+      <Historys />
     </Layout>
   );
 };
