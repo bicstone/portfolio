@@ -1367,6 +1367,491 @@ export type ContentfulFluidFilterInput = {
   sizes?: Maybe<StringQueryOperatorInput>;
 };
 
+export type ContentfulHistorys = Node & {
+  __typename?: 'ContentfulHistorys';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  date?: Maybe<Scalars['Date']>;
+  title?: Maybe<Scalars['String']>;
+  subheader?: Maybe<Scalars['String']>;
+  image?: Maybe<ContentfulHistorysImageTextNode>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulHistorysSys>;
+  node_locale?: Maybe<Scalars['String']>;
+  childContentfulHistorysImageTextNode?: Maybe<ContentfulHistorysImageTextNode>;
+};
+
+
+export type ContentfulHistorysDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulHistorysCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulHistorysUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulHistorysConnection = {
+  __typename?: 'ContentfulHistorysConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulHistorysEdge>;
+  nodes: Array<ContentfulHistorys>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulHistorysGroupConnection>;
+};
+
+
+export type ContentfulHistorysConnectionDistinctArgs = {
+  field: ContentfulHistorysFieldsEnum;
+};
+
+
+export type ContentfulHistorysConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulHistorysFieldsEnum;
+};
+
+export type ContentfulHistorysEdge = {
+  __typename?: 'ContentfulHistorysEdge';
+  next?: Maybe<ContentfulHistorys>;
+  node: ContentfulHistorys;
+  previous?: Maybe<ContentfulHistorys>;
+};
+
+export enum ContentfulHistorysFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  date = 'date',
+  title = 'title',
+  subheader = 'subheader',
+  image___id = 'image___id',
+  image___parent___id = 'image___parent___id',
+  image___parent___parent___id = 'image___parent___parent___id',
+  image___parent___parent___children = 'image___parent___parent___children',
+  image___parent___children = 'image___parent___children',
+  image___parent___children___id = 'image___parent___children___id',
+  image___parent___children___children = 'image___parent___children___children',
+  image___parent___internal___content = 'image___parent___internal___content',
+  image___parent___internal___contentDigest = 'image___parent___internal___contentDigest',
+  image___parent___internal___description = 'image___parent___internal___description',
+  image___parent___internal___fieldOwners = 'image___parent___internal___fieldOwners',
+  image___parent___internal___ignoreType = 'image___parent___internal___ignoreType',
+  image___parent___internal___mediaType = 'image___parent___internal___mediaType',
+  image___parent___internal___owner = 'image___parent___internal___owner',
+  image___parent___internal___type = 'image___parent___internal___type',
+  image___children = 'image___children',
+  image___children___id = 'image___children___id',
+  image___children___parent___id = 'image___children___parent___id',
+  image___children___parent___children = 'image___children___parent___children',
+  image___children___children = 'image___children___children',
+  image___children___children___id = 'image___children___children___id',
+  image___children___children___children = 'image___children___children___children',
+  image___children___internal___content = 'image___children___internal___content',
+  image___children___internal___contentDigest = 'image___children___internal___contentDigest',
+  image___children___internal___description = 'image___children___internal___description',
+  image___children___internal___fieldOwners = 'image___children___internal___fieldOwners',
+  image___children___internal___ignoreType = 'image___children___internal___ignoreType',
+  image___children___internal___mediaType = 'image___children___internal___mediaType',
+  image___children___internal___owner = 'image___children___internal___owner',
+  image___children___internal___type = 'image___children___internal___type',
+  image___internal___content = 'image___internal___content',
+  image___internal___contentDigest = 'image___internal___contentDigest',
+  image___internal___description = 'image___internal___description',
+  image___internal___fieldOwners = 'image___internal___fieldOwners',
+  image___internal___ignoreType = 'image___internal___ignoreType',
+  image___internal___mediaType = 'image___internal___mediaType',
+  image___internal___owner = 'image___internal___owner',
+  image___internal___type = 'image___internal___type',
+  image___image = 'image___image',
+  image___sys___type = 'image___sys___type',
+  spaceId = 'spaceId',
+  contentful_id = 'contentful_id',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
+  sys___revision = 'sys___revision',
+  sys___contentType___sys___type = 'sys___contentType___sys___type',
+  sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
+  sys___contentType___sys___id = 'sys___contentType___sys___id',
+  node_locale = 'node_locale',
+  childContentfulHistorysImageTextNode___id = 'childContentfulHistorysImageTextNode___id',
+  childContentfulHistorysImageTextNode___parent___id = 'childContentfulHistorysImageTextNode___parent___id',
+  childContentfulHistorysImageTextNode___parent___parent___id = 'childContentfulHistorysImageTextNode___parent___parent___id',
+  childContentfulHistorysImageTextNode___parent___parent___children = 'childContentfulHistorysImageTextNode___parent___parent___children',
+  childContentfulHistorysImageTextNode___parent___children = 'childContentfulHistorysImageTextNode___parent___children',
+  childContentfulHistorysImageTextNode___parent___children___id = 'childContentfulHistorysImageTextNode___parent___children___id',
+  childContentfulHistorysImageTextNode___parent___children___children = 'childContentfulHistorysImageTextNode___parent___children___children',
+  childContentfulHistorysImageTextNode___parent___internal___content = 'childContentfulHistorysImageTextNode___parent___internal___content',
+  childContentfulHistorysImageTextNode___parent___internal___contentDigest = 'childContentfulHistorysImageTextNode___parent___internal___contentDigest',
+  childContentfulHistorysImageTextNode___parent___internal___description = 'childContentfulHistorysImageTextNode___parent___internal___description',
+  childContentfulHistorysImageTextNode___parent___internal___fieldOwners = 'childContentfulHistorysImageTextNode___parent___internal___fieldOwners',
+  childContentfulHistorysImageTextNode___parent___internal___ignoreType = 'childContentfulHistorysImageTextNode___parent___internal___ignoreType',
+  childContentfulHistorysImageTextNode___parent___internal___mediaType = 'childContentfulHistorysImageTextNode___parent___internal___mediaType',
+  childContentfulHistorysImageTextNode___parent___internal___owner = 'childContentfulHistorysImageTextNode___parent___internal___owner',
+  childContentfulHistorysImageTextNode___parent___internal___type = 'childContentfulHistorysImageTextNode___parent___internal___type',
+  childContentfulHistorysImageTextNode___children = 'childContentfulHistorysImageTextNode___children',
+  childContentfulHistorysImageTextNode___children___id = 'childContentfulHistorysImageTextNode___children___id',
+  childContentfulHistorysImageTextNode___children___parent___id = 'childContentfulHistorysImageTextNode___children___parent___id',
+  childContentfulHistorysImageTextNode___children___parent___children = 'childContentfulHistorysImageTextNode___children___parent___children',
+  childContentfulHistorysImageTextNode___children___children = 'childContentfulHistorysImageTextNode___children___children',
+  childContentfulHistorysImageTextNode___children___children___id = 'childContentfulHistorysImageTextNode___children___children___id',
+  childContentfulHistorysImageTextNode___children___children___children = 'childContentfulHistorysImageTextNode___children___children___children',
+  childContentfulHistorysImageTextNode___children___internal___content = 'childContentfulHistorysImageTextNode___children___internal___content',
+  childContentfulHistorysImageTextNode___children___internal___contentDigest = 'childContentfulHistorysImageTextNode___children___internal___contentDigest',
+  childContentfulHistorysImageTextNode___children___internal___description = 'childContentfulHistorysImageTextNode___children___internal___description',
+  childContentfulHistorysImageTextNode___children___internal___fieldOwners = 'childContentfulHistorysImageTextNode___children___internal___fieldOwners',
+  childContentfulHistorysImageTextNode___children___internal___ignoreType = 'childContentfulHistorysImageTextNode___children___internal___ignoreType',
+  childContentfulHistorysImageTextNode___children___internal___mediaType = 'childContentfulHistorysImageTextNode___children___internal___mediaType',
+  childContentfulHistorysImageTextNode___children___internal___owner = 'childContentfulHistorysImageTextNode___children___internal___owner',
+  childContentfulHistorysImageTextNode___children___internal___type = 'childContentfulHistorysImageTextNode___children___internal___type',
+  childContentfulHistorysImageTextNode___internal___content = 'childContentfulHistorysImageTextNode___internal___content',
+  childContentfulHistorysImageTextNode___internal___contentDigest = 'childContentfulHistorysImageTextNode___internal___contentDigest',
+  childContentfulHistorysImageTextNode___internal___description = 'childContentfulHistorysImageTextNode___internal___description',
+  childContentfulHistorysImageTextNode___internal___fieldOwners = 'childContentfulHistorysImageTextNode___internal___fieldOwners',
+  childContentfulHistorysImageTextNode___internal___ignoreType = 'childContentfulHistorysImageTextNode___internal___ignoreType',
+  childContentfulHistorysImageTextNode___internal___mediaType = 'childContentfulHistorysImageTextNode___internal___mediaType',
+  childContentfulHistorysImageTextNode___internal___owner = 'childContentfulHistorysImageTextNode___internal___owner',
+  childContentfulHistorysImageTextNode___internal___type = 'childContentfulHistorysImageTextNode___internal___type',
+  childContentfulHistorysImageTextNode___image = 'childContentfulHistorysImageTextNode___image',
+  childContentfulHistorysImageTextNode___sys___type = 'childContentfulHistorysImageTextNode___sys___type'
+}
+
+export type ContentfulHistorysFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  subheader?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<ContentfulHistorysImageTextNodeFilterInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulHistorysSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  childContentfulHistorysImageTextNode?: Maybe<ContentfulHistorysImageTextNodeFilterInput>;
+};
+
+export type ContentfulHistorysGroupConnection = {
+  __typename?: 'ContentfulHistorysGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulHistorysEdge>;
+  nodes: Array<ContentfulHistorys>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulHistorysImageTextNode = Node & {
+  __typename?: 'contentfulHistorysImageTextNode';
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  image?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulHistorysImageTextNodeSys>;
+};
+
+export type ContentfulHistorysImageTextNodeConnection = {
+  __typename?: 'contentfulHistorysImageTextNodeConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulHistorysImageTextNodeEdge>;
+  nodes: Array<ContentfulHistorysImageTextNode>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulHistorysImageTextNodeGroupConnection>;
+};
+
+
+export type ContentfulHistorysImageTextNodeConnectionDistinctArgs = {
+  field: ContentfulHistorysImageTextNodeFieldsEnum;
+};
+
+
+export type ContentfulHistorysImageTextNodeConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulHistorysImageTextNodeFieldsEnum;
+};
+
+export type ContentfulHistorysImageTextNodeEdge = {
+  __typename?: 'contentfulHistorysImageTextNodeEdge';
+  next?: Maybe<ContentfulHistorysImageTextNode>;
+  node: ContentfulHistorysImageTextNode;
+  previous?: Maybe<ContentfulHistorysImageTextNode>;
+};
+
+export enum ContentfulHistorysImageTextNodeFieldsEnum {
+  id = 'id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type',
+  image = 'image',
+  sys___type = 'sys___type'
+}
+
+export type ContentfulHistorysImageTextNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  image?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulHistorysImageTextNodeSysFilterInput>;
+};
+
+export type ContentfulHistorysImageTextNodeGroupConnection = {
+  __typename?: 'contentfulHistorysImageTextNodeGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulHistorysImageTextNodeEdge>;
+  nodes: Array<ContentfulHistorysImageTextNode>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulHistorysImageTextNodeSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulHistorysImageTextNodeFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulHistorysImageTextNodeSys = {
+  __typename?: 'contentfulHistorysImageTextNodeSys';
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulHistorysImageTextNodeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulHistorysSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulHistorysFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulHistorysSys = {
+  __typename?: 'ContentfulHistorysSys';
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulHistorysSysContentType>;
+};
+
+export type ContentfulHistorysSysContentType = {
+  __typename?: 'ContentfulHistorysSysContentType';
+  sys?: Maybe<ContentfulHistorysSysContentTypeSys>;
+};
+
+export type ContentfulHistorysSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulHistorysSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulHistorysSysContentTypeSys = {
+  __typename?: 'ContentfulHistorysSysContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulHistorysSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulHistorysSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulHistorysSysContentTypeFilterInput>;
+};
+
 export enum ContentfulImageCropFocus {
   TOP = 'TOP',
   TOP_LEFT = 'TOP_LEFT',
@@ -6115,6 +6600,10 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
+  contentfulHistorysImageTextNode?: Maybe<ContentfulHistorysImageTextNode>;
+  allContentfulHistorysImageTextNode: ContentfulHistorysImageTextNodeConnection;
+  contentfulHistorys?: Maybe<ContentfulHistorys>;
+  allContentfulHistorys: ContentfulHistorysConnection;
   contentfulQualifications?: Maybe<ContentfulQualifications>;
   allContentfulQualifications: ContentfulQualificationsConnection;
   contentfulAssigne?: Maybe<ContentfulAssigne>;
@@ -6331,6 +6820,51 @@ export type QueryContentfulAssetArgs = {
 export type QueryAllContentfulAssetArgs = {
   filter?: Maybe<ContentfulAssetFilterInput>;
   sort?: Maybe<ContentfulAssetSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulHistorysImageTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  image?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulHistorysImageTextNodeSysFilterInput>;
+};
+
+
+export type QueryAllContentfulHistorysImageTextNodeArgs = {
+  filter?: Maybe<ContentfulHistorysImageTextNodeFilterInput>;
+  sort?: Maybe<ContentfulHistorysImageTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulHistorysArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  subheader?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<ContentfulHistorysImageTextNodeFilterInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulHistorysSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  childContentfulHistorysImageTextNode?: Maybe<ContentfulHistorysImageTextNodeFilterInput>;
+};
+
+
+export type QueryAllContentfulHistorysArgs = {
+  filter?: Maybe<ContentfulHistorysFilterInput>;
+  sort?: Maybe<ContentfulHistorysSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -6980,6 +7514,7 @@ export type SitePageContextI18nResourcesEnTranslation = {
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeader>;
   hello?: Maybe<SitePageContextI18nResourcesEnTranslationHello>;
   hello_message?: Maybe<Scalars['String']>;
+  historys?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys>;
   not_found?: Maybe<SitePageContextI18nResourcesEnTranslationNot_Found>;
   project?: Maybe<SitePageContextI18nResourcesEnTranslationProject>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesEnTranslationSiteMetadata>;
@@ -7061,6 +7596,7 @@ export type SitePageContextI18nResourcesEnTranslationFilterInput = {
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeaderFilterInput>;
   hello?: Maybe<SitePageContextI18nResourcesEnTranslationHelloFilterInput>;
   hello_message?: Maybe<StringQueryOperatorInput>;
+  historys?: Maybe<SitePageContextI18nResourcesEnTranslationHistorysFilterInput>;
   not_found?: Maybe<SitePageContextI18nResourcesEnTranslationNot_FoundFilterInput>;
   project?: Maybe<SitePageContextI18nResourcesEnTranslationProjectFilterInput>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesEnTranslationSiteMetadataFilterInput>;
@@ -7125,6 +7661,117 @@ export type SitePageContextI18nResourcesEnTranslationHelloTitleFilterInput = {
   _5?: Maybe<StringQueryOperatorInput>;
   _6?: Maybe<StringQueryOperatorInput>;
   pref?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys';
+  _1996?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_1996>;
+  _2003?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2003>;
+  _2007?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2007>;
+  _2008?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2008>;
+  _2010?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2010>;
+  _2011?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2011>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_1996 = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys_1996';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_1996FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2003 = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys_2003';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2003FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2007 = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys_2007';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2007FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2008 = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys_2008';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2008FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2010 = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys_2010';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2010FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2011 = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys_2011';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorys_2011FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationHistorysFilterInput = {
+  _1996?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_1996FilterInput>;
+  _2003?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2003FilterInput>;
+  _2007?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2007FilterInput>;
+  _2008?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2008FilterInput>;
+  _2010?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2010FilterInput>;
+  _2011?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys_2011FilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationNot_Found = {
@@ -7242,6 +7889,7 @@ export type SitePageContextI18nResourcesJaTranslation = {
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeader>;
   hello?: Maybe<SitePageContextI18nResourcesJaTranslationHello>;
   hello_message?: Maybe<Scalars['String']>;
+  historys?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys>;
   not_found?: Maybe<SitePageContextI18nResourcesJaTranslationNot_Found>;
   project?: Maybe<SitePageContextI18nResourcesJaTranslationProject>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesJaTranslationSiteMetadata>;
@@ -7323,6 +7971,7 @@ export type SitePageContextI18nResourcesJaTranslationFilterInput = {
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeaderFilterInput>;
   hello?: Maybe<SitePageContextI18nResourcesJaTranslationHelloFilterInput>;
   hello_message?: Maybe<StringQueryOperatorInput>;
+  historys?: Maybe<SitePageContextI18nResourcesJaTranslationHistorysFilterInput>;
   not_found?: Maybe<SitePageContextI18nResourcesJaTranslationNot_FoundFilterInput>;
   project?: Maybe<SitePageContextI18nResourcesJaTranslationProjectFilterInput>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesJaTranslationSiteMetadataFilterInput>;
@@ -7387,6 +8036,117 @@ export type SitePageContextI18nResourcesJaTranslationHelloTitleFilterInput = {
   _5?: Maybe<StringQueryOperatorInput>;
   _6?: Maybe<StringQueryOperatorInput>;
   pref?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys';
+  _1996?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_1996>;
+  _2003?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2003>;
+  _2007?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2007>;
+  _2008?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2008>;
+  _2010?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2010>;
+  _2011?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2011>;
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_1996 = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys_1996';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_1996FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2003 = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys_2003';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2003FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2007 = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys_2007';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2007FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2008 = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys_2008';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2008FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2010 = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys_2010';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2010FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2011 = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys_2011';
+  age?: Maybe<Scalars['String']>;
+  subTitle?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  year?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorys_2011FilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
+  subTitle?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  year?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationHistorysFilterInput = {
+  _1996?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_1996FilterInput>;
+  _2003?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2003FilterInput>;
+  _2007?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2007FilterInput>;
+  _2008?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2008FilterInput>;
+  _2010?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2010FilterInput>;
+  _2011?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys_2011FilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationNot_Found = {
@@ -8242,6 +9002,27 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type HistoriesDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HistoriesDataQuery = (
+  { __typename?: 'Query' }
+  & { allContentfulHistorys: (
+    { __typename?: 'ContentfulHistorysConnection' }
+    & { edges: Array<(
+      { __typename?: 'ContentfulHistorysEdge' }
+      & { node: (
+        { __typename?: 'ContentfulHistorys' }
+        & Pick<ContentfulHistorys, 'id' | 'node_locale' | 'date' | 'title' | 'subheader'>
+        & { image?: Maybe<(
+          { __typename?: 'contentfulHistorysImageTextNode' }
+          & Pick<ContentfulHistorysImageTextNode, 'image'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
 
 export type ProjectDataQueryVariables = Exact<{ [key: string]: never; }>;
 

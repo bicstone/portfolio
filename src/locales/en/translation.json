@@ -48,6 +48,11 @@
     }
   },
   "hello-message": "オオイシタカノリと申します。Web開発者 / 組込みシステム開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",
+  "historys": {
+    "date": "{{date}}",
+    "title": "HISTORY",
+    "age": "{{age}}"
+  },
   "not-found": {
     "back-to-home": "Back to home",
     "message": "Page not found.",
