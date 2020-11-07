@@ -26,12 +26,12 @@ const useStyles = makeStyles(() => ({
   cardContent: {
     paddingTop: 0,
   },
+  timeline: {
+    padding: 0,
+  },
   timelineDot: {
     borderStyle: 'none',
     borderWidth: 0,
-  },
-  timelineItem: {
-    padding: 0,
   },
   timelineContent: {
     flex: 3,
@@ -73,11 +73,11 @@ const historys: React.FC = () => {
         {t('historys.title')}
       </Typography>
       <Grid container>
-        <Timeline>
+        <Timeline className={classes.timeline}>
           {allContentfulHistorys.edges.map(
             ({ node }, index, { length }) =>
               node.node_locale === language && (
-                <TimelineItem key={node.id} className={classes.timelineItem}>
+                <TimelineItem key={node.id}>
                   <TimelineOppositeContent className={classes.timelineOppositeContent}>
                     <Typography variant="body2" color="textSecondary">
                       {t('historys.date', { date: node.date })}
