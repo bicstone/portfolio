@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Projects: React.FC = () => {
+const OSSes: React.FC = () => {
   const classes = useStyles();
   const { t, language } = useI18next();
   const { allContentfulOsSes }: OsSesDataQuery = useStaticQuery(
@@ -140,4 +140,4 @@ const Projects: React.FC = () => {
   );
 };
 
-export default Projects;
+export default OSSes;
