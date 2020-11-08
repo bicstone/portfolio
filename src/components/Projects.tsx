@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
@@ -11,11 +12,11 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  SvgIcon,
 } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import DevicesIcon from '@material-ui/icons/Devices';
-import { ProjectDataQuery } from '../types/graphqlTypes';
+import { ProjectsDataQuery } from '../types/graphqlTypes';
 
 type Tag = { name?: string | null } | null | undefined;
 type Tags = Array<Tag> | null | undefined;
@@ -42,22 +43,31 @@ const Projects: React.FC = () => {
     setExpanded(isExpanded ? id : false);
   };
 
-  const subHeader = (expanded: boolean, roles: Tags, languages: Tags, systems: Tags, tools: Tags) =>
+  const subHeader = (
+    expanded: boolean,
+    roles: Tags,
+    languages: Tags,
+    systems: Tags,
+    tools: Tags,
+    assigns: Tags,
+  ) =>
     React.useMemo(() => {
       const joinTags = (tags: Tags) => tags?.map(tag => tag?.name).join(' / ');
 
       if (expanded) {
         return `
-        ${joinTags(roles)} / ${joinTags(languages)} / ${joinTags(systems)} / ${joinTags(tools)}
+        ${joinTags(roles)} / ${joinTags(assigns)} / ${joinTags(languages)} / ${joinTags(
+          systems,
+        )} / ${joinTags(tools)}
         `;
       }
       return `${joinTags(roles)} / ${joinTags(languages)} / ${joinTags(systems)}`;
     }, [expanded, roles, languages, systems, tools]);
 
-  const { allContentfulProject }: ProjectDataQuery = useStaticQuery(
+  const { allContentfulProjects }: ProjectsDataQuery = useStaticQuery(
     graphql`
-      query ProjectData {
-        allContentfulProject {
+      query ProjectsData {
+        allContentfulProjects {
           edges {
             node {
               id
@@ -78,6 +88,12 @@ const Projects: React.FC = () => {
               tools {
                 name
               }
+              assigns {
+                name
+              }
+              image {
+                image
+              }
             }
           }
         }
@@ -92,7 +108,7 @@ const Projects: React.FC = () => {
       </Typography>
       <Grid container spacing={2} className={classes.mainGrid} justify="center" alignItems="center">
         <Grid item sm={12}>
-          {allContentfulProject.edges.map(
+          {allContentfulProjects.edges.map(
             ({ node }) =>
               node.node_locale === language && (
                 <Accordion expanded={expanded === node.id} onChange={handleChange(node.id)}>
@@ -104,9 +120,11 @@ const Projects: React.FC = () => {
                     <CardHeader
                       className={classes.cardHeader}
                       avatar={
-                        <Avatar>
-                          <DevicesIcon />
-                        </Avatar>
+                        node?.image?.image && (
+                          <Avatar>
+                            <SvgIcon>{parse(node.image.image)}</SvgIcon>
+                          </Avatar>
+                        )
                       }
                       title={
                         <Typography component="h3" variant="h6">
@@ -119,6 +137,7 @@ const Projects: React.FC = () => {
                         node.languages,
                         node.systems,
                         node.tools,
+                        node.assigns,
                       )}
                     />
                   </AccordionSummary>
