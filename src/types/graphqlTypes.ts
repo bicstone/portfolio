@@ -35,6 +35,7 @@ export type ContentfulAsset = Node & {
   description?: Maybe<Scalars['String']>;
   node_locale?: Maybe<Scalars['String']>;
   sys?: Maybe<ContentfulAssetSys>;
+  localFile?: Maybe<File>;
   fixed?: Maybe<ContentfulFixed>;
   /** @deprecated Resolutions was deprecated in Gatsby v2. It's been renamed to "fixed" https://example.com/write-docs-and-fix-this-example-link */
   resolutions?: Maybe<ContentfulResolutions>;
@@ -249,6 +250,146 @@ export enum ContentfulAssetFieldsEnum {
   node_locale = 'node_locale',
   sys___type = 'sys___type',
   sys___revision = 'sys___revision',
+  localFile___sourceInstanceName = 'localFile___sourceInstanceName',
+  localFile___absolutePath = 'localFile___absolutePath',
+  localFile___relativePath = 'localFile___relativePath',
+  localFile___extension = 'localFile___extension',
+  localFile___size = 'localFile___size',
+  localFile___prettySize = 'localFile___prettySize',
+  localFile___modifiedTime = 'localFile___modifiedTime',
+  localFile___accessTime = 'localFile___accessTime',
+  localFile___changeTime = 'localFile___changeTime',
+  localFile___birthTime = 'localFile___birthTime',
+  localFile___root = 'localFile___root',
+  localFile___dir = 'localFile___dir',
+  localFile___base = 'localFile___base',
+  localFile___ext = 'localFile___ext',
+  localFile___name = 'localFile___name',
+  localFile___relativeDirectory = 'localFile___relativeDirectory',
+  localFile___dev = 'localFile___dev',
+  localFile___mode = 'localFile___mode',
+  localFile___nlink = 'localFile___nlink',
+  localFile___uid = 'localFile___uid',
+  localFile___gid = 'localFile___gid',
+  localFile___rdev = 'localFile___rdev',
+  localFile___ino = 'localFile___ino',
+  localFile___atimeMs = 'localFile___atimeMs',
+  localFile___mtimeMs = 'localFile___mtimeMs',
+  localFile___ctimeMs = 'localFile___ctimeMs',
+  localFile___atime = 'localFile___atime',
+  localFile___mtime = 'localFile___mtime',
+  localFile___ctime = 'localFile___ctime',
+  localFile___birthtime = 'localFile___birthtime',
+  localFile___birthtimeMs = 'localFile___birthtimeMs',
+  localFile___blksize = 'localFile___blksize',
+  localFile___blocks = 'localFile___blocks',
+  localFile___url = 'localFile___url',
+  localFile___childImageSharp___fixed___base64 = 'localFile___childImageSharp___fixed___base64',
+  localFile___childImageSharp___fixed___tracedSVG = 'localFile___childImageSharp___fixed___tracedSVG',
+  localFile___childImageSharp___fixed___aspectRatio = 'localFile___childImageSharp___fixed___aspectRatio',
+  localFile___childImageSharp___fixed___width = 'localFile___childImageSharp___fixed___width',
+  localFile___childImageSharp___fixed___height = 'localFile___childImageSharp___fixed___height',
+  localFile___childImageSharp___fixed___src = 'localFile___childImageSharp___fixed___src',
+  localFile___childImageSharp___fixed___srcSet = 'localFile___childImageSharp___fixed___srcSet',
+  localFile___childImageSharp___fixed___srcWebp = 'localFile___childImageSharp___fixed___srcWebp',
+  localFile___childImageSharp___fixed___srcSetWebp = 'localFile___childImageSharp___fixed___srcSetWebp',
+  localFile___childImageSharp___fixed___originalName = 'localFile___childImageSharp___fixed___originalName',
+  localFile___childImageSharp___resolutions___base64 = 'localFile___childImageSharp___resolutions___base64',
+  localFile___childImageSharp___resolutions___tracedSVG = 'localFile___childImageSharp___resolutions___tracedSVG',
+  localFile___childImageSharp___resolutions___aspectRatio = 'localFile___childImageSharp___resolutions___aspectRatio',
+  localFile___childImageSharp___resolutions___width = 'localFile___childImageSharp___resolutions___width',
+  localFile___childImageSharp___resolutions___height = 'localFile___childImageSharp___resolutions___height',
+  localFile___childImageSharp___resolutions___src = 'localFile___childImageSharp___resolutions___src',
+  localFile___childImageSharp___resolutions___srcSet = 'localFile___childImageSharp___resolutions___srcSet',
+  localFile___childImageSharp___resolutions___srcWebp = 'localFile___childImageSharp___resolutions___srcWebp',
+  localFile___childImageSharp___resolutions___srcSetWebp = 'localFile___childImageSharp___resolutions___srcSetWebp',
+  localFile___childImageSharp___resolutions___originalName = 'localFile___childImageSharp___resolutions___originalName',
+  localFile___childImageSharp___fluid___base64 = 'localFile___childImageSharp___fluid___base64',
+  localFile___childImageSharp___fluid___tracedSVG = 'localFile___childImageSharp___fluid___tracedSVG',
+  localFile___childImageSharp___fluid___aspectRatio = 'localFile___childImageSharp___fluid___aspectRatio',
+  localFile___childImageSharp___fluid___src = 'localFile___childImageSharp___fluid___src',
+  localFile___childImageSharp___fluid___srcSet = 'localFile___childImageSharp___fluid___srcSet',
+  localFile___childImageSharp___fluid___srcWebp = 'localFile___childImageSharp___fluid___srcWebp',
+  localFile___childImageSharp___fluid___srcSetWebp = 'localFile___childImageSharp___fluid___srcSetWebp',
+  localFile___childImageSharp___fluid___sizes = 'localFile___childImageSharp___fluid___sizes',
+  localFile___childImageSharp___fluid___originalImg = 'localFile___childImageSharp___fluid___originalImg',
+  localFile___childImageSharp___fluid___originalName = 'localFile___childImageSharp___fluid___originalName',
+  localFile___childImageSharp___fluid___presentationWidth = 'localFile___childImageSharp___fluid___presentationWidth',
+  localFile___childImageSharp___fluid___presentationHeight = 'localFile___childImageSharp___fluid___presentationHeight',
+  localFile___childImageSharp___sizes___base64 = 'localFile___childImageSharp___sizes___base64',
+  localFile___childImageSharp___sizes___tracedSVG = 'localFile___childImageSharp___sizes___tracedSVG',
+  localFile___childImageSharp___sizes___aspectRatio = 'localFile___childImageSharp___sizes___aspectRatio',
+  localFile___childImageSharp___sizes___src = 'localFile___childImageSharp___sizes___src',
+  localFile___childImageSharp___sizes___srcSet = 'localFile___childImageSharp___sizes___srcSet',
+  localFile___childImageSharp___sizes___srcWebp = 'localFile___childImageSharp___sizes___srcWebp',
+  localFile___childImageSharp___sizes___srcSetWebp = 'localFile___childImageSharp___sizes___srcSetWebp',
+  localFile___childImageSharp___sizes___sizes = 'localFile___childImageSharp___sizes___sizes',
+  localFile___childImageSharp___sizes___originalImg = 'localFile___childImageSharp___sizes___originalImg',
+  localFile___childImageSharp___sizes___originalName = 'localFile___childImageSharp___sizes___originalName',
+  localFile___childImageSharp___sizes___presentationWidth = 'localFile___childImageSharp___sizes___presentationWidth',
+  localFile___childImageSharp___sizes___presentationHeight = 'localFile___childImageSharp___sizes___presentationHeight',
+  localFile___childImageSharp___gatsbyImage___imageData = 'localFile___childImageSharp___gatsbyImage___imageData',
+  localFile___childImageSharp___original___width = 'localFile___childImageSharp___original___width',
+  localFile___childImageSharp___original___height = 'localFile___childImageSharp___original___height',
+  localFile___childImageSharp___original___src = 'localFile___childImageSharp___original___src',
+  localFile___childImageSharp___resize___src = 'localFile___childImageSharp___resize___src',
+  localFile___childImageSharp___resize___tracedSVG = 'localFile___childImageSharp___resize___tracedSVG',
+  localFile___childImageSharp___resize___width = 'localFile___childImageSharp___resize___width',
+  localFile___childImageSharp___resize___height = 'localFile___childImageSharp___resize___height',
+  localFile___childImageSharp___resize___aspectRatio = 'localFile___childImageSharp___resize___aspectRatio',
+  localFile___childImageSharp___resize___originalName = 'localFile___childImageSharp___resize___originalName',
+  localFile___childImageSharp___id = 'localFile___childImageSharp___id',
+  localFile___childImageSharp___parent___id = 'localFile___childImageSharp___parent___id',
+  localFile___childImageSharp___parent___children = 'localFile___childImageSharp___parent___children',
+  localFile___childImageSharp___children = 'localFile___childImageSharp___children',
+  localFile___childImageSharp___children___id = 'localFile___childImageSharp___children___id',
+  localFile___childImageSharp___children___children = 'localFile___childImageSharp___children___children',
+  localFile___childImageSharp___internal___content = 'localFile___childImageSharp___internal___content',
+  localFile___childImageSharp___internal___contentDigest = 'localFile___childImageSharp___internal___contentDigest',
+  localFile___childImageSharp___internal___description = 'localFile___childImageSharp___internal___description',
+  localFile___childImageSharp___internal___fieldOwners = 'localFile___childImageSharp___internal___fieldOwners',
+  localFile___childImageSharp___internal___ignoreType = 'localFile___childImageSharp___internal___ignoreType',
+  localFile___childImageSharp___internal___mediaType = 'localFile___childImageSharp___internal___mediaType',
+  localFile___childImageSharp___internal___owner = 'localFile___childImageSharp___internal___owner',
+  localFile___childImageSharp___internal___type = 'localFile___childImageSharp___internal___type',
+  localFile___id = 'localFile___id',
+  localFile___parent___id = 'localFile___parent___id',
+  localFile___parent___parent___id = 'localFile___parent___parent___id',
+  localFile___parent___parent___children = 'localFile___parent___parent___children',
+  localFile___parent___children = 'localFile___parent___children',
+  localFile___parent___children___id = 'localFile___parent___children___id',
+  localFile___parent___children___children = 'localFile___parent___children___children',
+  localFile___parent___internal___content = 'localFile___parent___internal___content',
+  localFile___parent___internal___contentDigest = 'localFile___parent___internal___contentDigest',
+  localFile___parent___internal___description = 'localFile___parent___internal___description',
+  localFile___parent___internal___fieldOwners = 'localFile___parent___internal___fieldOwners',
+  localFile___parent___internal___ignoreType = 'localFile___parent___internal___ignoreType',
+  localFile___parent___internal___mediaType = 'localFile___parent___internal___mediaType',
+  localFile___parent___internal___owner = 'localFile___parent___internal___owner',
+  localFile___parent___internal___type = 'localFile___parent___internal___type',
+  localFile___children = 'localFile___children',
+  localFile___children___id = 'localFile___children___id',
+  localFile___children___parent___id = 'localFile___children___parent___id',
+  localFile___children___parent___children = 'localFile___children___parent___children',
+  localFile___children___children = 'localFile___children___children',
+  localFile___children___children___id = 'localFile___children___children___id',
+  localFile___children___children___children = 'localFile___children___children___children',
+  localFile___children___internal___content = 'localFile___children___internal___content',
+  localFile___children___internal___contentDigest = 'localFile___children___internal___contentDigest',
+  localFile___children___internal___description = 'localFile___children___internal___description',
+  localFile___children___internal___fieldOwners = 'localFile___children___internal___fieldOwners',
+  localFile___children___internal___ignoreType = 'localFile___children___internal___ignoreType',
+  localFile___children___internal___mediaType = 'localFile___children___internal___mediaType',
+  localFile___children___internal___owner = 'localFile___children___internal___owner',
+  localFile___children___internal___type = 'localFile___children___internal___type',
+  localFile___internal___content = 'localFile___internal___content',
+  localFile___internal___contentDigest = 'localFile___internal___contentDigest',
+  localFile___internal___description = 'localFile___internal___description',
+  localFile___internal___fieldOwners = 'localFile___internal___fieldOwners',
+  localFile___internal___ignoreType = 'localFile___internal___ignoreType',
+  localFile___internal___mediaType = 'localFile___internal___mediaType',
+  localFile___internal___owner = 'localFile___internal___owner',
+  localFile___internal___type = 'localFile___internal___type',
   fixed___base64 = 'fixed___base64',
   fixed___tracedSVG = 'fixed___tracedSVG',
   fixed___aspectRatio = 'fixed___aspectRatio',
@@ -342,6 +483,7 @@ export type ContentfulAssetFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulAssetSysFilterInput>;
+  localFile?: Maybe<FileFilterInput>;
   fixed?: Maybe<ContentfulFixedFilterInput>;
   resolutions?: Maybe<ContentfulResolutionsFilterInput>;
   fluid?: Maybe<ContentfulFluidFilterInput>;
@@ -1012,6 +1154,42 @@ export enum ContentfulAssigneFieldsEnum {
   osses___mainImage___node_locale = 'osses___mainImage___node_locale',
   osses___mainImage___sys___type = 'osses___mainImage___sys___type',
   osses___mainImage___sys___revision = 'osses___mainImage___sys___revision',
+  osses___mainImage___localFile___sourceInstanceName = 'osses___mainImage___localFile___sourceInstanceName',
+  osses___mainImage___localFile___absolutePath = 'osses___mainImage___localFile___absolutePath',
+  osses___mainImage___localFile___relativePath = 'osses___mainImage___localFile___relativePath',
+  osses___mainImage___localFile___extension = 'osses___mainImage___localFile___extension',
+  osses___mainImage___localFile___size = 'osses___mainImage___localFile___size',
+  osses___mainImage___localFile___prettySize = 'osses___mainImage___localFile___prettySize',
+  osses___mainImage___localFile___modifiedTime = 'osses___mainImage___localFile___modifiedTime',
+  osses___mainImage___localFile___accessTime = 'osses___mainImage___localFile___accessTime',
+  osses___mainImage___localFile___changeTime = 'osses___mainImage___localFile___changeTime',
+  osses___mainImage___localFile___birthTime = 'osses___mainImage___localFile___birthTime',
+  osses___mainImage___localFile___root = 'osses___mainImage___localFile___root',
+  osses___mainImage___localFile___dir = 'osses___mainImage___localFile___dir',
+  osses___mainImage___localFile___base = 'osses___mainImage___localFile___base',
+  osses___mainImage___localFile___ext = 'osses___mainImage___localFile___ext',
+  osses___mainImage___localFile___name = 'osses___mainImage___localFile___name',
+  osses___mainImage___localFile___relativeDirectory = 'osses___mainImage___localFile___relativeDirectory',
+  osses___mainImage___localFile___dev = 'osses___mainImage___localFile___dev',
+  osses___mainImage___localFile___mode = 'osses___mainImage___localFile___mode',
+  osses___mainImage___localFile___nlink = 'osses___mainImage___localFile___nlink',
+  osses___mainImage___localFile___uid = 'osses___mainImage___localFile___uid',
+  osses___mainImage___localFile___gid = 'osses___mainImage___localFile___gid',
+  osses___mainImage___localFile___rdev = 'osses___mainImage___localFile___rdev',
+  osses___mainImage___localFile___ino = 'osses___mainImage___localFile___ino',
+  osses___mainImage___localFile___atimeMs = 'osses___mainImage___localFile___atimeMs',
+  osses___mainImage___localFile___mtimeMs = 'osses___mainImage___localFile___mtimeMs',
+  osses___mainImage___localFile___ctimeMs = 'osses___mainImage___localFile___ctimeMs',
+  osses___mainImage___localFile___atime = 'osses___mainImage___localFile___atime',
+  osses___mainImage___localFile___mtime = 'osses___mainImage___localFile___mtime',
+  osses___mainImage___localFile___ctime = 'osses___mainImage___localFile___ctime',
+  osses___mainImage___localFile___birthtime = 'osses___mainImage___localFile___birthtime',
+  osses___mainImage___localFile___birthtimeMs = 'osses___mainImage___localFile___birthtimeMs',
+  osses___mainImage___localFile___blksize = 'osses___mainImage___localFile___blksize',
+  osses___mainImage___localFile___blocks = 'osses___mainImage___localFile___blocks',
+  osses___mainImage___localFile___url = 'osses___mainImage___localFile___url',
+  osses___mainImage___localFile___id = 'osses___mainImage___localFile___id',
+  osses___mainImage___localFile___children = 'osses___mainImage___localFile___children',
   osses___mainImage___fixed___base64 = 'osses___mainImage___fixed___base64',
   osses___mainImage___fixed___tracedSVG = 'osses___mainImage___fixed___tracedSVG',
   osses___mainImage___fixed___aspectRatio = 'osses___mainImage___fixed___aspectRatio',
@@ -2422,6 +2600,56 @@ export enum ContentfulOsSesFieldsEnum {
   mainImage___node_locale = 'mainImage___node_locale',
   mainImage___sys___type = 'mainImage___sys___type',
   mainImage___sys___revision = 'mainImage___sys___revision',
+  mainImage___localFile___sourceInstanceName = 'mainImage___localFile___sourceInstanceName',
+  mainImage___localFile___absolutePath = 'mainImage___localFile___absolutePath',
+  mainImage___localFile___relativePath = 'mainImage___localFile___relativePath',
+  mainImage___localFile___extension = 'mainImage___localFile___extension',
+  mainImage___localFile___size = 'mainImage___localFile___size',
+  mainImage___localFile___prettySize = 'mainImage___localFile___prettySize',
+  mainImage___localFile___modifiedTime = 'mainImage___localFile___modifiedTime',
+  mainImage___localFile___accessTime = 'mainImage___localFile___accessTime',
+  mainImage___localFile___changeTime = 'mainImage___localFile___changeTime',
+  mainImage___localFile___birthTime = 'mainImage___localFile___birthTime',
+  mainImage___localFile___root = 'mainImage___localFile___root',
+  mainImage___localFile___dir = 'mainImage___localFile___dir',
+  mainImage___localFile___base = 'mainImage___localFile___base',
+  mainImage___localFile___ext = 'mainImage___localFile___ext',
+  mainImage___localFile___name = 'mainImage___localFile___name',
+  mainImage___localFile___relativeDirectory = 'mainImage___localFile___relativeDirectory',
+  mainImage___localFile___dev = 'mainImage___localFile___dev',
+  mainImage___localFile___mode = 'mainImage___localFile___mode',
+  mainImage___localFile___nlink = 'mainImage___localFile___nlink',
+  mainImage___localFile___uid = 'mainImage___localFile___uid',
+  mainImage___localFile___gid = 'mainImage___localFile___gid',
+  mainImage___localFile___rdev = 'mainImage___localFile___rdev',
+  mainImage___localFile___ino = 'mainImage___localFile___ino',
+  mainImage___localFile___atimeMs = 'mainImage___localFile___atimeMs',
+  mainImage___localFile___mtimeMs = 'mainImage___localFile___mtimeMs',
+  mainImage___localFile___ctimeMs = 'mainImage___localFile___ctimeMs',
+  mainImage___localFile___atime = 'mainImage___localFile___atime',
+  mainImage___localFile___mtime = 'mainImage___localFile___mtime',
+  mainImage___localFile___ctime = 'mainImage___localFile___ctime',
+  mainImage___localFile___birthtime = 'mainImage___localFile___birthtime',
+  mainImage___localFile___birthtimeMs = 'mainImage___localFile___birthtimeMs',
+  mainImage___localFile___blksize = 'mainImage___localFile___blksize',
+  mainImage___localFile___blocks = 'mainImage___localFile___blocks',
+  mainImage___localFile___url = 'mainImage___localFile___url',
+  mainImage___localFile___childImageSharp___id = 'mainImage___localFile___childImageSharp___id',
+  mainImage___localFile___childImageSharp___children = 'mainImage___localFile___childImageSharp___children',
+  mainImage___localFile___id = 'mainImage___localFile___id',
+  mainImage___localFile___parent___id = 'mainImage___localFile___parent___id',
+  mainImage___localFile___parent___children = 'mainImage___localFile___parent___children',
+  mainImage___localFile___children = 'mainImage___localFile___children',
+  mainImage___localFile___children___id = 'mainImage___localFile___children___id',
+  mainImage___localFile___children___children = 'mainImage___localFile___children___children',
+  mainImage___localFile___internal___content = 'mainImage___localFile___internal___content',
+  mainImage___localFile___internal___contentDigest = 'mainImage___localFile___internal___contentDigest',
+  mainImage___localFile___internal___description = 'mainImage___localFile___internal___description',
+  mainImage___localFile___internal___fieldOwners = 'mainImage___localFile___internal___fieldOwners',
+  mainImage___localFile___internal___ignoreType = 'mainImage___localFile___internal___ignoreType',
+  mainImage___localFile___internal___mediaType = 'mainImage___localFile___internal___mediaType',
+  mainImage___localFile___internal___owner = 'mainImage___localFile___internal___owner',
+  mainImage___localFile___internal___type = 'mainImage___localFile___internal___type',
   mainImage___fixed___base64 = 'mainImage___fixed___base64',
   mainImage___fixed___tracedSVG = 'mainImage___fixed___tracedSVG',
   mainImage___fixed___aspectRatio = 'mainImage___fixed___aspectRatio',
@@ -6587,6 +6815,42 @@ export enum ContentfulRoleFieldsEnum {
   osses___mainImage___node_locale = 'osses___mainImage___node_locale',
   osses___mainImage___sys___type = 'osses___mainImage___sys___type',
   osses___mainImage___sys___revision = 'osses___mainImage___sys___revision',
+  osses___mainImage___localFile___sourceInstanceName = 'osses___mainImage___localFile___sourceInstanceName',
+  osses___mainImage___localFile___absolutePath = 'osses___mainImage___localFile___absolutePath',
+  osses___mainImage___localFile___relativePath = 'osses___mainImage___localFile___relativePath',
+  osses___mainImage___localFile___extension = 'osses___mainImage___localFile___extension',
+  osses___mainImage___localFile___size = 'osses___mainImage___localFile___size',
+  osses___mainImage___localFile___prettySize = 'osses___mainImage___localFile___prettySize',
+  osses___mainImage___localFile___modifiedTime = 'osses___mainImage___localFile___modifiedTime',
+  osses___mainImage___localFile___accessTime = 'osses___mainImage___localFile___accessTime',
+  osses___mainImage___localFile___changeTime = 'osses___mainImage___localFile___changeTime',
+  osses___mainImage___localFile___birthTime = 'osses___mainImage___localFile___birthTime',
+  osses___mainImage___localFile___root = 'osses___mainImage___localFile___root',
+  osses___mainImage___localFile___dir = 'osses___mainImage___localFile___dir',
+  osses___mainImage___localFile___base = 'osses___mainImage___localFile___base',
+  osses___mainImage___localFile___ext = 'osses___mainImage___localFile___ext',
+  osses___mainImage___localFile___name = 'osses___mainImage___localFile___name',
+  osses___mainImage___localFile___relativeDirectory = 'osses___mainImage___localFile___relativeDirectory',
+  osses___mainImage___localFile___dev = 'osses___mainImage___localFile___dev',
+  osses___mainImage___localFile___mode = 'osses___mainImage___localFile___mode',
+  osses___mainImage___localFile___nlink = 'osses___mainImage___localFile___nlink',
+  osses___mainImage___localFile___uid = 'osses___mainImage___localFile___uid',
+  osses___mainImage___localFile___gid = 'osses___mainImage___localFile___gid',
+  osses___mainImage___localFile___rdev = 'osses___mainImage___localFile___rdev',
+  osses___mainImage___localFile___ino = 'osses___mainImage___localFile___ino',
+  osses___mainImage___localFile___atimeMs = 'osses___mainImage___localFile___atimeMs',
+  osses___mainImage___localFile___mtimeMs = 'osses___mainImage___localFile___mtimeMs',
+  osses___mainImage___localFile___ctimeMs = 'osses___mainImage___localFile___ctimeMs',
+  osses___mainImage___localFile___atime = 'osses___mainImage___localFile___atime',
+  osses___mainImage___localFile___mtime = 'osses___mainImage___localFile___mtime',
+  osses___mainImage___localFile___ctime = 'osses___mainImage___localFile___ctime',
+  osses___mainImage___localFile___birthtime = 'osses___mainImage___localFile___birthtime',
+  osses___mainImage___localFile___birthtimeMs = 'osses___mainImage___localFile___birthtimeMs',
+  osses___mainImage___localFile___blksize = 'osses___mainImage___localFile___blksize',
+  osses___mainImage___localFile___blocks = 'osses___mainImage___localFile___blocks',
+  osses___mainImage___localFile___url = 'osses___mainImage___localFile___url',
+  osses___mainImage___localFile___id = 'osses___mainImage___localFile___id',
+  osses___mainImage___localFile___children = 'osses___mainImage___localFile___children',
   osses___mainImage___fixed___base64 = 'osses___mainImage___fixed___base64',
   osses___mainImage___fixed___tracedSVG = 'osses___mainImage___fixed___tracedSVG',
   osses___mainImage___fixed___aspectRatio = 'osses___mainImage___fixed___aspectRatio',
@@ -7297,6 +7561,42 @@ export enum ContentfulSkillFieldsEnum {
   osses___mainImage___node_locale = 'osses___mainImage___node_locale',
   osses___mainImage___sys___type = 'osses___mainImage___sys___type',
   osses___mainImage___sys___revision = 'osses___mainImage___sys___revision',
+  osses___mainImage___localFile___sourceInstanceName = 'osses___mainImage___localFile___sourceInstanceName',
+  osses___mainImage___localFile___absolutePath = 'osses___mainImage___localFile___absolutePath',
+  osses___mainImage___localFile___relativePath = 'osses___mainImage___localFile___relativePath',
+  osses___mainImage___localFile___extension = 'osses___mainImage___localFile___extension',
+  osses___mainImage___localFile___size = 'osses___mainImage___localFile___size',
+  osses___mainImage___localFile___prettySize = 'osses___mainImage___localFile___prettySize',
+  osses___mainImage___localFile___modifiedTime = 'osses___mainImage___localFile___modifiedTime',
+  osses___mainImage___localFile___accessTime = 'osses___mainImage___localFile___accessTime',
+  osses___mainImage___localFile___changeTime = 'osses___mainImage___localFile___changeTime',
+  osses___mainImage___localFile___birthTime = 'osses___mainImage___localFile___birthTime',
+  osses___mainImage___localFile___root = 'osses___mainImage___localFile___root',
+  osses___mainImage___localFile___dir = 'osses___mainImage___localFile___dir',
+  osses___mainImage___localFile___base = 'osses___mainImage___localFile___base',
+  osses___mainImage___localFile___ext = 'osses___mainImage___localFile___ext',
+  osses___mainImage___localFile___name = 'osses___mainImage___localFile___name',
+  osses___mainImage___localFile___relativeDirectory = 'osses___mainImage___localFile___relativeDirectory',
+  osses___mainImage___localFile___dev = 'osses___mainImage___localFile___dev',
+  osses___mainImage___localFile___mode = 'osses___mainImage___localFile___mode',
+  osses___mainImage___localFile___nlink = 'osses___mainImage___localFile___nlink',
+  osses___mainImage___localFile___uid = 'osses___mainImage___localFile___uid',
+  osses___mainImage___localFile___gid = 'osses___mainImage___localFile___gid',
+  osses___mainImage___localFile___rdev = 'osses___mainImage___localFile___rdev',
+  osses___mainImage___localFile___ino = 'osses___mainImage___localFile___ino',
+  osses___mainImage___localFile___atimeMs = 'osses___mainImage___localFile___atimeMs',
+  osses___mainImage___localFile___mtimeMs = 'osses___mainImage___localFile___mtimeMs',
+  osses___mainImage___localFile___ctimeMs = 'osses___mainImage___localFile___ctimeMs',
+  osses___mainImage___localFile___atime = 'osses___mainImage___localFile___atime',
+  osses___mainImage___localFile___mtime = 'osses___mainImage___localFile___mtime',
+  osses___mainImage___localFile___ctime = 'osses___mainImage___localFile___ctime',
+  osses___mainImage___localFile___birthtime = 'osses___mainImage___localFile___birthtime',
+  osses___mainImage___localFile___birthtimeMs = 'osses___mainImage___localFile___birthtimeMs',
+  osses___mainImage___localFile___blksize = 'osses___mainImage___localFile___blksize',
+  osses___mainImage___localFile___blocks = 'osses___mainImage___localFile___blocks',
+  osses___mainImage___localFile___url = 'osses___mainImage___localFile___url',
+  osses___mainImage___localFile___id = 'osses___mainImage___localFile___id',
+  osses___mainImage___localFile___children = 'osses___mainImage___localFile___children',
   osses___mainImage___fixed___base64 = 'osses___mainImage___fixed___base64',
   osses___mainImage___fixed___tracedSVG = 'osses___mainImage___fixed___tracedSVG',
   osses___mainImage___fixed___aspectRatio = 'osses___mainImage___fixed___aspectRatio',
@@ -9152,6 +9452,9 @@ export type File = Node & {
   birthtime?: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   birthtimeMs?: Maybe<Scalars['Float']>;
+  blksize?: Maybe<Scalars['Int']>;
+  blocks?: Maybe<Scalars['Int']>;
+  url?: Maybe<Scalars['String']>;
   childImageSharp?: Maybe<ImageSharp>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -9276,6 +9579,9 @@ export enum FileFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
+  blksize = 'blksize',
+  blocks = 'blocks',
+  url = 'url',
   childImageSharp___fixed___base64 = 'childImageSharp___fixed___base64',
   childImageSharp___fixed___tracedSVG = 'childImageSharp___fixed___tracedSVG',
   childImageSharp___fixed___aspectRatio = 'childImageSharp___fixed___aspectRatio',
@@ -9488,6 +9794,9 @@ export type FileFilterInput = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
+  blksize?: Maybe<IntQueryOperatorInput>;
+  blocks?: Maybe<IntQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -10275,6 +10584,9 @@ export type QueryFileArgs = {
   ctime?: Maybe<DateQueryOperatorInput>;
   birthtime?: Maybe<DateQueryOperatorInput>;
   birthtimeMs?: Maybe<FloatQueryOperatorInput>;
+  blksize?: Maybe<IntQueryOperatorInput>;
+  blocks?: Maybe<IntQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   childImageSharp?: Maybe<ImageSharpFilterInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -10423,6 +10735,7 @@ export type QueryContentfulAssetArgs = {
   description?: Maybe<StringQueryOperatorInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
   sys?: Maybe<ContentfulAssetSysFilterInput>;
+  localFile?: Maybe<FileFilterInput>;
   fixed?: Maybe<ContentfulFixedFilterInput>;
   resolutions?: Maybe<ContentfulResolutionsFilterInput>;
   fluid?: Maybe<ContentfulFluidFilterInput>;
@@ -11177,6 +11490,7 @@ export type SitePageContextI18nResourcesEnFilterInput = {
 export type SitePageContextI18nResourcesEnTranslation = {
   __typename?: 'SitePageContextI18nResourcesEnTranslation';
   Hello_world_?: Maybe<Scalars['String']>;
+  OSSes?: Maybe<SitePageContextI18nResourcesEnTranslationOsSes>;
   contact?: Maybe<SitePageContextI18nResourcesEnTranslationContact>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_Alert>;
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeader>;
@@ -11259,6 +11573,7 @@ export type SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput = {
 
 export type SitePageContextI18nResourcesEnTranslationFilterInput = {
   Hello_world_?: Maybe<StringQueryOperatorInput>;
+  OSSes?: Maybe<SitePageContextI18nResourcesEnTranslationOsSesFilterInput>;
   contact?: Maybe<SitePageContextI18nResourcesEnTranslationContactFilterInput>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput>;
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeaderFilterInput>;
@@ -11333,15 +11648,15 @@ export type SitePageContextI18nResourcesEnTranslationHelloTitleFilterInput = {
 
 export type SitePageContextI18nResourcesEnTranslationHistorys = {
   __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys';
+  age?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  age?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHistorysFilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  age?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationNot_Found = {
@@ -11354,6 +11669,15 @@ export type SitePageContextI18nResourcesEnTranslationNot_Found = {
 export type SitePageContextI18nResourcesEnTranslationNot_FoundFilterInput = {
   back_to_home?: Maybe<StringQueryOperatorInput>;
   message?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationOsSes = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationOSSes';
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationOsSesFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -11454,6 +11778,7 @@ export type SitePageContextI18nResourcesJaFilterInput = {
 export type SitePageContextI18nResourcesJaTranslation = {
   __typename?: 'SitePageContextI18nResourcesJaTranslation';
   Hello_world_?: Maybe<Scalars['String']>;
+  OSSes?: Maybe<SitePageContextI18nResourcesJaTranslationOsSes>;
   contact?: Maybe<SitePageContextI18nResourcesJaTranslationContact>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_Alert>;
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeader>;
@@ -11536,6 +11861,7 @@ export type SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput = {
 
 export type SitePageContextI18nResourcesJaTranslationFilterInput = {
   Hello_world_?: Maybe<StringQueryOperatorInput>;
+  OSSes?: Maybe<SitePageContextI18nResourcesJaTranslationOsSesFilterInput>;
   contact?: Maybe<SitePageContextI18nResourcesJaTranslationContactFilterInput>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput>;
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeaderFilterInput>;
@@ -11610,15 +11936,15 @@ export type SitePageContextI18nResourcesJaTranslationHelloTitleFilterInput = {
 
 export type SitePageContextI18nResourcesJaTranslationHistorys = {
   __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys';
+  age?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  age?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHistorysFilterInput = {
+  age?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  age?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationNot_Found = {
@@ -11631,6 +11957,15 @@ export type SitePageContextI18nResourcesJaTranslationNot_Found = {
 export type SitePageContextI18nResourcesJaTranslationNot_FoundFilterInput = {
   back_to_home?: Maybe<StringQueryOperatorInput>;
   message?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationOsSes = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationOSSes';
+  title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationOsSesFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -11868,9 +12203,9 @@ export enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___failOnError = 'pluginCreator___pluginOptions___failOnError',
   pluginCreator___pluginOptions___spaceId = 'pluginCreator___pluginOptions___spaceId',
   pluginCreator___pluginOptions___accessToken = 'pluginCreator___pluginOptions___accessToken',
+  pluginCreator___pluginOptions___downloadLocal = 'pluginCreator___pluginOptions___downloadLocal',
   pluginCreator___pluginOptions___host = 'pluginCreator___pluginOptions___host',
   pluginCreator___pluginOptions___environment = 'pluginCreator___pluginOptions___environment',
-  pluginCreator___pluginOptions___downloadLocal = 'pluginCreator___pluginOptions___downloadLocal',
   pluginCreator___pluginOptions___forceFullSync = 'pluginCreator___pluginOptions___forceFullSync',
   pluginCreator___pluginOptions___pageLimit = 'pluginCreator___pluginOptions___pageLimit',
   pluginCreator___pluginOptions___assetDownloadWorkers = 'pluginCreator___pluginOptions___assetDownloadWorkers',
@@ -12112,9 +12447,9 @@ export enum SitePluginFieldsEnum {
   pluginOptions___failOnError = 'pluginOptions___failOnError',
   pluginOptions___spaceId = 'pluginOptions___spaceId',
   pluginOptions___accessToken = 'pluginOptions___accessToken',
+  pluginOptions___downloadLocal = 'pluginOptions___downloadLocal',
   pluginOptions___host = 'pluginOptions___host',
   pluginOptions___environment = 'pluginOptions___environment',
-  pluginOptions___downloadLocal = 'pluginOptions___downloadLocal',
   pluginOptions___forceFullSync = 'pluginOptions___forceFullSync',
   pluginOptions___pageLimit = 'pluginOptions___pageLimit',
   pluginOptions___assetDownloadWorkers = 'pluginOptions___assetDownloadWorkers',
@@ -12286,9 +12621,9 @@ export type SitePluginPluginOptions = {
   failOnError?: Maybe<Scalars['Boolean']>;
   spaceId?: Maybe<Scalars['String']>;
   accessToken?: Maybe<Scalars['String']>;
+  downloadLocal?: Maybe<Scalars['Boolean']>;
   host?: Maybe<Scalars['String']>;
   environment?: Maybe<Scalars['String']>;
-  downloadLocal?: Maybe<Scalars['Boolean']>;
   forceFullSync?: Maybe<Scalars['Boolean']>;
   pageLimit?: Maybe<Scalars['Int']>;
   assetDownloadWorkers?: Maybe<Scalars['Int']>;
@@ -12332,9 +12667,9 @@ export type SitePluginPluginOptionsFilterInput = {
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   accessToken?: Maybe<StringQueryOperatorInput>;
+  downloadLocal?: Maybe<BooleanQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   environment?: Maybe<StringQueryOperatorInput>;
-  downloadLocal?: Maybe<BooleanQueryOperatorInput>;
   forceFullSync?: Maybe<BooleanQueryOperatorInput>;
   pageLimit?: Maybe<IntQueryOperatorInput>;
   assetDownloadWorkers?: Maybe<IntQueryOperatorInput>;
@@ -12491,6 +12826,55 @@ export type HistoriesDataQuery = (
           { __typename?: 'contentfulHistorysImageTextNode' }
           & Pick<ContentfulHistorysImageTextNode, 'image'>
         )> }
+      ) }
+    )> }
+  ) }
+);
+
+export type OsSesDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OsSesDataQuery = (
+  { __typename?: 'Query' }
+  & { allContentfulOsSes: (
+    { __typename?: 'ContentfulOsSesConnection' }
+    & { edges: Array<(
+      { __typename?: 'ContentfulOsSesEdge' }
+      & { node: (
+        { __typename?: 'ContentfulOsSes' }
+        & Pick<ContentfulOsSes, 'id' | 'node_locale' | 'name' | 'slug' | 'startDate' | 'during' | 'comment' | 'siteUrl' | 'sourceUrl'>
+        & { mainImage?: Maybe<(
+          { __typename?: 'ContentfulAsset' }
+          & Pick<ContentfulAsset, 'title'>
+          & { file?: Maybe<(
+            { __typename?: 'ContentfulAssetFile' }
+            & Pick<ContentfulAssetFile, 'url'>
+          )>, localFile?: Maybe<(
+            { __typename?: 'File' }
+            & { childImageSharp?: Maybe<(
+              { __typename?: 'ImageSharp' }
+              & { fluid?: Maybe<(
+                { __typename?: 'ImageSharpFluid' }
+                & Pick<ImageSharpFluid, 'sizes' | 'src' | 'srcSet' | 'aspectRatio'>
+              )> }
+            )> }
+          )> }
+        )>, roles?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulRole' }
+          & Pick<ContentfulRole, 'name'>
+        )>>>, assigns?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulAssigne' }
+          & Pick<ContentfulAssigne, 'name'>
+        )>>>, systems?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulSkill' }
+          & Pick<ContentfulSkill, 'name'>
+        )>>>, languages?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulSkill' }
+          & Pick<ContentfulSkill, 'name'>
+        )>>>, tools?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulSkill' }
+          & Pick<ContentfulSkill, 'name'>
+        )>>> }
       ) }
     )> }
   ) }

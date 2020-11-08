@@ -8,6 +8,7 @@ import WhatIDos from '../components/WhatIDos';
 import Skills from '../components/Skills';
 import Contacts from '../components/Contacts';
 import Historys from '../components/Historys';
+import OSSes from '../components/OSSes';
 
 const home: React.FC<PageProps> = ({ path }) => {
   return (
@@ -18,6 +19,7 @@ const home: React.FC<PageProps> = ({ path }) => {
       <Skills />
       <Contacts />
       <Historys />
+      <OSSes />
     </Layout>
   );
 };

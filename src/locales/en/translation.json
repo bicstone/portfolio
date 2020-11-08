@@ -1,5 +1,8 @@
 {
   "Hello world!": "test",
+  "OSSes": {
+    "title": "OSSES"
+  },
   "contact": {
     "email": {
       "href": "mailto:takanori0014@live.jp",
@@ -49,9 +52,9 @@
   },
   "hello-message": "オオイシタカノリと申します。Web開発者 / 組込みシステム開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",
   "historys": {
+    "age": "{{age}}",
     "date": "{{date}}",
-    "title": "HISTORY",
-    "age": "{{age}}"
+    "title": "HISTORY"
   },
   "not-found": {
     "back-to-home": "Back to home",
