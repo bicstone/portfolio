@@ -18,8 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { ProjectsDataQuery } from '../types/graphqlTypes';
 
-type Tag = { name?: string | null } | null | undefined;
-type Tags = Array<Tag> | null | undefined;
+type Tags = Array<{ name?: string | null } | null | undefined> | null | undefined;
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -111,7 +110,11 @@ const Projects: React.FC = () => {
           {allContentfulProjects.edges.map(
             ({ node }) =>
               node.node_locale === language && (
-                <Accordion expanded={expanded === node.id} onChange={handleChange(node.id)}>
+                <Accordion
+                  expanded={expanded === node.id}
+                  onChange={handleChange(node.id)}
+                  key={node.id}
+                >
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls={`${node.id}-content`}
