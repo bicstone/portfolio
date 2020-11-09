@@ -43,6 +43,7 @@ export type ContentfulAsset = Node & {
   /** @deprecated Sizes was deprecated in Gatsby v2. It's been renamed to "fluid" https://example.com/write-docs-and-fix-this-example-link */
   sizes?: Maybe<ContentfulSizes>;
   resize?: Maybe<ContentfulResize>;
+  svg?: Maybe<InlineSvg>;
 };
 
 
@@ -10414,6 +10415,15 @@ export type ImageSharpSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type InlineSvg = {
+  __typename?: 'InlineSvg';
+  content?: Maybe<Scalars['String']>;
+  originalContent?: Maybe<Scalars['String']>;
+  dataURI?: Maybe<Scalars['String']>;
+  absolutePath?: Maybe<Scalars['String']>;
+  relativePath?: Maybe<Scalars['String']>;
+};
+
 export type Internal = {
   __typename?: 'Internal';
   content?: Maybe<Scalars['String']>;
@@ -12809,6 +12819,20 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type BicstoneIconDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BicstoneIconDataQuery = (
+  { __typename?: 'Query' }
+  & { contentfulAsset?: Maybe<(
+    { __typename?: 'ContentfulAsset' }
+    & { svg?: Maybe<(
+      { __typename?: 'InlineSvg' }
+      & Pick<InlineSvg, 'content'>
+    )> }
+  )> }
+);
 
 export type HistoriesDataQueryVariables = Exact<{ [key: string]: never; }>;
 
