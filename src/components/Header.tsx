@@ -1,8 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import GitHubIcon from '@material-ui/icons/GitHub';
-
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Toolbar,
@@ -33,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header: React.FC<Props> = ({ isHome = false }) => {
+const Header: React.FC<Props> = () => {
   const classes = useStyles();
   const { t, language, languages, changeLanguage } = useI18next();
   const nextLanguage = languages.filter(lang => lang !== language)[0];
@@ -48,7 +46,7 @@ const Header: React.FC<Props> = ({ isHome = false }) => {
         elevation={scrollTrigger ? 4 : 0}
       >
         <Toolbar variant="dense" className={classes.toolbar}>
-          {isHome ? (
+          <Link to="/">
             <Typography
               color="textPrimary"
               variant="h6"
@@ -58,19 +56,7 @@ const Header: React.FC<Props> = ({ isHome = false }) => {
             >
               {t('header.title-home')}
             </Typography>
-          ) : (
-            <Link to="/">
-              <Typography
-                color="textPrimary"
-                variant="h6"
-                component="h1"
-                className={classes.link}
-                gutterBottom
-              >
-                {t('header.title')}
-              </Typography>
-            </Link>
-          )}
+          </Link>
           <Tooltip arrow title={t('header.toggleDarkTheme-title') as string}>
             <IconButton size="small" onClick={toggleDarkMode} className={classes.link}>
               {isDarkMode ? <Brightness2 /> : <WbSunny />}
@@ -97,7 +83,7 @@ const Header: React.FC<Props> = ({ isHome = false }) => {
                 rel="external noreferrer nofollow"
                 target="_blank"
                 className={classes.link}
-                style={{ color: '#171515' }}
+                style={{ color: isDarkMode ? '#fff' : '#171515' }}
               >
                 <GitHubIcon />
               </ExternalIconButton>

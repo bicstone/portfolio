@@ -5,7 +5,7 @@ import Typed, { TypedOptions } from 'typed.js';
 import { Typography, Grid, Container } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 
-import MasshiroIcon from './icons/Masshiro';
+import BicstoneIcon from './BicstoneIcon';
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -43,7 +43,7 @@ const Hello: React.FC = () => {
         <Grid item xs={12}>
           <Grid container spacing={2} justify="center" alignItems="center">
             <Grid item>
-              <MasshiroIcon width={100} height={100} />
+              <BicstoneIcon width={100} height={100} />
             </Grid>
             <Grid item xs={11} sm={10}>
               <ul ref={stringsEl}>
