@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const WhatIDos: React.FC = () => {
+const WhatICanDos: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
 
@@ -76,4 +76,4 @@ const WhatIDos: React.FC = () => {
   );
 };
 
-export default WhatIDos;
+export default WhatICanDos;
