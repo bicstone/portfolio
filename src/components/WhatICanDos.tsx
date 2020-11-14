@@ -42,7 +42,7 @@ const WhatIDos: React.FC = () => {
 
   return (
     <Container maxWidth="lg">
-      <Grid container spacing={2} className={classes.mainGrid}>
+      <Grid container spacing={2} className={classes.mainGrid} alignItems="center">
         {allContentfulWhatICanDo.edges.map(
           ({ node }) =>
             node.node_locale === language && (
