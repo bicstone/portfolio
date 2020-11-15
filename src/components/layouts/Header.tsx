@@ -1,8 +1,8 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import { makeStyles } from '@material-ui/core/styles';
 import {
+  makeStyles,
   Toolbar,
   AppBar,
   Typography,

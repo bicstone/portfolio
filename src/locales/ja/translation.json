@@ -1,60 +1,35 @@
 {
-  "Hello world!": "テストです",
-  "OSSes": {
-    "title": "OSSES"
-  },
-  "contact": {
-    "email": {
-      "href": "mailto:takanori0014@live.jp",
-      "subTitle": "takanori0014@live.jp",
-      "title": "E-mail"
-    },
-    "key": {
-      "href": "/takanori0014.asc",
-      "subTitle": "9FD7 E9DB 64FB 0FCE",
-      "title": "PGP Key"
-    },
-    "title": "GET IN TOUCH",
-    "twitter": {
-      "href": "https://twitter.com/masshiro_me",
-      "subTitle": "@masshiro_me",
-      "title": "Twitter"
-    }
-  },
   "cookie-alert": {
     "accept": "OK",
     "description": "機能改善のためにCookieを使用しています。",
     "dicline": "拒否"
   },
   "header": {
-    "blog-title": "ブログ",
-    "blog-url": "https://masshiro.blog/",
     "changeLanguage-title": "言語切替",
-    "contact-title": "お問い合わせ",
     "github-title": "GitHub",
     "github-url": "https://github.com/bicstone/",
-    "title": "masshiro.me",
     "title-home": "Takanori Oishi",
-    "toggleDarkTheme-title": "ダークモード切替",
-    "twitter-title": "Twitter",
-    "twitter-url": "https://twitter.com/masshiro_me/"
+    "toggleDarkTheme-title": "ダークモード切替"
   },
   "hello": {
-    "title": "こんにちは！",
-    "message": "オオイシタカノリと申します。 Web開発者 / IoT開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。"
+    "message": "オオイシタカノリと申します。 Web開発者 / IoT開発者 / セキュリティスペシャリスト / 機械設計エンジニア です。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",
+    "title": "こんにちは！"
   },
   "historys": {
     "age": "{{age}}歳",
-    "date": "{{date}}年",
-    "title": "HISTORY"
+    "date": "{{date}}年"
+  },
+  "index": {
+    "contacts-title": "お問い合わせ",
+    "histories-title": "経歴",
+    "osses-title": "OSS",
+    "projects-title": "プロジェクト",
+    "skills-title": "スキル"
   },
   "not-found": {
     "back-to-home": "ホームに移動",
     "message": "ページが見つかりませんでした。",
     "title": "Not Found"
-  },
-  "project": {
-    "title": "PROJECTS"
   },
   "siteMetadata": {
     "author": "Takanori Oishi",
@@ -62,8 +37,5 @@
     "image": "/android-chrome-512x512.png",
     "shortTitle": "bicstone",
     "title": "Takanori Oishi Portfolio"
-  },
-  "skill-map": {
-    "title": "SKILLS"
   }
 }

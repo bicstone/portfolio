@@ -3,9 +3,9 @@ import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
+  makeStyles,
   Typography,
   Grid,
-  Container,
   CardHeader,
   Avatar,
   Accordion,
@@ -13,17 +13,12 @@ import {
   AccordionSummary,
   SvgIcon,
 } from '@material-ui/core/';
-import { makeStyles } from '@material-ui/core/styles';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { ProjectsDataQuery } from '../../types';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { ProjectDataQuery } from '../../types';
 
 type Tags = Array<{ name?: string | null } | null | undefined> | null | undefined;
 
-const useStyles = makeStyles(theme => ({
-  mainGrid: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-  },
+const useStyles = makeStyles(() => ({
   cardHeader: {
     padding: 0,
   },
@@ -31,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 
 export const Projects: React.FC = () => {
   const classes = useStyles();
-  const { t, language } = useI18next();
+  const { language } = useI18next();
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
   const handleChange = (id: string) => (
@@ -62,10 +57,10 @@ export const Projects: React.FC = () => {
       return `${joinTags(roles)} / ${joinTags(languages)} / ${joinTags(systems)}`;
     }, [expanded, roles, languages, systems, tools]);
 
-  const { allContentfulProjects }: ProjectsDataQuery = useStaticQuery(
+  const { allContentfulProject }: ProjectDataQuery = useStaticQuery(
     graphql`
-      query ProjectsData {
-        allContentfulProjects {
+      query ProjectData {
+        allContentfulProject {
           edges {
             node {
               id
@@ -89,8 +84,10 @@ export const Projects: React.FC = () => {
               assigns {
                 name
               }
-              image {
-                image
+              icon {
+                contents {
+                  contents
+                }
               }
             }
           }
@@ -100,57 +97,52 @@ export const Projects: React.FC = () => {
   );
 
   return (
-    <Container maxWidth="lg">
-      <Typography component="h2" variant="h4" align="center">
-        {t('project.title')}
-      </Typography>
-      <Grid container spacing={2} className={classes.mainGrid} justify="center" alignItems="center">
-        <Grid item sm={12}>
-          {allContentfulProjects.edges.map(
-            ({ node }) =>
-              node.node_locale === language && (
-                <Accordion
-                  expanded={expanded === node.id}
-                  onChange={handleChange(node.id)}
-                  key={node.id}
+    <Grid container spacing={2} justify="center" alignItems="center">
+      <Grid item sm={12}>
+        {allContentfulProject.edges.map(
+          ({ node }) =>
+            node.node_locale === language && (
+              <Accordion
+                expanded={expanded === node.id}
+                onChange={handleChange(node.id)}
+                key={node.id}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls={`${node.id}-content`}
+                  id={`${node.id}-header`}
                 >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls={`${node.id}-content`}
-                    id={`${node.id}-header`}
-                  >
-                    <CardHeader
-                      className={classes.cardHeader}
-                      avatar={
-                        node?.image?.image && (
-                          <Avatar>
-                            <SvgIcon>{parse(node.image.image)}</SvgIcon>
-                          </Avatar>
-                        )
-                      }
-                      title={
-                        <Typography component="h3" variant="h6">
-                          {node.name}
-                        </Typography>
-                      }
-                      subheader={subHeader(
-                        expanded === node.id,
-                        node.roles,
-                        node.languages,
-                        node.systems,
-                        node.tools,
-                        node.assigns,
-                      )}
-                    />
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography variant="body2">{node.comment}</Typography>
-                  </AccordionDetails>
-                </Accordion>
-              ),
-          )}
-        </Grid>
+                  <CardHeader
+                    className={classes.cardHeader}
+                    avatar={
+                      node?.icon?.contents?.contents && (
+                        <Avatar>
+                          <SvgIcon>{parse(node.icon.contents.contents)}</SvgIcon>
+                        </Avatar>
+                      )
+                    }
+                    title={
+                      <Typography component="h3" variant="h6">
+                        {node.name}
+                      </Typography>
+                    }
+                    subheader={subHeader(
+                      expanded === node.id,
+                      node.roles,
+                      node.languages,
+                      node.systems,
+                      node.tools,
+                      node.assigns,
+                    )}
+                  />
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="body2">{node.comment}</Typography>
+                </AccordionDetails>
+              </Accordion>
+            ),
+        )}
       </Grid>
-    </Container>
+    </Grid>
   );
 };
