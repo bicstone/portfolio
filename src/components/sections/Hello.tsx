@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import Typed, { TypedOptions } from 'typed.js';
-import { Typography, Grid } from '@material-ui/core/';
+import { Typography, Grid } from '@material-ui/core';
 import { BicstoneIcon } from '../';
 
 export const Hello: React.FC = () => {

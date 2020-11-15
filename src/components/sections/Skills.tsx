@@ -9,7 +9,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-} from '@material-ui/core/';
+} from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { SkillDataQuery } from '../../types';
 

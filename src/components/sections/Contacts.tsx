@@ -11,7 +11,7 @@ import {
   CardContent,
   Card,
   SvgIcon,
-} from '@material-ui/core/';
+} from '@material-ui/core';
 import { ContactDataQuery } from '../../types';
 
 const useStyles = makeStyles(theme => ({

@@ -12,7 +12,7 @@ import {
   Avatar,
   CardMedia,
   Chip,
-} from '@material-ui/core/';
+} from '@material-ui/core';
 import { Devices as DevicesIcon } from '@material-ui/icons';
 import { OssDataQuery } from '../../types';
 

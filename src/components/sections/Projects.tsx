@@ -12,7 +12,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   SvgIcon,
-} from '@material-ui/core/';
+} from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { ProjectDataQuery } from '../../types';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid, Avatar, CardHeader, Card, SvgIcon } from '@material-ui/core/';
+import { Typography, Grid, Avatar, CardHeader, Card, SvgIcon } from '@material-ui/core';
 import { WhatICanDoDataQuery } from '../../types';
 
 export const WhatICanDos: React.FC = () => {
