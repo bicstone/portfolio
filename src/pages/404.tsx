@@ -2,9 +2,8 @@ import React from 'react';
 import { PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Button } from 'gatsby-theme-material-ui';
-import { Box, Grid, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import LocalHotelIcon from '@material-ui/icons/LocalHotel';
+import { makeStyles, Box, Grid, Typography } from '@material-ui/core';
+import { LocalHotel as LocalHotelIcon } from '@material-ui/icons';
 import { Layout } from '../components';
 
 const useStyles = makeStyles(theme => ({

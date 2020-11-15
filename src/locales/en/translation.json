@@ -1,60 +1,35 @@
 {
-  "Hello world!": "test",
-  "OSSes": {
-    "title": "OSSES"
-  },
-  "contact": {
-    "email": {
-      "href": "mailto:takanori0014@live.jp",
-      "subTitle": "takanori0014@live.jp",
-      "title": "E-mail"
-    },
-    "key": {
-      "href": "/takanori0014.asc",
-      "subTitle": "9FD7 E9DB 64FB 0FCE",
-      "title": "PGP Key"
-    },
-    "title": "GET IN TOUCH",
-    "twitter": {
-      "href": "https://twitter.com/masshiro_me",
-      "subTitle": "@masshiro_me",
-      "title": "Twitter"
-    }
-  },
   "cookie-alert": {
     "accept": "Accept",
     "description": "We uses cookies for improvement.",
     "dicline": "Dicline"
   },
   "header": {
-    "blog-title": "Blog",
-    "blog-url": "https://masshiro.blog/",
     "changeLanguage-title": "Change Language",
-    "contact-title": "Contact",
     "github-title": "GitHub",
     "github-url": "https://github.com/bicstone/",
-    "title": "masshiro.me",
     "title-home": "Takanori Oishi",
-    "toggleDarkTheme-title": "Change DarkMode",
-    "twitter-title": "Twitter",
-    "twitter-url": "https://twitter.com/masshiro_me/"
+    "toggleDarkTheme-title": "Change DarkMode"
   },
   "hello": {
-    "title": "Hey there!",
-    "message": "My name is Takanori Oishi. I'm a web developer / IoT developer / security specialist / mechanical design engineer. I specialize in simple, fast development with performance, security, SEO and maintainability in mind."
+    "message": "My name is Takanori Oishi. I'm a web developer / IoT developer / security specialist / mechanical design engineer. I specialize in simple, fast development with performance, security, SEO and maintainability in mind.",
+    "title": "Hey there!"
   },
   "historys": {
     "age": "{{age}}",
-    "date": "{{date}}",
-    "title": "HISTORY"
+    "date": "{{date}}"
+  },
+  "index": {
+    "contacts-title": "CONTACTS",
+    "histories-title": "HISTORIES",
+    "osses-title": "OSSES",
+    "projects-title": "PROJECTS",
+    "skills-title": "SKILLS"
   },
   "not-found": {
     "back-to-home": "Back to home",
     "message": "Page not found.",
     "title": "Not Found"
-  },
-  "project": {
-    "title": "PROJECTS"
   },
   "siteMetadata": {
     "author": "Takanori Oishi",
@@ -62,8 +37,5 @@
     "image": "/android-chrome-512x512.png",
     "shortTitle": "bicstone",
     "title": "Takanori Oishi Portfolio"
-  },
-  "skill-map": {
-    "title": "SKILLS"
   }
 }

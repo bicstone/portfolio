@@ -2,39 +2,36 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
+  makeStyles,
   Typography,
   Grid,
-  Container,
-  CardHeader,
-  CardContent,
-  Card,
   LinearProgress,
-} from '@material-ui/core/';
-import { makeStyles } from '@material-ui/core/styles';
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from '@material-ui/core';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { SkillDataQuery } from '../../types';
 
-const useStyles = makeStyles(theme => ({
-  mainGrid: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-  },
-  cardContent: {
-    paddingTop: 0,
+const useStyles = makeStyles(() => ({
+  accordionDetails: {
+    display: 'block',
   },
 }));
 
 export const Skills: React.FC = () => {
   const classes = useStyles();
-  const { language, t } = useI18next();
+  const { language } = useI18next();
   const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
     graphql`
       query SkillData {
-        allContentfulSkillMap {
+        allContentfulSkillMap(sort: { order: ASC, fields: sort }) {
           edges {
             node {
               id
               name
               node_locale
+              expanded
               skills {
                 id
                 level
@@ -48,49 +45,46 @@ export const Skills: React.FC = () => {
   );
 
   return (
-    <Container maxWidth="lg">
-      <Typography component="h2" variant="h4" align="center">
-        {t('skill-map.title')}
-      </Typography>
-      <Grid container spacing={2} className={classes.mainGrid}>
-        {allContentfulSkillMap.edges.map(
-          ({ node }) =>
-            node.node_locale === language && (
-              <Grid item xs={12} sm={6} md={4} key={node.id}>
-                <Card>
-                  <CardHeader
-                    title={
-                      <Typography component="h3" variant="h6">
-                        {node.name}
-                      </Typography>
-                    }
-                  />
-                  <CardContent className={classes.cardContent}>
-                    {node?.skills?.map(skill => (
-                      <Grid
-                        container
-                        spacing={2}
-                        justify="center"
-                        alignItems="center"
-                        key={skill?.id}
-                      >
-                        <Grid item xs={4}>
-                          {skill?.name}
-                        </Grid>
-                        <Grid item xs={8}>
-                          <LinearProgress
-                            variant="determinate"
-                            value={skill?.level ? skill.level * 20 : 0}
-                          />
-                        </Grid>
+    <Grid container spacing={2}>
+      {allContentfulSkillMap.edges.map(
+        ({ node }) =>
+          node.node_locale === language && (
+            <Grid item xs={12} sm={6} md={4} key={node.id}>
+              <Accordion defaultExpanded={node.expanded || false}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls={`skill${node.id}-content`}
+                  id={`skill${node.id}-header`}
+                >
+                  <Typography component="h3" variant="h6">
+                    {node.name}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails className={classes.accordionDetails}>
+                  {node?.skills?.map(skill => (
+                    <Grid
+                      container
+                      spacing={2}
+                      justify="center"
+                      alignItems="center"
+                      key={skill?.id}
+                    >
+                      <Grid item xs={4}>
+                        {skill?.name}
                       </Grid>
-                    ))}
-                  </CardContent>
-                </Card>
-              </Grid>
-            ),
-        )}
-      </Grid>
-    </Container>
+                      <Grid item xs={8}>
+                        <LinearProgress
+                          variant="determinate"
+                          value={skill?.level ? skill.level * 20 : 0}
+                        />
+                      </Grid>
+                    </Grid>
+                  ))}
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+          ),
+      )}
+    </Grid>
   );
 };
