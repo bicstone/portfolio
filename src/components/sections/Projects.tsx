@@ -2,7 +2,6 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import {
   Typography,
   Grid,
@@ -16,7 +15,7 @@ import {
 } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { ProjectsDataQuery } from '../types/graphqlTypes';
+import { ProjectsDataQuery } from '../../types';
 
 type Tags = Array<{ name?: string | null } | null | undefined> | null | undefined;
 
@@ -30,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Projects: React.FC = () => {
+export const Projects: React.FC = () => {
   const classes = useStyles();
   const { t, language } = useI18next();
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -155,5 +154,3 @@ const Projects: React.FC = () => {
     </Container>
   );
 };
-
-export default Projects;

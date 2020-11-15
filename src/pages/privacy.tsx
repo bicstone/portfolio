@@ -1,12 +1,11 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
-
 import { Container, Typography } from '@material-ui/core';
-import Layout from '../components/Layout';
+import { Layout } from '../components';
 
 const privacy: React.FC<PageProps> = ({ path }) => {
   return (
-    <Layout pathname={path} isHome>
+    <Layout pathname={path}>
       <Container maxWidth="md">
         <Typography component="h2" variant="h4" paragraph>
           Cookieポリシー

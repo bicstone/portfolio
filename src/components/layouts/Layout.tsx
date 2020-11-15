@@ -1,10 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { CookieAlert, Head, Header, Footer } from '../';
 
-import CookieAlert from './CookieAlert';
-import Head, { Props } from './Head';
-import Header from './Header';
-import Footer from './Footer';
+type Props = {
+  title?: string;
+  description?: string;
+  pathname?: string;
+  image?: string;
+};
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,7 +26,7 @@ export const Layout: React.FC<Props> = ({ children, ...props }) => {
     <>
       <Head {...props} />
       <div className={classes.root}>
-        <Header {...props} />
+        <Header />
         <main className={classes.main} role="main">
           {children}
         </main>
@@ -33,5 +36,3 @@ export const Layout: React.FC<Props> = ({ children, ...props }) => {
     </>
   );
 };
-
-export default Layout;

@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import {
   Typography,
   Grid,
@@ -12,7 +11,7 @@ import {
   LinearProgress,
 } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import { SkillDataQuery } from '../types/graphqlTypes';
+import { SkillDataQuery } from '../../types';
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -24,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Skills: React.FC = () => {
+export const Skills: React.FC = () => {
   const classes = useStyles();
   const { language, t } = useI18next();
   const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
@@ -95,5 +94,3 @@ const Skills: React.FC = () => {
     </Container>
   );
 };
-
-export default Skills;

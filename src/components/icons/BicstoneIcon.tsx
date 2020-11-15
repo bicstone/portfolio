@@ -1,14 +1,14 @@
 import React from 'react';
 import parse, { attributesToProps, domToReact, HTMLReactParserOptions } from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
-import { BicstoneIconDataQuery } from '../types/graphqlTypes';
+import { BicstoneIconDataQuery } from '../../types';
 
-export type Props = {
+type Props = {
   width: number;
   height: number;
 };
 
-const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
+export const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
   // HACK: アイコンはMITにできないため、contentfulから持ってくる形にする
   // parserを使うとdomをreactに変換される際にpropsを追加で渡すことが可能(超便利だけどXSS注意)
   const options: HTMLReactParserOptions = {
@@ -37,5 +37,3 @@ const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
   );
   return <>{contentfulAsset?.svg?.content && parse(contentfulAsset.svg.content, options)}</>;
 };
-
-export default BicstoneIcon;

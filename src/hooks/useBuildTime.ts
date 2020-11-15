@@ -1,10 +1,10 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import { BuildTimeDataQuery } from '../types/graphqlTypes';
+import { BuildTimeDataQuery } from '../types';
 
 // graphqlTypesではanyとなるため型ヒントを追加
 export type BuildTime = string | undefined;
 
-const useBuildTime = (): BuildTime => {
+export const useBuildTime = (): BuildTime => {
   const { site }: BuildTimeDataQuery = useStaticQuery(
     graphql`
       query buildTimeData {
@@ -16,5 +16,3 @@ const useBuildTime = (): BuildTime => {
   );
   return site?.buildTime as BuildTime;
 };
-
-export default useBuildTime;

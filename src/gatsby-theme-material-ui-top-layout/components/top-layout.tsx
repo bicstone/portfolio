@@ -1,11 +1,9 @@
 import React from 'react';
-
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
+import { themeReducer, themeInitialState, themeInitial } from '../../reducers';
+import { ThemeContext } from '../../hooks';
 
-import { themeReducer, themeInitialState, themeInitial } from '../../reducer/themeReducer';
-import { ThemeContext } from '../../hooks/use-darkmode';
-
-export const TopLayout: React.FC = props => {
+const TopLayout: React.FC = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,
     themeInitialState,

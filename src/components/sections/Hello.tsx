@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import Typed, { TypedOptions } from 'typed.js';
-
 import { Typography, Grid, Container } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-
-import BicstoneIcon from './BicstoneIcon';
+import { BicstoneIcon } from '../';
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -14,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Hello: React.FC = () => {
+export const Hello: React.FC = () => {
   const classes = useStyles();
   const { t } = useI18next();
   const wrapEl = useRef<HTMLSpanElement>(null);
@@ -26,6 +24,9 @@ const Hello: React.FC = () => {
         autoInsertCss: false,
         strings: [t('hello.title')],
       };
+      // @see https://github.com/mattboldt/typed.js/pull/461
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore: Typedの型定義が誤っており、HTMLSpanElementは割当可能
       const typed = new Typed(wrapEl.current, options);
       return () => {
         typed.destroy();
@@ -56,5 +57,3 @@ const Hello: React.FC = () => {
     </Container>
   );
 };
-
-export default Hello;

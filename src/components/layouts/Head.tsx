@@ -1,16 +1,20 @@
 import React from 'react';
 import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
-import useBuildTime from '../hooks/use-buildtime';
+import { useBuildTime } from '../../hooks';
 
-export type Props = {
+type Props = {
   title?: string;
   description?: string;
   pathname?: string;
   image?: string;
-  isHome?: boolean;
 };
 
-const Head: React.FC<Props> = ({ title = '', description = '', pathname = '', image = '' }) => {
+export const Head: React.FC<Props> = ({
+  title = undefined,
+  description = undefined,
+  pathname = undefined,
+  image = undefined,
+}) => {
   const buildTime = useBuildTime();
   const { t } = useI18next();
   const defaultMetadata = {
@@ -65,5 +69,3 @@ const Head: React.FC<Props> = ({ title = '', description = '', pathname = '', im
     </Helmet>
   );
 };
-
-export default Head;

@@ -2,10 +2,9 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { Typography, Grid, Container, Avatar, CardHeader, Card, SvgIcon } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
-import { WhatICanDoDataQuery } from '../types/graphqlTypes';
+import { WhatICanDoDataQuery } from '../../types';
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -14,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const WhatICanDos: React.FC = () => {
+export const WhatICanDos: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
 
@@ -75,5 +74,3 @@ const WhatICanDos: React.FC = () => {
     </Container>
   );
 };
-
-export default WhatICanDos;
