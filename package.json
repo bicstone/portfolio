@@ -6,19 +6,21 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "dev": "gatsby develop",
-    "t": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js src/**/*.{js,jsx,ts,tsx} && rimraf tmp",
-    "g": "graphql-codegen",
-    "tc": "tsc -p . --noEmit",
-    "lint": "eslint --max-warnings=0 --cache --ext .js,.ts,.tsx .",
-    "lint:fix": "eslint --fix --max-warnings=0 --cache --ext .js,.ts,.tsx .",
+    "develop": "gatsby develop",
+    "dev": "yarn develop",
+    "start": "yarn develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "develop": "yarn dev",
-    "start": "yarn dev",
-    "extract": "yarn t",
-    "gql-codegen": "yarn g",
-    "typecheck": "yarn tc"
+    "lint": "eslint --max-warnings=0 --cache --ext .js,.ts,.tsx .",
+    "lint:fix": "yarn lint --fix",
+    "extract": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js src/**/*.{js,jsx,ts,tsx} && rimraf tmp",
+    "t": "yarn extract",
+    "codegen": "graphql-codegen",
+    "g": "yarn codegen",
+    "typecheck": "tsc -p . --noEmit",
+    "tc": "yarn typecheck",
+    "barrelsby": "barrelsby -d ./src -D -i \"src/(components|hooks|reducers|types)/\" -l below -q",
+    "b": "yarn barrelsby"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -48,7 +50,7 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
-    "typed.js": "https://github.com/bicstone/typed.js#68fe9c26c8a8366446c0ebd5383d6a47d23dffa5"
+    "typed.js": "^2.0.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -65,6 +67,7 @@
     "@typescript-eslint/parser": "^4.7.0",
     "babel-plugin-i18next-extract": "^0.8.2",
     "babel-preset-gatsby": "^0.5.16",
+    "barrelsby": "^2.2.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
@@ -92,7 +95,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn tc && yarn lint"
+      "pre-commit": "yarn barrelsby && yarn tc && yarn lint"
     }
   }
 }

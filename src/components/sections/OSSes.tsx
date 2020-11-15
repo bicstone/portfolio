@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import {
   Typography,
   Grid,
@@ -16,7 +15,7 @@ import {
 } from '@material-ui/core/';
 import { makeStyles } from '@material-ui/core/styles';
 import DevicesIcon from '@material-ui/icons/Devices';
-import { OsSesDataQuery } from '../types/graphqlTypes';
+import { OsSesDataQuery } from '../../types';
 
 const useStyles = makeStyles(theme => ({
   mainGrid: {
@@ -31,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const OSSes: React.FC = () => {
+export const OSSes: React.FC = () => {
   const classes = useStyles();
   const { t, language } = useI18next();
   const { allContentfulOsSes }: OsSesDataQuery = useStaticQuery(
@@ -139,5 +138,3 @@ const OSSes: React.FC = () => {
     </Container>
   );
 };
-
-export default OSSes;

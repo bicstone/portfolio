@@ -12,12 +12,7 @@ import {
 } from '@material-ui/core';
 import { WbSunny, Brightness2 } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
-
-import useDarkMode from '../hooks/use-darkmode';
-
-export type Props = {
-  isHome?: boolean;
-};
+import { useDarkMode } from '../../hooks';
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -31,7 +26,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Header: React.FC<Props> = () => {
+export const Header: React.FC = () => {
   const classes = useStyles();
   const { t, language, languages, changeLanguage } = useI18next();
   const nextLanguage = languages.filter(lang => lang !== language)[0];
@@ -94,5 +89,3 @@ const Header: React.FC<Props> = () => {
     </header>
   );
 };
-
-export default Header;

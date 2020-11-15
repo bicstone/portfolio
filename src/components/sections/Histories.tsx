@@ -2,7 +2,6 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import {
   Typography,
   Grid,
@@ -20,7 +19,7 @@ import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import { makeStyles } from '@material-ui/core/styles';
-import { HistoriesDataQuery } from '../types/graphqlTypes';
+import { HistoriesDataQuery } from '../../types';
 
 const useStyles = makeStyles(() => ({
   cardContent: {
@@ -42,7 +41,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const historys: React.FC = () => {
+export const Histories: React.FC = () => {
   const classes = useStyles();
   const { t, language } = useI18next();
   const { allContentfulHistorys }: HistoriesDataQuery = useStaticQuery(
@@ -117,5 +116,3 @@ const historys: React.FC = () => {
     </Container>
   );
 };
-
-export default historys;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import {
   Typography,
   Grid,
@@ -33,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Contacts: React.FC = () => {
+export const Contacts: React.FC = () => {
   const classes = useStyles();
   const { t } = useI18next();
 
@@ -90,5 +89,3 @@ const Contacts: React.FC = () => {
     </Container>
   );
 };
-
-export default Contacts;

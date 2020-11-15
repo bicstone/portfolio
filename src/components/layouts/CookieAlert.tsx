@@ -1,17 +1,16 @@
 import React from 'react';
 import Cookies from 'js-cookie';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { Snackbar, Button, Typography } from '@material-ui/core';
 
-export type Props = {
+type Props = {
   cookieName?: string;
   cookieTrue?: string;
   cookieFalse?: string;
   cookieOptions?: Cookies.CookieAttributes;
 };
 
-const CookieAlert: React.FC<Props> = ({
+export const CookieAlert: React.FC<Props> = ({
   cookieName = 'gatsby-gdpr-google-analytics',
   cookieTrue = 'true',
   cookieFalse = 'false',
@@ -53,5 +52,3 @@ const CookieAlert: React.FC<Props> = ({
     />
   );
 };
-
-export default CookieAlert;
