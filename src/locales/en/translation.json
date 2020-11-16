@@ -19,7 +19,7 @@
     "age": "{{age}}",
     "date": "{{date}}"
   },
-  "index": {
+  "home": {
     "contacts-title": "CONTACTS",
     "histories-title": "HISTORIES",
     "osses-title": "OSSES",

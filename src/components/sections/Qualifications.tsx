@@ -13,6 +13,8 @@ import {
   ListItemText,
 } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import { useBreakPoint } from '../../hooks';
 import { QualificationMapDataQuery } from '../../types';
 
 const useStyles = makeStyles(() => ({
@@ -24,6 +26,8 @@ const useStyles = makeStyles(() => ({
 export const Qualifications: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
+  const width = useBreakPoint();
+  const AUTO_EXPANDED_WIDTH: Breakpoint[] = ['lg', 'xl', 'md'];
   const { allContentfulQualificationMap }: QualificationMapDataQuery = useStaticQuery(
     graphql`
       query QualificationMapData {
@@ -52,7 +56,7 @@ export const Qualifications: React.FC = () => {
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Accordion defaultExpanded={node.expanded || false}>
+              <Accordion defaultExpanded={node.expanded || AUTO_EXPANDED_WIDTH.includes(width)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls={`certifications-${node.id}-content`}

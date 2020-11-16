@@ -10,7 +10,9 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from '@material-ui/core';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { useBreakPoint } from '../../hooks';
 import { SkillDataQuery } from '../../types';
 
 const useStyles = makeStyles(() => ({
@@ -22,6 +24,8 @@ const useStyles = makeStyles(() => ({
 export const Skills: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
+  const width = useBreakPoint();
+  const AUTO_EXPANDED_WIDTH: Breakpoint[] = ['lg', 'xl', 'md'];
   const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
     graphql`
       query SkillData {
@@ -50,7 +54,7 @@ export const Skills: React.FC = () => {
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Accordion defaultExpanded={node.expanded || false}>
+              <Accordion defaultExpanded={node.expanded || AUTO_EXPANDED_WIDTH.includes(width)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls={`skill${node.id}-content`}
