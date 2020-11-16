@@ -13,5 +13,6 @@ export * from './sections/Hello';
 export * from './sections/Histories';
 export * from './sections/OSSes';
 export * from './sections/Projects';
+export * from './sections/Qualifications';
 export * from './sections/Skills';
 export * from './sections/WhatICanDos';

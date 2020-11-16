@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageProps } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Container, Typography } from '@material-ui/core';
 import {
   Layout,
@@ -11,6 +11,7 @@ import {
   Contacts,
   Histories,
   OSSes,
+  Qualifications,
 } from '../components';
 
 const useStyles = makeStyles(theme => ({
@@ -21,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const home: React.FC<PageProps> = ({ path }) => {
-  const { t } = useI18next();
+  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <Layout pathname={path}>
@@ -44,16 +45,22 @@ const home: React.FC<PageProps> = ({ path }) => {
         <OSSes />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
+        <Typography component="h2" variant="h4" align="center">
+          {t('index.histories-title')}
+        </Typography>
+        <Histories />
+      </Container>
+      <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('index.skills-title')}
         </Typography>
         <Skills />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
-        <Typography component="h2" variant="h4" align="center">
-          {t('index.histories-title')}
+        <Typography component="h2" variant="h4" align="center" paragraph>
+          {t('index.qualifications-title')}
         </Typography>
-        <Histories />
+        <Qualifications />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center" paragraph>
