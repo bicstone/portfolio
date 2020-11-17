@@ -11,7 +11,6 @@ import {
   AccordionDetails,
 } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { useBreakPoint } from '../../hooks';
 import { SkillDataQuery } from '../../types';
 
@@ -56,7 +55,6 @@ export const Skills: React.FC = () => {
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Accordion defaultExpanded={node.expanded || AUTO_EXPANDED_WIDTH.includes(width)}>
                 <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
                   aria-controls={`skill${node.id}-content`}
                   id={`skill${node.id}-header`}
                 >
