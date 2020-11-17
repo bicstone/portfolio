@@ -15,3 +15,4 @@ export * from './sections/OSSes';
 export * from './sections/Projects';
 export * from './sections/Skills';
 export * from './sections/WhatICanDos';
+export * from './utilities/InlineBlock';

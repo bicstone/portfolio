@@ -1,8 +1,11 @@
 {
   "cookie-alert": {
-    "accept": "Accept",
-    "description": "We uses cookies for improvement.",
-    "dicline": "Dicline"
+    "close": "Close",
+    "description": "See <1>Cookie policy</1> for more details.",
+    "title": "We uses cookies for improvement."
+  },
+  "footer": {
+    "copyright": "©{{date}} Takanori Oishi"
   },
   "header": {
     "changeLanguage-title": "Change Language",
@@ -12,7 +15,7 @@
     "toggleDarkTheme-title": "Change DarkMode"
   },
   "hello": {
-    "message": "My name is Takanori Oishi. I'm a web developer / IoT developer / security specialist / mechanical design engineer. I specialize in simple, fast development with performance, security, SEO and maintainability in mind.",
+    "description": "My name is Takanori Oishi. I'm a web developer / IoT developer / security specialist / mechanical design engineer. I specialize in simple, fast development with performance, security, SEO and maintainability in mind.",
     "title": "Hey there!"
   },
   "historys": {
@@ -28,8 +31,18 @@
   },
   "not-found": {
     "back-to-home": "Back to home",
-    "message": "Page not found.",
+    "description": "Page not found.",
     "title": "Not Found"
+  },
+  "privacy": {
+    "description": {
+      "1": "We use third-party cookies in order to improve services provided to you. We collect and analyze information regarding activities that you have performed on the websites, such as information on the pages you have visited or your computer accessing our websites, etc.",
+      "2": "See below for more information on how these companies collect and use information for us. the third party privacy policy allows you to opt out in order.",
+      "3": "Google Analytics",
+      "4": "If you do not wish to use cookies, you can change your settings in your browser to reject cookies.If you reject cookies, you can still use the service.",
+      "5": "Back to home"
+    },
+    "title": "Cookie policy"
   },
   "siteMetadata": {
     "author": "Takanori Oishi",

@@ -1,19 +1,19 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Snackbar, Button, Typography } from '@material-ui/core';
+import { Link } from 'gatsby-theme-material-ui';
+import { useI18next, Trans } from 'gatsby-plugin-react-i18next';
+import { Snackbar, Typography, Button } from '@material-ui/core';
+import { InlineBlock } from '../';
 
 type Props = {
   cookieName?: string;
-  cookieTrue?: string;
-  cookieFalse?: string;
+  cookieValue?: string;
   cookieOptions?: Cookies.CookieAttributes;
 };
 
 export const CookieAlert: React.FC<Props> = ({
-  cookieName = 'gatsby-gdpr-google-analytics',
-  cookieTrue = 'true',
-  cookieFalse = 'false',
+  cookieName = 'cookie-licence',
+  cookieValue = '1',
   cookieOptions = {
     expires: 790,
     secure: process.env.NODE_ENV !== 'development',
@@ -23,32 +23,36 @@ export const CookieAlert: React.FC<Props> = ({
   const { t } = useI18next();
   const [agree, setAgree] = React.useState(Cookies.get(cookieName));
 
-  const agreeAction = () => {
-    Cookies.set(cookieName, cookieTrue, cookieOptions);
-    setAgree(cookieTrue);
+  const handleClose = () => {
+    Cookies.set(cookieName, cookieValue, cookieOptions);
+    setAgree(cookieValue);
   };
-
-  const closeAction = () => {
-    Cookies.set(cookieName, cookieFalse, cookieOptions);
-    setAgree(cookieFalse);
-  };
-
-  const agreeButton = (
-    <>
-      <Button color="secondary" size="small" onClick={closeAction}>
-        {t('cookie-alert.dicline')}
-      </Button>
-      <Button color="primary" onClick={agreeAction}>
-        {t('cookie-alert.accept')}
-      </Button>
-    </>
-  );
 
   return (
     <Snackbar
       open={agree === undefined}
-      action={agreeButton}
-      message={<Typography>{t('cookie-alert.description')}</Typography>}
+      action={
+        <>
+          <Button aria-label="close" color="primary" onClick={handleClose}>
+            {t('cookie-alert.close')}
+          </Button>
+        </>
+      }
+      message={
+        <Typography variant="body2">
+          <InlineBlock>{t('cookie-alert.title')}</InlineBlock>
+          <wbr />
+          <InlineBlock>
+            <Trans i18nKey="cookie-alert.description">
+              詳しくは
+              <Link color="secondary" to="/privacy">
+                Cookieポリシー
+              </Link>
+              をご覧ください。
+            </Trans>
+          </InlineBlock>
+        </Typography>
+      }
     />
   );
 };

@@ -24,7 +24,7 @@ const NotFound: React.FC<PageProps> = ({ path }) => {
           <Typography variant="h4" component="h1" paragraph>
             {t('not-found.title')}
           </Typography>
-          <Typography variant="body1">{t('not-found.message')}</Typography>
+          <Typography variant="body1">{t('not-found.description')}</Typography>
         </Box>
         <Box marginTop={4} textAlign="center">
           <Button variant="contained" to="/">

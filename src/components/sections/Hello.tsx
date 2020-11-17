@@ -38,7 +38,7 @@ export const Hello: React.FC = () => {
               &nbsp;
             </Typography>
             <Typography variant="body1" paragraph>
-              {t('hello.message')}
+              {t('hello.description')}
             </Typography>
           </Grid>
         </Grid>
