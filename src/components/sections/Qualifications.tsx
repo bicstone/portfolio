@@ -12,6 +12,7 @@ import {
   ListItem,
   ListItemText,
 } from '@material-ui/core';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { useBreakPoint } from '../../hooks';
 import { QualificationMapDataQuery } from '../../types';
@@ -57,6 +58,7 @@ export const Qualifications: React.FC = () => {
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Accordion defaultExpanded={node.expanded || AUTO_EXPANDED_WIDTH.includes(width)}>
                 <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
                   aria-controls={`certifications-${node.id}-content`}
                   id={`certifications-${node.id}-header`}
                 >
