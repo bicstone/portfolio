@@ -19,11 +19,12 @@
     "age": "{{age}}歳",
     "date": "{{date}}年"
   },
-  "index": {
+  "home": {
     "contacts-title": "お問い合わせ",
     "histories-title": "経歴",
     "osses-title": "OSS",
     "projects-title": "プロジェクト",
+    "qualifications-title": "資格",
     "skills-title": "スキル"
   },
   "not-found": {

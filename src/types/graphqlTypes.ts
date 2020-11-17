@@ -8058,9 +8058,40 @@ export type ContentfulQualification = ContentfulReference & ContentfulEntry & No
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  qualification_map?: Maybe<Array<Maybe<ContentfulQualificationMap>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulQualificationSys>;
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
+};
+
+
+export type ContentfulQualificationDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulQualificationCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulQualificationUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationConnection = {
@@ -8096,6 +8127,101 @@ export enum ContentfulQualificationFieldsEnum {
   contentful_id = 'contentful_id',
   id = 'id',
   node_locale = 'node_locale',
+  name = 'name',
+  date = 'date',
+  qualification_map = 'qualification_map',
+  qualification_map___contentful_id = 'qualification_map___contentful_id',
+  qualification_map___id = 'qualification_map___id',
+  qualification_map___node_locale = 'qualification_map___node_locale',
+  qualification_map___sort = 'qualification_map___sort',
+  qualification_map___name = 'qualification_map___name',
+  qualification_map___expanded = 'qualification_map___expanded',
+  qualification_map___qualifications = 'qualification_map___qualifications',
+  qualification_map___qualifications___contentful_id = 'qualification_map___qualifications___contentful_id',
+  qualification_map___qualifications___id = 'qualification_map___qualifications___id',
+  qualification_map___qualifications___node_locale = 'qualification_map___qualifications___node_locale',
+  qualification_map___qualifications___name = 'qualification_map___qualifications___name',
+  qualification_map___qualifications___date = 'qualification_map___qualifications___date',
+  qualification_map___qualifications___qualification_map = 'qualification_map___qualifications___qualification_map',
+  qualification_map___qualifications___qualification_map___contentful_id = 'qualification_map___qualifications___qualification_map___contentful_id',
+  qualification_map___qualifications___qualification_map___id = 'qualification_map___qualifications___qualification_map___id',
+  qualification_map___qualifications___qualification_map___node_locale = 'qualification_map___qualifications___qualification_map___node_locale',
+  qualification_map___qualifications___qualification_map___sort = 'qualification_map___qualifications___qualification_map___sort',
+  qualification_map___qualifications___qualification_map___name = 'qualification_map___qualifications___qualification_map___name',
+  qualification_map___qualifications___qualification_map___expanded = 'qualification_map___qualifications___qualification_map___expanded',
+  qualification_map___qualifications___qualification_map___qualifications = 'qualification_map___qualifications___qualification_map___qualifications',
+  qualification_map___qualifications___qualification_map___spaceId = 'qualification_map___qualifications___qualification_map___spaceId',
+  qualification_map___qualifications___qualification_map___createdAt = 'qualification_map___qualifications___qualification_map___createdAt',
+  qualification_map___qualifications___qualification_map___updatedAt = 'qualification_map___qualifications___qualification_map___updatedAt',
+  qualification_map___qualifications___qualification_map___children = 'qualification_map___qualifications___qualification_map___children',
+  qualification_map___qualifications___spaceId = 'qualification_map___qualifications___spaceId',
+  qualification_map___qualifications___createdAt = 'qualification_map___qualifications___createdAt',
+  qualification_map___qualifications___updatedAt = 'qualification_map___qualifications___updatedAt',
+  qualification_map___qualifications___sys___type = 'qualification_map___qualifications___sys___type',
+  qualification_map___qualifications___sys___revision = 'qualification_map___qualifications___sys___revision',
+  qualification_map___qualifications___parent___id = 'qualification_map___qualifications___parent___id',
+  qualification_map___qualifications___parent___children = 'qualification_map___qualifications___parent___children',
+  qualification_map___qualifications___children = 'qualification_map___qualifications___children',
+  qualification_map___qualifications___children___id = 'qualification_map___qualifications___children___id',
+  qualification_map___qualifications___children___children = 'qualification_map___qualifications___children___children',
+  qualification_map___qualifications___internal___content = 'qualification_map___qualifications___internal___content',
+  qualification_map___qualifications___internal___contentDigest = 'qualification_map___qualifications___internal___contentDigest',
+  qualification_map___qualifications___internal___description = 'qualification_map___qualifications___internal___description',
+  qualification_map___qualifications___internal___fieldOwners = 'qualification_map___qualifications___internal___fieldOwners',
+  qualification_map___qualifications___internal___ignoreType = 'qualification_map___qualifications___internal___ignoreType',
+  qualification_map___qualifications___internal___mediaType = 'qualification_map___qualifications___internal___mediaType',
+  qualification_map___qualifications___internal___owner = 'qualification_map___qualifications___internal___owner',
+  qualification_map___qualifications___internal___type = 'qualification_map___qualifications___internal___type',
+  qualification_map___spaceId = 'qualification_map___spaceId',
+  qualification_map___createdAt = 'qualification_map___createdAt',
+  qualification_map___updatedAt = 'qualification_map___updatedAt',
+  qualification_map___sys___type = 'qualification_map___sys___type',
+  qualification_map___sys___revision = 'qualification_map___sys___revision',
+  qualification_map___parent___id = 'qualification_map___parent___id',
+  qualification_map___parent___parent___id = 'qualification_map___parent___parent___id',
+  qualification_map___parent___parent___children = 'qualification_map___parent___parent___children',
+  qualification_map___parent___children = 'qualification_map___parent___children',
+  qualification_map___parent___children___id = 'qualification_map___parent___children___id',
+  qualification_map___parent___children___children = 'qualification_map___parent___children___children',
+  qualification_map___parent___internal___content = 'qualification_map___parent___internal___content',
+  qualification_map___parent___internal___contentDigest = 'qualification_map___parent___internal___contentDigest',
+  qualification_map___parent___internal___description = 'qualification_map___parent___internal___description',
+  qualification_map___parent___internal___fieldOwners = 'qualification_map___parent___internal___fieldOwners',
+  qualification_map___parent___internal___ignoreType = 'qualification_map___parent___internal___ignoreType',
+  qualification_map___parent___internal___mediaType = 'qualification_map___parent___internal___mediaType',
+  qualification_map___parent___internal___owner = 'qualification_map___parent___internal___owner',
+  qualification_map___parent___internal___type = 'qualification_map___parent___internal___type',
+  qualification_map___children = 'qualification_map___children',
+  qualification_map___children___id = 'qualification_map___children___id',
+  qualification_map___children___parent___id = 'qualification_map___children___parent___id',
+  qualification_map___children___parent___children = 'qualification_map___children___parent___children',
+  qualification_map___children___children = 'qualification_map___children___children',
+  qualification_map___children___children___id = 'qualification_map___children___children___id',
+  qualification_map___children___children___children = 'qualification_map___children___children___children',
+  qualification_map___children___internal___content = 'qualification_map___children___internal___content',
+  qualification_map___children___internal___contentDigest = 'qualification_map___children___internal___contentDigest',
+  qualification_map___children___internal___description = 'qualification_map___children___internal___description',
+  qualification_map___children___internal___fieldOwners = 'qualification_map___children___internal___fieldOwners',
+  qualification_map___children___internal___ignoreType = 'qualification_map___children___internal___ignoreType',
+  qualification_map___children___internal___mediaType = 'qualification_map___children___internal___mediaType',
+  qualification_map___children___internal___owner = 'qualification_map___children___internal___owner',
+  qualification_map___children___internal___type = 'qualification_map___children___internal___type',
+  qualification_map___internal___content = 'qualification_map___internal___content',
+  qualification_map___internal___contentDigest = 'qualification_map___internal___contentDigest',
+  qualification_map___internal___description = 'qualification_map___internal___description',
+  qualification_map___internal___fieldOwners = 'qualification_map___internal___fieldOwners',
+  qualification_map___internal___ignoreType = 'qualification_map___internal___ignoreType',
+  qualification_map___internal___mediaType = 'qualification_map___internal___mediaType',
+  qualification_map___internal___owner = 'qualification_map___internal___owner',
+  qualification_map___internal___type = 'qualification_map___internal___type',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
+  sys___revision = 'sys___revision',
+  sys___contentType___sys___type = 'sys___contentType___sys___type',
+  sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
+  sys___contentType___sys___id = 'sys___contentType___sys___id',
   parent___id = 'parent___id',
   parent___parent___id = 'parent___parent___id',
   parent___parent___parent___id = 'parent___parent___parent___id',
@@ -8187,9 +8313,20 @@ export type ContentfulQualificationFilterInput = {
   contentful_id?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  qualification_map?: Maybe<ContentfulQualificationMapFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulQualificationSysFilterInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
+};
+
+export type ContentfulQualificationFilterListInput = {
+  elemMatch?: Maybe<ContentfulQualificationFilterInput>;
 };
 
 export type ContentfulQualificationGroupConnection = {
@@ -8202,9 +8339,364 @@ export type ContentfulQualificationGroupConnection = {
   fieldValue?: Maybe<Scalars['String']>;
 };
 
+export type ContentfulQualificationMap = ContentfulReference & ContentfulEntry & Node & {
+  __typename?: 'ContentfulQualificationMap';
+  contentful_id: Scalars['String'];
+  id: Scalars['ID'];
+  node_locale: Scalars['String'];
+  sort?: Maybe<Scalars['Int']>;
+  name?: Maybe<Scalars['String']>;
+  expanded?: Maybe<Scalars['Boolean']>;
+  qualifications?: Maybe<Array<Maybe<ContentfulQualification>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulQualificationMapSys>;
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+};
+
+
+export type ContentfulQualificationMapCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulQualificationMapUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulQualificationMapConnection = {
+  __typename?: 'ContentfulQualificationMapConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulQualificationMapEdge>;
+  nodes: Array<ContentfulQualificationMap>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulQualificationMapGroupConnection>;
+};
+
+
+export type ContentfulQualificationMapConnectionDistinctArgs = {
+  field: ContentfulQualificationMapFieldsEnum;
+};
+
+
+export type ContentfulQualificationMapConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulQualificationMapFieldsEnum;
+};
+
+export type ContentfulQualificationMapEdge = {
+  __typename?: 'ContentfulQualificationMapEdge';
+  next?: Maybe<ContentfulQualificationMap>;
+  node: ContentfulQualificationMap;
+  previous?: Maybe<ContentfulQualificationMap>;
+};
+
+export enum ContentfulQualificationMapFieldsEnum {
+  contentful_id = 'contentful_id',
+  id = 'id',
+  node_locale = 'node_locale',
+  sort = 'sort',
+  name = 'name',
+  expanded = 'expanded',
+  qualifications = 'qualifications',
+  qualifications___contentful_id = 'qualifications___contentful_id',
+  qualifications___id = 'qualifications___id',
+  qualifications___node_locale = 'qualifications___node_locale',
+  qualifications___name = 'qualifications___name',
+  qualifications___date = 'qualifications___date',
+  qualifications___qualification_map = 'qualifications___qualification_map',
+  qualifications___qualification_map___contentful_id = 'qualifications___qualification_map___contentful_id',
+  qualifications___qualification_map___id = 'qualifications___qualification_map___id',
+  qualifications___qualification_map___node_locale = 'qualifications___qualification_map___node_locale',
+  qualifications___qualification_map___sort = 'qualifications___qualification_map___sort',
+  qualifications___qualification_map___name = 'qualifications___qualification_map___name',
+  qualifications___qualification_map___expanded = 'qualifications___qualification_map___expanded',
+  qualifications___qualification_map___qualifications = 'qualifications___qualification_map___qualifications',
+  qualifications___qualification_map___qualifications___contentful_id = 'qualifications___qualification_map___qualifications___contentful_id',
+  qualifications___qualification_map___qualifications___id = 'qualifications___qualification_map___qualifications___id',
+  qualifications___qualification_map___qualifications___node_locale = 'qualifications___qualification_map___qualifications___node_locale',
+  qualifications___qualification_map___qualifications___name = 'qualifications___qualification_map___qualifications___name',
+  qualifications___qualification_map___qualifications___date = 'qualifications___qualification_map___qualifications___date',
+  qualifications___qualification_map___qualifications___qualification_map = 'qualifications___qualification_map___qualifications___qualification_map',
+  qualifications___qualification_map___qualifications___spaceId = 'qualifications___qualification_map___qualifications___spaceId',
+  qualifications___qualification_map___qualifications___createdAt = 'qualifications___qualification_map___qualifications___createdAt',
+  qualifications___qualification_map___qualifications___updatedAt = 'qualifications___qualification_map___qualifications___updatedAt',
+  qualifications___qualification_map___qualifications___children = 'qualifications___qualification_map___qualifications___children',
+  qualifications___qualification_map___spaceId = 'qualifications___qualification_map___spaceId',
+  qualifications___qualification_map___createdAt = 'qualifications___qualification_map___createdAt',
+  qualifications___qualification_map___updatedAt = 'qualifications___qualification_map___updatedAt',
+  qualifications___qualification_map___sys___type = 'qualifications___qualification_map___sys___type',
+  qualifications___qualification_map___sys___revision = 'qualifications___qualification_map___sys___revision',
+  qualifications___qualification_map___parent___id = 'qualifications___qualification_map___parent___id',
+  qualifications___qualification_map___parent___children = 'qualifications___qualification_map___parent___children',
+  qualifications___qualification_map___children = 'qualifications___qualification_map___children',
+  qualifications___qualification_map___children___id = 'qualifications___qualification_map___children___id',
+  qualifications___qualification_map___children___children = 'qualifications___qualification_map___children___children',
+  qualifications___qualification_map___internal___content = 'qualifications___qualification_map___internal___content',
+  qualifications___qualification_map___internal___contentDigest = 'qualifications___qualification_map___internal___contentDigest',
+  qualifications___qualification_map___internal___description = 'qualifications___qualification_map___internal___description',
+  qualifications___qualification_map___internal___fieldOwners = 'qualifications___qualification_map___internal___fieldOwners',
+  qualifications___qualification_map___internal___ignoreType = 'qualifications___qualification_map___internal___ignoreType',
+  qualifications___qualification_map___internal___mediaType = 'qualifications___qualification_map___internal___mediaType',
+  qualifications___qualification_map___internal___owner = 'qualifications___qualification_map___internal___owner',
+  qualifications___qualification_map___internal___type = 'qualifications___qualification_map___internal___type',
+  qualifications___spaceId = 'qualifications___spaceId',
+  qualifications___createdAt = 'qualifications___createdAt',
+  qualifications___updatedAt = 'qualifications___updatedAt',
+  qualifications___sys___type = 'qualifications___sys___type',
+  qualifications___sys___revision = 'qualifications___sys___revision',
+  qualifications___parent___id = 'qualifications___parent___id',
+  qualifications___parent___parent___id = 'qualifications___parent___parent___id',
+  qualifications___parent___parent___children = 'qualifications___parent___parent___children',
+  qualifications___parent___children = 'qualifications___parent___children',
+  qualifications___parent___children___id = 'qualifications___parent___children___id',
+  qualifications___parent___children___children = 'qualifications___parent___children___children',
+  qualifications___parent___internal___content = 'qualifications___parent___internal___content',
+  qualifications___parent___internal___contentDigest = 'qualifications___parent___internal___contentDigest',
+  qualifications___parent___internal___description = 'qualifications___parent___internal___description',
+  qualifications___parent___internal___fieldOwners = 'qualifications___parent___internal___fieldOwners',
+  qualifications___parent___internal___ignoreType = 'qualifications___parent___internal___ignoreType',
+  qualifications___parent___internal___mediaType = 'qualifications___parent___internal___mediaType',
+  qualifications___parent___internal___owner = 'qualifications___parent___internal___owner',
+  qualifications___parent___internal___type = 'qualifications___parent___internal___type',
+  qualifications___children = 'qualifications___children',
+  qualifications___children___id = 'qualifications___children___id',
+  qualifications___children___parent___id = 'qualifications___children___parent___id',
+  qualifications___children___parent___children = 'qualifications___children___parent___children',
+  qualifications___children___children = 'qualifications___children___children',
+  qualifications___children___children___id = 'qualifications___children___children___id',
+  qualifications___children___children___children = 'qualifications___children___children___children',
+  qualifications___children___internal___content = 'qualifications___children___internal___content',
+  qualifications___children___internal___contentDigest = 'qualifications___children___internal___contentDigest',
+  qualifications___children___internal___description = 'qualifications___children___internal___description',
+  qualifications___children___internal___fieldOwners = 'qualifications___children___internal___fieldOwners',
+  qualifications___children___internal___ignoreType = 'qualifications___children___internal___ignoreType',
+  qualifications___children___internal___mediaType = 'qualifications___children___internal___mediaType',
+  qualifications___children___internal___owner = 'qualifications___children___internal___owner',
+  qualifications___children___internal___type = 'qualifications___children___internal___type',
+  qualifications___internal___content = 'qualifications___internal___content',
+  qualifications___internal___contentDigest = 'qualifications___internal___contentDigest',
+  qualifications___internal___description = 'qualifications___internal___description',
+  qualifications___internal___fieldOwners = 'qualifications___internal___fieldOwners',
+  qualifications___internal___ignoreType = 'qualifications___internal___ignoreType',
+  qualifications___internal___mediaType = 'qualifications___internal___mediaType',
+  qualifications___internal___owner = 'qualifications___internal___owner',
+  qualifications___internal___type = 'qualifications___internal___type',
+  spaceId = 'spaceId',
+  createdAt = 'createdAt',
+  updatedAt = 'updatedAt',
+  sys___type = 'sys___type',
+  sys___revision = 'sys___revision',
+  sys___contentType___sys___type = 'sys___contentType___sys___type',
+  sys___contentType___sys___linkType = 'sys___contentType___sys___linkType',
+  sys___contentType___sys___id = 'sys___contentType___sys___id',
+  parent___id = 'parent___id',
+  parent___parent___id = 'parent___parent___id',
+  parent___parent___parent___id = 'parent___parent___parent___id',
+  parent___parent___parent___children = 'parent___parent___parent___children',
+  parent___parent___children = 'parent___parent___children',
+  parent___parent___children___id = 'parent___parent___children___id',
+  parent___parent___children___children = 'parent___parent___children___children',
+  parent___parent___internal___content = 'parent___parent___internal___content',
+  parent___parent___internal___contentDigest = 'parent___parent___internal___contentDigest',
+  parent___parent___internal___description = 'parent___parent___internal___description',
+  parent___parent___internal___fieldOwners = 'parent___parent___internal___fieldOwners',
+  parent___parent___internal___ignoreType = 'parent___parent___internal___ignoreType',
+  parent___parent___internal___mediaType = 'parent___parent___internal___mediaType',
+  parent___parent___internal___owner = 'parent___parent___internal___owner',
+  parent___parent___internal___type = 'parent___parent___internal___type',
+  parent___children = 'parent___children',
+  parent___children___id = 'parent___children___id',
+  parent___children___parent___id = 'parent___children___parent___id',
+  parent___children___parent___children = 'parent___children___parent___children',
+  parent___children___children = 'parent___children___children',
+  parent___children___children___id = 'parent___children___children___id',
+  parent___children___children___children = 'parent___children___children___children',
+  parent___children___internal___content = 'parent___children___internal___content',
+  parent___children___internal___contentDigest = 'parent___children___internal___contentDigest',
+  parent___children___internal___description = 'parent___children___internal___description',
+  parent___children___internal___fieldOwners = 'parent___children___internal___fieldOwners',
+  parent___children___internal___ignoreType = 'parent___children___internal___ignoreType',
+  parent___children___internal___mediaType = 'parent___children___internal___mediaType',
+  parent___children___internal___owner = 'parent___children___internal___owner',
+  parent___children___internal___type = 'parent___children___internal___type',
+  parent___internal___content = 'parent___internal___content',
+  parent___internal___contentDigest = 'parent___internal___contentDigest',
+  parent___internal___description = 'parent___internal___description',
+  parent___internal___fieldOwners = 'parent___internal___fieldOwners',
+  parent___internal___ignoreType = 'parent___internal___ignoreType',
+  parent___internal___mediaType = 'parent___internal___mediaType',
+  parent___internal___owner = 'parent___internal___owner',
+  parent___internal___type = 'parent___internal___type',
+  children = 'children',
+  children___id = 'children___id',
+  children___parent___id = 'children___parent___id',
+  children___parent___parent___id = 'children___parent___parent___id',
+  children___parent___parent___children = 'children___parent___parent___children',
+  children___parent___children = 'children___parent___children',
+  children___parent___children___id = 'children___parent___children___id',
+  children___parent___children___children = 'children___parent___children___children',
+  children___parent___internal___content = 'children___parent___internal___content',
+  children___parent___internal___contentDigest = 'children___parent___internal___contentDigest',
+  children___parent___internal___description = 'children___parent___internal___description',
+  children___parent___internal___fieldOwners = 'children___parent___internal___fieldOwners',
+  children___parent___internal___ignoreType = 'children___parent___internal___ignoreType',
+  children___parent___internal___mediaType = 'children___parent___internal___mediaType',
+  children___parent___internal___owner = 'children___parent___internal___owner',
+  children___parent___internal___type = 'children___parent___internal___type',
+  children___children = 'children___children',
+  children___children___id = 'children___children___id',
+  children___children___parent___id = 'children___children___parent___id',
+  children___children___parent___children = 'children___children___parent___children',
+  children___children___children = 'children___children___children',
+  children___children___children___id = 'children___children___children___id',
+  children___children___children___children = 'children___children___children___children',
+  children___children___internal___content = 'children___children___internal___content',
+  children___children___internal___contentDigest = 'children___children___internal___contentDigest',
+  children___children___internal___description = 'children___children___internal___description',
+  children___children___internal___fieldOwners = 'children___children___internal___fieldOwners',
+  children___children___internal___ignoreType = 'children___children___internal___ignoreType',
+  children___children___internal___mediaType = 'children___children___internal___mediaType',
+  children___children___internal___owner = 'children___children___internal___owner',
+  children___children___internal___type = 'children___children___internal___type',
+  children___internal___content = 'children___internal___content',
+  children___internal___contentDigest = 'children___internal___contentDigest',
+  children___internal___description = 'children___internal___description',
+  children___internal___fieldOwners = 'children___internal___fieldOwners',
+  children___internal___ignoreType = 'children___internal___ignoreType',
+  children___internal___mediaType = 'children___internal___mediaType',
+  children___internal___owner = 'children___internal___owner',
+  children___internal___type = 'children___internal___type',
+  internal___content = 'internal___content',
+  internal___contentDigest = 'internal___contentDigest',
+  internal___description = 'internal___description',
+  internal___fieldOwners = 'internal___fieldOwners',
+  internal___ignoreType = 'internal___ignoreType',
+  internal___mediaType = 'internal___mediaType',
+  internal___owner = 'internal___owner',
+  internal___type = 'internal___type'
+}
+
+export type ContentfulQualificationMapFilterInput = {
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  sort?: Maybe<IntQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  expanded?: Maybe<BooleanQueryOperatorInput>;
+  qualifications?: Maybe<ContentfulQualificationFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulQualificationMapSysFilterInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+export type ContentfulQualificationMapFilterListInput = {
+  elemMatch?: Maybe<ContentfulQualificationMapFilterInput>;
+};
+
+export type ContentfulQualificationMapGroupConnection = {
+  __typename?: 'ContentfulQualificationMapGroupConnection';
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulQualificationMapEdge>;
+  nodes: Array<ContentfulQualificationMap>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulQualificationMapSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulQualificationMapFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulQualificationMapSys = {
+  __typename?: 'ContentfulQualificationMapSys';
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulQualificationMapSysContentType>;
+};
+
+export type ContentfulQualificationMapSysContentType = {
+  __typename?: 'ContentfulQualificationMapSysContentType';
+  sys?: Maybe<ContentfulQualificationMapSysContentTypeSys>;
+};
+
+export type ContentfulQualificationMapSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulQualificationMapSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulQualificationMapSysContentTypeSys = {
+  __typename?: 'ContentfulQualificationMapSysContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulQualificationMapSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulQualificationMapSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulQualificationMapSysContentTypeFilterInput>;
+};
+
 export type ContentfulQualificationSortInput = {
   fields?: Maybe<Array<Maybe<ContentfulQualificationFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulQualificationSys = {
+  __typename?: 'ContentfulQualificationSys';
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulQualificationSysContentType>;
+};
+
+export type ContentfulQualificationSysContentType = {
+  __typename?: 'ContentfulQualificationSysContentType';
+  sys?: Maybe<ContentfulQualificationSysContentTypeSys>;
+};
+
+export type ContentfulQualificationSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulQualificationSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulQualificationSysContentTypeSys = {
+  __typename?: 'ContentfulQualificationSysContentTypeSys';
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulQualificationSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulQualificationSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulQualificationSysContentTypeFilterInput>;
 };
 
 export type ContentfulReference = {
@@ -13287,6 +13779,8 @@ export type Query = {
   allContentfulHistory: ContentfulHistoryConnection;
   contentfulContact?: Maybe<ContentfulContact>;
   allContentfulContact: ContentfulContactConnection;
+  contentfulQualificationMap?: Maybe<ContentfulQualificationMap>;
+  allContentfulQualificationMap: ContentfulQualificationMapConnection;
   contentfulIconContentsTextNode?: Maybe<ContentfulIconContentsTextNode>;
   allContentfulIconContentsTextNode: ContentfulIconContentsTextNodeConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -13675,6 +14169,13 @@ export type QueryContentfulQualificationArgs = {
   contentful_id?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  qualification_map?: Maybe<ContentfulQualificationMapFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulQualificationSysFilterInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
@@ -13804,6 +14305,32 @@ export type QueryContentfulContactArgs = {
 export type QueryAllContentfulContactArgs = {
   filter?: Maybe<ContentfulContactFilterInput>;
   sort?: Maybe<ContentfulContactSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulQualificationMapArgs = {
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  sort?: Maybe<IntQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  expanded?: Maybe<BooleanQueryOperatorInput>;
+  qualifications?: Maybe<ContentfulQualificationFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulQualificationMapSysFilterInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+};
+
+
+export type QueryAllContentfulQualificationMapArgs = {
+  filter?: Maybe<ContentfulQualificationMapFilterInput>;
+  sort?: Maybe<ContentfulQualificationMapSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -14307,26 +14834,13 @@ export type SitePageContextI18nResourcesEnFilterInput = {
 
 export type SitePageContextI18nResourcesEnTranslation = {
   __typename?: 'SitePageContextI18nResourcesEnTranslation';
-  Hello_world_?: Maybe<Scalars['String']>;
-  OSSes?: Maybe<SitePageContextI18nResourcesEnTranslationOsSes>;
-  contact?: Maybe<SitePageContextI18nResourcesEnTranslationContact>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_Alert>;
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeader>;
   hello?: Maybe<SitePageContextI18nResourcesEnTranslationHello>;
   historys?: Maybe<SitePageContextI18nResourcesEnTranslationHistorys>;
+  index?: Maybe<SitePageContextI18nResourcesEnTranslationIndex>;
   not_found?: Maybe<SitePageContextI18nResourcesEnTranslationNot_Found>;
-  project?: Maybe<SitePageContextI18nResourcesEnTranslationProject>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesEnTranslationSiteMetadata>;
-  skill_map?: Maybe<SitePageContextI18nResourcesEnTranslationSkill_Map>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationContact = {
-  __typename?: 'SitePageContextI18nResourcesEnTranslationContact';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationContactFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationCookie_Alert = {
@@ -14343,70 +14857,71 @@ export type SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput = {
 };
 
 export type SitePageContextI18nResourcesEnTranslationFilterInput = {
-  Hello_world_?: Maybe<StringQueryOperatorInput>;
-  OSSes?: Maybe<SitePageContextI18nResourcesEnTranslationOsSesFilterInput>;
-  contact?: Maybe<SitePageContextI18nResourcesEnTranslationContactFilterInput>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesEnTranslationCookie_AlertFilterInput>;
   header?: Maybe<SitePageContextI18nResourcesEnTranslationHeaderFilterInput>;
   hello?: Maybe<SitePageContextI18nResourcesEnTranslationHelloFilterInput>;
   historys?: Maybe<SitePageContextI18nResourcesEnTranslationHistorysFilterInput>;
+  index?: Maybe<SitePageContextI18nResourcesEnTranslationIndexFilterInput>;
   not_found?: Maybe<SitePageContextI18nResourcesEnTranslationNot_FoundFilterInput>;
-  project?: Maybe<SitePageContextI18nResourcesEnTranslationProjectFilterInput>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesEnTranslationSiteMetadataFilterInput>;
-  skill_map?: Maybe<SitePageContextI18nResourcesEnTranslationSkill_MapFilterInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHeader = {
   __typename?: 'SitePageContextI18nResourcesEnTranslationHeader';
-  blog_title?: Maybe<Scalars['String']>;
-  blog_url?: Maybe<Scalars['String']>;
   changeLanguage_title?: Maybe<Scalars['String']>;
-  contact_title?: Maybe<Scalars['String']>;
   github_title?: Maybe<Scalars['String']>;
   github_url?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
   title_home?: Maybe<Scalars['String']>;
   toggleDarkTheme_title?: Maybe<Scalars['String']>;
-  twitter_title?: Maybe<Scalars['String']>;
-  twitter_url?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHeaderFilterInput = {
-  blog_title?: Maybe<StringQueryOperatorInput>;
-  blog_url?: Maybe<StringQueryOperatorInput>;
   changeLanguage_title?: Maybe<StringQueryOperatorInput>;
-  contact_title?: Maybe<StringQueryOperatorInput>;
   github_title?: Maybe<StringQueryOperatorInput>;
   github_url?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
   title_home?: Maybe<StringQueryOperatorInput>;
   toggleDarkTheme_title?: Maybe<StringQueryOperatorInput>;
-  twitter_title?: Maybe<StringQueryOperatorInput>;
-  twitter_url?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHello = {
   __typename?: 'SitePageContextI18nResourcesEnTranslationHello';
-  title?: Maybe<Scalars['String']>;
   message?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHelloFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
   message?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHistorys = {
   __typename?: 'SitePageContextI18nResourcesEnTranslationHistorys';
   age?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHistorysFilterInput = {
   age?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationIndex = {
+  __typename?: 'SitePageContextI18nResourcesEnTranslationIndex';
+  contacts_title?: Maybe<Scalars['String']>;
+  histories_title?: Maybe<Scalars['String']>;
+  osses_title?: Maybe<Scalars['String']>;
+  projects_title?: Maybe<Scalars['String']>;
+  qualifications_title?: Maybe<Scalars['String']>;
+  skills_title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesEnTranslationIndexFilterInput = {
+  contacts_title?: Maybe<StringQueryOperatorInput>;
+  histories_title?: Maybe<StringQueryOperatorInput>;
+  osses_title?: Maybe<StringQueryOperatorInput>;
+  projects_title?: Maybe<StringQueryOperatorInput>;
+  qualifications_title?: Maybe<StringQueryOperatorInput>;
+  skills_title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationNot_Found = {
@@ -14419,24 +14934,6 @@ export type SitePageContextI18nResourcesEnTranslationNot_Found = {
 export type SitePageContextI18nResourcesEnTranslationNot_FoundFilterInput = {
   back_to_home?: Maybe<StringQueryOperatorInput>;
   message?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationOsSes = {
-  __typename?: 'SitePageContextI18nResourcesEnTranslationOSSes';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationOsSesFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationProject = {
-  __typename?: 'SitePageContextI18nResourcesEnTranslationProject';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationProjectFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -14457,15 +14954,6 @@ export type SitePageContextI18nResourcesEnTranslationSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
-export type SitePageContextI18nResourcesEnTranslationSkill_Map = {
-  __typename?: 'SitePageContextI18nResourcesEnTranslationSkill_map';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesEnTranslationSkill_MapFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
-};
-
 export type SitePageContextI18nResourcesFilterInput = {
   ja?: Maybe<SitePageContextI18nResourcesJaFilterInput>;
   en?: Maybe<SitePageContextI18nResourcesEnFilterInput>;
@@ -14482,26 +14970,13 @@ export type SitePageContextI18nResourcesJaFilterInput = {
 
 export type SitePageContextI18nResourcesJaTranslation = {
   __typename?: 'SitePageContextI18nResourcesJaTranslation';
-  Hello_world_?: Maybe<Scalars['String']>;
-  OSSes?: Maybe<SitePageContextI18nResourcesJaTranslationOsSes>;
-  contact?: Maybe<SitePageContextI18nResourcesJaTranslationContact>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_Alert>;
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeader>;
   hello?: Maybe<SitePageContextI18nResourcesJaTranslationHello>;
   historys?: Maybe<SitePageContextI18nResourcesJaTranslationHistorys>;
+  index?: Maybe<SitePageContextI18nResourcesJaTranslationIndex>;
   not_found?: Maybe<SitePageContextI18nResourcesJaTranslationNot_Found>;
-  project?: Maybe<SitePageContextI18nResourcesJaTranslationProject>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesJaTranslationSiteMetadata>;
-  skill_map?: Maybe<SitePageContextI18nResourcesJaTranslationSkill_Map>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationContact = {
-  __typename?: 'SitePageContextI18nResourcesJaTranslationContact';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationContactFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationCookie_Alert = {
@@ -14518,70 +14993,71 @@ export type SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput = {
 };
 
 export type SitePageContextI18nResourcesJaTranslationFilterInput = {
-  Hello_world_?: Maybe<StringQueryOperatorInput>;
-  OSSes?: Maybe<SitePageContextI18nResourcesJaTranslationOsSesFilterInput>;
-  contact?: Maybe<SitePageContextI18nResourcesJaTranslationContactFilterInput>;
   cookie_alert?: Maybe<SitePageContextI18nResourcesJaTranslationCookie_AlertFilterInput>;
   header?: Maybe<SitePageContextI18nResourcesJaTranslationHeaderFilterInput>;
   hello?: Maybe<SitePageContextI18nResourcesJaTranslationHelloFilterInput>;
   historys?: Maybe<SitePageContextI18nResourcesJaTranslationHistorysFilterInput>;
+  index?: Maybe<SitePageContextI18nResourcesJaTranslationIndexFilterInput>;
   not_found?: Maybe<SitePageContextI18nResourcesJaTranslationNot_FoundFilterInput>;
-  project?: Maybe<SitePageContextI18nResourcesJaTranslationProjectFilterInput>;
   siteMetadata?: Maybe<SitePageContextI18nResourcesJaTranslationSiteMetadataFilterInput>;
-  skill_map?: Maybe<SitePageContextI18nResourcesJaTranslationSkill_MapFilterInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHeader = {
   __typename?: 'SitePageContextI18nResourcesJaTranslationHeader';
-  blog_title?: Maybe<Scalars['String']>;
-  blog_url?: Maybe<Scalars['String']>;
   changeLanguage_title?: Maybe<Scalars['String']>;
-  contact_title?: Maybe<Scalars['String']>;
   github_title?: Maybe<Scalars['String']>;
   github_url?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
   title_home?: Maybe<Scalars['String']>;
   toggleDarkTheme_title?: Maybe<Scalars['String']>;
-  twitter_title?: Maybe<Scalars['String']>;
-  twitter_url?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHeaderFilterInput = {
-  blog_title?: Maybe<StringQueryOperatorInput>;
-  blog_url?: Maybe<StringQueryOperatorInput>;
   changeLanguage_title?: Maybe<StringQueryOperatorInput>;
-  contact_title?: Maybe<StringQueryOperatorInput>;
   github_title?: Maybe<StringQueryOperatorInput>;
   github_url?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
   title_home?: Maybe<StringQueryOperatorInput>;
   toggleDarkTheme_title?: Maybe<StringQueryOperatorInput>;
-  twitter_title?: Maybe<StringQueryOperatorInput>;
-  twitter_url?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHello = {
   __typename?: 'SitePageContextI18nResourcesJaTranslationHello';
-  title?: Maybe<Scalars['String']>;
   message?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHelloFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
   message?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHistorys = {
   __typename?: 'SitePageContextI18nResourcesJaTranslationHistorys';
   age?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHistorysFilterInput = {
   age?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationIndex = {
+  __typename?: 'SitePageContextI18nResourcesJaTranslationIndex';
+  contacts_title?: Maybe<Scalars['String']>;
+  histories_title?: Maybe<Scalars['String']>;
+  osses_title?: Maybe<Scalars['String']>;
+  projects_title?: Maybe<Scalars['String']>;
+  qualifications_title?: Maybe<Scalars['String']>;
+  skills_title?: Maybe<Scalars['String']>;
+};
+
+export type SitePageContextI18nResourcesJaTranslationIndexFilterInput = {
+  contacts_title?: Maybe<StringQueryOperatorInput>;
+  histories_title?: Maybe<StringQueryOperatorInput>;
+  osses_title?: Maybe<StringQueryOperatorInput>;
+  projects_title?: Maybe<StringQueryOperatorInput>;
+  qualifications_title?: Maybe<StringQueryOperatorInput>;
+  skills_title?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationNot_Found = {
@@ -14594,24 +15070,6 @@ export type SitePageContextI18nResourcesJaTranslationNot_Found = {
 export type SitePageContextI18nResourcesJaTranslationNot_FoundFilterInput = {
   back_to_home?: Maybe<StringQueryOperatorInput>;
   message?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationOsSes = {
-  __typename?: 'SitePageContextI18nResourcesJaTranslationOSSes';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationOsSesFilterInput = {
-  title?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationProject = {
-  __typename?: 'SitePageContextI18nResourcesJaTranslationProject';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationProjectFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -14629,15 +15087,6 @@ export type SitePageContextI18nResourcesJaTranslationSiteMetadataFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<StringQueryOperatorInput>;
   shortTitle?: Maybe<StringQueryOperatorInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationSkill_Map = {
-  __typename?: 'SitePageContextI18nResourcesJaTranslationSkill_map';
-  title?: Maybe<Scalars['String']>;
-};
-
-export type SitePageContextI18nResourcesJaTranslationSkill_MapFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -15560,6 +16009,27 @@ export type ProjectDataQuery = (
             & Pick<ContentfulIconContentsTextNode, 'contents'>
           )> }
         )> }
+      ) }
+    )> }
+  ) }
+);
+
+export type QualificationMapDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type QualificationMapDataQuery = (
+  { __typename?: 'Query' }
+  & { allContentfulQualificationMap: (
+    { __typename?: 'ContentfulQualificationMapConnection' }
+    & { edges: Array<(
+      { __typename?: 'ContentfulQualificationMapEdge' }
+      & { node: (
+        { __typename?: 'ContentfulQualificationMap' }
+        & Pick<ContentfulQualificationMap, 'id' | 'name' | 'node_locale' | 'expanded'>
+        & { qualifications?: Maybe<Array<Maybe<(
+          { __typename?: 'ContentfulQualification' }
+          & Pick<ContentfulQualification, 'id' | 'name' | 'date'>
+        )>>> }
       ) }
     )> }
   ) }
