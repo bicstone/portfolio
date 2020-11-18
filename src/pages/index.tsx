@@ -11,6 +11,7 @@ import {
   Contacts,
   Histories,
   OSSes,
+  Qualifications,
 } from '../components';
 
 const useStyles = makeStyles(theme => ({
@@ -33,31 +34,37 @@ const home: React.FC<PageProps> = ({ path }) => {
       </Container>
       <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('index.projects-title')}
+          {t('home.projects-title')}
         </Typography>
         <Projects />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('index.osses-title')}
+          {t('home.osses-title')}
         </Typography>
         <OSSes />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('index.skills-title')}
-        </Typography>
-        <Skills />
-      </Container>
-      <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center">
-          {t('index.histories-title')}
+          {t('home.histories-title')}
         </Typography>
         <Histories />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('index.contacts-title')}
+          {t('home.skills-title')}
+        </Typography>
+        <Skills />
+      </Container>
+      <Container maxWidth="lg" className={classes.container}>
+        <Typography component="h2" variant="h4" align="center" paragraph>
+          {t('home.qualifications-title')}
+        </Typography>
+        <Qualifications />
+      </Container>
+      <Container maxWidth="lg" className={classes.container}>
+        <Typography component="h2" variant="h4" align="center" paragraph>
+          {t('home.contacts-title')}
         </Typography>
         <Contacts />
       </Container>

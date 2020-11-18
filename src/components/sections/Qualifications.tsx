@@ -5,15 +5,17 @@ import {
   makeStyles,
   Typography,
   Grid,
-  LinearProgress,
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  List,
+  ListItem,
+  ListItemText,
 } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { useBreakPoint } from '../../hooks';
-import { SkillDataQuery } from '../../types';
+import { QualificationMapDataQuery } from '../../types';
 
 const useStyles = makeStyles(() => ({
   accordionDetails: {
@@ -21,25 +23,25 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Skills: React.FC = () => {
+export const Qualifications: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
   const width = useBreakPoint();
   const AUTO_EXPANDED_WIDTH: Breakpoint[] = ['lg', 'xl', 'md'];
-  const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
+  const { allContentfulQualificationMap }: QualificationMapDataQuery = useStaticQuery(
     graphql`
-      query SkillData {
-        allContentfulSkillMap(sort: { order: ASC, fields: sort }) {
+      query QualificationMapData {
+        allContentfulQualificationMap(sort: { order: ASC, fields: sort }) {
           edges {
             node {
               id
               name
               node_locale
               expanded
-              skills {
+              qualifications {
                 id
-                level
                 name
+                date(formatString: "yyyy/MM")
               }
             }
           }
@@ -50,40 +52,34 @@ export const Skills: React.FC = () => {
 
   return (
     <Grid container spacing={2}>
-      {allContentfulSkillMap.edges.map(
+      {allContentfulQualificationMap.edges.map(
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Accordion defaultExpanded={node.expanded || AUTO_EXPANDED_WIDTH.includes(width)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`skill${node.id}-content`}
-                  id={`skill${node.id}-header`}
+                  aria-controls={`certifications-${node.id}-content`}
+                  id={`certifications-${node.id}-header`}
                 >
                   <Typography component="h3" variant="h6">
                     {node.name}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails className={classes.accordionDetails}>
-                  {node?.skills?.map(skill => (
-                    <Grid
-                      container
-                      spacing={2}
-                      justify="center"
-                      alignItems="center"
-                      key={skill?.id}
-                    >
-                      <Grid item xs={4}>
-                        {skill?.name}
-                      </Grid>
-                      <Grid item xs={8}>
-                        <LinearProgress
-                          variant="determinate"
-                          value={skill?.level ? skill.level * 20 : 0}
-                        />
-                      </Grid>
-                    </Grid>
-                  ))}
+                  <List dense={true}>
+                    {node?.qualifications?.map(
+                      qualification =>
+                        qualification && (
+                          <ListItem key={qualification.id}>
+                            <ListItemText
+                              primary={qualification.name}
+                              secondary={qualification.date}
+                            />
+                          </ListItem>
+                        ),
+                    )}
+                  </List>
                 </AccordionDetails>
               </Accordion>
             </Grid>
