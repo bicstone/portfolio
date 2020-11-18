@@ -16,3 +16,4 @@ export * from './sections/Projects';
 export * from './sections/Qualifications';
 export * from './sections/Skills';
 export * from './sections/WhatICanDos';
+export * from './utilities/InlineBlock';

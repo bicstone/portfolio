@@ -1,4 +1,5 @@
 import React from 'react';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Link } from 'gatsby-theme-material-ui';
 import { makeStyles, Typography, Grid, Container } from '@material-ui/core';
 
@@ -12,6 +13,8 @@ const useStyles = makeStyles(theme => ({
 
 export const Footer: React.FC = () => {
   const classes = useStyles();
+  const { t } = useI18next();
+  const nowDate = new Date();
   return (
     <footer className={classes.footer}>
       <Container maxWidth="sm">
@@ -19,13 +22,13 @@ export const Footer: React.FC = () => {
           <Grid item sm={12}>
             <Typography variant="body2" color="textSecondary" align="center" paragraph>
               <Link color="inherit" to="/privacy">
-                プライバシーポリシー・免責事項
+                {t('privacy.title')}
               </Link>
             </Typography>
           </Grid>
           <Grid item sm={12}>
             <Typography variant="body2" color="textSecondary" align="center">
-              &copy;{` ${new Date().getFullYear()} `}Takanori Oishi
+              {t('footer.copyright', { year: nowDate.getFullYear() })}
             </Typography>
           </Grid>
         </Grid>

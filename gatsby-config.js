@@ -71,13 +71,9 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
     },
     {
-      resolve: 'gatsby-plugin-gdpr-cookies',
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        googleAnalytics: {
-          trackingId: 'UA-165073691-2',
-          anonymize: false,
-        },
-        environments: ['production', 'development'],
+        trackingId: 'UA-165073691-2',
       },
     },
     {
