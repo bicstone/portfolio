@@ -113,5 +113,27 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-inline-svg',
     },
+    {
+      resolve: 'gatsby-plugin-csp',
+      options: {
+        mergeScriptHashes: true,
+        mergeStyleHashes: false,
+        mergeDefaultDirectives: false,
+        directives: {
+          'connect-src': "'self' https://www.google-analytics.com/",
+          'default-src': "'self'",
+          'font-src': "'none'",
+          'frame-src': "'none'",
+          'img-src': "'self' data:",
+          'manifest-src': "'self'",
+          'media-src': "'self'",
+          'object-src': "'none'",
+          'script-src': "'self' https://www.google-analytics.com",
+          'style-src': "'self' 'unsafe-inline'",
+          'base-uri': "'none'",
+          'form-action': "'none'",
+        },
+      },
+    },
   ],
 };
