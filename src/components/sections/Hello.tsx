@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import Typed, { TypedOptions } from 'typed.js';
-import { Typography, Grid } from '@material-ui/core';
+import { Typography, Grid, Button } from '@material-ui/core';
 import { BicstoneIcon } from '../';
 
 export const Hello: React.FC = () => {
@@ -40,6 +40,16 @@ export const Hello: React.FC = () => {
             <Typography variant="body1" paragraph>
               {t('hello.description')}
             </Typography>
+            <Button
+              variant="outlined"
+              color="primary"
+              size="medium"
+              href="https://portfolio.forkwell.com/@bicstone"
+              rel="external noreferrer nofollow"
+              target="_blank"
+            >
+              {t('hello.forkwell')}
+            </Button>
           </Grid>
         </Grid>
       </Grid>
