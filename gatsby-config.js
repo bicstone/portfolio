@@ -10,7 +10,7 @@ const t = {
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://masshiro-portfolio.netlify.app/',
+    siteUrl: 'https://bicstone.me/',
   },
   plugins: [
     {
@@ -48,24 +48,6 @@ module.exports = {
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
       },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        allPageHeaders: [
-          'Strict-Transport-Security: max-age=63072000; includeSubDomains; preload',
-          'Referrer-Policy: unsafe-url',
-          'X-Frame-Options: DENY',
-          "X-Hello-Human: Hey there! I'm Takanori Oishi.",
-          'X-Content-Type-Options: nosniff',
-          'X-XSS-Protection: 1; mode=block',
-          'X-UA-Compatible: IE=edge',
-          // "Content-Security-Policy: default-src "self" "unsafe-inline" object-src "none"",
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-netlify-cache',
     },
     {
       resolve: 'gatsby-plugin-root-import',
