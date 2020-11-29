@@ -64,8 +64,6 @@ export const Head: React.FC<Props> = ({
       <meta name="twitter:creator" content={defaultMetadata.author} />
       <meta name="twitter:site" content={defaultMetadata.author} />
       <meta name="format-detection" content="telephone=no" />
-      <meta name="Hatena::Bookmark" content="nocomment" />
-      <meta name="referrer" content="unsafe-url" />
     </Helmet>
   );
 };
