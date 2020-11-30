@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const languages = require('./languages');
 const t = {
-  en: require('./src/locales/en/translation.json'),
   ja: require('./src/locales/ja/translation.json'),
 };
 
@@ -61,11 +60,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        lang: 'en',
-        name: t.en.siteMetadata.title,
-        short_name: t.en.siteMetadata.shortTitle,
-        description: t.en.siteMetadata.description,
-        start_url: '/en/',
+        lang: 'ja',
+        name: t.ja.siteMetadata.title,
+        short_name: t.ja.siteMetadata.shortTitle,
+        description: t.ja.siteMetadata.description,
+        start_url: '/',
         display: 'minimal-ui',
         icons: [
           {
@@ -81,15 +80,6 @@ module.exports = {
         ],
         theme_color: '#ffffff',
         background_color: '#ffffff',
-        localize: [
-          {
-            lang: 'ja',
-            name: t.ja.siteMetadata.title,
-            short_name: t.ja.siteMetadata.shortTitle,
-            description: t.ja.siteMetadata.description,
-            start_url: '/',
-          },
-        ],
         cache_busting_mode: 'none',
       },
     },
@@ -120,11 +110,11 @@ module.exports = {
         mergeStyleHashes: false,
         mergeDefaultDirectives: false,
         directives: {
-          'connect-src': "'self' https://www.google-analytics.com/",
+          'connect-src': "'self' https://www.google-analytics.com",
           'default-src': "'self'",
           'font-src': "'none'",
           'frame-src': "'none'",
-          'img-src': "'self' data:",
+          'img-src': "'self' data: https://www.google-analytics.com",
           'manifest-src': "'self'",
           'media-src': "'self'",
           'object-src': "'none'",
