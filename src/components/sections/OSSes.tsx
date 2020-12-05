@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
@@ -11,14 +12,20 @@ import {
   Card,
   Avatar,
   CardMedia,
-  Chip,
+  SvgIcon,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from '@material-ui/core';
-import { Devices as DevicesIcon } from '@material-ui/icons';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { OssDataQuery } from '../../types';
 
 const useStyles = makeStyles(theme => ({
   cardContent: {
-    paddingTop: 0,
+    paddingTop: '0!important',
+    paddingLeft: '0!important',
+    paddingBottom: `${theme.spacing(0.5)}px!important`,
+    paddingRight: '0!important',
   },
   cardMedia: {
     height: theme.spacing(20),
@@ -28,6 +35,15 @@ const useStyles = makeStyles(theme => ({
 export const OSSes: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
+  const [expanded, setExpanded] = React.useState<string | false>(false);
+
+  const handleChange = (id: string) => (
+    event: React.ChangeEvent<Record<string, unknown>>,
+    isExpanded: boolean,
+  ) => {
+    setExpanded(isExpanded ? id : false);
+  };
+
   const { allContentfulOss }: OssDataQuery = useStaticQuery(
     graphql`
       query OssData {
@@ -37,11 +53,15 @@ export const OSSes: React.FC = () => {
               id
               node_locale
               name
-              slug
-              startDate
-              during
-              comment
-              mainImage {
+              tags {
+                name
+              }
+              icon {
+                svg {
+                  svg
+                }
+              }
+              image {
                 title
                 file {
                   url
@@ -57,23 +77,14 @@ export const OSSes: React.FC = () => {
                   }
                 }
               }
-              siteUrl
-              sourceUrl
-              roles {
-                name
+              subName
+              detail {
+                childMarkdownRemark {
+                  html
+                }
               }
-              assigns {
-                name
-              }
-              systems {
-                name
-              }
-              languages {
-                name
-              }
-              tools {
-                name
-              }
+              startDate(formatString: "yyyy/MM")
+              href
             }
           }
         }
@@ -90,37 +101,53 @@ export const OSSes: React.FC = () => {
               <Card>
                 <CardHeader
                   avatar={
-                    <Avatar>
-                      <DevicesIcon />
-                    </Avatar>
+                    node?.icon?.svg?.svg && (
+                      <Avatar>
+                        <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
+                      </Avatar>
+                    )
                   }
                   title={
                     <Typography component="h3" variant="h6">
                       {node.name}
                     </Typography>
                   }
-                  subheader={node.roles ? node.roles.map(role => role?.name).join(' / ') : ''}
+                  subheader={node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
                 />
                 <CardMedia>
-                  {node?.mainImage?.localFile?.childImageSharp?.fluid && (
+                  {node?.image?.localFile?.childImageSharp?.fluid && (
                     <Img
-                      fluid={node.mainImage.localFile.childImageSharp.fluid}
-                      alt={node.mainImage.title ?? ''}
+                      fluid={node.image.localFile.childImageSharp.fluid}
+                      alt={node.name ?? ''}
                       className={classes.cardMedia}
                     />
                   )}
                 </CardMedia>
-                <CardContent>
-                  {node?.languages?.map(language => (
-                    <Chip label={language?.name} size="small" key={language?.name} />
-                  ))}
-                  {node?.systems?.map(system => (
-                    <Chip label={system?.name} size="small" key={system?.name} />
-                  ))}
-                </CardContent>
-                <CardContent className={classes.cardContent}>
-                  <Typography variant="body2">{node.comment}</Typography>
-                </CardContent>
+                <Accordion
+                  expanded={expanded === node.id}
+                  onChange={handleChange(node.id)}
+                  key={node.id}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls={`${node.id}-content`}
+                    id={`${node.id}-header`}
+                  >
+                    <CardContent className={classes.cardContent}>
+                      <Typography variant="body2" color="textSecondary">
+                        {node.subName}
+                      </Typography>
+                    </CardContent>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <CardContent className={classes.cardContent}>
+                      <Typography variant="body2">
+                        {node?.detail?.childMarkdownRemark?.html &&
+                          parse(node.detail.childMarkdownRemark.html)}
+                      </Typography>
+                    </CardContent>
+                  </AccordionDetails>
+                </Accordion>
               </Card>
             </Grid>
           ),

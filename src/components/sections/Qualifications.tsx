@@ -31,12 +31,12 @@ export const Qualifications: React.FC = () => {
   const { allContentfulQualificationMap }: QualificationMapDataQuery = useStaticQuery(
     graphql`
       query QualificationMapData {
-        allContentfulQualificationMap(sort: { order: ASC, fields: sort }) {
+        allContentfulQualificationMap(sort: { order: ASC, fields: sortKey }) {
           edges {
             node {
               id
-              name
               node_locale
+              name
               expanded
               qualifications {
                 id

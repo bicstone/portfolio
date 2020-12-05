@@ -11,16 +11,16 @@ export const WhatICanDos: React.FC = () => {
   const { allContentfulWhatICanDo }: WhatICanDoDataQuery = useStaticQuery(
     graphql`
       query WhatICanDoData {
-        allContentfulWhatICanDo(sort: { fields: sort, order: ASC }) {
+        allContentfulWhatICanDo(sort: { fields: sortKey, order: ASC }) {
           edges {
             node {
               id
               node_locale
-              title
-              message
+              name
+              subName
               icon {
-                contents {
-                  contents
+                svg {
+                  svg
                 }
               }
             }
@@ -39,20 +39,20 @@ export const WhatICanDos: React.FC = () => {
               <Card>
                 <CardHeader
                   avatar={
-                    node.icon?.contents?.contents && (
+                    node.icon?.svg?.svg && (
                       <Avatar>
-                        <SvgIcon>{parse(node.icon.contents.contents)}</SvgIcon>
+                        <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                       </Avatar>
                     )
                   }
                   title={
                     <Typography component="h3" variant="h6">
-                      {node.title}
+                      {node.name}
                     </Typography>
                   }
                   subheader={
                     <Typography variant="body1" color="textSecondary">
-                      {node.message}
+                      {node.subName}
                     </Typography>
                   }
                 />

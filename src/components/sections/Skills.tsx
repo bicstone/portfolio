@@ -29,7 +29,7 @@ export const Skills: React.FC = () => {
   const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
     graphql`
       query SkillData {
-        allContentfulSkillMap(sort: { order: ASC, fields: sort }) {
+        allContentfulSkillMap(sort: { order: ASC, fields: sortKey }) {
           edges {
             node {
               id

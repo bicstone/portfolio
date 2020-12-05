@@ -18,27 +18,25 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineOppositeContent,
-  TimelineDot,
 } from '@material-ui/lab';
 import { HistoryDataQuery } from '../../types';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   cardContent: {
     paddingTop: 0,
   },
   timeline: {
     padding: 0,
   },
-  timelineDot: {
-    borderStyle: 'none',
-    borderWidth: 0,
-  },
-  timelineContent: {
-    flex: 3,
+  timelineSeparator: {
+    flex: 0,
+    maxWidth: '5rem',
+    marginTop: theme.spacing(1),
+    wordBreak: 'keep-all',
+    whiteSpace: 'nowrap',
   },
   timelineOppositeContent: {
-    flex: 0,
-    minWidth: '6rem',
+    display: 'none',
   },
 }));
 
@@ -54,11 +52,11 @@ export const Histories: React.FC = () => {
               id
               node_locale
               date(formatString: "yyyy")
-              title
-              subheader
+              name
+              subName
               icon {
-                contents {
-                  contents
+                svg {
+                  svg
                 }
               }
             }
@@ -76,34 +74,34 @@ export const Histories: React.FC = () => {
           ({ node }, index, { length }) =>
             node.node_locale === language && (
               <TimelineItem key={node.id}>
-                <TimelineOppositeContent className={classes.timelineOppositeContent}>
+                <TimelineOppositeContent
+                  className={classes.timelineOppositeContent}
+                ></TimelineOppositeContent>
+                <TimelineSeparator className={classes.timelineSeparator}>
                   <Typography variant="body2" color="textSecondary">
                     {t('historys.date', { date: node.date })}
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
                     {t('historys.age', { age: `${yearToAge(Number(node.date))}` })}
                   </Typography>
-                </TimelineOppositeContent>
-                <TimelineSeparator>
-                  <TimelineDot color="inherit" className={classes.timelineDot}>
-                    {node?.icon?.contents?.contents && (
-                      <Avatar>
-                        <SvgIcon>{parse(node.icon.contents.contents)}</SvgIcon>
-                      </Avatar>
-                    )}
-                  </TimelineDot>
-                  {/* 線は最後の項目には表示しない */}
                   {index < length - 2 && <TimelineConnector />}
                 </TimelineSeparator>
-                <TimelineContent className={classes.timelineContent}>
+                <TimelineContent>
                   <Paper>
                     <CardHeader
+                      avatar={
+                        node?.icon?.svg?.svg && (
+                          <Avatar>
+                            <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
+                          </Avatar>
+                        )
+                      }
                       title={
                         <Typography component="h3" variant="h6">
-                          {node.title}
+                          {node.name}
                         </Typography>
                       }
-                      subheader={node.subheader}
+                      subheader={node.subName}
                     />
                   </Paper>
                 </TimelineContent>

@@ -1,11 +1,25 @@
 import React, { useEffect, useRef } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import Typed, { TypedOptions } from 'typed.js';
-import { Typography, Grid, Button } from '@material-ui/core';
+import { Typography, Grid, Button, makeStyles } from '@material-ui/core';
+import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { BicstoneIcon } from '../';
+import { useBreakPoint } from '../../hooks';
+import { HelloDataQuery } from '../../types';
+
+const useStyles = makeStyles(theme => ({
+  button: {
+    marginRight: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+  },
+}));
 
 export const Hello: React.FC = () => {
-  const { t } = useI18next();
+  const classes = useStyles();
+  const { t, language } = useI18next();
+  const width = useBreakPoint();
+  const BUTTON_SMALL_WIDTH: Breakpoint[] = ['xs'];
   const wrapEl = useRef<HTMLSpanElement>(null);
   useEffect(() => {
     if (wrapEl.current) {
@@ -24,6 +38,22 @@ export const Hello: React.FC = () => {
       };
     }
   }, [wrapEl.current]);
+  const { allContentfulHello }: HelloDataQuery = useStaticQuery(
+    graphql`
+      query HelloData {
+        allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+          edges {
+            node {
+              id
+              node_locale
+              name
+              href
+            }
+          }
+        }
+      }
+    `,
+  );
 
   return (
     <Grid container>
@@ -40,16 +70,22 @@ export const Hello: React.FC = () => {
             <Typography variant="body1" paragraph>
               {t('hello.description')}
             </Typography>
-            <Button
-              variant="outlined"
-              color="primary"
-              size="medium"
-              href="https://portfolio.forkwell.com/@bicstone"
-              rel="external noreferrer nofollow"
-              target="_blank"
-            >
-              {t('hello.forkwell')}
-            </Button>
+            {allContentfulHello.edges.map(
+              ({ node }) =>
+                node.node_locale === language && (
+                  <Button
+                    href={node.href || ''}
+                    variant="outlined"
+                    color="primary"
+                    size={BUTTON_SMALL_WIDTH.includes(width) ? 'small' : 'medium'}
+                    rel="external noreferrer nofollow"
+                    target="_blank"
+                    className={classes.button}
+                  >
+                    {node.name}
+                  </Button>
+                ),
+            )}
           </Grid>
         </Grid>
       </Grid>
