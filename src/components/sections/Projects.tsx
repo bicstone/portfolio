@@ -16,8 +16,6 @@ import {
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { ProjectDataQuery } from '../../types';
 
-type Tags = Array<{ name?: string | null } | null | undefined> | null | undefined;
-
 const useStyles = makeStyles(() => ({
   cardHeader: {
     padding: 0,
