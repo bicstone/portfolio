@@ -102,7 +102,7 @@ export const Projects: React.FC = () => {
                   />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body2">
+                  <Typography variant="body2" component="div">
                     {node?.detail?.childMarkdownRemark?.html &&
                       parse(node.detail.childMarkdownRemark.html)}
                   </Typography>

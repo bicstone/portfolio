@@ -18,7 +18,7 @@ const TopLayout: React.FC = props => {
         main: '#81C784',
       },
       secondary: {
-        main: '#81C784',
+        main: '#27a144',
       },
     },
     typography: {

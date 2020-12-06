@@ -29,8 +29,7 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
   },
   timelineSeparator: {
-    flex: 0,
-    maxWidth: '5rem',
+    flex: `0 0 ${theme.spacing(8)}px`,
     marginTop: theme.spacing(1),
     wordBreak: 'keep-all',
     whiteSpace: 'nowrap',

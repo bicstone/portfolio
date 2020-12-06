@@ -7,6 +7,7 @@ type Props = {
   description?: string;
   pathname?: string;
   image?: string;
+  cookieAlertShow?: boolean;
 };
 
 const useStyles = makeStyles(theme => ({
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Layout: React.FC<Props> = ({ children, ...props }) => {
+export const Layout: React.FC<Props> = ({ children, cookieAlertShow, ...props }) => {
   const classes = useStyles();
   return (
     <>
@@ -30,7 +31,7 @@ export const Layout: React.FC<Props> = ({ children, ...props }) => {
         <main className={classes.main} role="main">
           {children}
         </main>
-        <CookieAlert />
+        <CookieAlert show={cookieAlertShow} />
         <Footer />
       </div>
     </>

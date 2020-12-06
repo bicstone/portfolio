@@ -75,7 +75,7 @@ export const Header: React.FC = () => {
               <ExternalIconButton
                 size="small"
                 href={t('header.github-url') as string}
-                rel="external noreferrer nofollow"
+                rel="external noreferrer noopener nofollow"
                 target="_blank"
                 className={classes.link}
                 style={{ color: isDarkMode ? '#fff' : '#171515' }}

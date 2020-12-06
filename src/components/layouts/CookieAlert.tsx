@@ -9,6 +9,7 @@ import { useBreakPoint } from '../../hooks';
 import { InlineBlock } from '../';
 
 type Props = {
+  show?: boolean;
   cookieName?: string;
   cookieValue?: string;
   cookieOptions?: Cookies.CookieAttributes;
@@ -35,6 +36,7 @@ export const CookieAlert: React.FC<Props> = ({
     secure: process.env.NODE_ENV !== 'development',
     sameSite: 'Strict',
   },
+  show = true,
 }) => {
   const classes = useStyles();
   const { t } = useI18next();
@@ -48,7 +50,7 @@ export const CookieAlert: React.FC<Props> = ({
   };
 
   return (
-    <Snackbar open={agree === undefined}>
+    <Snackbar open={show && agree === undefined}>
       <SnackbarContent
         className={classes.snackbar}
         action={
@@ -64,7 +66,10 @@ export const CookieAlert: React.FC<Props> = ({
           </>
         }
         message={
-          <Typography variant={MESSAGE_SMALL_WIDTH.includes(width) ? 'caption' : 'body2'}>
+          <Typography
+            variant={MESSAGE_SMALL_WIDTH.includes(width) ? 'caption' : 'body2'}
+            component="div"
+          >
             <InlineBlock>{t('cookie-alert.title')}</InlineBlock>
             <wbr />
             <InlineBlock>

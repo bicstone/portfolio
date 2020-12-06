@@ -63,7 +63,7 @@ export const Contacts: React.FC = () => {
               <CardActionArea
                 title={node.name || ''}
                 href={node.href || ''}
-                rel="external noreferrer nofollow"
+                rel="external noreferrer noopener nofollow"
                 target="_blank"
               >
                 <Card>

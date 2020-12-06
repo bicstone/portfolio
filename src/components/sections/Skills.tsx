@@ -1,31 +1,24 @@
 import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import {
-  makeStyles,
-  Typography,
-  Grid,
-  LinearProgress,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from '@material-ui/core';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { makeStyles, Typography, Grid, LinearProgress, CardContent, Card } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { useBreakPoint } from '../../hooks';
+import { ExpandCardContent } from '../../components';
 import { SkillDataQuery } from '../../types';
 
-const useStyles = makeStyles(() => ({
-  accordionDetails: {
-    display: 'block',
+const useStyles = makeStyles(theme => ({
+  cardContent: {
+    paddingTop: theme.spacing(2),
+    paddingRight: theme.spacing(4),
+    paddingBottom: theme.spacing(2),
+    paddingLeft: theme.spacing(4),
   },
 }));
 
 export const Skills: React.FC = () => {
   const classes = useStyles();
   const { language } = useI18next();
-  const width = useBreakPoint();
-  const AUTO_EXPANDED_WIDTH: Breakpoint[] = ['lg', 'xl', 'md'];
+  const defaultExpandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
   const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
     graphql`
       query SkillData {
@@ -54,38 +47,41 @@ export const Skills: React.FC = () => {
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Accordion defaultExpanded={node.expanded || AUTO_EXPANDED_WIDTH.includes(width)}>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`skill${node.id}-content`}
-                  id={`skill${node.id}-header`}
-                >
-                  <Typography component="h3" variant="h6">
-                    {node.name}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails className={classes.accordionDetails}>
-                  {node?.skills?.map(skill => (
-                    <Grid
-                      container
-                      spacing={2}
-                      justify="center"
-                      alignItems="center"
-                      key={skill?.id}
-                    >
-                      <Grid item xs={4}>
-                        {skill?.name}
-                      </Grid>
-                      <Grid item xs={8}>
-                        <LinearProgress
-                          variant="determinate"
-                          value={skill?.level ? skill.level * 20 : 0}
-                        />
-                      </Grid>
-                    </Grid>
-                  ))}
-                </AccordionDetails>
-              </Accordion>
+              <Card>
+                <ExpandCardContent
+                  id={node.id}
+                  defaultExpanded={node.expanded || false}
+                  defaultExpandedBreakpoints={defaultExpandedBreakpoints}
+                  title={
+                    <Typography component="h3" variant="h6">
+                      {node.name}
+                    </Typography>
+                  }
+                  detail={
+                    <CardContent className={classes.cardContent}>
+                      {node?.skills?.map(skill => (
+                        <Grid
+                          container
+                          spacing={2}
+                          justify="center"
+                          alignItems="center"
+                          key={skill?.id}
+                        >
+                          <Grid item xs={4}>
+                            {skill?.name}
+                          </Grid>
+                          <Grid item xs={8}>
+                            <LinearProgress
+                              variant="determinate"
+                              value={skill?.level ? skill.level * 20 : 0}
+                            />
+                          </Grid>
+                        </Grid>
+                      ))}
+                    </CardContent>
+                  }
+                />
+              </Card>
             </Grid>
           ),
       )}
