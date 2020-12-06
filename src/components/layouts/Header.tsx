@@ -28,8 +28,7 @@ const useStyles = makeStyles(theme => ({
 
 export const Header: React.FC = () => {
   const classes = useStyles();
-  const { t, language, languages, changeLanguage } = useI18next();
-  const nextLanguage = languages.filter(lang => lang !== language)[0];
+  const { t } = useI18next();
   const [isDarkMode, toggleDarkMode] = useDarkMode();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
 
@@ -55,18 +54,6 @@ export const Header: React.FC = () => {
           <Tooltip arrow title={t('header.toggleDarkTheme-title') as string}>
             <IconButton size="small" onClick={toggleDarkMode} className={classes.link}>
               {isDarkMode ? <Brightness2 /> : <WbSunny />}
-            </IconButton>
-          </Tooltip>
-          <Tooltip arrow title={t('header.changeLanguage-title') as string}>
-            <IconButton
-              size="small"
-              onClick={e => {
-                e.preventDefault();
-                changeLanguage(nextLanguage);
-              }}
-              className={classes.link}
-            >
-              {language.toUpperCase()}
             </IconButton>
           </Tooltip>
           <div className={classes.spacer} />
