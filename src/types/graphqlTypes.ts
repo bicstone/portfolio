@@ -11862,13 +11862,11 @@ export type SitePageContextI18nResourcesEnTranslationHeaderFilterInput = {
 export type SitePageContextI18nResourcesEnTranslationHello = {
   __typename?: 'SitePageContextI18nResourcesEnTranslationHello';
   description?: Maybe<Scalars['String']>;
-  forkwell?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesEnTranslationHelloFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
-  forkwell?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -12041,13 +12039,11 @@ export type SitePageContextI18nResourcesJaTranslationHeaderFilterInput = {
 export type SitePageContextI18nResourcesJaTranslationHello = {
   __typename?: 'SitePageContextI18nResourcesJaTranslationHello';
   description?: Maybe<Scalars['String']>;
-  forkwell?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextI18nResourcesJaTranslationHelloFilterInput = {
   description?: Maybe<StringQueryOperatorInput>;
-  forkwell?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
 };
 

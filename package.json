@@ -96,7 +96,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn barrelsby && yarn tc && yarn lint"
+      "pre-commit": "yarn barrelsby && yarn typecheck && yarn lint"
     }
   }
 }
