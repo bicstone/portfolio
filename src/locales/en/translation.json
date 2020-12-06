@@ -1,7 +1,7 @@
 {
   "cookie-alert": {
     "close": "Close",
-    "description": "See <1>Cookie policy</1> for more details.",
+    "description": "See <1>Cookie policy</1>.",
     "title": "We uses cookies for improvement."
   },
   "footer": {
@@ -16,7 +16,6 @@
   },
   "hello": {
     "description": "My name is Takanori Oishi. I'm a web developer / IoT developer / security specialist / mechanical design engineer. I specialize in simple, fast development with performance, security, SEO and maintainability in mind.",
-    "forkwell": "forkwell portfolio (Ja)",
     "title": "Hey there!"
   },
   "historys": {

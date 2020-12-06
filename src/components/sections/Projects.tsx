@@ -16,8 +16,6 @@ import {
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { ProjectDataQuery } from '../../types';
 
-type Tags = Array<{ name?: string | null } | null | undefined> | null | undefined;
-
 const useStyles = makeStyles(() => ({
   cardHeader: {
     padding: 0,
@@ -36,59 +34,33 @@ export const Projects: React.FC = () => {
     setExpanded(isExpanded ? id : false);
   };
 
-  const subHeader = (
-    expanded: boolean,
-    roles: Tags,
-    languages: Tags,
-    systems: Tags,
-    tools: Tags,
-    assigns: Tags,
-  ) =>
-    React.useMemo(() => {
-      const joinTags = (tags: Tags) => tags?.map(tag => tag?.name).join(' / ');
-
-      if (expanded) {
-        return `
-        ${joinTags(roles)} / ${joinTags(assigns)} / ${joinTags(languages)} / ${joinTags(
-          systems,
-        )} / ${joinTags(tools)}
-        `;
-      }
-      return `${joinTags(roles)} / ${joinTags(languages)} / ${joinTags(systems)}`;
-    }, [expanded, roles, languages, systems, tools]);
-
   const { allContentfulProject }: ProjectDataQuery = useStaticQuery(
     graphql`
       query ProjectData {
-        allContentfulProject {
+        allContentfulProject(sort: { fields: startDate, order: DESC }) {
           edges {
             node {
               id
               node_locale
               name
-              startDate
-              during
-              comment
-              roles {
-                name
-              }
-              systems {
-                name
-              }
-              languages {
-                name
-              }
-              tools {
-                name
-              }
-              assigns {
+              tags {
                 name
               }
               icon {
-                contents {
-                  contents
+                svg {
+                  svg
                 }
               }
+              subName
+              detail {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              startDate(formatString: "YYYY/MM")
+              endDate(formatString: "YYYY/MM")
+              startDateRow: startDate(formatString: "YYYY-MM-DD")
+              endDateRow: endDate(formatString: "YYYY-MM-DD")
             }
           }
         }
@@ -115,9 +87,9 @@ export const Projects: React.FC = () => {
                   <CardHeader
                     className={classes.cardHeader}
                     avatar={
-                      node?.icon?.contents?.contents && (
+                      node?.icon?.svg?.svg && (
                         <Avatar>
-                          <SvgIcon>{parse(node.icon.contents.contents)}</SvgIcon>
+                          <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                         </Avatar>
                       )
                     }
@@ -126,18 +98,14 @@ export const Projects: React.FC = () => {
                         {node.name}
                       </Typography>
                     }
-                    subheader={subHeader(
-                      expanded === node.id,
-                      node.roles,
-                      node.languages,
-                      node.systems,
-                      node.tools,
-                      node.assigns,
-                    )}
+                    subheader={node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
                   />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body2">{node.comment}</Typography>
+                  <Typography variant="body2" component="div">
+                    {node?.detail?.childMarkdownRemark?.html &&
+                      parse(node.detail.childMarkdownRemark.html)}
+                  </Typography>
                 </AccordionDetails>
               </Accordion>
             ),

@@ -2,7 +2,7 @@
   "cookie-alert": {
     "close": "閉じる",
     "description": "詳しくは <1>Cookieポリシー</1> をご覧ください。",
-    "title": "機能改善のために Cookie を使用しています。"
+    "title": "機能改善のためCookieを使用しています。"
   },
   "footer": {
     "copyright": "©{{date}} Takanori Oishi"
@@ -16,7 +16,6 @@
   },
   "hello": {
     "description": "Takanori Oishi (おおいし たかのり) と申します。Webエンジニア / セキュリティスペシャリストです。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",
-    "forkwell": "forkwell ポートフォリオ",
     "title": "こんにちは！"
   },
   "historys": {

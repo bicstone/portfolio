@@ -34,17 +34,17 @@ export const Contacts: React.FC = () => {
   const { allContentfulContact }: ContactDataQuery = useStaticQuery(
     graphql`
       query ContactData {
-        allContentfulContact(sort: { order: ASC, fields: sort }) {
+        allContentfulContact(sort: { order: ASC, fields: sortKey }) {
           edges {
             node {
               id
               node_locale
-              title
-              subTitle
+              name
+              subName
               href
               icon {
-                contents {
-                  contents
+                svg {
+                  svg
                 }
               }
             }
@@ -61,25 +61,25 @@ export const Contacts: React.FC = () => {
           node.node_locale === language && (
             <Grid item xs={12} sm={4} key={node.id}>
               <CardActionArea
-                title={node.title || ''}
+                title={node.name || ''}
                 href={node.href || ''}
-                rel="external noreferrer nofollow"
+                rel="external noreferrer noopener nofollow"
                 target="_blank"
               >
                 <Card>
                   <Avatar className={classes.avatarLarge}>
-                    {node?.icon?.contents?.contents && (
+                    {node?.icon?.svg?.svg && (
                       <Avatar>
-                        <SvgIcon>{parse(node.icon.contents.contents)}</SvgIcon>
+                        <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                       </Avatar>
                     )}
                   </Avatar>
                   <CardContent className={classes.cardContent}>
                     <Typography component="h3" variant="h6" align="center">
-                      {node.title}
+                      {node.name}
                     </Typography>
                     <Typography variant="body1" color="textSecondary" align="center">
-                      {node.subTitle}
+                      {node.subName}
                     </Typography>
                   </CardContent>
                 </Card>

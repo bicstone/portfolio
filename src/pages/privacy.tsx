@@ -8,7 +8,7 @@ import { Layout } from '../components';
 const privacy: React.FC<PageProps> = ({ path }) => {
   const { t } = useI18next();
   return (
-    <Layout pathname={path}>
+    <Layout pathname={path} cookieAlertShow={false}>
       <Container maxWidth="md">
         <Grid item>
           <Typography component="h2" variant="h6" paragraph>
@@ -21,7 +21,7 @@ const privacy: React.FC<PageProps> = ({ path }) => {
               <Typography paragraph>
                 <ELink
                   href="https://policies.google.com/"
-                  rel="external noreferrer nofollow"
+                  rel="external noreferrer noopener nofollow"
                   target="_blank"
                 >
                   {t('privacy.description.3')}

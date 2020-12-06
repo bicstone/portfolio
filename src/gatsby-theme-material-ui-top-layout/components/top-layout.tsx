@@ -15,10 +15,10 @@ const TopLayout: React.FC = props => {
     palette: {
       type: darkMode ? 'dark' : 'light',
       primary: {
-        main: '#8fbc8f',
+        main: '#81C784',
       },
       secondary: {
-        main: '#8fbc8f',
+        main: '#27a144',
       },
     },
     typography: {
@@ -26,6 +26,11 @@ const TopLayout: React.FC = props => {
         '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
     },
     overrides: {
+      MuiButton: {
+        root: {
+          textTransform: 'none',
+        },
+      },
       MuiChip: {
         root: {
           margin: defaultTheme.spacing(0.5),
@@ -38,7 +43,7 @@ const TopLayout: React.FC = props => {
       },
       MuiAvatar: {
         colorDefault: {
-          backgroundColor: '#8fbc8f',
+          backgroundColor: '#81C784',
         },
       },
     },
