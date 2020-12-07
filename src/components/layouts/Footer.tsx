@@ -19,14 +19,14 @@ export const Footer: React.FC = () => {
     <footer className={classes.footer}>
       <Container maxWidth="sm">
         <Grid container justify="center" alignItems="center">
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Typography variant="body2" color="textSecondary" align="center" paragraph>
               <Link color="inherit" to="/privacy">
                 {t('privacy.title')}
               </Link>
             </Typography>
           </Grid>
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Typography variant="body2" color="textSecondary" align="center">
               {t('footer.copyright', { year: nowDate.getFullYear() })}
             </Typography>
