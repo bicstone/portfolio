@@ -75,9 +75,7 @@ export const CookieAlert: React.FC<Props> = ({
             <InlineBlock>
               <Trans i18nKey="cookie-alert.description">
                 詳しくは
-                <Link color="secondary" to="/privacy">
-                  Cookieポリシー
-                </Link>
+                <Link to="/privacy">Cookieポリシー</Link>
                 をご覧ください。
               </Trans>
             </InlineBlock>

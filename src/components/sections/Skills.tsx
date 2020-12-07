@@ -53,7 +53,7 @@ export const Skills: React.FC = () => {
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}
                   title={
-                    <Typography component="h3" variant="h6">
+                    <Typography component="h2" variant="h6">
                       {node.name}
                     </Typography>
                   }
@@ -72,6 +72,7 @@ export const Skills: React.FC = () => {
                           </Grid>
                           <Grid item xs={8}>
                             <LinearProgress
+                              color="primary"
                               variant="determinate"
                               value={skill?.level ? skill.level * 20 : 0}
                             />

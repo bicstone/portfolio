@@ -51,7 +51,7 @@ export const Qualifications: React.FC = () => {
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}
                   title={
-                    <Typography component="h3" variant="h6">
+                    <Typography component="h2" variant="h6">
                       {node.name}
                     </Typography>
                   }

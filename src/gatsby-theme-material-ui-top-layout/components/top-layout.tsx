@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
+import { green, pink } from '@material-ui/core/colors';
 import { themeReducer, themeInitialState, themeInitial } from '../../reducers';
 import { ThemeContext } from '../../hooks';
 
@@ -15,10 +16,10 @@ const TopLayout: React.FC = props => {
     palette: {
       type: darkMode ? 'dark' : 'light',
       primary: {
-        main: '#81C784',
+        main: green[400],
       },
       secondary: {
-        main: '#27a144',
+        main: pink.A400,
       },
     },
     typography: {
@@ -43,7 +44,7 @@ const TopLayout: React.FC = props => {
       },
       MuiAvatar: {
         colorDefault: {
-          backgroundColor: '#81C784',
+          backgroundColor: green[400],
         },
       },
     },

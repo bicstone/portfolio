@@ -7,7 +7,6 @@ import {
   AppBar,
   Typography,
   IconButton as ExternalIconButton,
-  Tooltip,
   useScrollTrigger,
 } from '@material-ui/core';
 import { WbSunny, Brightness2 } from '@material-ui/icons';
@@ -29,50 +28,50 @@ const useStyles = makeStyles(theme => ({
 export const Header: React.FC = () => {
   const classes = useStyles();
   const { t } = useI18next();
-  const [isDarkMode, toggleDarkMode] = useDarkMode();
+  const [darkMode, toggleDarkMode] = useDarkMode();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
 
   return (
-    <header>
-      <AppBar
-        position="fixed"
-        color={scrollTrigger ? 'inherit' : 'transparent'}
-        elevation={scrollTrigger ? 4 : 0}
-      >
-        <Toolbar variant="dense" className={classes.toolbar}>
-          <Link to="/">
-            <Typography
-              color="textPrimary"
-              variant="h6"
-              component="h1"
-              className={classes.link}
-              gutterBottom
-            >
-              {t('header.title-home')}
-            </Typography>
-          </Link>
-          <Tooltip arrow title={t('header.toggleDarkTheme-title') as string}>
-            <IconButton size="small" onClick={toggleDarkMode} className={classes.link}>
-              {isDarkMode ? <Brightness2 /> : <WbSunny />}
-            </IconButton>
-          </Tooltip>
-          <div className={classes.spacer} />
-          <nav>
-            <Tooltip arrow title={t('header.github-title') as string}>
-              <ExternalIconButton
-                size="small"
-                href={t('header.github-url') as string}
-                rel="external noreferrer noopener nofollow"
-                target="_blank"
-                className={classes.link}
-                style={{ color: isDarkMode ? '#fff' : '#171515' }}
-              >
-                <GitHubIcon />
-              </ExternalIconButton>
-            </Tooltip>
-          </nav>
-        </Toolbar>
-      </AppBar>
-    </header>
+    <AppBar
+      position="fixed"
+      color={scrollTrigger ? 'inherit' : 'transparent'}
+      elevation={scrollTrigger ? 4 : 0}
+    >
+      <Toolbar variant="dense" className={classes.toolbar}>
+        <Link to="/" title={t('header.back-to-home')}>
+          <Typography
+            color="textPrimary"
+            variant="h6"
+            component="h1"
+            className={classes.link}
+            gutterBottom
+          >
+            {t('header.title-home')}
+          </Typography>
+        </Link>
+        <IconButton
+          size="small"
+          onClick={toggleDarkMode}
+          className={classes.link}
+          title={t('header.toggleDarkTheme-title')}
+        >
+          {darkMode ? <Brightness2 /> : <WbSunny />}
+        </IconButton>
+        <div className={classes.spacer} />
+        <nav>
+          <ExternalIconButton
+            size="small"
+            href={t('header.github-url') as string}
+            rel="external noreferrer noopener nofollow"
+            target="_blank"
+            className={classes.link}
+            title={t('header.github-title')}
+            style={{ color: darkMode ? '#fff' : '#171515' }}
+          >
+            <GitHubIcon />
+          </ExternalIconButton>
+        </nav>
+      </Toolbar>
+    </AppBar>
   );
 };
