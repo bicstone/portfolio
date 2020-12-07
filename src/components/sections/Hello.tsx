@@ -5,7 +5,7 @@ import Typed, { TypedOptions } from 'typed.js';
 import { Typography, Grid, Button, makeStyles } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { BicstoneIcon } from '../';
-import { useBreakPoint, useDarkMode } from '../../hooks';
+import { useBreakPoint } from '../../hooks';
 import { HelloDataQuery } from '../../types';
 
 const useStyles = makeStyles(theme => ({
