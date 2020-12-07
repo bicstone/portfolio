@@ -75,7 +75,7 @@ export const Contacts: React.FC = () => {
                     )}
                   </Avatar>
                   <CardContent className={classes.cardContent}>
-                    <Typography component="h3" variant="h6" align="center">
+                    <Typography component="h2" variant="h6" align="center">
                       {node.name}
                     </Typography>
                     <Typography variant="body1" color="textSecondary" align="center">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
+import { green, pink } from '@material-ui/core/colors';
 import { themeReducer, themeInitialState, themeInitial } from '../../reducers';
 import { ThemeContext } from '../../hooks';
 
@@ -15,10 +16,12 @@ const TopLayout: React.FC = props => {
     palette: {
       type: darkMode ? 'dark' : 'light',
       primary: {
-        main: '#81C784',
+        // ダークテーマでは彩度を200以下にする
+        // @SEE: https://material.io/design/color/dark-theme.html
+        main: darkMode ? green[200] : green[300],
       },
       secondary: {
-        main: '#27a144',
+        main: darkMode ? pink[200] : pink.A400,
       },
     },
     typography: {
@@ -43,7 +46,7 @@ const TopLayout: React.FC = props => {
       },
       MuiAvatar: {
         colorDefault: {
-          backgroundColor: '#81C784',
+          backgroundColor: darkMode ? green[200] : green[300],
         },
       },
     },

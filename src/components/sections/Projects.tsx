@@ -70,7 +70,7 @@ export const Projects: React.FC = () => {
 
   return (
     <Grid container spacing={2} justify="center" alignItems="center">
-      <Grid item sm={12}>
+      <Grid item xs={12}>
         {allContentfulProject.edges.map(
           ({ node }) =>
             node.node_locale === language && (
@@ -94,7 +94,7 @@ export const Projects: React.FC = () => {
                       )
                     }
                     title={
-                      <Typography component="h3" variant="h6">
+                      <Typography component="h2" variant="h6">
                         {node.name}
                       </Typography>
                     }

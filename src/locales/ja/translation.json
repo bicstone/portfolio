@@ -12,7 +12,8 @@
     "github-title": "GitHub",
     "github-url": "https://github.com/bicstone/",
     "title-home": "Takanori Oishi",
-    "toggleDarkTheme-title": "ダークモード切替"
+    "toggleDarkTheme-title": "ダークモード切替",
+    "back-to-home": "ホームに移動"
   },
   "hello": {
     "description": "Takanori Oishi (おおいし たかのり) と申します。Webエンジニア / セキュリティスペシャリストです。パフォーマンス・セキュリティ・SEO・保守性を意識したシンプルで高速な開発が得意です。",

@@ -16,6 +16,10 @@ type Props = {
 const useStyles = makeStyles(theme => ({
   buttonBase: {
     display: 'flex',
+    userSelect: 'none',
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
   },
   buttonBaseFocused: {
     backgroundColor: theme.palette.action.focus,
@@ -96,16 +100,16 @@ export const ExpandCardContent: React.FC<Props> = ({
       >
         <CardActions className={classes.cardActions}>
           <div className={classes.title}>{title}</div>
-          <div>
-            <IconButton
-              className={clsx(classes.action, {
-                [classes.actionExpand]: expanded,
-              })}
-              aria-hidden={true}
-            >
-              <ExpandMoreIcon />
-            </IconButton>
-          </div>
+          <IconButton
+            className={clsx(classes.action, {
+              [classes.actionExpand]: expanded,
+            })}
+            component="div"
+            tabIndex={-1}
+            aria-hidden={true}
+          >
+            <ExpandMoreIcon />
+          </IconButton>
         </CardActions>
       </ButtonBase>
       <Collapse in={expanded}>
