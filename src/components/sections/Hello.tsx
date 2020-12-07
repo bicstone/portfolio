@@ -19,7 +19,6 @@ export const Hello: React.FC = () => {
   const classes = useStyles();
   const { t, language } = useI18next();
   const width = useBreakPoint();
-  const [darkMode] = useDarkMode();
   const BUTTON_SMALL_WIDTH: Breakpoint[] = ['xs'];
   const wrapEl = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -76,7 +75,7 @@ export const Hello: React.FC = () => {
                 node.node_locale === language && (
                   <Button
                     href={node.href || ''}
-                    variant={darkMode ? 'contained' : 'outlined'}
+                    variant="outlined"
                     color="secondary"
                     size={BUTTON_SMALL_WIDTH.includes(width) ? 'small' : 'medium'}
                     rel="external noreferrer noopener nofollow"

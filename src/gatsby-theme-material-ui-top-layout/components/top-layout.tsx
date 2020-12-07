@@ -16,10 +16,12 @@ const TopLayout: React.FC = props => {
     palette: {
       type: darkMode ? 'dark' : 'light',
       primary: {
-        main: green[400],
+        // ダークテーマでは彩度を200以下にする
+        // @SEE: https://material.io/design/color/dark-theme.html
+        main: darkMode ? green[200] : green[300],
       },
       secondary: {
-        main: pink.A400,
+        main: darkMode ? pink[200] : pink.A400,
       },
     },
     typography: {
@@ -44,7 +46,7 @@ const TopLayout: React.FC = props => {
       },
       MuiAvatar: {
         colorDefault: {
-          backgroundColor: green[400],
+          backgroundColor: darkMode ? green[200] : green[300],
         },
       },
     },
