@@ -6,10 +6,11 @@ const languages = require('./languages');
 const t = {
   ja: require('./src/locales/ja/translation.json'),
 };
+const siteUrl = 'https://bicstone.me/';
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://bicstone.me/',
+    siteUrl,
   },
   plugins: [
     {
@@ -43,6 +44,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
+        siteUrl,
         path: path.join(__dirname, 'src', 'locales'),
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
@@ -64,16 +66,16 @@ module.exports = {
         name: t.ja.siteMetadata.title,
         short_name: t.ja.siteMetadata.shortTitle,
         description: t.ja.siteMetadata.description,
-        start_url: '/',
+        start_url: siteUrl,
         display: 'minimal-ui',
         icons: [
           {
-            src: '/android-chrome-512x512.png',
+            src: `${siteUrl}android-chrome-512x512.png`,
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: '/android-chrome-192x192.png',
+            src: `${siteUrl}android-chrome-192x192.png`,
             sizes: '192x192',
             type: 'image/png',
           },
@@ -94,9 +96,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-offline',
       options: {
-        // precachePages: ["/about-us/", "/projects/*"],
         workboxConfig: {
-          globPatterns: ['**/*.png', '**/*.ico', '**/*.svg'],
+          globPatterns: ['**/*.png'],
         },
       },
     },
