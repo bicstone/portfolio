@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
-import { green, pink } from '@material-ui/core/colors';
 import { CookieAlert, Head, Header, Footer } from '../';
 
 type Props = {
