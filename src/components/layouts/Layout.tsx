@@ -27,11 +27,11 @@ export const Layout: React.FC<Props> = ({ children, cookieAlertShow, ...props })
     <>
       <Head {...props} />
       <div className={classes.root}>
+        <CookieAlert show={cookieAlertShow} />
         <Header />
         <main className={classes.main} role="main">
           {children}
         </main>
-        <CookieAlert show={cookieAlertShow} />
         <Footer />
       </div>
     </>

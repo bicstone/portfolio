@@ -74,6 +74,7 @@ export const Skills: React.FC = () => {
                             <LinearProgress
                               color="primary"
                               variant="determinate"
+                              title={`${skill?.level ? skill.level * 20 : 0}%`}
                               value={skill?.level ? skill.level * 20 : 0}
                             />
                           </Grid>
