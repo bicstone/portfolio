@@ -57,6 +57,7 @@ export const CookieAlert: React.FC<Props> = ({
           <>
             <IconButton
               aria-label="close"
+              title="close"
               color="inherit"
               className={classes.iconButton}
               onClick={handleClose}

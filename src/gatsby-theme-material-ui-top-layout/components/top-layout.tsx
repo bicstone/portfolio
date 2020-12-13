@@ -21,7 +21,10 @@ const TopLayout: React.FC = props => {
         main: darkMode ? green[200] : green[300],
       },
       secondary: {
-        main: darkMode ? pink[200] : pink.A400,
+        main: darkMode ? pink[200] : pink.A700,
+      },
+      text: {
+        secondary: darkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.65)',
       },
     },
     typography: {
@@ -53,6 +56,10 @@ const TopLayout: React.FC = props => {
     props: {
       MuiButton: {
         size: 'small',
+      },
+      MuiLink: {
+        color: 'inherit',
+        underline: 'always',
       },
     },
   });

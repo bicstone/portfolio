@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
+import { green, pink } from '@material-ui/core/colors';
 import { CookieAlert, Head, Header, Footer } from '../';
 
 type Props = {
@@ -27,11 +28,11 @@ export const Layout: React.FC<Props> = ({ children, cookieAlertShow, ...props })
     <>
       <Head {...props} />
       <div className={classes.root}>
+        <CookieAlert show={cookieAlertShow} />
         <Header />
         <main className={classes.main} role="main">
           {children}
         </main>
-        <CookieAlert show={cookieAlertShow} />
         <Footer />
       </div>
     </>
