@@ -125,7 +125,7 @@ export const Projects: React.FC = () => {
                 <AccordionDetails>
                   <div>
                     <Typography variant="body1" component="div">
-                      {node?.subName && node.subName}
+                      {node.subName}
                     </Typography>
                     <Typography variant="body2" component="div">
                       {node?.detail?.childMarkdownRemark?.html &&
