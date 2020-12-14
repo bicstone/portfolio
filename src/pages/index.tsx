@@ -39,16 +39,16 @@ const home: React.FC<PageProps> = ({ path }) => {
         <Projects />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.osses-title')}
-        </Typography>
-        <OSSes />
-      </Container>
-      <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center">
           {t('home.histories-title')}
         </Typography>
         <Histories />
+      </Container>
+      <Container maxWidth="lg" className={classes.container}>
+        <Typography component="h2" variant="h4" align="center" paragraph>
+          {t('home.osses-title')}
+        </Typography>
+        <OSSes />
       </Container>
       <Container maxWidth="lg" className={classes.container}>
         <Typography component="h2" variant="h4" align="center" paragraph>
