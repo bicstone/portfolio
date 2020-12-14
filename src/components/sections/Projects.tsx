@@ -12,6 +12,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   SvgIcon,
+  Chip,
 } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { ProjectDataQuery } from '../../types';
@@ -94,28 +95,43 @@ export const Projects: React.FC = () => {
                       )
                     }
                     title={
-                      <Typography component="h2" variant="h6">
-                        {node.name}
-                      </Typography>
-                    }
-                    subheader={
                       <>
-                        <Typography variant="body2" component="div">
-                          [{node?.startDate}～{node?.endDate}]{' '}
-                          {node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
+                        <Typography variant="body2" component="div" color="textSecondary">
+                          {node?.startDate}～{node?.endDate}
                         </Typography>
-                        <Typography variant="body2" component="div">
-                          {node.subName ? node.subName : ''}
+                        <Typography component="h2" variant="h6">
+                          {node.name}
                         </Typography>
                       </>
+                    }
+                    subheader={
+                      <Typography variant="body2" component="div">
+                        {node.tags &&
+                          node.tags.map(
+                            tag =>
+                              tag?.name && (
+                                <Chip
+                                  variant="outlined"
+                                  size="small"
+                                  key={tag.name}
+                                  label={tag.name}
+                                />
+                              ),
+                          )}
+                      </Typography>
                     }
                   />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography variant="body2" component="div">
-                    {node?.detail?.childMarkdownRemark?.html &&
-                      parse(node.detail.childMarkdownRemark.html)}
-                  </Typography>
+                  <div>
+                    <Typography variant="body1" component="div">
+                      {node.subName}
+                    </Typography>
+                    <Typography variant="body2" component="div">
+                      {node?.detail?.childMarkdownRemark?.html &&
+                        parse(node.detail.childMarkdownRemark.html)}
+                    </Typography>
+                  </div>
                 </AccordionDetails>
               </Accordion>
             ),

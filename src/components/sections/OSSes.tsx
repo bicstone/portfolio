@@ -14,6 +14,7 @@ import {
   Avatar,
   CardMedia,
   SvgIcon,
+  Chip,
 } from '@material-ui/core';
 import { OssDataQuery } from '../../types';
 import { ExpandCardContent } from '../../components';
@@ -22,6 +23,10 @@ const useStyles = makeStyles(() => ({
   cardMedia: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+  },
+  cardHeader: {
+    paddingLeft: 0,
+    paddingRight: 0,
   },
 }));
 
@@ -99,34 +104,45 @@ export const OSSes: React.FC = () => {
                       />
                     )}
                   </CardMedia>
-                  <CardHeader
-                    avatar={
-                      node?.icon?.svg?.svg && (
-                        <Avatar>
-                          <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
-                        </Avatar>
-                      )
-                    }
-                    title={
-                      <Typography component="h2" variant="h6">
-                        {node.name}
-                      </Typography>
-                    }
-                    subheader={
-                      <>
-                        [{node?.startDate}～]{' '}
-                        {node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
-                      </>
-                    }
-                  />
                 </CardActionArea>
                 <ExpandCardContent
                   id={node.id}
                   defaultExpanded={false}
                   title={
-                    <Typography variant="body2" color="textSecondary" paragraph>
-                      {node.subName}
-                    </Typography>
+                    <CardHeader
+                      className={classes.cardHeader}
+                      avatar={
+                        node?.icon?.svg?.svg && (
+                          <Avatar>
+                            <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
+                          </Avatar>
+                        )
+                      }
+                      title={
+                        <>
+                          <Typography variant="body2" component="div" color="textSecondary">
+                            {node?.startDate}～
+                          </Typography>
+                          <Typography component="h2" variant="h6">
+                            {node.name}
+                          </Typography>
+                          <Typography variant="body2" component="div" color="textSecondary">
+                            {node.tags &&
+                              node.tags.map(
+                                tag =>
+                                  tag?.name && (
+                                    <Chip
+                                      variant="outlined"
+                                      size="small"
+                                      key={tag.name}
+                                      label={tag.name}
+                                    />
+                                  ),
+                              )}
+                          </Typography>
+                        </>
+                      }
+                    />
                   }
                   detail={
                     <CardContent>

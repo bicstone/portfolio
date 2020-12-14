@@ -39,7 +39,8 @@ const TopLayout: React.FC = props => {
       },
       MuiChip: {
         root: {
-          margin: defaultTheme.spacing(0.5),
+          marginRight: defaultTheme.spacing(0.5),
+          marginTop: defaultTheme.spacing(0.5),
         },
       },
       MuiLinearProgress: {
