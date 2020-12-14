@@ -32,7 +32,7 @@ export const OSSes: React.FC = () => {
   const { allContentfulOss }: OssDataQuery = useStaticQuery(
     graphql`
       query OssData {
-        allContentfulOss {
+        allContentfulOss(sort: { fields: startDate, order: DESC }) {
           edges {
             node {
               id
@@ -78,7 +78,7 @@ export const OSSes: React.FC = () => {
   );
 
   return (
-    <Grid container spacing={2} justify="center" alignItems="center">
+    <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
       {allContentfulOss.edges.map(
         ({ node }) =>
           node.node_locale === language && (
@@ -112,7 +112,12 @@ export const OSSes: React.FC = () => {
                         {node.name}
                       </Typography>
                     }
-                    subheader={node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
+                    subheader={
+                      <>
+                        [{node?.startDate}～]{' '}
+                        {node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
+                      </>
+                    }
                   />
                 </CardActionArea>
                 <ExpandCardContent

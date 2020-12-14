@@ -98,7 +98,17 @@ export const Projects: React.FC = () => {
                         {node.name}
                       </Typography>
                     }
-                    subheader={node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
+                    subheader={
+                      <>
+                        <Typography variant="body2" component="div">
+                          [{node?.startDate}～{node?.endDate}]{' '}
+                          {node.tags ? node.tags.map(tag => tag?.name).join(' / ') : ''}
+                        </Typography>
+                        <Typography variant="body2" component="div">
+                          {node.subName ? node.subName : ''}
+                        </Typography>
+                      </>
+                    }
                   />
                 </AccordionSummary>
                 <AccordionDetails>
