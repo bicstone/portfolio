@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import Typed, { TypedOptions } from 'typed.js';
 import { Typography, Grid, Button, makeStyles } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { BicstoneIcon } from '../';
@@ -20,24 +19,6 @@ export const Hello: React.FC = () => {
   const { t, language } = useI18next();
   const width = useBreakPoint();
   const BUTTON_SMALL_WIDTH: Breakpoint[] = ['xs'];
-  const wrapEl = useRef<HTMLSpanElement>(null);
-  useEffect(() => {
-    if (wrapEl.current) {
-      const options: TypedOptions = {
-        typeSpeed: 60,
-        showCursor: false,
-        autoInsertCss: false,
-        strings: [t('hello.title')],
-      };
-      // @see https://github.com/mattboldt/typed.js/pull/461
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore: Typedの型定義が誤っており、HTMLSpanElementは割当可能
-      const typed = new Typed(wrapEl.current, options);
-      return () => {
-        typed.destroy();
-      };
-    }
-  }, [wrapEl.current]);
   const { allContentfulHello }: HelloDataQuery = useStaticQuery(
     graphql`
       query HelloData {
