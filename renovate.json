@@ -1,6 +1,7 @@
 {
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
+  "schedule": ["before 6:00am"],
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "separateMultipleMajor": false,
