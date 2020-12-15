@@ -1,12 +1,14 @@
 {
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
+  "schedule": ["before 6:00am"],
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "separateMultipleMajor": false,
   "stabilityDays": 3,
   "packageRules": [
     {
+      "packagePatterns": ["*"],
       "groupName": "dependencies"
     }
   ],
