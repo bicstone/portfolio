@@ -101,6 +101,7 @@ yarn b
 
 - GitHub Actions
 - Gatsby Cloud
+- Renovate
 - DeepCode
 - SonarCloud
 - LGTM
