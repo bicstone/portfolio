@@ -64,8 +64,7 @@ export const Hello: React.FC = () => {
           </Grid>
           <Grid item xs={11} sm={10}>
             <Typography component="span" variant="h6">
-              <span ref={wrapEl} />
-              &nbsp;
+              {t('hello.title')}
             </Typography>
             <Typography variant="body1" paragraph>
               {t('hello.description')}
