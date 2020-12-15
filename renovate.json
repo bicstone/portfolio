@@ -4,7 +4,6 @@
   "separateMajorMinor": false,
   "separateMinorPatch": false,
   "separateMultipleMajor": false,
-  "stabilityDays": 3,
   "packageRules": [
     {
       "packagePatterns": ["*"],
