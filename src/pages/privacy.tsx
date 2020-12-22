@@ -5,10 +5,10 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Container, Typography, Grid, Card, CardContent, Link as ELink } from '@material-ui/core';
 import { Layout } from '../components';
 
-const privacy: React.FC<PageProps> = ({ path }) => {
+const privacy: React.FC<PageProps> = () => {
   const { t } = useI18next();
   return (
-    <Layout pathname={path} cookieAlertShow={false}>
+    <Layout cookieAlertShow={false}>
       <Container maxWidth="md">
         <Grid item>
           <Typography component="h2" variant="h6" paragraph>

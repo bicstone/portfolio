@@ -13,11 +13,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const NotFound: React.FC<PageProps> = ({ path }) => {
+const NotFound: React.FC<PageProps> = () => {
   const classes = useStyles();
   const { t } = useI18next();
   return (
-    <Layout pathname={path}>
+    <Layout>
       <Grid container direction="column" justify="center" alignItems="center">
         <Box textAlign="center">
           <LocalHotelIcon className={classes.icon} />

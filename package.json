@@ -38,6 +38,7 @@
     "gatsby-plugin-react-i18next": "0.0.27",
     "gatsby-plugin-root-import": "2.0.5",
     "gatsby-plugin-sharp": "2.11.1",
+    "gatsby-plugin-ts-config": "1.1.5",
     "gatsby-source-contentful": "4.3.0",
     "gatsby-source-filesystem": "2.8.0",
     "gatsby-theme-material-ui": "1.0.13",
@@ -95,7 +96,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn barrelsby && yarn typecheck && yarn lint"
+      "pre-push": "yarn barrelsby && yarn typecheck && yarn lint"
     }
   }
 }
