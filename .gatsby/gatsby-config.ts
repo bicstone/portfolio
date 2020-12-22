@@ -2,15 +2,20 @@
 const path = require('path');
 require('dotenv').config();
 
-const languages = require('./languages');
-const t = {
-  ja: require('./src/locales/ja/translation.json'),
-};
-const siteUrl = 'https://bicstone.me/';
+export const languages = require('./languages');
+export const title = "Takanori Oishi @bisctone's Portfolio";
+export const shortTitle = 'bicstone';
+export const siteUrl = 'https://bicstone.me';
+export const description =
+  'Webディベロッパー/機械エンジニア Takanori Oishi (おおいし たかのり) @bicstone のポートフォリオサイトです。';
+export const image = '/android-chrome-512x512.png';
+export const image192 = '/android-chrome-192x192.png';
 
 module.exports = {
   siteMetadata: {
+    title,
     siteUrl,
+    description,
   },
   plugins: [
     {
@@ -63,19 +68,19 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'ja',
-        name: t.ja.siteMetadata.title,
-        short_name: t.ja.siteMetadata.shortTitle,
-        description: t.ja.siteMetadata.description,
+        name: title,
+        short_name: shortTitle,
+        description: description,
         start_url: siteUrl,
         display: 'minimal-ui',
         icons: [
           {
-            src: '/android-chrome-512x512.png',
+            src: image,
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: '/android-chrome-192x192.png',
+            src: image192,
             sizes: '192x192',
             type: 'image/png',
           },

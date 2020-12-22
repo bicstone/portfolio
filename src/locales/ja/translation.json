@@ -45,12 +45,5 @@
       "5": "ホームに戻る"
     },
     "title": "Cookieポリシー"
-  },
-  "siteMetadata": {
-    "author": "Takanori Oishi",
-    "description": "Webディベロッパー/機械エンジニア Takanori Oishi (おおいし たかのり) のポートフォリオサイトです。",
-    "image": "/android-chrome-512x512.png",
-    "shortTitle": "bicstone",
-    "title": "Takanori Oishi Portfolio"
   }
 }

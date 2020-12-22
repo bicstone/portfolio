@@ -46,7 +46,7 @@ export const Head: React.FC<Props> = ({
       <meta name="image" content={seo.image} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={seo.title} />
-      <meta property="og:url" content={pathname} />
+      <meta property="og:url" content={`${pathname}`} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta property="og:image:alt" content={seo.description} />
