@@ -68,7 +68,7 @@ export default {
         lang: 'ja',
         name: title,
         short_name: shortTitle,
-        description: description,
+        description,
         start_url: siteUrl,
         display: 'minimal-ui',
         icons: [
