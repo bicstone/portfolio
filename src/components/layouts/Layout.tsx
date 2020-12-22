@@ -5,7 +5,6 @@ import { CookieAlert, Head, Header, Footer } from '../';
 type Props = {
   title?: string;
   description?: string;
-  pathname?: string;
   image?: string;
   cookieAlertShow?: boolean;
 };

@@ -1,12 +1,11 @@
 import path from 'path'
-require('dotenv').config()
-
 export const languages = require('../languages');
 export const title = "Takanori Oishi @bisctone's Portfolio";
 export const shortTitle = 'bicstone';
 export const siteUrl = 'https://bicstone.me';
 export const description =
   'Webディベロッパー/機械エンジニア Takanori Oishi (おおいし たかのり) @bicstone のポートフォリオサイトです。';
+export const author = 'bicstone'
 export const image = '/android-chrome-512x512.png';
 export const image192 = '/android-chrome-192x192.png';
 
@@ -49,7 +48,7 @@ export default {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
         siteUrl,
-        path: path.join(__dirname, 'src', 'locales'),
+        path: path.join(__dirname, '../', 'src', 'locales'),
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
       },

@@ -1,29 +1,20 @@
 import React from 'react';
-import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
-import { useBuildTime } from '../../hooks';
+import { Helmet } from 'gatsby-plugin-react-i18next';
+import { useBuildTime, useSiteMetadata } from '../../hooks';
 
 type Props = {
   title?: string;
   description?: string;
-  pathname?: string;
   image?: string;
 };
 
 export const Head: React.FC<Props> = ({
   title = undefined,
   description = undefined,
-  pathname = undefined,
   image = undefined,
 }) => {
   const buildTime = useBuildTime();
-  const { t } = useI18next();
-  const defaultMetadata = {
-    title: t('siteMetadata.title'),
-    shortTitle: t('siteMetadata.shortTitle'),
-    description: t('siteMetadata.description'),
-    author: t('siteMetadata.author'),
-    image: t('siteMetadata.image'),
-  };
+  const defaultMetadata = useSiteMetadata();
   const seo = {
     title: title || defaultMetadata.title,
     description: description || defaultMetadata.description,
@@ -46,7 +37,6 @@ export const Head: React.FC<Props> = ({
       <meta name="image" content={seo.image} />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={seo.title} />
-      <meta property="og:url" content={`${pathname}`} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta property="og:image:alt" content={seo.description} />
@@ -56,7 +46,6 @@ export const Head: React.FC<Props> = ({
       <meta property="article:modified_time" content={buildTime} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seo.title} />
-      <meta name="twitter:url" content={pathname} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
       <meta name="twitter:image:alt" content={seo.description} />

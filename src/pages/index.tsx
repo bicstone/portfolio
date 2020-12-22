@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const home: React.FC<PageProps> = ({ path }) => {
+const home: React.FC<PageProps> = ({ uri }) => {
   const { t } = useI18next();
   const classes = useStyles();
   return (
-    <Layout pathname={path}>
+    <Layout>
       <Container maxWidth="md" className={classes.container}>
         <Hello />
       </Container>

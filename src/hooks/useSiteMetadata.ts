@@ -4,6 +4,7 @@ import {
   shortTitle,
   siteUrl,
   description,
+  author,
   image,
   image192,
 } from '../../.gatsby/gatsby-config';
@@ -14,6 +15,7 @@ const siteMetadata = {
   shortTitle,
   siteUrl,
   description,
+  author,
   image,
   image192,
 };
