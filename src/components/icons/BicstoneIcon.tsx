@@ -1,6 +1,12 @@
 import React from 'react';
-import parse, { attributesToProps, domToReact, HTMLReactParserOptions } from 'html-react-parser';
+import parse, {
+  attributesToProps,
+  domToReact,
+  HTMLReactParserOptions,
+  DOMNode,
+} from 'html-react-parser';
 import { graphql, useStaticQuery } from 'gatsby';
+import { Element } from 'domhandler';
 import { BicstoneIconDataQuery } from '../../types';
 
 type Props = {
@@ -9,15 +15,19 @@ type Props = {
 };
 
 export const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
-  // HACK: アイコンはMITにできないため、contentfulから持ってくる形にする
-  // parserを使うとdomをreactに変換される際にpropsを追加で渡すことが可能(超便利だけどXSS注意)
+  // アイコンはMITにできないため、contentfulから持ってくる形にする
   const options: HTMLReactParserOptions = {
-    replace: ({ attribs, name, children }) => {
-      if (attribs && name === 'svg' && children) {
-        const props = attributesToProps(attribs);
+    replace: domNode => {
+      if (
+        domNode instanceof Element &&
+        domNode.attribs &&
+        domNode.name === 'svg' &&
+        domNode.children
+      ) {
+        const props = attributesToProps(domNode.attribs);
         return (
           <svg {...props} width={width} height={height}>
-            {domToReact(children)}
+            {domToReact(domNode.children as DOMNode[])}
           </svg>
         );
       }
