@@ -5,7 +5,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Container, Typography, Grid, Card, CardContent, Link as ELink } from '@material-ui/core';
 import { Layout } from '../components';
 
-const privacy: React.FC<PageProps> = ({ uri }) => {
+const privacy: React.FC<PageProps> = () => {
   const { t } = useI18next();
   return (
     <Layout cookieAlertShow={false}>

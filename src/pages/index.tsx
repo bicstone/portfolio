@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const home: React.FC<PageProps> = ({ uri }) => {
+const home: React.FC<PageProps> = () => {
   const { t } = useI18next();
   const classes = useStyles();
   return (

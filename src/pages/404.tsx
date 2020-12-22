@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const NotFound: React.FC<PageProps> = ({ uri }) => {
+const NotFound: React.FC<PageProps> = () => {
   const classes = useStyles();
   const { t } = useI18next();
   return (
