@@ -5,6 +5,19 @@ import {
   siteUrl,
   description,
   image,
-  image_192,
-} from '../../gatsby-config.js';
-export const useSiteMetadata = () => {};
+  image192,
+} from '../../.gatsby/gatsby-config';
+
+const siteMetadata = {
+  languages,
+  title,
+  shortTitle,
+  siteUrl,
+  description,
+  image,
+  image192,
+};
+
+export const useSiteMetadata = (): typeof siteMetadata => {
+  return siteMetadata;
+};

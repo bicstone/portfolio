@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-require('dotenv').config();
+import path from 'path'
+require('dotenv').config()
 
-export const languages = require('./languages');
+export const languages = require('../languages');
 export const title = "Takanori Oishi @bisctone's Portfolio";
 export const shortTitle = 'bicstone';
 export const siteUrl = 'https://bicstone.me';
@@ -11,7 +10,7 @@ export const description =
 export const image = '/android-chrome-512x512.png';
 export const image192 = '/android-chrome-192x192.png';
 
-module.exports = {
+export default {
   siteMetadata: {
     title,
     siteUrl,
