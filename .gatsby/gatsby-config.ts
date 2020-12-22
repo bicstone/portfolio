@@ -1,5 +1,8 @@
 import path from 'path'
-export const languages = require('../languages');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('dotenv').config();
+
+export const languages = require('./languages');
 export const title = "Takanori Oishi @bisctone's Portfolio";
 export const shortTitle = 'bicstone';
 export const siteUrl = 'https://bicstone.me';
