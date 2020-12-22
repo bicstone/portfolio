@@ -44,7 +44,7 @@
     "gatsby-transformer-inline-svg": "0.0.7",
     "gatsby-transformer-remark": "2.13.0",
     "gatsby-transformer-sharp": "2.9.0",
-    "html-react-parser": "0.14.3",
+    "html-react-parser": "1.0.0",
     "i18next": "19.8.4",
     "js-cookie": "2.2.1",
     "react": "17.0.1",
