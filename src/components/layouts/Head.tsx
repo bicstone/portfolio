@@ -18,7 +18,7 @@ export const Head: React.FC<Props> = ({
   const seo = {
     title: title || defaultMetadata.title,
     description: description || defaultMetadata.description,
-    image: image || `${defaultMetadata.siteUrl}${defaultMetadata.image}`,
+    image: image || defaultMetadata.image,
   };
   return (
     <Helmet>
