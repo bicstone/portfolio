@@ -1,5 +1,4 @@
 import path from 'path'
-require('dotenv').config();
 
 export const languages = require('../languages');
 export const title = "Takanori Oishi @bisctone's Portfolio";
