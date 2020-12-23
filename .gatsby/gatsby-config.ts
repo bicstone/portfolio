@@ -10,6 +10,7 @@ export const description =
 export const author = 'bicstone'
 export const image = '/android-chrome-512x512.png';
 export const image192 = '/android-chrome-192x192.png';
+export const twitter = '@bicstone_me'
 
 export default {
   siteMetadata: {
