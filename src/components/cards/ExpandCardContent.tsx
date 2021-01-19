@@ -16,7 +16,6 @@ type Props = {
 const useStyles = makeStyles(theme => ({
   buttonBase: {
     display: 'flex',
-    userSelect: 'none',
     '&:hover': {
       backgroundColor: 'transparent',
     },

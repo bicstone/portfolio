@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
+    cursor: 'default',
   },
   main: {
     marginTop: theme.spacing(8),

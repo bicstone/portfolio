@@ -37,6 +37,11 @@ const TopLayout: React.FC = props => {
           textTransform: 'none',
         },
       },
+      MuiButtonBase: {
+        root: {
+          userSelect: 'auto',
+        },
+      },
       MuiChip: {
         root: {
           marginRight: defaultTheme.spacing(0.5),
