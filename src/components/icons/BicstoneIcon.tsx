@@ -38,6 +38,7 @@ export const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
     graphql`
       query BicstoneIconData {
         contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+          title
           svg {
             content
           }
@@ -45,5 +46,9 @@ export const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
       }
     `,
   );
-  return <>{parse(contentfulAsset?.svg?.content || '', options)}</>;
+  return (
+    <div role="img" aria-label={contentfulAsset?.title} title={contentfulAsset?.title}>
+      {parse(contentfulAsset?.svg?.content || '', options)}
+    </div>
+  );
 };

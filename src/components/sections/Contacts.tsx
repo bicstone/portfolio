@@ -43,6 +43,7 @@ export const Contacts: React.FC = () => {
               subName
               href
               icon {
+                name
                 svg {
                   svg
                 }
@@ -59,7 +60,7 @@ export const Contacts: React.FC = () => {
       {allContentfulContact.edges.map(
         ({ node }) =>
           node.node_locale === language && (
-            <Grid item xs={12} sm={4} key={node.id}>
+            <Grid item xs={12} sm={4} key={node.id} component="section">
               <CardActionArea
                 title={node.name || ''}
                 href={node.href || ''}
@@ -69,7 +70,7 @@ export const Contacts: React.FC = () => {
                 <Card>
                   <Avatar className={classes.avatarLarge}>
                     {node?.icon?.svg?.svg && (
-                      <Avatar>
+                      <Avatar role="img" aria-label={node.icon.name} title={node.icon.name}>
                         <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                       </Avatar>
                     )}

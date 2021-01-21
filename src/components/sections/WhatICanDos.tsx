@@ -19,6 +19,7 @@ export const WhatICanDos: React.FC = () => {
               name
               subName
               icon {
+                name
                 svg {
                   svg
                 }
@@ -35,12 +36,12 @@ export const WhatICanDos: React.FC = () => {
       {allContentfulWhatICanDo.edges.map(
         ({ node }) =>
           node.node_locale === language && (
-            <Grid item xs={12} sm={6} md={4} key={node.id}>
+            <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
               <Card>
                 <CardHeader
                   avatar={
                     node.icon?.svg?.svg && (
-                      <Avatar>
+                      <Avatar role="img" aria-label={node.icon.name} title={node.icon.name}>
                         <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                       </Avatar>
                     )

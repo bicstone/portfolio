@@ -54,6 +54,7 @@ export const Histories: React.FC = () => {
               name
               subName
               icon {
+                name
                 svg {
                   svg
                 }
@@ -72,7 +73,7 @@ export const Histories: React.FC = () => {
         {allContentfulHistory.edges.map(
           ({ node }, index, { length }) =>
             node.node_locale === language && (
-              <TimelineItem key={node.id}>
+              <TimelineItem key={node.id} component="section">
                 <TimelineOppositeContent
                   className={classes.timelineOppositeContent}
                 ></TimelineOppositeContent>
@@ -90,7 +91,7 @@ export const Histories: React.FC = () => {
                     <CardHeader
                       avatar={
                         node?.icon?.svg?.svg && (
-                          <Avatar>
+                          <Avatar role="img" aria-label={node.icon.name} title={node.icon.name}>
                             <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                           </Avatar>
                         )
