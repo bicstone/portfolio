@@ -41,7 +41,11 @@ export const WhatICanDos: React.FC = () => {
                 <CardHeader
                   avatar={
                     node.icon?.svg?.svg && (
-                      <Avatar role="img" aria-label={node.icon.name} title={node.icon.name}>
+                      <Avatar
+                        role="img"
+                        aria-label={node.icon.name || ''}
+                        title={node.icon.name || ''}
+                      >
                         <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                       </Avatar>
                     )

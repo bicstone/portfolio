@@ -47,7 +47,7 @@ export const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
     `,
   );
   return (
-    <div role="img" aria-label={contentfulAsset?.title} title={contentfulAsset?.title}>
+    <div role="img" aria-label={contentfulAsset?.title || ''} title={contentfulAsset?.title || ''}>
       {parse(contentfulAsset?.svg?.content || '', options)}
     </div>
   );
