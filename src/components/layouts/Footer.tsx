@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
   const { t } = useI18next();
   const nowDate = new Date();
   return (
-    <footer className={classes.footer}>
+    <footer className={classes.footer} role="contentinfo">
       <Container maxWidth="sm">
         <Grid container justify="center" alignItems="center">
           <Grid item xs={12}>

@@ -48,6 +48,7 @@ export const Projects: React.FC = () => {
                 name
               }
               icon {
+                name
                 svg {
                   svg
                 }
@@ -79,6 +80,7 @@ export const Projects: React.FC = () => {
                 expanded={expanded === node.id}
                 onChange={handleChange(node.id)}
                 key={node.id}
+                component="section"
               >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
@@ -89,7 +91,11 @@ export const Projects: React.FC = () => {
                     className={classes.cardHeader}
                     avatar={
                       node?.icon?.svg?.svg && (
-                        <Avatar>
+                        <Avatar
+                          role="img"
+                          aria-label={node.icon.name || ''}
+                          title={node.icon.name || ''}
+                        >
                           <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                         </Avatar>
                       )
@@ -105,7 +111,7 @@ export const Projects: React.FC = () => {
                       </>
                     }
                     subheader={
-                      <Typography variant="body2" component="div">
+                      <Typography variant="body2" component="div" role="list" aria-label="tags">
                         {node.tags &&
                           node.tags.map(
                             tag =>
@@ -115,6 +121,7 @@ export const Projects: React.FC = () => {
                                   size="small"
                                   key={tag.name}
                                   label={tag.name}
+                                  role="listitem"
                                 />
                               ),
                           )}

@@ -26,43 +26,43 @@ const home: React.FC<PageProps> = () => {
   const classes = useStyles();
   return (
     <Layout>
-      <Container maxWidth="md" className={classes.container}>
+      <Container maxWidth="md" className={classes.container} component="section">
         <Hello />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <WhatICanDos />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.projects-title')}
         </Typography>
         <Projects />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center">
           {t('home.histories-title')}
         </Typography>
         <Histories />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.osses-title')}
         </Typography>
         <OSSes />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.skills-title')}
         </Typography>
         <Skills />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.qualifications-title')}
         </Typography>
         <Qualifications />
       </Container>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.contacts-title')}
         </Typography>

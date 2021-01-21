@@ -54,6 +54,7 @@ export const Histories: React.FC = () => {
               name
               subName
               icon {
+                name
                 svg {
                   svg
                 }
@@ -90,7 +91,11 @@ export const Histories: React.FC = () => {
                     <CardHeader
                       avatar={
                         node?.icon?.svg?.svg && (
-                          <Avatar>
+                          <Avatar
+                            role="img"
+                            aria-label={node.icon.name || ''}
+                            title={node.icon.name || ''}
+                          >
                             <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                           </Avatar>
                         )

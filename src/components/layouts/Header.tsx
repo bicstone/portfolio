@@ -36,6 +36,7 @@ export const Header: React.FC = () => {
       position="fixed"
       color={scrollTrigger ? 'inherit' : 'transparent'}
       elevation={scrollTrigger ? 4 : 0}
+      role="banner"
     >
       <Toolbar variant="dense" className={classes.toolbar}>
         <Link to="/" title={t('header.back-to-home')}>

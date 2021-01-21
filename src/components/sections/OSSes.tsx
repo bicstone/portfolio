@@ -47,6 +47,7 @@ export const OSSes: React.FC = () => {
                 name
               }
               icon {
+                name
                 svg {
                   svg
                 }
@@ -87,7 +88,7 @@ export const OSSes: React.FC = () => {
       {allContentfulOss.edges.map(
         ({ node }) =>
           node.node_locale === language && (
-            <Grid item xs={12} sm={6} md={4} key={node.id}>
+            <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
               <Card>
                 <CardActionArea
                   title={node.name || ''}
@@ -113,7 +114,11 @@ export const OSSes: React.FC = () => {
                       className={classes.cardHeader}
                       avatar={
                         node?.icon?.svg?.svg && (
-                          <Avatar>
+                          <Avatar
+                            role="img"
+                            aria-label={node.icon.name || ''}
+                            title={node.icon.name || ''}
+                          >
                             <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
                           </Avatar>
                         )
