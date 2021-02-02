@@ -103,7 +103,7 @@ export const Projects: React.FC = () => {
                     title={
                       <>
                         <Typography variant="body2" component="div" color="textSecondary">
-                          {/* 日付表記を修正 */}
+                          {/* TODO: 日付表記に関して確認する */}
                           {node?.startDate}年
                         </Typography>
                         <Typography component="h2" variant="h6">
