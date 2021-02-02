@@ -59,7 +59,7 @@ export const Projects: React.FC = () => {
                   html
                 }
               }
-              startDate(formatString: "YYYY/MM")
+              startDate(formatString: "YYYY")
               endDate(formatString: "YYYY/MM")
               startDateRow: startDate(formatString: "YYYY-MM-DD")
               endDateRow: endDate(formatString: "YYYY-MM-DD")
@@ -103,7 +103,8 @@ export const Projects: React.FC = () => {
                     title={
                       <>
                         <Typography variant="body2" component="div" color="textSecondary">
-                          {node?.startDate}～{node?.endDate}
+                          {/* TODO: 日付表記に関して確認する */}
+                          {node?.startDate}年
                         </Typography>
                         <Typography component="h2" variant="h6">
                           {node.name}
