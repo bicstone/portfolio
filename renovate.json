@@ -1,7 +1,7 @@
 {
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["before 6:00am"],
+  "schedule": ["after 6am and before 7am every sunday"],
   "assignees": ["bicstone"],
   "reviewers": ["bicstone"],
   "packageRules": [
