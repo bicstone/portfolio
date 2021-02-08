@@ -59,7 +59,6 @@ export const Hello: React.FC = () => {
                     color="secondary"
                     size={BUTTON_SMALL_WIDTH.includes(width) ? 'small' : 'medium'}
                     rel="external noreferrer noopener nofollow"
-                    target="_blank"
                     className={classes.button}
                     key={node.id}
                   >
