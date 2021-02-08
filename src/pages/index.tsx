@@ -62,7 +62,8 @@ const home: React.FC<PageProps> = () => {
         </Typography>
         <Qualifications />
       </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      {/* 問い合わせへのアンカーリンク設置するためのID指定、仮対応 */}
+      <Container maxWidth="lg" className={classes.container} component="section" id="contact">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.contacts-title')}
         </Typography>
