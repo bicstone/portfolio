@@ -28,6 +28,20 @@ export default {
       resolve: `gatsby-image`,
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: path.join(__dirname, '../', 'src', 'pages'),
+      },
+    },
+    {
+      resolve: 'gatsby-source-notionso',
+      options: {
+        name: "Blog",
+        rootPageUrl: process.env.NOTION_ROOT_PAGE_URL,
+      }
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -47,16 +61,20 @@ export default {
       },
     },
     {
-      resolve: 'gatsby-plugin-react-i18next',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        siteUrl,
+        name: `locales`,
         path: path.join(__dirname, '../', 'src', 'locales'),
-        languages: languages.languages,
-        defaultLanguage: languages.defaultLanguage,
       },
     },
     {
-      resolve: 'gatsby-plugin-root-import',
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        siteUrl,
+        localeJsonSourceName: `locales`,
+        languages: languages.languages,
+        defaultLanguage: languages.defaultLanguage,
+      },
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -71,7 +89,7 @@ export default {
         name: title,
         short_name: shortTitle,
         description,
-        start_url: siteUrl,
+        start_url: '/',
         display: 'minimal-ui',
         icons: [
           {
@@ -134,5 +152,11 @@ export default {
     {
       resolve: 'gatsby-transformer-remark',
     },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.join(__dirname, '../', 'src')
+      }
+    }
   ],
 };
