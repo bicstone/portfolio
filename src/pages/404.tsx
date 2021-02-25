@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Typography, Container, Button } from '@mui/material';
+import { Typography, Container, Button, Box } from '@mui/material';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 
-import { Layout } from 'src/components';
+import { Layout, BlogPostIndex } from 'src/components';
 import { NotFoundPageQuery } from 'src/types';
 
 const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
@@ -32,6 +32,10 @@ const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
             {t('not-found.back-to-home')}
           </Button>
         </div>
+        <Box margin={2}>
+          {/* ブログ記事一覧 */}
+          <BlogPostIndex posts={data.posts.group} />
+        </Box>
       </Container>
     </Layout>
   );
@@ -41,6 +45,27 @@ export default NotFound;
 
 export const query = graphql`
   query NotFoundPage($language: String!) {
+    # ブログ記事一覧を取得する
+    posts: allContentfulBlogPost(sort: { fields: [tags, created], order: [ASC, DESC] }) {
+      group(field: tags) {
+        edges {
+          node {
+            id
+            title
+            slug
+            created
+            updated
+            excerpt
+            content {
+              content
+            }
+            tags {
+              name
+            }
+          }
+        }
+      }
+    }
     # 原稿を取得する
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

@@ -17331,6 +17331,20 @@ export type ContentfulProjectDetailTextNodeSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>;
 };
 
+export type BlogPostQueryVariables = Exact<{
+  id: Scalars['String'];
+  language: Scalars['String'];
+}>;
+
+
+export type BlogPostQuery = { post: Maybe<(
+    Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
+    & { content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
+  )>, icon: Maybe<(
+    Pick<ContentfulAsset, 'title'>
+    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
+  )>, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -17341,7 +17355,10 @@ export type NotFoundPageQueryVariables = Exact<{
 }>;
 
 
-export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+export type NotFoundPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
+          Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
+          & { content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
+        ) }> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
   )> };
