@@ -1,23 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import {
-  makeStyles,
-  Toolbar,
-  AppBar,
-  Typography,
-  useScrollTrigger,
-  Breadcrumbs,
-  Box,
-} from '@material-ui/core';
+import { makeStyles, Toolbar, AppBar, Typography, useScrollTrigger, Box } from '@material-ui/core';
 import { WbSunny, Brightness2 } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';
 
 export type HeaderProps = {
-  breadcrumb?: React.ReactElement;
   icon: string;
   iconAlt: string;
+  isHome?: boolean;
 };
 
 const useStyles = makeStyles(theme => ({
@@ -30,9 +22,12 @@ const useStyles = makeStyles(theme => ({
   link: {
     margin: theme.spacing(0, 0.5),
   },
+  icon: {
+    marginRight: theme.spacing(0.5),
+  },
 }));
 
-export const Header: React.FC<HeaderProps> = ({ breadcrumb, icon, iconAlt }) => {
+export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome = false }) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const [darkMode, toggleDarkMode] = useDarkMode();
@@ -46,16 +41,7 @@ export const Header: React.FC<HeaderProps> = ({ breadcrumb, icon, iconAlt }) => 
       role="banner"
     >
       <Toolbar variant="dense" className={classes.toolbar}>
-        {breadcrumb ? (
-          <Breadcrumbs aria-label="breadcrumb">
-            <Link to="/" title={t('header.back-to-home')}>
-              <Box display="flex" alignItems="center">
-                <SvgIcon width={24} height={24} icon={icon} alt={iconAlt} />
-              </Box>
-            </Link>
-            {breadcrumb}
-          </Breadcrumbs>
-        ) : (
+        {isHome ? (
           <Box display="flex" alignItems="center">
             <Typography
               color="textPrimary"
@@ -69,6 +55,21 @@ export const Header: React.FC<HeaderProps> = ({ breadcrumb, icon, iconAlt }) => 
               </Link>
             </Typography>
           </Box>
+        ) : (
+          <Link to="/" title={t('header.back-to-home')}>
+            <Box display="flex" alignItems="center">
+              <SvgIcon width={20} height={20} icon={icon} alt={iconAlt} className={classes.icon} />
+              <Typography
+                color="textPrimary"
+                variant="h6"
+                component="span"
+                className={classes.link}
+                gutterBottom
+              >
+                {t('header.title-home')}
+              </Typography>
+            </Box>
+          </Link>
         )}
         <div className={classes.spacer} />
         <nav>

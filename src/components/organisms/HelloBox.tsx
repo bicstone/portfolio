@@ -39,14 +39,13 @@ export const HelloBox: React.FC<HelloBoxProps> = ({ links, icon, iconAlt }) => {
         {links.map(
           ({ node }) =>
             node.node_locale === language && (
-              <Box display="inline" marginRight={1}>
+              <Box display="inline" marginRight={1} key={node.id}>
                 <Button
                   href={node.href || ''}
                   variant="outlined"
                   color="secondary"
                   size={BUTTON_SMALL_WIDTH.includes(width) ? 'small' : 'medium'}
                   rel="external noreferrer noopener nofollow"
-                  key={node.id}
                 >
                   {node.name}
                 </Button>

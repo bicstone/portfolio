@@ -3,6 +3,7 @@
  */
 
 export * from './atoms/NotionCodeBlock';
+export * from './atoms/NotionCodeText';
 export * from './atoms/NotionHeaderBlock';
 export * from './atoms/NotionImageBlock';
 export * from './atoms/NotionListItemBlock';

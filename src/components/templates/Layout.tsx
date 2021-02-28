@@ -7,7 +7,7 @@ export type LayoutProps = {
   description?: string;
   image?: string;
   cookieAlertShow?: boolean;
-  breadcrumb?: React.ReactElement;
+  isHome?: boolean;
   icon: string;
   iconAlt: string;
 };
@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
 export const Layout: React.FC<LayoutProps> = ({
   children,
   cookieAlertShow,
-  breadcrumb,
+  isHome,
   icon,
   iconAlt,
   ...props
@@ -33,7 +33,7 @@ export const Layout: React.FC<LayoutProps> = ({
   return (
     <div className={classes.root}>
       <Head {...props} />
-      <Header breadcrumb={breadcrumb} icon={icon} iconAlt={iconAlt} />
+      <Header isHome={isHome} icon={icon} iconAlt={iconAlt} />
       <aside>
         <CookieAlert show={cookieAlertShow} />
       </aside>

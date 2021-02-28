@@ -6,7 +6,7 @@ import { IndexPageQuery } from 'src/types';
 
 const index: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
-    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
+    <Layout isHome icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
       <Container maxWidth="md">
         <Box margin={2}>
           {/* 自己紹介 */}

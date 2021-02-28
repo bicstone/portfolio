@@ -1,14 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { graphql, PageProps } from 'gatsby';
 import { Link } from 'gatsby-theme-material-ui';
 import notionRendererFactory, { NotionRenderFuncs } from 'gatsby-source-notionso/lib/renderer';
-import { Box, Grid, Container, Typography } from '@material-ui/core';
+import { Box, Breadcrumbs, Container, Typography } from '@material-ui/core';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import {
   Layout,
   NotionPageBlock,
   NotionTextBlock,
   NotionCodeBlock,
   NotionImageBlock,
+  NotionCodeText,
   NotionHeaderBlock,
   NotionUlListBlock,
   NotionOlListBlock,
@@ -23,13 +26,13 @@ const renderFuncs = (): NotionRenderFuncs => {
       const block = (() => {
         switch (att) {
           case 'i':
-            return <Box fontStyle="italic">{children}</Box>;
+            return NotionCodeText({ children });
           case 'b':
-            return <Box fontWeight="fontWeightBold">{children}</Box>;
+            return NotionCodeText({ children });
           case 's':
             return <del>{children}</del>;
           case 'c':
-            return <Box fontFamily="Monospace">{children}</Box>;
+            return NotionCodeText({ children });
           default:
             return children;
         }
@@ -59,7 +62,6 @@ const renderFuncs = (): NotionRenderFuncs => {
           case 'numbered_list':
             return NotionOlListBlock({ children });
           case 'numbered_list__item':
-            return NotionListItemBlock({ children });
           case 'bulleted_list__item':
             return NotionListItemBlock({ children });
           case '__meta':
@@ -74,6 +76,7 @@ const renderFuncs = (): NotionRenderFuncs => {
 };
 
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
+  const { t } = useTranslation();
   const post = data.post;
   if (!post) {
     return <></>;
@@ -82,17 +85,34 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const child = notionRenderer.render(renderFuncs());
 
   return (
-    <Layout
-      icon={data.icon?.svg?.content || ''}
-      iconAlt={data.icon?.title || ''}
-      breadcrumb={
-        <Typography variant="h6" component="span" color="textPrimary">
+    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
+      <Container maxWidth="sm">
+        <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
+          <Link to="/" title={t('header.back-to-home')}>
+            <Typography variant="subtitle2" gutterBottom>
+              bicstone
+            </Typography>
+          </Link>
+          <Link to="/blog/" title={t('header.back-to-home')}>
+            <Typography variant="subtitle2" gutterBottom>
+              まっしろブログ
+            </Typography>
+          </Link>
+          <Link to="/blog/" title={t('header.back-to-home')}>
+            <Typography variant="subtitle2" gutterBottom>
+              {data.post?.tags?.[0] || ''}
+            </Typography>
+          </Link>
+        </Breadcrumbs>
+        <Typography variant="h4" component="h1" paragraph>
           {data.post?.title}
         </Typography>
-      }
-    >
-      <Container maxWidth="md">
-        <Grid item>{child}</Grid>
+        <Typography align="right" variant="body2" color="textSecondary">
+          {data.post?.createdAt}
+        </Typography>
+        <Box marginTop={3} marginBottom={10}>
+          {child}
+        </Box>
       </Container>
     </Layout>
   );
