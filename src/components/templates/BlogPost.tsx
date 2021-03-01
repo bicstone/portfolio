@@ -2,9 +2,13 @@ import React from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 import { graphql, PageProps } from 'gatsby';
 import { Link } from 'gatsby-theme-material-ui';
-import notionRendererFactory, { NotionRenderFuncs } from 'gatsby-source-notionso/lib/renderer';
+import notionRendererFactory, {
+  NotionRenderFuncs,
+  NotionPageToRender,
+} from 'gatsby-source-notionso/lib/renderer';
 import { Box, Breadcrumbs, Container, Typography } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import UpdateIcon from '@material-ui/icons/Update';
 import {
   Layout,
   NotionPageBlock,
@@ -78,39 +82,44 @@ const renderFuncs = (): NotionRenderFuncs => {
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const { t } = useTranslation();
   const post = data.post;
+
   if (!post) {
     return <></>;
   }
-  const notionRenderer = notionRendererFactory({ notionPage: post });
+
+  // HACK: NotionPageToRenderが厳しすぎるのでキャストする
+  const notionRenderer = notionRendererFactory({ notionPage: post as NotionPageToRender });
   const child = notionRenderer.render(renderFuncs());
+  const createdAt = new Date(data.post?.createdAt).toLocaleDateString();
 
   return (
     <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
       <Container maxWidth="sm">
-        <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
-          <Link to="/" title={t('header.back-to-home')}>
-            <Typography variant="subtitle2" gutterBottom>
-              bicstone
-            </Typography>
-          </Link>
-          <Link to="/blog/" title={t('header.back-to-home')}>
-            <Typography variant="subtitle2" gutterBottom>
-              まっしろブログ
-            </Typography>
-          </Link>
-          <Link to="/blog/" title={t('header.back-to-home')}>
-            <Typography variant="subtitle2" gutterBottom>
-              {data.post?.tags?.[0] || ''}
-            </Typography>
-          </Link>
-        </Breadcrumbs>
-        <Typography variant="h4" component="h1" paragraph>
-          {data.post?.title}
+        <Box marginBottom={1}>
+          <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
+            <Link to="/" title={t('header.back-to-home')}>
+              <Typography variant="body2">bicstone</Typography>
+            </Link>
+            <Link to="/blog/" title={t('header.back-to-home')}>
+              <Typography variant="body2">まっしろブログ</Typography>
+            </Link>
+            <Link to="/blog/" title={t('header.back-to-home')}>
+              <Typography variant="body2">{post.tags?.[0] || ''}</Typography>
+            </Link>
+          </Breadcrumbs>
+        </Box>
+        <Typography variant="h4" component="h1" gutterBottom>
+          {post.title}
         </Typography>
-        <Typography align="right" variant="body2" color="textSecondary">
-          {data.post?.createdAt}
+        <Typography variant="body2" color="textSecondary">
+          <Box display="flex" alignItems="center" justifyContent="flex-end">
+            <Box marginRight={0.5}>
+              <UpdateIcon fontSize="inherit" />
+            </Box>
+            <time dateTime={post.createdAt}>{createdAt}</time>
+          </Box>
         </Typography>
-        <Box marginTop={3} marginBottom={10}>
+        <Box marginTop={2} marginBottom={10}>
           {child}
         </Box>
       </Container>

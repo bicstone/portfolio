@@ -31,7 +31,7 @@ export const SvgIcon = React.memo<SvgIconProps>(({ width, height, icon, alt, cla
       ) {
         const props = attributesToProps(domNode.attribs);
         return (
-          <svg {...props} width={width} height={height} className={className}>
+          <svg {...props} width={width} height={height}>
             {domToReact(domNode.children as DOMNode[])}
           </svg>
         );
@@ -39,7 +39,14 @@ export const SvgIcon = React.memo<SvgIconProps>(({ width, height, icon, alt, cla
     },
   };
   return (
-    <Box component="div" display="flex" role="img" aria-label={alt || ''} title={alt || ''}>
+    <Box
+      component="div"
+      display="flex"
+      role="img"
+      aria-label={alt || ''}
+      title={alt || ''}
+      className={className}
+    >
       {parse(icon || '', options)}
     </Box>
   );
