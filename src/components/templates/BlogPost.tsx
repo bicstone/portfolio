@@ -11,15 +11,18 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import UpdateIcon from '@material-ui/icons/Update';
 import {
   Layout,
-  NotionPageBlock,
-  NotionTextBlock,
+  NotionBoldText,
   NotionCodeBlock,
-  NotionImageBlock,
   NotionCodeText,
   NotionHeaderBlock,
-  NotionUlListBlock,
-  NotionOlListBlock,
+  NotionImageBlock,
+  NotionItalicText,
   NotionListItemBlock,
+  NotionOlListBlock,
+  NotionPageBlock,
+  NotionStrikethroughText,
+  NotionTextBlock,
+  NotionUlListBlock,
 } from 'src/components';
 import { BlogPostQuery } from 'src/types';
 
@@ -30,11 +33,11 @@ const renderFuncs = (): NotionRenderFuncs => {
       const block = (() => {
         switch (att) {
           case 'i':
-            return NotionCodeText({ children });
+            return NotionItalicText({ children });
           case 'b':
-            return NotionCodeText({ children });
+            return NotionBoldText({ children });
           case 's':
-            return <del>{children}</del>;
+            return NotionStrikethroughText({ children });
           case 'c':
             return NotionCodeText({ children });
           default:
