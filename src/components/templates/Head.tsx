@@ -2,13 +2,13 @@ import React from 'react';
 import { Helmet } from 'gatsby-plugin-react-i18next';
 import { useBuildTime, useSiteMetadata } from '../../hooks';
 
-type Props = {
+export type HeadProps = {
   title?: string;
   description?: string;
   image?: string;
 };
 
-export const Head: React.FC<Props> = ({
+export const Head: React.FC<HeadProps> = ({
   title = undefined,
   description = undefined,
   image = undefined,

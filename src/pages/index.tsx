@@ -1,76 +1,78 @@
 import React from 'react';
-import { PageProps } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { makeStyles, Container, Typography } from '@material-ui/core';
-import {
-  Layout,
-  Hello,
-  Projects,
-  WhatICanDos,
-  Skills,
-  Contacts,
-  Histories,
-  OSSes,
-  Qualifications,
-} from '../components';
+import { graphql, PageProps } from 'gatsby';
+import { Container, Box } from '@material-ui/core';
+import { Layout, HelloBox, BlogPostIndex } from 'src/components';
+import { IndexPageQuery } from 'src/types';
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
-  },
-}));
-
-const home: React.FC<PageProps> = () => {
-  const { t } = useI18next();
-  const classes = useStyles();
+const index: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
-    <Layout>
-      <Container maxWidth="md" className={classes.container} component="section">
-        <Hello />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
-        <WhatICanDos />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.projects-title')}
-        </Typography>
-        <Projects />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
-        <Typography component="h2" variant="h4" align="center">
-          {t('home.histories-title')}
-        </Typography>
-        <Histories />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.osses-title')}
-        </Typography>
-        <OSSes />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.skills-title')}
-        </Typography>
-        <Skills />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.qualifications-title')}
-        </Typography>
-        <Qualifications />
-      </Container>
-      {/* 問い合わせへのアンカーリンク設置するためのID指定、仮対応 */}
-      <Container maxWidth="lg" className={classes.container} component="section" id="contact">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.contacts-title')}
-        </Typography>
-        <Contacts />
+    <Layout isHome icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
+      <Container maxWidth="md">
+        <Box margin={2}>
+          {/* 自己紹介 */}
+          <HelloBox
+            links={data.links.edges}
+            icon={data.icon?.svg?.content || ''}
+            iconAlt={data.icon?.title || ''}
+          />
+        </Box>
+        <Box margin={2}>
+          {/* ブログ記事一覧 */}
+          <BlogPostIndex posts={data.posts.group} />
+        </Box>
       </Container>
     </Layout>
   );
 };
 
-export default home;
+export default index;
+
+export const query = graphql`
+  query IndexPage($language: String!) {
+    # 自己紹介部分リンク先を取得する
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          href
+        }
+      }
+    }
+    # Bicstoneアイコンを取得する
+    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
+    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+      title
+      svg {
+        content
+      }
+    }
+    # ブログ記事一覧を取得する
+    posts: allNotionPageBlog(sort: { fields: [tags, createdAt], order: [ASC, DESC] }) {
+      group(field: tags) {
+        edges {
+          node {
+            pageId
+            slug
+            title
+            excerpt
+            tags
+            createdAt
+            pageIcon
+          }
+        }
+      }
+    }
+    # 原稿を取得する
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
