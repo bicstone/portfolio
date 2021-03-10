@@ -5,7 +5,6 @@ import parse, {
   HTMLReactParserOptions,
   DOMNode,
 } from 'html-react-parser';
-import { Box } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Element } from 'domhandler';
 import { BicstoneIconDataQuery } from '../../types';
