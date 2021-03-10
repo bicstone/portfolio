@@ -27,7 +27,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = () => {
   const classes = useStyles();
   return (
     <Layout>
-      <Container maxWidth="md" className={classes.container} component="section">
+      <Container maxWidth="lg" className={classes.container} component="section">
         <Hello />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">

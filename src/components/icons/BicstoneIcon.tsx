@@ -5,6 +5,7 @@ import parse, {
   HTMLReactParserOptions,
   DOMNode,
 } from 'html-react-parser';
+import { Box } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Element } from 'domhandler';
 import { BicstoneIconDataQuery } from '../../types';
@@ -47,8 +48,8 @@ export const BicstoneIcon: React.FC<Props> = ({ width, height }) => {
     `,
   );
   return (
-    <div role="img" aria-label={contentfulAsset?.title || ''} title={contentfulAsset?.title || ''}>
+    <span role="img" aria-label={contentfulAsset?.title || ''} title={contentfulAsset?.title || ''}>
       {parse(contentfulAsset?.svg?.content || '', options)}
-    </div>
+    </span>
   );
 };
