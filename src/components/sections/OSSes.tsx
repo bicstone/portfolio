@@ -59,7 +59,7 @@ export const OSSes: React.FC = () => {
                 }
                 localFile {
                   childImageSharp {
-                    gatsbyImageData
+                    gatsbyImageData(layout: FULL_WIDTH)
                   }
                 }
               }
