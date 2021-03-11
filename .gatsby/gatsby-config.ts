@@ -1,5 +1,3 @@
-import path from 'path'
-
 export const languages = require('../languages');
 export const title = "Takanori Oishi @bisctone's Portfolio";
 export const shortTitle = 'bicstone';
@@ -28,6 +26,12 @@ export default {
       resolve: `gatsby-image`,
     },
     {
+      resolve: `gatsby-plugin-image`,
+    },
+    {
+      resolve: `gatsby-transformer-sharp`
+    },
+    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -50,7 +54,7 @@ export default {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `locales`,
-        path: path.join(__dirname, '../', 'src', 'locales'),
+        path: `${__dirname}/../src/locales/`,
       },
     },
     {
