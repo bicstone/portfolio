@@ -88,5 +88,13 @@ export const query = graphql`
         }
       }
     }
+    # Bicstoneアイコンを取得する
+    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
+    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+      title
+      svg {
+        content
+      }
+    }
   }
 `;
