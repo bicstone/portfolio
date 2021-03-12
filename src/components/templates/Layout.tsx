@@ -1,15 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
 import { CookieAlert, Head, Header, Footer } from '../';
 
-type Props = {
+export type LayoutProps = {
   title?: string;
   description?: string;
   image?: string;
   cookieAlertShow?: boolean;
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -19,24 +19,21 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: '400px 400px',
     backgroundRepeat: 'repeat',
   },
-  main: {
-    marginTop: theme.spacing(8),
-  },
 }));
 
-export const Layout: React.FC<Props> = ({ children, cookieAlertShow, ...props }) => {
+export const Layout: React.FC<LayoutProps> = ({ children, cookieAlertShow, ...props }) => {
   const classes = useStyles();
   return (
-    <>
+    <div className={classes.root}>
       <Head {...props} />
-      <div className={classes.root}>
+      <aside>
         <CookieAlert show={cookieAlertShow} />
-        <Header />
-        <main className={classes.main} role="main">
-          {children}
-        </main>
-        <Footer />
-      </div>
-    </>
+      </aside>
+      <Header />
+      <Box component="main" role="main" marginTop={8}>
+        {children}
+      </Box>
+      <Footer />
+    </div>
   );
 };
