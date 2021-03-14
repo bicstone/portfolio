@@ -1,17 +1,16 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import {
-  makeStyles,
-  Toolbar,
-  AppBar,
-  Typography,
-  IconButton as ExternalIconButton,
-  useScrollTrigger,
-} from '@material-ui/core';
+import { makeStyles, Toolbar, AppBar, Typography, useScrollTrigger, Box } from '@material-ui/core';
 import { WbSunny, Brightness2 } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
+import { SvgIcon } from 'src/components';
 import { useDarkMode } from '../../hooks';
+
+export type HeaderProps = {
+  icon: string;
+  iconAlt: string;
+  isHome?: boolean;
+};
 
 const useStyles = makeStyles(theme => ({
   toolbar: {
@@ -23,9 +22,12 @@ const useStyles = makeStyles(theme => ({
   link: {
     margin: theme.spacing(0, 0.5),
   },
+  icon: {
+    marginRight: theme.spacing(0.5),
+  },
 }));
 
-export const Header: React.FC = () => {
+export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome = false }) => {
   const classes = useStyles();
   const { t } = useI18next();
   const [darkMode, toggleDarkMode] = useDarkMode();
@@ -39,38 +41,46 @@ export const Header: React.FC = () => {
       role="banner"
     >
       <Toolbar variant="dense" className={classes.toolbar}>
-        <Link to="/" title={t('header.back-to-home')}>
-          <Typography
-            color="textPrimary"
-            variant="h6"
-            component="h1"
-            className={classes.link}
-            gutterBottom
-          >
-            {t('header.title-home')}
-          </Typography>
-        </Link>
-        <IconButton
-          size="small"
-          onClick={toggleDarkMode}
-          className={classes.link}
-          title={t('header.toggleDarkTheme-title')}
-        >
-          {darkMode ? <Brightness2 /> : <WbSunny />}
-        </IconButton>
+        {isHome ? (
+          <Box display="flex" alignItems="center">
+            <Typography
+              color="textPrimary"
+              variant="h6"
+              component="h1"
+              className={classes.link}
+              gutterBottom
+            >
+              <Link to="/" title={t('header.back-to-home')}>
+                {t('header.title-home')}
+              </Link>
+            </Typography>
+          </Box>
+        ) : (
+          <Link to="/" title={t('header.back-to-home')}>
+            <Box display="flex" alignItems="center">
+              <SvgIcon width={20} height={20} icon={icon} alt={iconAlt} className={classes.icon} />
+              <Typography
+                color="textPrimary"
+                variant="h6"
+                component="span"
+                className={classes.link}
+                gutterBottom
+              >
+                {t('header.title-home')}
+              </Typography>
+            </Box>
+          </Link>
+        )}
         <div className={classes.spacer} />
         <nav>
-          <ExternalIconButton
+          <IconButton
             size="small"
-            href={t('header.github-url') as string}
-            rel="external noreferrer noopener nofollow"
-            target="_blank"
+            onClick={toggleDarkMode}
             className={classes.link}
-            title={t('header.github-title')}
-            style={{ color: darkMode ? '#fff' : '#171515' }}
+            title={t('header.toggleDarkTheme-title')}
           >
-            <GitHubIcon />
-          </ExternalIconButton>
+            {darkMode ? <Brightness2 /> : <WbSunny />}
+          </IconButton>
         </nav>
       </Toolbar>
     </AppBar>
