@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, makeStyles } from '@material-ui/core';
 import { CookieAlert, Head, Header, Footer } from 'src/components';
+import BackgroundImage from './background.svg';
 
 export type LayoutProps = {
   title?: string;
@@ -18,7 +19,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     minHeight: '100vh',
     cursor: 'default',
-    backgroundImage: `url(${require('./background.svg')})`,
+    backgroundImage: `url(${BackgroundImage})`,
     backgroundSize: '400px 400px',
     backgroundRepeat: 'repeat',
   },
