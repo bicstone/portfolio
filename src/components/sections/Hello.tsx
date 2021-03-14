@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, Button, makeStyles, Paper, CardHeader } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { BicstoneIcon } from '../';
+// import { BicstoneIcon } from '../';
 import { useBreakPoint } from '../../hooks';
 import { HelloDataQuery } from '../../types';
 
@@ -41,7 +41,7 @@ export const Hello: React.FC = () => {
   return (
     <Grid container spacing={2} justify="center" alignItems="center">
       <Grid item xs={12} sm={3} md={2} className={classes.icon}>
-        <BicstoneIcon width={100} height={100} />
+        {/* <BicstoneIcon width={100} height={100} /> */}
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
         <Paper>

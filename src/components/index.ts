@@ -4,8 +4,6 @@
 
 export * from './atoms/SvgIcon';
 export * from './cards/ExpandCardContent';
-export * from './layouts/Footer';
-export * from './layouts/Header';
 export * from './organisms/CookieAlertContent';
 export * from './sections/Contacts';
 export * from './sections/Hello';
@@ -16,6 +14,8 @@ export * from './sections/Qualifications';
 export * from './sections/Skills';
 export * from './sections/WhatICanDos';
 export * from './templates/CookieAlert';
+export * from './templates/Footer';
 export * from './templates/Head';
+export * from './templates/Header';
 export * from './templates/Layout';
 export * from './utilities/InlineBlock';

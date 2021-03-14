@@ -5,7 +5,7 @@
     "title": "機能改善のためCookieを使用しています。"
   },
   "footer": {
-    "copyright": "©{{date}} Takanori Oishi"
+    "copyright": "© {{year}} Takanori Oishi"
   },
   "header": {
     "changeLanguage-title": "言語切替",
