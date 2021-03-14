@@ -14,11 +14,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const NotFound: React.FC<PageProps<NotFoundPageQuery>> = () => {
+const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
   const classes = useStyles();
   const { t } = useI18next();
   return (
-    <Layout>
+    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
       <Grid container direction="column" justify="center" alignItems="center">
         <Box textAlign="center">
           <LocalHotelIcon className={classes.icon} />
@@ -49,6 +49,14 @@ export const query = graphql`
           data
           language
         }
+      }
+    }
+    # Bicstoneアイコンを取得する
+    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
+    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+      title
+      svg {
+        content
       }
     }
   }

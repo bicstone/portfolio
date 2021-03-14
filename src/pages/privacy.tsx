@@ -6,10 +6,14 @@ import { Container, Typography, Grid, Card, CardContent, Link as ELink } from '@
 import { PrivacyPageQuery } from '../types';
 import { Layout } from '../components';
 
-const privacy: React.FC<PageProps<PrivacyPageQuery>> = () => {
+const privacy: React.FC<PageProps<PrivacyPageQuery>> = ({ data }) => {
   const { t } = useI18next();
   return (
-    <Layout cookieAlertShow={false}>
+    <Layout
+      cookieAlertShow={false}
+      icon={data.icon?.svg?.content || ''}
+      iconAlt={data.icon?.title || ''}
+    >
       <Container maxWidth="md">
         <Grid item>
           <Typography component="h2" variant="h6" paragraph>
@@ -52,6 +56,14 @@ export const query = graphql`
           data
           language
         }
+      }
+    }
+    # Bicstoneアイコンを取得する
+    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
+    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+      title
+      svg {
+        content
       }
     }
   }

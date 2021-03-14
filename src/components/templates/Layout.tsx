@@ -7,6 +7,9 @@ export type LayoutProps = {
   description?: string;
   image?: string;
   cookieAlertShow?: boolean;
+  isHome?: boolean;
+  icon: string;
+  iconAlt: string;
 };
 
 const useStyles = makeStyles(() => ({
@@ -21,15 +24,20 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Layout: React.FC<LayoutProps> = ({ children, cookieAlertShow, ...props }) => {
+export const Layout: React.FC<LayoutProps> = ({
+  children,
+  cookieAlertShow,
+  isHome = false,
+  icon,
+  iconAlt,
+  ...props
+}) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Head {...props} />
-      <aside>
-        <CookieAlert show={cookieAlertShow} />
-      </aside>
-      <Header />
+      <CookieAlert show={cookieAlertShow} />
+      <Header isHome={isHome} icon={icon} iconAlt={iconAlt} />
       <Box component="main" role="main" marginTop={8}>
         {children}
       </Box>

@@ -22,11 +22,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const home: React.FC<PageProps<IndexPageQuery>> = () => {
+const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const { t } = useI18next();
   const classes = useStyles();
   return (
-    <Layout>
+    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''} isHome>
       <Container maxWidth="lg" className={classes.container} component="section">
         <Hello />
       </Container>

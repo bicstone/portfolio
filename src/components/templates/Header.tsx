@@ -9,7 +9,7 @@ import { useDarkMode } from '../../hooks';
 export type HeaderProps = {
   icon: string;
   iconAlt: string;
-  isHome?: boolean;
+  isHome: boolean;
 };
 
 const useStyles = makeStyles(theme => ({
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome = false }) => {
+export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   const classes = useStyles();
   const { t } = useI18next();
   const [darkMode, toggleDarkMode] = useDarkMode();
