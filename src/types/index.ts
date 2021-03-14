@@ -3,4 +3,3 @@
  */
 
 export * from './graphqlTypes';
-export * from './svg';

@@ -19,7 +19,7 @@
     "g": "yarn codegen",
     "typecheck": "tsc -p . --noEmit",
     "tc": "yarn typecheck",
-    "barrelsby": "barrelsby -d ./src -D -i \"src/(components|hooks|reducers|types)/\" -l below -q",
+    "barrelsby": "barrelsby -d ./src -D -i \"src/(components|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$\" -l below -q",
     "b": "yarn barrelsby",
     "prepare": "husky install"
   },
