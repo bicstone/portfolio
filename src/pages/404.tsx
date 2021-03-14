@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Button } from 'gatsby-theme-material-ui';
-import { makeStyles, Box, Grid, Typography } from '@material-ui/core';
+import { makeStyles, Box, Grid, Typography, Container } from '@material-ui/core';
 import { LocalHotel as LocalHotelIcon } from '@material-ui/icons';
 import { NotFoundPageQuery } from '../types';
 import { Layout } from '../components';
@@ -17,22 +17,26 @@ const useStyles = makeStyles(theme => ({
 const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
   const classes = useStyles();
   const { t } = useI18next();
+  const icon = data.icon?.svg?.content || '';
+  const iconAlt = data.icon?.title || '';
   return (
-    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
-      <Grid container direction="column" justify="center" alignItems="center">
-        <Box textAlign="center">
+    <Layout icon={icon} iconAlt={iconAlt}>
+      <Container maxWidth="md">
+        <Box margin={2} textAlign="center">
+          {/* 見つかりませんでした */}
           <LocalHotelIcon className={classes.icon} />
           <Typography variant="h4" component="h1" paragraph>
             {t('not-found.title')}
           </Typography>
           <Typography variant="body1">{t('not-found.description')}</Typography>
         </Box>
-        <Box marginTop={4} textAlign="center">
-          <Button variant="contained" to="/">
+        <Box margin={2} textAlign="center">
+          {/* ホームに戻る */}
+          <Button variant="contained" to="/" size="large">
             {t('not-found.back-to-home')}
           </Button>
         </Box>
-      </Grid>
+      </Container>
     </Layout>
   );
 };

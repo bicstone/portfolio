@@ -8,12 +8,10 @@ import { Layout } from '../components';
 
 const privacy: React.FC<PageProps<PrivacyPageQuery>> = ({ data }) => {
   const { t } = useI18next();
+  const icon = data.icon?.svg?.content || '';
+  const iconAlt = data.icon?.title || '';
   return (
-    <Layout
-      cookieAlertShow={false}
-      icon={data.icon?.svg?.content || ''}
-      iconAlt={data.icon?.title || ''}
-    >
+    <Layout cookieAlertShow={false} icon={icon} iconAlt={iconAlt}>
       <Container maxWidth="md">
         <Grid item>
           <Typography component="h2" variant="h6" paragraph>

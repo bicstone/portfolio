@@ -14493,23 +14493,6 @@ export type ContactDataQuery = (
   ) }
 );
 
-export type HelloDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HelloDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulHello: (
-    { __typename?: 'ContentfulHelloConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulHelloEdge' }
-      & { node: (
-        { __typename?: 'ContentfulHello' }
-        & Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'>
-      ) }
-    )> }
-  ) }
-);
-
 export type HistoryDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -14728,7 +14711,16 @@ export type IndexPageQueryVariables = Exact<{
 
 export type IndexPageQuery = (
   { __typename?: 'Query' }
-  & { locales: (
+  & { links: (
+    { __typename?: 'ContentfulHelloConnection' }
+    & { edges: Array<(
+      { __typename?: 'ContentfulHelloEdge' }
+      & { node: (
+        { __typename?: 'ContentfulHello' }
+        & Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'>
+      ) }
+    )> }
+  ), locales: (
     { __typename?: 'LocaleConnection' }
     & { edges: Array<(
       { __typename?: 'LocaleEdge' }

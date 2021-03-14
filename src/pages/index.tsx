@@ -5,7 +5,7 @@ import { makeStyles, Container, Typography } from '@material-ui/core';
 import { IndexPageQuery } from '../types';
 import {
   Layout,
-  Hello,
+  HelloBox,
   Projects,
   WhatICanDos,
   Skills,
@@ -25,10 +25,12 @@ const useStyles = makeStyles(theme => ({
 const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const { t } = useI18next();
   const classes = useStyles();
+  const icon = data.icon?.svg?.content || '';
+  const iconAlt = data.icon?.title || '';
   return (
-    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''} isHome>
+    <Layout icon={icon} iconAlt={iconAlt} isHome>
       <Container maxWidth="lg" className={classes.container} component="section">
-        <Hello />
+        <HelloBox links={data.links.edges} icon={icon} iconAlt={iconAlt} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <WhatICanDos />
@@ -78,6 +80,17 @@ export default home;
 
 export const query = graphql`
   query IndexPage($language: String!) {
+    # 自己紹介部分リンク先を取得する
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          href
+        }
+      }
+    }
     # 原稿を取得する
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
