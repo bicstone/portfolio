@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, makeStyles } from '@material-ui/core';
-import { CookieAlert, Head, Header, Footer } from '../';
+import { CookieAlert, Head, Header, Footer } from 'src/components';
 
 export type LayoutProps = {
   title?: string;

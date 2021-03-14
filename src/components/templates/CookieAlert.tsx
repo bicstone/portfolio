@@ -1,34 +1,23 @@
 import React from 'react';
 import Cookies from 'js-cookie';
+import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import { Link } from 'gatsby-theme-material-ui';
-import { useI18next, Trans } from 'gatsby-plugin-react-i18next';
-import { Snackbar, SnackbarContent, Typography, IconButton, makeStyles } from '@material-ui/core';
+import { Snackbar, IconButton, Box } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import CloseIcon from '@material-ui/icons/Close';
-import { useBreakPoint } from '../../hooks';
-import { InlineBlock } from '../';
+import { CookieAlertContent } from 'src/components';
 
-type Props = {
+export type CookieAlertProps = {
   show?: boolean;
   cookieName?: string;
   cookieValue?: string;
   cookieOptions?: Cookies.CookieAttributes;
 };
 
-const useStyles = makeStyles(theme => ({
-  snackbar: {
-    flexDirection: 'row',
-    flexWrap: 'nowrap',
-    alignItems: 'flex-start',
-    wordBreak: 'keep-all',
-    whiteSpace: 'nowrap',
-  },
-  iconButton: {
-    padding: theme.spacing(1),
-  },
-}));
-
-export const CookieAlert: React.FC<Props> = ({
+/**
+ * クッキーアラート
+ */
+export const CookieAlert: React.FC<CookieAlertProps> = ({
   cookieName = 'cookie-licence',
   cookieValue = '1',
   cookieOptions = {
@@ -38,11 +27,9 @@ export const CookieAlert: React.FC<Props> = ({
   },
   show = true,
 }) => {
-  const classes = useStyles();
-  const { t } = useI18next();
-  const width = useBreakPoint();
-  const MESSAGE_SMALL_WIDTH: Breakpoint[] = ['xs'];
+  const breakpoints: Breakpoint[] = ['xs'];
   const [agree, setAgree] = React.useState(Cookies.get(cookieName));
+  const { t } = useTranslation();
 
   const handleClose = () => {
     Cookies.set(cookieName, cookieValue, cookieOptions);
@@ -51,29 +38,18 @@ export const CookieAlert: React.FC<Props> = ({
 
   return (
     <Snackbar open={show && agree === undefined}>
-      <SnackbarContent
-        className={classes.snackbar}
+      <CookieAlertContent
+        breakpoints={breakpoints}
         action={
-          <>
-            <IconButton
-              aria-label="close"
-              title="close"
-              color="inherit"
-              className={classes.iconButton}
-              onClick={handleClose}
-            >
-              <CloseIcon />
-            </IconButton>
-          </>
+          <IconButton aria-label="close" title="close" color="inherit" onClick={handleClose}>
+            <CloseIcon />
+          </IconButton>
         }
         message={
-          <Typography
-            variant={MESSAGE_SMALL_WIDTH.includes(width) ? 'caption' : 'body2'}
-            component="div"
-          >
-            <InlineBlock>{t('cookie-alert.title')}</InlineBlock>
+          <aside>
+            <Box display="inline-block">{t('cookie-alert.title')}</Box>
             <wbr />
-            <InlineBlock>
+            <Box display="inline-block">
               <Trans i18nKey="cookie-alert.description">
                 詳しくは
                 <Link to="/privacy" color="inherit" underline="always">
@@ -81,8 +57,8 @@ export const CookieAlert: React.FC<Props> = ({
                 </Link>
                 をご覧ください。
               </Trans>
-            </InlineBlock>
-          </Typography>
+            </Box>
+          </aside>
         }
       />
     </Snackbar>
