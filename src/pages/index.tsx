@@ -9,7 +9,7 @@ import {
   Projects,
   WhatICanDos,
   Skills,
-  Contacts,
+  ContactsBox,
   Histories,
   OSSes,
   Qualifications,
@@ -70,7 +70,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.contacts-title')}
         </Typography>
-        <Contacts />
+        <ContactsBox contacts={data.contacts.edges} />
       </Container>
     </Layout>
   );
@@ -88,6 +88,24 @@ export const query = graphql`
           node_locale
           name
           href
+        }
+      }
+    }
+    # 連絡先一覧を取得する
+    contacts: allContentfulContact(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          subName
+          href
+          icon {
+            name
+            svg {
+              svg
+            }
+          }
         }
       }
     }

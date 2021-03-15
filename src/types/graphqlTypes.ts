@@ -14468,31 +14468,6 @@ export type SitePluginSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type ContactDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ContactDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulContact: (
-    { __typename?: 'ContentfulContactConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulContactEdge' }
-      & { node: (
-        { __typename?: 'ContentfulContact' }
-        & Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'>
-        & { icon?: Maybe<(
-          { __typename?: 'ContentfulIcon' }
-          & Pick<ContentfulIcon, 'name'>
-          & { svg?: Maybe<(
-            { __typename?: 'contentfulIconSvgTextNode' }
-            & Pick<ContentfulIconSvgTextNode, 'svg'>
-          )> }
-        )> }
-      ) }
-    )> }
-  ) }
-);
-
 export type HistoryDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -14718,6 +14693,23 @@ export type IndexPageQuery = (
       & { node: (
         { __typename?: 'ContentfulHello' }
         & Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'>
+      ) }
+    )> }
+  ), contacts: (
+    { __typename?: 'ContentfulContactConnection' }
+    & { edges: Array<(
+      { __typename?: 'ContentfulContactEdge' }
+      & { node: (
+        { __typename?: 'ContentfulContact' }
+        & Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'>
+        & { icon?: Maybe<(
+          { __typename?: 'ContentfulIcon' }
+          & Pick<ContentfulIcon, 'name'>
+          & { svg?: Maybe<(
+            { __typename?: 'contentfulIconSvgTextNode' }
+            & Pick<ContentfulIconSvgTextNode, 'svg'>
+          )> }
+        )> }
       ) }
     )> }
   ), locales: (
