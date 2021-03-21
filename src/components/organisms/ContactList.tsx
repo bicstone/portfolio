@@ -38,16 +38,16 @@ export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
           node.node_locale === language && (
             <Grid item xs={12} sm={4} key={node.id} component="section">
               <CardActionArea
-                title={node?.name || ''}
-                href={node?.href || ''}
+                title={node.name || ''}
+                href={node.href || ''}
                 rel="external noreferrer noopener nofollow"
                 target="_blank"
               >
                 <MediaCard
                   media={
                     <SvgAvatar
-                      name={node?.icon?.name || ''}
-                      svg={node?.icon?.svg?.svg || ''}
+                      name={node.icon?.name || ''}
+                      svg={node.icon?.svg?.svg || ''}
                       className={classes.avatarLarge}
                     />
                   }
