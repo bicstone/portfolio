@@ -1,63 +1,33 @@
 import React from 'react';
-import parse from 'html-react-parser';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import {
-  makeStyles,
-  Typography,
-  Grid,
-  Avatar,
-  CardActionArea,
-  CardContent,
-  Card,
-  SvgIcon,
-} from '@material-ui/core';
-import { ContactDataQuery } from '../../types';
+import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core';
+import { ContentfulContact } from 'src/types';
+import { MediaCard, SvgAvatar } from 'src/components';
+
+export type ContactsBoxFields = 'node_locale' | 'id' | 'name' | 'subName' | 'href' | 'icon';
+
+export type ContactsBoxProps = {
+  contacts: Array<{ node: Pick<ContentfulContact, ContactsBoxFields> }>;
+};
 
 const useStyles = makeStyles(theme => ({
-  cardContent: {
-    paddingTop: 0,
-  },
   avatarLarge: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    margin: theme.spacing(2, 'auto', 0, 'auto'),
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
 }));
 
-export const Contacts: React.FC = () => {
+/**
+ * 連絡先Box
+ * 連絡先のリンク集がある
+ */
+export const ContactsBox: React.FC<ContactsBoxProps> = ({ contacts }) => {
   const classes = useStyles();
   const { language } = useI18next();
-  const { allContentfulContact }: ContactDataQuery = useStaticQuery(
-    graphql`
-      query ContactData {
-        allContentfulContact(sort: { order: ASC, fields: sortKey }) {
-          edges {
-            node {
-              id
-              node_locale
-              name
-              subName
-              href
-              icon {
-                name
-                svg {
-                  svg
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
-
   return (
     <Grid container spacing={2} justify="center" alignItems="center">
-      {allContentfulContact.edges.map(
+      {contacts.map(
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={4} key={node.id} component="section">
@@ -67,27 +37,26 @@ export const Contacts: React.FC = () => {
                 rel="external noreferrer noopener nofollow"
                 target="_blank"
               >
-                <Card>
-                  <Avatar className={classes.avatarLarge}>
-                    {node?.icon?.svg?.svg && (
-                      <Avatar
-                        role="img"
-                        aria-label={node.icon.name || ''}
-                        title={node.icon.name || ''}
-                      >
-                        <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
-                      </Avatar>
-                    )}
-                  </Avatar>
-                  <CardContent className={classes.cardContent}>
+                <MediaCard
+                  media={
+                    <SvgAvatar
+                      name={node?.icon?.name || ''}
+                      svg={node?.icon?.svg?.svg || ''}
+                      className={classes.avatarLarge}
+                    />
+                  }
+                  title={
                     <Typography component="h2" variant="h6" align="center">
                       {node.name}
                     </Typography>
+                  }
+                  subheader={
                     <Typography variant="body1" color="textSecondary" align="center">
                       {node.subName}
                     </Typography>
-                  </CardContent>
-                </Card>
+                  }
+                  disableTypography
+                />
               </CardActionArea>
             </Grid>
           ),
