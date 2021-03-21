@@ -1,13 +1,19 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core';
-import { ContentfulContact } from 'src/types';
+import { ContentfulContact, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
 import { MediaCard, SvgAvatar } from 'src/components';
 
-export type ContactsBoxFields = 'node_locale' | 'id' | 'name' | 'subName' | 'href' | 'icon';
-
 export type ContactsBoxProps = {
-  contacts: Array<{ node: Pick<ContentfulContact, ContactsBoxFields> }>;
+  contacts: Array<{
+    node: Pick<ContentfulContact, 'node_locale' | 'id' | 'name' | 'subName' | 'href'> & {
+      icon?: Maybe<
+        Pick<ContentfulIcon, 'name'> & {
+          svg?: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
+        }
+      >;
+    };
+  }>;
 };
 
 const useStyles = makeStyles(theme => ({
