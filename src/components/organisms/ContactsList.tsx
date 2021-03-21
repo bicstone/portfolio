@@ -4,12 +4,12 @@ import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core'
 import { ContentfulContact, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
 import { MediaCard, SvgAvatar } from 'src/components';
 
-export type ContactsBoxProps = {
+export type ContactsListProps = {
   contacts: Array<{
     node: Pick<ContentfulContact, 'node_locale' | 'id' | 'name' | 'subName' | 'href'> & {
-      icon?: Maybe<
+      icon: Maybe<
         Pick<ContentfulIcon, 'name'> & {
-          svg?: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
+          svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
         }
       >;
     };
@@ -25,10 +25,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * 連絡先Box
+ * 連絡先List
  * 連絡先のリンク集がある
  */
-export const ContactsBox: React.FC<ContactsBoxProps> = ({ contacts }) => {
+export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
   const classes = useStyles();
   const { language } = useI18next();
   return (
@@ -38,8 +38,8 @@ export const ContactsBox: React.FC<ContactsBoxProps> = ({ contacts }) => {
           node.node_locale === language && (
             <Grid item xs={12} sm={4} key={node.id} component="section">
               <CardActionArea
-                title={node.name || ''}
-                href={node.href || ''}
+                title={node?.name || ''}
+                href={node?.href || ''}
                 rel="external noreferrer noopener nofollow"
                 target="_blank"
               >

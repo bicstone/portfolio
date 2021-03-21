@@ -6,10 +6,8 @@ import { SvgIcon, AvatarCard } from 'src/components';
 import { useBreakPoint } from 'src/hooks';
 import { ContentfulHello } from 'src/types';
 
-export type HelloBoxFields = 'node_locale' | 'id' | 'name' | 'href';
-
-export type HelloBoxProps = {
-  links: Array<{ node: Pick<ContentfulHello, HelloBoxFields> }>;
+export type HelloGroupProps = {
+  links: Array<{ node: Pick<ContentfulHello, 'node_locale' | 'id' | 'name' | 'href'> }>;
   icon: string;
   iconAlt: string;
 };
@@ -24,10 +22,10 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * 自己紹介Box
+ * 自己紹介
  * 顔写真、自己紹介と連絡先のリンク集がある
  */
-export const HelloBox: React.FC<HelloBoxProps> = ({ links, icon, iconAlt }) => {
+export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const { language } = useI18next();

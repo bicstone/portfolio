@@ -14,7 +14,7 @@ import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { ExpandCardContent } from '../../components';
 import { QualificationMapDataQuery } from '../../types';
 
-export const Qualifications: React.FC = () => {
+export const Certifications: React.FC = () => {
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ['lg', 'xl', 'md'];
   const { allContentfulQualificationMap }: QualificationMapDataQuery = useStaticQuery(

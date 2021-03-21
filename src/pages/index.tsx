@@ -5,11 +5,11 @@ import { makeStyles, Container, Typography } from '@material-ui/core';
 import { IndexPageQuery } from '../types';
 import {
   Layout,
-  HelloBox,
+  HelloGroup,
   Projects,
   WhatICanDos,
   Skills,
-  ContactsBox,
+  ContactsList,
   Histories,
   OSSes,
   Qualifications,
@@ -30,7 +30,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
     <Layout icon={icon} iconAlt={iconAlt} isHome>
       <Container maxWidth="lg" className={classes.container} component="section">
-        <HelloBox links={data.links.edges} icon={icon} iconAlt={iconAlt} />
+        <HelloGroup links={data.links.edges} icon={icon} iconAlt={iconAlt} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <WhatICanDos />
@@ -70,7 +70,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.contacts-title')}
         </Typography>
-        <ContactsBox contacts={data.contacts.edges} />
+        <ContactsList contacts={data.contacts.edges} />
       </Container>
     </Layout>
   );

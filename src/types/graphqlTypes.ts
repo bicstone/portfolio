@@ -25,7 +25,6 @@ export type Scalars = {
 
 
 export type File = Node & {
-  __typename?: 'File';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -56,24 +55,24 @@ export type File = Node & {
   mtime: Scalars['Date'];
   ctime: Scalars['Date'];
   /** @deprecated Use `birthTime` instead */
-  birthtime?: Maybe<Scalars['Date']>;
+  birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs?: Maybe<Scalars['Float']>;
-  blksize?: Maybe<Scalars['Int']>;
-  blocks?: Maybe<Scalars['Int']>;
-  url?: Maybe<Scalars['String']>;
+  birthtimeMs: Maybe<Scalars['Float']>;
+  blksize: Maybe<Scalars['Int']>;
+  blocks: Maybe<Scalars['Int']>;
+  url: Maybe<Scalars['String']>;
   /** Copy file to static directory and return public url to it */
-  publicURL?: Maybe<Scalars['String']>;
+  publicURL: Maybe<Scalars['String']>;
   /** Returns all children nodes filtered by type ImageSharp */
-  childrenImageSharp?: Maybe<Array<Maybe<ImageSharp>>>;
+  childrenImageSharp: Maybe<Array<Maybe<ImageSharp>>>;
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
-  childImageSharp?: Maybe<ImageSharp>;
+  childImageSharp: Maybe<ImageSharp>;
   /** Returns all children nodes filtered by type Locale */
-  childrenLocale?: Maybe<Array<Maybe<Locale>>>;
+  childrenLocale: Maybe<Array<Maybe<Locale>>>;
   /** Returns the first child node of type Locale or null if there are no children of given type on this node */
-  childLocale?: Maybe<Locale>;
+  childLocale: Maybe<Locale>;
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -137,26 +136,24 @@ export type FileCtimeArgs = {
 /** Node Interface */
 export type Node = {
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
 export type Internal = {
-  __typename?: 'Internal';
-  content?: Maybe<Scalars['String']>;
+  content: Maybe<Scalars['String']>;
   contentDigest: Scalars['String'];
-  description?: Maybe<Scalars['String']>;
-  fieldOwners?: Maybe<Array<Maybe<Scalars['String']>>>;
-  ignoreType?: Maybe<Scalars['Boolean']>;
-  mediaType?: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  fieldOwners: Maybe<Array<Maybe<Scalars['String']>>>;
+  ignoreType: Maybe<Scalars['Boolean']>;
+  mediaType: Maybe<Scalars['String']>;
   owner: Scalars['String'];
   type: Scalars['String'];
 };
 
 
 export type Directory = Node & {
-  __typename?: 'Directory';
   sourceInstanceName: Scalars['String'];
   absolutePath: Scalars['String'];
   relativePath: Scalars['String'];
@@ -187,13 +184,13 @@ export type Directory = Node & {
   mtime: Scalars['Date'];
   ctime: Scalars['Date'];
   /** @deprecated Use `birthTime` instead */
-  birthtime?: Maybe<Scalars['Date']>;
+  birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs?: Maybe<Scalars['Float']>;
-  blksize?: Maybe<Scalars['Int']>;
-  blocks?: Maybe<Scalars['Int']>;
+  birthtimeMs: Maybe<Scalars['Float']>;
+  blksize: Maybe<Scalars['Int']>;
+  blocks: Maybe<Scalars['Int']>;
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -255,15 +252,14 @@ export type DirectoryCtimeArgs = {
 };
 
 export type Site = Node & {
-  __typename?: 'Site';
-  buildTime?: Maybe<Scalars['Date']>;
-  siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
-  polyfill?: Maybe<Scalars['Boolean']>;
-  pathPrefix?: Maybe<Scalars['String']>;
+  buildTime: Maybe<Scalars['Date']>;
+  siteMetadata: Maybe<SiteSiteMetadata>;
+  port: Maybe<Scalars['Int']>;
+  host: Maybe<Scalars['String']>;
+  polyfill: Maybe<Scalars['Boolean']>;
+  pathPrefix: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -277,45 +273,41 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteSiteMetadata = {
-  __typename?: 'SiteSiteMetadata';
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  siteUrl?: Maybe<Scalars['String']>;
+  title: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  siteUrl: Maybe<Scalars['String']>;
 };
 
 export type SitePage = Node & {
-  __typename?: 'SitePage';
   path: Scalars['String'];
   component: Scalars['String'];
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
-  matchPath?: Maybe<Scalars['String']>;
+  matchPath: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
-  context?: Maybe<SitePageContext>;
-  pluginCreator?: Maybe<SitePlugin>;
-  pluginCreatorId?: Maybe<Scalars['String']>;
-  componentPath?: Maybe<Scalars['String']>;
+  isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
+  context: Maybe<SitePageContext>;
+  pluginCreator: Maybe<SitePlugin>;
+  pluginCreatorId: Maybe<Scalars['String']>;
+  componentPath: Maybe<Scalars['String']>;
 };
 
 export type SitePageContext = {
-  __typename?: 'SitePageContext';
-  language?: Maybe<Scalars['String']>;
-  i18n?: Maybe<SitePageContextI18n>;
+  language: Maybe<Scalars['String']>;
+  i18n: Maybe<SitePageContextI18n>;
 };
 
 export type SitePageContextI18n = {
-  __typename?: 'SitePageContextI18n';
-  language?: Maybe<Scalars['String']>;
-  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
-  defaultLanguage?: Maybe<Scalars['String']>;
-  generateDefaultLanguagePage?: Maybe<Scalars['Boolean']>;
-  routed?: Maybe<Scalars['Boolean']>;
-  originalPath?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
+  language: Maybe<Scalars['String']>;
+  languages: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLanguage: Maybe<Scalars['String']>;
+  generateDefaultLanguagePage: Maybe<Scalars['Boolean']>;
+  routed: Maybe<Scalars['Boolean']>;
+  originalPath: Maybe<Scalars['String']>;
+  path: Maybe<Scalars['String']>;
 };
 
 export enum ImageFormat {
@@ -383,14 +375,13 @@ export type Potrace = {
 };
 
 export type ImageSharp = Node & {
-  __typename?: 'ImageSharp';
-  fixed?: Maybe<ImageSharpFixed>;
-  fluid?: Maybe<ImageSharpFluid>;
+  fixed: Maybe<ImageSharpFixed>;
+  fluid: Maybe<ImageSharpFluid>;
   gatsbyImageData: Scalars['JSON'];
-  original?: Maybe<ImageSharpOriginal>;
-  resize?: Maybe<ImageSharpResize>;
+  original: Maybe<ImageSharpOriginal>;
+  resize: Maybe<ImageSharpResize>;
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -489,31 +480,29 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpFixed = {
-  __typename?: 'ImageSharpFixed';
-  base64?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
+  base64: Maybe<Scalars['String']>;
+  tracedSVG: Maybe<Scalars['String']>;
+  aspectRatio: Maybe<Scalars['Float']>;
   width: Scalars['Float'];
   height: Scalars['Float'];
   src: Scalars['String'];
   srcSet: Scalars['String'];
-  srcWebp?: Maybe<Scalars['String']>;
-  srcSetWebp?: Maybe<Scalars['String']>;
-  originalName?: Maybe<Scalars['String']>;
+  srcWebp: Maybe<Scalars['String']>;
+  srcSetWebp: Maybe<Scalars['String']>;
+  originalName: Maybe<Scalars['String']>;
 };
 
 export type ImageSharpFluid = {
-  __typename?: 'ImageSharpFluid';
-  base64?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
+  base64: Maybe<Scalars['String']>;
+  tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Scalars['Float'];
   src: Scalars['String'];
   srcSet: Scalars['String'];
-  srcWebp?: Maybe<Scalars['String']>;
-  srcSetWebp?: Maybe<Scalars['String']>;
+  srcWebp: Maybe<Scalars['String']>;
+  srcSetWebp: Maybe<Scalars['String']>;
   sizes: Scalars['String'];
-  originalImg?: Maybe<Scalars['String']>;
-  originalName?: Maybe<Scalars['String']>;
+  originalImg: Maybe<Scalars['String']>;
+  originalName: Maybe<Scalars['String']>;
   presentationWidth: Scalars['Int'];
   presentationHeight: Scalars['Int'];
 };
@@ -563,36 +552,32 @@ export type TransformOptions = {
 };
 
 export type ImageSharpOriginal = {
-  __typename?: 'ImageSharpOriginal';
-  width?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  src?: Maybe<Scalars['String']>;
+  width: Maybe<Scalars['Float']>;
+  height: Maybe<Scalars['Float']>;
+  src: Maybe<Scalars['String']>;
 };
 
 export type ImageSharpResize = {
-  __typename?: 'ImageSharpResize';
-  src?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
-  originalName?: Maybe<Scalars['String']>;
+  src: Maybe<Scalars['String']>;
+  tracedSVG: Maybe<Scalars['String']>;
+  width: Maybe<Scalars['Int']>;
+  height: Maybe<Scalars['Int']>;
+  aspectRatio: Maybe<Scalars['Float']>;
+  originalName: Maybe<Scalars['String']>;
 };
 
 export type InlineSvg = {
-  __typename?: 'InlineSvg';
-  content?: Maybe<Scalars['String']>;
-  originalContent?: Maybe<Scalars['String']>;
-  dataURI?: Maybe<Scalars['String']>;
-  absolutePath?: Maybe<Scalars['String']>;
-  relativePath?: Maybe<Scalars['String']>;
+  content: Maybe<Scalars['String']>;
+  originalContent: Maybe<Scalars['String']>;
+  dataURI: Maybe<Scalars['String']>;
+  absolutePath: Maybe<Scalars['String']>;
+  relativePath: Maybe<Scalars['String']>;
 };
 
 export type MarkdownHeading = {
-  __typename?: 'MarkdownHeading';
-  id?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-  depth?: Maybe<Scalars['Int']>;
+  id: Maybe<Scalars['String']>;
+  value: Maybe<Scalars['String']>;
+  depth: Maybe<Scalars['Int']>;
 };
 
 export enum MarkdownHeadingLevels {
@@ -611,26 +596,24 @@ export enum MarkdownExcerptFormats {
 }
 
 export type MarkdownWordCount = {
-  __typename?: 'MarkdownWordCount';
-  paragraphs?: Maybe<Scalars['Int']>;
-  sentences?: Maybe<Scalars['Int']>;
-  words?: Maybe<Scalars['Int']>;
+  paragraphs: Maybe<Scalars['Int']>;
+  sentences: Maybe<Scalars['Int']>;
+  words: Maybe<Scalars['Int']>;
 };
 
 export type MarkdownRemark = Node & {
-  __typename?: 'MarkdownRemark';
   id: Scalars['ID'];
-  frontmatter?: Maybe<MarkdownRemarkFrontmatter>;
-  excerpt?: Maybe<Scalars['String']>;
-  rawMarkdownBody?: Maybe<Scalars['String']>;
-  html?: Maybe<Scalars['String']>;
-  htmlAst?: Maybe<Scalars['JSON']>;
-  excerptAst?: Maybe<Scalars['JSON']>;
-  headings?: Maybe<Array<Maybe<MarkdownHeading>>>;
-  timeToRead?: Maybe<Scalars['Int']>;
-  tableOfContents?: Maybe<Scalars['String']>;
-  wordCount?: Maybe<MarkdownWordCount>;
-  parent?: Maybe<Node>;
+  frontmatter: Maybe<MarkdownRemarkFrontmatter>;
+  excerpt: Maybe<Scalars['String']>;
+  rawMarkdownBody: Maybe<Scalars['String']>;
+  html: Maybe<Scalars['String']>;
+  htmlAst: Maybe<Scalars['JSON']>;
+  excerptAst: Maybe<Scalars['JSON']>;
+  headings: Maybe<Array<Maybe<MarkdownHeading>>>;
+  timeToRead: Maybe<Scalars['Int']>;
+  tableOfContents: Maybe<Scalars['String']>;
+  wordCount: Maybe<MarkdownWordCount>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -662,15 +645,14 @@ export type MarkdownRemarkTableOfContentsArgs = {
 };
 
 export type MarkdownRemarkFrontmatter = {
-  __typename?: 'MarkdownRemarkFrontmatter';
-  title?: Maybe<Scalars['String']>;
+  title: Maybe<Scalars['String']>;
 };
 
 export type ContentfulEntry = {
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -681,26 +663,25 @@ export type ContentfulReference = {
 };
 
 export type ContentfulAsset = ContentfulReference & Node & {
-  __typename?: 'ContentfulAsset';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  file?: Maybe<ContentfulAssetFile>;
-  title?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  node_locale?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulAssetSys>;
-  localFile?: Maybe<File>;
-  fixed?: Maybe<ContentfulFixed>;
-  fluid?: Maybe<ContentfulFluid>;
-  gatsbyImageData?: Maybe<Scalars['JSON']>;
-  resize?: Maybe<ContentfulResize>;
-  parent?: Maybe<Node>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  file: Maybe<ContentfulAssetFile>;
+  title: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  node_locale: Maybe<Scalars['String']>;
+  sys: Maybe<ContentfulAssetSys>;
+  localFile: Maybe<File>;
+  fixed: Maybe<ContentfulFixed>;
+  fluid: Maybe<ContentfulFluid>;
+  gatsbyImageData: Maybe<Scalars['JSON']>;
+  resize: Maybe<ContentfulResize>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  svg?: Maybe<InlineSvg>;
+  svg: Maybe<InlineSvg>;
 };
 
 
@@ -773,42 +754,37 @@ export type ContentfulAssetResizeArgs = {
 };
 
 export type ContentfulAssetFile = {
-  __typename?: 'ContentfulAssetFile';
-  url?: Maybe<Scalars['String']>;
-  details?: Maybe<ContentfulAssetFileDetails>;
-  fileName?: Maybe<Scalars['String']>;
-  contentType?: Maybe<Scalars['String']>;
+  url: Maybe<Scalars['String']>;
+  details: Maybe<ContentfulAssetFileDetails>;
+  fileName: Maybe<Scalars['String']>;
+  contentType: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssetFileDetails = {
-  __typename?: 'ContentfulAssetFileDetails';
-  size?: Maybe<Scalars['Int']>;
-  image?: Maybe<ContentfulAssetFileDetailsImage>;
+  size: Maybe<Scalars['Int']>;
+  image: Maybe<ContentfulAssetFileDetailsImage>;
 };
 
 export type ContentfulAssetFileDetailsImage = {
-  __typename?: 'ContentfulAssetFileDetailsImage';
-  width?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
+  width: Maybe<Scalars['Int']>;
+  height: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetSys = {
-  __typename?: 'ContentfulAssetSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulFixed = {
-  __typename?: 'ContentfulFixed';
-  base64?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
+  base64: Maybe<Scalars['String']>;
+  tracedSVG: Maybe<Scalars['String']>;
+  aspectRatio: Maybe<Scalars['Float']>;
   width: Scalars['Float'];
   height: Scalars['Float'];
   src: Scalars['String'];
   srcSet: Scalars['String'];
-  srcWebp?: Maybe<Scalars['String']>;
-  srcSetWebp?: Maybe<Scalars['String']>;
+  srcWebp: Maybe<Scalars['String']>;
+  srcSetWebp: Maybe<Scalars['String']>;
 };
 
 export enum ContentfulImageFormat {
@@ -848,14 +824,13 @@ export enum ContentfulImageCropFocus {
 }
 
 export type ContentfulFluid = {
-  __typename?: 'ContentfulFluid';
-  base64?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
+  base64: Maybe<Scalars['String']>;
+  tracedSVG: Maybe<Scalars['String']>;
   aspectRatio: Scalars['Float'];
   src: Scalars['String'];
   srcSet: Scalars['String'];
-  srcWebp?: Maybe<Scalars['String']>;
-  srcSetWebp?: Maybe<Scalars['String']>;
+  srcWebp: Maybe<Scalars['String']>;
+  srcSetWebp: Maybe<Scalars['String']>;
   sizes: Scalars['String'];
 };
 
@@ -873,29 +848,27 @@ export enum GatsbyImagePlaceholder {
 }
 
 export type ContentfulResize = {
-  __typename?: 'ContentfulResize';
-  base64?: Maybe<Scalars['String']>;
-  tracedSVG?: Maybe<Scalars['String']>;
-  src?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['Int']>;
-  height?: Maybe<Scalars['Int']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
+  base64: Maybe<Scalars['String']>;
+  tracedSVG: Maybe<Scalars['String']>;
+  src: Maybe<Scalars['String']>;
+  width: Maybe<Scalars['Int']>;
+  height: Maybe<Scalars['Int']>;
+  aspectRatio: Maybe<Scalars['Float']>;
 };
 
 export type ContentfulSkillMap = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulSkillMap';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  sortKey?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  expanded?: Maybe<Scalars['Boolean']>;
-  skills?: Maybe<Array<Maybe<ContentfulTag>>>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulSkillMapSys>;
-  parent?: Maybe<Node>;
+  sortKey: Maybe<Scalars['Int']>;
+  name: Maybe<Scalars['String']>;
+  expanded: Maybe<Scalars['Boolean']>;
+  skills: Maybe<Array<Maybe<ContentfulTag>>>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulSkillMapSys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -917,45 +890,41 @@ export type ContentfulSkillMapUpdatedAtArgs = {
 };
 
 export type ContentfulSkillMapSys = {
-  __typename?: 'ContentfulSkillMapSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulSkillMapSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulSkillMapSysContentType>;
 };
 
 export type ContentfulSkillMapSysContentType = {
-  __typename?: 'ContentfulSkillMapSysContentType';
-  sys?: Maybe<ContentfulSkillMapSysContentTypeSys>;
+  sys: Maybe<ContentfulSkillMapSysContentTypeSys>;
 };
 
 export type ContentfulSkillMapSysContentTypeSys = {
-  __typename?: 'ContentfulSkillMapSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIcon = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulIcon';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  contact?: Maybe<Array<Maybe<ContentfulContact>>>;
-  svg?: Maybe<ContentfulIconSvgTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulIconSys>;
-  what_i_can_do?: Maybe<Array<Maybe<ContentfulWhatICanDo>>>;
-  project?: Maybe<Array<Maybe<ContentfulProject>>>;
-  oss?: Maybe<Array<Maybe<ContentfulOss>>>;
-  history?: Maybe<Array<Maybe<ContentfulHistory>>>;
+  name: Maybe<Scalars['String']>;
+  contact: Maybe<Array<Maybe<ContentfulContact>>>;
+  svg: Maybe<ContentfulIconSvgTextNode>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulIconSys>;
+  what_i_can_do: Maybe<Array<Maybe<ContentfulWhatICanDo>>>;
+  project: Maybe<Array<Maybe<ContentfulProject>>>;
+  oss: Maybe<Array<Maybe<ContentfulOss>>>;
+  history: Maybe<Array<Maybe<ContentfulHistory>>>;
   /** Returns all children nodes filtered by type contentfulIconSvgTextNode */
-  childrenContentfulIconSvgTextNode?: Maybe<Array<Maybe<ContentfulIconSvgTextNode>>>;
+  childrenContentfulIconSvgTextNode: Maybe<Array<Maybe<ContentfulIconSvgTextNode>>>;
   /** Returns the first child node of type contentfulIconSvgTextNode or null if there are no children of given type on this node */
-  childContentfulIconSvgTextNode?: Maybe<ContentfulIconSvgTextNode>;
-  parent?: Maybe<Node>;
+  childContentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -977,38 +946,34 @@ export type ContentfulIconUpdatedAtArgs = {
 };
 
 export type ContentfulIconSys = {
-  __typename?: 'ContentfulIconSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulIconSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulIconSysContentType>;
 };
 
 export type ContentfulIconSysContentType = {
-  __typename?: 'ContentfulIconSysContentType';
-  sys?: Maybe<ContentfulIconSysContentTypeSys>;
+  sys: Maybe<ContentfulIconSysContentTypeSys>;
 };
 
 export type ContentfulIconSysContentTypeSys = {
-  __typename?: 'ContentfulIconSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulWhatICanDo = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulWhatICanDo';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  sortKey?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  subName?: Maybe<Scalars['String']>;
-  icon?: Maybe<ContentfulIcon>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulWhatICanDoSys>;
-  parent?: Maybe<Node>;
+  sortKey: Maybe<Scalars['Int']>;
+  name: Maybe<Scalars['String']>;
+  subName: Maybe<Scalars['String']>;
+  icon: Maybe<ContentfulIcon>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulWhatICanDoSys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1030,37 +995,33 @@ export type ContentfulWhatICanDoUpdatedAtArgs = {
 };
 
 export type ContentfulWhatICanDoSys = {
-  __typename?: 'ContentfulWhatICanDoSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulWhatICanDoSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulWhatICanDoSysContentType>;
 };
 
 export type ContentfulWhatICanDoSysContentType = {
-  __typename?: 'ContentfulWhatICanDoSysContentType';
-  sys?: Maybe<ContentfulWhatICanDoSysContentTypeSys>;
+  sys: Maybe<ContentfulWhatICanDoSysContentTypeSys>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeSys = {
-  __typename?: 'ContentfulWhatICanDoSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualification = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulQualification';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  qualification_map?: Maybe<Array<Maybe<ContentfulQualificationMap>>>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulQualificationSys>;
-  parent?: Maybe<Node>;
+  name: Maybe<Scalars['String']>;
+  date: Maybe<Scalars['Date']>;
+  qualification_map: Maybe<Array<Maybe<ContentfulQualificationMap>>>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulQualificationSys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1090,45 +1051,41 @@ export type ContentfulQualificationUpdatedAtArgs = {
 };
 
 export type ContentfulQualificationSys = {
-  __typename?: 'ContentfulQualificationSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulQualificationSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulQualificationSysContentType>;
 };
 
 export type ContentfulQualificationSysContentType = {
-  __typename?: 'ContentfulQualificationSysContentType';
-  sys?: Maybe<ContentfulQualificationSysContentTypeSys>;
+  sys: Maybe<ContentfulQualificationSysContentTypeSys>;
 };
 
 export type ContentfulQualificationSysContentTypeSys = {
-  __typename?: 'ContentfulQualificationSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProject = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulProject';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  subName?: Maybe<Scalars['String']>;
-  startDate?: Maybe<Scalars['Date']>;
-  endDate?: Maybe<Scalars['Date']>;
-  tags?: Maybe<Array<Maybe<ContentfulTag>>>;
-  icon?: Maybe<ContentfulIcon>;
-  detail?: Maybe<ContentfulProjectDetailTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulProjectSys>;
+  name: Maybe<Scalars['String']>;
+  subName: Maybe<Scalars['String']>;
+  startDate: Maybe<Scalars['Date']>;
+  endDate: Maybe<Scalars['Date']>;
+  tags: Maybe<Array<Maybe<ContentfulTag>>>;
+  icon: Maybe<ContentfulIcon>;
+  detail: Maybe<ContentfulProjectDetailTextNode>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulProjectSys>;
   /** Returns all children nodes filtered by type contentfulProjectDetailTextNode */
-  childrenContentfulProjectDetailTextNode?: Maybe<Array<Maybe<ContentfulProjectDetailTextNode>>>;
+  childrenContentfulProjectDetailTextNode: Maybe<Array<Maybe<ContentfulProjectDetailTextNode>>>;
   /** Returns the first child node of type contentfulProjectDetailTextNode or null if there are no children of given type on this node */
-  childContentfulProjectDetailTextNode?: Maybe<ContentfulProjectDetailTextNode>;
-  parent?: Maybe<Node>;
+  childContentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1166,46 +1123,42 @@ export type ContentfulProjectUpdatedAtArgs = {
 };
 
 export type ContentfulProjectSys = {
-  __typename?: 'ContentfulProjectSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulProjectSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulProjectSysContentType>;
 };
 
 export type ContentfulProjectSysContentType = {
-  __typename?: 'ContentfulProjectSysContentType';
-  sys?: Maybe<ContentfulProjectSysContentTypeSys>;
+  sys: Maybe<ContentfulProjectSysContentTypeSys>;
 };
 
 export type ContentfulProjectSysContentTypeSys = {
-  __typename?: 'ContentfulProjectSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOss = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulOss';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  subName?: Maybe<Scalars['String']>;
-  startDate?: Maybe<Scalars['Date']>;
-  href?: Maybe<Scalars['String']>;
-  tags?: Maybe<Array<Maybe<ContentfulTag>>>;
-  icon?: Maybe<ContentfulIcon>;
-  image?: Maybe<ContentfulAsset>;
-  detail?: Maybe<ContentfulOssDetailTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulOssSys>;
+  name: Maybe<Scalars['String']>;
+  subName: Maybe<Scalars['String']>;
+  startDate: Maybe<Scalars['Date']>;
+  href: Maybe<Scalars['String']>;
+  tags: Maybe<Array<Maybe<ContentfulTag>>>;
+  icon: Maybe<ContentfulIcon>;
+  image: Maybe<ContentfulAsset>;
+  detail: Maybe<ContentfulOssDetailTextNode>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulOssSys>;
   /** Returns all children nodes filtered by type contentfulOssDetailTextNode */
-  childrenContentfulOssDetailTextNode?: Maybe<Array<Maybe<ContentfulOssDetailTextNode>>>;
+  childrenContentfulOssDetailTextNode: Maybe<Array<Maybe<ContentfulOssDetailTextNode>>>;
   /** Returns the first child node of type contentfulOssDetailTextNode or null if there are no children of given type on this node */
-  childContentfulOssDetailTextNode?: Maybe<ContentfulOssDetailTextNode>;
-  parent?: Maybe<Node>;
+  childContentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1235,38 +1188,34 @@ export type ContentfulOssUpdatedAtArgs = {
 };
 
 export type ContentfulOssSys = {
-  __typename?: 'ContentfulOssSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulOssSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulOssSysContentType>;
 };
 
 export type ContentfulOssSysContentType = {
-  __typename?: 'ContentfulOssSysContentType';
-  sys?: Maybe<ContentfulOssSysContentTypeSys>;
+  sys: Maybe<ContentfulOssSysContentTypeSys>;
 };
 
 export type ContentfulOssSysContentTypeSys = {
-  __typename?: 'ContentfulOssSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHistory = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulHistory';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  date?: Maybe<Scalars['Date']>;
-  subName?: Maybe<Scalars['String']>;
-  icon?: Maybe<ContentfulIcon>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulHistorySys>;
-  parent?: Maybe<Node>;
+  name: Maybe<Scalars['String']>;
+  date: Maybe<Scalars['Date']>;
+  subName: Maybe<Scalars['String']>;
+  icon: Maybe<ContentfulIcon>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulHistorySys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1296,39 +1245,35 @@ export type ContentfulHistoryUpdatedAtArgs = {
 };
 
 export type ContentfulHistorySys = {
-  __typename?: 'ContentfulHistorySys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulHistorySysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulHistorySysContentType>;
 };
 
 export type ContentfulHistorySysContentType = {
-  __typename?: 'ContentfulHistorySysContentType';
-  sys?: Maybe<ContentfulHistorySysContentTypeSys>;
+  sys: Maybe<ContentfulHistorySysContentTypeSys>;
 };
 
 export type ContentfulHistorySysContentTypeSys = {
-  __typename?: 'ContentfulHistorySysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContact = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulContact';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  sortKey?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  subName?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-  icon?: Maybe<ContentfulIcon>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulContactSys>;
-  parent?: Maybe<Node>;
+  sortKey: Maybe<Scalars['Int']>;
+  name: Maybe<Scalars['String']>;
+  subName: Maybe<Scalars['String']>;
+  href: Maybe<Scalars['String']>;
+  icon: Maybe<ContentfulIcon>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulContactSys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1350,38 +1295,34 @@ export type ContentfulContactUpdatedAtArgs = {
 };
 
 export type ContentfulContactSys = {
-  __typename?: 'ContentfulContactSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulContactSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulContactSysContentType>;
 };
 
 export type ContentfulContactSysContentType = {
-  __typename?: 'ContentfulContactSysContentType';
-  sys?: Maybe<ContentfulContactSysContentTypeSys>;
+  sys: Maybe<ContentfulContactSysContentTypeSys>;
 };
 
 export type ContentfulContactSysContentTypeSys = {
-  __typename?: 'ContentfulContactSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationMap = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulQualificationMap';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  sortKey?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  expanded?: Maybe<Scalars['Boolean']>;
-  qualifications?: Maybe<Array<Maybe<ContentfulQualification>>>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulQualificationMapSys>;
-  parent?: Maybe<Node>;
+  sortKey: Maybe<Scalars['Int']>;
+  name: Maybe<Scalars['String']>;
+  expanded: Maybe<Scalars['Boolean']>;
+  qualifications: Maybe<Array<Maybe<ContentfulQualification>>>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulQualificationMapSys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1403,39 +1344,35 @@ export type ContentfulQualificationMapUpdatedAtArgs = {
 };
 
 export type ContentfulQualificationMapSys = {
-  __typename?: 'ContentfulQualificationMapSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulQualificationMapSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulQualificationMapSysContentType>;
 };
 
 export type ContentfulQualificationMapSysContentType = {
-  __typename?: 'ContentfulQualificationMapSysContentType';
-  sys?: Maybe<ContentfulQualificationMapSysContentTypeSys>;
+  sys: Maybe<ContentfulQualificationMapSysContentTypeSys>;
 };
 
 export type ContentfulQualificationMapSysContentTypeSys = {
-  __typename?: 'ContentfulQualificationMapSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulTag = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulTag';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  name?: Maybe<Scalars['String']>;
-  level?: Maybe<Scalars['Int']>;
-  skill_map?: Maybe<Array<Maybe<ContentfulSkillMap>>>;
-  project?: Maybe<Array<Maybe<ContentfulProject>>>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulTagSys>;
-  oss?: Maybe<Array<Maybe<ContentfulOss>>>;
-  parent?: Maybe<Node>;
+  name: Maybe<Scalars['String']>;
+  level: Maybe<Scalars['Int']>;
+  skill_map: Maybe<Array<Maybe<ContentfulSkillMap>>>;
+  project: Maybe<Array<Maybe<ContentfulProject>>>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulTagSys>;
+  oss: Maybe<Array<Maybe<ContentfulOss>>>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1457,37 +1394,33 @@ export type ContentfulTagUpdatedAtArgs = {
 };
 
 export type ContentfulTagSys = {
-  __typename?: 'ContentfulTagSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulTagSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulTagSysContentType>;
 };
 
 export type ContentfulTagSysContentType = {
-  __typename?: 'ContentfulTagSysContentType';
-  sys?: Maybe<ContentfulTagSysContentTypeSys>;
+  sys: Maybe<ContentfulTagSysContentTypeSys>;
 };
 
 export type ContentfulTagSysContentTypeSys = {
-  __typename?: 'ContentfulTagSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHello = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulHello';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  sortKey?: Maybe<Scalars['Int']>;
-  name?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
-  spaceId?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulHelloSys>;
-  parent?: Maybe<Node>;
+  sortKey: Maybe<Scalars['Int']>;
+  name: Maybe<Scalars['String']>;
+  href: Maybe<Scalars['String']>;
+  spaceId: Maybe<Scalars['String']>;
+  createdAt: Maybe<Scalars['Date']>;
+  updatedAt: Maybe<Scalars['Date']>;
+  sys: Maybe<ContentfulHelloSys>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
@@ -1509,127 +1442,113 @@ export type ContentfulHelloUpdatedAtArgs = {
 };
 
 export type ContentfulHelloSys = {
-  __typename?: 'ContentfulHelloSys';
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulHelloSysContentType>;
+  type: Maybe<Scalars['String']>;
+  revision: Maybe<Scalars['Int']>;
+  contentType: Maybe<ContentfulHelloSysContentType>;
 };
 
 export type ContentfulHelloSysContentType = {
-  __typename?: 'ContentfulHelloSysContentType';
-  sys?: Maybe<ContentfulHelloSysContentTypeSys>;
+  sys: Maybe<ContentfulHelloSysContentTypeSys>;
 };
 
 export type ContentfulHelloSysContentTypeSys = {
-  __typename?: 'ContentfulHelloSysContentTypeSys';
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
+  linkType: Maybe<Scalars['String']>;
+  id: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogAuthor = ContentfulReference & ContentfulEntry & Node & {
-  __typename?: 'ContentfulBlogAuthor';
   contentful_id: Scalars['String'];
   id: Scalars['ID'];
   node_locale: Scalars['String'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
 };
 
 export type Locale = Node & {
-  __typename?: 'Locale';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  language?: Maybe<Scalars['String']>;
-  ns?: Maybe<Scalars['String']>;
-  data?: Maybe<Scalars['String']>;
-  fileAbsolutePath?: Maybe<Scalars['String']>;
+  language: Maybe<Scalars['String']>;
+  ns: Maybe<Scalars['String']>;
+  data: Maybe<Scalars['String']>;
+  fileAbsolutePath: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssDetailTextNode = Node & {
-  __typename?: 'contentfulOssDetailTextNode';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  detail?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulOssDetailTextNodeSys>;
+  detail: Maybe<Scalars['String']>;
+  sys: Maybe<ContentfulOssDetailTextNodeSys>;
   /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
+  childrenMarkdownRemark: Maybe<Array<Maybe<MarkdownRemark>>>;
   /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
+  childMarkdownRemark: Maybe<MarkdownRemark>;
 };
 
 export type ContentfulOssDetailTextNodeSys = {
-  __typename?: 'contentfulOssDetailTextNodeSys';
-  type?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectDetailTextNode = Node & {
-  __typename?: 'contentfulProjectDetailTextNode';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  detail?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulProjectDetailTextNodeSys>;
+  detail: Maybe<Scalars['String']>;
+  sys: Maybe<ContentfulProjectDetailTextNodeSys>;
   /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
+  childrenMarkdownRemark: Maybe<Array<Maybe<MarkdownRemark>>>;
   /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
+  childMarkdownRemark: Maybe<MarkdownRemark>;
 };
 
 export type ContentfulProjectDetailTextNodeSys = {
-  __typename?: 'contentfulProjectDetailTextNodeSys';
-  type?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSvgTextNode = Node & {
-  __typename?: 'contentfulIconSvgTextNode';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  svg?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulIconSvgTextNodeSys>;
+  svg: Maybe<Scalars['String']>;
+  sys: Maybe<ContentfulIconSvgTextNodeSys>;
   /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
+  childrenMarkdownRemark: Maybe<Array<Maybe<MarkdownRemark>>>;
   /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
+  childMarkdownRemark: Maybe<MarkdownRemark>;
 };
 
 export type ContentfulIconSvgTextNodeSys = {
-  __typename?: 'contentfulIconSvgTextNodeSys';
-  type?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContentType = Node & {
-  __typename?: 'ContentfulContentType';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  name?: Maybe<Scalars['String']>;
-  displayField?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulContentTypeSys>;
+  name: Maybe<Scalars['String']>;
+  displayField: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  sys: Maybe<ContentfulContentTypeSys>;
 };
 
 export type ContentfulContentTypeSys = {
-  __typename?: 'ContentfulContentTypeSys';
-  type?: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
 };
 
 export type SiteBuildMetadata = Node & {
-  __typename?: 'SiteBuildMetadata';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  buildTime?: Maybe<Scalars['Date']>;
+  buildTime: Maybe<Scalars['Date']>;
 };
 
 
@@ -1641,184 +1560,173 @@ export type SiteBuildMetadataBuildTimeArgs = {
 };
 
 export type SitePlugin = Node & {
-  __typename?: 'SitePlugin';
   id: Scalars['ID'];
-  parent?: Maybe<Node>;
+  parent: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  resolve?: Maybe<Scalars['String']>;
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
-  pluginOptions?: Maybe<SitePluginPluginOptions>;
-  nodeAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  browserAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  ssrAPIs?: Maybe<Array<Maybe<Scalars['String']>>>;
-  pluginFilepath?: Maybe<Scalars['String']>;
-  packageJson?: Maybe<SitePluginPackageJson>;
+  resolve: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  version: Maybe<Scalars['String']>;
+  pluginOptions: Maybe<SitePluginPluginOptions>;
+  nodeAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
+  browserAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
+  ssrAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
+  pluginFilepath: Maybe<Scalars['String']>;
+  packageJson: Maybe<SitePluginPackageJson>;
 };
 
 export type SitePluginPluginOptions = {
-  __typename?: 'SitePluginPluginOptions';
-  spaceId?: Maybe<Scalars['String']>;
-  accessToken?: Maybe<Scalars['String']>;
-  downloadLocal?: Maybe<Scalars['Boolean']>;
-  allExtensions?: Maybe<Scalars['Boolean']>;
-  isTSX?: Maybe<Scalars['Boolean']>;
-  jsxPragma?: Maybe<Scalars['String']>;
-  stylesProvider?: Maybe<SitePluginPluginOptionsStylesProvider>;
-  modules?: Maybe<Array<Maybe<Scalars['String']>>>;
-  name?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
-  siteUrl?: Maybe<Scalars['String']>;
-  localeJsonSourceName?: Maybe<Scalars['String']>;
-  languages?: Maybe<Array<Maybe<Scalars['String']>>>;
-  defaultLanguage?: Maybe<Scalars['String']>;
-  trackingId?: Maybe<Scalars['String']>;
-  lang?: Maybe<Scalars['String']>;
-  short_name?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  start_url?: Maybe<Scalars['String']>;
-  display?: Maybe<Scalars['String']>;
-  icons?: Maybe<Array<Maybe<SitePluginPluginOptionsIcons>>>;
-  theme_color?: Maybe<Scalars['String']>;
-  background_color?: Maybe<Scalars['String']>;
-  cache_busting_mode?: Maybe<Scalars['String']>;
-  include_favicon?: Maybe<Scalars['Boolean']>;
-  legacy?: Maybe<Scalars['Boolean']>;
-  theme_color_in_head?: Maybe<Scalars['Boolean']>;
-  exclude?: Maybe<Array<Maybe<Scalars['String']>>>;
-  createLinkInHead?: Maybe<Scalars['Boolean']>;
-  addUncaughtPages?: Maybe<Scalars['Boolean']>;
-  workboxConfig?: Maybe<SitePluginPluginOptionsWorkboxConfig>;
-  mergeScriptHashes?: Maybe<Scalars['Boolean']>;
-  mergeStyleHashes?: Maybe<Scalars['Boolean']>;
-  mergeDefaultDirectives?: Maybe<Scalars['Boolean']>;
-  directives?: Maybe<SitePluginPluginOptionsDirectives>;
-  src?: Maybe<Scalars['String']>;
-  configDir?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
+  spaceId: Maybe<Scalars['String']>;
+  accessToken: Maybe<Scalars['String']>;
+  downloadLocal: Maybe<Scalars['Boolean']>;
+  allExtensions: Maybe<Scalars['Boolean']>;
+  isTSX: Maybe<Scalars['Boolean']>;
+  jsxPragma: Maybe<Scalars['String']>;
+  stylesProvider: Maybe<SitePluginPluginOptionsStylesProvider>;
+  modules: Maybe<Array<Maybe<Scalars['String']>>>;
+  name: Maybe<Scalars['String']>;
+  path: Maybe<Scalars['String']>;
+  siteUrl: Maybe<Scalars['String']>;
+  localeJsonSourceName: Maybe<Scalars['String']>;
+  languages: Maybe<Array<Maybe<Scalars['String']>>>;
+  defaultLanguage: Maybe<Scalars['String']>;
+  trackingId: Maybe<Scalars['String']>;
+  lang: Maybe<Scalars['String']>;
+  short_name: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  start_url: Maybe<Scalars['String']>;
+  display: Maybe<Scalars['String']>;
+  icons: Maybe<Array<Maybe<SitePluginPluginOptionsIcons>>>;
+  theme_color: Maybe<Scalars['String']>;
+  background_color: Maybe<Scalars['String']>;
+  cache_busting_mode: Maybe<Scalars['String']>;
+  include_favicon: Maybe<Scalars['Boolean']>;
+  legacy: Maybe<Scalars['Boolean']>;
+  theme_color_in_head: Maybe<Scalars['Boolean']>;
+  exclude: Maybe<Array<Maybe<Scalars['String']>>>;
+  createLinkInHead: Maybe<Scalars['Boolean']>;
+  addUncaughtPages: Maybe<Scalars['Boolean']>;
+  workboxConfig: Maybe<SitePluginPluginOptionsWorkboxConfig>;
+  mergeScriptHashes: Maybe<Scalars['Boolean']>;
+  mergeStyleHashes: Maybe<Scalars['Boolean']>;
+  mergeDefaultDirectives: Maybe<Scalars['Boolean']>;
+  directives: Maybe<SitePluginPluginOptionsDirectives>;
+  src: Maybe<Scalars['String']>;
+  configDir: Maybe<Scalars['String']>;
+  pathCheck: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsStylesProvider = {
-  __typename?: 'SitePluginPluginOptionsStylesProvider';
-  injectFirst?: Maybe<Scalars['Boolean']>;
+  injectFirst: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsIcons = {
-  __typename?: 'SitePluginPluginOptionsIcons';
-  src?: Maybe<Scalars['String']>;
-  sizes?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
+  src: Maybe<Scalars['String']>;
+  sizes: Maybe<Scalars['String']>;
+  type: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPluginOptionsWorkboxConfig = {
-  __typename?: 'SitePluginPluginOptionsWorkboxConfig';
-  globPatterns?: Maybe<Array<Maybe<Scalars['String']>>>;
+  globPatterns: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsDirectives = {
-  __typename?: 'SitePluginPluginOptionsDirectives';
-  connect_src?: Maybe<Scalars['String']>;
-  default_src?: Maybe<Scalars['String']>;
-  font_src?: Maybe<Scalars['String']>;
-  frame_src?: Maybe<Scalars['String']>;
-  img_src?: Maybe<Scalars['String']>;
-  manifest_src?: Maybe<Scalars['String']>;
-  media_src?: Maybe<Scalars['String']>;
-  object_src?: Maybe<Scalars['String']>;
-  script_src?: Maybe<Scalars['String']>;
-  style_src?: Maybe<Scalars['String']>;
-  base_uri?: Maybe<Scalars['String']>;
-  form_action?: Maybe<Scalars['String']>;
+  connect_src: Maybe<Scalars['String']>;
+  default_src: Maybe<Scalars['String']>;
+  font_src: Maybe<Scalars['String']>;
+  frame_src: Maybe<Scalars['String']>;
+  img_src: Maybe<Scalars['String']>;
+  manifest_src: Maybe<Scalars['String']>;
+  media_src: Maybe<Scalars['String']>;
+  object_src: Maybe<Scalars['String']>;
+  script_src: Maybe<Scalars['String']>;
+  style_src: Maybe<Scalars['String']>;
+  base_uri: Maybe<Scalars['String']>;
+  form_action: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJson = {
-  __typename?: 'SitePluginPackageJson';
-  name?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
-  main?: Maybe<Scalars['String']>;
-  author?: Maybe<Scalars['String']>;
-  license?: Maybe<Scalars['String']>;
-  dependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>;
-  devDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>;
-  peerDependencies?: Maybe<Array<Maybe<SitePluginPackageJsonPeerDependencies>>>;
-  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+  name: Maybe<Scalars['String']>;
+  description: Maybe<Scalars['String']>;
+  version: Maybe<Scalars['String']>;
+  main: Maybe<Scalars['String']>;
+  author: Maybe<Scalars['String']>;
+  license: Maybe<Scalars['String']>;
+  dependencies: Maybe<Array<Maybe<SitePluginPackageJsonDependencies>>>;
+  devDependencies: Maybe<Array<Maybe<SitePluginPackageJsonDevDependencies>>>;
+  peerDependencies: Maybe<Array<Maybe<SitePluginPackageJsonPeerDependencies>>>;
+  keywords: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPackageJsonDependencies = {
-  __typename?: 'SitePluginPackageJsonDependencies';
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  version: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJsonDevDependencies = {
-  __typename?: 'SitePluginPackageJsonDevDependencies';
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  version: Maybe<Scalars['String']>;
 };
 
 export type SitePluginPackageJsonPeerDependencies = {
-  __typename?: 'SitePluginPackageJsonPeerDependencies';
-  name?: Maybe<Scalars['String']>;
-  version?: Maybe<Scalars['String']>;
+  name: Maybe<Scalars['String']>;
+  version: Maybe<Scalars['String']>;
 };
 
 export type Query = {
-  __typename?: 'Query';
-  file?: Maybe<File>;
+  file: Maybe<File>;
   allFile: FileConnection;
-  directory?: Maybe<Directory>;
+  directory: Maybe<Directory>;
   allDirectory: DirectoryConnection;
-  site?: Maybe<Site>;
+  site: Maybe<Site>;
   allSite: SiteConnection;
-  sitePage?: Maybe<SitePage>;
+  sitePage: Maybe<SitePage>;
   allSitePage: SitePageConnection;
-  imageSharp?: Maybe<ImageSharp>;
+  imageSharp: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  markdownRemark?: Maybe<MarkdownRemark>;
+  markdownRemark: Maybe<MarkdownRemark>;
   allMarkdownRemark: MarkdownRemarkConnection;
-  contentfulEntry?: Maybe<ContentfulEntry>;
+  contentfulEntry: Maybe<ContentfulEntry>;
   allContentfulEntry: ContentfulEntryConnection;
-  contentfulAsset?: Maybe<ContentfulAsset>;
+  contentfulAsset: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
-  contentfulSkillMap?: Maybe<ContentfulSkillMap>;
+  contentfulSkillMap: Maybe<ContentfulSkillMap>;
   allContentfulSkillMap: ContentfulSkillMapConnection;
-  contentfulIcon?: Maybe<ContentfulIcon>;
+  contentfulIcon: Maybe<ContentfulIcon>;
   allContentfulIcon: ContentfulIconConnection;
-  contentfulWhatICanDo?: Maybe<ContentfulWhatICanDo>;
+  contentfulWhatICanDo: Maybe<ContentfulWhatICanDo>;
   allContentfulWhatICanDo: ContentfulWhatICanDoConnection;
-  contentfulQualification?: Maybe<ContentfulQualification>;
+  contentfulQualification: Maybe<ContentfulQualification>;
   allContentfulQualification: ContentfulQualificationConnection;
-  contentfulProject?: Maybe<ContentfulProject>;
+  contentfulProject: Maybe<ContentfulProject>;
   allContentfulProject: ContentfulProjectConnection;
-  contentfulOss?: Maybe<ContentfulOss>;
+  contentfulOss: Maybe<ContentfulOss>;
   allContentfulOss: ContentfulOssConnection;
-  contentfulHistory?: Maybe<ContentfulHistory>;
+  contentfulHistory: Maybe<ContentfulHistory>;
   allContentfulHistory: ContentfulHistoryConnection;
-  contentfulContact?: Maybe<ContentfulContact>;
+  contentfulContact: Maybe<ContentfulContact>;
   allContentfulContact: ContentfulContactConnection;
-  contentfulQualificationMap?: Maybe<ContentfulQualificationMap>;
+  contentfulQualificationMap: Maybe<ContentfulQualificationMap>;
   allContentfulQualificationMap: ContentfulQualificationMapConnection;
-  contentfulTag?: Maybe<ContentfulTag>;
+  contentfulTag: Maybe<ContentfulTag>;
   allContentfulTag: ContentfulTagConnection;
-  contentfulHello?: Maybe<ContentfulHello>;
+  contentfulHello: Maybe<ContentfulHello>;
   allContentfulHello: ContentfulHelloConnection;
-  contentfulBlogAuthor?: Maybe<ContentfulBlogAuthor>;
+  contentfulBlogAuthor: Maybe<ContentfulBlogAuthor>;
   allContentfulBlogAuthor: ContentfulBlogAuthorConnection;
-  locale?: Maybe<Locale>;
+  locale: Maybe<Locale>;
   allLocale: LocaleConnection;
-  contentfulOssDetailTextNode?: Maybe<ContentfulOssDetailTextNode>;
+  contentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
   allContentfulOssDetailTextNode: ContentfulOssDetailTextNodeConnection;
-  contentfulProjectDetailTextNode?: Maybe<ContentfulProjectDetailTextNode>;
+  contentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
   allContentfulProjectDetailTextNode: ContentfulProjectDetailTextNodeConnection;
-  contentfulIconSvgTextNode?: Maybe<ContentfulIconSvgTextNode>;
+  contentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
   allContentfulIconSvgTextNode: ContentfulIconSvgTextNodeConnection;
-  contentfulContentType?: Maybe<ContentfulContentType>;
+  contentfulContentType: Maybe<ContentfulContentType>;
   allContentfulContentType: ContentfulContentTypeConnection;
-  siteBuildMetadata?: Maybe<SiteBuildMetadata>;
+  siteBuildMetadata: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
-  sitePlugin?: Maybe<SitePlugin>;
+  sitePlugin: Maybe<SitePlugin>;
   allSitePlugin: SitePluginConnection;
 };
 
@@ -2686,7 +2594,6 @@ export type LocaleFilterInput = {
 };
 
 export type FileConnection = {
-  __typename?: 'FileConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
@@ -2708,20 +2615,18 @@ export type FileConnectionGroupArgs = {
 };
 
 export type FileEdge = {
-  __typename?: 'FileEdge';
-  next?: Maybe<File>;
+  next: Maybe<File>;
   node: File;
-  previous?: Maybe<File>;
+  previous: Maybe<File>;
 };
 
 export type PageInfo = {
-  __typename?: 'PageInfo';
   currentPage: Scalars['Int'];
   hasPreviousPage: Scalars['Boolean'];
   hasNextPage: Scalars['Boolean'];
   itemCount: Scalars['Int'];
   pageCount: Scalars['Int'];
-  perPage?: Maybe<Scalars['Int']>;
+  perPage: Maybe<Scalars['Int']>;
   totalCount: Scalars['Int'];
 };
 
@@ -3076,13 +2981,12 @@ export enum FileFieldsEnum {
 }
 
 export type FileGroupConnection = {
-  __typename?: 'FileGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<FileEdge>;
   nodes: Array<File>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type FileFilterInput = {
@@ -3142,7 +3046,6 @@ export enum SortOrderEnum {
 }
 
 export type DirectoryConnection = {
-  __typename?: 'DirectoryConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
@@ -3164,10 +3067,9 @@ export type DirectoryConnectionGroupArgs = {
 };
 
 export type DirectoryEdge = {
-  __typename?: 'DirectoryEdge';
-  next?: Maybe<Directory>;
+  next: Maybe<Directory>;
   node: Directory;
-  previous?: Maybe<Directory>;
+  previous: Maybe<Directory>;
 };
 
 export enum DirectoryFieldsEnum {
@@ -3293,13 +3195,12 @@ export enum DirectoryFieldsEnum {
 }
 
 export type DirectoryGroupConnection = {
-  __typename?: 'DirectoryGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<DirectoryEdge>;
   nodes: Array<Directory>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type DirectoryFilterInput = {
@@ -3354,7 +3255,6 @@ export type SiteSiteMetadataFilterInput = {
 };
 
 export type SiteConnection = {
-  __typename?: 'SiteConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
@@ -3376,10 +3276,9 @@ export type SiteConnectionGroupArgs = {
 };
 
 export type SiteEdge = {
-  __typename?: 'SiteEdge';
-  next?: Maybe<Site>;
+  next: Maybe<Site>;
   node: Site;
-  previous?: Maybe<Site>;
+  previous: Maybe<Site>;
 };
 
 export enum SiteFieldsEnum {
@@ -3480,13 +3379,12 @@ export enum SiteFieldsEnum {
 }
 
 export type SiteGroupConnection = {
-  __typename?: 'SiteGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteEdge>;
   nodes: Array<Site>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type SiteFilterInput = {
@@ -3653,7 +3551,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterInput = {
 };
 
 export type SitePageConnection = {
-  __typename?: 'SitePageConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
@@ -3675,10 +3572,9 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageEdge = {
-  __typename?: 'SitePageEdge';
-  next?: Maybe<SitePage>;
+  next: Maybe<SitePage>;
   node: SitePage;
-  previous?: Maybe<SitePage>;
+  previous: Maybe<SitePage>;
 };
 
 export enum SitePageFieldsEnum {
@@ -3900,13 +3796,12 @@ export enum SitePageFieldsEnum {
 }
 
 export type SitePageGroupConnection = {
-  __typename?: 'SitePageGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePageEdge>;
   nodes: Array<SitePage>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type SitePageFilterInput = {
@@ -3932,7 +3827,6 @@ export type SitePageSortInput = {
 };
 
 export type ImageSharpConnection = {
-  __typename?: 'ImageSharpConnection';
   totalCount: Scalars['Int'];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
@@ -3954,10 +3848,9 @@ export type ImageSharpConnectionGroupArgs = {
 };
 
 export type ImageSharpEdge = {
-  __typename?: 'ImageSharpEdge';
-  next?: Maybe<ImageSharp>;
+  next: Maybe<ImageSharp>;
   node: ImageSharp;
-  previous?: Maybe<ImageSharp>;
+  previous: Maybe<ImageSharp>;
 };
 
 export enum ImageSharpFieldsEnum {
@@ -4082,13 +3975,12 @@ export enum ImageSharpFieldsEnum {
 }
 
 export type ImageSharpGroupConnection = {
-  __typename?: 'ImageSharpGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ImageSharpEdge>;
   nodes: Array<ImageSharp>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ImageSharpSortInput = {
@@ -4117,7 +4009,6 @@ export type MarkdownWordCountFilterInput = {
 };
 
 export type MarkdownRemarkConnection = {
-  __typename?: 'MarkdownRemarkConnection';
   totalCount: Scalars['Int'];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
@@ -4139,10 +4030,9 @@ export type MarkdownRemarkConnectionGroupArgs = {
 };
 
 export type MarkdownRemarkEdge = {
-  __typename?: 'MarkdownRemarkEdge';
-  next?: Maybe<MarkdownRemark>;
+  next: Maybe<MarkdownRemark>;
   node: MarkdownRemark;
-  previous?: Maybe<MarkdownRemark>;
+  previous: Maybe<MarkdownRemark>;
 };
 
 export enum MarkdownRemarkFieldsEnum {
@@ -4250,13 +4140,12 @@ export enum MarkdownRemarkFieldsEnum {
 }
 
 export type MarkdownRemarkGroupConnection = {
-  __typename?: 'MarkdownRemarkGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<MarkdownRemarkEdge>;
   nodes: Array<MarkdownRemark>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type MarkdownRemarkFilterInput = {
@@ -4282,7 +4171,6 @@ export type MarkdownRemarkSortInput = {
 };
 
 export type ContentfulEntryConnection = {
-  __typename?: 'ContentfulEntryConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulEntryEdge>;
   nodes: Array<ContentfulEntry>;
@@ -4304,10 +4192,9 @@ export type ContentfulEntryConnectionGroupArgs = {
 };
 
 export type ContentfulEntryEdge = {
-  __typename?: 'ContentfulEntryEdge';
-  next?: Maybe<ContentfulEntry>;
+  next: Maybe<ContentfulEntry>;
   node: ContentfulEntry;
-  previous?: Maybe<ContentfulEntry>;
+  previous: Maybe<ContentfulEntry>;
 };
 
 export enum ContentfulEntryFieldsEnum {
@@ -4402,13 +4289,12 @@ export enum ContentfulEntryFieldsEnum {
 }
 
 export type ContentfulEntryGroupConnection = {
-  __typename?: 'ContentfulEntryGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulEntryEdge>;
   nodes: Array<ContentfulEntry>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulEntryFilterInput = {
@@ -4480,7 +4366,6 @@ export type ContentfulResizeFilterInput = {
 };
 
 export type ContentfulAssetConnection = {
-  __typename?: 'ContentfulAssetConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulAssetEdge>;
   nodes: Array<ContentfulAsset>;
@@ -4502,10 +4387,9 @@ export type ContentfulAssetConnectionGroupArgs = {
 };
 
 export type ContentfulAssetEdge = {
-  __typename?: 'ContentfulAssetEdge';
-  next?: Maybe<ContentfulAsset>;
+  next: Maybe<ContentfulAsset>;
   node: ContentfulAsset;
-  previous?: Maybe<ContentfulAsset>;
+  previous: Maybe<ContentfulAsset>;
 };
 
 export enum ContentfulAssetFieldsEnum {
@@ -4840,13 +4724,12 @@ export enum ContentfulAssetFieldsEnum {
 }
 
 export type ContentfulAssetGroupConnection = {
-  __typename?: 'ContentfulAssetGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulAssetEdge>;
   nodes: Array<ContentfulAsset>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssetFilterInput = {
@@ -5247,7 +5130,6 @@ export type ContentfulTagSysContentTypeSysFilterInput = {
 };
 
 export type ContentfulSkillMapConnection = {
-  __typename?: 'ContentfulSkillMapConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulSkillMapEdge>;
   nodes: Array<ContentfulSkillMap>;
@@ -5269,10 +5151,9 @@ export type ContentfulSkillMapConnectionGroupArgs = {
 };
 
 export type ContentfulSkillMapEdge = {
-  __typename?: 'ContentfulSkillMapEdge';
-  next?: Maybe<ContentfulSkillMap>;
+  next: Maybe<ContentfulSkillMap>;
   node: ContentfulSkillMap;
-  previous?: Maybe<ContentfulSkillMap>;
+  previous: Maybe<ContentfulSkillMap>;
 };
 
 export enum ContentfulSkillMapFieldsEnum {
@@ -5606,13 +5487,12 @@ export enum ContentfulSkillMapFieldsEnum {
 }
 
 export type ContentfulSkillMapGroupConnection = {
-  __typename?: 'ContentfulSkillMapGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulSkillMapEdge>;
   nodes: Array<ContentfulSkillMap>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillMapSortInput = {
@@ -5621,7 +5501,6 @@ export type ContentfulSkillMapSortInput = {
 };
 
 export type ContentfulIconConnection = {
-  __typename?: 'ContentfulIconConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulIconEdge>;
   nodes: Array<ContentfulIcon>;
@@ -5643,10 +5522,9 @@ export type ContentfulIconConnectionGroupArgs = {
 };
 
 export type ContentfulIconEdge = {
-  __typename?: 'ContentfulIconEdge';
-  next?: Maybe<ContentfulIcon>;
+  next: Maybe<ContentfulIcon>;
   node: ContentfulIcon;
-  previous?: Maybe<ContentfulIcon>;
+  previous: Maybe<ContentfulIcon>;
 };
 
 export enum ContentfulIconFieldsEnum {
@@ -7222,13 +7100,12 @@ export enum ContentfulIconFieldsEnum {
 }
 
 export type ContentfulIconGroupConnection = {
-  __typename?: 'ContentfulIconGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulIconEdge>;
   nodes: Array<ContentfulIcon>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSortInput = {
@@ -7237,7 +7114,6 @@ export type ContentfulIconSortInput = {
 };
 
 export type ContentfulWhatICanDoConnection = {
-  __typename?: 'ContentfulWhatICanDoConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulWhatICanDoEdge>;
   nodes: Array<ContentfulWhatICanDo>;
@@ -7259,10 +7135,9 @@ export type ContentfulWhatICanDoConnectionGroupArgs = {
 };
 
 export type ContentfulWhatICanDoEdge = {
-  __typename?: 'ContentfulWhatICanDoEdge';
-  next?: Maybe<ContentfulWhatICanDo>;
+  next: Maybe<ContentfulWhatICanDo>;
   node: ContentfulWhatICanDo;
-  previous?: Maybe<ContentfulWhatICanDo>;
+  previous: Maybe<ContentfulWhatICanDo>;
 };
 
 export enum ContentfulWhatICanDoFieldsEnum {
@@ -7786,13 +7661,12 @@ export enum ContentfulWhatICanDoFieldsEnum {
 }
 
 export type ContentfulWhatICanDoGroupConnection = {
-  __typename?: 'ContentfulWhatICanDoGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulWhatICanDoEdge>;
   nodes: Array<ContentfulWhatICanDo>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulWhatICanDoSortInput = {
@@ -7874,7 +7748,6 @@ export type ContentfulQualificationMapSysContentTypeSysFilterInput = {
 };
 
 export type ContentfulQualificationConnection = {
-  __typename?: 'ContentfulQualificationConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulQualificationEdge>;
   nodes: Array<ContentfulQualification>;
@@ -7896,10 +7769,9 @@ export type ContentfulQualificationConnectionGroupArgs = {
 };
 
 export type ContentfulQualificationEdge = {
-  __typename?: 'ContentfulQualificationEdge';
-  next?: Maybe<ContentfulQualification>;
+  next: Maybe<ContentfulQualification>;
   node: ContentfulQualification;
-  previous?: Maybe<ContentfulQualification>;
+  previous: Maybe<ContentfulQualification>;
 };
 
 export enum ContentfulQualificationFieldsEnum {
@@ -8089,13 +7961,12 @@ export enum ContentfulQualificationFieldsEnum {
 }
 
 export type ContentfulQualificationGroupConnection = {
-  __typename?: 'ContentfulQualificationGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulQualificationEdge>;
   nodes: Array<ContentfulQualification>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationSortInput = {
@@ -8104,7 +7975,6 @@ export type ContentfulQualificationSortInput = {
 };
 
 export type ContentfulProjectConnection = {
-  __typename?: 'ContentfulProjectConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulProjectEdge>;
   nodes: Array<ContentfulProject>;
@@ -8126,10 +7996,9 @@ export type ContentfulProjectConnectionGroupArgs = {
 };
 
 export type ContentfulProjectEdge = {
-  __typename?: 'ContentfulProjectEdge';
-  next?: Maybe<ContentfulProject>;
+  next: Maybe<ContentfulProject>;
   node: ContentfulProject;
-  previous?: Maybe<ContentfulProject>;
+  previous: Maybe<ContentfulProject>;
 };
 
 export enum ContentfulProjectFieldsEnum {
@@ -9180,13 +9049,12 @@ export enum ContentfulProjectFieldsEnum {
 }
 
 export type ContentfulProjectGroupConnection = {
-  __typename?: 'ContentfulProjectGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulProjectEdge>;
   nodes: Array<ContentfulProject>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectSortInput = {
@@ -9195,7 +9063,6 @@ export type ContentfulProjectSortInput = {
 };
 
 export type ContentfulOssConnection = {
-  __typename?: 'ContentfulOssConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulOssEdge>;
   nodes: Array<ContentfulOss>;
@@ -9217,10 +9084,9 @@ export type ContentfulOssConnectionGroupArgs = {
 };
 
 export type ContentfulOssEdge = {
-  __typename?: 'ContentfulOssEdge';
-  next?: Maybe<ContentfulOss>;
+  next: Maybe<ContentfulOss>;
   node: ContentfulOss;
-  previous?: Maybe<ContentfulOss>;
+  previous: Maybe<ContentfulOss>;
 };
 
 export enum ContentfulOssFieldsEnum {
@@ -10415,13 +10281,12 @@ export enum ContentfulOssFieldsEnum {
 }
 
 export type ContentfulOssGroupConnection = {
-  __typename?: 'ContentfulOssGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulOssEdge>;
   nodes: Array<ContentfulOss>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssSortInput = {
@@ -10430,7 +10295,6 @@ export type ContentfulOssSortInput = {
 };
 
 export type ContentfulHistoryConnection = {
-  __typename?: 'ContentfulHistoryConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulHistoryEdge>;
   nodes: Array<ContentfulHistory>;
@@ -10452,10 +10316,9 @@ export type ContentfulHistoryConnectionGroupArgs = {
 };
 
 export type ContentfulHistoryEdge = {
-  __typename?: 'ContentfulHistoryEdge';
-  next?: Maybe<ContentfulHistory>;
+  next: Maybe<ContentfulHistory>;
   node: ContentfulHistory;
-  previous?: Maybe<ContentfulHistory>;
+  previous: Maybe<ContentfulHistory>;
 };
 
 export enum ContentfulHistoryFieldsEnum {
@@ -10979,13 +10842,12 @@ export enum ContentfulHistoryFieldsEnum {
 }
 
 export type ContentfulHistoryGroupConnection = {
-  __typename?: 'ContentfulHistoryGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulHistoryEdge>;
   nodes: Array<ContentfulHistory>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHistorySortInput = {
@@ -10994,7 +10856,6 @@ export type ContentfulHistorySortInput = {
 };
 
 export type ContentfulContactConnection = {
-  __typename?: 'ContentfulContactConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulContactEdge>;
   nodes: Array<ContentfulContact>;
@@ -11016,10 +10877,9 @@ export type ContentfulContactConnectionGroupArgs = {
 };
 
 export type ContentfulContactEdge = {
-  __typename?: 'ContentfulContactEdge';
-  next?: Maybe<ContentfulContact>;
+  next: Maybe<ContentfulContact>;
   node: ContentfulContact;
-  previous?: Maybe<ContentfulContact>;
+  previous: Maybe<ContentfulContact>;
 };
 
 export enum ContentfulContactFieldsEnum {
@@ -11544,13 +11404,12 @@ export enum ContentfulContactFieldsEnum {
 }
 
 export type ContentfulContactGroupConnection = {
-  __typename?: 'ContentfulContactGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulContactEdge>;
   nodes: Array<ContentfulContact>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContactSortInput = {
@@ -11559,7 +11418,6 @@ export type ContentfulContactSortInput = {
 };
 
 export type ContentfulQualificationMapConnection = {
-  __typename?: 'ContentfulQualificationMapConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulQualificationMapEdge>;
   nodes: Array<ContentfulQualificationMap>;
@@ -11581,10 +11439,9 @@ export type ContentfulQualificationMapConnectionGroupArgs = {
 };
 
 export type ContentfulQualificationMapEdge = {
-  __typename?: 'ContentfulQualificationMapEdge';
-  next?: Maybe<ContentfulQualificationMap>;
+  next: Maybe<ContentfulQualificationMap>;
   node: ContentfulQualificationMap;
-  previous?: Maybe<ContentfulQualificationMap>;
+  previous: Maybe<ContentfulQualificationMap>;
 };
 
 export enum ContentfulQualificationMapFieldsEnum {
@@ -11774,13 +11631,12 @@ export enum ContentfulQualificationMapFieldsEnum {
 }
 
 export type ContentfulQualificationMapGroupConnection = {
-  __typename?: 'ContentfulQualificationMapGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulQualificationMapEdge>;
   nodes: Array<ContentfulQualificationMap>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationMapSortInput = {
@@ -11789,7 +11645,6 @@ export type ContentfulQualificationMapSortInput = {
 };
 
 export type ContentfulTagConnection = {
-  __typename?: 'ContentfulTagConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulTagEdge>;
   nodes: Array<ContentfulTag>;
@@ -11811,10 +11666,9 @@ export type ContentfulTagConnectionGroupArgs = {
 };
 
 export type ContentfulTagEdge = {
-  __typename?: 'ContentfulTagEdge';
-  next?: Maybe<ContentfulTag>;
+  next: Maybe<ContentfulTag>;
   node: ContentfulTag;
-  previous?: Maybe<ContentfulTag>;
+  previous: Maybe<ContentfulTag>;
 };
 
 export enum ContentfulTagFieldsEnum {
@@ -12767,13 +12621,12 @@ export enum ContentfulTagFieldsEnum {
 }
 
 export type ContentfulTagGroupConnection = {
-  __typename?: 'ContentfulTagGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulTagEdge>;
   nodes: Array<ContentfulTag>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulTagSortInput = {
@@ -12798,7 +12651,6 @@ export type ContentfulHelloSysContentTypeSysFilterInput = {
 };
 
 export type ContentfulHelloConnection = {
-  __typename?: 'ContentfulHelloConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulHelloEdge>;
   nodes: Array<ContentfulHello>;
@@ -12820,10 +12672,9 @@ export type ContentfulHelloConnectionGroupArgs = {
 };
 
 export type ContentfulHelloEdge = {
-  __typename?: 'ContentfulHelloEdge';
-  next?: Maybe<ContentfulHello>;
+  next: Maybe<ContentfulHello>;
   node: ContentfulHello;
-  previous?: Maybe<ContentfulHello>;
+  previous: Maybe<ContentfulHello>;
 };
 
 export enum ContentfulHelloFieldsEnum {
@@ -12929,13 +12780,12 @@ export enum ContentfulHelloFieldsEnum {
 }
 
 export type ContentfulHelloGroupConnection = {
-  __typename?: 'ContentfulHelloGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulHelloEdge>;
   nodes: Array<ContentfulHello>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHelloFilterInput = {
@@ -12960,7 +12810,6 @@ export type ContentfulHelloSortInput = {
 };
 
 export type ContentfulBlogAuthorConnection = {
-  __typename?: 'ContentfulBlogAuthorConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulBlogAuthorEdge>;
   nodes: Array<ContentfulBlogAuthor>;
@@ -12982,10 +12831,9 @@ export type ContentfulBlogAuthorConnectionGroupArgs = {
 };
 
 export type ContentfulBlogAuthorEdge = {
-  __typename?: 'ContentfulBlogAuthorEdge';
-  next?: Maybe<ContentfulBlogAuthor>;
+  next: Maybe<ContentfulBlogAuthor>;
   node: ContentfulBlogAuthor;
-  previous?: Maybe<ContentfulBlogAuthor>;
+  previous: Maybe<ContentfulBlogAuthor>;
 };
 
 export enum ContentfulBlogAuthorFieldsEnum {
@@ -13080,13 +12928,12 @@ export enum ContentfulBlogAuthorFieldsEnum {
 }
 
 export type ContentfulBlogAuthorGroupConnection = {
-  __typename?: 'ContentfulBlogAuthorGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulBlogAuthorEdge>;
   nodes: Array<ContentfulBlogAuthor>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogAuthorFilterInput = {
@@ -13104,7 +12951,6 @@ export type ContentfulBlogAuthorSortInput = {
 };
 
 export type LocaleConnection = {
-  __typename?: 'LocaleConnection';
   totalCount: Scalars['Int'];
   edges: Array<LocaleEdge>;
   nodes: Array<Locale>;
@@ -13126,10 +12972,9 @@ export type LocaleConnectionGroupArgs = {
 };
 
 export type LocaleEdge = {
-  __typename?: 'LocaleEdge';
-  next?: Maybe<Locale>;
+  next: Maybe<Locale>;
   node: Locale;
-  previous?: Maybe<Locale>;
+  previous: Maybe<Locale>;
 };
 
 export enum LocaleFieldsEnum {
@@ -13226,13 +13071,12 @@ export enum LocaleFieldsEnum {
 }
 
 export type LocaleGroupConnection = {
-  __typename?: 'LocaleGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<LocaleEdge>;
   nodes: Array<Locale>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type LocaleSortInput = {
@@ -13241,7 +13085,6 @@ export type LocaleSortInput = {
 };
 
 export type ContentfulOssDetailTextNodeConnection = {
-  __typename?: 'contentfulOssDetailTextNodeConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulOssDetailTextNodeEdge>;
   nodes: Array<ContentfulOssDetailTextNode>;
@@ -13263,10 +13106,9 @@ export type ContentfulOssDetailTextNodeConnectionGroupArgs = {
 };
 
 export type ContentfulOssDetailTextNodeEdge = {
-  __typename?: 'contentfulOssDetailTextNodeEdge';
-  next?: Maybe<ContentfulOssDetailTextNode>;
+  next: Maybe<ContentfulOssDetailTextNode>;
   node: ContentfulOssDetailTextNode;
-  previous?: Maybe<ContentfulOssDetailTextNode>;
+  previous: Maybe<ContentfulOssDetailTextNode>;
 };
 
 export enum ContentfulOssDetailTextNodeFieldsEnum {
@@ -13468,13 +13310,12 @@ export enum ContentfulOssDetailTextNodeFieldsEnum {
 }
 
 export type ContentfulOssDetailTextNodeGroupConnection = {
-  __typename?: 'contentfulOssDetailTextNodeGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulOssDetailTextNodeEdge>;
   nodes: Array<ContentfulOssDetailTextNode>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssDetailTextNodeSortInput = {
@@ -13483,7 +13324,6 @@ export type ContentfulOssDetailTextNodeSortInput = {
 };
 
 export type ContentfulProjectDetailTextNodeConnection = {
-  __typename?: 'contentfulProjectDetailTextNodeConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulProjectDetailTextNodeEdge>;
   nodes: Array<ContentfulProjectDetailTextNode>;
@@ -13505,10 +13345,9 @@ export type ContentfulProjectDetailTextNodeConnectionGroupArgs = {
 };
 
 export type ContentfulProjectDetailTextNodeEdge = {
-  __typename?: 'contentfulProjectDetailTextNodeEdge';
-  next?: Maybe<ContentfulProjectDetailTextNode>;
+  next: Maybe<ContentfulProjectDetailTextNode>;
   node: ContentfulProjectDetailTextNode;
-  previous?: Maybe<ContentfulProjectDetailTextNode>;
+  previous: Maybe<ContentfulProjectDetailTextNode>;
 };
 
 export enum ContentfulProjectDetailTextNodeFieldsEnum {
@@ -13710,13 +13549,12 @@ export enum ContentfulProjectDetailTextNodeFieldsEnum {
 }
 
 export type ContentfulProjectDetailTextNodeGroupConnection = {
-  __typename?: 'contentfulProjectDetailTextNodeGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulProjectDetailTextNodeEdge>;
   nodes: Array<ContentfulProjectDetailTextNode>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectDetailTextNodeSortInput = {
@@ -13725,7 +13563,6 @@ export type ContentfulProjectDetailTextNodeSortInput = {
 };
 
 export type ContentfulIconSvgTextNodeConnection = {
-  __typename?: 'contentfulIconSvgTextNodeConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulIconSvgTextNodeEdge>;
   nodes: Array<ContentfulIconSvgTextNode>;
@@ -13747,10 +13584,9 @@ export type ContentfulIconSvgTextNodeConnectionGroupArgs = {
 };
 
 export type ContentfulIconSvgTextNodeEdge = {
-  __typename?: 'contentfulIconSvgTextNodeEdge';
-  next?: Maybe<ContentfulIconSvgTextNode>;
+  next: Maybe<ContentfulIconSvgTextNode>;
   node: ContentfulIconSvgTextNode;
-  previous?: Maybe<ContentfulIconSvgTextNode>;
+  previous: Maybe<ContentfulIconSvgTextNode>;
 };
 
 export enum ContentfulIconSvgTextNodeFieldsEnum {
@@ -13952,13 +13788,12 @@ export enum ContentfulIconSvgTextNodeFieldsEnum {
 }
 
 export type ContentfulIconSvgTextNodeGroupConnection = {
-  __typename?: 'contentfulIconSvgTextNodeGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulIconSvgTextNodeEdge>;
   nodes: Array<ContentfulIconSvgTextNode>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSvgTextNodeSortInput = {
@@ -13971,7 +13806,6 @@ export type ContentfulContentTypeSysFilterInput = {
 };
 
 export type ContentfulContentTypeConnection = {
-  __typename?: 'ContentfulContentTypeConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulContentTypeEdge>;
   nodes: Array<ContentfulContentType>;
@@ -13993,10 +13827,9 @@ export type ContentfulContentTypeConnectionGroupArgs = {
 };
 
 export type ContentfulContentTypeEdge = {
-  __typename?: 'ContentfulContentTypeEdge';
-  next?: Maybe<ContentfulContentType>;
+  next: Maybe<ContentfulContentType>;
   node: ContentfulContentType;
-  previous?: Maybe<ContentfulContentType>;
+  previous: Maybe<ContentfulContentType>;
 };
 
 export enum ContentfulContentTypeFieldsEnum {
@@ -14093,13 +13926,12 @@ export enum ContentfulContentTypeFieldsEnum {
 }
 
 export type ContentfulContentTypeGroupConnection = {
-  __typename?: 'ContentfulContentTypeGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<ContentfulContentTypeEdge>;
   nodes: Array<ContentfulContentType>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContentTypeFilterInput = {
@@ -14119,7 +13951,6 @@ export type ContentfulContentTypeSortInput = {
 };
 
 export type SiteBuildMetadataConnection = {
-  __typename?: 'SiteBuildMetadataConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteBuildMetadataEdge>;
   nodes: Array<SiteBuildMetadata>;
@@ -14141,10 +13972,9 @@ export type SiteBuildMetadataConnectionGroupArgs = {
 };
 
 export type SiteBuildMetadataEdge = {
-  __typename?: 'SiteBuildMetadataEdge';
-  next?: Maybe<SiteBuildMetadata>;
+  next: Maybe<SiteBuildMetadata>;
   node: SiteBuildMetadata;
-  previous?: Maybe<SiteBuildMetadata>;
+  previous: Maybe<SiteBuildMetadata>;
 };
 
 export enum SiteBuildMetadataFieldsEnum {
@@ -14238,13 +14068,12 @@ export enum SiteBuildMetadataFieldsEnum {
 }
 
 export type SiteBuildMetadataGroupConnection = {
-  __typename?: 'SiteBuildMetadataGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SiteBuildMetadataEdge>;
   nodes: Array<SiteBuildMetadata>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type SiteBuildMetadataFilterInput = {
@@ -14261,7 +14090,6 @@ export type SiteBuildMetadataSortInput = {
 };
 
 export type SitePluginConnection = {
-  __typename?: 'SitePluginConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
@@ -14283,10 +14111,9 @@ export type SitePluginConnectionGroupArgs = {
 };
 
 export type SitePluginEdge = {
-  __typename?: 'SitePluginEdge';
-  next?: Maybe<SitePlugin>;
+  next: Maybe<SitePlugin>;
   node: SitePlugin;
-  previous?: Maybe<SitePlugin>;
+  previous: Maybe<SitePlugin>;
 };
 
 export enum SitePluginFieldsEnum {
@@ -14454,13 +14281,12 @@ export enum SitePluginFieldsEnum {
 }
 
 export type SitePluginGroupConnection = {
-  __typename?: 'SitePluginGroupConnection';
   totalCount: Scalars['Int'];
   edges: Array<SitePluginEdge>;
   nodes: Array<SitePlugin>;
   pageInfo: PageInfo;
   field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
+  fieldValue: Maybe<Scalars['String']>;
 };
 
 export type SitePluginSortInput = {
@@ -14471,288 +14297,104 @@ export type SitePluginSortInput = {
 export type HistoryDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HistoryDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulHistory: (
-    { __typename?: 'ContentfulHistoryConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulHistoryEdge' }
-      & { node: (
-        { __typename?: 'ContentfulHistory' }
-        & Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-        & { icon?: Maybe<(
-          { __typename?: 'ContentfulIcon' }
-          & Pick<ContentfulIcon, 'name'>
-          & { svg?: Maybe<(
-            { __typename?: 'contentfulIconSvgTextNode' }
-            & Pick<ContentfulIconSvgTextNode, 'svg'>
-          )> }
+export type HistoryDataQuery = { allContentfulHistory: { edges: Array<{ node: (
+        Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
+        & { icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
         )> }
-      ) }
-    )> }
-  ) }
-);
+      ) }> } };
 
 export type OssDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OssDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulOss: (
-    { __typename?: 'ContentfulOssConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulOssEdge' }
-      & { node: (
-        { __typename?: 'ContentfulOss' }
-        & Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
-        & { tags?: Maybe<Array<Maybe<(
-          { __typename?: 'ContentfulTag' }
-          & Pick<ContentfulTag, 'name'>
-        )>>>, icon?: Maybe<(
-          { __typename?: 'ContentfulIcon' }
-          & Pick<ContentfulIcon, 'name'>
-          & { svg?: Maybe<(
-            { __typename?: 'contentfulIconSvgTextNode' }
-            & Pick<ContentfulIconSvgTextNode, 'svg'>
-          )> }
-        )>, image?: Maybe<(
-          { __typename?: 'ContentfulAsset' }
-          & Pick<ContentfulAsset, 'title'>
-          & { file?: Maybe<(
-            { __typename?: 'ContentfulAssetFile' }
-            & Pick<ContentfulAssetFile, 'url'>
-          )>, localFile?: Maybe<(
-            { __typename?: 'File' }
-            & { childImageSharp?: Maybe<(
-              { __typename?: 'ImageSharp' }
-              & Pick<ImageSharp, 'gatsbyImageData'>
-            )> }
-          )> }
-        )>, detail?: Maybe<(
-          { __typename?: 'contentfulOssDetailTextNode' }
-          & { childMarkdownRemark?: Maybe<(
-            { __typename?: 'MarkdownRemark' }
-            & Pick<MarkdownRemark, 'html'>
-          )> }
-        )> }
-      ) }
-    )> }
-  ) }
-);
+export type OssDataQuery = { allContentfulOss: { edges: Array<{ node: (
+        Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
+        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        )>, image: Maybe<(
+          Pick<ContentfulAsset, 'title'>
+          & { file: Maybe<Pick<ContentfulAssetFile, 'url'>>, localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+        )>, detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+      ) }> } };
 
 export type ProjectDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulProject: (
-    { __typename?: 'ContentfulProjectConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulProjectEdge' }
-      & { node: (
-        { __typename?: 'ContentfulProject' }
-        & Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'endDate'>
+export type ProjectDataQuery = { allContentfulProject: { edges: Array<{ node: (
+        Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'endDate'>
         & { startDateRow: ContentfulProject['startDate'], endDateRow: ContentfulProject['endDate'] }
-        & { tags?: Maybe<Array<Maybe<(
-          { __typename?: 'ContentfulTag' }
-          & Pick<ContentfulTag, 'name'>
-        )>>>, icon?: Maybe<(
-          { __typename?: 'ContentfulIcon' }
-          & Pick<ContentfulIcon, 'name'>
-          & { svg?: Maybe<(
-            { __typename?: 'contentfulIconSvgTextNode' }
-            & Pick<ContentfulIconSvgTextNode, 'svg'>
-          )> }
-        )>, detail?: Maybe<(
-          { __typename?: 'contentfulProjectDetailTextNode' }
-          & { childMarkdownRemark?: Maybe<(
-            { __typename?: 'MarkdownRemark' }
-            & Pick<MarkdownRemark, 'html'>
-          )> }
-        )> }
-      ) }
-    )> }
-  ) }
-);
+        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        )>, detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+      ) }> } };
 
 export type QualificationMapDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type QualificationMapDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulQualificationMap: (
-    { __typename?: 'ContentfulQualificationMapConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulQualificationMapEdge' }
-      & { node: (
-        { __typename?: 'ContentfulQualificationMap' }
-        & Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
-        & { qualifications?: Maybe<Array<Maybe<(
-          { __typename?: 'ContentfulQualification' }
-          & Pick<ContentfulQualification, 'id' | 'name' | 'date'>
-        )>>> }
-      ) }
-    )> }
-  ) }
-);
+export type QualificationMapDataQuery = { allContentfulQualificationMap: { edges: Array<{ node: (
+        Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
+        & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+      ) }> } };
 
 export type SkillDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type SkillDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulSkillMap: (
-    { __typename?: 'ContentfulSkillMapConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulSkillMapEdge' }
-      & { node: (
-        { __typename?: 'ContentfulSkillMap' }
-        & Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
-        & { skills?: Maybe<Array<Maybe<(
-          { __typename?: 'ContentfulTag' }
-          & Pick<ContentfulTag, 'id' | 'level' | 'name'>
-        )>>> }
-      ) }
-    )> }
-  ) }
-);
+export type SkillDataQuery = { allContentfulSkillMap: { edges: Array<{ node: (
+        Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
+        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+      ) }> } };
 
 export type WhatICanDoDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type WhatICanDoDataQuery = (
-  { __typename?: 'Query' }
-  & { allContentfulWhatICanDo: (
-    { __typename?: 'ContentfulWhatICanDoConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulWhatICanDoEdge' }
-      & { node: (
-        { __typename?: 'ContentfulWhatICanDo' }
-        & Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
-        & { icon?: Maybe<(
-          { __typename?: 'ContentfulIcon' }
-          & Pick<ContentfulIcon, 'name'>
-          & { svg?: Maybe<(
-            { __typename?: 'contentfulIconSvgTextNode' }
-            & Pick<ContentfulIconSvgTextNode, 'svg'>
-          )> }
+export type WhatICanDoDataQuery = { allContentfulWhatICanDo: { edges: Array<{ node: (
+        Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
+        & { icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
         )> }
-      ) }
-    )> }
-  ) }
-);
+      ) }> } };
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BuildTimeDataQuery = (
-  { __typename?: 'Query' }
-  & { site?: Maybe<(
-    { __typename?: 'Site' }
-    & Pick<Site, 'buildTime'>
-  )> }
-);
+export type BuildTimeDataQuery = { site: Maybe<Pick<Site, 'buildTime'>> };
 
 export type NotFoundPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type NotFoundPageQuery = (
-  { __typename?: 'Query' }
-  & { locales: (
-    { __typename?: 'LocaleConnection' }
-    & { edges: Array<(
-      { __typename?: 'LocaleEdge' }
-      & { node: (
-        { __typename?: 'Locale' }
-        & Pick<Locale, 'ns' | 'data' | 'language'>
-      ) }
-    )> }
-  ), icon?: Maybe<(
-    { __typename?: 'ContentfulAsset' }
-    & Pick<ContentfulAsset, 'title'>
-    & { svg?: Maybe<(
-      { __typename?: 'InlineSvg' }
-      & Pick<InlineSvg, 'content'>
-    )> }
-  )> }
-);
+export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+    Pick<ContentfulAsset, 'title'>
+    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
+  )> };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type IndexPageQuery = (
-  { __typename?: 'Query' }
-  & { links: (
-    { __typename?: 'ContentfulHelloConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulHelloEdge' }
-      & { node: (
-        { __typename?: 'ContentfulHello' }
-        & Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'>
-      ) }
-    )> }
-  ), contacts: (
-    { __typename?: 'ContentfulContactConnection' }
-    & { edges: Array<(
-      { __typename?: 'ContentfulContactEdge' }
-      & { node: (
-        { __typename?: 'ContentfulContact' }
-        & Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'>
-        & { icon?: Maybe<(
-          { __typename?: 'ContentfulIcon' }
-          & Pick<ContentfulIcon, 'name'>
-          & { svg?: Maybe<(
-            { __typename?: 'contentfulIconSvgTextNode' }
-            & Pick<ContentfulIconSvgTextNode, 'svg'>
-          )> }
+export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, contacts: { edges: Array<{ node: (
+        Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'>
+        & { icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
         )> }
-      ) }
-    )> }
-  ), locales: (
-    { __typename?: 'LocaleConnection' }
-    & { edges: Array<(
-      { __typename?: 'LocaleEdge' }
-      & { node: (
-        { __typename?: 'Locale' }
-        & Pick<Locale, 'ns' | 'data' | 'language'>
-      ) }
-    )> }
-  ), icon?: Maybe<(
-    { __typename?: 'ContentfulAsset' }
-    & Pick<ContentfulAsset, 'title'>
-    & { svg?: Maybe<(
-      { __typename?: 'InlineSvg' }
-      & Pick<InlineSvg, 'content'>
-    )> }
-  )> }
-);
+      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+    Pick<ContentfulAsset, 'title'>
+    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
+  )> };
 
 export type PrivacyPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type PrivacyPageQuery = (
-  { __typename?: 'Query' }
-  & { locales: (
-    { __typename?: 'LocaleConnection' }
-    & { edges: Array<(
-      { __typename?: 'LocaleEdge' }
-      & { node: (
-        { __typename?: 'Locale' }
-        & Pick<Locale, 'ns' | 'data' | 'language'>
-      ) }
-    )> }
-  ), icon?: Maybe<(
-    { __typename?: 'ContentfulAsset' }
-    & Pick<ContentfulAsset, 'title'>
-    & { svg?: Maybe<(
-      { __typename?: 'InlineSvg' }
-      & Pick<InlineSvg, 'content'>
-    )> }
-  )> }
-);
+export type PrivacyPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+    Pick<ContentfulAsset, 'title'>
+    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
+  )> };
