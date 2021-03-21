@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
   Typography,
@@ -11,40 +10,27 @@ import {
   CardContent,
 } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ExpandCardContent } from '../../components';
-import { QualificationMapDataQuery } from '../../types';
+import { ExpandCardContent } from 'src/components';
+import { ContentfulQualificationMap, ContentfulQualification, Maybe } from 'src/types';
 
-export const Certifications: React.FC = () => {
+export type CertificationListProps = {
+  certification: Array<{
+    node: Pick<ContentfulQualificationMap, 'node_locale' | 'id' | 'name' | 'expanded'> & {
+      qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>>;
+    };
+  }>;
+};
+
+export const CertificationList: React.FC<CertificationListProps> = ({ certification }) => {
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ['lg', 'xl', 'md'];
-  const { allContentfulQualificationMap }: QualificationMapDataQuery = useStaticQuery(
-    graphql`
-      query QualificationMapData {
-        allContentfulQualificationMap(sort: { order: ASC, fields: sortKey }) {
-          edges {
-            node {
-              id
-              node_locale
-              name
-              expanded
-              qualifications {
-                id
-                name
-                date(formatString: "yyyy/MM")
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
 
   return (
     <Grid container spacing={2}>
-      {allContentfulQualificationMap.edges.map(
+      {certification.map(
         ({ node }) =>
           node.node_locale === language && (
-            <Grid item xs={12} sm={6} md={4} key={node.id}>
+            <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
               <Card>
                 <ExpandCardContent
                   id={node.id}
@@ -58,7 +44,7 @@ export const Certifications: React.FC = () => {
                   detail={
                     <CardContent>
                       <List dense={true}>
-                        {node?.qualifications?.map(
+                        {node.qualifications?.map(
                           qualification =>
                             qualification && (
                               <ListItem key={qualification.id}>

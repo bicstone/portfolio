@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const ExpandCardContent: React.FC<Props> = ({
+export const ExpandContent: React.FC<Props> = ({
   id,
   defaultExpanded = true,
   defaultExpandedBreakpoints = undefined,

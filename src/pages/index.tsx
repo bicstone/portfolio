@@ -12,7 +12,7 @@ import {
   ContactsList,
   Histories,
   OSSes,
-  Qualifications,
+  CertificationList,
 } from '../components';
 
 const useStyles = makeStyles(theme => ({
@@ -63,7 +63,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.qualifications-title')}
         </Typography>
-        <Qualifications />
+        <CertificationList certification={data.certification.edges} />
       </Container>
       {/* 問い合わせへのアンカーリンク設置するためのID指定、仮対応 */}
       <Container maxWidth="lg" className={classes.container} component="section" id="contact">
@@ -108,6 +108,23 @@ export const query = graphql`
           }
         }
       }
+    }
+    # 資格一覧を取得する
+    certification: allContentfulQualificationMap(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          expanded
+          qualifications {
+            id
+            name
+            date(formatString: "yyyy/MM")
+          }
+        }
+      }
+    }
     }
     # 原稿を取得する
     locales: allLocale(filter: { language: { eq: $language } }) {
