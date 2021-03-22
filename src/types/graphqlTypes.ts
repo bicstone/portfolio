@@ -14294,70 +14294,6 @@ export type SitePluginSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type HistoryDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HistoryDataQuery = { allContentfulHistory: { edges: Array<{ node: (
-        Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> } };
-
-export type OssDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type OssDataQuery = { allContentfulOss: { edges: Array<{ node: (
-        Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )>, image: Maybe<(
-          Pick<ContentfulAsset, 'title'>
-          & { file: Maybe<Pick<ContentfulAssetFile, 'url'>>, localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
-        )>, detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-      ) }> } };
-
-export type ProjectDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type ProjectDataQuery = { allContentfulProject: { edges: Array<{ node: (
-        Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'endDate'>
-        & { startDateRow: ContentfulProject['startDate'], endDateRow: ContentfulProject['endDate'] }
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )>, detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-      ) }> } };
-
-export type QualificationMapDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type QualificationMapDataQuery = { allContentfulQualificationMap: { edges: Array<{ node: (
-        Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
-        & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
-      ) }> } };
-
-export type SkillDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SkillDataQuery = { allContentfulSkillMap: { edges: Array<{ node: (
-        Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
-        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-      ) }> } };
-
-export type WhatICanDoDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type WhatICanDoDataQuery = { allContentfulWhatICanDo: { edges: Array<{ node: (
-        Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> } };
-
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -14378,12 +14314,45 @@ export type IndexPageQueryVariables = Exact<{
 }>;
 
 
-export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, contacts: { edges: Array<{ node: (
+export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, whatICanDos: { edges: Array<{ node: (
+        Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
+        & { icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        )> }
+      ) }> }, projects: { edges: Array<{ node: (
+        Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'>
+        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        )>, detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+      ) }> }, histories: { edges: Array<{ node: (
+        Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
+        & { icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        )> }
+      ) }> }, osses: { edges: Array<{ node: (
+        Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
+        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+          Pick<ContentfulIcon, 'name'>
+          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        )>, image: Maybe<(
+          Pick<ContentfulAsset, 'title'>
+          & { file: Maybe<Pick<ContentfulAssetFile, 'url'>>, localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
+        )>, detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }> }
+      ) }> }, contacts: { edges: Array<{ node: (
         Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'>
         & { icon: Maybe<(
           Pick<ContentfulIcon, 'name'>
           & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
         )> }
+      ) }> }, skills: { edges: Array<{ node: (
+        Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
+        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+      ) }> }, certification: { edges: Array<{ node: (
+        Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
+        & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
       ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }

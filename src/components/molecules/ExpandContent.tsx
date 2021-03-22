@@ -5,7 +5,7 @@ import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { useBreakPoint } from '../../hooks';
 
-type Props = {
+export type ExpandContentProps = {
   id: string;
   defaultExpanded?: boolean;
   defaultExpandedBreakpoints?: Breakpoint[];
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const ExpandContent: React.FC<Props> = ({
+export const ExpandContent: React.FC<ExpandContentProps> = ({
   id,
   defaultExpanded = true,
   defaultExpandedBreakpoints = undefined,

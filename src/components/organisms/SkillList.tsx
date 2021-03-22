@@ -1,10 +1,9 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Typography, Grid, LinearProgress, CardContent, Card } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ExpandCardContent } from '../../components';
-import { SkillDataQuery } from '../../types';
+import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
+import { ExpandContent } from 'src/components';
 
 const useStyles = makeStyles(theme => ({
   cardContent: {
@@ -15,40 +14,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Skills: React.FC = () => {
+export type SkillListProps = {
+  skills: Array<{
+    node: Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'> & {
+      skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>;
+    };
+  }>;
+};
+
+export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
   const classes = useStyles();
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
-  const { allContentfulSkillMap }: SkillDataQuery = useStaticQuery(
-    graphql`
-      query SkillData {
-        allContentfulSkillMap(sort: { order: ASC, fields: sortKey }) {
-          edges {
-            node {
-              id
-              name
-              node_locale
-              expanded
-              skills {
-                id
-                level
-                name
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
-
   return (
     <Grid container spacing={2}>
-      {allContentfulSkillMap.edges.map(
+      {skills.map(
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Card>
-                <ExpandCardContent
+                <ExpandContent
                   id={node.id}
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}

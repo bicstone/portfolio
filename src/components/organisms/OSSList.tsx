@@ -1,6 +1,5 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
@@ -11,13 +10,21 @@ import {
   CardContent,
   CardActionArea,
   Card,
-  Avatar,
   CardMedia,
-  SvgIcon,
   Chip,
 } from '@material-ui/core';
-import { OssDataQuery } from '../../types';
-import { ExpandCardContent } from '../../components';
+import {
+  ContentfulAsset,
+  ContentfulAssetFile,
+  ContentfulIcon,
+  ContentfulIconSvgTextNode,
+  ContentfulOss,
+  ContentfulTag,
+  ImageSharp,
+  MarkdownRemark,
+  Maybe,
+} from 'src/types';
+import { ExpandContent, SvgAvatar } from 'src/components';
 
 const useStyles = makeStyles(() => ({
   cardMedia: {
@@ -30,57 +37,30 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const OSSes: React.FC = () => {
+export type OSSListProps = {
+  osses: Array<{
+    node: Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'> & {
+      tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>;
+      icon: Maybe<
+        Pick<ContentfulIcon, 'name'> & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      >;
+      image: Maybe<
+        Pick<ContentfulAsset, 'title'> & {
+          file: Maybe<Pick<ContentfulAssetFile, 'url'>>;
+          localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>;
+        }
+      >;
+      detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }>;
+    };
+  }>;
+};
+export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
   const classes = useStyles();
   const { language } = useI18next();
 
-  const { allContentfulOss }: OssDataQuery = useStaticQuery(
-    graphql`
-      query OssData {
-        allContentfulOss(sort: { fields: startDate, order: DESC }) {
-          edges {
-            node {
-              id
-              node_locale
-              name
-              tags {
-                name
-              }
-              icon {
-                name
-                svg {
-                  svg
-                }
-              }
-              image {
-                title
-                file {
-                  url
-                }
-                localFile {
-                  childImageSharp {
-                    gatsbyImageData(layout: FULL_WIDTH)
-                  }
-                }
-              }
-              subName
-              detail {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              startDate(formatString: "yyyy/MM")
-              href
-            }
-          }
-        }
-      }
-    `,
-  );
-
   return (
     <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
-      {allContentfulOss.edges.map(
+      {osses.map(
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
@@ -95,28 +75,20 @@ export const OSSes: React.FC = () => {
                     {node?.image?.localFile?.childImageSharp?.gatsbyImageData && (
                       <GatsbyImage
                         image={node.image.localFile.childImageSharp.gatsbyImageData}
-                        alt={node.name ?? ''}
+                        alt={node.name || ''}
                         className={classes.cardMedia}
                       />
                     )}
                   </CardMedia>
                 </CardActionArea>
-                <ExpandCardContent
+                <ExpandContent
                   id={node.id}
                   defaultExpanded={false}
                   title={
                     <CardHeader
                       className={classes.cardHeader}
                       avatar={
-                        node?.icon?.svg?.svg && (
-                          <Avatar
-                            role="img"
-                            aria-label={node.icon.name || ''}
-                            title={node.icon.name || ''}
-                          >
-                            <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
-                          </Avatar>
-                        )
+                        <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
                       }
                       title={
                         <>
@@ -126,22 +98,25 @@ export const OSSes: React.FC = () => {
                           <Typography component="h2" variant="h6">
                             {node.name}
                           </Typography>
-                          <Typography variant="body2" component="div" color="textSecondary">
-                            {node.tags &&
-                              node.tags.map(
-                                tag =>
-                                  tag?.name && (
-                                    <Chip
-                                      variant="outlined"
-                                      size="small"
-                                      key={tag.name}
-                                      label={tag.name}
-                                    />
-                                  ),
-                              )}
-                          </Typography>
                         </>
                       }
+                      subheader={
+                        <Typography variant="body2" component="div" color="textSecondary">
+                          {node.tags &&
+                            node.tags.map(
+                              tag =>
+                                tag?.name && (
+                                  <Chip
+                                    variant="outlined"
+                                    size="small"
+                                    key={tag.name}
+                                    label={tag.name}
+                                  />
+                                ),
+                            )}
+                        </Typography>
+                      }
+                      disableTypography
                     />
                   }
                   detail={

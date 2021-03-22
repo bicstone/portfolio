@@ -4,8 +4,8 @@
 
 export * from './atoms/SvgAvatar';
 export * from './atoms/SvgIcon';
-export * from './cards/ExpandCardContent';
 export * from './molecules/AvatarCard';
+export * from './molecules/ExpandContent';
 export * from './molecules/MediaCard';
 export * from './organisms/CertificationList';
 export * from './organisms/ContactList';

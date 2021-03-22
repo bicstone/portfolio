@@ -19,7 +19,7 @@
     "description": "Takanori Oishi (おおいし たかのり) と申します。Webエンジニア / セキュリティスペシャリスト / 機械エンジニアです。パフォーマンス・セキュリティ・SEO・a11yを意識したシンプルで高速な開発が得意です。",
     "title": "ビックストーン！"
   },
-  "historys": {
+  "histories": {
     "age": "{{age}}歳",
     "date": "{{date}}年"
   },

@@ -6,13 +6,13 @@ import { IndexPageQuery } from '../types';
 import {
   Layout,
   HelloGroup,
-  Projects,
-  WhatICanDos,
-  Skills,
   ContactsList,
-  Histories,
-  OSSes,
+  OSSList,
   CertificationList,
+  HistoryList,
+  ProjectList,
+  SkillList,
+  WhatICanDoList,
 } from '../components';
 
 const useStyles = makeStyles(theme => ({
@@ -33,31 +33,31 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
         <HelloGroup links={data.links.edges} icon={icon} iconAlt={iconAlt} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
-        <WhatICanDos />
+        <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.projects-title')}
         </Typography>
-        <Projects />
+        <ProjectList projects={data.projects.edges} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center">
           {t('home.histories-title')}
         </Typography>
-        <Histories />
+        <HistoryList histories={data.histories.edges} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.osses-title')}
         </Typography>
-        <OSSes />
+        <OSSList osses={data.osses.edges} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.skills-title')}
         </Typography>
-        <Skills />
+        <SkillList skills={data.skills.edges} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
@@ -91,6 +91,105 @@ export const query = graphql`
         }
       }
     }
+    # お手伝いできること一覧を取得する
+    whatICanDos: allContentfulWhatICanDo(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          subName
+          icon {
+            name
+            svg {
+              svg
+            }
+          }
+        }
+      }
+    }
+    # プロジェクト一覧を取得する
+    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          tags {
+            name
+          }
+          icon {
+            name
+            svg {
+              svg
+            }
+          }
+          subName
+          detail {
+            childMarkdownRemark {
+              html
+            }
+          }
+          startDate(formatString: "YYYY")
+        }
+      }
+    }
+    # 経歴一覧を取得する
+    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
+      edges {
+        node {
+          id
+          node_locale
+          date(formatString: "yyyy")
+          name
+          subName
+          icon {
+            name
+            svg {
+              svg
+            }
+          }
+        }
+      }
+    }
+    # OSS一覧を取得する
+    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          tags {
+            name
+          }
+          icon {
+            name
+            svg {
+              svg
+            }
+          }
+          image {
+            title
+            file {
+              url
+            }
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH)
+              }
+            }
+          }
+          subName
+          detail {
+            childMarkdownRemark {
+              html
+            }
+          }
+          startDate(formatString: "yyyy/MM")
+          href
+        }
+      }
+    }
     # 連絡先一覧を取得する
     contacts: allContentfulContact(sort: { fields: sortKey, order: ASC }) {
       edges {
@@ -105,6 +204,22 @@ export const query = graphql`
             svg {
               svg
             }
+          }
+        }
+      }
+    }
+    # スキル一覧を取得する
+    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          name
+          node_locale
+          expanded
+          skills {
+            id
+            level
+            name
           }
         }
       }
@@ -124,7 +239,6 @@ export const query = graphql`
           }
         }
       }
-    }
     }
     # 原稿を取得する
     locales: allLocale(filter: { language: { eq: $language } }) {

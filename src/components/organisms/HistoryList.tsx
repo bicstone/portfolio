@@ -1,16 +1,6 @@
 import React from 'react';
-import parse from 'html-react-parser';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import {
-  makeStyles,
-  Typography,
-  Grid,
-  CardHeader,
-  Paper,
-  Avatar,
-  SvgIcon,
-} from '@material-ui/core';
+import { makeStyles, Typography, Grid } from '@material-ui/core';
 import {
   Timeline,
   TimelineItem,
@@ -19,7 +9,8 @@ import {
   TimelineContent,
   TimelineOppositeContent,
 } from '@material-ui/lab';
-import { HistoryDataQuery } from '../../types';
+import { AvatarCard, SvgAvatar } from 'src/components';
+import { ContentfulHistory, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
 
 const useStyles = makeStyles(theme => ({
   cardContent: {
@@ -39,38 +30,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const Histories: React.FC = () => {
+export type HistoryListProps = {
+  histories: Array<{
+    node: Pick<ContentfulHistory, 'node_locale' | 'id' | 'date' | 'name' | 'subName'> & {
+      icon: Maybe<
+        Pick<ContentfulIcon, 'name'> & {
+          svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
+        }
+      >;
+    };
+  }>;
+};
+
+export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
   const classes = useStyles();
   const { t, language } = useI18next();
-  const { allContentfulHistory }: HistoryDataQuery = useStaticQuery(
-    graphql`
-      query HistoryData {
-        allContentfulHistory(sort: { order: DESC, fields: date }) {
-          edges {
-            node {
-              id
-              node_locale
-              date(formatString: "yyyy")
-              name
-              subName
-              icon {
-                name
-                svg {
-                  svg
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
   const yearToAge = (year: number): number => React.useMemo(() => year - 1996, [year]);
 
   return (
     <Grid container>
       <Timeline className={classes.timeline}>
-        {allContentfulHistory.edges.map(
+        {histories.map(
           ({ node }, index, { length }) =>
             node.node_locale === language && (
               <TimelineItem key={node.id}>
@@ -79,35 +59,30 @@ export const Histories: React.FC = () => {
                 ></TimelineOppositeContent>
                 <TimelineSeparator className={classes.timelineSeparator}>
                   <Typography variant="body2" color="textSecondary">
-                    {t('historys.date', { date: node.date })}
+                    {t('histories.date', { date: node.date })}
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    {t('historys.age', { age: `${yearToAge(Number(node.date))}` })}
+                    {t('histories.age', { age: `${yearToAge(Number(node.date))}` })}
                   </Typography>
                   {index < length - 2 && <TimelineConnector />}
                 </TimelineSeparator>
                 <TimelineContent>
-                  <Paper>
-                    <CardHeader
-                      avatar={
-                        node?.icon?.svg?.svg && (
-                          <Avatar
-                            role="img"
-                            aria-label={node.icon.name || ''}
-                            title={node.icon.name || ''}
-                          >
-                            <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
-                          </Avatar>
-                        )
-                      }
-                      title={
-                        <Typography component="h2" variant="h6">
-                          {node.name}
-                        </Typography>
-                      }
-                      subheader={node.subName}
-                    />
-                  </Paper>
+                  <AvatarCard
+                    avatar={
+                      <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
+                    }
+                    title={
+                      <Typography component="h2" variant="h6">
+                        {node.name}
+                      </Typography>
+                    }
+                    subheader={
+                      <Typography variant="body2" color="textSecondary">
+                        {node.subName}
+                      </Typography>
+                    }
+                    disableTypography
+                  />
                 </TimelineContent>
               </TimelineItem>
             ),

@@ -1,54 +1,31 @@
 import React from 'react';
-import parse from 'html-react-parser';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid, Avatar, CardHeader, Card, SvgIcon } from '@material-ui/core';
-import { WhatICanDoDataQuery } from '../../types';
+import { Typography, Grid, CardHeader, Card } from '@material-ui/core';
+import { ContentfulIcon, ContentfulIconSvgTextNode, ContentfulWhatICanDo, Maybe } from 'src/types';
+import { SvgAvatar } from 'src/components';
 
-export const WhatICanDos: React.FC = () => {
+export type WhatICanDoListProps = {
+  whatICanDos: Array<{
+    node: Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'> & {
+      icon: Maybe<
+        Pick<ContentfulIcon, 'name'> & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      >;
+    };
+  }>;
+};
+
+export const WhatICanDoList: React.FC<WhatICanDoListProps> = ({ whatICanDos }) => {
   const { language } = useI18next();
-
-  const { allContentfulWhatICanDo }: WhatICanDoDataQuery = useStaticQuery(
-    graphql`
-      query WhatICanDoData {
-        allContentfulWhatICanDo(sort: { fields: sortKey, order: ASC }) {
-          edges {
-            node {
-              id
-              node_locale
-              name
-              subName
-              icon {
-                name
-                svg {
-                  svg
-                }
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
-
   return (
     <Grid container spacing={2} alignItems="center">
-      {allContentfulWhatICanDo.edges.map(
+      {whatICanDos.map(
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
               <Card>
                 <CardHeader
                   avatar={
-                    node.icon?.svg?.svg && (
-                      <Avatar
-                        role="img"
-                        aria-label={node.icon.name || ''}
-                        title={node.icon.name || ''}
-                      >
-                        <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
-                      </Avatar>
-                    )
+                    <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
                   }
                   title={
                     <Typography component="h2" variant="h6">
@@ -60,6 +37,7 @@ export const WhatICanDos: React.FC = () => {
                       {node.subName}
                     </Typography>
                   }
+                  disableTypography
                 />
               </Card>
             </Grid>

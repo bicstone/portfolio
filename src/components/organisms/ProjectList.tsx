@@ -1,21 +1,26 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { graphql, useStaticQuery } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
   makeStyles,
   Typography,
   Grid,
   CardHeader,
-  Avatar,
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  SvgIcon,
   Chip,
 } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
-import { ProjectDataQuery } from '../../types';
+import { SvgAvatar } from 'src/components';
+import {
+  ContentfulIcon,
+  ContentfulIconSvgTextNode,
+  ContentfulProject,
+  ContentfulTag,
+  MarkdownRemark,
+  Maybe,
+} from 'src/types';
 
 const useStyles = makeStyles(() => ({
   cardHeader: {
@@ -23,7 +28,19 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Projects: React.FC = () => {
+export type ProjectListProps = {
+  projects: Array<{
+    node: Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'> & {
+      tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>;
+      icon: Maybe<
+        Pick<ContentfulIcon, 'name'> & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      >;
+      detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }>;
+    };
+  }>;
+};
+
+export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const classes = useStyles();
   const { language } = useI18next();
   const [expanded, setExpanded] = React.useState<string | false>(false);
@@ -35,116 +52,72 @@ export const Projects: React.FC = () => {
     setExpanded(isExpanded ? id : false);
   };
 
-  const { allContentfulProject }: ProjectDataQuery = useStaticQuery(
-    graphql`
-      query ProjectData {
-        allContentfulProject(sort: { fields: startDate, order: DESC }) {
-          edges {
-            node {
-              id
-              node_locale
-              name
-              tags {
-                name
-              }
-              icon {
-                name
-                svg {
-                  svg
-                }
-              }
-              subName
-              detail {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              startDate(formatString: "YYYY")
-              endDate(formatString: "YYYY/MM")
-              startDateRow: startDate(formatString: "YYYY-MM-DD")
-              endDateRow: endDate(formatString: "YYYY-MM-DD")
-            }
-          }
-        }
-      }
-    `,
-  );
-
   return (
     <Grid container spacing={2} justify="center" alignItems="center">
-      <Grid item xs={12}>
-        {allContentfulProject.edges.map(
-          ({ node }) =>
-            node.node_locale === language && (
-              <Accordion
-                expanded={expanded === node.id}
-                onChange={handleChange(node.id)}
-                key={node.id}
-                component="section"
+      {projects.map(
+        ({ node }) =>
+          node.node_locale === language && (
+            <Accordion
+              expanded={expanded === node.id}
+              onChange={handleChange(node.id)}
+              key={node.id}
+              component="section"
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls={`${node.id}-content`}
+                id={`${node.id}-header`}
               >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls={`${node.id}-content`}
-                  id={`${node.id}-header`}
-                >
-                  <CardHeader
-                    className={classes.cardHeader}
-                    avatar={
-                      node?.icon?.svg?.svg && (
-                        <Avatar
-                          role="img"
-                          aria-label={node.icon.name || ''}
-                          title={node.icon.name || ''}
-                        >
-                          <SvgIcon>{parse(node.icon.svg.svg)}</SvgIcon>
-                        </Avatar>
-                      )
-                    }
-                    title={
-                      <>
-                        <Typography variant="body2" component="div" color="textSecondary">
-                          {/* TODO: 日付表記に関して確認する */}
-                          {node?.startDate}年
-                        </Typography>
-                        <Typography component="h2" variant="h6">
-                          {node.name}
-                        </Typography>
-                      </>
-                    }
-                    subheader={
-                      <Typography variant="body2" component="div" role="list" aria-label="tags">
-                        {node.tags &&
-                          node.tags.map(
-                            tag =>
-                              tag?.name && (
-                                <Chip
-                                  variant="outlined"
-                                  size="small"
-                                  key={tag.name}
-                                  label={tag.name}
-                                  role="listitem"
-                                />
-                              ),
-                          )}
+                <CardHeader
+                  className={classes.cardHeader}
+                  avatar={
+                    <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
+                  }
+                  title={
+                    <>
+                      <Typography variant="body2" component="div" color="textSecondary">
+                        {/* TODO: 日付表記に関して確認する */}
+                        {node?.startDate}年
                       </Typography>
-                    }
-                  />
-                </AccordionSummary>
-                <AccordionDetails>
-                  <div>
-                    <Typography variant="body1" component="div">
-                      {node.subName}
+                      <Typography component="h2" variant="h6">
+                        {node.name}
+                      </Typography>
+                    </>
+                  }
+                  subheader={
+                    <Typography variant="body2" component="div" role="list" aria-label="tags">
+                      {node.tags &&
+                        node.tags.map(
+                          tag =>
+                            tag?.name && (
+                              <Chip
+                                variant="outlined"
+                                size="small"
+                                key={tag.name}
+                                label={tag.name}
+                                role="listitem"
+                              />
+                            ),
+                        )}
                     </Typography>
-                    <Typography variant="body2" component="div">
-                      {node?.detail?.childMarkdownRemark?.html &&
-                        parse(node.detail.childMarkdownRemark.html)}
-                    </Typography>
-                  </div>
-                </AccordionDetails>
-              </Accordion>
-            ),
-        )}
-      </Grid>
+                  }
+                  disableTypography
+                />
+              </AccordionSummary>
+              <AccordionDetails>
+                <div>
+                  <Typography variant="body1" component="div">
+                    {node.subName}
+                  </Typography>
+                  <Typography variant="body2" component="div">
+                    {node?.detail?.childMarkdownRemark?.html &&
+                      parse(node.detail.childMarkdownRemark.html)}
+                  </Typography>
+                </div>
+              </AccordionDetails>
+            </Accordion>
+          ),
+      )}
     </Grid>
   );
 };
