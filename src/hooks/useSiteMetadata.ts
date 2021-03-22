@@ -8,7 +8,7 @@ import {
   twitter,
   image,
   image192,
-} from '../../.gatsby/gatsby-config';
+} from 'src/../.gatsby/gatsby-config';
 
 const siteMetadata = {
   languages,

@@ -4,7 +4,7 @@ import { makeStyles, Toolbar, AppBar, Typography, useScrollTrigger, Box } from '
 import { WbSunny, Brightness2 } from '@material-ui/icons';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
-import { useDarkMode } from '../../hooks';
+import { useDarkMode } from 'src/hooks';
 
 export type HeaderProps = {
   icon: string;

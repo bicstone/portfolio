@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Container, Typography } from '@material-ui/core';
-import { IndexPageQuery } from '../types';
+import { IndexPageQuery } from 'src/types';
 import {
   Layout,
   HelloGroup,
@@ -13,7 +13,7 @@ import {
   ProjectList,
   SkillList,
   WhatICanDoList,
-} from '../components';
+} from 'src/components';
 
 const useStyles = makeStyles(theme => ({
   container: {

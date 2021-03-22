@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { makeStyles, CardActions, Collapse, ButtonBase, IconButton } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { useBreakPoint } from '../../hooks';
+import { useBreakPoint } from 'src/hooks';
 
 export type ExpandContentProps = {
   id: string;

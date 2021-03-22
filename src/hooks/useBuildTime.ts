@@ -1,5 +1,5 @@
 import { useStaticQuery, graphql } from 'gatsby';
-import { BuildTimeDataQuery } from '../types';
+import { BuildTimeDataQuery } from 'src/types';
 
 // graphqlTypesではanyとなるため型ヒントを追加
 export type BuildTime = string | undefined;

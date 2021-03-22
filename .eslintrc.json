@@ -27,7 +27,8 @@
     "no-use-before-define": "off",
     "import/order": ["error"],
     "import/no-named-as-default": "off",
-    "import/no-unresolved": ["error", {"ignore": ["^src/"] }]
+    "import/no-unresolved": ["error", {"ignore": ["^src/"] }],
+    "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }]
   },
   "settings": {
     "react": {
