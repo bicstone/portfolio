@@ -10,7 +10,7 @@ export type SvgAvatarProps = {
 /**
  * Contentfulから持ってきたpath集合をavatarとして出力する
  * ※svgをcontentfulから持ってくるときに使用
- * TODO: contentfulからmediaで返したほうが良かった
+ * XXX: contentfulからmediaで返したほうが良かった
  */
 export const SvgAvatar = React.memo<React.ComponentProps<typeof Avatar> & SvgAvatarProps>(
   ({ name, svg, ...props }) => {

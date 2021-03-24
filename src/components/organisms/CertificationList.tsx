@@ -10,7 +10,7 @@ import {
   CardContent,
 } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ExpandContent } from 'src/components';
+import { ExpansionPanel } from 'src/components';
 import { ContentfulQualificationMap, ContentfulQualification, Maybe } from 'src/types';
 
 export type CertificationListProps = {
@@ -32,7 +32,7 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
               <Card>
-                <ExpandContent
+                <ExpansionPanel
                   id={node.id}
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}

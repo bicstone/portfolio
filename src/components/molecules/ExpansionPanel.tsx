@@ -5,7 +5,7 @@ import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { useBreakPoint } from 'src/hooks';
 
-export type ExpandContentProps = {
+export type ExpansionPanelProps = {
   id: string;
   defaultExpanded?: boolean;
   defaultExpandedBreakpoints?: Breakpoint[];
@@ -45,7 +45,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export const ExpandContent: React.FC<ExpandContentProps> = ({
+/**
+ * 詳細を開閉できるパネル
+ */
+export const ExpansionPanel: React.FC<ExpansionPanelProps> = ({
   id,
   defaultExpanded = true,
   defaultExpandedBreakpoints = undefined,

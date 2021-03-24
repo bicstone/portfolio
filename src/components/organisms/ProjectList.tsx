@@ -4,7 +4,6 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
   makeStyles,
   Typography,
-  Grid,
   CardHeader,
   Accordion,
   AccordionDetails,
@@ -53,7 +52,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   };
 
   return (
-    <Grid container spacing={2} justify="center" alignItems="center">
+    <>
       {projects.map(
         ({ node }) =>
           node.node_locale === language && (
@@ -118,6 +117,6 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
             </Accordion>
           ),
       )}
-    </Grid>
+    </>
   );
 };

@@ -24,7 +24,7 @@ import {
   MarkdownRemark,
   Maybe,
 } from 'src/types';
-import { ExpandContent, SvgAvatar } from 'src/components';
+import { ExpansionPanel, SvgAvatar } from 'src/components';
 
 const useStyles = makeStyles(() => ({
   cardMedia: {
@@ -81,7 +81,7 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
                     )}
                   </CardMedia>
                 </CardActionArea>
-                <ExpandContent
+                <ExpansionPanel
                   id={node.id}
                   defaultExpanded={false}
                   title={
