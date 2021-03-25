@@ -79,11 +79,6 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
                         {node.name}
                       </Typography>
                     }
-                    subheader={
-                      <Typography variant="body2" color="textSecondary">
-                        {node.subName}
-                      </Typography>
-                    }
                     disableTypography
                   />
                 </TimelineContent>
