@@ -33,6 +33,15 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
         <HelloGroup links={data.links.edges} icon={icon} iconAlt={iconAlt} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
+        <Typography component="h2" variant="h4" align="center" paragraph>
+          {t('home.contacts-title')}
+        </Typography>
+        <ContactsList contacts={data.contacts.edges} />
+      </Container>
+      <Container maxWidth="lg" className={classes.container} component="section">
+        <Typography component="h2" variant="h4" align="center" paragraph>
+          {t('home.what-i-can-dos-title')}
+        </Typography>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
       </Container>
       <Container maxWidth="lg" className={classes.container} component="section">
@@ -64,13 +73,6 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
           {t('home.qualifications-title')}
         </Typography>
         <CertificationList certification={data.certification.edges} />
-      </Container>
-      {/* 問い合わせへのアンカーリンク設置するためのID指定、仮対応 */}
-      <Container maxWidth="lg" className={classes.container} component="section" id="contact">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.contacts-title')}
-        </Typography>
-        <ContactsList contacts={data.contacts.edges} />
       </Container>
     </Layout>
   );

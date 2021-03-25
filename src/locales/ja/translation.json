@@ -8,16 +8,16 @@
     "copyright": "© {{year}} Takanori Oishi"
   },
   "header": {
+    "back-to-home": "ホームに移動",
     "changeLanguage-title": "言語切替",
     "github-title": "GitHub",
     "github-url": "https://github.com/bicstone/",
     "title-home": "Takanori Oishi",
-    "toggleDarkTheme-title": "ダークモード切替",
-    "back-to-home": "ホームに移動"
+    "toggleDarkTheme-title": "ダークモード切替"
   },
   "hello": {
-    "description": "Takanori Oishi (おおいし たかのり) と申します。Webエンジニア / セキュリティスペシャリスト / 機械エンジニアです。",
-    "title": "bicstone（ビックストーン）"
+    "description": "Takanori Oishi (おおいし たかのり) と申します。 Webエンジニア / セキュリティスペシャリスト / 機械エンジニア です。",
+    "title": "@bicstone （ビックストーン）"
   },
   "histories": {
     "age": "{{age}}歳",
@@ -29,7 +29,8 @@
     "osses-title": "OSS",
     "projects-title": "プロジェクト",
     "qualifications-title": "資格",
-    "skills-title": "スキル"
+    "skills-title": "スキル",
+    "what-i-can-dos-title": "お手伝いできること"
   },
   "not-found": {
     "back-to-home": "ホームに移動",
