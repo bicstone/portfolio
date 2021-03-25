@@ -35,7 +35,7 @@ export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
       {contacts.map(
         ({ node }) =>
           node.node_locale === language && (
-            <Grid item xs={12} sm={4} key={node.id} component="section">
+            <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
               <CardActionArea
                 title={node.name || ''}
                 href={node.href || ''}

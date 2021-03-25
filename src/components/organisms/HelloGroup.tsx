@@ -62,6 +62,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
                       rel="external noreferrer noopener nofollow"
                       className={classes.button}
                       key={node.id}
+                      target="_blank"
                     >
                       {node.name}
                     </Button>
