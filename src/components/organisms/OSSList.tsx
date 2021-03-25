@@ -1,5 +1,4 @@
 import React from 'react';
-import parse from 'html-react-parser';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
