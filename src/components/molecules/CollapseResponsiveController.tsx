@@ -10,7 +10,7 @@ export type CollapseResponsiveControllerProps = {
 };
 
 /**
- * ブレークポイントが広くなった場合に展開するアコーディオン
+ * ブレークポイントが広くなった場合に展開するアコーディオン制御
  */
 export const CollapseResponsiveController: React.FC<CollapseResponsiveControllerProps> = ({
   defaultExpanded = true,

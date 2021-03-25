@@ -1,29 +1,19 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
-  makeStyles,
   Typography,
   Grid,
   LinearProgress,
-  CardContent,
   Card,
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Box,
 } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
 import { CollapseResponsiveController } from 'src/components';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
-
-const useStyles = makeStyles(theme => ({
-  cardContent: {
-    paddingTop: theme.spacing(2),
-    paddingRight: theme.spacing(4),
-    paddingBottom: theme.spacing(2),
-    paddingLeft: theme.spacing(4),
-  },
-}));
 
 export type SkillListProps = {
   skills: Array<{
@@ -34,7 +24,6 @@ export type SkillListProps = {
 };
 
 export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
-  const classes = useStyles();
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
   return (
@@ -59,7 +48,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <CardContent className={classes.cardContent}>
+                      <Box width="100%" paddingY={2} paddingX={2}>
                         {node?.skills?.map(skill => (
                           <Grid
                             container
@@ -81,7 +70,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                             </Grid>
                           </Grid>
                         ))}
-                      </CardContent>
+                      </Box>
                     </AccordionDetails>
                   </Accordion>
                 </CollapseResponsiveController>

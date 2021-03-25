@@ -6,7 +6,6 @@ import {
   List,
   ListItem,
   ListItemText,
-  CardContent,
   Accordion,
   AccordionDetails,
   AccordionSummary,
@@ -24,6 +23,9 @@ export type CertificationListProps = {
   }>;
 };
 
+/**
+ * 資格一覧
+ */
 export const CertificationList: React.FC<CertificationListProps> = ({ certification }) => {
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ['lg', 'xl', 'md'];
@@ -49,21 +51,19 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <CardContent>
-                      <List dense={true}>
-                        {node.qualifications?.map(
-                          qualification =>
-                            qualification && (
-                              <ListItem key={qualification.id}>
-                                <ListItemText
-                                  primary={qualification.name}
-                                  secondary={qualification.date}
-                                />
-                              </ListItem>
-                            ),
-                        )}
-                      </List>
-                    </CardContent>
+                    <List dense={true}>
+                      {node.qualifications?.map(
+                        qualification =>
+                          qualification && (
+                            <ListItem key={qualification.id}>
+                              <ListItemText
+                                primary={qualification.name}
+                                secondary={qualification.date}
+                              />
+                            </ListItem>
+                          ),
+                      )}
+                    </List>
                   </AccordionDetails>
                 </Accordion>
               </CollapseResponsiveController>
