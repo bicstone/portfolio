@@ -12,6 +12,9 @@ import {
   Card,
   CardMedia,
   Chip,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
 } from '@material-ui/core';
 import {
   ContentfulAsset,
@@ -24,7 +27,8 @@ import {
   MarkdownRemark,
   Maybe,
 } from 'src/types';
-import { ExpansionPanel, SvgAvatar } from 'src/components';
+import { CollapseResponsiveController, SvgAvatar } from 'src/components';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 
 const useStyles = makeStyles(() => ({
   cardMedia: {
@@ -81,53 +85,60 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
                     )}
                   </CardMedia>
                 </CardActionArea>
-                <ExpansionPanel
-                  id={node.id}
-                  defaultExpanded={false}
-                  title={
-                    <CardHeader
-                      className={classes.cardHeader}
-                      avatar={
-                        <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
-                      }
-                      title={
-                        <>
+                <CollapseResponsiveController defaultExpanded={false}>
+                  <Accordion component="section">
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls={`${node.id}-content`}
+                      id={`${node.id}-header`}
+                    >
+                      <CardHeader
+                        className={classes.cardHeader}
+                        avatar={
+                          <SvgAvatar
+                            name={node?.icon?.name || ''}
+                            svg={node?.icon?.svg?.svg || ''}
+                          />
+                        }
+                        title={
+                          <>
+                            <Typography variant="body2" component="div" color="textSecondary">
+                              {node?.startDate}～
+                            </Typography>
+                            <Typography component="h2" variant="h6">
+                              {node.name}
+                            </Typography>
+                          </>
+                        }
+                        subheader={
                           <Typography variant="body2" component="div" color="textSecondary">
-                            {node?.startDate}～
+                            {node.tags &&
+                              node.tags.map(
+                                tag =>
+                                  tag?.name && (
+                                    <Chip
+                                      variant="outlined"
+                                      size="small"
+                                      key={tag.name}
+                                      label={tag.name}
+                                    />
+                                  ),
+                              )}
                           </Typography>
-                          <Typography component="h2" variant="h6">
-                            {node.name}
-                          </Typography>
-                        </>
-                      }
-                      subheader={
-                        <Typography variant="body2" component="div" color="textSecondary">
-                          {node.tags &&
-                            node.tags.map(
-                              tag =>
-                                tag?.name && (
-                                  <Chip
-                                    variant="outlined"
-                                    size="small"
-                                    key={tag.name}
-                                    label={tag.name}
-                                  />
-                                ),
-                            )}
+                        }
+                        disableTypography
+                      />
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <CardContent>
+                        <Typography variant="body2" component="div">
+                          {node?.detail?.childMarkdownRemark?.html &&
+                            parse(node.detail.childMarkdownRemark.html)}
                         </Typography>
-                      }
-                      disableTypography
-                    />
-                  }
-                  detail={
-                    <CardContent>
-                      <Typography variant="body2" component="div">
-                        {node?.detail?.childMarkdownRemark?.html &&
-                          parse(node.detail.childMarkdownRemark.html)}
-                      </Typography>
-                    </CardContent>
-                  }
-                />
+                      </CardContent>
+                    </AccordionDetails>
+                  </Accordion>
+                </CollapseResponsiveController>
               </Card>
             </Grid>
           ),

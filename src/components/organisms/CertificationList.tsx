@@ -6,12 +6,15 @@ import {
   List,
   ListItem,
   ListItemText,
-  Card,
   CardContent,
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
 } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ExpansionPanel } from 'src/components';
+import { CollapseResponsiveController } from 'src/components';
 import { ContentfulQualificationMap, ContentfulQualification, Maybe } from 'src/types';
+import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 
 export type CertificationListProps = {
   certification: Array<{
@@ -31,17 +34,21 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
-              <Card>
-                <ExpansionPanel
-                  id={node.id}
-                  defaultExpanded={node.expanded || false}
-                  defaultExpandedBreakpoints={defaultExpandedBreakpoints}
-                  title={
+              <CollapseResponsiveController
+                defaultExpanded={node.expanded || false}
+                defaultExpandedBreakpoints={defaultExpandedBreakpoints}
+              >
+                <Accordion component="section">
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls={`${node.id}-content`}
+                    id={`${node.id}-header`}
+                  >
                     <Typography component="h2" variant="h6">
                       {node.name}
                     </Typography>
-                  }
-                  detail={
+                  </AccordionSummary>
+                  <AccordionDetails>
                     <CardContent>
                       <List dense={true}>
                         {node.qualifications?.map(
@@ -57,9 +64,9 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
                         )}
                       </List>
                     </CardContent>
-                  }
-                />
-              </Card>
+                  </AccordionDetails>
+                </Accordion>
+              </CollapseResponsiveController>
             </Grid>
           ),
       )}
