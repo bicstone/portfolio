@@ -3,7 +3,7 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Typography, Grid, LinearProgress, CardContent, Card } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
 import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
-import { ExpansionPanel } from 'src/components';
+import { ExpansionPanel, ExpansionPanelSummary, ExpansionPanelDetail } from 'src/components';
 
 const useStyles = makeStyles(theme => ({
   cardContent: {
@@ -34,15 +34,17 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
             <Grid item xs={12} sm={6} md={4} key={node.id}>
               <Card>
                 <ExpansionPanel
-                  id={node.id}
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}
-                  title={
-                    <Typography component="h2" variant="h6">
-                      {node.name}
-                    </Typography>
+                  summary={
+                    <ExpansionPanelSummary>
+                      <Typography component="h2" variant="h6">
+                        {node.name}
+                      </Typography>
+                    </ExpansionPanelSummary>
                   }
                   detail={
+                    <ExpansionPanelDetail 
                     <CardContent className={classes.cardContent}>
                       {node?.skills?.map(skill => (
                         <Grid

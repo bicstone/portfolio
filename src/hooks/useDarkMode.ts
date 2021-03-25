@@ -1,8 +1,7 @@
 import React from 'react';
 import useTheme from '@material-ui/core/styles/useTheme';
-import { ThemeAction, TOGGLE_DARKMODE } from 'src/reducers';
-
-export const ThemeContext = React.createContext<React.Dispatch<ThemeAction>>(() => false);
+import { TOGGLE_DARKMODE } from 'src/reducers';
+import { ThemeContext } from 'src/contexts';
 
 export const useDarkMode: () => [boolean, () => void] = () => {
   const dispatch = React.useContext(ThemeContext);
