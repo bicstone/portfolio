@@ -1,9 +1,12 @@
 import React from 'react';
 import { ThemeProvider, CssBaseline, createMuiTheme } from '@material-ui/core';
 import { green, pink } from '@material-ui/core/colors';
-import { themeReducer, themeInitialState, themeInitial } from '../../reducers';
-import { ThemeContext } from '../../hooks';
+import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
+import { ThemeContext } from 'src/contexts';
 
+/**
+ * material-ui 基本レイアウト
+ */
 const TopLayout: React.FC = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,

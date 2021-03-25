@@ -10,6 +10,13 @@
   "config": {
     "namingConvention": {
       "enumValues": "keep"
+    },
+    "skipTypename": true,
+    "avoidOptionals": {
+      "field": true,
+      "inputValue": false,
+      "object": false,
+      "defaultValue": false
     }
   }
 }

@@ -145,5 +145,11 @@ export default {
     {
       resolve: 'gatsby-transformer-remark',
     },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: `${__dirname}/../src/`
+      }
+    }
   ],
 };

@@ -3,13 +3,15 @@ import { graphql, PageProps } from 'gatsby';
 import { Link } from 'gatsby-theme-material-ui';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Container, Typography, Grid, Card, CardContent, Link as ELink } from '@material-ui/core';
-import { PrivacyPageQuery } from '../types';
-import { Layout } from '../components';
+import { PrivacyPageQuery } from 'src/types';
+import { Layout } from 'src/components';
 
-const privacy: React.FC<PageProps<PrivacyPageQuery>> = () => {
+const privacy: React.FC<PageProps<PrivacyPageQuery>> = ({ data }) => {
   const { t } = useI18next();
+  const icon = data.icon?.svg?.content || '';
+  const iconAlt = data.icon?.title || '';
   return (
-    <Layout cookieAlertShow={false}>
+    <Layout cookieAlertShow={false} icon={icon} iconAlt={iconAlt}>
       <Container maxWidth="md">
         <Grid item>
           <Typography component="h2" variant="h6" paragraph>
@@ -52,6 +54,14 @@ export const query = graphql`
           data
           language
         }
+      }
+    }
+    # Bicstoneアイコンを取得する
+    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
+    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+      title
+      svg {
+        content
       }
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'gatsby-plugin-react-i18next';
-import { useBuildTime, useSiteMetadata } from '../../hooks';
+import { useBuildTime, useSiteMetadata } from 'src/hooks';
 
 type Props = {
   title?: string;
@@ -8,6 +8,9 @@ type Props = {
   image?: string;
 };
 
+/**
+ * Headタグ部
+ */
 export const Head: React.FC<Props> = ({
   title = undefined,
   description = undefined,

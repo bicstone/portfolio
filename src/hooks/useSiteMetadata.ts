@@ -8,7 +8,7 @@ import {
   twitter,
   image,
   image192,
-} from '../../.gatsby/gatsby-config';
+} from 'src/../.gatsby/gatsby-config';
 
 const siteMetadata = {
   languages,
@@ -22,6 +22,9 @@ const siteMetadata = {
   image192,
 };
 
+/**
+ * gatsby 基本設定を返す
+ */
 export const useSiteMetadata = (): typeof siteMetadata => {
   return siteMetadata;
 };
