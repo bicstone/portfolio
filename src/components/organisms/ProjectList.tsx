@@ -39,6 +39,9 @@ export type ProjectListProps = {
   }>;
 };
 
+/**
+ * プロジェクト一覧
+ */
 export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const classes = useStyles();
   const { language } = useI18next();
@@ -75,7 +78,6 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   title={
                     <>
                       <Typography variant="body2" component="div" color="textSecondary">
-                        {/* TODO: 日付表記に関して確認する */}
                         {node?.startDate}年
                       </Typography>
                       <Typography component="h2" variant="h6">

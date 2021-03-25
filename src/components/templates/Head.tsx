@@ -8,6 +8,9 @@ type Props = {
   image?: string;
 };
 
+/**
+ * Headタグ部
+ */
 export const Head: React.FC<Props> = ({
   title = undefined,
   description = undefined,

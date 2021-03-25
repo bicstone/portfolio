@@ -1,8 +1,8 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, CardHeader, Card } from '@material-ui/core';
-import { ContentfulIcon, ContentfulIconSvgTextNode, ContentfulWhatICanDo, Maybe } from 'src/types';
 import { SvgAvatar } from 'src/components';
+import { ContentfulIcon, ContentfulIconSvgTextNode, ContentfulWhatICanDo, Maybe } from 'src/types';
 
 export type WhatICanDoListProps = {
   whatICanDos: Array<{
@@ -14,6 +14,9 @@ export type WhatICanDoListProps = {
   }>;
 };
 
+/**
+ * お手伝いできることリスト
+ */
 export const WhatICanDoList: React.FC<WhatICanDoListProps> = ({ whatICanDos }) => {
   const { language } = useI18next();
   return (

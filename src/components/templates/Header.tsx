@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+/**
+ * ヘッダー部
+ */
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   const classes = useStyles();
   const { t } = useI18next();

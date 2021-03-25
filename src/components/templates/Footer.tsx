@@ -11,6 +11,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+/**
+ * フッター部
+ */
 export const Footer: React.FC = () => {
   const classes = useStyles();
   const { t } = useI18next();

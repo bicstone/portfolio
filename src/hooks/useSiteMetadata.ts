@@ -22,6 +22,9 @@ const siteMetadata = {
   image192,
 };
 
+/**
+ * gatsby 基本設定を返す
+ */
 export const useSiteMetadata = (): typeof siteMetadata => {
   return siteMetadata;
 };

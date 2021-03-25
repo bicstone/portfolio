@@ -40,7 +40,7 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
                 defaultExpanded={node.expanded || false}
                 defaultExpandedBreakpoints={defaultExpandedBreakpoints}
               >
-                <Accordion component="section">
+                <Accordion>
                   <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls={`${node.id}-content`}

@@ -25,6 +25,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+/**
+ * 基本レイアウト
+ */
 export const Layout: React.FC<LayoutProps> = ({
   children,
   cookieAlertShow,

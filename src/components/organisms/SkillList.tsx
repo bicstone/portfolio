@@ -11,9 +11,9 @@ import {
   Box,
 } from '@material-ui/core';
 import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
-import { CollapseResponsiveController } from 'src/components';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { CollapseResponsiveController } from 'src/components';
+import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
 
 export type SkillListProps = {
   skills: Array<{
@@ -23,9 +23,13 @@ export type SkillListProps = {
   }>;
 };
 
+/**
+ * スキルリスト
+ */
 export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
+
   return (
     <Grid container spacing={2}>
       {skills.map(

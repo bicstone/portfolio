@@ -16,8 +16,8 @@
     "back-to-home": "ホームに移動"
   },
   "hello": {
-    "description": "Takanori Oishi (おおいし たかのり) と申します。Webエンジニア / セキュリティスペシャリスト / 機械エンジニアです。パフォーマンス・セキュリティ・SEO・a11yを意識したシンプルで高速な開発が得意です。",
-    "title": "ビックストーン！"
+    "description": "Takanori Oishi (おおいし たかのり) と申します。Webエンジニア / セキュリティスペシャリスト / 機械エンジニアです。",
+    "title": "bicstone（ビックストーン）"
   },
   "histories": {
     "age": "{{age}}歳",

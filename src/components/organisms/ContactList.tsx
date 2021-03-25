@@ -25,8 +25,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 /**
- * 連絡先List
- * 連絡先のリンク集がある
+ * 連絡先一覧
  */
 export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
   const classes = useStyles();

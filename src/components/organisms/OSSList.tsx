@@ -11,6 +11,7 @@ import {
   CardMedia,
   Chip,
 } from '@material-ui/core';
+import { SvgAvatar } from 'src/components';
 import {
   ContentfulAsset,
   ContentfulAssetFile,
@@ -22,7 +23,6 @@ import {
   MarkdownRemark,
   Maybe,
 } from 'src/types';
-import { SvgAvatar } from 'src/components';
 
 const useStyles = makeStyles(() => ({
   cardMedia: {
@@ -49,6 +49,9 @@ export type OSSListProps = {
   }>;
 };
 
+/**
+ * OSS 一覧
+ */
 export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
   const classes = useStyles();
   const { language } = useI18next();

@@ -42,6 +42,9 @@ export type HistoryListProps = {
   }>;
 };
 
+/**
+ * 経歴
+ */
 export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
   const classes = useStyles();
   const { t, language } = useI18next();
