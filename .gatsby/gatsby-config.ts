@@ -20,7 +20,7 @@ export default {
       resolve: 'gatsby-plugin-csp',
       options: {
         mergeScriptHashes: true,
-        mergeStyleHashes: true,
+        mergeStyleHashes: false,
         mergeDefaultDirectives: false,
         directives: {
           'connect-src': "'self' https://www.google-analytics.com",
