@@ -17,29 +17,6 @@ export default {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-csp',
-      options: {
-        mergeScriptHashes: true,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: false,
-        directives: {
-          'connect-src': "'self' https://www.google-analytics.com",
-          'default-src': "'self'",
-          'font-src': "'none'",
-          'frame-src': "'none'",
-          'img-src': "'self' data: https://www.google-analytics.com",
-          'manifest-src': "'self'",
-          'media-src': "'self'",
-          'object-src': "'none'",
-          'prefetch-src': "'self' https://www.google-analytics.com",
-          'script-src': "'self' https://www.google-analytics.com",
-          'style-src': "'self' 'unsafe-inline'",
-          'base-uri': "'none'",
-          'form-action': "'none'",
-        },
-      },
-    },
-    {
       resolve: `gatsby-transformer-sharp`,
     },
     {
@@ -151,6 +128,32 @@ export default {
       options: {
         src: `${__dirname}/../src/`
       }
-    }
+    },
+    {
+      // ハッシュ取得を行うため最下部に設置すること
+      resolve: 'gatsby-plugin-csp',
+      options: {
+        mergeScriptHashes: false,
+        mergeStyleHashes: false,
+        mergeDefaultDirectives: false,
+        directives: {
+          'connect-src': "'self' https://www.google-analytics.com",
+          'default-src': "'self'",
+          'font-src': "'none'",
+          'frame-src': "'none'",
+          'img-src': "'self' data: https://www.google-analytics.com",
+          'manifest-src': "'self'",
+          'media-src': "'self'",
+          'object-src': "'none'",
+          'prefetch-src': "'self' https://www.google-analytics.com",
+          // GAの取得ができなくなったため、inlineあり。要調査
+          'script-src': "'self' 'unsafe-inline' https://www.google-analytics.com",
+          // Material-UIが動的に設定されるため、inlineあり。
+          'style-src': "'self' 'unsafe-inline'",
+          'base-uri': "'none'",
+          'form-action': "'none'",
+        },
+      },
+    },
   ],
 };
