@@ -17,6 +17,29 @@ export default {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-csp',
+      options: {
+        mergeScriptHashes: true,
+        mergeStyleHashes: true,
+        mergeDefaultDirectives: false,
+        directives: {
+          'connect-src': "'self' https://www.google-analytics.com",
+          'default-src': "'self'",
+          'font-src': "'none'",
+          'frame-src': "'none'",
+          'img-src': "'self' data: https://www.google-analytics.com",
+          'manifest-src': "'self'",
+          'media-src': "'self'",
+          'object-src': "'none'",
+          'prefetch-src': "'self' https://www.google-analytics.com",
+          'script-src': "'self' https://www.google-analytics.com",
+          'style-src': "'self' 'unsafe-inline'",
+          'base-uri': "'none'",
+          'form-action': "'none'",
+        },
+      },
+    },
+    {
       resolve: `gatsby-transformer-sharp`,
     },
     {
@@ -119,28 +142,6 @@ export default {
     },
     {
       resolve: 'gatsby-transformer-inline-svg',
-    },
-    {
-      resolve: 'gatsby-plugin-csp',
-      options: {
-        mergeScriptHashes: true,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: false,
-        directives: {
-          'connect-src': "'self' https://www.google-analytics.com",
-          'default-src': "'self'",
-          'font-src': "'none'",
-          'frame-src': "'none'",
-          'img-src': "'self' data: https://www.google-analytics.com",
-          'manifest-src': "'self'",
-          'media-src': "'self'",
-          'object-src': "'none'",
-          'script-src': "'self' https://www.google-analytics.com",
-          'style-src': "'self' 'unsafe-inline'",
-          'base-uri': "'none'",
-          'form-action': "'none'",
-        },
-      },
     },
     {
       resolve: 'gatsby-transformer-remark',
