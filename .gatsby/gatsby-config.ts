@@ -121,9 +121,19 @@ export default {
       resolve: 'gatsby-transformer-inline-svg',
     },
     {
+      resolve: 'gatsby-transformer-remark',
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: `${__dirname}/../src/`
+      }
+    },
+    {
+      // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
-        mergeScriptHashes: true,
+        mergeScriptHashes: false,
         mergeStyleHashes: false,
         mergeDefaultDirectives: false,
         directives: {
@@ -135,21 +145,15 @@ export default {
           'manifest-src': "'self'",
           'media-src': "'self'",
           'object-src': "'none'",
-          'script-src': "'self' https://www.google-analytics.com",
+          'prefetch-src': "'self' https://www.google-analytics.com",
+          // GAの取得ができなくなったため、inlineあり。要調査
+          'script-src': "'self' 'unsafe-inline' https://www.google-analytics.com",
+          // Material-UIが動的に設定されるため、inlineあり。
           'style-src': "'self' 'unsafe-inline'",
           'base-uri': "'none'",
           'form-action': "'none'",
         },
       },
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        src: `${__dirname}/../src/`
-      }
-    }
   ],
 };
