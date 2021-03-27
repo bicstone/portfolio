@@ -1,34 +1,96 @@
 import React from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core';
-import { ContentfulContact, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
-import { MediaCard, SvgAvatar } from 'src/components';
+import {
+  ContentfulAssetFile,
+  ContentfulContact,
+  ImageSharp,
+  InlineSvg,
+  Maybe,
+  Scalars,
+} from 'src/types';
+import { MediaCard, SvgIcon } from 'src/components';
+import { useDarkMode } from 'src/hooks';
 
 export type ContactsListProps = {
   contacts: Array<{
-    node: Pick<ContentfulContact, 'node_locale' | 'id' | 'name' | 'subName' | 'href'> & {
-      icon: Maybe<
-        Pick<ContentfulIcon, 'name'> & {
-          svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
-        }
-      >;
+    node: Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'> & {
+      iconSvgLight: Maybe<{ svg: Maybe<Pick<InlineSvg, 'content'>> }>;
+      iconSvgDark: Maybe<{ svg: Maybe<Pick<InlineSvg, 'content'>> }>;
+      iconRasterLight: Maybe<{
+        file: Maybe<Pick<ContentfulAssetFile, 'url'>>;
+        localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>;
+      }>;
+      iconRasterDark: Maybe<{
+        file: Maybe<Pick<ContentfulAssetFile, 'url'>>;
+        localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>;
+      }>;
     };
   }>;
 };
 
+export type ContactsIconProps = {
+  iconSvgLight?: string;
+  iconSvgDark?: string;
+  iconRasterLight?: Scalars['JSON'];
+  iconRasterDark?: Scalars['JSON'];
+  alt?: string;
+};
+
 const useStyles = makeStyles(theme => ({
-  avatarLarge: {
+  icon: {
+    display: 'block',
     margin: theme.spacing(2, 'auto', 0, 'auto'),
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(5),
+    height: theme.spacing(5),
   },
 }));
 
 /**
+ * アイコン部
+ */
+const ContactsIcon: React.FC<ContactsIconProps> = ({
+  iconSvgLight,
+  iconSvgDark,
+  iconRasterLight,
+  iconRasterDark,
+  alt = '',
+}) => {
+  const classes = useStyles();
+  const [darkMode] = useDarkMode();
+  if (!darkMode && iconSvgLight) {
+    return (
+      <SvgIcon width={40} height={40} icon={iconSvgLight} alt={alt} className={classes.icon} />
+    );
+  }
+  if (darkMode && iconSvgDark) {
+    return (
+      <div>
+        <SvgIcon width={40} height={40} icon={iconSvgDark} alt={alt} className={classes.icon} />
+      </div>
+    );
+  }
+  if (!darkMode && iconRasterLight) {
+    return <GatsbyImage image={iconRasterLight} alt={alt} className={classes.icon} />;
+  }
+  if (darkMode && iconRasterDark) {
+    return <GatsbyImage image={iconRasterDark} alt={alt} className={classes.icon} />;
+  }
+  return null;
+};
+
+/**
  * 連絡先一覧
+ *
+ * 注意
+ * ソーシャルアイコンガイドラインを確認
+ * - ライトテーマは、すべて指定ブランドカラーを使用
+ * - ダークテーマは、全ブランドで白色がOKなので白色を使用
+ * - アイコン 8*5=40px
+ * - スペース 8*(5+2+2)=72px (アイコン幅比 180%)
  */
 export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
-  const classes = useStyles();
   const { language } = useI18next();
   return (
     <Grid container spacing={2} justify="center" alignItems="center">
@@ -44,10 +106,16 @@ export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
               >
                 <MediaCard
                   media={
-                    <SvgAvatar
-                      name={node.icon?.name || ''}
-                      svg={node.icon?.svg?.svg || ''}
-                      className={classes.avatarLarge}
+                    <ContactsIcon
+                      iconSvgLight={node.iconSvgLight?.svg?.content || ''}
+                      iconSvgDark={node.iconSvgDark?.svg?.content || ''}
+                      iconRasterLight={
+                        node.iconRasterLight?.localFile?.childImageSharp?.gatsbyImageData
+                      }
+                      iconRasterDark={
+                        node.iconRasterDark?.localFile?.childImageSharp?.gatsbyImageData
+                      }
+                      alt={node.name || ''}
                     />
                   }
                   title={
