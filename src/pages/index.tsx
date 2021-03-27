@@ -201,10 +201,34 @@ export const query = graphql`
           name
           subName
           href
-          icon {
-            name
+          iconSvgLight {
             svg {
-              svg
+              content
+            }
+          }
+          iconSvgDark {
+            svg {
+              content
+            }
+          }
+          iconRasterLight {
+            file {
+              url
+            }
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: FIXED, width: 40)
+              }
+            }
+          }
+          iconRasterDark {
+            file {
+              url
+            }
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: FIXED, width: 40)
+              }
             }
           }
         }
