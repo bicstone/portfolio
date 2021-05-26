@@ -47,12 +47,10 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const { language } = useI18next();
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
-  const handleChange = (id: string) => (
-    event: React.ChangeEvent<Record<string, unknown>>,
-    isExpanded: boolean,
-  ) => {
-    setExpanded(isExpanded ? id : false);
-  };
+  const handleChange =
+    (id: string) => (event: React.ChangeEvent<Record<string, unknown>>, isExpanded: boolean) => {
+      setExpanded(isExpanded ? id : false);
+    };
 
   return (
     <>
