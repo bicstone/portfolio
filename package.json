@@ -48,12 +48,12 @@
     "gatsby-transformer-remark": "4.6.0",
     "gatsby-transformer-sharp": "3.9.0",
     "html-react-parser": "1.2.7",
-    "i18next": "20.3.2",
+    "i18next": "20.3.3",
     "js-cookie": "2.2.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "react-i18next": "11.11.1"
+    "react-i18next": "11.11.3"
   },
   "devDependencies": {
     "@babel/cli": "7.14.5",
@@ -72,7 +72,7 @@
     "babel-preset-gatsby": "1.9.0",
     "barrelsby": "2.2.0",
     "dotenv": "10.0.0",
-    "eslint": "7.30.0",
+    "eslint": "7.31.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.23.4",
