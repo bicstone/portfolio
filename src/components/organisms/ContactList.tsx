@@ -1,15 +1,7 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core';
-import {
-  ContentfulAssetFile,
-  ContentfulContact,
-  ImageSharp,
-  InlineSvg,
-  Maybe,
-  Scalars,
-} from 'src/types';
+import { ContentfulContact, InlineSvg, Maybe } from 'src/types';
 import { MediaCard, SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';
 
