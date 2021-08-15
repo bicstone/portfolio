@@ -211,26 +211,6 @@ export const query = graphql`
               content
             }
           }
-          iconRasterLight {
-            file {
-              url
-            }
-            localFile {
-              childImageSharp {
-                gatsbyImageData(layout: FIXED, width: 40)
-              }
-            }
-          }
-          iconRasterDark {
-            file {
-              url
-            }
-            localFile {
-              childImageSharp {
-                gatsbyImageData(layout: FIXED, width: 40)
-              }
-            }
-          }
         }
       }
     }

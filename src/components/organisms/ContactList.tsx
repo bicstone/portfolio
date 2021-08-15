@@ -1,15 +1,7 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core';
-import {
-  ContentfulAssetFile,
-  ContentfulContact,
-  ImageSharp,
-  InlineSvg,
-  Maybe,
-  Scalars,
-} from 'src/types';
+import { ContentfulContact, InlineSvg, Maybe } from 'src/types';
 import { MediaCard, SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';
 
@@ -18,14 +10,6 @@ export type ContactsListProps = {
     node: Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'> & {
       iconSvgLight: Maybe<{ svg: Maybe<Pick<InlineSvg, 'content'>> }>;
       iconSvgDark: Maybe<{ svg: Maybe<Pick<InlineSvg, 'content'>> }>;
-      iconRasterLight: Maybe<{
-        file: Maybe<Pick<ContentfulAssetFile, 'url'>>;
-        localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>;
-      }>;
-      iconRasterDark: Maybe<{
-        file: Maybe<Pick<ContentfulAssetFile, 'url'>>;
-        localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>;
-      }>;
     };
   }>;
 };
@@ -33,8 +17,6 @@ export type ContactsListProps = {
 export type ContactsIconProps = {
   iconSvgLight?: string;
   iconSvgDark?: string;
-  iconRasterLight?: Scalars['JSON'];
-  iconRasterDark?: Scalars['JSON'];
   alt?: string;
 };
 
@@ -50,13 +32,7 @@ const useStyles = makeStyles(theme => ({
 /**
  * アイコン部
  */
-const ContactsIcon: React.FC<ContactsIconProps> = ({
-  iconSvgLight,
-  iconSvgDark,
-  iconRasterLight,
-  iconRasterDark,
-  alt = '',
-}) => {
+const ContactsIcon: React.FC<ContactsIconProps> = ({ iconSvgLight, iconSvgDark, alt = '' }) => {
   const classes = useStyles();
   const [darkMode] = useDarkMode();
   if (!darkMode && iconSvgLight) {
@@ -70,12 +46,6 @@ const ContactsIcon: React.FC<ContactsIconProps> = ({
         <SvgIcon width={40} height={40} icon={iconSvgDark} alt={alt} className={classes.icon} />
       </div>
     );
-  }
-  if (!darkMode && iconRasterLight) {
-    return <GatsbyImage image={iconRasterLight} alt={alt} className={classes.icon} />;
-  }
-  if (darkMode && iconRasterDark) {
-    return <GatsbyImage image={iconRasterDark} alt={alt} className={classes.icon} />;
   }
   return null;
 };
@@ -109,12 +79,6 @@ export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
                     <ContactsIcon
                       iconSvgLight={node.iconSvgLight?.svg?.content || ''}
                       iconSvgDark={node.iconSvgDark?.svg?.content || ''}
-                      iconRasterLight={
-                        node.iconRasterLight?.localFile?.childImageSharp?.gatsbyImageData
-                      }
-                      iconRasterDark={
-                        node.iconRasterDark?.localFile?.childImageSharp?.gatsbyImageData
-                      }
                       alt={node.name || ''}
                     />
                   }
