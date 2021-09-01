@@ -1,19 +1,13 @@
-export const languages = require('../languages');
-export const title = "Takanori Oishi @bisctone's Portfolio";
-export const shortTitle = 'bicstone';
-export const siteUrl = 'https://bicstone.me';
-export const description =
-  'Webディベロッパー/機械エンジニア Takanori Oishi (おおいし たかのり) @bicstone のポートフォリオサイトです。';
-export const author = 'bicstone'
-export const image = '/android-chrome-512x512.png';
-export const image192 = '/android-chrome-192x192.png';
-export const twitter = '@bicstone_me'
+require('dotenv').config({ path: `.env` });
+const path = require('path');
+const siteMetaData = require('./src/configs/site-meta-data');
+const languages = require('./src/configs/languages');
 
-export default {
+module.exports = {
   siteMetadata: {
-    title,
-    siteUrl,
-    description,
+    title: siteMetaData.title,
+    siteUrl: siteMetaData.siteUrl,
+    description: siteMetaData.description,
   },
   plugins: [
     {
@@ -29,7 +23,7 @@ export default {
       resolve: `gatsby-plugin-image`,
     },
     {
-      resolve: `gatsby-transformer-sharp`
+      resolve: `gatsby-transformer-sharp`,
     },
     {
       resolve: 'gatsby-source-contentful',
@@ -54,13 +48,13 @@ export default {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `locales`,
-        path: `${__dirname}/../src/locales/`,
+        path: path.resolve('src', 'locales'),
       },
     },
     {
       resolve: 'gatsby-plugin-react-i18next',
       options: {
-        siteUrl,
+        siteUrl: siteMetaData.siteUrl,
         localeJsonSourceName: `locales`,
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
@@ -79,19 +73,19 @@ export default {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'ja',
-        name: title,
-        short_name: shortTitle,
-        description,
+        name: siteMetaData.title,
+        short_name: siteMetaData.shortTitle,
+        description: siteMetaData.description,
         start_url: '/',
         display: 'minimal-ui',
         icons: [
           {
-            src: image,
+            src: siteMetaData.image,
             sizes: '512x512',
             type: 'image/png',
           },
           {
-            src: image192,
+            src: siteMetaData.image192,
             sizes: '192x192',
             type: 'image/png',
           },
@@ -126,8 +120,8 @@ export default {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
-        src: `${__dirname}/../src/`
-      }
+        src: path.resolve('src'),
+      },
     },
     {
       // ハッシュ取得を行うため最下部に設置すること
