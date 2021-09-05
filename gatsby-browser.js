@@ -6,4 +6,4 @@
  * SEE: https://www.gatsbyjs.com/docs/browser-apis/#onServiceWorkerUpdateFound
  */
 
-export const onServiceWorkerUpdateReady = () => window.location.reload();
+exports.onServiceWorkerUpdateReady = () => window.location.reload();
