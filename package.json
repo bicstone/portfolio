@@ -96,5 +96,14 @@
   },
   "engines": {
     "node": ">=12.13.0"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome major versions",
+    "last 2 Firefox major versions",
+    "last 2 Safari major versions",
+    "last 2 Edge major versions",
+    "last 2 Android major versions",
+    "last 2 ChromeAndroid major versions",
+    "last 2 iOS major versions"
+  ]
 }
