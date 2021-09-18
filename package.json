@@ -94,9 +94,6 @@
   "bugs": {
     "url": "https://github.com/bicstone/portfolio/issues"
   },
-  "engines": {
-    "node": ">=12.13.0"
-  },
   "browserslist": [
     "last 1 Chrome major versions",
     "last 2 Firefox major versions",
