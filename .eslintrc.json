@@ -5,34 +5,59 @@
   },
   "extends": [
     "standard",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:jsx-a11y/recommended"
+    "plugin:jsx-a11y/recommended",
+    "prettier"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 11,
-    "sourceType": "module"
+    "ecmaVersion": 11
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
   "rules": {
     "react/prop-types": "off",
     "no-use-before-define": "off",
-    "import/order": ["error"],
-    "import/no-named-as-default": "off",
-    "import/no-unresolved": ["error", {"ignore": ["^src/"] }],
-    "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }]
+    "import/order": ["error"]
   },
-  "settings": {
-    "react": {
-      "version": "detect"
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "env": {
+        "browser": true,
+        "es2020": true
+      },
+      "extends": [
+        "standard",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:jsx-a11y/recommended",
+        "prettier"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+      },
+      "plugins": ["react", "react-hooks", "@typescript-eslint"],
+      "rules": {
+        "react/prop-types": "off",
+        "no-use-before-define": "off",
+        "import/order": ["error"],
+        "import/no-named-as-default": "off",
+        "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
+        "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }]
+      },
+      "settings": {
+        "react": {
+          "version": "detect"
+        }
+      }
     }
-  }
+  ]
 }
