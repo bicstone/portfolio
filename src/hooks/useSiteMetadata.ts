@@ -1,4 +1,5 @@
 import {
+  languages,
   title,
   shortTitle,
   siteUrl,
@@ -7,8 +8,7 @@ import {
   twitter,
   image,
   image192,
-} from 'src/configs/site-meta-data';
-import { languages } from 'src/configs/languages';
+} from 'src/../.gatsby/gatsby-config';
 
 const siteMetadata = {
   languages,

@@ -6,4 +6,5 @@
  * SEE: https://www.gatsbyjs.com/docs/browser-apis/#onServiceWorkerUpdateFound
  */
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const onServiceWorkerUpdateReady = () => window.location.reload();
