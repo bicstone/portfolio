@@ -21,14 +21,14 @@ Gatsby.js + Contentful + Amazon CloudFront (Lambda@Edge) + Amazon S3 を用い�
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、高速で応答します。
 - インフラには、Amazon CloudFront + Amazon S3 を用いており、ユーザーの最寄りデータセンターから転送されるため通信が安定します。
-- `cache-control` HTTP ヘッダーを適切に設定しており、2 回目以降に余分なダウンロードを防止したり、逆に古いコンテンツが表示されることを防ぎます。
+- Cache-Control HTTP ヘッダーを適切に設定しており、2 回目以降に余分なダウンロードを防止したり、逆に古いコンテンツが表示されることを防ぎます。
 - Lighthouse のベンチマークでスコア 100/100 を達成しています。
 
 ### セキュリティ
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、脆弱性による改ざん等のリスクが軽減されます。
 - React のエスケープを使用しています。
-- `Content Security Policy` などセキュリティを強化する HTTP ヘッダを設定しています。
+- Content Security Policy などセキュリティを強化する HTTP ヘッダを設定しています。
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2020 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory のベンチマークでスコア 105/100 を達成しています。
 - SonarCloud、snyk と LGTM を使用し、静的セキュリティレビューを受けています。
