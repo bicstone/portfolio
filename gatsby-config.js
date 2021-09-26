@@ -17,9 +17,6 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
     },
     {
-      resolve: `gatsby-image`,
-    },
-    {
       resolve: `gatsby-plugin-image`,
     },
     {
@@ -92,23 +89,13 @@ module.exports = {
         ],
         theme_color: '#ffffff',
         background_color: '#ffffff',
-        cache_busting_mode: 'none',
       },
     },
     {
       resolve: `gatsby-plugin-advanced-sitemap`,
       options: {
-        exclude: [`/offline-plugin-app-shell-fallback`],
         createLinkInHead: true,
         addUncaughtPages: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-        workboxConfig: {
-          globPatterns: ['**/*.png'],
-        },
       },
     },
     {
@@ -122,6 +109,9 @@ module.exports = {
       options: {
         src: path.resolve('src'),
       },
+    },
+    {
+      resolve: 'gatsby-plugin-remove-serviceworker',
     },
     {
       // ハッシュ取得を行うため最下部に設置すること
