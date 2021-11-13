@@ -40,7 +40,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Lambda@Edge) + Amazon S3 を用い�
 - ダークモードでは、彩度を下げて目に負担がかからないようにしています。
 - キーボードのみで操作できるように設計しています。
 - テキストブラウザや音声ブラウザで使用できるよう、セマンティクスなマークアップで実装しています。
-- 代替テキストや、必要に応じてWAI-ARIAを設定しています。
+- 代替テキストや、必要に応じて WAI-ARIA を設定しています。
 - axe 及び Lighthouse で静的アクセシビリティレビューを受けています。
 
 ### DevOps
@@ -76,6 +76,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Lambda@Edge) + Amazon S3 を用い�
 - SonarCloud (静的レビュー)
 - LGTM (静的レビュー)
 - snyk (静的レビュー)
+- DeepSource (静的レビュー)
 - FOSSA (ライセンスの管理)
 - Semantic Pull Request (コミットメッセージの整形)
 - Renovate (ライブラリ管理)
