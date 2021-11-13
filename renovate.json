@@ -1,7 +1,7 @@
 {
   "extends": ["config:base", ":disableDependencyDashboard"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["after 6am and before 7am every sunday"],
+  "schedule": ["after 0am and before 9am every sunday"],
   "assignees": ["bicstone"],
   "reviewers": ["bicstone"],
   "packageRules": [
