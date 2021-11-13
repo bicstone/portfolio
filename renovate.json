@@ -6,16 +6,16 @@
   "reviewers": ["bicstone"],
   "packageRules": [
     {
+      "matchPackagePatterns": ["*"],
+      "groupName": "dependencies"
+    },
+    {
       "matchPackagePatterns": ["eslint"],
       "groupName": "eslint dependencies"
     },
     {
       "matchPackagePatterns": ["gatsby"],
       "groupName": "gatsby dependencies"
-    },
-    {
-      "matchPackagePatterns": ["*"],
-      "groupName": "dependencies"
     }
   ]
 }
