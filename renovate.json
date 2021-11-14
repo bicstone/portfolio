@@ -16,6 +16,14 @@
     {
       "matchPackagePatterns": ["gatsby"],
       "groupName": "gatsby dependencies"
+    },
+    {
+      "matchPackagePatterns": ["material-ui"],
+      "groupName": "mui dependencies"
+    },
+    {
+      "matchPackagePrefixes": ["@mui"],
+      "groupName": "mui dependencies"
     }
   ]
 }
