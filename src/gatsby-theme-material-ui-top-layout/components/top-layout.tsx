@@ -5,7 +5,6 @@ import {
   StyledEngineProvider,
   CssBaseline,
   createTheme,
-  adaptV4Theme,
 } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
 import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
@@ -27,64 +26,72 @@ const TopLayout: React.FC = props => {
   );
   const { darkMode } = themeState;
   const defaultTheme = createTheme();
-  const theme = createTheme(
-    adaptV4Theme({
-      palette: {
-        mode: darkMode ? 'dark' : 'light',
-        primary: {
-          // ダークテーマでは彩度を200以下にする
-          // @SEE: https://material.io/design/color/dark-theme.html
-          main: darkMode ? green[200] : green[300],
-        },
-        secondary: {
-          main: darkMode ? pink[200] : pink.A700,
-        },
-        text: {
-          secondary: darkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.65)',
-        },
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+      primary: {
+        // ダークテーマでは彩度を200以下にする
+        // @SEE: https://material.io/design/color/dark-theme.html
+        main: darkMode ? green[200] : green[300],
       },
-      typography: {
-        fontFamily:
-          '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+      secondary: {
+        main: darkMode ? pink[200] : pink.A700,
       },
-      overrides: {
-        MuiButton: {
+      text: {
+        secondary: darkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.65)',
+      },
+    },
+    typography: {
+      fontFamily:
+        '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+    },
+    components: {
+      MuiButton: {
+        defaultProps: {
+          size: 'small',
+        },
+        styleOverrides: {
           root: {
             textTransform: 'none',
           },
         },
-        MuiButtonBase: {
+      },
+      MuiButtonBase: {
+        styleOverrides: {
           root: {
             userSelect: 'auto',
           },
         },
-        MuiChip: {
+      },
+      MuiChip: {
+        styleOverrides: {
           root: {
             marginRight: defaultTheme.spacing(0.5),
             marginTop: defaultTheme.spacing(0.5),
           },
         },
-        MuiLinearProgress: {
+      },
+      MuiLinearProgress: {
+        styleOverrides: {
           root: {
             height: defaultTheme.spacing(0.5),
           },
         },
-        MuiAvatar: {
+      },
+      MuiAvatar: {
+        styleOverrides: {
           colorDefault: {
             backgroundColor: darkMode ? green[200] : green[300],
           },
         },
       },
-      props: {
-        MuiButton: {
-          size: 'small',
-        },
-        MuiLink: {
+      MuiLink: {
+        defaultProps: {
           color: 'inherit',
         },
       },
-    }),
-  );
+    },
+  });
 
   return (
     <>
