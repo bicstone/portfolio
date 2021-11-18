@@ -1,13 +1,29 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard"],
+  "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
-  "schedule": ["after 6am and before 7am every sunday"],
+  "schedule": ["before 6am on Sunday"],
   "assignees": ["bicstone"],
   "reviewers": ["bicstone"],
   "packageRules": [
     {
-      "packagePatterns": ["*"],
+      "matchPackagePatterns": ["*"],
       "groupName": "dependencies"
+    },
+    {
+      "matchPackagePatterns": ["eslint"],
+      "groupName": "eslint dependencies"
+    },
+    {
+      "matchPackagePatterns": ["gatsby"],
+      "groupName": "gatsby dependencies"
+    },
+    {
+      "matchPackagePatterns": ["material-ui"],
+      "groupName": "mui dependencies"
+    },
+    {
+      "matchPackagePrefixes": ["@mui"],
+      "groupName": "mui dependencies"
     }
   ]
 }

@@ -1,0 +1,14 @@
+version = 1
+
+exclude_patterns = ["/src/types/graphqlTypes.ts"]
+
+[[analyzers]]
+name = "shell"
+enabled = true
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  plugins = ["react"]
