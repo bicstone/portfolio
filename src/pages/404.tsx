@@ -2,8 +2,9 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Button } from 'gatsby-theme-material-ui';
-import { makeStyles, Box, Typography, Container } from '@material-ui/core';
-import { LocalHotel as LocalHotelIcon } from '@material-ui/icons';
+import { Box, Typography, Container } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { NotFoundPageQuery } from 'src/types';
 import { Layout } from 'src/components';
 

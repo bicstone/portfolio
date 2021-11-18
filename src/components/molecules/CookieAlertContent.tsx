@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, SnackbarContent, Typography, makeStyles } from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import makeStyles from '@mui/styles/makeStyles';
+import { Breakpoint } from '@mui/material/styles';
+import { Box, SnackbarContent, Typography } from '@mui/material';
 import { useBreakPoint } from 'src/hooks';
 
 export type CookieAlertContentProps = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { makeStyles, Typography, Grid, CardActionArea } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Grid, CardActionArea } from '@mui/material';
 import { ContentfulContact, InlineSvg, Maybe } from 'src/types';
 import { MediaCard, SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';
@@ -63,7 +64,7 @@ const ContactsIcon: React.FC<ContactsIconProps> = ({ iconSvgLight, iconSvgDark, 
 export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
   const { language } = useI18next();
   return (
-    <Grid container spacing={2} justify="center" alignItems="center">
+    <Grid container spacing={2} justifyContent="center" alignItems="center">
       {contacts.map(
         ({ node }) =>
           node.node_locale === language && (

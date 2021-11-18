@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, makeStyles } from '@material-ui/core';
+import { Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { CookieAlert, Head, Header, Footer } from 'src/components';
 import BackgroundImage from './background.svg';
 

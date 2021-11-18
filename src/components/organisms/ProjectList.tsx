@@ -2,15 +2,15 @@ import React from 'react';
 import parse from 'html-react-parser';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
-  makeStyles,
   Typography,
   CardHeader,
   Accordion,
   AccordionDetails,
   AccordionSummary,
   Chip,
-} from '@material-ui/core';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { SvgAvatar } from 'src/components';
 import {
   ContentfulIcon,

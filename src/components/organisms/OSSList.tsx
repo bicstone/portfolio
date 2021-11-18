@@ -1,16 +1,8 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import {
-  makeStyles,
-  Typography,
-  Grid,
-  CardHeader,
-  CardActionArea,
-  Card,
-  CardMedia,
-  Chip,
-} from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Grid, CardHeader, CardActionArea, Card, CardMedia, Chip } from '@mui/material';
 import { SvgAvatar } from 'src/components';
 import {
   ContentfulAsset,
@@ -57,7 +49,7 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
   const { language } = useI18next();
 
   return (
-    <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
+    <Grid container spacing={2} justifyContent="flex-start" alignItems="flex-start">
       {osses.map(
         ({ node }) =>
           node.node_locale === language && (

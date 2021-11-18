@@ -1,7 +1,8 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { makeStyles, Container, Typography } from '@material-ui/core';
+import { Container, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { IndexPageQuery } from 'src/types';
 import {
   Layout,

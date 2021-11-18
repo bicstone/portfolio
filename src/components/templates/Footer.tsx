@@ -1,7 +1,9 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Link } from 'gatsby-theme-material-ui';
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
+
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(theme => ({
   footer: {

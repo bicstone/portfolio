@@ -1,7 +1,8 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { makeStyles, Toolbar, AppBar, Typography, useScrollTrigger, Box } from '@material-ui/core';
-import { WbSunny, Brightness2 } from '@material-ui/icons';
+import { Toolbar, AppBar, Typography, useScrollTrigger, Box } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { WbSunny, Brightness2 } from '@mui/icons-material';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';

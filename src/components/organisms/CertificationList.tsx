@@ -9,11 +9,11 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-} from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+} from '@mui/material';
+import { Breakpoint } from '@mui/material/styles';
 import { CollapseResponsiveController } from 'src/components';
 import { ContentfulQualificationMap, ContentfulQualification, Maybe } from 'src/types';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 
 export type CertificationListProps = {
   certification: Array<{

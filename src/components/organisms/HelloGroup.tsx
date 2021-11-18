@@ -1,7 +1,8 @@
 import React from 'react';
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid, Button, makeStyles } from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Grid, Button } from '@mui/material';
+import { Breakpoint } from '@mui/material/styles';
 import { SvgIcon, AvatarCard } from 'src/components';
 import { useBreakPoint } from 'src/hooks';
 import { ContentfulHello } from 'src/types';
@@ -33,7 +34,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
   const BUTTON_SMALL_WIDTH: Breakpoint[] = ['xs'];
 
   return (
-    <Grid container spacing={2} justify="center" alignItems="center">
+    <Grid container spacing={2} justifyContent="center" alignItems="center">
       <Grid item xs={12} sm={3} md={2} className={classes.icon}>
         <SvgIcon width={100} height={100} icon={icon} alt={iconAlt} />
       </Grid>

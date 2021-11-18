@@ -1,6 +1,7 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { makeStyles, Typography, Grid } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
+import { Typography, Grid } from '@mui/material';
 import {
   Timeline,
   TimelineItem,
@@ -8,7 +9,7 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineOppositeContent,
-} from '@material-ui/lab';
+} from '@mui/lab';
 import { AvatarCard, SvgAvatar } from 'src/components';
 import { ContentfulHistory, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
 
@@ -20,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
   },
   timelineSeparator: {
-    flex: `0 0 ${theme.spacing(8)}px`,
+    flex: `0 0 ${theme.spacing(8)}`,
     marginTop: theme.spacing(1),
     wordBreak: 'keep-all',
     whiteSpace: 'nowrap',
