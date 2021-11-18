@@ -81,7 +81,6 @@ const TopLayout: React.FC = props => {
         },
         MuiLink: {
           color: 'inherit',
-          underline: 'always',
         },
       },
     }),
