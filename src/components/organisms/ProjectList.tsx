@@ -47,74 +47,74 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   const { language } = useI18next();
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
-  const handleChange =
-    (id: string) => (event: React.ChangeEvent<Record<string, unknown>>, isExpanded: boolean) => {
-      setExpanded(isExpanded ? id : false);
-    };
+  const handleChange = (id: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
+    setExpanded(isExpanded ? id : false);
+  };
 
   return (
     <>
       {projects.map(
         ({ node }) =>
           node.node_locale === language && (
-            <Accordion
-              expanded={expanded === node.id}
-              onChange={handleChange(node.id)}
-              key={node.id}
-              component="section"
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`${node.id}-content`}
-                id={`${node.id}-header`}
+            <section>
+              <Accordion
+                expanded={expanded === node.id}
+                onChange={handleChange(node.id)}
+                key={node.id}
               >
-                <CardHeader
-                  className={classes.cardHeader}
-                  avatar={
-                    <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
-                  }
-                  title={
-                    <>
-                      <Typography variant="body2" component="div" color="textSecondary">
-                        {node?.startDate}年
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls={`${node.id}-content`}
+                  id={`${node.id}-header`}
+                >
+                  <CardHeader
+                    className={classes.cardHeader}
+                    avatar={
+                      <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
+                    }
+                    title={
+                      <>
+                        <Typography variant="body2" component="div" color="textSecondary">
+                          {node?.startDate}年
+                        </Typography>
+                        <Typography component="h2" variant="h6">
+                          {node.name}
+                        </Typography>
+                      </>
+                    }
+                    subheader={
+                      <Typography variant="body2" component="div" role="list" aria-label="tags">
+                        {node.tags &&
+                          node.tags.map(
+                            tag =>
+                              tag?.name && (
+                                <Chip
+                                  variant="outlined"
+                                  size="small"
+                                  key={tag.name}
+                                  label={tag.name}
+                                  role="listitem"
+                                />
+                              ),
+                          )}
                       </Typography>
-                      <Typography component="h2" variant="h6">
-                        {node.name}
-                      </Typography>
-                    </>
-                  }
-                  subheader={
-                    <Typography variant="body2" component="div" role="list" aria-label="tags">
-                      {node.tags &&
-                        node.tags.map(
-                          tag =>
-                            tag?.name && (
-                              <Chip
-                                variant="outlined"
-                                size="small"
-                                key={tag.name}
-                                label={tag.name}
-                                role="listitem"
-                              />
-                            ),
-                        )}
+                    }
+                    disableTypography
+                  />
+                </AccordionSummary>
+                <AccordionDetails>
+                  <div>
+                    <Typography variant="body1" component="div">
+                      {node.subName}
                     </Typography>
-                  }
-                  disableTypography
-                />
-              </AccordionSummary>
-              <AccordionDetails>
-                <div>
-                  <Typography variant="body1" component="div">
-                    {node.subName}
-                  </Typography>
-                  <Typography variant="body2" component="div">
-                    {node?.detail?.childMarkdownRemark?.html &&
-                      parse(node.detail.childMarkdownRemark.html)}
-                  </Typography>
-                </div>
-              </AccordionDetails>
-            </Accordion>
+                    <Typography variant="body2" component="div">
+                      {node?.detail?.childMarkdownRemark?.html &&
+                        parse(node.detail.childMarkdownRemark.html)}
+                    </Typography>
+                  </div>
+                </AccordionDetails>
+              </Accordion>
+            </section>
           ),
       )}
     </>

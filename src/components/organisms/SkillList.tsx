@@ -41,42 +41,44 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}
                 >
-                  <Accordion component="section">
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls={`${node.id}-content`}
-                      id={`${node.id}-header`}
-                    >
-                      <Typography component="h2" variant="h6">
-                        {node.name}
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Box width="100%" paddingY={2} paddingX={2}>
-                        {node?.skills?.map(skill => (
-                          <Grid
-                            container
-                            spacing={2}
-                            justifyContent="center"
-                            alignItems="center"
-                            key={skill?.id}
-                          >
-                            <Grid item xs={4}>
-                              {skill?.name}
+                  <section>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls={`${node.id}-content`}
+                        id={`${node.id}-header`}
+                      >
+                        <Typography component="h2" variant="h6">
+                          {node.name}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Box width="100%" paddingY={2} paddingX={2}>
+                          {node?.skills?.map(skill => (
+                            <Grid
+                              container
+                              spacing={2}
+                              justifyContent="center"
+                              alignItems="center"
+                              key={skill?.id}
+                            >
+                              <Grid item xs={4}>
+                                {skill?.name}
+                              </Grid>
+                              <Grid item xs={8}>
+                                <LinearProgress
+                                  color="primary"
+                                  variant="determinate"
+                                  title={`${skill?.level ? skill.level * 20 : 0}%`}
+                                  value={skill?.level ? skill.level * 20 : 0}
+                                />
+                              </Grid>
                             </Grid>
-                            <Grid item xs={8}>
-                              <LinearProgress
-                                color="primary"
-                                variant="determinate"
-                                title={`${skill?.level ? skill.level * 20 : 0}%`}
-                                value={skill?.level ? skill.level * 20 : 0}
-                              />
-                            </Grid>
-                          </Grid>
-                        ))}
-                      </Box>
-                    </AccordionDetails>
-                  </Accordion>
+                          ))}
+                        </Box>
+                      </AccordionDetails>
+                    </Accordion>
+                  </section>
                 </CollapseResponsiveController>
               </Card>
             </Grid>
