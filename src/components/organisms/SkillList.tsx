@@ -9,9 +9,9 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
-} from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+} from '@mui/material';
+import { Breakpoint } from '@mui/material/styles';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { CollapseResponsiveController } from 'src/components';
 import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
 
@@ -36,12 +36,12 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Card>
+              <Card component="section">
                 <CollapseResponsiveController
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}
                 >
-                  <Accordion component="section">
+                  <Accordion>
                     <AccordionSummary
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls={`${node.id}-content`}
@@ -57,7 +57,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                           <Grid
                             container
                             spacing={2}
-                            justify="center"
+                            justifyContent="center"
                             alignItems="center"
                             key={skill?.id}
                           >

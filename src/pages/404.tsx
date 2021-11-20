@@ -2,20 +2,13 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Button } from 'gatsby-theme-material-ui';
-import { makeStyles, Box, Typography, Container } from '@material-ui/core';
-import { LocalHotel as LocalHotelIcon } from '@material-ui/icons';
+import { Box, Typography, Container, useTheme } from '@mui/material';
+import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { NotFoundPageQuery } from 'src/types';
 import { Layout } from 'src/components';
 
-const useStyles = makeStyles(theme => ({
-  icon: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
-  },
-}));
-
 const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
-  const classes = useStyles();
+  const theme = useTheme();
   const { t } = useI18next();
   const icon = data.icon?.svg?.content || '';
   const iconAlt = data.icon?.title || '';
@@ -24,7 +17,7 @@ const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
       <Container maxWidth="md">
         <Box margin={2} textAlign="center">
           {/* 見つかりませんでした */}
-          <LocalHotelIcon className={classes.icon} />
+          <LocalHotelIcon css={{ width: theme.spacing(20), height: theme.spacing(20) }} />
           <Typography variant="h4" component="h1" paragraph>
             {t('not-found.title')}
           </Typography>

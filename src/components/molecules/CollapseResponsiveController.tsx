@@ -1,6 +1,6 @@
 import React from 'react';
-import { Accordion } from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+import { Accordion } from '@mui/material';
+import { Breakpoint } from '@mui/material/styles';
 import { useBreakPoint } from 'src/hooks';
 
 export type CollapseResponsiveControllerProps = {

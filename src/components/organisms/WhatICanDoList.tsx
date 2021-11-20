@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid, CardHeader, Card } from '@material-ui/core';
+import { Typography, Grid, CardHeader, Card } from '@mui/material';
 import { SvgAvatar } from 'src/components';
 import { ContentfulIcon, ContentfulIconSvgTextNode, ContentfulWhatICanDo, Maybe } from 'src/types';
 

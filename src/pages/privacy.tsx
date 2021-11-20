@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { Link } from 'gatsby-theme-material-ui';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Container, Typography, Grid, Card, CardContent, Link as ELink } from '@material-ui/core';
+import { Container, Typography, Grid, Card, CardContent, Link as ELink } from '@mui/material';
 import { PrivacyPageQuery } from 'src/types';
 import { Layout } from 'src/components';
 

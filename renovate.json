@@ -24,6 +24,10 @@
     {
       "matchPackagePrefixes": ["@mui"],
       "groupName": "mui dependencies"
+    },
+    {
+      "matchPackagePrefixes": ["@emotion"],
+      "groupName": "emotion dependencies"
     }
   ]
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { makeStyles, Toolbar, AppBar, Typography, useScrollTrigger, Box } from '@material-ui/core';
-import { WbSunny, Brightness2 } from '@material-ui/icons';
+import { Toolbar, AppBar, Typography, useScrollTrigger, Box, useTheme } from '@mui/material';
+import { WbSunny, Brightness2 } from '@mui/icons-material';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';
@@ -12,26 +12,11 @@ export type HeaderProps = {
   isHome: boolean;
 };
 
-const useStyles = makeStyles(theme => ({
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  spacer: {
-    flexGrow: 1,
-  },
-  link: {
-    margin: theme.spacing(0, 0.5),
-  },
-  icon: {
-    marginRight: theme.spacing(0.5),
-  },
-}));
-
 /**
  * ヘッダー部
  */
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
-  const classes = useStyles();
+  const theme = useTheme();
   const { t } = useI18next();
   const [darkMode, toggleDarkMode] = useDarkMode();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
@@ -43,14 +28,14 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
       elevation={scrollTrigger ? 4 : 0}
       role="banner"
     >
-      <Toolbar variant="dense" className={classes.toolbar}>
+      <Toolbar variant="dense" css={{ flexWrap: 'wrap' }}>
         {isHome ? (
           <Box display="flex" alignItems="center">
             <Typography
               color="textPrimary"
               variant="h6"
               component="h1"
-              className={classes.link}
+              css={{ margin: theme.spacing(0, 0.5) }}
               gutterBottom
             >
               <Link to="/" title={t('header.back-to-home')}>
@@ -61,12 +46,18 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
         ) : (
           <Link to="/" title={t('header.back-to-home')}>
             <Box display="flex" alignItems="center">
-              <SvgIcon width={20} height={20} icon={icon} alt={iconAlt} className={classes.icon} />
+              <SvgIcon
+                width={20}
+                height={20}
+                icon={icon}
+                alt={iconAlt}
+                css={{ marginRight: theme.spacing(0.5) }}
+              />
               <Typography
                 color="textPrimary"
                 variant="h6"
                 component="span"
-                className={classes.link}
+                css={{ margin: theme.spacing(0, 0.5) }}
                 gutterBottom
               >
                 {t('header.title-home')}
@@ -74,12 +65,12 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
             </Box>
           </Link>
         )}
-        <div className={classes.spacer} />
+        <div css={{ flexGrow: 1 }} />
         <nav>
           <IconButton
             size="small"
             onClick={toggleDarkMode}
-            className={classes.link}
+            css={{ marginRight: theme.spacing(0.5) }}
             title={t('header.toggleDarkTheme-title')}
           >
             {darkMode ? <Brightness2 /> : <WbSunny />}
