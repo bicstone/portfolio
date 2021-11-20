@@ -9,7 +9,6 @@ import {
   AccordionSummary,
   Chip,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { SvgAvatar } from 'src/components';
 import {
@@ -20,12 +19,6 @@ import {
   MarkdownRemark,
   Maybe,
 } from 'src/types';
-
-const useStyles = makeStyles(() => ({
-  cardHeader: {
-    padding: 0,
-  },
-}));
 
 export type ProjectListProps = {
   projects: Array<{
@@ -43,7 +36,6 @@ export type ProjectListProps = {
  * プロジェクト一覧
  */
 export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
-  const classes = useStyles();
   const { language } = useI18next();
   const [expanded, setExpanded] = React.useState<string | false>(false);
 
@@ -52,7 +44,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
   };
 
   return (
-    <>
+    <div>
       {projects.map(
         ({ node }) =>
           node.node_locale === language && (
@@ -68,7 +60,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   id={`${node.id}-header`}
                 >
                   <CardHeader
-                    className={classes.cardHeader}
+                    css={{ padding: 0 }}
                     avatar={
                       <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
                     }
@@ -117,6 +109,6 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
             </section>
           ),
       )}
-    </>
+    </div>
   );
 };

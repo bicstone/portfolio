@@ -1,6 +1,6 @@
 import React from 'react';
+import { Theme } from '@mui/material/styles';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import makeStyles from '@mui/styles/makeStyles';
 import { Typography, Grid } from '@mui/material';
 import {
   Timeline,
@@ -8,28 +8,9 @@ import {
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
-  TimelineOppositeContent,
 } from '@mui/lab';
 import { AvatarCard, SvgAvatar } from 'src/components';
 import { ContentfulHistory, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
-
-const useStyles = makeStyles(theme => ({
-  cardContent: {
-    paddingTop: 0,
-  },
-  timeline: {
-    padding: 0,
-  },
-  timelineSeparator: {
-    flex: `0 0 ${theme.spacing(8)}`,
-    marginTop: theme.spacing(1),
-    wordBreak: 'keep-all',
-    whiteSpace: 'nowrap',
-  },
-  timelineOppositeContent: {
-    display: 'none',
-  },
-}));
 
 export type HistoryListProps = {
   histories: Array<{
@@ -47,21 +28,24 @@ export type HistoryListProps = {
  * 経歴
  */
 export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
-  const classes = useStyles();
   const { t, language } = useI18next();
   const yearToAge = (year: number): number => React.useMemo(() => year - 1996, [year]);
 
   return (
     <Grid container>
-      <Timeline className={classes.timeline}>
+      <Timeline css={{ padding: 0 }}>
         {histories.map(
           ({ node }, index, { length }) =>
             node.node_locale === language && (
-              <TimelineItem key={node.id}>
-                <TimelineOppositeContent
-                  className={classes.timelineOppositeContent}
-                ></TimelineOppositeContent>
-                <TimelineSeparator className={classes.timelineSeparator}>
+              <TimelineItem key={node.id} sx={{ '&:before': { display: 'none' } }}>
+                <TimelineSeparator
+                  sx={{
+                    flex: (theme: Theme) => `0 0 ${theme.spacing(8)}`,
+                    mt: 1,
+                    wordBreak: 'keep-all',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
                   <Typography variant="body2" color="textSecondary">
                     {t('histories.date', { date: node.date })}
                   </Typography>

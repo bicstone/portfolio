@@ -1,7 +1,6 @@
 import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import makeStyles from '@mui/styles/makeStyles';
 import { Typography, Grid, CardHeader, CardActionArea, Card, CardMedia, Chip } from '@mui/material';
 import { SvgAvatar } from 'src/components';
 import {
@@ -15,13 +14,6 @@ import {
   MarkdownRemark,
   Maybe,
 } from 'src/types';
-
-const useStyles = makeStyles(() => ({
-  cardMedia: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-}));
 
 export type OSSListProps = {
   osses: Array<{
@@ -45,7 +37,6 @@ export type OSSListProps = {
  * OSS 一覧
  */
 export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
-  const classes = useStyles();
   const { language } = useI18next();
 
   return (
@@ -64,9 +55,12 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
                   <CardMedia>
                     {node?.image?.localFile?.childImageSharp?.gatsbyImageData && (
                       <GatsbyImage
+                        css={{
+                          height: 0,
+                          paddingTop: '56.25%', // 16:9
+                        }}
                         image={node.image.localFile.childImageSharp.gatsbyImageData}
                         alt={node.name || ''}
-                        className={classes.cardMedia}
                       />
                     )}
                   </CardMedia>

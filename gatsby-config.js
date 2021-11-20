@@ -114,6 +114,9 @@ module.exports = {
       resolve: 'gatsby-plugin-remove-serviceworker',
     },
     {
+      resolve: 'gatsby-plugin-emotion',
+    },
+    {
       // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {

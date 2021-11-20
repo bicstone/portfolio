@@ -1,19 +1,8 @@
 import React from 'react';
-import {
-  ThemeProvider,
-  Theme,
-  StyledEngineProvider,
-  CssBaseline,
-  createTheme,
-} from '@mui/material';
+import { ThemeProvider, Theme, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
 import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
 import { ThemeContext } from 'src/contexts';
-
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
 
 /**
  * material-ui 基本レイアウト
@@ -94,14 +83,10 @@ const TopLayout: React.FC = props => {
   });
 
   return (
-    <>
-      <StyledEngineProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <ThemeContext.Provider value={themeDispatch}>{props.children}</ThemeContext.Provider>
-        </ThemeProvider>
-      </StyledEngineProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <ThemeContext.Provider value={themeDispatch}>{props.children}</ThemeContext.Provider>
+    </ThemeProvider>
   );
 };
 

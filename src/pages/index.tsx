@@ -1,8 +1,7 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Container, Typography } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { Container, Typography, styled } from '@mui/material';
 import { IndexPageQuery } from 'src/types';
 import {
   Layout,
@@ -16,65 +15,63 @@ import {
   WhatICanDoList,
 } from 'src/components';
 
-const useStyles = makeStyles(theme => ({
-  container: {
-    marginTop: theme.spacing(5),
-    marginBottom: theme.spacing(5),
-  },
+const PaddingContainer = styled(Container)(({ theme }) => ({
+  marginTop: theme.spacing(5),
+  marginBottom: theme.spacing(5),
 }));
 
 const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const { t } = useI18next();
-  const classes = useStyles();
+
   const icon = data.icon?.svg?.content || '';
   const iconAlt = data.icon?.title || '';
   return (
     <Layout icon={icon} iconAlt={iconAlt} isHome>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      <PaddingContainer maxWidth="lg" component="section">
         <HelloGroup links={data.links.edges} icon={icon} iconAlt={iconAlt} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.contacts-title')}
         </Typography>
         <ContactsList contacts={data.contacts.edges} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.what-i-can-dos-title')}
         </Typography>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.projects-title')}
         </Typography>
         <ProjectList projects={data.projects.edges} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center">
           {t('home.histories-title')}
         </Typography>
         <HistoryList histories={data.histories.edges} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.osses-title')}
         </Typography>
         <OSSList osses={data.osses.edges} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.skills-title')}
         </Typography>
         <SkillList skills={data.skills.edges} />
-      </Container>
-      <Container maxWidth="lg" className={classes.container} component="section">
+      </PaddingContainer>
+      <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.qualifications-title')}
         </Typography>
         <CertificationList certification={data.certification.edges} />
-      </Container>
+      </PaddingContainer>
     </Layout>
   );
 };
@@ -202,14 +199,9 @@ export const query = graphql`
           name
           subName
           href
-          iconSvgLight {
+          icon {
             svg {
-              content
-            }
-          }
-          iconSvgDark {
-            svg {
-              content
+              svg
             }
           }
         }

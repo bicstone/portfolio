@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
-import makeStyles from '@mui/styles/makeStyles';
-import { Typography, Grid, Button } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
+import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
+import { Typography, Grid, Button } from '@mui/material';
+
 import { SvgIcon, AvatarCard } from 'src/components';
 import { useBreakPoint } from 'src/hooks';
 import { ContentfulHello } from 'src/types';
@@ -13,21 +13,11 @@ export type HelloGroupProps = {
   iconAlt: string;
 };
 
-const useStyles = makeStyles(theme => ({
-  button: {
-    marginRight: theme.spacing(1),
-  },
-  icon: {
-    textAlign: 'center',
-  },
-}));
-
 /**
  * 自己紹介
  * 顔写真、自己紹介と連絡先のリンク集がある
  */
 export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) => {
-  const classes = useStyles();
   const { t } = useTranslation();
   const { language } = useI18next();
   const width = useBreakPoint();
@@ -35,7 +25,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
 
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
-      <Grid item xs={12} sm={3} md={2} className={classes.icon}>
+      <Grid item xs={12} sm={3} md={2} css={{ textAlign: 'center' }}>
         <SvgIcon width={100} height={100} icon={icon} alt={iconAlt} />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
@@ -61,7 +51,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
                       color="secondary"
                       size={BUTTON_SMALL_WIDTH.includes(width) ? 'small' : 'medium'}
                       rel="external noreferrer noopener nofollow"
-                      className={classes.button}
+                      sx={{ mr: 1 }}
                       key={node.id}
                       target="_blank"
                     >

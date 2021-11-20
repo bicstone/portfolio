@@ -1,10 +1,8 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import makeStyles from '@mui/styles/makeStyles';
-import { Typography, Grid, CardActionArea } from '@mui/material';
+import { Typography, Grid, CardActionArea, Theme } from '@mui/material';
 import { ContentfulContact, InlineSvg, Maybe } from 'src/types';
-import { MediaCard, SvgIcon } from 'src/components';
-import { useDarkMode } from 'src/hooks';
+import { MediaCard, SvgAvatar } from 'src/components';
 
 export type ContactsListProps = {
   contacts: Array<{
@@ -21,45 +19,8 @@ export type ContactsIconProps = {
   alt?: string;
 };
 
-const useStyles = makeStyles(theme => ({
-  icon: {
-    display: 'block',
-    margin: theme.spacing(2, 'auto', 0, 'auto'),
-    width: theme.spacing(5),
-    height: theme.spacing(5),
-  },
-}));
-
-/**
- * アイコン部
- */
-const ContactsIcon: React.FC<ContactsIconProps> = ({ iconSvgLight, iconSvgDark, alt = '' }) => {
-  const classes = useStyles();
-  const [darkMode] = useDarkMode();
-  if (!darkMode && iconSvgLight) {
-    return (
-      <SvgIcon width={40} height={40} icon={iconSvgLight} alt={alt} className={classes.icon} />
-    );
-  }
-  if (darkMode && iconSvgDark) {
-    return (
-      <div>
-        <SvgIcon width={40} height={40} icon={iconSvgDark} alt={alt} className={classes.icon} />
-      </div>
-    );
-  }
-  return null;
-};
-
 /**
  * 連絡先一覧
- *
- * 注意
- * ソーシャルアイコンガイドラインを確認
- * - ライトテーマは、すべて指定ブランドカラーを使用
- * - ダークテーマは、全ブランドで白色がOKなので白色を使用
- * - アイコン 8*5=40px
- * - スペース 8*(5+2+2)=72px (アイコン幅比 180%)
  */
 export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
   const { language } = useI18next();
@@ -77,10 +38,16 @@ export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
               >
                 <MediaCard
                   media={
-                    <ContactsIcon
-                      iconSvgLight={node.iconSvgLight?.svg?.content || ''}
-                      iconSvgDark={node.iconSvgDark?.svg?.content || ''}
-                      alt={node.name || ''}
+                    <SvgAvatar
+                      sx={{
+                        mt: 2,
+                        mb: 0,
+                        mx: 'auto',
+                        width: (theme: Theme) => theme.spacing(5),
+                        height: (theme: Theme) => theme.spacing(5),
+                      }}
+                      svg={node.icon?.svg?.svg || ''}
+                      name={node.name || ''}
                     />
                   }
                   title={
