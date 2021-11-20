@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, Theme, CssBaseline, createTheme } from '@mui/material';
+import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
 import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
 import { ThemeContext } from 'src/contexts';

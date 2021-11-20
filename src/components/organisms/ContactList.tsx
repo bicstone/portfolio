@@ -1,7 +1,7 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, CardActionArea, Theme } from '@mui/material';
-import { ContentfulContact, Maybe, ContentfulIcon, ContentfulIconSvgTextNode } from 'src/types';
+import { ContentfulContact, Maybe, ContentfulIconSvgTextNode } from 'src/types';
 import { MediaCard, SvgAvatar } from 'src/components';
 
 export type ContactsListProps = {
