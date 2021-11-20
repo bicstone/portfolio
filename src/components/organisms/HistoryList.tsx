@@ -41,7 +41,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
                 <TimelineSeparator
                   css={{
                     flex: `0 0 ${theme.spacing(8)}`,
-                    mt: 1,
+                    marginTop: 1,
                     wordBreak: 'keep-all',
                     whiteSpace: 'nowrap',
                   }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Link } from 'gatsby-theme-material-ui';
-import { Box, Typography, useTheme } from '@mui/material';
+import { Typography, useTheme } from '@mui/material';
 
 /**
  * フッター部
@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
   const { t } = useI18next();
   const nowDate = new Date();
   return (
-    <Box
+    <footer
       css={{
         marginTop: 'auto',
         padding: theme.spacing(3),
@@ -27,6 +27,6 @@ export const Footer: React.FC = () => {
       <Typography variant="body2" color="textSecondary" align="center">
         {t('footer.copyright', { year: nowDate.getFullYear() })}
       </Typography>
-    </Box>
+    </footer>
   );
 };

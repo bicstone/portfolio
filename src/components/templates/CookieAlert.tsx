@@ -41,13 +41,7 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
       <CookieAlertContent
         breakpoints={breakpoints}
         action={
-          <IconButton
-            aria-label="close"
-            title="close"
-            color="inherit"
-            onClick={handleClose}
-            size="large"
-          >
+          <IconButton aria-label="close" title="close" color="inherit" onClick={handleClose}>
             <CloseIcon />
           </IconButton>
         }
