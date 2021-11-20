@@ -1,20 +1,21 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Link } from 'gatsby-theme-material-ui';
-import { Box, Theme, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 /**
  * フッター部
  */
 export const Footer: React.FC = () => {
+  const theme = useTheme();
   const { t } = useI18next();
   const nowDate = new Date();
   return (
     <Box
-      sx={{
-        mt: 'auto',
-        p: 3,
-        borderTop: (theme: Theme) => `1px solid ${theme.palette.divider}`,
+      css={{
+        marginTop: 'auto',
+        padding: theme.spacing(3),
+        borderTop: `1px solid ${theme.palette.divider}`,
       }}
       role="contentinfo"
     >

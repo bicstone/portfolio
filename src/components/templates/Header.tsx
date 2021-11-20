@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Toolbar, AppBar, Typography, useScrollTrigger, Box, styled } from '@mui/material';
+import { Toolbar, AppBar, Typography, useScrollTrigger, Box, useTheme } from '@mui/material';
 import { WbSunny, Brightness2 } from '@mui/icons-material';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
@@ -12,12 +12,11 @@ export type HeaderProps = {
   isHome: boolean;
 };
 
-const StyledSvgIcon = styled(SvgIcon)();
-
 /**
  * ヘッダー部
  */
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
+  const theme = useTheme();
   const { t } = useI18next();
   const [darkMode, toggleDarkMode] = useDarkMode();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
@@ -36,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
               color="textPrimary"
               variant="h6"
               component="h1"
-              sx={{ my: 0, mx: 0.5 }}
+              css={{ margin: theme.spacing(0, 0.5) }}
               gutterBottom
             >
               <Link to="/" title={t('header.back-to-home')}>
@@ -47,12 +46,18 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
         ) : (
           <Link to="/" title={t('header.back-to-home')}>
             <Box display="flex" alignItems="center">
-              <StyledSvgIcon width={20} height={20} icon={icon} alt={iconAlt} sx={{ mr: 0.5 }} />
+              <SvgIcon
+                width={20}
+                height={20}
+                icon={icon}
+                alt={iconAlt}
+                css={{ marginRight: theme.spacing(0.5) }}
+              />
               <Typography
                 color="textPrimary"
                 variant="h6"
                 component="span"
-                sx={{ my: 0, mx: 0.5 }}
+                css={{ margin: theme.spacing(0, 0.5) }}
                 gutterBottom
               >
                 {t('header.title-home')}
@@ -65,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
           <IconButton
             size="small"
             onClick={toggleDarkMode}
-            sx={{ mr: 0.5 }}
+            css={{ marginRight: theme.spacing(0.5) }}
             title={t('header.toggleDarkTheme-title')}
           >
             {darkMode ? <Brightness2 /> : <WbSunny />}

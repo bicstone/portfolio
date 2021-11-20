@@ -1,7 +1,6 @@
 import React from 'react';
-import { Theme } from '@mui/material/styles';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid } from '@mui/material';
+import { Typography, Grid, useTheme } from '@mui/material';
 import {
   Timeline,
   TimelineItem,
@@ -28,6 +27,7 @@ export type HistoryListProps = {
  * 経歴
  */
 export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
+  const theme = useTheme();
   const { t, language } = useI18next();
   const yearToAge = (year: number): number => React.useMemo(() => year - 1996, [year]);
 
@@ -37,10 +37,10 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
         {histories.map(
           ({ node }, index, { length }) =>
             node.node_locale === language && (
-              <TimelineItem key={node.id} sx={{ '&:before': { display: 'none' } }}>
+              <TimelineItem key={node.id} css={{ '&:before': { display: 'none' } }}>
                 <TimelineSeparator
-                  sx={{
-                    flex: (theme: Theme) => `0 0 ${theme.spacing(8)}`,
+                  css={{
+                    flex: `0 0 ${theme.spacing(8)}`,
                     mt: 1,
                     wordBreak: 'keep-all',
                     whiteSpace: 'nowrap',
