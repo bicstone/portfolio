@@ -36,49 +36,47 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
         ({ node }) =>
           node.node_locale === language && (
             <Grid item xs={12} sm={6} md={4} key={node.id}>
-              <Card>
+              <Card component="section">
                 <CollapseResponsiveController
                   defaultExpanded={node.expanded || false}
                   defaultExpandedBreakpoints={defaultExpandedBreakpoints}
                 >
-                  <section>
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls={`${node.id}-content`}
-                        id={`${node.id}-header`}
-                      >
-                        <Typography component="h2" variant="h6">
-                          {node.name}
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Box width="100%" paddingY={2} paddingX={2}>
-                          {node?.skills?.map(skill => (
-                            <Grid
-                              container
-                              spacing={2}
-                              justifyContent="center"
-                              alignItems="center"
-                              key={skill?.id}
-                            >
-                              <Grid item xs={4}>
-                                {skill?.name}
-                              </Grid>
-                              <Grid item xs={8}>
-                                <LinearProgress
-                                  color="primary"
-                                  variant="determinate"
-                                  title={`${skill?.level ? skill.level * 20 : 0}%`}
-                                  value={skill?.level ? skill.level * 20 : 0}
-                                />
-                              </Grid>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls={`${node.id}-content`}
+                      id={`${node.id}-header`}
+                    >
+                      <Typography component="h2" variant="h6">
+                        {node.name}
+                      </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Box width="100%" paddingY={2} paddingX={2}>
+                        {node?.skills?.map(skill => (
+                          <Grid
+                            container
+                            spacing={2}
+                            justifyContent="center"
+                            alignItems="center"
+                            key={skill?.id}
+                          >
+                            <Grid item xs={4}>
+                              {skill?.name}
                             </Grid>
-                          ))}
-                        </Box>
-                      </AccordionDetails>
-                    </Accordion>
-                  </section>
+                            <Grid item xs={8}>
+                              <LinearProgress
+                                color="primary"
+                                variant="determinate"
+                                title={`${skill?.level ? skill.level * 20 : 0}%`}
+                                value={skill?.level ? skill.level * 20 : 0}
+                              />
+                            </Grid>
+                          </Grid>
+                        ))}
+                      </Box>
+                    </AccordionDetails>
+                  </Accordion>
                 </CollapseResponsiveController>
               </Card>
             </Grid>

@@ -48,12 +48,8 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       {projects.map(
         ({ node }) =>
           node.node_locale === language && (
-            <section>
-              <Accordion
-                expanded={expanded === node.id}
-                onChange={handleChange(node.id)}
-                key={node.id}
-              >
+            <section key={node.id}>
+              <Accordion expanded={expanded === node.id} onChange={handleChange(node.id)}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls={`${node.id}-content`}
