@@ -18,7 +18,7 @@ import {
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
   marginBottom: theme.spacing(5),
-})) as typeof Container; // FIXME: https://github.com/mui-org/material-ui/issues/13921
+})) as typeof Container;
 
 const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const { t } = useI18next();

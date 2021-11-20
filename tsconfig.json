@@ -72,7 +72,7 @@
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "resolveJsonModule": true,
-    "jsxImportSource": "@emotion/react",
+    "jsxImportSource": "@emotion/react"
   },
   "exclude": ["node_modules", "public", ".cache"],
   "include": ["src/**/*.ts", "src/**/*.tsx", ".gatsby/**/*.ts", ".gatsby/**/*.tsx"]
