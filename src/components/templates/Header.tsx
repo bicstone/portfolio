@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Toolbar, AppBar, Typography, useScrollTrigger, Box } from '@mui/material';
+import { Toolbar, AppBar, Typography, useScrollTrigger, Box, styled } from '@mui/material';
 import { WbSunny, Brightness2 } from '@mui/icons-material';
 import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
@@ -11,6 +11,8 @@ export type HeaderProps = {
   iconAlt: string;
   isHome: boolean;
 };
+
+const StyledSvgIcon = styled(SvgIcon)();
 
 /**
  * ヘッダー部
@@ -45,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
         ) : (
           <Link to="/" title={t('header.back-to-home')}>
             <Box display="flex" alignItems="center">
-              <SvgIcon width={20} height={20} icon={icon} alt={iconAlt} sx={{ mr: 0.5 }} />
+              <StyledSvgIcon width={20} height={20} icon={icon} alt={iconAlt} sx={{ mr: 0.5 }} />
               <Typography
                 color="textPrimary"
                 variant="h6"
