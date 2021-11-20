@@ -1,14 +1,15 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, CardActionArea, Theme } from '@mui/material';
-import { ContentfulContact, InlineSvg, Maybe } from 'src/types';
+import { ContentfulContact, Maybe, ContentfulIcon, ContentfulIconSvgTextNode } from 'src/types';
 import { MediaCard, SvgAvatar } from 'src/components';
 
 export type ContactsListProps = {
   contacts: Array<{
     node: Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'> & {
-      iconSvgLight: Maybe<{ svg: Maybe<Pick<InlineSvg, 'content'>> }>;
-      iconSvgDark: Maybe<{ svg: Maybe<Pick<InlineSvg, 'content'>> }>;
+      icon: Maybe<{
+        svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
+      }>;
     };
   }>;
 };
