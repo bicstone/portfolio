@@ -7,7 +7,7 @@ import { ThemeContext } from 'src/contexts';
 /**
  * material-ui 基本レイアウト
  */
-const TopLayout: React.FC = props => {
+export const TopLayout: React.FC = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,
     themeInitialState,
