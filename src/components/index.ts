@@ -21,3 +21,4 @@ export * from './templates/Footer';
 export * from './templates/Head';
 export * from './templates/Header';
 export * from './templates/Layout';
+export * from './templates/TopLayout';
