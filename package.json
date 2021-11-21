@@ -43,7 +43,6 @@
     "gatsby-plugin-sharp": "3.14.3",
     "gatsby-source-contentful": "5.14.1",
     "gatsby-source-filesystem": "3.14.0",
-    "gatsby-theme-material-ui": "5.0.0",
     "gatsby-transformer-inline-svg": "1.0.0",
     "gatsby-transformer-remark": "4.11.0",
     "gatsby-transformer-sharp": "3.14.0",
@@ -83,7 +82,6 @@
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-standard": "4.1.0",
     "husky": "7.0.4",
-    "null-loader": "4.0.1",
     "prettier": "2.4.1",
     "typescript": "4.5.2"
   },

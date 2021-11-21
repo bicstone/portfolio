@@ -1,8 +1,7 @@
 import React from 'react';
-import { graphql, PageProps } from 'gatsby';
+import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Button } from 'gatsby-theme-material-ui';
-import { Box, Typography, Container, useTheme } from '@mui/material';
+import { Box, Typography, Container, useTheme, Button } from '@mui/material';
 import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { NotFoundPageQuery } from 'src/types';
 import { Layout } from 'src/components';
@@ -25,7 +24,7 @@ const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
         </Box>
         <Box margin={2} textAlign="center">
           {/* ホームに戻る */}
-          <Button variant="contained" to="/" size="large">
+          <Button component={RouterLink} variant="contained" to="/" size="large">
             {t('not-found.back-to-home')}
           </Button>
         </Box>
