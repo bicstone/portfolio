@@ -1,8 +1,17 @@
 import React from 'react';
+import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Toolbar, AppBar, Typography, useScrollTrigger, Box, useTheme } from '@mui/material';
+import {
+  Toolbar,
+  AppBar,
+  Typography,
+  useScrollTrigger,
+  Box,
+  useTheme,
+  Link,
+  IconButton,
+} from '@mui/material';
 import { WbSunny, Brightness2 } from '@mui/icons-material';
-import { Link, IconButton } from 'gatsby-theme-material-ui';
 import { SvgIcon } from 'src/components';
 import { useDarkMode } from 'src/hooks';
 
@@ -38,13 +47,13 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
               css={{ margin: theme.spacing(0, 0.5) }}
               gutterBottom
             >
-              <Link to="/" title={t('header.back-to-home')}>
+              <Link component={RouterLink} to="/" title={t('header.back-to-home')}>
                 {t('header.title-home')}
               </Link>
             </Typography>
           </Box>
         ) : (
-          <Link to="/" title={t('header.back-to-home')}>
+          <Link component={RouterLink} to="/" title={t('header.back-to-home')}>
             <Box display="flex" alignItems="center">
               <SvgIcon
                 width={20}

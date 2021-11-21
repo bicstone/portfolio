@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Link } from 'gatsby-theme-material-ui';
-import { Typography, useTheme } from '@mui/material';
+import { Typography, useTheme, Link } from '@mui/material';
 
 /**
  * フッター部
@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
       role="contentinfo"
     >
       <Typography variant="body2" color="textSecondary" align="center" paragraph>
-        <Link color="inherit" to="/privacy">
+        <Link component={RouterLink} color="inherit" to="/privacy">
           {t('privacy.title')}
         </Link>
       </Typography>
