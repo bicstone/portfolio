@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { CookieAlert, Head, Header, Footer } from 'src/components';
+import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
 import BackgroundImage from './background.svg';
 
 export type LayoutProps = {
@@ -25,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({
   ...props
 }) => {
   return (
-    <div
+    <TopLayout
       css={{
         display: 'flex',
         flexDirection: 'column',
@@ -43,6 +43,6 @@ export const Layout: React.FC<LayoutProps> = ({
         {children}
       </Box>
       <Footer />
-    </div>
+    </TopLayout>
   );
 };
