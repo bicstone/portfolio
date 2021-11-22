@@ -1,11 +1,9 @@
 import React from 'react';
-import { Breakpoint } from '@mui/material/styles';
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, Button, useTheme } from '@mui/material';
 import { IndexPageQuery } from 'src/types';
 
 import { SvgIcon, AvatarCard } from 'src/components';
-import { useBreakPoint } from 'src/hooks';
 
 export type HelloGroupProps = {
   links: IndexPageQuery['links']['edges'];
@@ -21,8 +19,6 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
   const theme = useTheme();
   const { t } = useTranslation();
   const { language } = useI18next();
-  const width = useBreakPoint();
-  const BUTTON_SMALL_WIDTH: Breakpoint[] = ['xs'];
 
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -50,7 +46,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
                       href={node.href || ''}
                       variant="outlined"
                       color="secondary"
-                      size={BUTTON_SMALL_WIDTH.includes(width) ? 'small' : 'medium'}
+                      size="medium"
                       rel="external noreferrer noopener nofollow"
                       css={{ marginRight: theme.spacing(1) }}
                       key={node.id}

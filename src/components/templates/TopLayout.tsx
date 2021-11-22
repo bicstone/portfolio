@@ -2,7 +2,7 @@ import React from 'react';
 import { Global } from '@emotion/react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
-import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
+import { themeReducer, themeInitialState } from 'src/reducers';
 import { ThemeContext } from 'src/contexts';
 import BackgroundImage from './background.svg';
 
@@ -13,7 +13,8 @@ export const TopLayout: React.FC = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,
     themeInitialState,
-    themeInitial,
+    // FIXME: #264 で対応するまで一時的に無効にする
+    // themeInitial,
   );
   const { darkMode } = themeState;
   const defaultTheme = React.useMemo(() => createTheme(), []);
