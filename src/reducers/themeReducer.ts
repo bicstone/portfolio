@@ -13,8 +13,7 @@ export type ThemeState = {
 export type ThemeAction = { type: typeof TOGGLE_DARKMODE };
 
 export const themeInitialState = {
-  // FIXME: #264 で対応するまで一時的に無効にする
-  darkMode: true,
+  darkMode: false,
 };
 
 /**
