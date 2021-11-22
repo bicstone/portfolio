@@ -13,14 +13,10 @@ import {
 import { Breakpoint } from '@mui/material/styles';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { CollapseResponsiveController } from 'src/components';
-import { ContentfulSkillMap, ContentfulTag, Maybe } from 'src/types';
+import { IndexPageQuery } from 'src/types';
 
 export type SkillListProps = {
-  skills: Array<{
-    node: Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'> & {
-      skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>;
-    };
-  }>;
+  skills: IndexPageQuery['skills']['edges'];
 };
 
 /**

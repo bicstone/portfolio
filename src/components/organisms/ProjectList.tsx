@@ -11,25 +11,10 @@ import {
 } from '@mui/material';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { SvgAvatar } from 'src/components';
-import {
-  ContentfulIcon,
-  ContentfulIconSvgTextNode,
-  ContentfulProject,
-  ContentfulTag,
-  MarkdownRemark,
-  Maybe,
-} from 'src/types';
+import { IndexPageQuery } from 'src/types';
 
 export type ProjectListProps = {
-  projects: Array<{
-    node: Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'> & {
-      tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>;
-      icon: Maybe<
-        Pick<ContentfulIcon, 'name'> & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-      >;
-      detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }>;
-    };
-  }>;
+  projects: IndexPageQuery['projects']['edges'];
 };
 
 /**

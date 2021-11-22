@@ -2,13 +2,13 @@ import React from 'react';
 import { Breakpoint } from '@mui/material/styles';
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, Button, useTheme } from '@mui/material';
+import { IndexPageQuery } from 'src/types';
 
 import { SvgIcon, AvatarCard } from 'src/components';
 import { useBreakPoint } from 'src/hooks';
-import { ContentfulHello } from 'src/types';
 
 export type HelloGroupProps = {
-  links: Array<{ node: Pick<ContentfulHello, 'node_locale' | 'id' | 'name' | 'href'> }>;
+  links: IndexPageQuery['links']['edges'];
   icon: string;
   iconAlt: string;
 };

@@ -3,34 +3,10 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, CardHeader, CardActionArea, Card, CardMedia, Chip } from '@mui/material';
 import { SvgAvatar } from 'src/components';
-import {
-  ContentfulAsset,
-  ContentfulAssetFile,
-  ContentfulIcon,
-  ContentfulIconSvgTextNode,
-  ContentfulOss,
-  ContentfulTag,
-  ImageSharp,
-  MarkdownRemark,
-  Maybe,
-} from 'src/types';
+import { IndexPageQuery } from 'src/types';
 
 export type OSSListProps = {
-  osses: Array<{
-    node: Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'> & {
-      tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>;
-      icon: Maybe<
-        Pick<ContentfulIcon, 'name'> & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-      >;
-      image: Maybe<
-        Pick<ContentfulAsset, 'title'> & {
-          file: Maybe<Pick<ContentfulAssetFile, 'url'>>;
-          localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }>;
-        }
-      >;
-      detail: Maybe<{ childMarkdownRemark: Maybe<Pick<MarkdownRemark, 'html'>> }>;
-    };
-  }>;
+  osses: IndexPageQuery['osses']['edges'];
 };
 
 /**

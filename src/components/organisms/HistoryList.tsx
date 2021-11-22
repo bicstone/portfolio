@@ -9,18 +9,10 @@ import {
   TimelineContent,
 } from '@mui/lab';
 import { AvatarCard, SvgAvatar } from 'src/components';
-import { ContentfulHistory, ContentfulIcon, ContentfulIconSvgTextNode, Maybe } from 'src/types';
+import { IndexPageQuery } from 'src/types';
 
 export type HistoryListProps = {
-  histories: Array<{
-    node: Pick<ContentfulHistory, 'node_locale' | 'id' | 'date' | 'name' | 'subName'> & {
-      icon: Maybe<
-        Pick<ContentfulIcon, 'name'> & {
-          svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>>;
-        }
-      >;
-    };
-  }>;
+  histories: IndexPageQuery['histories']['edges'];
 };
 
 /**
