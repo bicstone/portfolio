@@ -1,19 +1,8 @@
 import React from 'react';
 import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import {
-  Toolbar,
-  AppBar,
-  Typography,
-  useScrollTrigger,
-  Box,
-  useTheme,
-  Link,
-  IconButton,
-} from '@mui/material';
-import { WbSunny, Brightness2 } from '@mui/icons-material';
+import { Toolbar, AppBar, Typography, useScrollTrigger, Box, useTheme, Link } from '@mui/material';
 import { SvgIcon } from 'src/components';
-import { useDarkMode } from 'src/hooks';
 
 export type HeaderProps = {
   icon: string;
@@ -27,7 +16,6 @@ export type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   const theme = useTheme();
   const { t } = useI18next();
-  const [darkMode, toggleDarkMode] = useDarkMode();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
 
   return (

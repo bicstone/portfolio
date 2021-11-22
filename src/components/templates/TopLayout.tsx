@@ -2,7 +2,7 @@ import React from 'react';
 import { Global } from '@emotion/react';
 import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
-import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
+import { themeReducer, themeInitialState } from 'src/reducers';
 import { ThemeContext } from 'src/contexts';
 import BackgroundImage from './background.svg';
 
