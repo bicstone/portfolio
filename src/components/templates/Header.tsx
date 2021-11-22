@@ -75,6 +75,8 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
           </Link>
         )}
         <div css={{ flexGrow: 1 }} />
+        {/*
+        FIXME: #264 で対応するまで一時的に無効にする
         <nav>
           <IconButton
             size="small"
@@ -85,6 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
             {darkMode ? <Brightness2 /> : <WbSunny />}
           </IconButton>
         </nav>
+        */}
       </Toolbar>
     </AppBar>
   );

@@ -13,7 +13,8 @@ export const TopLayout: React.FC = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,
     themeInitialState,
-    themeInitial,
+    // FIXME: #264 で対応するまで一時的に無効にする
+    // themeInitial,
   );
   const { darkMode } = themeState;
   const defaultTheme = React.useMemo(() => createTheme(), []);
