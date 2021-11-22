@@ -89,26 +89,24 @@ export const TopLayout: React.FC = props => {
   );
 
   return (
-    <div>
-      <ThemeContext.Provider value={themeDispatch}>
-        <ThemeProvider theme={theme}>
-          <Global
-            styles={{
-              body: {
-                display: 'flex',
-                flexDirection: 'column',
-                minHeight: '100vh',
-                cursor: 'default',
-                backgroundImage: `url(${BackgroundImage})`,
-                backgroundSize: '400px 400px',
-                backgroundRepeat: 'repeat',
-              },
-            }}
-          />
-          <CssBaseline enableColorScheme />
-          {props.children}
-        </ThemeProvider>
-      </ThemeContext.Provider>
-    </div>
+    <ThemeContext.Provider value={themeDispatch}>
+      <ThemeProvider theme={theme}>
+        <Global
+          styles={{
+            body: {
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh',
+              cursor: 'default',
+              backgroundImage: `url(${BackgroundImage})`,
+              backgroundSize: '400px 400px',
+              backgroundRepeat: 'repeat',
+            },
+          }}
+        />
+        <CssBaseline />
+        {props.children}
+      </ThemeProvider>
+    </ThemeContext.Provider>
   );
 };

@@ -11,16 +11,12 @@ import {
   AccordionSummary,
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
-import { CollapseResponsiveController } from 'src/components';
-import { ContentfulQualificationMap, ContentfulQualification, Maybe } from 'src/types';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+import { CollapseResponsiveController } from 'src/components';
+import { IndexPageQuery } from 'src/types';
 
 export type CertificationListProps = {
-  certification: Array<{
-    node: Pick<ContentfulQualificationMap, 'node_locale' | 'id' | 'name' | 'expanded'> & {
-      qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>>;
-    };
-  }>;
+  certification: IndexPageQuery['certification']['edges'];
 };
 
 /**

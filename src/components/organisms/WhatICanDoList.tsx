@@ -2,16 +2,10 @@ import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Typography, Grid, CardHeader, Card } from '@mui/material';
 import { SvgAvatar } from 'src/components';
-import { ContentfulIcon, ContentfulIconSvgTextNode, ContentfulWhatICanDo, Maybe } from 'src/types';
+import { IndexPageQuery } from 'src/types';
 
 export type WhatICanDoListProps = {
-  whatICanDos: Array<{
-    node: Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'> & {
-      icon: Maybe<
-        Pick<ContentfulIcon, 'name'> & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-      >;
-    };
-  }>;
+  whatICanDos: IndexPageQuery['whatICanDos']['edges'];
 };
 
 /**
