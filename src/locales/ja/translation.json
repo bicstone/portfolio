@@ -27,6 +27,15 @@
     "contacts-title": "お問い合わせ",
     "histories-title": "経歴",
     "osses-title": "OSS",
+    "projects": {
+      "all-expand": {
+        "hint": "このボタンを押下すると、全項目の詳細説明の展開を切り替えられます。すべて展開せずとも、項目上でキーボードの Enter を押下すると、それぞれの項目で展開を操作できます。"
+      },
+      "label": {
+        "all-less": "すべて収納する",
+        "all-more": "すべて展開する"
+      }
+    },
     "projects-title": "プロジェクト",
     "qualifications-title": "資格",
     "skills-title": "スキル",

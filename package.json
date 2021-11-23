@@ -14,7 +14,7 @@
     "lint": "eslint --max-warnings=0 --cache --ext .js,.ts,.tsx .",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --write .",
-    "extract": "yarn run babel --config-file ./babel-extract.config.js -o tmp/chunk.js src/**/*.{js,jsx,ts,tsx} && rimraf tmp",
+    "extract": "yarn run babel --config-file ./i18next-extract.babel.config -o tmp/chunk.js src/**/*.{js,jsx,ts,tsx} && rimraf tmp",
     "t": "yarn extract",
     "codegen": "graphql-codegen",
     "g": "yarn codegen",
