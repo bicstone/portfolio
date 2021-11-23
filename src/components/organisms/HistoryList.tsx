@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid } from '@mui/material';
+import { Typography } from '@mui/material';
 import {
   Timeline,
   TimelineItem,
