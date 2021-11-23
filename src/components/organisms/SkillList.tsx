@@ -58,7 +58,9 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                             key={skill?.id}
                           >
                             <Grid item xs={4}>
-                              {skill?.name}
+                              <Typography component="span" variant="body2">
+                                {skill?.name}
+                              </Typography>
                             </Grid>
                             <Grid item xs={8}>
                               <LinearProgress
