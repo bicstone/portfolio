@@ -8,8 +8,14 @@ import {
   AccordionDetails,
   AccordionSummary,
   Chip,
+  Button,
+  useTheme,
 } from '@mui/material';
-import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+import {
+  ExpandMore as ExpandMoreIcon,
+  UnfoldMore as UnfoldMoreIcon,
+  UnfoldLess as UnfoldLessIcon,
+} from '@mui/icons-material';
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
@@ -21,20 +27,39 @@ export type ProjectListProps = {
  * プロジェクト一覧
  */
 export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
-  const { language } = useI18next();
-  const [expanded, setExpanded] = React.useState<string | false>(false);
+  const theme = useTheme();
+  const { language, t } = useI18next();
+  const [expanded, setExpanded] = React.useState<string | boolean>(false);
 
-  const handleChange = (id: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
-    setExpanded(isExpanded ? id : false);
+  const handleChange = (id: string) => {
+    setExpanded(expanded === id ? false : id);
   };
 
   return (
-    <div>
+    <>
+      <Typography align="right" paragraph>
+        <Button
+          css={{ backgroundColor: theme.palette.background.default }}
+          variant="outlined"
+          color="secondary"
+          size="small"
+          endIcon={expanded === false ? <UnfoldMoreIcon /> : <UnfoldLessIcon />}
+          onClick={() => setExpanded(!expanded)}
+          aria-label={t('home.projects.all-expand.hint')}
+        >
+          {expanded === false
+            ? t('home.projects.label.all-more')
+            : t('home.projects.label.all-less')}
+        </Button>
+      </Typography>
       {projects.map(
         ({ node }) =>
           node.node_locale === language && (
             <section key={node.id}>
-              <Accordion expanded={expanded === node.id} onChange={handleChange(node.id)}>
+              <Accordion
+                expanded={expanded === node.id || expanded === true}
+                onChange={() => handleChange(node.id)}
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls={`${node.id}-content`}
@@ -90,6 +115,6 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
             </section>
           ),
       )}
-    </div>
+    </>
   );
 };

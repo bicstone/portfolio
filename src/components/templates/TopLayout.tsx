@@ -41,9 +41,6 @@ export const TopLayout: React.FC = props => {
         },
         components: {
           MuiButton: {
-            defaultProps: {
-              size: 'small',
-            },
             styleOverrides: {
               root: {
                 textTransform: 'none',
