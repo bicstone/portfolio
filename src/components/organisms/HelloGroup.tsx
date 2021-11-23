@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid, Button, useTheme } from '@mui/material';
+import { Typography, Grid, Button } from '@mui/material';
 import { IndexPageQuery } from 'src/types';
 
 import { SvgIcon, AvatarCard } from 'src/components';
@@ -16,7 +16,6 @@ export type HelloGroupProps = {
  * 顔写真、自己紹介と連絡先のリンク集がある
  */
 export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) => {
-  const theme = useTheme();
   const { t } = useTranslation();
   const { language } = useI18next();
 
@@ -48,7 +47,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon, iconAlt }) 
                       color="secondary"
                       size="medium"
                       rel="external noreferrer noopener nofollow"
-                      css={{ marginRight: theme.spacing(1) }}
+                      css={theme => ({ marginRight: theme.spacing(1) })}
                       key={node.id}
                       target="_blank"
                     >
