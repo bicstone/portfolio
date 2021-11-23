@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, makeStyles } from '@material-ui/core';
-import { CookieAlert, Head, Header, Footer } from 'src/components';
-import BackgroundImage from './background.svg';
+import { Box, NoSsr } from '@mui/material';
+import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
 
 export type LayoutProps = {
   title?: string;
@@ -12,18 +11,6 @@ export type LayoutProps = {
   icon: string;
   iconAlt: string;
 };
-
-const useStyles = makeStyles(() => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-    cursor: 'default',
-    backgroundImage: `url(${BackgroundImage})`,
-    backgroundSize: '400px 400px',
-    backgroundRepeat: 'repeat',
-  },
-}));
 
 /**
  * 基本レイアウト
@@ -36,16 +23,17 @@ export const Layout: React.FC<LayoutProps> = ({
   iconAlt,
   ...props
 }) => {
-  const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <TopLayout>
       <Head {...props} />
-      <CookieAlert show={cookieAlertShow} />
+      <NoSsr>
+        <CookieAlert show={cookieAlertShow} />
+      </NoSsr>
       <Header isHome={isHome} icon={icon} iconAlt={iconAlt} />
       <Box component="main" role="main" marginTop={8}>
         {children}
       </Box>
       <Footer />
-    </div>
+    </TopLayout>
   );
 };

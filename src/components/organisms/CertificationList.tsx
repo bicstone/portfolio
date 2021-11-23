@@ -9,18 +9,14 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-} from '@material-ui/core';
-import { Breakpoint } from '@material-ui/core/styles/createBreakpoints';
+} from '@mui/material';
+import { Breakpoint } from '@mui/material/styles';
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { CollapseResponsiveController } from 'src/components';
-import { ContentfulQualificationMap, ContentfulQualification, Maybe } from 'src/types';
-import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
+import { IndexPageQuery } from 'src/types';
 
 export type CertificationListProps = {
-  certification: Array<{
-    node: Pick<ContentfulQualificationMap, 'node_locale' | 'id' | 'name' | 'expanded'> & {
-      qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>>;
-    };
-  }>;
+  certification: IndexPageQuery['certification']['edges'];
 };
 
 /**

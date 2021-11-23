@@ -1,6 +1,6 @@
 import React from 'react';
 import parse from 'html-react-parser';
-import { Avatar, SvgIcon } from '@material-ui/core';
+import { Avatar, SvgIcon } from '@mui/material';
 
 export type SvgAvatarProps = {
   name: string;

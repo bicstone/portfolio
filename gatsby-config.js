@@ -34,14 +34,6 @@ module.exports = {
       resolve: 'gatsby-plugin-typescript',
     },
     {
-      resolve: 'gatsby-theme-material-ui',
-      options: {
-        webFontsConfig: {
-          fonts: {},
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `locales`,
@@ -56,9 +48,6 @@ module.exports = {
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
       },
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
@@ -112,6 +101,9 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-remove-serviceworker',
+    },
+    {
+      resolve: 'gatsby-plugin-emotion',
     },
     {
       // ハッシュ取得を行うため最下部に設置すること

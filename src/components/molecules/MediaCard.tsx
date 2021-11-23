@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardHeader } from '@material-ui/core';
+import { Card, CardHeader } from '@mui/material';
 
 export type MediaCardProps = {
   media?: React.ReactNode;
