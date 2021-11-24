@@ -8,7 +8,6 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Box,
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
@@ -48,7 +47,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Box width="100%" paddingY={2} paddingX={2}>
+                      <div css={theme => ({ width: '100%', padding: theme.spacing(2) })}>
                         {node?.skills?.map(skill => (
                           <Grid
                             container
@@ -72,7 +71,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                             </Grid>
                           </Grid>
                         ))}
-                      </Box>
+                      </div>
                     </AccordionDetails>
                   </Accordion>
                 </CollapseResponsiveController>

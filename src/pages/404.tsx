@@ -1,33 +1,34 @@
 import React from 'react';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Box, Typography, Container, useTheme, Button } from '@mui/material';
+import { Typography, Container, Button } from '@mui/material';
 import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { NotFoundPageQuery } from 'src/types';
 import { Layout } from 'src/components';
 
 const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
-  const theme = useTheme();
   const { t } = useI18next();
   const icon = data.icon?.svg?.content || '';
   const iconAlt = data.icon?.title || '';
   return (
     <Layout icon={icon} iconAlt={iconAlt}>
       <Container maxWidth="md">
-        <Box margin={2} textAlign="center">
+        <div css={theme => ({ margin: theme.spacing(2), textAlign: 'center' })}>
           {/* 見つかりませんでした */}
-          <LocalHotelIcon css={{ width: theme.spacing(20), height: theme.spacing(20) }} />
+          <LocalHotelIcon
+            css={theme => ({ width: theme.spacing(20), height: theme.spacing(20) })}
+          />
           <Typography variant="h4" component="h1" paragraph>
             {t('not-found.title')}
           </Typography>
           <Typography variant="body1">{t('not-found.description')}</Typography>
-        </Box>
-        <Box margin={2} textAlign="center">
+        </div>
+        <div css={theme => ({ margin: theme.spacing(2), textAlign: 'center' })}>
           {/* ホームに戻る */}
           <Button component={RouterLink} variant="contained" to="/" size="large">
             {t('not-found.back-to-home')}
           </Button>
-        </Box>
+        </div>
       </Container>
     </Layout>
   );

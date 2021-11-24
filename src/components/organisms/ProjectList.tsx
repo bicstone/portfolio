@@ -101,7 +101,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                   />
                 </AccordionSummary>
                 <AccordionDetails>
-                  <div>
+                  <>
                     <Typography variant="body1" component="div">
                       {node.subName}
                     </Typography>
@@ -109,7 +109,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                       {node?.detail?.childMarkdownRemark?.html &&
                         parse(node.detail.childMarkdownRemark.html)}
                     </Typography>
-                  </div>
+                  </>
                 </AccordionDetails>
               </Accordion>
             </section>

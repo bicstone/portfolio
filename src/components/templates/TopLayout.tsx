@@ -1,13 +1,14 @@
 import React from 'react';
-import { Global } from '@emotion/react';
-import { ThemeProvider, CssBaseline, createTheme } from '@mui/material';
+import { Global, CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import createEmotionCache from '@emotion/cache';
+import { ThemeProvider as MuiThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
 import { themeReducer, themeInitialState } from 'src/reducers';
 import { ThemeContext } from 'src/contexts';
 import BackgroundImage from './background.svg';
 
 /**
- * material-ui 基本レイアウト
+ * TopLayout
  */
 export const TopLayout: React.FC = props => {
   const [themeState, themeDispatch] = React.useReducer(
@@ -85,26 +86,32 @@ export const TopLayout: React.FC = props => {
       }),
     [darkMode],
   );
+  const emotionCache = React.useMemo(
+    () => createEmotionCache({ key: darkMode ? 'd' : 'l' }),
+    [darkMode],
+  );
 
   return (
-    <ThemeContext.Provider value={themeDispatch}>
-      <ThemeProvider theme={theme}>
-        <Global
-          styles={{
-            body: {
-              display: 'flex',
-              flexDirection: 'column',
-              minHeight: '100vh',
-              cursor: 'default',
-              backgroundImage: `url(${BackgroundImage})`,
-              backgroundSize: '400px 400px',
-              backgroundRepeat: 'repeat',
-            },
-          }}
-        />
-        <CssBaseline />
-        {props.children}
-      </ThemeProvider>
-    </ThemeContext.Provider>
+    <CacheProvider value={emotionCache}>
+      <EmotionThemeProvider theme={theme}>
+        <MuiThemeProvider theme={theme}>
+          <Global
+            styles={{
+              body: {
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+                cursor: 'default',
+                backgroundImage: `url(${BackgroundImage})`,
+                backgroundSize: '400px 400px',
+                backgroundRepeat: 'repeat',
+              },
+            }}
+          />
+          <CssBaseline />
+          <ThemeContext.Provider value={themeDispatch}>{props.children}</ThemeContext.Provider>
+        </MuiThemeProvider>
+      </EmotionThemeProvider>
+    </CacheProvider>
   );
 };

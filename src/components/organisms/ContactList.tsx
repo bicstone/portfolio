@@ -1,6 +1,6 @@
 import React from 'react';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Grid, CardActionArea, useTheme } from '@mui/material';
+import { Typography, Grid, CardActionArea } from '@mui/material';
 import { MediaCard, SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
@@ -18,7 +18,6 @@ export type ContactsIconProps = {
  * 連絡先一覧
  */
 export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
-  const theme = useTheme();
   const { language } = useI18next();
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
@@ -35,11 +34,11 @@ export const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
                 <MediaCard
                   media={
                     <SvgAvatar
-                      css={{
+                      css={theme => ({
                         margin: theme.spacing(2, 'auto', 0, 'auto'),
                         width: theme.spacing(5),
                         height: theme.spacing(5),
-                      }}
+                      })}
                       svg={node.icon?.svg?.svg || ''}
                       name={node.name || ''}
                     />

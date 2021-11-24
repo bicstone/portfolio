@@ -2,7 +2,7 @@ import React from 'react';
 import { Link as RouterLink } from 'gatsby';
 import Cookies from 'js-cookie';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
-import { Snackbar, IconButton, Box, Link } from '@mui/material';
+import { Snackbar, IconButton, Link } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import { CookieAlertContent } from 'src/components';
@@ -47,9 +47,9 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
         }
         message={
           <aside>
-            <Box display="inline-block">{t('cookie-alert.title')}</Box>
+            <div css={{ display: 'inline-block' }}>{t('cookie-alert.title')}</div>
             <wbr />
-            <Box display="inline-block">
+            <div css={{ display: 'inline-block' }}>
               <Trans i18nKey="cookie-alert.description">
                 詳しくは
                 <Link component={RouterLink} to="/privacy" color="inherit" underline="always">
@@ -57,7 +57,7 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
                 </Link>
                 をご覧ください。
               </Trans>
-            </Box>
+            </div>
           </aside>
         }
       />
