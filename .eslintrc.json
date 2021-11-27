@@ -8,10 +8,8 @@
     "ecmaVersion": 11
   },
   "rules": {
-    "react/prop-types": "off",
     "no-use-before-define": "off",
     "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }],
-    "import/no-named-as-default": "off",
     "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
     "import/order": [
       "error",
@@ -80,6 +78,9 @@
         "react": {
           "version": "detect"
         }
+      },
+      "rules": {
+        "react/prop-types": "off"
       }
     }
   ]
