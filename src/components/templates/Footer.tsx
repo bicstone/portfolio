@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { Link as RouterLink } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { Typography, Link } from '@mui/material';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 /**
  * フッター部

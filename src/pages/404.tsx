@@ -1,10 +1,13 @@
 import React from 'react';
+
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, Container, Button } from '@mui/material';
+
 import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
-import { NotFoundPageQuery } from 'src/types';
+import { Typography, Container, Button } from '@mui/material';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { Layout } from 'src/components';
+import { NotFoundPageQuery } from 'src/types';
 
 const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
   const { t } = useI18next();

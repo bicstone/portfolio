@@ -3,35 +3,66 @@
     "browser": true,
     "es2020": true
   },
-  "extends": [
-    "standard",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
-    "plugin:jsx-a11y/recommended",
-    "prettier"
-  ],
+  "extends": ["standard", "plugin:import/recommended", "plugin:jsx-a11y/recommended", "prettier"],
   "parserOptions": {
     "ecmaVersion": 11
   },
   "rules": {
     "react/prop-types": "off",
     "no-use-before-define": "off",
-    "import/order": ["error"]
+    "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }],
+    "import/no-named-as-default": "off",
+    "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "gatsby",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@mui",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "src/**",
+            "group": "parent"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react", "gatsby", "@mui"],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ]
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "env": {
-        "browser": true,
-        "es2020": true
-      },
       "extends": [
         "standard",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
+        "plugin:import/recommended",
         "plugin:import/typescript",
         "plugin:jsx-a11y/recommended",
         "prettier"
@@ -45,14 +76,6 @@
         "sourceType": "module"
       },
       "plugins": ["react", "react-hooks", "@typescript-eslint"],
-      "rules": {
-        "react/prop-types": "off",
-        "no-use-before-define": "off",
-        "import/order": ["error"],
-        "import/no-named-as-default": "off",
-        "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
-        "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }]
-      },
       "settings": {
         "react": {
           "version": "detect"

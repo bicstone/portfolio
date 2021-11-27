@@ -1,6 +1,10 @@
 import React from 'react';
-import parse from 'html-react-parser';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+
+import {
+  ExpandMore as ExpandMoreIcon,
+  UnfoldMore as UnfoldMoreIcon,
+  UnfoldLess as UnfoldLessIcon,
+} from '@mui/icons-material';
 import {
   Typography,
   CardHeader,
@@ -11,11 +15,9 @@ import {
   Button,
   useTheme,
 } from '@mui/material';
-import {
-  ExpandMore as ExpandMoreIcon,
-  UnfoldMore as UnfoldMoreIcon,
-  UnfoldLess as UnfoldLessIcon,
-} from '@mui/icons-material';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+import parse from 'html-react-parser';
+
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

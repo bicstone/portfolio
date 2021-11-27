@@ -1,11 +1,12 @@
 import React from 'react';
+
+import { Element } from 'domhandler';
 import parse, {
   attributesToProps,
   domToReact,
   HTMLReactParserOptions,
   DOMNode,
 } from 'html-react-parser';
-import { Element } from 'domhandler';
 
 export type SvgIconProps = {
   width: number;

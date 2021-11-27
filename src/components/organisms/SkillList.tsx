@@ -1,5 +1,6 @@
 import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import {
   Typography,
   Grid,
@@ -10,7 +11,8 @@ import {
   AccordionSummary,
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
-import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { CollapseResponsiveController } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { graphql, PageProps } from 'gatsby';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { Container, Typography, styled } from '@mui/material';
-import { IndexPageQuery } from 'src/types';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import {
   Layout,
   HelloGroup,
@@ -14,6 +16,7 @@ import {
   SkillList,
   WhatICanDoList,
 } from 'src/components';
+import { IndexPageQuery } from 'src/types';
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),

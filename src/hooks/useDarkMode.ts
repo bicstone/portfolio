@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { useTheme } from '@mui/material/styles';
-import { TOGGLE_DARKMODE } from 'src/reducers';
+
 import { ThemeContext } from 'src/contexts';
+import { TOGGLE_DARKMODE } from 'src/reducers';
 
 /**
  * ダークテーマ切り替えの関数を返す
