@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { graphql, PageProps, Link as RouterLink } from 'gatsby';
-
 import { Container, Typography, Grid, Card, CardContent, Link } from '@mui/material';
+import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { Layout } from 'src/components';
 import { PrivacyPageQuery } from 'src/types';
 

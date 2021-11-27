@@ -17,7 +17,6 @@ import {
 } from '@mui/material';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import parse from 'html-react-parser';
-
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

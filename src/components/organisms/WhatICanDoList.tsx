@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Typography, Grid, CardHeader, Card } from '@mui/material';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

@@ -1,5 +1,4 @@
 import { useStaticQuery, graphql } from 'gatsby';
-
 import { BuildTimeDataQuery } from 'src/types';
 
 // graphqlTypesではanyとなるため型ヒントを追加

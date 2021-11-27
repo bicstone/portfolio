@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { useTheme } from '@mui/material/styles';
-
 import { ThemeContext } from 'src/contexts';
 import { TOGGLE_DARKMODE } from 'src/reducers';
 

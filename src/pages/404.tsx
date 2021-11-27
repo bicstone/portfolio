@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 
 import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { Typography, Container, Button } from '@mui/material';
+import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { Layout } from 'src/components';
 import { NotFoundPageQuery } from 'src/types';
 

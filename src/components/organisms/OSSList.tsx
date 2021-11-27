@@ -3,7 +3,6 @@ import React from 'react';
 import { Typography, Grid, CardHeader, CardActionArea, Card, CardMedia, Chip } from '@mui/material';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

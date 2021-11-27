@@ -1,13 +1,12 @@
 import React from 'react';
 
-import { Link as RouterLink } from 'gatsby';
 
 import CloseIcon from '@mui/icons-material/Close';
 import { Snackbar, IconButton, Link } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
+import { Link as RouterLink } from 'gatsby';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import Cookies from 'js-cookie';
-
 import { CookieAlertContent } from 'src/components';
 
 export type CookieAlertProps = {

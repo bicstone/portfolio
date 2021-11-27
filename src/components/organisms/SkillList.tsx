@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-
 import { CollapseResponsiveController } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

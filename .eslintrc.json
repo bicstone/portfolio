@@ -10,6 +10,7 @@
   "rules": {
     "no-use-before-define": "off",
     "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }],
+    "no-multiple-empty-lines": ["error", {"max": 1, "maxEOF": 1, "maxBOF": 0}],
     "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
     "import/order": [
       "error",
@@ -31,21 +32,11 @@
             "position": "before"
           },
           {
-            "pattern": "gatsby",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "@mui",
-            "group": "external",
-            "position": "after"
-          },
-          {
-            "pattern": "src/**",
+            "pattern": "src/",
             "group": "parent"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["react", "gatsby", "@mui"],
+        "pathGroupsExcludedImportTypes": ["react"],
         "alphabetize": {
           "order": "asc"
         },
