@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { Typography, Container, Button } from '@mui/material';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import CloseIcon from '@mui/icons-material/Close';
 import { Snackbar, IconButton, Link } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
