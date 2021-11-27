@@ -18,7 +18,6 @@ import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { CollapseResponsiveController } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
-
 export type CertificationListProps = {
   certification: IndexPageQuery['certification']['edges'];
 };

@@ -9,7 +9,6 @@ import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
 import { Layout } from 'src/components';
 import { NotFoundPageQuery } from 'src/types';
 
-
 const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
   const { t } = useI18next();
   const icon = data.icon?.svg?.content || '';

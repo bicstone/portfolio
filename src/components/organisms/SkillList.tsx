@@ -17,7 +17,6 @@ import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import { CollapseResponsiveController } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
-
 export type SkillListProps = {
   skills: IndexPageQuery['skills']['edges'];
 };

@@ -22,7 +22,6 @@ import {
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
-
 export type ProjectListProps = {
   projects: IndexPageQuery['projects']['edges'];
 };
