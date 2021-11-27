@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { NoSsr } from '@mui/material';
+
 import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
 
 export type LayoutProps = {

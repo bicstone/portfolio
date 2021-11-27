@@ -3,7 +3,6 @@ const path = require('path');
 
 const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
-
 module.exports = {
   siteMetadata: {
     title: siteMetaData.title,

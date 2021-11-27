@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Helmet } from 'gatsby-plugin-react-i18next';
+
 import { useBuildTime, useSiteMetadata } from 'src/hooks';
 
 type Props = {

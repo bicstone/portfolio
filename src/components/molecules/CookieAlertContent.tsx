@@ -2,6 +2,7 @@ import React from 'react';
 
 import { SnackbarContent, Typography } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
+
 import { useBreakPoint } from 'src/hooks';
 
 export type CookieAlertContentProps = {

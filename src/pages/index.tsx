@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Typography, styled } from '@mui/material';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import {
   Layout,
   HelloGroup,

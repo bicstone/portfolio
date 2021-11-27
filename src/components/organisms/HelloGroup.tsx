@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Typography, Grid, Button } from '@mui/material';
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
+
 import { SvgIcon, AvatarCard } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

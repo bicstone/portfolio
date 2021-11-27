@@ -1,11 +1,6 @@
 import React from 'react';
 
 import {
-  ExpandMore as ExpandMoreIcon,
-  UnfoldMore as UnfoldMoreIcon,
-  UnfoldLess as UnfoldLessIcon,
-} from '@mui/icons-material';
-import {
   Typography,
   CardHeader,
   Accordion,
@@ -17,8 +12,16 @@ import {
 } from '@mui/material';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import parse from 'html-react-parser';
+
+import {
+  ExpandMore as ExpandMoreIcon,
+  UnfoldMore as UnfoldMoreIcon,
+  UnfoldLess as UnfoldLessIcon,
+} from '@mui/icons-material';
+
 import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
+
 
 export type ProjectListProps = {
   projects: IndexPageQuery['projects']['edges'];

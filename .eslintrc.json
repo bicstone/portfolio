@@ -10,7 +10,6 @@
   "rules": {
     "no-use-before-define": "off",
     "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }],
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }],
     "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
     "import/order": [
       "error",
@@ -32,17 +31,23 @@
             "position": "before"
           },
           {
-            "pattern": "src/",
-            "group": "parent"
+            "pattern": "@mui/icons-material*",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "src/*",
+            "group": "internal"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroupsExcludedImportTypes": ["react", "@mui/icons-material"],
         "alphabetize": {
           "order": "asc"
         },
         "newlines-between": "always"
       }
-    ]
+    ],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }]
   },
   "overrides": [
     {

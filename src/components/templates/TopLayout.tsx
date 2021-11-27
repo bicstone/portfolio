@@ -4,6 +4,7 @@ import createEmotionCache from '@emotion/cache';
 import { Global, CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
+
 import { ThemeContext } from 'src/contexts';
 import { themeReducer, themeInitialState } from 'src/reducers';
 

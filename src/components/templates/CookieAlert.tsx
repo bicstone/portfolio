@@ -6,6 +6,7 @@ import { Breakpoint } from '@mui/material/styles';
 import { Link as RouterLink } from 'gatsby';
 import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import Cookies from 'js-cookie';
+
 import { CookieAlertContent } from 'src/components';
 
 export type CookieAlertProps = {

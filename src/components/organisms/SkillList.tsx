@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
 import {
   Typography,
   Grid,
@@ -12,8 +11,12 @@ import {
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
 import { useI18next } from 'gatsby-plugin-react-i18next';
+
+import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+
 import { CollapseResponsiveController } from 'src/components';
 import { IndexPageQuery } from 'src/types';
+
 
 export type SkillListProps = {
   skills: IndexPageQuery['skills']['edges'];
