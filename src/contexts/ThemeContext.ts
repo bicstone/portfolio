@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ThemeAction } from 'src/reducers';
 
 // deepcode ignore valid-jsdoc

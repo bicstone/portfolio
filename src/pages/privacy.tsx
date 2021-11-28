@@ -1,9 +1,11 @@
 import React from 'react';
+
+import { Container, Typography, Grid, Card, CardContent, Link } from '@mui/material';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Container, Typography, Grid, Card, CardContent, Link } from '@mui/material';
-import { PrivacyPageQuery } from 'src/types';
+
 import { Layout } from 'src/components';
+import { PrivacyPageQuery } from 'src/types';
 
 const privacy: React.FC<PageProps<PrivacyPageQuery>> = ({ data }) => {
   const { t } = useI18next();

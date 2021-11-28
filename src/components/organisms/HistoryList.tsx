@@ -1,6 +1,5 @@
 import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography } from '@mui/material';
+
 import {
   Timeline,
   TimelineItem,
@@ -8,6 +7,9 @@ import {
   TimelineConnector,
   TimelineContent,
 } from '@mui/lab';
+import { Typography } from '@mui/material';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { AvatarCard, SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 

@@ -1,10 +1,13 @@
 import React from 'react';
-import { Global, CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+
 import createEmotionCache from '@emotion/cache';
+import { Global, CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
-import { themeReducer, themeInitialState } from 'src/reducers';
+
 import { ThemeContext } from 'src/contexts';
+import { themeReducer, themeInitialState } from 'src/reducers';
+
 import BackgroundImage from './background.svg';
 
 /**

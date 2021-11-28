@@ -1,7 +1,9 @@
 import React from 'react';
+
+import { Toolbar, AppBar, Typography, useScrollTrigger, Link } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Toolbar, AppBar, Typography, useScrollTrigger, Link } from '@mui/material';
+
 import { SvgIcon } from 'src/components';
 
 export type HeaderProps = {
