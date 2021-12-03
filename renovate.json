@@ -10,24 +10,16 @@
       "groupName": "dependencies"
     },
     {
-      "matchPackagePatterns": ["eslint"],
-      "groupName": "eslint dependencies"
-    },
-    {
-      "matchPackagePatterns": ["gatsby"],
-      "groupName": "gatsby dependencies"
-    },
-    {
       "matchPackagePatterns": ["material-ui"],
-      "groupName": "mui dependencies"
+      "groupName": "ui dependencies"
     },
     {
       "matchPackagePrefixes": ["@mui"],
-      "groupName": "mui dependencies"
+      "groupName": "ui dependencies"
     },
     {
       "matchPackagePrefixes": ["@emotion"],
-      "groupName": "emotion dependencies"
+      "groupName": "ui dependencies"
     }
   ]
 }
