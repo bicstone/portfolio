@@ -46,13 +46,13 @@
     "gatsby-transformer-inline-svg": "1.0.0",
     "gatsby-transformer-remark": "5.3.0",
     "gatsby-transformer-sharp": "4.3.0",
-    "html-react-parser": "1.4.1",
-    "i18next": "21.5.4",
+    "html-react-parser": "1.4.2",
+    "i18next": "21.6.0",
     "js-cookie": "3.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "react-i18next": "11.14.3"
+    "react-i18next": "11.15.0"
   },
   "devDependencies": {
     "@babel/cli": "7.16.0",
@@ -61,17 +61,17 @@
     "@graphql-codegen/typescript": "2.4.1",
     "@graphql-codegen/typescript-operations": "2.2.1",
     "@types/js-cookie": "3.0.1",
-    "@types/node": "16.11.11",
+    "@types/node": "16.11.12",
     "@types/react": "17.0.37",
     "@types/react-dom": "17.0.11",
     "@types/react-helmet": "6.1.4",
-    "@typescript-eslint/eslint-plugin": "5.5.0",
-    "@typescript-eslint/parser": "5.5.0",
+    "@typescript-eslint/eslint-plugin": "5.6.0",
+    "@typescript-eslint/parser": "5.6.0",
     "babel-plugin-i18next-extract": "0.8.3",
     "babel-preset-gatsby": "2.3.0",
     "barrelsby": "2.3.0",
     "dotenv": "10.0.0",
-    "eslint": "8.4.0",
+    "eslint": "8.4.1",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.25.3",
@@ -83,7 +83,7 @@
     "eslint-plugin-standard": "4.1.0",
     "husky": "7.0.4",
     "prettier": "2.5.1",
-    "typescript": "4.5.2"
+    "typescript": "4.5.3"
   },
   "repository": {
     "type": "git",
