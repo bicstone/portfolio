@@ -5,19 +5,23 @@
     "title": "機能改善のためCookieを使用しています。"
   },
   "footer": {
-    "copyright": "© {{year}} Takanori Oishi"
+    "copyright": "© {{year}} Oishi Takanori"
   },
   "header": {
     "back-to-home": "ホームに移動",
     "changeLanguage-title": "言語切替",
     "github-title": "GitHub",
     "github-url": "https://github.com/bicstone/",
-    "title-home": "Takanori Oishi",
+    "title-home": "Oishi Takanori",
     "toggleDarkTheme-title": "ダークモード切替"
   },
   "hello": {
-    "description": "Takanori Oishi (おおいし たかのり) と申します。 Webエンジニア / セキュリティスペシャリスト / 機械エンジニア です。",
-    "title": "@bicstone （ビックストーン）"
+    "description": "大石貴則 (Ōishi Takanori) と申します。 Webエンジニア / セキュリティスペシャリスト / 機械エンジニア です。",
+    "icon": {
+      "fukkireta": "ニコニコした大石貴則の似顔絵がニコニコ動画で流行した「吹っ切れた」を真似しているアニメーション。クリックするとアニメーションを停止します。",
+      "normal": "ニコニコした大石貴則の似顔絵。クリックするとアニメーションを開始します。"
+    },
+    "title": "@bicstone"
   },
   "histories": {
     "age": "{{age}}歳",

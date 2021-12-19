@@ -1,9 +1,9 @@
 module.exports = {
-  title: "Takanori Oishi @bisctone's Portfolio",
+  title: "Oishi Takanori @bisctone's Portfolio",
   shortTitle: 'bicstone',
   siteUrl: 'https://bicstone.me',
   description:
-    'Webディベロッパー/機械エンジニア Takanori Oishi (おおいし たかのり) @bicstone のポートフォリオサイトです。',
+    'Webディベロッパー/機械エンジニア 大石貴則 (Ōishi Takanori) @bicstone のポートフォリオサイトです。',
   author: 'bicstone',
   image: '/android-chrome-512x512.png',
   image192: '/android-chrome-192x192.png',
