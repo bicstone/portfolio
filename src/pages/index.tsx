@@ -30,7 +30,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
     <Layout icon={icon} iconAlt={iconAlt} isHome>
       <PaddingContainer maxWidth="lg" component="section">
-        <HelloGroup links={data.links.edges} icon={icon} iconAlt={iconAlt} />
+        <HelloGroup links={data.links.edges} icon={icon} />
       </PaddingContainer>
       <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
