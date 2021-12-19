@@ -1,8 +1,8 @@
 require('dotenv').config({ path: `.env` });
 const path = require('path');
-const siteMetaData = require('./src/configs/site-meta-data');
-const languages = require('./src/configs/languages');
 
+const languages = require('./src/configs/languages');
+const siteMetaData = require('./src/configs/site-meta-data');
 module.exports = {
   siteMetadata: {
     title: siteMetaData.title,
@@ -28,6 +28,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: true,
+        localeFilter: locale => locale.code === 'ja',
       },
     },
     {

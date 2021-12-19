@@ -1,6 +1,8 @@
 import React from 'react';
+
+import { SnackbarContent, Typography } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
-import { Box, SnackbarContent, Typography } from '@mui/material';
+
 import { useBreakPoint } from 'src/hooks';
 
 export type CookieAlertContentProps = {
@@ -25,7 +27,7 @@ export const CookieAlertContent = React.forwardRef<HTMLDivElement, CookieAlertCo
           wordBreak: 'keep-all',
           whiteSpace: 'nowrap',
         }}
-        action={<Box padding={1}>{action}</Box>}
+        action={<div css={theme => ({ padding: theme.spacing(1) })}>{action}</div>}
         message={
           <Typography variant={breakpoints.includes(width) ? 'caption' : 'body2'} component="div">
             {message}

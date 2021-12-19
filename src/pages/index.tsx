@@ -1,8 +1,9 @@
 import React from 'react';
+
+import { Container, Typography, styled } from '@mui/material';
 import { graphql, PageProps } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Container, Typography, styled } from '@mui/material';
-import { IndexPageQuery } from 'src/types';
+
 import {
   Layout,
   HelloGroup,
@@ -14,6 +15,7 @@ import {
   SkillList,
   WhatICanDoList,
 } from 'src/components';
+import { IndexPageQuery } from 'src/types';
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
@@ -28,7 +30,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   return (
     <Layout icon={icon} iconAlt={iconAlt} isHome>
       <PaddingContainer maxWidth="lg" component="section">
-        <HelloGroup links={data.links.edges} icon={icon} iconAlt={iconAlt} />
+        <HelloGroup links={data.links.edges} icon={icon} />
       </PaddingContainer>
       <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>

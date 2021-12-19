@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const languages = require('./languages');
-
+const languages = require('./src/configs/languages');
 module.exports = {
   presets: ['babel-preset-gatsby'],
   plugins: [

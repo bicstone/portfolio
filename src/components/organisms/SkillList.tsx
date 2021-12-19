@@ -1,5 +1,5 @@
 import React from 'react';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import {
   Typography,
   Grid,
@@ -8,10 +8,12 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Box,
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
 import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+
 import { CollapseResponsiveController } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
@@ -48,7 +50,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Box width="100%" paddingY={2} paddingX={2}>
+                      <div css={theme => ({ width: '100%', padding: theme.spacing(2) })}>
                         {node?.skills?.map(skill => (
                           <Grid
                             container
@@ -72,7 +74,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                             </Grid>
                           </Grid>
                         ))}
-                      </Box>
+                      </div>
                     </AccordionDetails>
                   </Accordion>
                 </CollapseResponsiveController>

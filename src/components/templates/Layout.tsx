@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, NoSsr } from '@mui/material';
+
+import { NoSsr } from '@mui/material';
+
 import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
 
 export type LayoutProps = {
@@ -30,9 +32,9 @@ export const Layout: React.FC<LayoutProps> = ({
         <CookieAlert show={cookieAlertShow} />
       </NoSsr>
       <Header isHome={isHome} icon={icon} iconAlt={iconAlt} />
-      <Box component="main" role="main" marginTop={8}>
+      <main role="main" css={theme => ({ marginTop: theme.spacing(8) })}>
         {children}
-      </Box>
+      </main>
       <Footer />
     </TopLayout>
   );

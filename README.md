@@ -1,4 +1,4 @@
-# Takanori Oishi ポートフォリオ 💚
+# Oishi Takanori ポートフォリオ 💚
 
 ![GitHub Actions によるCIの結果](https://github.com/bicstone/portfolio/workflows/Node.js%20CI/badge.svg)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)

@@ -1,22 +1,22 @@
 import React from 'react';
+
+import { Typography, Link } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Typography, useTheme, Link } from '@mui/material';
 
 /**
  * フッター部
  */
 export const Footer: React.FC = () => {
-  const theme = useTheme();
   const { t } = useI18next();
   const nowDate = new Date();
   return (
     <footer
-      css={{
+      css={theme => ({
         marginTop: 'auto',
         padding: theme.spacing(3),
         borderTop: `1px solid ${theme.palette.divider}`,
-      }}
+      })}
       role="contentinfo"
     >
       <Typography variant="body2" color="textSecondary" align="center" paragraph>

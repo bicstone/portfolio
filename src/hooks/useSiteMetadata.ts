@@ -1,3 +1,4 @@
+import { languages } from 'src/configs/languages';
 import {
   title,
   shortTitle,
@@ -8,7 +9,6 @@ import {
   image,
   image192,
 } from 'src/configs/site-meta-data';
-import { languages } from 'src/configs/languages';
 
 const siteMetadata = {
   languages,
