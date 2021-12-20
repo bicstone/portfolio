@@ -31,9 +31,7 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
                   target="_blank"
                 >
                   <CardMedia>
-                    {/* TODO: バグ調査用。次の変更時に必ず削除する */}
-                    {console.log(node.image)}
-                    {node?.image?.localFile?.childImageSharp && (
+                    {node?.image?.localFile?.childImageSharp?.gatsbyImageData && (
                       <GatsbyImage
                         css={{
                           height: 0,
