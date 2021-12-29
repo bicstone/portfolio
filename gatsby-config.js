@@ -119,7 +119,7 @@ module.exports = {
         region: process.env.AWS_REGION,
         protocol: 'https',
         hostname: new URL(siteMetaData.siteUrl).hostname,
-        verbose: true,
+        acl: null,
       },
     },
     {
