@@ -3,7 +3,8 @@ name: Node.js CI
 env:
   CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
   CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-  QIITA_ACCESS_TOKEN: ${{ secrets.QIITA_ACCESS_TOKEN }}
+  # "bucketName" is a required option for gatsby-plugin-s3
+  AWS_S3_BUCKET_NAME: 'example'
 
 on:
   push:
