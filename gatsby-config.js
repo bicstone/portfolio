@@ -89,6 +89,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: siteMetaData.siteUrl,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-inline-svg',
     },
     {
@@ -105,6 +111,14 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-emotion',
+    },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: process.env.AWS_S3_BUCKET_NAME,
+        protocol: 'https',
+        hostname: new URL(siteMetaData.siteUrl).hostname,
+      },
     },
     {
       // ハッシュ取得を行うため最下部に設置すること

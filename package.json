@@ -22,7 +22,8 @@
     "tc": "yarn typecheck",
     "barrelsby": "barrelsby -d ./src -D -i \"src/(components|contexts|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$\" -l below -q",
     "b": "yarn barrelsby",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "gatsby-plugin-s3 deploy"
   },
   "dependencies": {
     "@emotion/react": "11.7.1",
@@ -32,6 +33,7 @@
     "@mui/material": "5.2.5",
     "gatsby": "4.4.0",
     "gatsby-plugin-advanced-sitemap": "2.0.0",
+    "gatsby-plugin-canonical-urls": "^4.4.0",
     "gatsby-plugin-csp": "1.1.3",
     "gatsby-plugin-emotion": "7.4.0",
     "gatsby-plugin-google-analytics": "4.4.0",
@@ -40,6 +42,7 @@
     "gatsby-plugin-react-i18next": "1.2.2",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
     "gatsby-plugin-root-import": "2.0.8",
+    "gatsby-plugin-s3": "^0.3.8",
     "gatsby-plugin-sharp": "4.4.0",
     "gatsby-source-contentful": "7.2.0",
     "gatsby-source-filesystem": "4.4.0",
@@ -58,6 +61,7 @@
     "@babel/cli": "7.16.0",
     "@babel/plugin-transform-typescript": "7.16.1",
     "@graphql-codegen/cli": "2.3.0",
+    "@graphql-codegen/introspection": "2.1.0",
     "@graphql-codegen/typescript": "2.4.1",
     "@graphql-codegen/typescript-operations": "2.2.1",
     "@types/js-cookie": "3.0.1",
@@ -83,8 +87,7 @@
     "eslint-plugin-standard": "4.1.0",
     "husky": "7.0.4",
     "prettier": "2.5.1",
-    "typescript": "4.5.4",
-    "@graphql-codegen/introspection": "2.1.0"
+    "typescript": "4.5.4"
   },
   "repository": {
     "type": "git",
