@@ -1,4 +1,7 @@
 {
+  "blog": {
+    "title": "まっしろブログ"
+  },
   "cookie-alert": {
     "close": "閉じる",
     "description": "詳しくは <1>Cookieポリシー</1> をご覧ください。",

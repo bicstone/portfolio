@@ -17355,7 +17355,17 @@ export type NotFoundPageQueryVariables = Exact<{
 }>;
 
 
-export type NotFoundPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
+export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+    Pick<ContentfulAsset, 'title'>
+    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
+  )> };
+
+export type BlogPageQueryVariables = Exact<{
+  language: Scalars['String'];
+}>;
+
+
+export type BlogPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
           Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
           & { content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
         ) }> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(

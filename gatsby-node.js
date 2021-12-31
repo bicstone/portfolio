@@ -3,22 +3,12 @@ const path = require('path');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
-    query BlogPostList {
+    query BlogPosts {
       allContentfulBlogPost {
         edges {
           node {
             id
-            title
             slug
-            created
-            updated
-            excerpt
-            content {
-              content
-            }
-            tags {
-              name
-            }
           }
         }
       }
