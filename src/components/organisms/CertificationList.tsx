@@ -31,44 +31,43 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
 
   return (
     <Grid container spacing={2}>
-      {certification.map(
-        ({ node }) =>
-          node.node_locale === language && (
-            <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
-              <CollapseResponsiveController
-                defaultExpanded={node.expanded || false}
-                defaultExpandedBreakpoints={defaultExpandedBreakpoints}
-              >
-                <Accordion>
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls={`${node.id}-content`}
-                    id={`${node.id}-header`}
-                  >
-                    <Typography component="h2" variant="h6">
-                      {node.name}
-                    </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <List dense={true}>
-                      {node.qualifications?.map(
-                        qualification =>
-                          qualification && (
-                            <ListItem key={qualification.id}>
-                              <ListItemText
-                                primary={qualification.name}
-                                secondary={qualification.date}
-                              />
-                            </ListItem>
-                          ),
-                      )}
-                    </List>
-                  </AccordionDetails>
-                </Accordion>
-              </CollapseResponsiveController>
-            </Grid>
-          ),
-      )}
+      {certification
+        .filter(({ node }) => node.node_locale === language)
+        ?.map(({ node }) => (
+          <Grid item xs={12} sm={6} md={4} key={node.id} component="section">
+            <CollapseResponsiveController
+              defaultExpanded={node.expanded || false}
+              defaultExpandedBreakpoints={defaultExpandedBreakpoints}
+            >
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls={`${node.id}-content`}
+                  id={`${node.id}-header`}
+                >
+                  <Typography component="h2" variant="h6">
+                    {node.name}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List dense={true}>
+                    {node.qualifications?.map(
+                      qualification =>
+                        qualification && (
+                          <ListItem key={qualification.id}>
+                            <ListItemText
+                              primary={qualification.name}
+                              secondary={qualification.date}
+                            />
+                          </ListItem>
+                        ),
+                    )}
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+            </CollapseResponsiveController>
+          </Grid>
+        ))}
     </Grid>
   );
 };
