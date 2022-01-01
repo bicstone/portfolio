@@ -60,23 +60,22 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
                 {t('hello.description')}
               </Typography>
 
-              {links.map(
-                ({ node }) =>
-                  node.node_locale === language && (
-                    <Button
-                      href={node.href || ''}
-                      variant="outlined"
-                      color="secondary"
-                      size="medium"
-                      rel="external noreferrer noopener nofollow"
-                      css={theme => ({ marginRight: theme.spacing(1) })}
-                      key={node.id}
-                      target="_blank"
-                    >
-                      {node.name}
-                    </Button>
-                  ),
-              )}
+              {links
+                .filter(({ node }) => node.node_locale === language)
+                ?.map(({ node }) => (
+                  <Button
+                    href={node.href || ''}
+                    variant="outlined"
+                    color="secondary"
+                    size="medium"
+                    rel="external noreferrer noopener nofollow"
+                    css={theme => ({ marginRight: theme.spacing(1) })}
+                    key={node.id}
+                    target="_blank"
+                  >
+                    {node.name}
+                  </Button>
+                ))}
             </>
           }
         />
