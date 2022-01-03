@@ -1,10 +1,21 @@
 import React from 'react';
 
-import { Toolbar, AppBar, Typography, useScrollTrigger, Link } from '@mui/material';
+import {
+  Toolbar,
+  AppBar,
+  Typography,
+  useScrollTrigger,
+  Link,
+  Button,
+  Breakpoint,
+} from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
+import { GitHub as GitHubIcon } from '@mui/icons-material';
+
 import { SvgIcon } from 'src/components';
+import { useBreakPoint, useSiteMetadata } from 'src/hooks';
 
 export type HeaderProps = {
   icon: string;
@@ -18,6 +29,10 @@ export type HeaderProps = {
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   const { t } = useI18next();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
+  const siteMetaData = useSiteMetadata();
+  const width = useBreakPoint();
+  const expandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
+  const isExpanded = expandedBreakpoints.includes(width);
 
   return (
     <AppBar
@@ -64,6 +79,24 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
           </Link>
         )}
         <div css={{ flexGrow: 1 }} />
+        <nav>
+          <Button
+            css={theme => ({
+              backgroundColor: theme.palette.background.default,
+              marginRight: theme.spacing(0.5),
+            })}
+            variant="outlined"
+            color="inherit"
+            size="small"
+            href={`https://github.com/${siteMetaData.github}`}
+            title={t('header.github-title')}
+            startIcon={isExpanded ? <GitHubIcon /> : null}
+            rel="external noreferrer noopener nofollow"
+            target="_blank"
+          >
+            {isExpanded ? t('header.github-title') : <GitHubIcon />}
+          </Button>
+        </nav>
         {/*
         FIXME: #264 で対応するまで一時的に無効にする
         <nav>
