@@ -6,6 +6,7 @@ import {
   description,
   author,
   twitter,
+  github,
   image,
   image192,
 } from 'src/configs/site-meta-data';
@@ -18,6 +19,7 @@ const siteMetadata = {
   description,
   author,
   twitter,
+  github,
   image,
   image192,
 };

@@ -7,5 +7,6 @@ module.exports = {
   author: 'bicstone',
   image: '/android-chrome-512x512.png',
   image192: '/android-chrome-192x192.png',
-  twitter: '@bicstone_me',
+  twitter: 'bicstone_me',
+  github: 'bicstone',
 };
