@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Container, Typography, Box, Breadcrumbs, Link, Paper } from '@mui/material';
-import { graphql, PageProps, Link as RouterLink, navigate } from 'gatsby';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { Container, Typography, Paper } from '@mui/material';
+import { graphql, PageProps, navigate } from 'gatsby';
 
 import { AccessTime as AccessTimeIcon, Update as UpdateIcon } from '@mui/icons-material';
 
@@ -10,7 +9,6 @@ import { Layout } from 'src/components';
 import { BlogPostQuery } from 'src/types';
 
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
-  const { t } = useTranslation();
   const post = data.post;
 
   if (!post) {
