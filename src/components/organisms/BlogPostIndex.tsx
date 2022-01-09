@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Box, Typography, Avatar } from '@mui/material';
+import { Typography, Avatar, CardActionArea } from '@mui/material';
+import { Link as RouterLink } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 import { AvatarCard } from 'src/components';
@@ -38,25 +39,30 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
         const tagName = edges[0].node?.tags?.[0]?.name || t('common.no-category');
 
         return (
-          <Box component="section" key={tagName} marginY={3}>
+          <section css={theme => ({ margin: theme.spacing(3, 0) })} key={tagName}>
             <Typography component="h2" variant="h5" align="center" paragraph>
               {tagName}
             </Typography>
             {edges.map(({ node }) => (
-              <Box component="article" key={node?.id} marginY={1}>
-                <AvatarCard
-                  avatar={<Avatar />}
-                  title={
-                    <Typography component="h3" variant="h6">
-                      {node?.title}
-                    </Typography>
-                  }
-                  subheader={node.excerpt}
-                  // to={`/${node.slug}`}
-                />
-              </Box>
+              <article css={theme => ({ margin: theme.spacing(1, 0) })} key={node.id}>
+                <CardActionArea
+                  component={RouterLink}
+                  to={`/${node.slug}`}
+                  title={node?.title || ''}
+                >
+                  <AvatarCard
+                    avatar={<Avatar />}
+                    title={
+                      <Typography component="h3" variant="h6">
+                        {node.title}
+                      </Typography>
+                    }
+                    subheader={node.excerpt}
+                  />
+                </CardActionArea>
+              </article>
             ))}
-          </Box>
+          </section>
         );
       })}
     </>

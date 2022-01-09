@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Container, Typography, Box, Breadcrumbs, Link } from '@mui/material';
+import { Container, Typography, Box, Breadcrumbs, Link, Paper } from '@mui/material';
 import { graphql, PageProps, Link as RouterLink, navigate } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { NavigateNext as NavigateNextIcon, Update as UpdateIcon } from '@mui/icons-material';
+import { AccessTime as AccessTimeIcon, Update as UpdateIcon } from '@mui/icons-material';
 
 import { Layout } from 'src/components';
 import { BlogPostQuery } from 'src/types';
@@ -12,6 +12,7 @@ import { BlogPostQuery } from 'src/types';
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const { t } = useTranslation();
   const post = data.post;
+
   if (!post) {
     navigate('/404');
     return null;
@@ -20,33 +21,52 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   return (
     <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
       <Container maxWidth="md">
-        <Box marginBottom={1}>
-          <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
-            <Link component={RouterLink} to="/" title={t('header.back-to-home')}>
-              <Typography variant="body2">bicstone</Typography>
-            </Link>
-            <Link component={RouterLink} to="/blog/" title={t('header.back-to-home')}>
-              <Typography variant="body2">まっしろブログ</Typography>
-            </Link>
-            <Link component={RouterLink} to="/blog/" title={t('header.back-to-home')}>
-              <Typography variant="body2">{post.tags?.[0]?.name || ''}</Typography>
-            </Link>
-          </Breadcrumbs>
-        </Box>
+        {/* <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="small" />}
+          aria-label="breadcrumb"
+          css={theme => ({ marginBottom: theme.spacing(1) })}
+        >
+          <Link component={RouterLink} to="/blog/" title={t('header.back-to-home')}>
+            <Typography variant="body2">まっしろブログ</Typography>
+          </Link>
+          <Link component={RouterLink} to="/blog/" title={t('header.back-to-home')}>
+            <Typography variant="body2">{post.title || ''}</Typography>
+          </Link>
+        </Breadcrumbs> */}
         <Typography variant="h4" component="h1" gutterBottom>
           {post.title}
         </Typography>
-        <Typography variant="body2" color="textSecondary">
-          <Box display="flex" alignItems="center" justifyContent="flex-end">
-            <Box marginRight={0.5}>
-              <UpdateIcon fontSize="inherit" />
-            </Box>
-            <time dateTime={post.created}>{post.created}</time>
-          </Box>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          css={theme => ({ marginTop: theme.spacing(1) })}
+        >
+          <div css={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+            {post.updated && (
+              <>
+                <UpdateIcon
+                  fontSize="inherit"
+                  css={theme => ({ marginRight: theme.spacing(0.5) })}
+                />
+                <time dateTime={post.updated} css={theme => ({ marginRight: theme.spacing(1) })}>
+                  {post.updatedDate}
+                </time>
+              </>
+            )}
+            {post.created && (
+              <>
+                <AccessTimeIcon
+                  fontSize="inherit"
+                  css={theme => ({ marginRight: theme.spacing(0.5) })}
+                />
+                <time dateTime={post.created}>{post.createdDate}</time>
+              </>
+            )}
+          </div>
         </Typography>
-        <Box marginTop={2} marginBottom={10}>
+        <Paper css={theme => ({ margin: theme.spacing(2, 0, 10, 0) })}>
           {post?.content?.content}
-        </Box>
+        </Paper>
       </Container>
     </Layout>
   );
@@ -62,7 +82,9 @@ export const query = graphql`
       title
       slug
       created
+      createdDate: created(formatString: "yyyy/MM/DD")
       updated
+      updatedDate: updated(formatString: "yyyy/MM/DD")
       excerpt
       content {
         content
