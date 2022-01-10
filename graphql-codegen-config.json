@@ -8,6 +8,9 @@
     }
   },
   "config": {
-    "skipTypename": true
+    "skipTypename": true,
+    "numericEnums": true,
+    "avoidOptionals": true,
+    "preResolveTypes": false
   }
 }
