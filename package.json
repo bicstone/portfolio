@@ -74,7 +74,7 @@
     "babel-plugin-i18next-extract": "0.8.3",
     "babel-preset-gatsby": "2.6.0",
     "barrelsby": "2.3.2",
-    "dotenv": "14.3.2",
+    "dotenv": "16.0.0",
     "eslint": "8.8.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-config-standard": "16.0.3",
