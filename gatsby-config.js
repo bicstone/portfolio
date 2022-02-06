@@ -123,6 +123,9 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-mdx`,
+    },
+    {
       // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
