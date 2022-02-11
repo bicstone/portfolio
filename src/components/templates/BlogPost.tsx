@@ -23,6 +23,9 @@ import { AccessTime as AccessTimeIcon, Update as UpdateIcon } from '@mui/icons-m
 import { Layout } from 'src/components';
 import { BlogPostQuery } from 'src/types';
 
+import 'prism-themes/themes/prism-material-dark.css';
+import './custom.css';
+
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
   p: props => <Typography paragraph {...props} />,
@@ -105,40 +108,6 @@ const components: MDXProviderComponentsProp = {
   tr: props => <TableRow {...props} />,
   th: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="th" {...props} />,
   td: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="td" {...props} />,
-  pre: ({ children, ...props }) => (
-    <pre
-      {...props}
-      css={theme => ({
-        display: 'block',
-        fontFamily: 'Consolas, Courier, monospace',
-        margin: theme.spacing(3, 'auto'),
-        padding: theme.spacing(2),
-        background: '#1E1E1E',
-        color: '#DCDCDC',
-        borderRadius: theme.shape.borderRadius,
-        overflow: 'auto',
-      })}
-    >
-      <code>{children}</code>
-    </pre>
-  ),
-  code: ({ children, ...props }) => (
-    <pre
-      {...props}
-      css={theme => ({
-        display: 'block',
-        fontFamily: 'Consolas, Courier, monospace',
-        margin: theme.spacing(3, 'auto'),
-        padding: theme.spacing(2),
-        background: '#1E1E1E',
-        color: '#DCDCDC',
-        borderRadius: theme.shape.borderRadius,
-        overflow: 'auto',
-      })}
-    >
-      <code>{children}</code>
-    </pre>
-  ),
   inlineCode: props => (
     <span
       {...props}
@@ -147,7 +116,7 @@ const components: MDXProviderComponentsProp = {
         fontFamily: 'Consolas, Courier, monospace',
         paddingLeft: theme.spacing(0.5),
         paddingRight: theme.spacing(0.5),
-        backgroundColor: 'rgba(255, 229, 100, 0.2)',
+        backgroundColor: theme.palette.divider,
         borderRadius: theme.shape.borderRadius,
       })}
     />

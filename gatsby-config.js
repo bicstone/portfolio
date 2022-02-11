@@ -129,6 +129,12 @@ module.exports = {
           {
             resolve: `gatsby-remark-images-contentful`,
           },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
         ],
       },
     },
