@@ -28,8 +28,8 @@ export type HeaderProps = {
  */
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   const { t } = useI18next();
-  const siteMetaData = useSiteMetadata();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
+  const siteMetaData = useSiteMetadata();
   const width = useBreakPoint();
   const expandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
   const isExpanded = expandedBreakpoints.includes(width);

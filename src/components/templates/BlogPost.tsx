@@ -1,7 +1,20 @@
 import React from 'react';
 
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
-import { Container, Typography, Card, CardContent, Link } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Card,
+  CardContent,
+  Link,
+  Divider,
+  Table,
+  TableRow,
+  TableCell,
+  TableHead,
+  TableBody,
+  TableContainer,
+} from '@mui/material';
 import { graphql, PageProps, navigate } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
@@ -10,6 +23,7 @@ import { AccessTime as AccessTimeIcon, Update as UpdateIcon } from '@mui/icons-m
 import { Layout } from 'src/components';
 import { BlogPostQuery } from 'src/types';
 
+// FIXME: refactor
 const components: MDXProviderComponentsProp = {
   p: props => <Typography paragraph {...props} />,
   h1: () => null,
@@ -64,12 +78,50 @@ const components: MDXProviderComponentsProp = {
   h4: () => null,
   h5: () => null,
   h6: () => null,
-  // blockquote: () => null,
-  // table: () => null,
-  // tr: () => null,
-  // th: () => null,
-  // td: () => null,
-  // pre: () => null,
+  blockquote: props => (
+    <blockquote
+      {...props}
+      css={theme => ({
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1),
+        borderLeftColor: theme.palette.divider,
+        borderLeftWidth: theme.spacing(0.5),
+        borderLeftStyle: 'solid',
+      })}
+    />
+  ),
+  table: ({ children, ...props }) => (
+    <TableContainer
+      {...props}
+      css={theme => ({ marginTop: theme.spacing(1), marginBottom: theme.spacing(1) })}
+    >
+      <Table size="small">{children}</Table>
+    </TableContainer>
+  ),
+  thead: props => <TableHead {...props} />,
+  tbody: props => <TableBody {...props} />,
+  tr: props => <TableRow {...props} />,
+  th: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="th" {...props} />,
+  td: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="td" {...props} />,
+  pre: ({ children, ...props }) => (
+    <pre
+      {...props}
+      css={theme => ({
+        display: 'block',
+        fontFamily: 'Consolas, Courier, monospace',
+        margin: theme.spacing(3, 'auto'),
+        padding: theme.spacing(2),
+        background: '#1E1E1E',
+        color: '#DCDCDC',
+        borderRadius: theme.shape.borderRadius,
+        overflow: 'auto',
+      })}
+    >
+      <code>{children}</code>
+    </pre>
+  ),
   code: ({ children, ...props }) => (
     <pre
       {...props}
@@ -87,8 +139,6 @@ const components: MDXProviderComponentsProp = {
       <code>{children}</code>
     </pre>
   ),
-  // em: () => null,
-  // delete: () => null,
   inlineCode: props => (
     <span
       {...props}
@@ -102,9 +152,8 @@ const components: MDXProviderComponentsProp = {
       })}
     />
   ),
-  // hr: () => null,
+  hr: () => <Divider />,
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" />,
-  // img: () => null,
 };
 
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {

@@ -124,6 +124,13 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+          },
+        ],
+      },
     },
     {
       // ハッシュ取得を行うため最下部に設置すること
