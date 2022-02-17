@@ -64,7 +64,10 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
                 height={20}
                 icon={icon}
                 alt={iconAlt}
-                css={theme => ({ marginRight: theme.spacing(0.5) })}
+                css={theme => ({
+                  marginRight: theme.spacing(0.5),
+                  display: 'inline-flex',
+                })}
               />
               <Typography
                 color="textPrimary"

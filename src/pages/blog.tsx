@@ -1,21 +1,57 @@
 import React from 'react';
 
-import { Container } from '@mui/material';
-import { graphql, PageProps } from 'gatsby';
+import { Breadcrumbs, Container, Typography, Link } from '@mui/material';
+import { graphql, PageProps, Link as RouterLink } from 'gatsby';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
+
+import { NavigateNext as NavigateNextIcon } from '@mui/icons-material';
 
 import { Layout, BlogPostIndex } from 'src/components';
+import { useSiteMetadata } from 'src/hooks';
 import { BlogPageQuery } from 'src/types';
 
 const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
+  const { t } = useTranslation();
+  const siteMetadata = useSiteMetadata();
+
   const icon = data.icon?.svg?.content || '';
   const iconAlt = data.icon?.title || '';
   return (
     <Layout icon={icon} iconAlt={iconAlt}>
-      <Container maxWidth="lg">
-        <div css={theme => ({ margin: theme.spacing(3) })}>
-          {/* ブログ記事一覧 */}
+      <Container maxWidth="md">
+        <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="small" />}
+          aria-label="breadcrumb"
+          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
+        >
+          <Link component={RouterLink} color="inherit" to="/">
+            <Typography variant="body2">{siteMetadata.title}</Typography>
+          </Link>
+          <Typography variant="body2" color="text.primary">
+            {t('blog.title')}
+          </Typography>
+        </Breadcrumbs>
+
+        <Typography component="h1" variant="h5" align="center">
+          {t('blog.title')}
+        </Typography>
+
+        <div css={theme => ({ marginBottom: theme.spacing(2) })}>
           <BlogPostIndex posts={data.posts.group} />
         </div>
+
+        <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="small" />}
+          aria-label="breadcrumb"
+          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
+        >
+          <Link component={RouterLink} color="inherit" to="/">
+            <Typography variant="body2">{siteMetadata.title}</Typography>
+          </Link>
+          <Typography variant="body2" color="text.primary">
+            {t('blog.title')}
+          </Typography>
+        </Breadcrumbs>
       </Container>
     </Layout>
   );

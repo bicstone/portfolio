@@ -13924,6 +13924,7 @@ export type File = Node & {
   root: Scalars['String'];
   size: Scalars['Int'];
   sourceInstanceName: Scalars['String'];
+  svg: Maybe<InlineSvg>;
   uid: Scalars['Int'];
   url: Maybe<Scalars['String']>;
 };
@@ -16711,6 +16712,7 @@ export type QuerySiteArgs = {
   polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
   siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -16781,6 +16783,7 @@ export type Site = Node & {
   polyfill: Maybe<Scalars['Boolean']>;
   port: Maybe<Scalars['Int']>;
   siteMetadata: Maybe<SiteSiteMetadata>;
+  trailingSlash: Maybe<Scalars['String']>;
 };
 
 
@@ -17136,7 +17139,8 @@ export enum SiteFieldsEnum {
   Port = 91,
   SiteMetadataDescription = 92,
   SiteMetadataSiteUrl = 93,
-  SiteMetadataTitle = 94
+  SiteMetadataTitle = 94,
+  TrailingSlash = 95
 }
 
 export type SiteFilterInput = {
@@ -17151,6 +17155,7 @@ export type SiteFilterInput = {
   polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
   siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteFunction = Node & {
@@ -19705,7 +19710,7 @@ export type BlogPostQuery = { post: Maybe<(
     Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
     & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
     & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
-  )>, icon: Maybe<(
+  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
   )>, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };

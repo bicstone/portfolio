@@ -40,7 +40,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
 
         return (
           <section css={theme => ({ margin: theme.spacing(3, 0) })} key={tagName}>
-            <Typography component="h2" variant="h5" align="center" paragraph>
+            <Typography component="h2" variant="h5" paragraph>
               {tagName}
             </Typography>
             {edges.map(({ node }) => (

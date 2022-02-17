@@ -28,7 +28,7 @@ import {
 
 import 'prism-themes/themes/prism-material-dark.css';
 
-import { Layout } from 'src/components';
+import { HelloGroup, Layout } from 'src/components';
 import { useSiteMetadata } from 'src/hooks';
 import { BlogPostQuery } from 'src/types';
 import './custom.css';
@@ -149,17 +149,17 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
           aria-label="breadcrumb"
-          css={theme => ({ marginBottom: theme.spacing(5) })}
+          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         >
-          <Link component={RouterLink} to="/">
+          <Link component={RouterLink} color="inherit" to="/">
             <Typography variant="body2">{siteMetadata.title}</Typography>
           </Link>
-          <Link component={RouterLink} to="/blog">
+          <Link component={RouterLink} color="inherit" to="/blog">
             <Typography variant="body2">{t('blog.title')}</Typography>
           </Link>
-          <Link component={RouterLink} to={`/${post.slug}`}>
-            <Typography variant="body2">{post.title || ''}</Typography>
-          </Link>
+          <Typography variant="body2" color="text.primary">
+            {post.title || ''}
+          </Typography>
         </Breadcrumbs>
 
         <Typography variant="h4" component="h1">
@@ -204,18 +204,22 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
           aria-label="breadcrumb"
-          css={theme => ({ marginTop: theme.spacing(5), marginBottom: theme.spacing(2) })}
+          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         >
-          <Link component={RouterLink} to="/">
+          <Link component={RouterLink} color="inherit" to="/">
             <Typography variant="body2">{siteMetadata.title}</Typography>
           </Link>
-          <Link component={RouterLink} to="/blog">
+          <Link component={RouterLink} color="inherit" to="/blog">
             <Typography variant="body2">{t('blog.title')}</Typography>
           </Link>
-          <Link component={RouterLink} to={`/${post.slug}`}>
-            <Typography variant="body2">{post.title || ''}</Typography>
-          </Link>
+          <Typography variant="body2" color="text.primary">
+            {post.title || ''}
+          </Typography>
         </Breadcrumbs>
+
+        <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
+          <HelloGroup links={data.links.edges} icon={data.icon?.svg?.content ?? ''} />
+        </section>
       </Container>
     </Layout>
   );
@@ -242,6 +246,17 @@ export const query = graphql`
       }
       tags {
         name
+      }
+    }
+    # 自己紹介部分リンク先を取得する
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+      edges {
+        node {
+          id
+          node_locale
+          name
+          href
+        }
       }
     }
     # Bicstoneアイコンを取得する
