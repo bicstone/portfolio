@@ -2,28 +2,35 @@ import React from 'react';
 
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
-  Container,
-  Typography,
+  Breadcrumbs,
   Card,
   CardContent,
-  Link,
+  Container,
   Divider,
+  Link,
   Table,
-  TableRow,
-  TableCell,
-  TableHead,
   TableBody,
+  TableCell,
   TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
 } from '@mui/material';
-import { graphql, PageProps, navigate } from 'gatsby';
+import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import { useTranslation } from 'gatsby-plugin-react-i18next';
 
-import { AccessTime as AccessTimeIcon, Update as UpdateIcon } from '@mui/icons-material';
-
-import { Layout } from 'src/components';
-import { BlogPostQuery } from 'src/types';
+import {
+  AccessTime as AccessTimeIcon,
+  NavigateNext as NavigateNextIcon,
+  Update as UpdateIcon,
+} from '@mui/icons-material';
 
 import 'prism-themes/themes/prism-material-dark.css';
+
+import { Layout } from 'src/components';
+import { useSiteMetadata } from 'src/hooks';
+import { BlogPostQuery } from 'src/types';
 import './custom.css';
 
 // FIXME: refactor
@@ -126,6 +133,9 @@ const components: MDXProviderComponentsProp = {
 };
 
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
+  const { t } = useTranslation();
+  const siteMetadata = useSiteMetadata();
+
   const post = data.post;
 
   if (!post) {
@@ -136,9 +146,26 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   return (
     <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
       <Container maxWidth="md">
+        <Breadcrumbs
+          separator={<NavigateNextIcon fontSize="small" />}
+          aria-label="breadcrumb"
+          css={theme => ({ marginBottom: theme.spacing(5) })}
+        >
+          <Link component={RouterLink} to="/">
+            <Typography variant="body2">{siteMetadata.title}</Typography>
+          </Link>
+          <Link component={RouterLink} to="/blog">
+            <Typography variant="body2">{t('blog.title')}</Typography>
+          </Link>
+          <Link component={RouterLink} to={`/${post.slug}`}>
+            <Typography variant="body2">{post.title || ''}</Typography>
+          </Link>
+        </Breadcrumbs>
+
         <Typography variant="h4" component="h1">
           {post.title}
         </Typography>
+
         <Typography variant="body2" color="textSecondary">
           <div css={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
             {post.updated && (
@@ -164,7 +191,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           </div>
         </Typography>
 
-        <Card css={theme => ({ margin: theme.spacing(2, 0, 10, 0) })}>
+        <Card css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
           <CardContent>
             <MDXProvider components={components}>
               <MDXRenderer components={components}>
@@ -174,18 +201,21 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           </CardContent>
         </Card>
 
-        {/* <Breadcrumbs
+        <Breadcrumbs
           separator={<NavigateNextIcon fontSize="small" />}
           aria-label="breadcrumb"
-          css={theme => ({ marginBottom: theme.spacing(1) })}
+          css={theme => ({ marginTop: theme.spacing(5), marginBottom: theme.spacing(2) })}
         >
-          <Link component={RouterLink} to="/blog/" title={t('header.back-to-home')}>
-            <Typography variant="body2">まっしろブログ</Typography>
+          <Link component={RouterLink} to="/">
+            <Typography variant="body2">{siteMetadata.title}</Typography>
           </Link>
-          <Link component={RouterLink} to="/blog/" title={t('header.back-to-home')}>
+          <Link component={RouterLink} to="/blog">
+            <Typography variant="body2">{t('blog.title')}</Typography>
+          </Link>
+          <Link component={RouterLink} to={`/${post.slug}`}>
             <Typography variant="body2">{post.title || ''}</Typography>
           </Link>
-        </Breadcrumbs> */}
+        </Breadcrumbs>
       </Container>
     </Layout>
   );
