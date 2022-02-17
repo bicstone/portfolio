@@ -7,7 +7,7 @@ import parse, {
   DOMNode,
 } from 'html-react-parser';
 
-export interface SvgIconProps extends React.ComponentPropsWithRef<'span'> {
+export interface SvgIconProps extends React.ComponentPropsWithRef<'svg'> {
   width: number;
   height: number;
   icon: string;
@@ -25,9 +25,11 @@ export const SvgIcon = ({ width, height, icon, alt, ...props }: SvgIconProps) =>
         return (
           <svg
             {...attributesToProps(domNode.attribs)}
+            aria-label={alt || ''}
             width={width}
             height={height}
             css={{ width: width, height: height }}
+            {...props}
           >
             {domToReact(domNode.children as DOMNode[])}
           </svg>
@@ -35,11 +37,7 @@ export const SvgIcon = ({ width, height, icon, alt, ...props }: SvgIconProps) =>
       }
     },
   };
-  return (
-    <span role="img" aria-label={alt || ''} title={alt || ''} {...props}>
-      {parse(icon || '', options)}
-    </span>
-  );
+  return <> {parse(icon || '', options)} </>;
 };
 
 SvgIcon.displayName = 'SvgIcon';

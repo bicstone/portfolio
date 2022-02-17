@@ -12,7 +12,7 @@ import {
 import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import { GitHub as GitHubIcon } from '@mui/icons-material';
+import { GitHub as GitHubIcon, StickyNote2 as StickyNote2Icon } from '@mui/icons-material';
 
 import { SvgIcon } from 'src/components';
 import { useBreakPoint, useSiteMetadata } from 'src/hooks';
@@ -83,6 +83,21 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
         )}
         <div css={{ flexGrow: 1 }} />
         <nav>
+          <Button
+            css={theme => ({
+              backgroundColor: theme.palette.background.default,
+              marginRight: theme.spacing(0.5),
+            })}
+            variant="outlined"
+            color="inherit"
+            size="small"
+            component={RouterLink}
+            to="/blog"
+            title={t('blog.title')}
+            startIcon={isExpanded ? <StickyNote2Icon /> : null}
+          >
+            {isExpanded ? t('blog.title') : <StickyNote2Icon />}
+          </Button>
           <Button
             css={theme => ({
               backgroundColor: theme.palette.background.default,
