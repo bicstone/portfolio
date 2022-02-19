@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
-  Breadcrumbs,
+  Breadcrumbs as MuiBreadcrumbs,
   Card,
   CardContent,
   Container,
@@ -16,6 +16,7 @@ import {
   TableHead,
   TableRow,
   Typography,
+  BreadcrumbsProps as MuiBreadcrumbsProps,
 } from '@mui/material';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -85,6 +86,9 @@ const StyledPre = styled('pre')(({ theme }) => ({
   float: 'left',
   minWidth: '100%',
 
+  '::selection': {
+    backgroundColor: '#3a3d41',
+  },
   '& ::selection': {
     backgroundColor: '#3a3d41',
   },
@@ -253,6 +257,32 @@ const components: MDXProviderComponentsProp = {
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" />,
 };
 
+type BreadcrumbsProps = {
+  siteTitle: string;
+  blogTitle: string;
+  postTitle: string;
+} & MuiBreadcrumbsProps;
+
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, postTitle, ...props }) => {
+  return (
+    <MuiBreadcrumbs
+      separator={<NavigateNextIcon fontSize="small" />}
+      aria-label="breadcrumb"
+      {...props}
+    >
+      <Link component={RouterLink} color="inherit" to="/">
+        <Typography variant="body2">{siteTitle}</Typography>
+      </Link>
+      <Link component={RouterLink} color="inherit" to="/blog">
+        <Typography variant="body2">{blogTitle}</Typography>
+      </Link>
+      <Typography variant="body2" color="text.primary">
+        {postTitle}
+      </Typography>
+    </MuiBreadcrumbs>
+  );
+};
+
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
@@ -268,20 +298,11 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
     <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
       <Container maxWidth="md">
         <Breadcrumbs
-          separator={<NavigateNextIcon fontSize="small" />}
-          aria-label="breadcrumb"
+          siteTitle={siteMetadata.title}
+          blogTitle={t('blog.title')}
+          postTitle={post.title || ''}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
-        >
-          <Link component={RouterLink} color="inherit" to="/">
-            <Typography variant="body2">{siteMetadata.title}</Typography>
-          </Link>
-          <Link component={RouterLink} color="inherit" to="/blog">
-            <Typography variant="body2">{t('blog.title')}</Typography>
-          </Link>
-          <Typography variant="body2" color="text.primary">
-            {post.title || ''}
-          </Typography>
-        </Breadcrumbs>
+        />
 
         <Typography variant="h4" component="h1">
           {post.title}
@@ -323,20 +344,11 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         </Card>
 
         <Breadcrumbs
-          separator={<NavigateNextIcon fontSize="small" />}
-          aria-label="breadcrumb"
+          siteTitle={siteMetadata.title}
+          blogTitle={t('blog.title')}
+          postTitle={post.title || ''}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
-        >
-          <Link component={RouterLink} color="inherit" to="/">
-            <Typography variant="body2">{siteMetadata.title}</Typography>
-          </Link>
-          <Link component={RouterLink} color="inherit" to="/blog">
-            <Typography variant="body2">{t('blog.title')}</Typography>
-          </Link>
-          <Typography variant="body2" color="text.primary">
-            {post.title || ''}
-          </Typography>
-        </Breadcrumbs>
+        />
 
         <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
           <HelloGroup links={data.links.edges} icon={data.icon?.svg?.content ?? ''} />

@@ -1,6 +1,12 @@
 import React from 'react';
 
-import { Breadcrumbs, Container, Typography, Link } from '@mui/material';
+import {
+  Breadcrumbs as MuiBreadcrumbs,
+  Container,
+  Typography,
+  Link,
+  BreadcrumbsProps as MuiBreadcrumbsProps,
+} from '@mui/material';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
@@ -9,6 +15,28 @@ import { NavigateNext as NavigateNextIcon } from '@mui/icons-material';
 import { Layout, BlogPostIndex } from 'src/components';
 import { useSiteMetadata } from 'src/hooks';
 import { BlogPageQuery } from 'src/types';
+
+type BreadcrumbsProps = {
+  siteTitle: string;
+  blogTitle: string;
+} & MuiBreadcrumbsProps;
+
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, ...props }) => {
+  return (
+    <MuiBreadcrumbs
+      separator={<NavigateNextIcon fontSize="small" />}
+      aria-label="breadcrumb"
+      {...props}
+    >
+      <Link component={RouterLink} color="inherit" to="/">
+        <Typography variant="body2">{siteTitle}</Typography>
+      </Link>
+      <Typography variant="body2" color="text.primary">
+        {blogTitle}
+      </Typography>
+    </MuiBreadcrumbs>
+  );
+};
 
 const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
   const { t } = useTranslation();
@@ -20,17 +48,10 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
     <Layout icon={icon} iconAlt={iconAlt}>
       <Container maxWidth="md">
         <Breadcrumbs
-          separator={<NavigateNextIcon fontSize="small" />}
-          aria-label="breadcrumb"
+          siteTitle={siteMetadata.title}
+          blogTitle={t('blog.title')}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
-        >
-          <Link component={RouterLink} color="inherit" to="/">
-            <Typography variant="body2">{siteMetadata.title}</Typography>
-          </Link>
-          <Typography variant="body2" color="text.primary">
-            {t('blog.title')}
-          </Typography>
-        </Breadcrumbs>
+        />
 
         <Typography component="h1" variant="h5" align="center">
           {t('blog.title')}
@@ -41,17 +62,10 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         </div>
 
         <Breadcrumbs
-          separator={<NavigateNextIcon fontSize="small" />}
-          aria-label="breadcrumb"
+          siteTitle={siteMetadata.title}
+          blogTitle={t('blog.title')}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
-        >
-          <Link component={RouterLink} color="inherit" to="/">
-            <Typography variant="body2">{siteMetadata.title}</Typography>
-          </Link>
-          <Typography variant="body2" color="text.primary">
-            {t('blog.title')}
-          </Typography>
-        </Breadcrumbs>
+        />
       </Container>
     </Layout>
   );
