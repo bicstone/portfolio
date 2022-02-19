@@ -1,9 +1,0 @@
-/* FIXME: refactor */
-.gatsby-highlight-code-line {
-  display: block;
-  margin-left: -1em;
-  margin-right: -1em;
-  padding-left: 0.75em;
-  padding-right: 1em;
-  border-left: 0.25em solid rgb(255, 167, 38);
-}

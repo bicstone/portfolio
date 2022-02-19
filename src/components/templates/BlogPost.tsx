@@ -8,6 +8,7 @@ import {
   Container,
   Divider,
   Link,
+  styled,
   Table,
   TableBody,
   TableCell,
@@ -26,82 +27,199 @@ import {
   Update as UpdateIcon,
 } from '@mui/icons-material';
 
-import 'prism-themes/themes/prism-material-dark.css';
-
 import { HelloGroup, Layout } from 'src/components';
 import { useSiteMetadata } from 'src/hooks';
 import { BlogPostQuery } from 'src/types';
-import './custom.css';
+
+const consoleFontFamily = 'HackGen, PlemolJP, Consolas, Courier, monospace';
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  display: 'block',
+  position: 'relative',
+  margin: theme.spacing(6, 0, 3),
+  paddingLeft: theme.spacing(2),
+  fontWeight: 'bold',
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: theme.spacing(0.5),
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: theme.shape.borderRadius,
+  },
+}));
+
+const StyledBlockquote = styled('blockquote')(({ theme }) => ({
+  margin: theme.spacing(2),
+  padding: theme.spacing(0, 1),
+  borderLeft: `${theme.palette.divider} solid ${theme.spacing(0.5)}`,
+}));
+
+const StyledInlineCode = styled('span')(({ theme }) => ({
+  display: 'inline-block',
+  fontFamily: consoleFontFamily,
+  paddingLeft: theme.spacing(0.5),
+  paddingRight: theme.spacing(0.5),
+  backgroundColor: theme.palette.divider,
+  borderRadius: theme.shape.borderRadius,
+}));
+
+const StyledPreWrap = styled('div')(({ theme }) => ({
+  background: '#1e1e1e',
+  borderRadius: theme.shape.borderRadius,
+  margin: theme.spacing(2, 0),
+  padding: theme.spacing(2),
+  overflow: 'auto',
+}));
+
+const StyledPre = styled('pre')(({ theme }) => ({
+  // fork from https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-vsc-dark-plus.css
+  // MIT License https://github.com/PrismJS/prism-themes/blob/v1.9.0/LICENSE
+  color: '#d4d4d4',
+  fontFamily: consoleFontFamily,
+  whiteSpace: 'pre',
+  tabSize: 2,
+  margin: 0,
+  padding: 0,
+  float: 'left',
+  minWidth: '100%',
+
+  '& ::selection': {
+    background: '#264F78',
+  },
+
+  [`.namespace`]: { opacity: 0.7 },
+  [`
+    .token.boolean,
+    .token.doctype .token.doctype-tag,
+    .token.entity,
+    .token.important,
+    .token.keyword,
+    .token.operator.arrow,
+    .token.punctuation.interpolation-punctuation,
+    .token.tag
+  `]: {
+    color: '#569cd6',
+  },
+  [`
+    .language-javascript,
+    .language-jsx,
+    .language-tsx,
+    .language-typescript,
+    .token.atrule .token.url,
+    .token.attr-name,
+    .token.console,
+    .token.constant,
+    .token.doctype .token.name,
+    .token.exports .token.maybe-class-name,
+    .token.imports .token.maybe-class-name,
+    .token.interpolation,
+    .token.parameter,
+    .token.property,
+    .token.variable
+  `]: {
+    color: '#9cdcfe',
+  },
+  [`
+    .token.comment,
+    .token.prolog
+  `]: { color: '#6a9955' },
+  [`
+    .language-html,
+    .language-html .language-css .token.punctuation,
+    .language-html .language-javascript .token.punctuation,
+    .token.atrule .token.url .token.punctuation,
+    .token.attr-value .token.punctuation.attr-equals,
+    .token.entity,
+    .token.operator,
+    .token.punctuation
+  `]: {
+    color: '#d4d4d4',
+  },
+  [`
+    .token.boolean,
+    .token.constant,
+    .token.inserted,
+    .token.number,
+    .token.property,
+    .token.symbol,
+    .token.tag,
+    .token.unit
+  `]: {
+    color: '#b5cea8',
+  },
+  [`
+    .language-css,
+    .token.atrule,
+    .token.attr-name,
+    .token.attr-value,
+    .token.attr-value .token.punctuation,
+    .token.builtin,
+    .token.char,
+    .token.deleted,
+    .token.selector,
+    .token.string
+  `]: {
+    color: '#ce9178',
+  },
+  [`.language-css .token.string.url`]: { textDecoration: 'underline' },
+  [`
+    .token.atrule .token.rule,
+    .token.keyword.control-flow,
+    .token.keyword.module
+  `]: {
+    color: '#c586c0',
+  },
+  [`
+  .language-regex .token.anchor,
+  .token.atrule .token.url .token.function,
+  .token.function,
+  .token.function .token.maybe-class-name
+  `]: {
+    color: '#dcdcaa',
+  },
+  [`.token.regex`]: { color: '#d16969' },
+  [`.token.italic`]: { fontStyle: 'italic' },
+  [`
+    .token.class-name,
+    .token.maybe-class-name,
+    .token.namespace
+  `]: {
+    color: '#4ec9b0',
+  },
+  [`
+    .token.escape,
+    .token.selector
+  `]: { color: '#d7ba7d' },
+  [`
+    .language-html .token.punctuation,
+    .token.cdata,
+    .token.tag .token.punctuation
+  `]: {
+    color: 'gray',
+  },
+
+  // https://github.com/gatsbyjs/gatsby/tree/v2.20.0/packages/gatsby-remark-prismjs
+  [`.gatsby-highlight-code-line`]: {
+    display: 'block',
+    backgroundColor: '#4b5632',
+    margin: theme.spacing(0, -2),
+    padding: theme.spacing(0, 2),
+  },
+}));
 
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
   p: props => <Typography paragraph {...props} />,
   h1: () => null,
-  h2: props => (
-    <Typography
-      variant="h5"
-      component="h2"
-      {...props}
-      css={theme => ({
-        display: 'block',
-        position: 'relative',
-        margin: theme.spacing(6, 0, 3),
-        paddingLeft: theme.spacing(2),
-        fontWeight: 'bold',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          height: '100%',
-          width: theme.spacing(0.5),
-          backgroundColor: theme.palette.primary.main,
-          borderRadius: theme.shape.borderRadius,
-        },
-      })}
-    />
-  ),
-  h3: props => (
-    <Typography
-      variant="h6"
-      component="h3"
-      {...props}
-      css={theme => ({
-        display: 'block',
-        position: 'relative',
-        margin: theme.spacing(6, 0, 3),
-        paddingLeft: theme.spacing(2),
-        fontWeight: 'bold',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          height: '100%',
-          width: theme.spacing(0.5),
-          backgroundColor: theme.palette.primary.main,
-          borderRadius: theme.shape.borderRadius,
-        },
-      })}
-    />
-  ),
+  h2: props => <StyledTypography variant="h5" component="h2" {...props} />,
+  h3: props => <StyledTypography variant="h6" component="h3" {...props} />,
   h4: () => null,
   h5: () => null,
   h6: () => null,
-  blockquote: props => (
-    <blockquote
-      {...props}
-      css={theme => ({
-        marginLeft: theme.spacing(2),
-        marginRight: theme.spacing(2),
-        paddingLeft: theme.spacing(1),
-        paddingRight: theme.spacing(1),
-        borderLeftColor: theme.palette.divider,
-        borderLeftWidth: theme.spacing(0.5),
-        borderLeftStyle: 'solid',
-      })}
-    />
-  ),
+  blockquote: props => <StyledBlockquote {...props} />,
   table: ({ children, ...props }) => (
     <TableContainer
       {...props}
@@ -115,18 +233,11 @@ const components: MDXProviderComponentsProp = {
   tr: props => <TableRow {...props} />,
   th: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="th" {...props} />,
   td: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="td" {...props} />,
-  inlineCode: props => (
-    <span
-      {...props}
-      css={theme => ({
-        display: 'inline-block',
-        fontFamily: 'Consolas, Courier, monospace',
-        paddingLeft: theme.spacing(0.5),
-        paddingRight: theme.spacing(0.5),
-        backgroundColor: theme.palette.divider,
-        borderRadius: theme.shape.borderRadius,
-      })}
-    />
+  inlineCode: props => <StyledInlineCode {...props} />,
+  pre: props => (
+    <StyledPreWrap>
+      <StyledPre {...props} />
+    </StyledPreWrap>
   ),
   hr: () => <Divider />,
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" />,
