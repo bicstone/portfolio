@@ -78,7 +78,6 @@ const StyledPre = styled('pre')(({ theme }) => ({
   // fork from https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-vsc-dark-plus.css
   // MIT License https://github.com/PrismJS/prism-themes/blob/v1.9.0/LICENSE
   color: '#d4d4d4',
-  fontFamily: consoleFontFamily,
   whiteSpace: 'pre',
   tabSize: 2,
   margin: 0,
@@ -87,7 +86,11 @@ const StyledPre = styled('pre')(({ theme }) => ({
   minWidth: '100%',
 
   '& ::selection': {
-    background: '#264F78',
+    backgroundColor: '#3a3d41',
+  },
+
+  code: {
+    fontFamily: consoleFontFamily,
   },
 
   [`.namespace`]: { opacity: 0.7 },
@@ -204,9 +207,16 @@ const StyledPre = styled('pre')(({ theme }) => ({
   // https://github.com/gatsbyjs/gatsby/tree/v2.20.0/packages/gatsby-remark-prismjs
   [`.gatsby-highlight-code-line`]: {
     display: 'block',
-    backgroundColor: '#4b5632',
+    backgroundColor: '#373d29',
     margin: theme.spacing(0, -2),
     padding: theme.spacing(0, 2),
+
+    '::selection': {
+      backgroundColor: '#4d5645',
+    },
+    '& ::selection': {
+      backgroundColor: '#4d5645',
+    },
   },
 }));
 
