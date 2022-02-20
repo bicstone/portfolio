@@ -4,9 +4,6 @@ const path = require('path');
 const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
 
-console.log(process.env.GATSBY_CONTENT_SECURITY_POLICY);
-console.log(process.env.GATSBY_PERMISSIONS_POLICY);
-
 module.exports = {
   siteMetadata: {
     title: siteMetaData.title,
