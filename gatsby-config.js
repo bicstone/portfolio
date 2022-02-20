@@ -137,7 +137,6 @@ module.exports = {
       options: {
         id: 'GTM-NZXXSQC',
         includeInDevelopment: true,
-        enableWebVitalsTracking: true,
       },
     },
     {
@@ -152,7 +151,7 @@ module.exports = {
           'connect-src': "'self' https://www.google-analytics.com",
           'default-src': "'none'",
           'font-src': "'none'",
-          'frame-src': 'https://bid.g.doubleclick.net',
+          'frame-src': 'https://www.googletagmanager.com',
           'img-src':
             "'self' " +
             'data: ' +
