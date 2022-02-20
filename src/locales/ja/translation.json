@@ -4,8 +4,8 @@
   },
   "cookie-alert": {
     "close": "閉じる",
-    "description": "詳しくは <1>Cookieポリシー</1> をご覧ください。",
-    "title": "機能改善のためCookieを使用しています。"
+    "description": "詳しくは <1>プライバシーポリシー</1> をご覧ください。",
+    "title": "当ウェブサイトはCookieを使用しています。"
   },
   "footer": {
     "copyright": "© {{year}} Oishi Takanori"
@@ -54,6 +54,6 @@
     "title": "Not Found"
   },
   "privacy": {
-    "title": "Cookieポリシー"
+    "title": "プライバシーポリシー・免責事項"
   }
 }

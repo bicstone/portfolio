@@ -8,6 +8,7 @@ import { useTranslation, Trans } from 'gatsby-plugin-react-i18next';
 import Cookies from 'js-cookie';
 
 import { CookieAlertContent } from 'src/components';
+import { useBreakPoint } from 'src/hooks';
 
 export type CookieAlertProps = {
   show?: boolean;
@@ -29,9 +30,10 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
   },
   show = true,
 }) => {
-  const breakpoints: Breakpoint[] = ['xs'];
+  const breakpoints: Breakpoint[] = ['xs', 'sm'];
   const [agree, setAgree] = React.useState(Cookies.get(cookieName));
   const { t } = useTranslation();
+  const width = useBreakPoint();
 
   const handleClose = () => {
     Cookies.set(cookieName, cookieValue, cookieOptions);
@@ -49,17 +51,15 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
         }
         message={
           <aside>
-            <div css={{ display: 'inline-block' }}>{t('cookie-alert.title')}</div>
-            <wbr />
-            <div css={{ display: 'inline-block' }}>
-              <Trans i18nKey="cookie-alert.description">
-                詳しくは
-                <Link component={RouterLink} to="/privacy" color="inherit" underline="always">
-                  Cookieポリシー
-                </Link>
-                をご覧ください。
-              </Trans>
-            </div>
+            {t('cookie-alert.title')}
+            {breakpoints.includes(width) ? <br /> : ' '}
+            <Trans i18nKey="cookie-alert.description">
+              詳しくは
+              <Link component={RouterLink} to="/privacy" color="inherit" underline="always">
+                Cookieポリシー
+              </Link>
+              をご覧ください。
+            </Trans>
           </aside>
         }
       />
