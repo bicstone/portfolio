@@ -3,6 +3,7 @@ const path = require('path');
 
 const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
+
 module.exports = {
   siteMetadata: {
     title: siteMetaData.title,
@@ -135,62 +136,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        id: 'GTM-NZXXSQC',
-        includeInDevelopment: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-csp',
-      options: {
-        mergeScriptHashes: false,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: false,
-        directives: {
-          'child-src': "'none'",
-          'connect-src':
-            "'self' " +
-            // GA
-            'https://www.google-analytics.com',
-          'default-src': "'none'",
-          'font-src': "'none'",
-          'frame-src':
-            // GTM
-            'https://www.googletagmanager.com',
-          'img-src':
-            "'self' " +
-            'data: ' +
-            // GA
-            'https://www.google-analytics.com ' +
-            // GTM
-            'https://www.googletagmanager.com ' +
-            'https://www.gstatic.com ' +
-            'https://ssl.gstatic.com ',
-          'manifest-src': "'self'",
-          'media-src': "'self'",
-          'object-src': "'none'",
-          'prefetch-src':
-            "'self' " +
-            // GA
-            'https://www.google-analytics.com',
-          'script-src':
-            "'self' " +
-            "'unsafe-inline' " +
-            // GA
-            'https://www.google-analytics.com ' +
-            'https://ssl.google-analytics.com ' +
-            // GTM
-            'https://www.googletagmanager.com ' +
-            'https://tagmanager.google.com ',
-          'style-src':
-            "'self' " +
-            "'unsafe-inline' " +
-            // GTM
-            'https://tagmanager.google.com',
-          'worker-src': "'none'",
-          'base-uri': "'none'",
-          'form-action': "'none'",
-          'frame-ancestors': "'none'",
-        },
+        id: process.env.GTM_ID,
       },
     },
   ],

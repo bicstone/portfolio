@@ -75,6 +75,21 @@ export const Head: React.FC<Props> = ({
       <meta name="twitter:creator" content={defaultMetadata.twitter} />
       <meta name="twitter:site" content={defaultMetadata.twitter} />
       <meta name="format-detection" content="telephone=no" />
+      {
+        /* CSP 検証用 Cloudfrontの設定と合わせる */
+        process.env.NODE_ENV === 'development' && (
+          <meta
+            http-equiv="Content-Security-Policy"
+            content={process.env.GATSBY_CONTENT_SECURITY_POLICY}
+          />
+        )
+      }
+      {
+        /* Permissions-Policy 検証用 Cloudfrontの設定と合わせる */
+        process.env.NODE_ENV === 'development' && (
+          <meta http-equiv="Permissions-Policy" content={process.env.GATSBY_PERMISSIONS_POLICY} />
+        )
+      }
     </Helmet>
   );
 };
