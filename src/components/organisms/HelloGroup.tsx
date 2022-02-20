@@ -43,7 +43,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
           height={100}
           icon={icon}
           alt={activeAnimation ? t('hello.icon.fukkireta') : t('hello.icon.normal')}
-          wrapProps={{ onClick: () => setActiveAnimation(!activeAnimation) }}
+          onClick={() => setActiveAnimation(!activeAnimation)}
         />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>

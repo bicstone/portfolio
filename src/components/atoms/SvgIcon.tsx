@@ -12,20 +12,20 @@ export interface SvgIconProps extends React.ComponentPropsWithRef<'svg'> {
   height: number;
   icon: string;
   alt: string;
-  wrapProps?: React.ComponentPropsWithRef<'span'>;
 }
 
 /**
  * Contentfulから持ってきたSVGアイコンをsvgタグに出力する
  * ※ビックストーンアイコンはMITにできないため、contentfulから持ってくるときに使用
  */
-export const SvgIcon = ({ width, height, icon, alt, wrapProps, ...props }: SvgIconProps) => {
+export const SvgIcon = ({ width, height, icon, alt, ...props }: SvgIconProps) => {
   const options: HTMLReactParserOptions = {
     replace: domNode => {
       if ('name' in domNode && domNode.name === 'svg' && 'attribs' in domNode && domNode.attribs) {
         return (
           <svg
             {...attributesToProps(domNode.attribs)}
+            aria-label={alt || ''}
             width={width}
             height={height}
             css={{ width: width, height: height }}
@@ -37,11 +37,7 @@ export const SvgIcon = ({ width, height, icon, alt, wrapProps, ...props }: SvgIc
       }
     },
   };
-  return (
-    <span role="img" aria-label={alt || ''} title={alt || ''} {...wrapProps}>
-      {parse(icon || '', options)}
-    </span>
-  );
+  return <> {parse(icon || '', options)} </>;
 };
 
 SvgIcon.displayName = 'SvgIcon';

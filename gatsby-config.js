@@ -123,6 +123,22 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+        ],
+      },
+    },
+    {
       // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
