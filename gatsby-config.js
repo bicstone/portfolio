@@ -140,7 +140,6 @@ module.exports = {
       },
     },
     {
-      // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
         mergeScriptHashes: false,
@@ -175,7 +174,7 @@ module.exports = {
             'https://www.google-analytics.com',
           'script-src':
             "'self' " +
-            "'unsafe-inline'" +
+            "'unsafe-inline' " +
             // GA
             'https://www.google-analytics.com ' +
             'https://ssl.google-analytics.com ' +
