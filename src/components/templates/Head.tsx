@@ -80,17 +80,14 @@ export const Head: React.FC<Props> = ({
         process.env.NODE_ENV === 'development' && (
           <meta
             http-equiv="Content-Security-Policy"
-            content={`${process.env.GATSBY_CONTENT_SECURITY_POLICY}`}
+            content={process.env.GATSBY_CONTENT_SECURITY_POLICY}
           />
         )
       }
       {
         /* Permissions-Policy 検証用 Cloudfrontの設定と合わせる */
         process.env.NODE_ENV === 'development' && (
-          <meta
-            http-equiv="Permissions-Policy"
-            content={`${process.env.GATSBY_PERMISSIONS_POLICY}`}
-          />
+          <meta http-equiv="Permissions-Policy" content={process.env.GATSBY_PERMISSIONS_POLICY} />
         )
       }
     </Helmet>
