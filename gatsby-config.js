@@ -143,15 +143,20 @@ module.exports = {
       // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
-        mergeScriptHashes: true,
+        mergeScriptHashes: false,
         mergeStyleHashes: false,
         mergeDefaultDirectives: false,
         directives: {
           'child-src': "'none'",
-          'connect-src': "'self' https://www.google-analytics.com",
+          'connect-src':
+            "'self' " +
+            // GA
+            'https://www.google-analytics.com',
           'default-src': "'none'",
           'font-src': "'none'",
-          'frame-src': 'https://www.googletagmanager.com',
+          'frame-src':
+            // GTM
+            'https://www.googletagmanager.com',
           'img-src':
             "'self' " +
             'data: ' +
@@ -164,17 +169,24 @@ module.exports = {
           'manifest-src': "'self'",
           'media-src': "'self'",
           'object-src': "'none'",
-          'prefetch-src': "'self' https://www.google-analytics.com",
+          'prefetch-src':
+            "'self' " +
+            // GA
+            'https://www.google-analytics.com',
           'script-src':
             "'self' " +
+            "'unsafe-inline'" +
             // GA
             'https://www.google-analytics.com ' +
             'https://ssl.google-analytics.com ' +
             // GTM
             'https://www.googletagmanager.com ' +
             'https://tagmanager.google.com ',
-          // emotionで動的に設定されるため、inlineあり。
-          'style-src': "'self' 'unsafe-inline' https://tagmanager.google.com",
+          'style-src':
+            "'self' " +
+            "'unsafe-inline' " +
+            // GTM
+            'https://tagmanager.google.com',
           'worker-src': "'none'",
           'base-uri': "'none'",
           'form-action': "'none'",
