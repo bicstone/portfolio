@@ -51,12 +51,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-165073691-2',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'ja',
@@ -139,28 +133,63 @@ module.exports = {
       },
     },
     {
-      // ハッシュ取得を行うため最下部に設置すること
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-NZXXSQC',
+        includeInDevelopment: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-csp',
       options: {
         mergeScriptHashes: false,
         mergeStyleHashes: false,
         mergeDefaultDirectives: false,
         directives: {
-          'connect-src': "'self' https://www.google-analytics.com",
-          'default-src': "'self'",
+          'child-src': "'none'",
+          'connect-src':
+            "'self' " +
+            // GA
+            'https://www.google-analytics.com',
+          'default-src': "'none'",
           'font-src': "'none'",
-          'frame-src': "'none'",
-          'img-src': "'self' data: https://www.google-analytics.com",
+          'frame-src':
+            // GTM
+            'https://www.googletagmanager.com',
+          'img-src':
+            "'self' " +
+            'data: ' +
+            // GA
+            'https://www.google-analytics.com ' +
+            // GTM
+            'https://www.googletagmanager.com ' +
+            'https://www.gstatic.com ' +
+            'https://ssl.gstatic.com ',
           'manifest-src': "'self'",
           'media-src': "'self'",
           'object-src': "'none'",
-          'prefetch-src': "'self' https://www.google-analytics.com",
-          // GAの取得ができなくなったため、inlineあり。要調査
-          'script-src': "'self' 'unsafe-inline' https://www.google-analytics.com",
-          // Material-UIが動的に設定されるため、inlineあり。
-          'style-src': "'self' 'unsafe-inline'",
+          'prefetch-src':
+            "'self' " +
+            // GA
+            'https://www.google-analytics.com',
+          'script-src':
+            "'self' " +
+            "'unsafe-inline' " +
+            // GA
+            'https://www.google-analytics.com ' +
+            'https://ssl.google-analytics.com ' +
+            // GTM
+            'https://www.googletagmanager.com ' +
+            'https://tagmanager.google.com ',
+          'style-src':
+            "'self' " +
+            "'unsafe-inline' " +
+            // GTM
+            'https://tagmanager.google.com',
+          'worker-src': "'none'",
           'base-uri': "'none'",
           'form-action': "'none'",
+          'frame-ancestors': "'none'",
         },
       },
     },

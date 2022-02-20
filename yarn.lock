@@ -5026,15 +5026,10 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001251:
-  version "1.0.30001252"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001252.tgz#cb16e4e3dafe948fc4a9bb3307aea054b912019a"
-  integrity sha512-I56jhWDGMtdILQORdusxBOH+Nl/KgQSdDmpJezYddnAkVOmnoU8zwjTV9xAjMIYxr0iPreEAVylCGcmHCjfaOw==
-
-caniuse-lite@^1.0.30001272, caniuse-lite@^1.0.30001280:
-  version "1.0.30001282"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001282.tgz#38c781ee0a90ccfe1fe7fefd00e43f5ffdcb96fd"
-  integrity sha512-YhF/hG6nqBEllymSIjLtR2iWDDnChvhnVJqp+vloyt2tEHFG1yBR+ac2B/rOw0qOK0m0lEXU2dv4E/sMk5P9Kg==
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001251, caniuse-lite@^1.0.30001272, caniuse-lite@^1.0.30001280:
+  version "1.0.30001312"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001312.tgz"
+  integrity sha512-Wiz1Psk2MEK0pX3rUzWaunLTZzqS2JYZFzNKqAiJGiuxIjRPLgV6+VDPOg6lQOUxmDwhTlh198JsTTi8Hzw6aQ==
 
 capital-case@^1.0.4:
   version "1.0.4"
@@ -7895,13 +7890,12 @@ gatsby-plugin-emotion@7.7.0:
     "@babel/runtime" "^7.15.4"
     "@emotion/babel-preset-css-prop" "^11.2.0"
 
-gatsby-plugin-google-analytics@4.7.0:
+gatsby-plugin-google-tagmanager@4.7.0:
   version "4.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.7.0.tgz#c68f187f57748bab220da0ab9f0f78a94793f692"
-  integrity sha512-LQN+Awf7WvodYKytBZFLL40B3PPk7TPHjPa7fDzlq7J9k+/MIXQ1aYAmxhVJN3WK//GdhrltrxPZVwgomaO5NA==
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-4.7.0.tgz#bcf7c24b1463f8f1293f4f82d4728771008c23f3"
+  integrity sha512-Li8LG6v8T0/2H7XqEaBNCQ4ezncRdwejSZqUWJwRYiTyb97RsqC4TsITtA1Bms3BZR40VuYMrH5Yb/34xYynvQ==
   dependencies:
     "@babel/runtime" "^7.15.4"
-    minimatch "3.0.4"
     web-vitals "^1.1.2"
 
 gatsby-plugin-image@2.7.0:
