@@ -51,12 +51,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-165073691-2',
-      },
-    },
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         lang: 'ja',
@@ -139,6 +133,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-NZXXSQC',
+        includeInDevelopment: true,
+        enableWebVitalsTracking: true,
+      },
+    },
+    {
       // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
@@ -150,15 +152,30 @@ module.exports = {
           'connect-src': "'self' https://www.google-analytics.com",
           'default-src': "'none'",
           'font-src': "'none'",
-          'frame-src': "'none'",
-          'img-src': "'self' data: https://www.google-analytics.com",
+          'frame-src': 'https://bid.g.doubleclick.net',
+          'img-src':
+            "'self' " +
+            'data: ' +
+            // GA
+            'https://www.google-analytics.com ' +
+            // GTM
+            'https://www.googletagmanager.com ' +
+            'https://www.gstatic.com ' +
+            'https://ssl.gstatic.com ',
           'manifest-src': "'self'",
           'media-src': "'self'",
           'object-src': "'none'",
           'prefetch-src': "'self' https://www.google-analytics.com",
-          'script-src': "'self' https://www.google-analytics.com https://ssl.google-analytics.com",
+          'script-src':
+            "'self' " +
+            // GA
+            'https://www.google-analytics.com ' +
+            'https://ssl.google-analytics.com ' +
+            // GTM
+            'https://www.googletagmanager.com ' +
+            'https://tagmanager.google.com ',
           // emotionで動的に設定されるため、inlineあり。
-          'style-src': "'self' 'unsafe-inline'",
+          'style-src': "'self' 'unsafe-inline' https://tagmanager.google.com",
           'worker-src': "'none'",
           'base-uri': "'none'",
           'form-action': "'none'",
