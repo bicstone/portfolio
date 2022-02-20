@@ -126,12 +126,13 @@ module.exports = {
       // ハッシュ取得を行うため最下部に設置すること
       resolve: 'gatsby-plugin-csp',
       options: {
-        mergeScriptHashes: false,
-        mergeStyleHashes: false,
+        mergeScriptHashes: true,
+        mergeStyleHashes: true,
         mergeDefaultDirectives: false,
         directives: {
+          'child-src': "'none'",
           'connect-src': "'self' https://www.google-analytics.com",
-          'default-src': "'self'",
+          'default-src': "'none'",
           'font-src': "'none'",
           'frame-src': "'none'",
           'img-src': "'self' data: https://www.google-analytics.com",
@@ -140,11 +141,14 @@ module.exports = {
           'object-src': "'none'",
           'prefetch-src': "'self' https://www.google-analytics.com",
           // GAの取得ができなくなったため、inlineあり。要調査
-          'script-src': "'self' 'unsafe-inline' https://www.google-analytics.com",
-          // Material-UIが動的に設定されるため、inlineあり。
+          'script-src':
+            "'self' 'unsafe-inline' https://www.google-analytics.com https://ssl.google-analytics.com",
+          // emotionが動的に設定されるため、inlineあり。
           'style-src': "'self' 'unsafe-inline'",
+          'worker-src': "'none'",
           'base-uri': "'none'",
           'form-action': "'none'",
+          'frame-ancestors': "'none'",
         },
       },
     },
