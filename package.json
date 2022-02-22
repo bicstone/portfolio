@@ -111,5 +111,9 @@
     "last 2 Android major versions",
     "last 2 ChromeAndroid major versions",
     "last 2 iOS major versions"
-  ]
+  ],
+  "volta": {
+    "node": "16.14.0",
+    "yarn": "1.22.17"
+  }
 }
