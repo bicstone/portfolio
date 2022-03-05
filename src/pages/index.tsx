@@ -128,8 +128,8 @@ export const query = graphql`
           }
           subName
           detail {
-            childMarkdownRemark {
-              html
+            childMdx {
+              body
             }
           }
           startDate(formatString: "YYYY")
@@ -182,11 +182,6 @@ export const query = graphql`
             }
           }
           subName
-          detail {
-            childMarkdownRemark {
-              html
-            }
-          }
           startDate(formatString: "yyyy/MM")
           href
         }

@@ -3,6 +3,7 @@ const path = require('path');
 
 const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
+
 module.exports = {
   siteMetadata: {
     title: siteMetaData.title,
@@ -18,9 +19,6 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-image`,
-    },
-    {
-      resolve: `gatsby-transformer-sharp`,
     },
     {
       resolve: 'gatsby-source-contentful',
@@ -48,12 +46,6 @@ module.exports = {
         localeJsonSourceName: `locales`,
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-165073691-2',
       },
     },
     {
@@ -98,9 +90,6 @@ module.exports = {
       resolve: 'gatsby-transformer-inline-svg',
     },
     {
-      resolve: 'gatsby-transformer-remark',
-    },
-    {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: path.resolve('src'),
@@ -123,29 +112,25 @@ module.exports = {
       },
     },
     {
-      // ハッシュ取得を行うため最下部に設置すること
-      resolve: 'gatsby-plugin-csp',
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        mergeScriptHashes: false,
-        mergeStyleHashes: false,
-        mergeDefaultDirectives: false,
-        directives: {
-          'connect-src': "'self' https://www.google-analytics.com",
-          'default-src': "'self'",
-          'font-src': "'none'",
-          'frame-src': "'none'",
-          'img-src': "'self' data: https://www.google-analytics.com",
-          'manifest-src': "'self'",
-          'media-src': "'self'",
-          'object-src': "'none'",
-          'prefetch-src': "'self' https://www.google-analytics.com",
-          // GAの取得ができなくなったため、inlineあり。要調査
-          'script-src': "'self' 'unsafe-inline' https://www.google-analytics.com",
-          // Material-UIが動的に設定されるため、inlineあり。
-          'style-src': "'self' 'unsafe-inline'",
-          'base-uri': "'none'",
-          'form-action': "'none'",
-        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: process.env.GTM_ID,
       },
     },
   ],

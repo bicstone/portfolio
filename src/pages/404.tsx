@@ -4,7 +4,7 @@ import { Typography, Container, Button } from '@mui/material';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import { LocalHotel as LocalHotelIcon } from '@mui/icons-material';
+import { SelfImprovement as SelfImprovementIcon } from '@mui/icons-material';
 
 import { Layout } from 'src/components';
 import { NotFoundPageQuery } from 'src/types';
@@ -18,7 +18,7 @@ const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
       <Container maxWidth="md">
         <div css={theme => ({ margin: theme.spacing(2), textAlign: 'center' })}>
           {/* 見つかりませんでした */}
-          <LocalHotelIcon
+          <SelfImprovementIcon
             css={theme => ({ width: theme.spacing(20), height: theme.spacing(20) })}
           />
           <Typography variant="h4" component="h1" paragraph>

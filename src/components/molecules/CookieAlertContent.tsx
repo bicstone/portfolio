@@ -23,7 +23,7 @@ export const CookieAlertContent = React.forwardRef<HTMLDivElement, CookieAlertCo
         css={{
           flexDirection: 'row',
           flexWrap: 'nowrap',
-          alignItems: 'flex-start',
+          alignItems: 'flex-center',
           wordBreak: 'keep-all',
           whiteSpace: 'nowrap',
         }}
