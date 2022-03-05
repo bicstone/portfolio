@@ -21,9 +21,6 @@ module.exports = {
       resolve: `gatsby-plugin-image`,
     },
     {
-      resolve: `gatsby-transformer-sharp`,
-    },
-    {
       resolve: 'gatsby-source-contentful',
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -91,9 +88,6 @@ module.exports = {
     },
     {
       resolve: 'gatsby-transformer-inline-svg',
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
     },
     {
       resolve: 'gatsby-plugin-root-import',

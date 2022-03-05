@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
   Typography,
   CardHeader,
@@ -9,9 +10,10 @@ import {
   Chip,
   Button,
   useTheme,
+  Link,
 } from '@mui/material';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { useI18next } from 'gatsby-plugin-react-i18next';
-import parse from 'html-react-parser';
 
 import {
   ExpandMore as ExpandMoreIcon,
@@ -24,6 +26,10 @@ import { IndexPageQuery } from 'src/types';
 
 export type ProjectListProps = {
   projects: IndexPageQuery['projects']['edges'];
+};
+
+const components: MDXProviderComponentsProp = {
+  a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
 };
 
 /**
@@ -105,12 +111,15 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
               </AccordionSummary>
               <AccordionDetails>
                 <>
-                  <Typography variant="body1" component="div">
+                  <Typography variant="subtitle1" paragraph>
                     {node.subName}
                   </Typography>
-                  <Typography variant="body2" component="div">
-                    {node?.detail?.childMarkdownRemark?.html &&
-                      parse(node.detail.childMarkdownRemark.html)}
+                  <Typography variant="body2">
+                    <MDXProvider components={components}>
+                      <MDXRenderer components={components}>
+                        {node.detail?.childMdx?.body ?? ''}
+                      </MDXRenderer>
+                    </MDXProvider>
                   </Typography>
                 </>
               </AccordionDetails>

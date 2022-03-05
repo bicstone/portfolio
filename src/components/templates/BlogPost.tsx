@@ -254,7 +254,7 @@ const components: MDXProviderComponentsProp = {
     </StyledPreWrap>
   ),
   hr: () => <Divider />,
-  a: props => <Link {...props} rel="external noreferrer noopener nofollow" />,
+  a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
 };
 
 type BreadcrumbsProps = {
