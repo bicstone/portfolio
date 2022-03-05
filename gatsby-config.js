@@ -117,6 +117,12 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 600,
+              showCaptions: true,
+              withWebp: true,
+              linkImagesToOriginal: false,
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
