@@ -17486,7 +17486,10 @@ export type BlogPostQueryVariables = Exact<{
 export type BlogPostQuery = { post: Maybe<(
     Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
     & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
+    & { content: Maybe<(
+      Pick<ContentfulBlogPostContentTextNode, 'content'>
+      & { childMdx: Maybe<Pick<Mdx, 'body'>> }
+    )>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
   )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
@@ -17515,7 +17518,7 @@ export type BlogPageQueryVariables = Exact<{
 export type BlogPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
           Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
           & { content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
-        ) }> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+        ) }> }> }, postsLite: { edges: Array<{ node: Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
   )> };

@@ -3,7 +3,13 @@
     "browser": true,
     "es2020": true
   },
-  "extends": ["standard", "plugin:import/recommended", "plugin:jsx-a11y/recommended", "prettier"],
+  "extends": [
+    "standard",
+    "plugin:import/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:regexp/recommended",
+    "prettier"
+  ],
   "parserOptions": {
     "ecmaVersion": 11
   },

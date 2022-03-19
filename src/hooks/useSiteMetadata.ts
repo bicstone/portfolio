@@ -9,6 +9,9 @@ import {
   github,
   image,
   image192,
+  firstName,
+  lastName,
+  gender,
 } from 'src/configs/site-meta-data';
 
 const siteMetadata = {
@@ -22,6 +25,9 @@ const siteMetadata = {
   github,
   image,
   image192,
+  firstName,
+  lastName,
+  gender,
 };
 
 /**
