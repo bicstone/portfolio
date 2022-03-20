@@ -324,23 +324,23 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
         url={`${siteMetadata.siteUrl}/${path}`}
-        title={`${post.title}`}
-        headline={`${post.excerpt}`}
-        dateCreated={`${post.created}`}
-        datePublished={`${post.created}`}
-        dateModified={`${post.updated}`}
-        description={`${post.excerpt}`}
+        title={post.title || ''}
+        headline={post.excerpt || ''}
+        dateCreated={post.created}
+        datePublished={post.created}
+        dateModified={post.updated}
+        description={post.excerpt || ''}
         images={[siteMetadata.image]}
-        body={`${post.content?.content}`}
+        body={post.content?.content || ''}
         keywords={post.tags?.map(v => v?.name || '')}
         publisherLogo={siteMetadata.image}
-        publisherName={`${siteMetadata.title}`}
+        publisherName={siteMetadata.title}
         overrides={{
           '@type': 'BlogPosting',
           author: {
             '@type': 'Person',
             name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
-            url: `${siteMetadata.siteUrl}`,
+            url: siteMetadata.siteUrl,
           },
         }}
         defer

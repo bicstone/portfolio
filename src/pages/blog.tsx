@@ -68,26 +68,26 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
         url={`${siteMetadata.siteUrl}/${path}`}
-        title={`${siteMetadata.title}`}
-        headline={`${siteMetadata.description}`}
-        datePublished={`${buildTime}`}
-        dateModified={`${buildTime}`}
-        description={`${siteMetadata.description}`}
+        title={siteMetadata.title}
+        headline={siteMetadata.description}
+        datePublished={buildTime}
+        dateModified={buildTime}
+        description={siteMetadata.description}
         images={[siteMetadata.image]}
         publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
-        publisherName={`${siteMetadata.title}`}
+        publisherName={siteMetadata.title}
         overrides={{
           '@type': 'Blog',
           author: {
             '@type': 'Person',
             name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
-            url: `${siteMetadata.siteUrl}`,
+            url: siteMetadata.siteUrl,
           },
         }}
         posts={data.postsLite?.edges?.map(post => ({
-          headline: `${post.node.title}`,
+          headline: post.node.title || '',
           image: `${siteMetadata.siteUrl}${siteMetadata.image}`,
-          datePublished: `${post.node.created}`,
+          datePublished: post.node.created,
         }))}
         defer
       />
