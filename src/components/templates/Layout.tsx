@@ -5,9 +5,6 @@ import { NoSsr } from '@mui/material';
 import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
 
 export type LayoutProps = {
-  title?: string;
-  description?: string;
-  image?: string;
   cookieAlertShow?: boolean;
   isHome?: boolean;
   icon: string;
@@ -23,11 +20,10 @@ export const Layout: React.FC<LayoutProps> = ({
   isHome = false,
   icon,
   iconAlt,
-  ...props
 }) => {
   return (
     <TopLayout>
-      <Head {...props} />
+      <Head />
       <NoSsr>
         <CookieAlert show={cookieAlertShow} />
       </NoSsr>

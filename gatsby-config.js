@@ -12,41 +12,23 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-transformer-sharp`,
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        createLinkInHead: true,
+        addUncaughtPages: true,
+      },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: 'gatsby-plugin-emotion',
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: process.env.GTM_ID,
+      },
     },
     {
       resolve: `gatsby-plugin-image`,
-    },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
-        localeFilter: locale => locale.code === 'ja',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typescript',
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `locales`,
-        path: path.resolve('src', 'locales'),
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-i18next',
-      options: {
-        siteUrl: siteMetaData.siteUrl,
-        localeJsonSourceName: `locales`,
-        languages: languages.languages,
-        defaultLanguage: languages.defaultLanguage,
-      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -74,44 +56,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
-      options: {
-        createLinkInHead: true,
-        addUncaughtPages: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-canonical-urls`,
-      options: {
-        siteUrl: siteMetaData.siteUrl,
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-inline-svg',
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        src: path.resolve('src'),
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-remove-serviceworker',
-    },
-    {
-      resolve: 'gatsby-plugin-emotion',
-    },
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-        bucketName: process.env.AWS_S3_BUCKET_NAME,
-        region: process.env.AWS_REGION,
-        protocol: 'https',
-        hostname: new URL(siteMetaData.siteUrl).hostname,
-        acl: null,
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
@@ -134,10 +78,76 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-plugin-next-seo`,
       options: {
-        id: process.env.GTM_ID,
+        twitter: {
+          cardType: 'summary_large_image',
+          site: siteMetaData.twitter,
+          handle: siteMetaData.twitter,
+        },
+        openGraph: {
+          site_name: siteMetaData.title,
+          profile: {
+            firstName: siteMetaData.firstName,
+            lastName: siteMetaData.lastName,
+            username: siteMetaData.author,
+            gender: siteMetaData.gender,
+          },
+        },
       },
+    },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
+      options: {
+        siteUrl: siteMetaData.siteUrl,
+        localeJsonSourceName: `locales`,
+        languages: languages.languages,
+        defaultLanguage: languages.defaultLanguage,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-remove-serviceworker',
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.resolve('src'),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: process.env.AWS_S3_BUCKET_NAME,
+        region: process.env.AWS_REGION,
+        protocol: 'https',
+        hostname: new URL(siteMetaData.siteUrl).hostname,
+        acl: null,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-sharp`,
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
+        localeFilter: locale => locale.code === 'ja',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `locales`,
+        path: path.resolve('src', 'locales'),
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-inline-svg',
+    },
+    {
+      resolve: `gatsby-transformer-sharp`,
     },
   ],
 };
