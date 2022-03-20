@@ -20,7 +20,8 @@ import {
 } from '@mui/material';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import {
   AccessTime as AccessTimeIcon,
@@ -284,6 +285,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, postTit
 };
 
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
+  const { path } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
 
@@ -296,6 +298,53 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
 
   return (
     <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
+      <GatsbySeo
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+        openGraph={{
+          type: 'article',
+          title: siteMetadata.title,
+          description: siteMetadata.description,
+          images: [
+            {
+              url: siteMetadata.image,
+              alt: siteMetadata.title,
+            },
+          ],
+          article: {
+            publishedTime: post.created,
+            modifiedTime: post.updated,
+            authors: [siteMetadata.siteUrl],
+            section: post.tags?.[0]?.name || undefined,
+            tags: post.tags?.map(v => v?.name || ''),
+          },
+        }}
+      />
+      <BlogPostJsonLd
+        authorType="Person"
+        authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
+        url={`${siteMetadata.siteUrl}${path}`}
+        title={post.title || ''}
+        headline={post.excerpt || ''}
+        dateCreated={post.created}
+        datePublished={post.created}
+        dateModified={post.updated}
+        description={post.excerpt || ''}
+        images={[siteMetadata.image]}
+        body={post.content?.content || ''}
+        keywords={post.tags?.map(v => v?.name || '')}
+        publisherLogo={siteMetadata.image}
+        publisherName={siteMetadata.title}
+        overrides={{
+          '@type': 'BlogPosting',
+          author: {
+            '@type': 'Person',
+            name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
+            url: siteMetadata.siteUrl,
+          },
+        }}
+        defer
+      />
       <Container maxWidth="md">
         <Breadcrumbs
           siteTitle={siteMetadata.title}
@@ -376,6 +425,7 @@ export const query = graphql`
         childMdx {
           body
         }
+        content
       }
       tags {
         name

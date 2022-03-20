@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Container, Typography, styled } from '@mui/material';
 import { graphql, PageProps } from 'gatsby';
+import { GatsbySeo, LogoJsonLd } from 'gatsby-plugin-next-seo';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 import {
@@ -15,6 +16,7 @@ import {
   SkillList,
   WhatICanDoList,
 } from 'src/components';
+import { useSiteMetadata } from 'src/hooks';
 import { IndexPageQuery } from 'src/types';
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
@@ -23,12 +25,33 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 })) as typeof Container;
 
 const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
+  const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 
   const icon = data.icon?.svg?.content || '';
   const iconAlt = data.icon?.title || '';
   return (
     <Layout icon={icon} iconAlt={iconAlt} isHome>
+      <GatsbySeo
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+        openGraph={{
+          type: 'profile',
+          title: siteMetadata.title,
+          description: siteMetadata.description,
+          images: [
+            {
+              url: siteMetadata.image,
+              alt: siteMetadata.title,
+            },
+          ],
+        }}
+      />
+      <LogoJsonLd
+        url={siteMetadata.siteUrl}
+        logo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
+        defer
+      />
       <PaddingContainer maxWidth="lg" component="section">
         <HelloGroup links={data.links.edges} icon={icon} />
       </PaddingContainer>

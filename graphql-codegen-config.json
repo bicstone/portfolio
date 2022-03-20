@@ -11,6 +11,7 @@
     "skipTypename": true,
     "numericEnums": true,
     "avoidOptionals": true,
-    "preResolveTypes": false
+    "preResolveTypes": false,
+    "maybeValue": "T"
   }
 }
