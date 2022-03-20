@@ -67,7 +67,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
       <BlogJsonLd
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
-        url={`${siteMetadata.siteUrl}/${path}`}
+        url={`${siteMetadata.siteUrl}${path}`}
         title={siteMetadata.title}
         headline={siteMetadata.description}
         datePublished={buildTime}

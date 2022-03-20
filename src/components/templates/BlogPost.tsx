@@ -323,7 +323,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
       <BlogPostJsonLd
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
-        url={`${siteMetadata.siteUrl}/${path}`}
+        url={`${siteMetadata.siteUrl}${path}`}
         title={post.title || ''}
         headline={post.excerpt || ''}
         dateCreated={post.created}
