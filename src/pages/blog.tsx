@@ -121,21 +121,37 @@ export default Blog;
 export const query = graphql`
   query BlogPage($language: String!) {
     # ブログ記事一覧を取得する
-    posts: allContentfulBlogPost(sort: { fields: [tags, created], order: [ASC, DESC] }) {
-      group(field: tags) {
+    posts: allContentfulBlogPost(sort: { fields: [created, tags], order: [DESC, ASC] }) {
+      group(field: category___name) {
         edges {
           node {
             id
             title
             slug
             created
+            createdDate: created(formatString: "yyyy/MM/DD")
             updated
+            updatedDate: updated(formatString: "yyyy/MM/DD")
             excerpt
             content {
               content
             }
             tags {
               name
+            }
+            category {
+              name
+            }
+            thumbnail {
+              title
+              file {
+                url
+              }
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 400)
+                }
+              }
             }
           }
         }
