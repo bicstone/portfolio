@@ -17,6 +17,8 @@ import {
   TableRow,
   Typography,
   BreadcrumbsProps as MuiBreadcrumbsProps,
+  CardActionArea,
+  CardHeader,
 } from '@mui/material';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -27,6 +29,7 @@ import {
   AccessTime as AccessTimeIcon,
   NavigateNext as NavigateNextIcon,
   Update as UpdateIcon,
+  Link as LinkIcon,
 } from '@mui/icons-material';
 
 import { HelloGroup, Layout } from 'src/components';
@@ -227,7 +230,7 @@ const StyledPre = styled('pre')(({ theme }) => ({
 
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
-  p: props => <Typography paragraph {...props} />,
+  p: props => <Typography component="div" paragraph {...props} />,
   h1: () => null,
   h2: props => <StyledTypography variant="h5" component="h2" {...props} />,
   h3: props => <StyledTypography variant="h6" component="h3" {...props} />,
@@ -256,6 +259,21 @@ const components: MDXProviderComponentsProp = {
   ),
   hr: () => <Divider />,
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
+  link: props => (
+    <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
+      <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
+        <CardHeader
+          title={<Typography variant="subtitle1">{props.title}</Typography>}
+          subheader={
+            <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
+              <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
+              {props.href}
+            </Typography>
+          }
+        />
+      </CardActionArea>
+    </Card>
+  ),
 };
 
 type BreadcrumbsProps = {
