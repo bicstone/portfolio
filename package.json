@@ -33,6 +33,7 @@
     "@mui/icons-material": "5.5.1",
     "@mui/lab": "5.0.0-alpha.73",
     "@mui/material": "5.5.1",
+    "@sentry/gatsby": "6.18.2",
     "gatsby": "4.10.1",
     "gatsby-plugin-advanced-sitemap": "2.0.0",
     "gatsby-plugin-emotion": "7.10.0",
