@@ -375,32 +375,37 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           {post.title}
         </Typography>
 
-        <Typography variant="body2" color="textSecondary">
-          <div css={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-            {post.updated && (
-              <>
-                <UpdateIcon
-                  fontSize="inherit"
-                  css={theme => ({ marginRight: theme.spacing(0.5) })}
-                />
-                <time dateTime={post.updated} css={theme => ({ marginRight: theme.spacing(1) })}>
-                  {post.updatedDate}
-                </time>
-              </>
-            )}
-            {post.created && (
-              <>
-                <AccessTimeIcon
-                  fontSize="inherit"
-                  css={theme => ({ marginRight: theme.spacing(0.5) })}
-                />
-                <time dateTime={post.created}>{post.createdDate}</time>
-              </>
-            )}
-          </div>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="div"
+          css={theme => ({
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            marginTop: theme.spacing(1),
+          })}
+        >
+          {post.updated && (
+            <>
+              <UpdateIcon fontSize="inherit" css={theme => ({ marginRight: theme.spacing(0.5) })} />
+              <time dateTime={post.updated} css={theme => ({ marginRight: theme.spacing(1) })}>
+                {post.updatedDate}
+              </time>
+            </>
+          )}
+          {post.created && (
+            <>
+              <AccessTimeIcon
+                fontSize="inherit"
+                css={theme => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time dateTime={post.created}>{post.createdDate}</time>
+            </>
+          )}
         </Typography>
 
-        <Card css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
+        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(1, 0) })}>
           <CardContent>
             <MDXProvider components={components}>
               <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
