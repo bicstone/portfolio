@@ -315,26 +315,26 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   }
 
   return (
-    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
+    <Layout icon={data.icon.svg.content} iconAlt={data.icon.title}>
       <GatsbySeo
-        title={siteMetadata.title}
-        description={siteMetadata.description}
+        title={post.title}
+        description={post.excerpt}
         openGraph={{
           type: 'article',
-          title: siteMetadata.title,
-          description: siteMetadata.description,
+          title: post.title,
+          description: post.excerpt,
           images: [
             {
-              url: siteMetadata.image,
-              alt: siteMetadata.title,
+              url: post.thumbnail.localFile.publicURL,
+              alt: post.thumbnail.title,
             },
           ],
           article: {
             publishedTime: post.created,
             modifiedTime: post.updated,
             authors: [siteMetadata.siteUrl],
-            section: post.tags?.[0]?.name || undefined,
-            tags: post.tags?.map(v => v?.name || ''),
+            section: post.category.name,
+            tags: post.tags.map(v => v.name),
           },
         }}
       />
@@ -342,15 +342,15 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
         url={`${siteMetadata.siteUrl}${path}`}
-        title={post.title || ''}
-        headline={post.excerpt || ''}
+        title={post.title}
+        headline={post.excerpt}
         dateCreated={post.created}
         datePublished={post.created}
         dateModified={post.updated}
-        description={post.excerpt || ''}
-        images={[siteMetadata.image]}
-        body={post.content?.content || ''}
-        keywords={post.tags?.map(v => v?.name || '')}
+        description={post.excerpt}
+        images={[post.thumbnail.localFile.publicURL]}
+        body={post.content.content}
+        keywords={post.tags.map(v => v.name)}
         publisherLogo={siteMetadata.image}
         publisherName={siteMetadata.title}
         overrides={{
@@ -367,7 +367,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         <Breadcrumbs
           siteTitle={siteMetadata.title}
           blogTitle={t('blog.title')}
-          postTitle={post.title || ''}
+          postTitle={post.title}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
 
@@ -403,9 +403,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         <Card css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
           <CardContent>
             <MDXProvider components={components}>
-              <MDXRenderer components={components}>
-                {post?.content?.childMdx?.body ?? ''}
-              </MDXRenderer>
+              <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
             </MDXProvider>
           </CardContent>
         </Card>
@@ -413,12 +411,12 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         <Breadcrumbs
           siteTitle={siteMetadata.title}
           blogTitle={t('blog.title')}
-          postTitle={post.title || ''}
+          postTitle={post.title}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
 
         <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
-          <HelloGroup links={data.links.edges} icon={data.icon?.svg?.content ?? ''} />
+          <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
         </section>
       </Container>
     </Layout>
@@ -445,8 +443,20 @@ export const query = graphql`
         }
         content
       }
+      category {
+        name
+      }
       tags {
         name
+      }
+      thumbnail {
+        title
+        file {
+          url
+        }
+        localFile {
+          publicURL
+        }
       }
     }
     # 自己紹介部分リンク先を取得する

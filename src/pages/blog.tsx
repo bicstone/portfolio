@@ -85,8 +85,8 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           },
         }}
         posts={data.postsLite?.edges?.map(post => ({
-          headline: post.node.title || '',
-          image: `${siteMetadata.siteUrl}${siteMetadata.image}`,
+          headline: post.node.title,
+          image: post.node.thumbnail.localFile.publicURL,
           datePublished: post.node.created,
         }))}
         defer
@@ -164,6 +164,11 @@ export const query = graphql`
           title
           slug
           created
+          thumbnail {
+            localFile {
+              publicURL
+            }
+          }
         }
       }
     }

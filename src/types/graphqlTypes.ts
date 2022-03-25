@@ -18657,7 +18657,10 @@ export type BlogPostQuery = { post: Maybe<(
     & { content: Maybe<(
       Pick<ContentfulBlogPostContentTextNode, 'content'>
       & { childMdx: Maybe<Pick<Mdx, 'body'>> }
-    )>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>> }
+    )>, category: Maybe<Pick<ContentfulTag, 'name'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, thumbnail: Maybe<(
+      Pick<ContentfulAsset, 'title'>
+      & { file: Maybe<Pick<ContentfulAssetFile, 'url'>>, localFile: Maybe<Pick<File, 'publicURL'>> }
+    )> }
   )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
@@ -18690,7 +18693,10 @@ export type BlogPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
             Pick<ContentfulAsset, 'title'>
             & { file: Maybe<Pick<ContentfulAssetFile, 'url'>>, localFile: Maybe<{ childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> }
           )> }
-        ) }> }> }, postsLite: { edges: Array<{ node: Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
+        ) }> }> }, postsLite: { edges: Array<{ node: (
+        Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>
+        & { thumbnail: Maybe<{ localFile: Maybe<Pick<File, 'publicURL'>> }> }
+      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
   )> };
