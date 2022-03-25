@@ -45,8 +45,8 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
 
-  const icon = data.icon?.svg?.content || '';
-  const iconAlt = data.icon?.title || '';
+  const icon = data.icon.svg.content;
+  const iconAlt = data.icon.title;
   return (
     <Layout icon={icon} iconAlt={iconAlt}>
       <GatsbySeo
@@ -84,7 +84,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
             url: siteMetadata.siteUrl,
           },
         }}
-        posts={data.postsLite?.edges?.map(post => ({
+        posts={data.postsLite.edges.map(post => ({
           headline: post.node.title,
           image: post.node.thumbnail.localFile.publicURL,
           datePublished: post.node.created,
