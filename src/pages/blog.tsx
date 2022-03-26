@@ -45,8 +45,8 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
 
-  const icon = data.icon?.svg?.content || '';
-  const iconAlt = data.icon?.title || '';
+  const icon = data.icon.svg.content;
+  const iconAlt = data.icon.title;
   return (
     <Layout icon={icon} iconAlt={iconAlt}>
       <GatsbySeo
@@ -58,7 +58,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           description: siteMetadata.description,
           images: [
             {
-              url: siteMetadata.image,
+              url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
               alt: siteMetadata.title,
             },
           ],
@@ -73,7 +73,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         datePublished={buildTime}
         dateModified={buildTime}
         description={siteMetadata.description}
-        images={[siteMetadata.image]}
+        images={[`${siteMetadata.siteUrl}${siteMetadata.image}`]}
         publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
         publisherName={siteMetadata.title}
         overrides={{
@@ -84,10 +84,10 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
             url: siteMetadata.siteUrl,
           },
         }}
-        posts={data.postsLite?.edges?.map(post => ({
-          headline: post.node.title || '',
-          image: `${siteMetadata.siteUrl}${siteMetadata.image}`,
-          datePublished: post.node.created,
+        posts={data.postsLite.edges.map(({ node }) => ({
+          headline: node.title,
+          image: `${siteMetadata.siteUrl}${node.thumbnail.localFile.publicURL}`,
+          datePublished: node.created,
         }))}
         defer
       />
@@ -121,21 +121,37 @@ export default Blog;
 export const query = graphql`
   query BlogPage($language: String!) {
     # ブログ記事一覧を取得する
-    posts: allContentfulBlogPost(sort: { fields: [tags, created], order: [ASC, DESC] }) {
-      group(field: tags) {
+    posts: allContentfulBlogPost(sort: { fields: [created, tags], order: [DESC, ASC] }) {
+      group(field: category___name) {
         edges {
           node {
             id
             title
             slug
             created
+            createdDate: created(formatString: "yyyy/MM/DD")
             updated
+            updatedDate: updated(formatString: "yyyy/MM/DD")
             excerpt
             content {
               content
             }
             tags {
               name
+            }
+            category {
+              name
+            }
+            thumbnail {
+              title
+              file {
+                url
+              }
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 400)
+                }
+              }
             }
           }
         }
@@ -148,6 +164,11 @@ export const query = graphql`
           title
           slug
           created
+          thumbnail {
+            localFile {
+              publicURL
+            }
+          }
         }
       }
     }
