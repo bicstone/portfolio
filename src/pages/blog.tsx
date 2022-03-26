@@ -58,7 +58,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           description: siteMetadata.description,
           images: [
             {
-              url: siteMetadata.image,
+              url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
               alt: siteMetadata.title,
             },
           ],
@@ -73,7 +73,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         datePublished={buildTime}
         dateModified={buildTime}
         description={siteMetadata.description}
-        images={[siteMetadata.image]}
+        images={[`${siteMetadata.siteUrl}${siteMetadata.image}`]}
         publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
         publisherName={siteMetadata.title}
         overrides={{
@@ -84,10 +84,10 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
             url: siteMetadata.siteUrl,
           },
         }}
-        posts={data.postsLite.edges.map(post => ({
-          headline: post.node.title,
-          image: post.node.thumbnail.localFile.publicURL,
-          datePublished: post.node.created,
+        posts={data.postsLite.edges.map(({ node }) => ({
+          headline: node.title,
+          image: `${siteMetadata.siteUrl}${node.thumbnail.localFile.publicURL}`,
+          datePublished: node.created,
         }))}
         defer
       />

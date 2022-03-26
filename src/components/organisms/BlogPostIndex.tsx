@@ -22,7 +22,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
   return (
     <>
       {posts.map(({ edges }) => {
-        const categoryName = edges[0].node.category.name || t('common.no-category');
+        const categoryName = edges[0].node.category.name;
 
         return (
           <section css={theme => ({ margin: theme.spacing(4, 0) })} key={categoryName}>
@@ -35,22 +35,20 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                   <CardActionArea
                     component={RouterLink}
                     to={`/${node.slug}`}
-                    title={node?.title || ''}
+                    title={node.title}
                     css={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}
                   >
                     <CardMedia>
-                      {node?.thumbnail?.localFile?.childImageSharp?.gatsbyImageData && (
-                        <GatsbyImage
-                          css={theme => ({
-                            width: theme.spacing(15),
-                            height: theme.spacing(15),
-                            margin: theme.spacing(2),
-                            objectFit: 'cover',
-                          })}
-                          image={node.thumbnail.localFile.childImageSharp.gatsbyImageData}
-                          alt={node.thumbnail.title || ''}
-                        />
-                      )}
+                      <GatsbyImage
+                        css={theme => ({
+                          width: theme.spacing(15),
+                          height: theme.spacing(15),
+                          margin: theme.spacing(2),
+                          objectFit: 'cover',
+                        })}
+                        image={node.thumbnail.localFile.childImageSharp.gatsbyImageData}
+                        alt={node.thumbnail.title}
+                      />
                     </CardMedia>
                     <div
                       css={theme => ({
