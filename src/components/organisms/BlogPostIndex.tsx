@@ -3,7 +3,6 @@ import React from 'react';
 import { Typography, CardActionArea, Card, CardMedia } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 import { Update as UpdateIcon, AccessTime as AccessTimeIcon } from '@mui/icons-material';
 
@@ -18,7 +17,6 @@ export type BlogPostIndexProps = {
  * カテゴリー別に表示する
  */
 export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
-  const { t } = useTranslation();
   return (
     <>
       {posts.map(({ edges }) => {
