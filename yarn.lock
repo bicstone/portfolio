@@ -7201,13 +7201,14 @@ __metadata:
     eslint-plugin-react-hooks: 4.3.0
     eslint-plugin-regexp: 1.6.0
     eslint-plugin-standard: 4.1.0
-    gatsby: 4.10.1
-    gatsby-plugin-advanced-sitemap: 2.0.0
-    gatsby-plugin-emotion: 7.10.0
-    gatsby-plugin-google-tagmanager: 4.10.1
-    gatsby-plugin-image: 2.10.0
-    gatsby-plugin-manifest: 4.10.1
-    gatsby-plugin-mdx: 3.10.1
+    gatsby: 4.11.1
+    gatsby-plugin-advanced-sitemap: 2.1.0
+    gatsby-plugin-emotion: 7.11.0
+    gatsby-plugin-google-tagmanager: 4.11.1
+    gatsby-plugin-image: 2.11.1
+    gatsby-plugin-manifest: 4.11.1
+    gatsby-plugin-mdx: 3.11.1
+    gatsby-plugin-mdx-embed: ^1.0.0
     gatsby-plugin-next-seo: 1.10.0
     gatsby-plugin-react-i18next: 1.2.2
     gatsby-plugin-remove-serviceworker: 1.0.0
@@ -7224,7 +7225,8 @@ __metadata:
     husky: 7.0.4
     i18next: 21.6.14
     js-cookie: 3.0.1
-    prettier: 2.6.0
+    mdx-embed: ^1.0.0
+    prettier: 2.6.2
     prism-themes: 1.9.0
     prismjs: 1.27.0
     react: 17.0.2
@@ -11678,9 +11680,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-mdx@npm:3.10.1":
-  version: 3.10.1
-  resolution: "gatsby-plugin-mdx@npm:3.10.1"
+"gatsby-plugin-mdx-embed@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "gatsby-plugin-mdx-embed@npm:1.0.0"
+  peerDependencies:
+    "@mdx-js/mdx": ^1.6.16
+    "@mdx-js/react": ^1.6.16
+    gatsby: ^3.0.0 || ^4.0.0
+    mdx-embed: "*"
+    react: ^16.9.0
+    react-dom: ^16.9.0
+  checksum: b4a7854f70a7a54f56d311075c7288a570a82532139b6d0aa388049f3226ec412d9aa2b4119ebf545ee500c5c88ee7ae7a2598abc8ffee3ab47b60c6a7eda170
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-mdx@npm:3.11.1":
+  version: 3.11.1
+  resolution: "gatsby-plugin-mdx@npm:3.11.1"
   dependencies:
     "@babel/core": ^7.15.5
     "@babel/generator": ^7.15.4
@@ -15766,6 +15782,18 @@ __metadata:
   version: 1.0.1
   resolution: "mdurl@npm:1.0.1"
   checksum: 71731ecba943926bfbf9f9b51e28b5945f9411c4eda80894221b47cc105afa43ba2da820732b436f0798fd3edbbffcd1fc1415843c41a87fea08a41cc1e3d02b
+  languageName: node
+  linkType: hard
+
+"mdx-embed@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "mdx-embed@npm:1.0.0"
+  peerDependencies:
+    "@mdx-js/mdx": ^1.6.16
+    "@mdx-js/react": ^1.6.16
+    react: ^16.9.0
+    react-dom: ^16.9.0
+  checksum: 59af0df877beae45d8e396df91a32bc21a661c136d46964f5be007cdbf157650d9f2136146acb3fe2c8ea38cfd9c773cffa53ab89bf6d8ab63179e92acbc2937
   languageName: node
   linkType: hard
 

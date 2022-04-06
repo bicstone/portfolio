@@ -72,7 +72,14 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
+              aliases: {
+                sh: 'bash',
+                bat: 'batch',
+              },
             },
+          },
+          {
+            resolve: `gatsby-plugin-mdx-embed`,
           },
         ],
       },
@@ -134,6 +141,8 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: true,
         localeFilter: locale => locale.code === 'ja',
+        pageLimit: 20,
+        assetDownloadWorkers: 10,
       },
     },
     {
