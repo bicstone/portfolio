@@ -146,8 +146,9 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: true,
         localeFilter: locale => locale.code === 'ja',
+        // for gatsby cloud
         pageLimit: 20,
-        assetDownloadWorkers: 10,
+        assetDownloadWorkers: 5,
       },
     },
     {

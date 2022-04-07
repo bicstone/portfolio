@@ -102,6 +102,8 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           {t('blog.title')}
         </Typography>
 
+        <Typography>{t('blog.caption')}</Typography>
+
         <div css={theme => ({ marginBottom: theme.spacing(2) })}>
           <BlogPostIndex posts={data.posts.group} />
         </div>
