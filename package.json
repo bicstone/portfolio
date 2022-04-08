@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build --verbose",
-    "develop": "gatsby clean && gatsby develop --port 10014 --verbose",
+    "develop": "yarn clean && gatsby develop --port 10014 --verbose",
     "dev": "yarn develop",
     "start": "yarn develop",
     "serve": "gatsby serve --port 20014",
@@ -35,7 +35,6 @@
     "@mui/material": "5.5.3",
     "@sentry/gatsby": "6.19.3",
     "gatsby": "4.11.1",
-    "gatsby-page-utils": "2.11.1",
     "gatsby-plugin-advanced-sitemap": "2.1.0",
     "gatsby-plugin-emotion": "7.11.0",
     "gatsby-plugin-google-tagmanager": "4.11.1",

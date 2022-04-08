@@ -147,9 +147,8 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: locale => locale.code === 'ja',
-        downloadLocal: true,
-        // for gatsby cloud
-        pageLimit: 50,
+        downloadLocal: false,
+        pageLimit: 10,
         assetDownloadWorkers: 1,
       },
     },

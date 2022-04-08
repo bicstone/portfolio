@@ -1,13 +1,10 @@
 import React from 'react';
 
-import { applyTrailingSlashOption, TrailingSlash } from 'gatsby-page-utils';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 import { Helmet } from 'react-helmet-async';
 
 import { useSiteMetadata } from 'src/hooks';
-
-declare const __TRAILING_SLASH__: TrailingSlash | undefined;
 
 /**
  * Headタグ部
@@ -15,12 +12,10 @@ declare const __TRAILING_SLASH__: TrailingSlash | undefined;
 export const Head: React.FC = () => {
   const siteMetadata = useSiteMetadata();
 
-  // copied from https://github.com/microapps/gatsby-plugin-react-i18next/blob/10d2a08861248daeec6c6589d7d89c16a506fdab/src/Helmet.tsx
-  //  MIT License
   const { languages, language, originalPath, defaultLanguage, siteUrl = '' } = useI18next();
   const createUrlWithLang = (lng: string) => {
-    const path = applyTrailingSlashOption(originalPath, __TRAILING_SLASH__);
-    return `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${path}`;
+    const url = `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
+    return url.endsWith('/') ? url.slice(0, -1) : url;
   };
 
   return (

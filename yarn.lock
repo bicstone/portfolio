@@ -7336,7 +7336,6 @@ __metadata:
     eslint-plugin-regexp: 1.6.0
     eslint-plugin-standard: 4.1.0
     gatsby: 4.11.1
-    gatsby-page-utils: 2.11.1
     gatsby-plugin-advanced-sitemap: 2.1.0
     gatsby-plugin-emotion: 7.11.0
     gatsby-plugin-google-tagmanager: 4.11.1
@@ -11703,7 +11702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-page-utils@npm:2.11.1, gatsby-page-utils@npm:^2.11.1":
+"gatsby-page-utils@npm:^2.11.1":
   version: 2.11.1
   resolution: "gatsby-page-utils@npm:2.11.1"
   dependencies:
