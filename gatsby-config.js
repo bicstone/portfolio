@@ -5,6 +5,8 @@ const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
 
 module.exports = {
+  trailingSlash: 'never',
+
   siteMetadata: {
     title: siteMetaData.title,
     siteUrl: siteMetaData.siteUrl,
@@ -144,11 +146,11 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
         localeFilter: locale => locale.code === 'ja',
+        downloadLocal: true,
         // for gatsby cloud
-        pageLimit: 20,
-        assetDownloadWorkers: 5,
+        pageLimit: 50,
+        assetDownloadWorkers: 1,
       },
     },
     {

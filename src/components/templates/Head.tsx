@@ -1,20 +1,39 @@
 import React from 'react';
 
+import { applyTrailingSlashOption, TrailingSlash } from 'gatsby-page-utils';
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 import { useSiteMetadata } from 'src/hooks';
+
+declare const __TRAILING_SLASH__: TrailingSlash | undefined;
 
 /**
  * Headタグ部
  */
 export const Head: React.FC = () => {
   const siteMetadata = useSiteMetadata();
-  const { language, path } = useI18next();
+
+  // copied from https://github.com/microapps/gatsby-plugin-react-i18next/blob/10d2a08861248daeec6c6589d7d89c16a506fdab/src/Helmet.tsx
+  //  MIT License
+  const { languages, language, originalPath, defaultLanguage, siteUrl = '' } = useI18next();
+  const createUrlWithLang = (lng: string) => {
+    const path = applyTrailingSlashOption(originalPath, __TRAILING_SLASH__);
+    return `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${path}`;
+  };
 
   return (
     <>
       <Helmet>
+        <html lang={language} />
+
+        <link rel="canonical" href={createUrlWithLang(language)} />
+        {languages.map(lng => (
+          <link rel="alternate" key={lng} href={createUrlWithLang(lng)} hrefLang={lng} />
+        ))}
+        <link rel="alternate" href={createUrlWithLang(defaultLanguage)} hrefLang="x-default" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
         <link
@@ -67,7 +86,7 @@ export const Head: React.FC = () => {
         // 定数は gatsby-config.js で設定
         // ここでは全画面共通の変数を設定
         openGraph={{
-          url: `${siteMetadata.siteUrl}${path}`,
+          url: createUrlWithLang(language),
           locale: language,
         }}
       />
