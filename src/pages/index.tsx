@@ -198,11 +198,7 @@ export const query = graphql`
             file {
               url
             }
-            localFile {
-              childImageSharp {
-                gatsbyImageData(layout: FULL_WIDTH)
-              }
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
           subName
           startDate(formatString: "yyyy/MM")

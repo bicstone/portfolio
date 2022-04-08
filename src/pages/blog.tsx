@@ -86,7 +86,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         }}
         posts={data.postsLite.edges.map(({ node }) => ({
           headline: node.title,
-          image: `${siteMetadata.siteUrl}${node.thumbnail.localFile.publicURL}`,
+          image: node.thumbnail.file.url,
           datePublished: node.created,
         }))}
         defer
@@ -146,14 +146,7 @@ export const query = graphql`
             }
             thumbnail {
               title
-              file {
-                url
-              }
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 400)
-                }
-              }
+              gatsbyImageData(width: 400)
             }
           }
         }
@@ -167,8 +160,8 @@ export const query = graphql`
           slug
           created
           thumbnail {
-            localFile {
-              publicURL
+            file {
+              url
             }
           }
         }

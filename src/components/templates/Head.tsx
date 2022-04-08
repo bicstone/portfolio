@@ -14,8 +14,7 @@ export const Head: React.FC = () => {
 
   const { languages, language, originalPath, defaultLanguage, siteUrl = '' } = useI18next();
   const createUrlWithLang = (lng: string) => {
-    const url = `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
-    return url.endsWith('/') ? url.slice(0, -1) : url;
+    return `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
   };
 
   return (

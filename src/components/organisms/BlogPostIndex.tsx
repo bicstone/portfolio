@@ -44,7 +44,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                           margin: theme.spacing(2),
                           objectFit: 'cover',
                         })}
-                        image={node.thumbnail.localFile.childImageSharp.gatsbyImageData}
+                        image={node.thumbnail.gatsbyImageData}
                         alt={node.thumbnail.title}
                       />
                     </CardMedia>

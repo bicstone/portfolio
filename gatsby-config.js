@@ -123,6 +123,9 @@ module.exports = {
       resolve: 'gatsby-plugin-remove-serviceworker',
     },
     {
+      resolve: 'gatsby-plugin-remove-trailing-slashes',
+    },
+    {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: path.resolve('src'),
@@ -147,9 +150,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: locale => locale.code === 'ja',
-        downloadLocal: false,
         pageLimit: 10,
-        assetDownloadWorkers: 1,
       },
     },
     {

@@ -31,13 +31,13 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
                 target="_blank"
               >
                 <CardMedia>
-                  {node?.image?.localFile?.childImageSharp?.gatsbyImageData && (
+                  {node?.image?.gatsbyImageData && (
                     <GatsbyImage
                       css={{
                         height: 0,
                         paddingTop: '56.25%', // 16:9
                       }}
-                      image={node.image.localFile.childImageSharp.gatsbyImageData}
+                      image={node.image.gatsbyImageData}
                       alt={node.name || ''}
                     />
                   )}
