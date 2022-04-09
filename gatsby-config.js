@@ -5,6 +5,8 @@ const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
 
 module.exports = {
+  trailingSlash: 'never',
+
   siteMetadata: {
     title: siteMetaData.title,
     siteUrl: siteMetaData.siteUrl,
@@ -71,14 +73,20 @@ module.exports = {
               maxWidth: 600,
               showCaptions: true,
               withWebp: true,
-              linkImagesToOriginal: false,
             },
           },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
+              aliases: {
+                sh: 'bash',
+                bat: 'batch',
+              },
             },
+          },
+          {
+            resolve: `gatsby-plugin-mdx-embed`,
           },
         ],
       },
@@ -115,6 +123,9 @@ module.exports = {
       resolve: 'gatsby-plugin-remove-serviceworker',
     },
     {
+      resolve: 'gatsby-plugin-remove-trailing-slashes',
+    },
+    {
       resolve: 'gatsby-plugin-root-import',
       options: {
         src: path.resolve('src'),
@@ -138,8 +149,8 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
         localeFilter: locale => locale.code === 'ja',
+        pageLimit: 10,
       },
     },
     {

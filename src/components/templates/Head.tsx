@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import { Helmet, useI18next } from 'gatsby-plugin-react-i18next';
+import { useI18next } from 'gatsby-plugin-react-i18next';
+import { Helmet } from 'react-helmet-async';
 
 import { useSiteMetadata } from 'src/hooks';
 
@@ -10,11 +11,23 @@ import { useSiteMetadata } from 'src/hooks';
  */
 export const Head: React.FC = () => {
   const siteMetadata = useSiteMetadata();
-  const { language, path } = useI18next();
+
+  const { languages, language, originalPath, defaultLanguage, siteUrl = '' } = useI18next();
+  const createUrlWithLang = (lng: string) => {
+    return `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
+  };
 
   return (
     <>
       <Helmet>
+        <html lang={language} />
+
+        <link rel="canonical" href={createUrlWithLang(language)} />
+        {languages.map(lng => (
+          <link rel="alternate" key={lng} href={createUrlWithLang(lng)} hrefLang={lng} />
+        ))}
+        <link rel="alternate" href={createUrlWithLang(defaultLanguage)} hrefLang="x-default" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
         <link
@@ -67,7 +80,7 @@ export const Head: React.FC = () => {
         // 定数は gatsby-config.js で設定
         // ここでは全画面共通の変数を設定
         openGraph={{
-          url: `${siteMetadata.siteUrl}${path}`,
+          url: createUrlWithLang(language),
           locale: language,
         }}
       />

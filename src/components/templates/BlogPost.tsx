@@ -325,7 +325,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           description: post.excerpt,
           images: [
             {
-              url: `${siteMetadata.siteUrl}${post.thumbnail.localFile.publicURL}`,
+              url: post.thumbnail.file.url,
               alt: post.thumbnail.title,
             },
           ],
@@ -348,7 +348,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         datePublished={post.created}
         dateModified={post.updated}
         description={post.excerpt}
-        images={[`${siteMetadata.siteUrl}${post.thumbnail.localFile.publicURL}`]}
+        images={[post.thumbnail.file.url]}
         body={post.content.content}
         keywords={post.tags.map(v => v.name)}
         publisherLogo={siteMetadata.image}
@@ -458,9 +458,6 @@ export const query = graphql`
         title
         file {
           url
-        }
-        localFile {
-          publicURL
         }
       }
     }

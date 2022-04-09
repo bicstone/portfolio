@@ -86,7 +86,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         }}
         posts={data.postsLite.edges.map(({ node }) => ({
           headline: node.title,
-          image: `${siteMetadata.siteUrl}${node.thumbnail.localFile.publicURL}`,
+          image: node.thumbnail.file.url,
           datePublished: node.created,
         }))}
         defer
@@ -98,9 +98,11 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
 
-        <Typography component="h1" variant="h5" align="center">
+        <Typography component="h1" variant="h5" align="center" paragraph>
           {t('blog.title')}
         </Typography>
+
+        <Typography>{t('blog.caption')}</Typography>
 
         <div css={theme => ({ marginBottom: theme.spacing(2) })}>
           <BlogPostIndex posts={data.posts.group} />
@@ -144,14 +146,7 @@ export const query = graphql`
             }
             thumbnail {
               title
-              file {
-                url
-              }
-              localFile {
-                childImageSharp {
-                  gatsbyImageData(width: 400)
-                }
-              }
+              gatsbyImageData(width: 400)
             }
           }
         }
@@ -165,8 +160,8 @@ export const query = graphql`
           slug
           created
           thumbnail {
-            localFile {
-              publicURL
+            file {
+              url
             }
           }
         }
