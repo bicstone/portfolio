@@ -98,7 +98,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
 
-        <Typography component="h1" variant="h5" align="center">
+        <Typography component="h1" variant="h5" align="center" paragraph>
           {t('blog.title')}
         </Typography>
 
