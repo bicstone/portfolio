@@ -135,9 +135,6 @@ export const query = graphql`
             updated
             updatedDate: updated(formatString: "yyyy/MM/DD")
             excerpt
-            content {
-              content
-            }
             tags {
               name
             }

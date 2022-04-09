@@ -15309,7 +15309,10 @@ export type QuerySiteArgs = {
   host: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
+  jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+  pathPrefix: InputMaybe<StringQueryOperatorInput>;
+  polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
   siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
   trailingSlash: InputMaybe<StringQueryOperatorInput>;
@@ -15471,7 +15474,10 @@ export type Site = Node & {
   host: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   internal: Internal;
+  jsxRuntime: Maybe<Scalars['String']>;
   parent: Maybe<Node>;
+  pathPrefix: Maybe<Scalars['String']>;
+  polyfill: Maybe<Scalars['Boolean']>;
   port: Maybe<Scalars['Int']>;
   siteMetadata: Maybe<SiteSiteMetadata>;
   trailingSlash: Maybe<Scalars['String']>;
@@ -15786,49 +15792,52 @@ export enum SiteFieldsEnum {
   InternalMediaType = 47,
   InternalOwner = 48,
   InternalType = 49,
-  ParentChildren = 50,
-  ParentChildrenChildren = 51,
-  ParentChildrenChildrenChildren = 52,
-  ParentChildrenChildrenId = 53,
-  ParentChildrenId = 54,
-  ParentChildrenInternalContent = 55,
-  ParentChildrenInternalContentDigest = 56,
-  ParentChildrenInternalDescription = 57,
-  ParentChildrenInternalFieldOwners = 58,
-  ParentChildrenInternalIgnoreType = 59,
-  ParentChildrenInternalMediaType = 60,
-  ParentChildrenInternalOwner = 61,
-  ParentChildrenInternalType = 62,
-  ParentChildrenParentChildren = 63,
-  ParentChildrenParentId = 64,
-  ParentId = 65,
-  ParentInternalContent = 66,
-  ParentInternalContentDigest = 67,
-  ParentInternalDescription = 68,
-  ParentInternalFieldOwners = 69,
-  ParentInternalIgnoreType = 70,
-  ParentInternalMediaType = 71,
-  ParentInternalOwner = 72,
-  ParentInternalType = 73,
-  ParentParentChildren = 74,
-  ParentParentChildrenChildren = 75,
-  ParentParentChildrenId = 76,
-  ParentParentId = 77,
-  ParentParentInternalContent = 78,
-  ParentParentInternalContentDigest = 79,
-  ParentParentInternalDescription = 80,
-  ParentParentInternalFieldOwners = 81,
-  ParentParentInternalIgnoreType = 82,
-  ParentParentInternalMediaType = 83,
-  ParentParentInternalOwner = 84,
-  ParentParentInternalType = 85,
-  ParentParentParentChildren = 86,
-  ParentParentParentId = 87,
-  Port = 88,
-  SiteMetadataDescription = 89,
-  SiteMetadataSiteUrl = 90,
-  SiteMetadataTitle = 91,
-  TrailingSlash = 92
+  JsxRuntime = 50,
+  ParentChildren = 51,
+  ParentChildrenChildren = 52,
+  ParentChildrenChildrenChildren = 53,
+  ParentChildrenChildrenId = 54,
+  ParentChildrenId = 55,
+  ParentChildrenInternalContent = 56,
+  ParentChildrenInternalContentDigest = 57,
+  ParentChildrenInternalDescription = 58,
+  ParentChildrenInternalFieldOwners = 59,
+  ParentChildrenInternalIgnoreType = 60,
+  ParentChildrenInternalMediaType = 61,
+  ParentChildrenInternalOwner = 62,
+  ParentChildrenInternalType = 63,
+  ParentChildrenParentChildren = 64,
+  ParentChildrenParentId = 65,
+  ParentId = 66,
+  ParentInternalContent = 67,
+  ParentInternalContentDigest = 68,
+  ParentInternalDescription = 69,
+  ParentInternalFieldOwners = 70,
+  ParentInternalIgnoreType = 71,
+  ParentInternalMediaType = 72,
+  ParentInternalOwner = 73,
+  ParentInternalType = 74,
+  ParentParentChildren = 75,
+  ParentParentChildrenChildren = 76,
+  ParentParentChildrenId = 77,
+  ParentParentId = 78,
+  ParentParentInternalContent = 79,
+  ParentParentInternalContentDigest = 80,
+  ParentParentInternalDescription = 81,
+  ParentParentInternalFieldOwners = 82,
+  ParentParentInternalIgnoreType = 83,
+  ParentParentInternalMediaType = 84,
+  ParentParentInternalOwner = 85,
+  ParentParentInternalType = 86,
+  ParentParentParentChildren = 87,
+  ParentParentParentId = 88,
+  PathPrefix = 89,
+  Polyfill = 90,
+  Port = 91,
+  SiteMetadataDescription = 92,
+  SiteMetadataSiteUrl = 93,
+  SiteMetadataTitle = 94,
+  TrailingSlash = 95
 }
 
 export type SiteFilterInput = {
@@ -15837,7 +15846,10 @@ export type SiteFilterInput = {
   host: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
+  jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+  pathPrefix: InputMaybe<StringQueryOperatorInput>;
+  polyfill: InputMaybe<BooleanQueryOperatorInput>;
   port: InputMaybe<IntQueryOperatorInput>;
   siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
   trailingSlash: InputMaybe<StringQueryOperatorInput>;
@@ -17942,10 +17954,7 @@ export type BlogPostQueryVariables = Exact<{
 export type BlogPostQuery = { post: Maybe<(
     Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
     & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-    & { content: Maybe<(
-      Pick<ContentfulBlogPostContentTextNode, 'content'>
-      & { childMdx: Maybe<Pick<Mdx, 'body'>> }
-    )>, category: Maybe<Pick<ContentfulTag, 'name'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, thumbnail: Maybe<(
+    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulTag, 'name'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, thumbnail: Maybe<(
       Pick<ContentfulAsset, 'title'>
       & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
     )> }
@@ -17977,7 +17986,7 @@ export type BlogPageQueryVariables = Exact<{
 export type BlogPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
           Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
           & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-          & { content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulTag, 'name'>>, thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>> }
+          & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulTag, 'name'>>, thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>> }
         ) }> }> }, postsLite: { edges: Array<{ node: (
         Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>
         & { thumbnail: Maybe<{ file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
