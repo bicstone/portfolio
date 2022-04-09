@@ -5,6 +5,8 @@ const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
 
 module.exports = {
+  trailingSlash: 'never',
+
   siteMetadata: {
     title: siteMetaData.title,
     siteUrl: siteMetaData.siteUrl,
@@ -12,41 +14,29 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-transformer-sharp`,
+      resolve: '@sentry/gatsby',
+      options: {
+        dsn: process.env.SENTRY_DSN,
+      },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: `gatsby-plugin-advanced-sitemap`,
+      options: {
+        createLinkInHead: true,
+        addUncaughtPages: true,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-emotion',
+    },
+    {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: process.env.GTM_ID,
+      },
     },
     {
       resolve: `gatsby-plugin-image`,
-    },
-    {
-      resolve: 'gatsby-source-contentful',
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
-        localeFilter: locale => locale.code === 'ja',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typescript',
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `locales`,
-        path: path.resolve('src', 'locales'),
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-react-i18next',
-      options: {
-        siteUrl: siteMetaData.siteUrl,
-        localeJsonSourceName: `locales`,
-        languages: languages.languages,
-        defaultLanguage: languages.defaultLanguage,
-      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -74,32 +64,72 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        createLinkInHead: true,
-        addUncaughtPages: true,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 600,
+              showCaptions: true,
+              withWebp: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+              aliases: {
+                sh: 'bash',
+                bat: 'batch',
+              },
+            },
+          },
+          {
+            resolve: `gatsby-plugin-mdx-embed`,
+          },
+        ],
       },
     },
     {
-      resolve: `gatsby-plugin-canonical-urls`,
+      resolve: `gatsby-plugin-next-seo`,
+      options: {
+        twitter: {
+          cardType: 'summary_large_image',
+          site: siteMetaData.twitter,
+          handle: siteMetaData.twitter,
+        },
+        openGraph: {
+          site_name: siteMetaData.title,
+          profile: {
+            firstName: siteMetaData.firstName,
+            lastName: siteMetaData.lastName,
+            username: siteMetaData.author,
+            gender: siteMetaData.gender,
+          },
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-i18next',
       options: {
         siteUrl: siteMetaData.siteUrl,
-      },
-    },
-    {
-      resolve: 'gatsby-transformer-inline-svg',
-    },
-    {
-      resolve: 'gatsby-plugin-root-import',
-      options: {
-        src: path.resolve('src'),
+        localeJsonSourceName: `locales`,
+        languages: languages.languages,
+        defaultLanguage: languages.defaultLanguage,
       },
     },
     {
       resolve: 'gatsby-plugin-remove-serviceworker',
     },
     {
-      resolve: 'gatsby-plugin-emotion',
+      resolve: 'gatsby-plugin-remove-trailing-slashes',
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        src: path.resolve('src'),
+      },
     },
     {
       resolve: `gatsby-plugin-s3`,
@@ -112,26 +142,29 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: `gatsby-plugin-sharp`,
+    },
+    {
+      resolve: 'gatsby-source-contentful',
       options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images-contentful`,
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              noInlineHighlight: true,
-            },
-          },
-        ],
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        localeFilter: locale => locale.code === 'ja',
+        pageLimit: 10,
       },
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        id: process.env.GTM_ID,
+        name: `locales`,
+        path: path.resolve('src', 'locales'),
       },
+    },
+    {
+      resolve: 'gatsby-transformer-inline-svg',
+    },
+    {
+      resolve: `gatsby-transformer-sharp`,
     },
   ],
 };

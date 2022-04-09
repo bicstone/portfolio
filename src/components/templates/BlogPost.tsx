@@ -17,15 +17,19 @@ import {
   TableRow,
   Typography,
   BreadcrumbsProps as MuiBreadcrumbsProps,
+  CardActionArea,
+  CardHeader,
 } from '@mui/material';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { useTranslation } from 'gatsby-plugin-react-i18next';
+import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import {
   AccessTime as AccessTimeIcon,
   NavigateNext as NavigateNextIcon,
   Update as UpdateIcon,
+  Link as LinkIcon,
 } from '@mui/icons-material';
 
 import { HelloGroup, Layout } from 'src/components';
@@ -226,7 +230,7 @@ const StyledPre = styled('pre')(({ theme }) => ({
 
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
-  p: props => <Typography paragraph {...props} />,
+  p: props => <Typography component="div" paragraph {...props} />,
   h1: () => null,
   h2: props => <StyledTypography variant="h5" component="h2" {...props} />,
   h3: props => <StyledTypography variant="h6" component="h3" {...props} />,
@@ -255,6 +259,21 @@ const components: MDXProviderComponentsProp = {
   ),
   hr: () => <Divider />,
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
+  link: props => (
+    <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
+      <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
+        <CardHeader
+          title={<Typography variant="subtitle1">{props.title}</Typography>}
+          subheader={
+            <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
+              <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
+              {props.href}
+            </Typography>
+          }
+        />
+      </CardActionArea>
+    </Card>
+  ),
 };
 
 type BreadcrumbsProps = {
@@ -284,6 +303,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, postTit
 };
 
 const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
+  const { path } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
 
@@ -295,12 +315,59 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   }
 
   return (
-    <Layout icon={data.icon?.svg?.content || ''} iconAlt={data.icon?.title || ''}>
+    <Layout icon={data.icon.svg.content} iconAlt={data.icon.title}>
+      <GatsbySeo
+        title={post.title}
+        description={post.excerpt}
+        openGraph={{
+          type: 'article',
+          title: post.title,
+          description: post.excerpt,
+          images: [
+            {
+              url: post.thumbnail.file.url,
+              alt: post.thumbnail.title,
+            },
+          ],
+          article: {
+            publishedTime: post.created,
+            modifiedTime: post.updated,
+            authors: [siteMetadata.siteUrl],
+            section: post.category.name,
+            tags: post.tags.map(v => v.name),
+          },
+        }}
+      />
+      <BlogPostJsonLd
+        authorType="Person"
+        authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
+        url={`${siteMetadata.siteUrl}${path}`}
+        title={post.title}
+        headline={post.excerpt}
+        dateCreated={post.created}
+        datePublished={post.created}
+        dateModified={post.updated}
+        description={post.excerpt}
+        images={[post.thumbnail.file.url]}
+        body={post.content.content}
+        keywords={post.tags.map(v => v.name)}
+        publisherLogo={siteMetadata.image}
+        publisherName={siteMetadata.title}
+        overrides={{
+          '@type': 'BlogPosting',
+          author: {
+            '@type': 'Person',
+            name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
+            url: siteMetadata.siteUrl,
+          },
+        }}
+        defer
+      />
       <Container maxWidth="md">
         <Breadcrumbs
           siteTitle={siteMetadata.title}
           blogTitle={t('blog.title')}
-          postTitle={post.title || ''}
+          postTitle={post.title}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
 
@@ -308,37 +375,40 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           {post.title}
         </Typography>
 
-        <Typography variant="body2" color="textSecondary">
-          <div css={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-            {post.updated && (
-              <>
-                <UpdateIcon
-                  fontSize="inherit"
-                  css={theme => ({ marginRight: theme.spacing(0.5) })}
-                />
-                <time dateTime={post.updated} css={theme => ({ marginRight: theme.spacing(1) })}>
-                  {post.updatedDate}
-                </time>
-              </>
-            )}
-            {post.created && (
-              <>
-                <AccessTimeIcon
-                  fontSize="inherit"
-                  css={theme => ({ marginRight: theme.spacing(0.5) })}
-                />
-                <time dateTime={post.created}>{post.createdDate}</time>
-              </>
-            )}
-          </div>
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="div"
+          css={theme => ({
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            marginTop: theme.spacing(1),
+          })}
+        >
+          {post.updated && (
+            <>
+              <UpdateIcon fontSize="inherit" css={theme => ({ marginRight: theme.spacing(0.5) })} />
+              <time dateTime={post.updated} css={theme => ({ marginRight: theme.spacing(1) })}>
+                {post.updatedDate}
+              </time>
+            </>
+          )}
+          {post.created && (
+            <>
+              <AccessTimeIcon
+                fontSize="inherit"
+                css={theme => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time dateTime={post.created}>{post.createdDate}</time>
+            </>
+          )}
         </Typography>
 
-        <Card css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
+        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(1, 0) })}>
           <CardContent>
             <MDXProvider components={components}>
-              <MDXRenderer components={components}>
-                {post?.content?.childMdx?.body ?? ''}
-              </MDXRenderer>
+              <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
             </MDXProvider>
           </CardContent>
         </Card>
@@ -346,12 +416,12 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         <Breadcrumbs
           siteTitle={siteMetadata.title}
           blogTitle={t('blog.title')}
-          postTitle={post.title || ''}
+          postTitle={post.title}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
 
         <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
-          <HelloGroup links={data.links.edges} icon={data.icon?.svg?.content ?? ''} />
+          <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
         </section>
       </Container>
     </Layout>
@@ -376,9 +446,19 @@ export const query = graphql`
         childMdx {
           body
         }
+        content
+      }
+      category {
+        name
       }
       tags {
         name
+      }
+      thumbnail {
+        title
+        file {
+          url
+        }
       }
     }
     # 自己紹介部分リンク先を取得する
