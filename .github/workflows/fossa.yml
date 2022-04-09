@@ -1,7 +1,7 @@
 name: FOSSA analyze
 
 env:
-  CONTENTFUL_ACCESS_TOKEN: ${{ secrets.FOSSA_API_KEY }}
+  FOSSA_API_KEY: ${{ secrets.FOSSA_API_KEY }}
 
 on:
   push:
