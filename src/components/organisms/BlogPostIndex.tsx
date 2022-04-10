@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Typography, CardActionArea, Card, CardMedia } from '@mui/material';
+import { Typography, CardActionArea, Card, CardMedia, Breakpoint } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Update as UpdateIcon, AccessTime as AccessTimeIcon } from '@mui/icons-material';
 
+import { useBreakPoint } from 'src/hooks';
 import { BlogPageQuery } from 'src/types';
 
 export type BlogPostIndexProps = {
@@ -17,6 +18,8 @@ export type BlogPostIndexProps = {
  * カテゴリー別に表示する
  */
 export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
+  const breakpoints: Breakpoint[] = ['xs', 'sm'];
+  const width = useBreakPoint();
   return (
     <>
       {posts.map(({ edges }) => {
@@ -34,14 +37,22 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                     component={RouterLink}
                     to={`/${node.slug}`}
                     title={node.title}
-                    css={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}
+                    css={{
+                      display: 'flex',
+                      justifyContent: 'flex-start',
+                      alignItems: 'center',
+                    }}
                   >
                     <CardMedia>
                       <GatsbyImage
                         css={theme => ({
-                          width: theme.spacing(15),
-                          height: theme.spacing(15),
-                          margin: theme.spacing(2),
+                          width: breakpoints.includes(width)
+                            ? theme.spacing(10)
+                            : theme.spacing(14),
+                          height: breakpoints.includes(width)
+                            ? theme.spacing(10)
+                            : theme.spacing(14),
+                          margin: breakpoints.includes(width) ? theme.spacing(1) : theme.spacing(2),
                           objectFit: 'cover',
                         })}
                         image={node.thumbnail.gatsbyImageData}
@@ -53,16 +64,24 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                         display: 'flex',
                         flexDirection: 'column',
                         margin: theme.spacing(2),
+                        width: '100%',
                       })}
                     >
-                      <Typography component="h3" variant="h6">
+                      <Typography
+                        component="h3"
+                        variant={breakpoints.includes(width) ? 'subtitle1' : 'h6'}
+                      >
                         {node.title}
                       </Typography>
-                      <Typography variant="body1" color="text.secondary" paragraph>
+                      <Typography
+                        variant={breakpoints.includes(width) ? 'body2' : 'body1'}
+                        color="text.secondary"
+                        paragraph
+                      >
                         {node.excerpt}
                       </Typography>
                       <Typography
-                        variant="body2"
+                        variant={breakpoints.includes(width) ? 'caption' : 'body2'}
                         color="textSecondary"
                         component="div"
                         css={{

@@ -123,8 +123,8 @@ export default Blog;
 export const query = graphql`
   query BlogPage($language: String!) {
     # ブログ記事一覧を取得する
-    posts: allContentfulBlogPost(sort: { fields: [created, tags], order: [DESC, ASC] }) {
-      group(field: category___name) {
+    posts: allContentfulBlogPost(sort: { fields: created, order: DESC }) {
+      group(field: category___sortKey) {
         edges {
           node {
             id
@@ -135,9 +135,6 @@ export const query = graphql`
             updated
             updatedDate: updated(formatString: "yyyy/MM/DD")
             excerpt
-            content {
-              content
-            }
             tags {
               name
             }
