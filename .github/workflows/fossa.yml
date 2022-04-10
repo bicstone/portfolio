@@ -10,7 +10,7 @@ on:
     branches: [main, develop]
 
 jobs:
-  build:
+  fossa:
     runs-on: ubuntu-latest
 
     steps:
