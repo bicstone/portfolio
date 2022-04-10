@@ -20,6 +20,7 @@ import {
   CardActionArea,
   CardHeader,
 } from '@mui/material';
+import * as Sentry from '@sentry/gatsby';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
@@ -259,20 +260,41 @@ const components: MDXProviderComponentsProp = {
   ),
   hr: () => <Divider />,
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
-  link: props => (
-    <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
-      <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
-        <CardHeader
-          title={<Typography variant="subtitle1">{props.title}</Typography>}
-          subheader={
-            <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
-              <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
-              {props.href}
-            </Typography>
-          }
-        />
-      </CardActionArea>
-    </Card>
+  link: props => {
+    if (!props.title || !props.href) {
+      Sentry.captureException(
+        new Error(`Cannot provide both title: ${props.title} and href: ${props.href}`),
+      );
+    }
+    return (
+      <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
+        <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
+          <CardHeader
+            title={<Typography variant="subtitle1">{props.title}</Typography>}
+            subheader={
+              <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
+                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
+                {props.href}
+              </Typography>
+            }
+          />
+        </CardActionArea>
+      </Card>
+    );
+  },
+  video: props => (
+    // eslint-disable-next-line jsx-a11y/media-has-caption
+    <video
+      controls
+      css={{
+        position: 'relative',
+        display: 'block',
+        maxWidth: 600,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}
+      {...props}
+    />
   ),
 };
 
@@ -349,7 +371,6 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         dateModified={post.updated}
         description={post.excerpt}
         images={[post.thumbnail.file.url]}
-        body={post.content.content}
         keywords={post.tags.map(v => v.name)}
         publisherLogo={siteMetadata.image}
         publisherName={siteMetadata.title}
@@ -446,7 +467,6 @@ export const query = graphql`
         childMdx {
           body
         }
-        content
       }
       category {
         name

@@ -20,13 +20,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-advanced-sitemap`,
-      options: {
-        createLinkInHead: true,
-        addUncaughtPages: true,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-emotion',
     },
     {
@@ -143,6 +136,9 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-sharp`,
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
     },
     {
       resolve: 'gatsby-source-contentful',
