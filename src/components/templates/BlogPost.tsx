@@ -282,6 +282,19 @@ const components: MDXProviderComponentsProp = {
       </Card>
     );
   },
+  video: props => (
+    <video
+      controls
+      css={{
+        position: 'relative',
+        display: 'block',
+        maxWidth: 600,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}
+      {...props}
+    />
+  ),
 };
 
 type BreadcrumbsProps = {
