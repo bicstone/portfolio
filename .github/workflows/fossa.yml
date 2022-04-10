@@ -18,3 +18,4 @@ jobs:
         run: curl https://raw.githubusercontent.com/fossas/fossa-cli/master/install-latest.sh | bash
       - uses: actions/checkout@v3
       - run: fossa analyze
+      - run: fossa test
