@@ -283,7 +283,7 @@ const components: MDXProviderComponentsProp = {
     );
   },
   video: props => (
-    // eslint-disable-next-line eslint-plugin-jsx-a11y/media-has-caption
+    // eslint-disable-next-line jsx-a11y/media-has-caption
     <video
       controls
       css={{
