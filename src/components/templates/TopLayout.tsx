@@ -20,79 +20,76 @@ export const TopLayout: React.FC = props => {
     // FIXME: #264 で対応するまで一時的に無効にする
     // themeInitial,
   );
-  const { darkMode } = themeState;
+  const { palette } = themeState;
   const defaultTheme = React.useMemo(() => createTheme(), []);
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: darkMode ? 'dark' : 'light',
-          primary: {
-            // ダークテーマでは彩度を200以下にする
-            // @SEE: https://material.io/design/color/dark-theme.html
-            main: darkMode ? green[200] : green[300],
-          },
-          secondary: {
-            main: darkMode ? pink[200] : pink.A700,
-          },
-          text: {
-            secondary: darkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.65)',
-          },
+  const theme = React.useMemo(() => {
+    const isLight = palette === 'light';
+    return createTheme({
+      palette: {
+        mode: palette,
+        primary: {
+          // ダークテーマでは彩度を200以下にする
+          // @SEE: https://material.io/design/color/dark-theme.html
+          main: isLight ? green[300] : green[200],
         },
-        typography: {
-          fontFamily:
-            '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+        secondary: {
+          main: isLight ? pink.A700 : pink[200],
         },
-        components: {
-          MuiButton: {
-            styleOverrides: {
-              root: {
-                textTransform: 'none',
-              },
-            },
-          },
-          MuiButtonBase: {
-            styleOverrides: {
-              root: {
-                userSelect: 'auto',
-              },
-            },
-          },
-          MuiChip: {
-            styleOverrides: {
-              root: {
-                marginRight: defaultTheme.spacing(0.5),
-                marginTop: defaultTheme.spacing(0.5),
-              },
-            },
-          },
-          MuiLinearProgress: {
-            styleOverrides: {
-              root: {
-                height: defaultTheme.spacing(0.5),
-              },
-            },
-          },
-          MuiAvatar: {
-            styleOverrides: {
-              colorDefault: {
-                backgroundColor: darkMode ? green[200] : green[300],
-              },
-            },
-          },
-          MuiLink: {
-            defaultProps: {
-              color: 'inherit',
+        text: {
+          secondary: isLight ? 'rgba(0, 0, 0, 0.65)' : 'rgba(255, 255, 255, 0.7)',
+        },
+      },
+      typography: {
+        fontFamily:
+          '"BIZ UDPGothic", "Meiryo UI", Meiryo, -apple-system, BlinkMacSystemFont, sans-serif',
+      },
+      components: {
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              textTransform: 'none',
             },
           },
         },
-      }),
-    [darkMode],
-  );
-  const emotionCache = React.useMemo(
-    () => createEmotionCache({ key: darkMode ? 'd' : 'l' }),
-    [darkMode],
-  );
+        MuiButtonBase: {
+          styleOverrides: {
+            root: {
+              userSelect: 'auto',
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              marginRight: defaultTheme.spacing(0.5),
+              marginTop: defaultTheme.spacing(0.5),
+            },
+          },
+        },
+        MuiLinearProgress: {
+          styleOverrides: {
+            root: {
+              height: defaultTheme.spacing(0.5),
+            },
+          },
+        },
+        MuiAvatar: {
+          styleOverrides: {
+            colorDefault: {
+              backgroundColor: isLight ? green[300] : green[200],
+            },
+          },
+        },
+        MuiLink: {
+          defaultProps: {
+            color: 'inherit',
+          },
+        },
+      },
+    });
+  }, [palette]);
+
+  const emotionCache = React.useMemo(() => createEmotionCache({ key: palette }), [palette]);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -108,6 +105,7 @@ export const TopLayout: React.FC = props => {
                 backgroundImage: `url(${BackgroundImage})`,
                 backgroundSize: '400px 400px',
                 backgroundRepeat: 'repeat',
+                opacity: 1,
               },
             }}
           />
