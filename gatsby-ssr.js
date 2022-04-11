@@ -19,7 +19,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
     React.createElement('noscript', {
       key: 'loading-noscript-style',
       dangerouslySetInnerHTML: {
-        __html: `body.${isLoading} { opacity: 1 !important }`,
+        __html: `<style>body.${isLoading} { opacity: 1 !important }</style>`,
       },
     }),
 
