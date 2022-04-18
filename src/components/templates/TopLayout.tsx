@@ -10,10 +10,14 @@ import { themeReducer, themeInitialState } from 'src/reducers';
 
 import BackgroundImage from './background.svg';
 
+type TopLayoutProps = {
+  children: React.ReactNode;
+};
+
 /**
  * TopLayout
  */
-export const TopLayout: React.FC = props => {
+export const TopLayout: React.FC<TopLayoutProps> = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,
     themeInitialState,
