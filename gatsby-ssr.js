@@ -6,8 +6,8 @@ const styles = require('@mui/material/styles');
 const isLoading = 'is-loading';
 
 exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
-  const theme = styles.useTheme();
-  const xs = theme.breakpoints.values.xs;
+  const theme = styles.createTheme();
+  const xs = theme.breakpoints.values.sm - 1;
 
   setBodyAttributes({
     className: isLoading,
