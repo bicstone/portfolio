@@ -34,5 +34,12 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
         __html: `setTimeout(function() { document.body.classList.remove("${isLoading}") }, 2000);`,
       },
     }),
+
+    React.createElement('script', {
+      key: 'google-adsense-temp',
+      async: 'async',
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6247358596627754',
+      crossorigin: 'anonymous',
+    }),
   ]);
 };
