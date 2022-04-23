@@ -9,6 +9,7 @@ export type LayoutProps = {
   isHome?: boolean;
   icon: string;
   iconAlt: string;
+  children: React.ReactNode;
 };
 
 /**

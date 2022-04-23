@@ -1,9 +1,14 @@
 const React = require('react');
 
+const styles = require('@mui/material/styles');
+
 // see gatsby-browser.js
 const isLoading = 'is-loading';
 
 exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
+  const theme = styles.createTheme();
+  const xs = theme.breakpoints.values.sm - 1;
+
   setBodyAttributes({
     className: isLoading,
   });
@@ -12,7 +17,7 @@ exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
     React.createElement('style', {
       key: 'loading-style',
       dangerouslySetInnerHTML: {
-        __html: `body.${isLoading} { opacity: 0 }`,
+        __html: `body.${isLoading} { opacity: 0 } @media (max-width: ${xs}px) { body.${isLoading}{ opacity: 1 } }`,
       },
     }),
 
