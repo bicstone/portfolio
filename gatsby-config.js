@@ -17,6 +17,7 @@ module.exports = {
       resolve: '@sentry/gatsby',
       options: {
         dsn: process.env.SENTRY_DSN,
+        tracesSampleRate: 0.5,
       },
     },
     {
