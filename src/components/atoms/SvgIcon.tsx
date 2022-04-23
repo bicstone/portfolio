@@ -28,7 +28,7 @@ export const SvgIcon = ({ width, height, icon, alt, ...props }: SvgIconProps) =>
             aria-label={alt || ''}
             width={width}
             height={height}
-            css={{ width: width, height: height }}
+            css={{ width, height }}
             {...props}
           >
             {domToReact(domNode.children as DOMNode[])}
