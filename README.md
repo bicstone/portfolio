@@ -30,10 +30,12 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 ### セキュリティ
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、脆弱性による改ざん等のリスクが軽減されます。
-- Content Security Policy などセキュリティを強化する HTTP ヘッダを設定しています。
+- DNSSEC を構成しており、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクが軽減されます。
+- セキュリティを強化する HTTP ヘッダを設定しています。
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory のベンチマークでスコア 105/100 を達成しています。
 - DeepSource, SonarCloud, LGTM を使用し、静的セキュリティレビューを受けています。
+- 二要素認証を用いたアカウント保護を行っています。 GitHub 上で承認を行わないと deploy できないようにしています。
 - Renovate を用いて依存関係を定期的にアップデートしています。
 
 ### アクセシビリティ
@@ -47,7 +49,8 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 ### DevOps
 
-- CI/CD や SaaS を使用することで、開発効率を高めつつ、継続的な自動化と監視を行っています。
+- CI/CD や SaaS を使用することで、開発効率を高めつつ、継続的な自動化と品質保持を行っています。
+- Amazon CloudWatch による監視を行っています。
 - FOSSA を用いることで、ライブラリ追加時のライセンス管理を行っています。
 - Sentry を用いてエラー管理を行っています。
 - ポートフォリオは最新のコンテンツを維持し続けることが最も重要であるため、更新作業を省力化することが最も重要だと考えました。バックエンドはヘッドレス CMS である Contentful で管理しています。
@@ -85,6 +88,12 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - FOSSA (ライセンスの管理)
 - Semantic Pull Request (コミットメッセージの整形)
 - Renovate (ライブラリ管理)
+
+### その他
+
+- Google Tag Manager
+- Google Analytics
+- Google AdSense
 
 ## タスクランナー
 
