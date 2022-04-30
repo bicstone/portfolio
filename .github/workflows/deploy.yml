@@ -9,6 +9,8 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   GTM_ID: ${{ secrets.GTM_ID }}
   SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+  GATSBY_ADSENSE_PUB_ID: ${{ secrets.GATSBY_ADSENSE_PUB_ID }}
+  GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ secrets.GATSBY_ADSENSE_INARTICLE_AD_ID }}
 
 on:
   push:
