@@ -296,6 +296,12 @@ const components: MDXProviderComponentsProp = {
       {...props}
     />
   ),
+  ad: () => (
+    <InarticleAd
+      pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
+      adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
+    />
+  ),
 };
 
 type BreadcrumbsProps = {
