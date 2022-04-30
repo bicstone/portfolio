@@ -30,6 +30,27 @@ export const Head: React.FC = () => {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
+        {/* contentful */}
+        <link rel="dns-prefetch" href="https://images.ctfassets.net" />
+        <link rel="dns-prefetch" href="https://videos.ctfassets.net" />
+
+        {/* sentry */}
+        <link rel="dns-prefetch" href="https://browser.sentry-cdn.com" />
+        <link rel="dns-prefetch" href="https://o1173829.ingest.sentry.io" />
+
+        {/* analytics */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://ssl.google-analytics.com" />
+
+        {/* adsense */}
+        <link rel="dns-prefetch" href="https://adservice.google.co.jp" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://partner.googleadservices.com" />
+        <link rel="dns-prefetch" href="https://www.google.com" />
+
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -59,6 +80,12 @@ export const Head: React.FC = () => {
         <meta name="description" content={siteMetadata.description} />
 
         <meta name="format-detection" content="telephone=no" />
+
+        <script
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
+          async
+          crossOrigin="anonymous"
+        />
 
         {
           /* CSP 検証用 Cloudfrontの設定と合わせる */
