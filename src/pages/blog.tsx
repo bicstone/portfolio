@@ -13,7 +13,7 @@ import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material';
 
-import { Layout, BlogPostIndex } from 'src/components';
+import { Layout, BlogPostIndex, InarticleAd } from 'src/components';
 import { useSiteMetadata, useBuildTime } from 'src/hooks';
 import { BlogPageQuery } from 'src/types';
 
@@ -105,7 +105,17 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         <Typography>{t('blog.caption')}</Typography>
 
         <div css={theme => ({ marginBottom: theme.spacing(2) })}>
-          <BlogPostIndex posts={data.posts.group} />
+          <BlogPostIndex
+            posts={data.posts.group}
+            adsenseInfeedMobileAdId={process.env.GATSBY_ADSENSE_INFEED_MOBILE_AD_ID ?? ''}
+            adsenseInfeedMobileAdLayoutKey={
+              process.env.GATSBY_ADSENSE_INFEED_MOBILE_AD_LAYOUT_KEY ?? ''
+            }
+            adsenseInfeedDesktopAdId={process.env.GATSBY_ADSENSE_INFEED_DESKTOP_AD_ID ?? ''}
+            adsenseInfeedDesktopAdLayoutKey={
+              process.env.GATSBY_ADSENSE_INFEED_DESKTOP_AD_LAYOUT_KEY ?? ''
+            }
+          />
         </div>
 
         <Breadcrumbs
