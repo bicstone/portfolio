@@ -432,8 +432,8 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
               <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
             </MDXProvider>
             <InarticleAd
-              pubId={process.env.GATSBY_ADSENSE_PUB_ID}
-              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+              pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
+              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
             />
           </CardContent>
         </Card>
