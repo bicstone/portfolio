@@ -33,7 +33,7 @@ import {
   Link as LinkIcon,
 } from '@mui/icons-material';
 
-import { HelloGroup, Layout } from 'src/components';
+import { HelloGroup, Layout, InarticleAd } from 'src/components';
 import { useSiteMetadata } from 'src/hooks';
 import { BlogPostQuery } from 'src/types';
 
@@ -431,6 +431,10 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
             <MDXProvider components={components}>
               <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
             </MDXProvider>
+            <InarticleAd
+              pubId={process.env.GATSBY_ADSENSE_PUB_ID}
+              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+            />
           </CardContent>
         </Card>
 
