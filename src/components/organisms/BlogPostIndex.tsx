@@ -48,7 +48,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                 {(index === 3 || (index !== 0 && index % 10 === 0)) && (
                   <aside>
                     <AvatarCardAd
-                      key="ad"
+                      key={`ad${index}`}
                       pubId={adsensePubId}
                       adId={
                         breakpoints.includes(width)
@@ -63,7 +63,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                     />
                   </aside>
                 )}
-                <article key="link" css={theme => ({ margin: theme.spacing(1, 0) })} key={node.id}>
+                <article css={theme => ({ margin: theme.spacing(1, 0) })} key={node.id}>
                   <Card>
                     <CardActionArea
                       component={RouterLink}
