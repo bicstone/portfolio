@@ -13,7 +13,7 @@ import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material';
 
-import { Layout, BlogPostIndex, InarticleAd } from 'src/components';
+import { Layout, BlogPostIndex } from 'src/components';
 import { useSiteMetadata, useBuildTime } from 'src/hooks';
 import { BlogPageQuery } from 'src/types';
 
