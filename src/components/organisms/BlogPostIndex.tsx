@@ -45,7 +45,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
             </Typography>
             {edges.map(({ node }, index) => (
               <>
-                {(index === 3 || (index !== 0 && index % 10 === 0)) && (
+                {(index === 4 || (index !== 0 && index % 10 === 0)) && (
                   <aside>
                     <AvatarCardAd
                       key={`ad${index}`}
