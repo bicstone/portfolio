@@ -28,7 +28,7 @@ export const AvatarCardAd = React.memo<AvatarCardAdProps>(({ pubId, adId, layout
   }, []);
 
   return (
-    <Card css={theme => ({ padding: theme.spacing(2) })}>
+    <Card>
       <ins
         className="adsbygoogle"
         css={{ display: 'block' }}
