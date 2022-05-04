@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { css } from '@emotion/react';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
   Breadcrumbs as MuiBreadcrumbs,
@@ -343,7 +344,11 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   }
 
   return (
-    <Layout icon={data.icon.svg.content} iconAlt={data.icon.title}>
+    <Layout
+      icon={data.icon.svg.content}
+      iconAlt={data.icon.title}
+      style={css({ overflowWrap: 'break-word' })}
+    >
       <GatsbySeo
         title={post.title}
         description={post.excerpt}
@@ -437,10 +442,12 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
             <MDXProvider components={components}>
               <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
             </MDXProvider>
-            <InarticleAd
-              pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
-            />
+            <aside>
+              <InarticleAd
+                pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
+                adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
+              />
+            </aside>
           </CardContent>
         </Card>
 
