@@ -10,7 +10,7 @@ export type LayoutProps = {
   isHome?: boolean;
   icon: string;
   iconAlt: string;
-  style: SerializedStyles;
+  style?: SerializedStyles;
   children: React.ReactNode;
 };
 
