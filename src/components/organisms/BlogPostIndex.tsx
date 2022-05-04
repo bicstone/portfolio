@@ -31,8 +31,10 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
   adsenseInfeedDesktopAdId,
   adsenseInfeedDesktopAdLayoutKey,
 }) => {
-  const breakpoints: Breakpoint[] = ['xs', 'sm'];
+  const breakpoints: Breakpoint[] = ['xs'];
   const width = useBreakPoint();
+  const mobile = breakpoints.includes(width);
+
   return (
     <>
       {posts.map(({ edges }) => {
@@ -50,15 +52,9 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                     <AvatarCardAd
                       key={`ad${index}`}
                       pubId={adsensePubId}
-                      adId={
-                        breakpoints.includes(width)
-                          ? adsenseInfeedMobileAdId
-                          : adsenseInfeedDesktopAdId
-                      }
+                      adId={mobile ? adsenseInfeedMobileAdId : adsenseInfeedDesktopAdId}
                       layoutKey={
-                        breakpoints.includes(width)
-                          ? adsenseInfeedMobileAdLayoutKey
-                          : adsenseInfeedDesktopAdLayoutKey
+                        mobile ? adsenseInfeedMobileAdLayoutKey : adsenseInfeedDesktopAdLayoutKey
                       }
                     />
                   </aside>
@@ -78,15 +74,9 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                       <CardMedia>
                         <GatsbyImage
                           css={theme => ({
-                            width: breakpoints.includes(width)
-                              ? theme.spacing(10)
-                              : theme.spacing(14),
-                            height: breakpoints.includes(width)
-                              ? theme.spacing(10)
-                              : theme.spacing(14),
-                            margin: breakpoints.includes(width)
-                              ? theme.spacing(1)
-                              : theme.spacing(2),
+                            width: mobile ? theme.spacing(10) : theme.spacing(14),
+                            height: mobile ? theme.spacing(10) : theme.spacing(14),
+                            margin: mobile ? theme.spacing(1) : theme.spacing(2),
                             objectFit: 'cover',
                           })}
                           image={node.thumbnail.gatsbyImageData}
@@ -99,23 +89,20 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                           flexDirection: 'column',
                           margin: theme.spacing(2),
                           width: '100%',
+                          minWidth: '60%', // for overflow-wrap
+                          overflowWrap: 'break-word',
                         })}
                       >
-                        <Typography
-                          component="h3"
-                          variant={breakpoints.includes(width) ? 'subtitle1' : 'h6'}
-                        >
+                        <Typography component="h3" variant={mobile ? 'subtitle1' : 'h6'}>
                           {node.title}
                         </Typography>
+                        {!mobile && (
+                          <Typography variant="body2" color="text.secondary" paragraph>
+                            {node.excerpt}
+                          </Typography>
+                        )}
                         <Typography
-                          variant={breakpoints.includes(width) ? 'body2' : 'body1'}
-                          color="text.secondary"
-                          paragraph
-                        >
-                          {node.excerpt}
-                        </Typography>
-                        <Typography
-                          variant={breakpoints.includes(width) ? 'caption' : 'body2'}
+                          variant="caption"
                           color="textSecondary"
                           component="div"
                           css={{
