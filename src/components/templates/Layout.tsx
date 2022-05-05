@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { SerializedStyles } from '@emotion/react';
 import { NoSsr } from '@mui/material';
 
 import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
@@ -10,7 +9,7 @@ export type LayoutProps = {
   isHome?: boolean;
   icon: string;
   iconAlt: string;
-  style?: SerializedStyles;
+  className?: string;
   children: React.ReactNode;
 };
 
@@ -23,7 +22,7 @@ export const Layout: React.FC<LayoutProps> = ({
   isHome = false,
   icon,
   iconAlt,
-  style,
+  className,
 }) => {
   return (
     <TopLayout>
@@ -32,7 +31,7 @@ export const Layout: React.FC<LayoutProps> = ({
         <CookieAlert show={cookieAlertShow} />
       </NoSsr>
       <Header isHome={isHome} icon={icon} iconAlt={iconAlt} />
-      <main role="main" css={theme => ({ marginTop: theme.spacing(8), ...style })}>
+      <main role="main" className={className} css={theme => ({ marginTop: theme.spacing(8) })}>
         {children}
       </main>
       <Footer />

@@ -1,5 +1,5 @@
 module.exports = {
-  title: "Oishi Takanori @bisctone's Portfolio",
+  title: '大石貴則 (Oishi Takanori) Portfolio',
   shortTitle: 'bicstone',
   siteUrl: 'https://bicstone.me',
   description:
