@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { css } from '@emotion/react';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
   Breadcrumbs as MuiBreadcrumbs,
@@ -24,7 +23,7 @@ import {
 import * as Sentry from '@sentry/gatsby';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
+import { BlogPostJsonLd, GatsbySeo, BreadcrumbJsonLd } from 'gatsby-plugin-next-seo';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import {
@@ -337,6 +336,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
 
   const post = data.post;
+  const title = `${post.title} - ${siteMetadata.title}`;
 
   if (!post) {
     navigate('/404');
@@ -347,14 +347,14 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
     <Layout
       icon={data.icon.svg.content}
       iconAlt={data.icon.title}
-      style={css({ overflowWrap: 'break-word' })}
+      css={{ overflowWrap: 'break-word' }}
     >
       <GatsbySeo
-        title={post.title}
+        title={title}
         description={post.excerpt}
         openGraph={{
           type: 'article',
-          title: post.title,
+          title,
           description: post.excerpt,
           images: [
             {
@@ -375,7 +375,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
         url={`${siteMetadata.siteUrl}${path}`}
-        title={post.title}
+        title={title}
         headline={post.excerpt}
         dateCreated={post.created}
         datePublished={post.created}
@@ -393,6 +393,26 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
             url: siteMetadata.siteUrl,
           },
         }}
+        defer
+      />
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: siteMetadata.title,
+            item: `${siteMetadata.siteUrl}/`,
+          },
+          {
+            position: 2,
+            name: t('blog.title'),
+            item: `${siteMetadata.siteUrl}/blog`,
+          },
+          {
+            position: 3,
+            name: post.title,
+            item: `${siteMetadata.siteUrl}${path}`,
+          },
+        ]}
         defer
       />
       <Container maxWidth="md">
