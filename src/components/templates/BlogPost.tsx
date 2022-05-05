@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { css } from '@emotion/react';
 import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
   Breadcrumbs as MuiBreadcrumbs,
