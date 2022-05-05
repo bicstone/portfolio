@@ -8,7 +8,7 @@ import {
   BreadcrumbsProps as MuiBreadcrumbsProps,
 } from '@mui/material';
 import { graphql, PageProps, Link as RouterLink } from 'gatsby';
-import { BlogJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
+import { BlogJsonLd, BreadcrumbJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
 
 import { NavigateNext as NavigateNextIcon } from '@mui/icons-material';
@@ -47,19 +47,20 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
 
   const icon = data.icon.svg.content;
   const iconAlt = data.icon.title;
+  const title = `${t('blog.title')} - ${siteMetadata.title}`;
   return (
     <Layout icon={icon} iconAlt={iconAlt}>
       <GatsbySeo
-        title={siteMetadata.title}
+        title={title}
         description={siteMetadata.description}
         openGraph={{
           type: 'profile',
-          title: siteMetadata.title,
+          title,
           description: siteMetadata.description,
           images: [
             {
               url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
-              alt: siteMetadata.title,
+              alt: title,
             },
           ],
         }}
@@ -68,7 +69,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         authorType="Person"
         authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
         url={`${siteMetadata.siteUrl}${path}`}
-        title={siteMetadata.title}
+        title={title}
         headline={siteMetadata.description}
         datePublished={buildTime}
         dateModified={buildTime}
@@ -89,6 +90,21 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           image: node.thumbnail.file.url,
           datePublished: node.created,
         }))}
+        defer
+      />
+      <BreadcrumbJsonLd
+        itemListElements={[
+          {
+            position: 1,
+            name: siteMetadata.title,
+            item: `${siteMetadata.siteUrl}/`,
+          },
+          {
+            position: 2,
+            name: t('blog.title'),
+            item: `${siteMetadata.siteUrl}/blog`,
+          },
+        ]}
         defer
       />
       <Container maxWidth="md">
