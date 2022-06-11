@@ -33,7 +33,7 @@
     "@mui/icons-material": "5.8.2",
     "@mui/lab": "5.0.0-alpha.84",
     "@mui/material": "5.8.2",
-    "@sentry/gatsby": "6.19.7",
+    "@sentry/gatsby": "7.1.1",
     "gatsby": "4.15.2",
     "gatsby-plugin-emotion": "7.15.0",
     "gatsby-plugin-google-tagmanager": "4.15.1",
