@@ -1,25 +1,30 @@
 {
-  "extends": ["config:base"],
-  "timezone": "Asia/Tokyo",
-  "schedule": ["before 6am on Sunday"],
   "assignees": ["bicstone"],
-  "reviewers": ["bicstone"],
+  "extends": ["config:base"],
   "packageRules": [
     {
-      "matchPackagePatterns": ["*"],
-      "groupName": "dependencies"
+      "groupName": "dependencies",
+      "matchPackagePatterns": ["*"]
     },
     {
-      "matchPackagePatterns": ["material-ui"],
-      "groupName": "ui dependencies"
+      "groupName": "ui dependencies",
+      "matchPackagePatterns": ["material-ui"]
     },
     {
-      "matchPackagePrefixes": ["@mui"],
-      "groupName": "ui dependencies"
+      "groupName": "ui dependencies",
+      "matchPackagePrefixes": ["@mui"]
     },
     {
-      "matchPackagePrefixes": ["@emotion"],
-      "groupName": "ui dependencies"
+      "groupName": "ui dependencies",
+      "matchPackagePrefixes": ["@emotion"]
+    },
+    {
+      "enabled": false,
+      "matchPackagePrefixes": ["@mdx-js"],
+      "matchUpdateTypes": ["major"]
     }
-  ]
+  ],
+  "reviewers": ["bicstone"],
+  "schedule": ["before 6am on Sunday"],
+  "timezone": "Asia/Tokyo"
 }
