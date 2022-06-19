@@ -4,8 +4,10 @@ const path = require('path');
 const languages = require('./src/configs/languages');
 const siteMetaData = require('./src/configs/site-meta-data');
 
+const trailingSlash = 'never';
+
 module.exports = {
-  trailingSlash: 'never',
+  trailingSlash,
 
   siteMetadata: {
     title: siteMetaData.title,
@@ -111,6 +113,7 @@ module.exports = {
         localeJsonSourceName: `locales`,
         languages: languages.languages,
         defaultLanguage: languages.defaultLanguage,
+        trailingSlash,
       },
     },
     {
