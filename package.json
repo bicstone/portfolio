@@ -55,7 +55,7 @@
     "gatsby-source-filesystem": "4.18.0",
     "gatsby-transformer-inline-svg": "1.2.0",
     "gatsby-transformer-sharp": "4.18.0",
-    "html-react-parser": "2.0.0",
+    "html-react-parser": "3.0.0",
     "i18next": "21.8.13",
     "js-cookie": "3.0.1",
     "mdx-embed": "1.0.0",
