@@ -20,7 +20,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
     <Card>
       {histories
         .filter(({ node }) => node.node_locale === language)
-        ?.map(({ node }) => (
+        ?.map(({ node }, index, { length }) => (
           <>
             <CardHeader
               avatar={<SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />}
@@ -42,7 +42,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
               disableTypography
             />
             {/* 1 px to be consistent with the accordion. */}
-            <Divider css={{ borderBottomWidth: 1 }} />
+            {index < length - 1 && <Divider css={{ borderBottomWidth: 1 }} />}
           </>
         ))}
     </Card>

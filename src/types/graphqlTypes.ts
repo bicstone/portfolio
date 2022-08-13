@@ -20137,9 +20137,6 @@ export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHell
           Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>
           & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
         )> }
-      ) }> }, contacts: { edges: Array<{ node: (
-        Pick<ContentfulContact, 'id' | 'node_locale' | 'name' | 'subName' | 'href'>
-        & { icon: Maybe<{ svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }> }
       ) }> }, skills: { edges: Array<{ node: (
         Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
         & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>, skillGroups: Maybe<Array<Maybe<(

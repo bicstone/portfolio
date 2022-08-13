@@ -56,7 +56,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
           }
           subheader={
             <>
-              <Typography variant="body1" paragraph>
+              <Typography variant="body1" gutterBottom>
                 {t('hello.description')}
               </Typography>
 
@@ -69,7 +69,10 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
                     color="secondary"
                     size="medium"
                     rel="external noreferrer noopener nofollow"
-                    css={theme => ({ marginRight: theme.spacing(1) })}
+                    css={theme => ({
+                      marginTop: theme.spacing(1),
+                      marginRight: theme.spacing(1),
+                    })}
                     key={node.id}
                     target="_blank"
                   >

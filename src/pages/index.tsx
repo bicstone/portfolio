@@ -8,7 +8,6 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 import {
   Layout,
   HelloGroup,
-  ContactsList,
   OSSList,
   CertificationList,
   HistoryList,
@@ -54,12 +53,6 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
       />
       <PaddingContainer maxWidth="lg" component="section">
         <HelloGroup links={data.links.edges} icon={icon} />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.contacts-title')}
-        </Typography>
-        <ContactsList contacts={data.contacts.edges} />
       </PaddingContainer>
       <PaddingContainer maxWidth="lg" component="section">
         <Typography component="h2" variant="h4" align="center" paragraph>
@@ -203,23 +196,6 @@ export const query = graphql`
           subName
           startDate(formatString: "yyyy/MM")
           href
-        }
-      }
-    }
-    # 連絡先一覧を取得する
-    contacts: allContentfulContact(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          subName
-          href
-          icon {
-            svg {
-              svg
-            }
-          }
         }
       }
     }
