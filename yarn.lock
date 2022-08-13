@@ -3211,11 +3211,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:2.11.5":
-  version: 2.11.5
-  resolution: "@graphql-codegen/cli@npm:2.11.5"
+"@graphql-codegen/cli@npm:2.11.6":
+  version: 2.11.6
+  resolution: "@graphql-codegen/cli@npm:2.11.6"
   dependencies:
-    "@graphql-codegen/core": 2.6.1
+    "@graphql-codegen/core": 2.6.2
     "@graphql-codegen/plugin-helpers": ^2.6.2
     "@graphql-tools/apollo-engine-loader": ^7.3.6
     "@graphql-tools/code-file-loader": ^7.3.1
@@ -3253,21 +3253,21 @@ __metadata:
     graphql-code-generator: cjs/bin.js
     graphql-codegen: cjs/bin.js
     graphql-codegen-esm: esm/bin.js
-  checksum: 1fd26390e92caed52249f78f87132fa86c3723c36d47f08657d19ea754eeebd85196e8549cf301f15aefbe4cd532698329803f5c1071e4f8306092b871123b92
+  checksum: 2da1a75388d99eb0e51c2eb90c910dd2bedf4f1967acf7eebb5f59e2a49d9fee3b03846a71efe2a49a1e59631c1f0091c85a700a9c270b0f4d795d34752cdc77
   languageName: node
   linkType: hard
 
-"@graphql-codegen/core@npm:2.6.1":
-  version: 2.6.1
-  resolution: "@graphql-codegen/core@npm:2.6.1"
+"@graphql-codegen/core@npm:2.6.2":
+  version: 2.6.2
+  resolution: "@graphql-codegen/core@npm:2.6.2"
   dependencies:
     "@graphql-codegen/plugin-helpers": ^2.6.2
-    "@graphql-tools/schema": ^8.5.0
+    "@graphql-tools/schema": ^9.0.0
     "@graphql-tools/utils": ^8.8.0
     tslib: ~2.4.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: ae9acd9b121b1a602c427325f1dfdd1c278cc094cf35bddaec5df546217315767125c04e5ae9d2683777993f3c3ac70a775bb6f0b233856c08f054000e16e30a
+  checksum: 3d078e9caa11baf7ceaa4d67b29a6be32f50a183c1fa6f228a3ade62902b9b91cdea2c94d99adbadf10ec38a7f2df9f16cd366dc7b4febf95336e3b4a7eb9160
   languageName: node
   linkType: hard
 
@@ -3931,6 +3931,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@graphql-tools/merge@npm:8.3.3":
+  version: 8.3.3
+  resolution: "@graphql-tools/merge@npm:8.3.3"
+  dependencies:
+    "@graphql-tools/utils": 8.10.0
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: fe8979cd5d82b56eca66e383700519bd674babb0ccd189cd30625418917893b62448686dc771cd4f0b0be000dfdf2f2e6bbfac7a54653241db15862bd2c2f6fc
+  languageName: node
+  linkType: hard
+
 "@graphql-tools/merge@npm:^6.2.12":
   version: 6.2.17
   resolution: "@graphql-tools/merge@npm:6.2.17"
@@ -4047,7 +4059,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-tools/schema@npm:8.5.0, @graphql-tools/schema@npm:^8.5.0":
+"@graphql-tools/schema@npm:8.5.0":
   version: 8.5.0
   resolution: "@graphql-tools/schema@npm:8.5.0"
   dependencies:
@@ -4099,6 +4111,20 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 479a910fb055b152c07bfa98b88971910914de374a4255b5f668a99acff468af90e9c0f3af3587a26911ffd12823f8828e9eb8ffc93eade5f8c0e77acba0d68a
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/schema@npm:^9.0.0":
+  version: 9.0.1
+  resolution: "@graphql-tools/schema@npm:9.0.1"
+  dependencies:
+    "@graphql-tools/merge": 8.3.3
+    "@graphql-tools/utils": 8.10.0
+    tslib: ^2.4.0
+    value-or-promise: 1.0.11
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 84f2d2bb0469e1905738edc6211f0a05a7e0a07ff9bdbb1dccfa0793fe44375eaa62a1c2fc9ad5fb8fa4010b3a5762cc9d5af8c042b51f57b2421a8f65e6cad3
   languageName: node
   linkType: hard
 
@@ -4189,6 +4215,17 @@ __metadata:
   peerDependencies:
     graphql: ^14.0.0 || ^15.0.0
   checksum: c26a7fb4ceb1e845f6f8a4dfbf8f5c014f71a346ccff2568ae49eaf4234d1a3eb754ccf528385754b47dcf63c204b7ad815b96d32c5ba3745a916a2667ad0b13
+  languageName: node
+  linkType: hard
+
+"@graphql-tools/utils@npm:8.10.0":
+  version: 8.10.0
+  resolution: "@graphql-tools/utils@npm:8.10.0"
+  dependencies:
+    tslib: ^2.4.0
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+  checksum: 1070959ab24c23510d70e8a557d1d2a90d2c041f2f7b1458e18158cede172b1964d50a803e3d206add73cb843998aaa434713f7c89e2e174974815385a3cad70
   languageName: node
   linkType: hard
 
@@ -5824,15 +5861,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/browser@npm:7.9.0"
+"@sentry/browser@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/browser@npm:7.10.0"
   dependencies:
-    "@sentry/core": 7.9.0
-    "@sentry/types": 7.9.0
-    "@sentry/utils": 7.9.0
+    "@sentry/core": 7.10.0
+    "@sentry/types": 7.10.0
+    "@sentry/utils": 7.10.0
     tslib: ^1.9.3
-  checksum: bf80fc12eef6e7c599958040913e3329d006e1c3b2449499567bf668e297de7561416a94ad8c6f969b2e8848f1ba9cd629d9d5b480f36891e27e451e8553d178
+  checksum: 90208a9ba36c409aaf28e2325fdfb54ebc25bd326bfd6ea4f7b92481181382b921bf3dfacd2d9dbbef9ac4a29465493dc6360fa1a80b1af2da82cc5271e1e5b0
   languageName: node
   linkType: hard
 
@@ -5853,86 +5890,86 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/core@npm:7.9.0"
+"@sentry/core@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/core@npm:7.10.0"
   dependencies:
-    "@sentry/hub": 7.9.0
-    "@sentry/types": 7.9.0
-    "@sentry/utils": 7.9.0
+    "@sentry/hub": 7.10.0
+    "@sentry/types": 7.10.0
+    "@sentry/utils": 7.10.0
     tslib: ^1.9.3
-  checksum: 427d66d53e2af6797c1fbb0f186db596802d8e498bae32a56be89caa2f0a91cd73aa5689943ddd4cd1c9e4afc0259cdecf496733fa220ee3c0c3bfe21e676d08
+  checksum: e99627e7c863619f8698cced5d4aa518ca456ad10084f53325bdaa3645e355e5e1cb029438ddab480801b578d3b1f0a44b0fb9dba9240fd7eced6d7bc7e407ca
   languageName: node
   linkType: hard
 
-"@sentry/gatsby@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/gatsby@npm:7.9.0"
+"@sentry/gatsby@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/gatsby@npm:7.10.0"
   dependencies:
-    "@sentry/react": 7.9.0
-    "@sentry/tracing": 7.9.0
-    "@sentry/types": 7.9.0
-    "@sentry/utils": 7.9.0
+    "@sentry/react": 7.10.0
+    "@sentry/tracing": 7.10.0
+    "@sentry/types": 7.10.0
+    "@sentry/utils": 7.10.0
     "@sentry/webpack-plugin": 1.19.0
   peerDependencies:
     gatsby: ^2.0.0 || ^3.0.0 || ^4.0.0
     react: 15.x || 16.x || 17.x || 18.x
-  checksum: 2f74847cc52cb30c0ba3310a104c23b3008b5954f95169863b9988bcd1898b7249259b9852d3c89819c1e33346fc75af841934ca76952e063a5b0390c109e222
+  checksum: 4043b21cf1c3bbd7ee5edaf17fd749989da0ea2693d5184140be07804ce5a406261d73ed617cd64a8c65a8b77c2b6f23d9d89ccd0bf825b8f920648cb723ddff
   languageName: node
   linkType: hard
 
-"@sentry/hub@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/hub@npm:7.9.0"
+"@sentry/hub@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/hub@npm:7.10.0"
   dependencies:
-    "@sentry/types": 7.9.0
-    "@sentry/utils": 7.9.0
+    "@sentry/types": 7.10.0
+    "@sentry/utils": 7.10.0
     tslib: ^1.9.3
-  checksum: 594558fc360a5765389891f807119d2906da1c60b101862b9b13afdc0954b948495fb885471f6bfbf3c7e9bceeedb0111b84833ac1c7c974be7bf5e8b2dcfb8b
+  checksum: b5710a358d48b9f25fb7b31fe83bfd43e813162a0035e472b3e78d448a6f0beed49aa945770f4e474d29e36d560d6d9696be4067de359480bd1df247d0dadf16
   languageName: node
   linkType: hard
 
-"@sentry/react@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/react@npm:7.9.0"
+"@sentry/react@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/react@npm:7.10.0"
   dependencies:
-    "@sentry/browser": 7.9.0
-    "@sentry/types": 7.9.0
-    "@sentry/utils": 7.9.0
+    "@sentry/browser": 7.10.0
+    "@sentry/types": 7.10.0
+    "@sentry/utils": 7.10.0
     hoist-non-react-statics: ^3.3.2
     tslib: ^1.9.3
   peerDependencies:
     react: 15.x || 16.x || 17.x || 18.x
-  checksum: d4fffafc65dcd906693d34c38cd230bddc7a87bd5138f92fdf8a6c334906c6f1e7fa522419304d6a329897e0a3b5f377eb99013a5c36c17524665f28b28eb2b7
+  checksum: 3fac4510151730d8348ee90a33d6199b6243fcd411e409133c7e97cafa4eae4a19691434472eeede49ea8de74cfcf73d66df5e0af68f3085d920ec57e93d5ddc
   languageName: node
   linkType: hard
 
-"@sentry/tracing@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/tracing@npm:7.9.0"
+"@sentry/tracing@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/tracing@npm:7.10.0"
   dependencies:
-    "@sentry/hub": 7.9.0
-    "@sentry/types": 7.9.0
-    "@sentry/utils": 7.9.0
+    "@sentry/hub": 7.10.0
+    "@sentry/types": 7.10.0
+    "@sentry/utils": 7.10.0
     tslib: ^1.9.3
-  checksum: e8e8cfecbb4647aeea849225c7c898bde1c9029b0bdf75984109a19668fcd99a62abe93d4115b5dccd484f0f7e0b378a0715f830bcf5a2788e23e69c8199145d
+  checksum: e8bd8663746e3c6f694d003b743c86d304fd765d164e4d14f09d3a63359ccccf4beb99efc1437c0f60874ddc3cb7be2727c0d59ab23dddf4f895a48f45c65f6a
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/types@npm:7.9.0"
-  checksum: 5f56d27454cab0344554bd85e9db8c34827dffa61145150664dc1ff478aaf599bffceb3a6bb20f592f0d8080b1f26b7af03c306a09c6463b8de4bdfdd10eecba
+"@sentry/types@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/types@npm:7.10.0"
+  checksum: f5b02c60b8c485a32221baa97d5bbf6a4ca3473464b71b7a7b58f81946d4135dd8e038791e999802c50b4f1da3ed303ddc62c4c889080e9835f6abc1415873b2
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:7.9.0":
-  version: 7.9.0
-  resolution: "@sentry/utils@npm:7.9.0"
+"@sentry/utils@npm:7.10.0":
+  version: 7.10.0
+  resolution: "@sentry/utils@npm:7.10.0"
   dependencies:
-    "@sentry/types": 7.9.0
+    "@sentry/types": 7.10.0
     tslib: ^1.9.3
-  checksum: 414a81ae8005d12ba22578606dff57b906598fc8b761cb3b4143a87fe20226bc90f9018a8930df11625a69cf5706d6f834191ef01d3ee8362ca6078e59108d9c
+  checksum: 9006835d150c2a47ba5240c257192ea42d5961f99e8f0952edf8870f431ff6430de6e86b7588aa9c495ca29c5e3a083548099cfff8602c9df5c32524f2662087
   languageName: node
   linkType: hard
 
@@ -6366,10 +6403,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:16.11.47":
-  version: 16.11.47
-  resolution: "@types/node@npm:16.11.47"
-  checksum: 26811000753fd1bb9a90a563fc72942ac3ad5d5b6c97609a090c1e24210e040597ba060e55a7a46cb22cc84dafee112d741f45652139c6166e8ce0c970b4f05a
+"@types/node@npm:16.11.48":
+  version: 16.11.48
+  resolution: "@types/node@npm:16.11.48"
+  checksum: 10cd539cb2cf5a8f51f3c2bd761c093b752e534b1f2dc0d7193debd7986145b68db2a5fd48498af641e8641fb8d24b7c4851ea3e30fb8f56cc13ac719cad1e1f
   languageName: node
   linkType: hard
 
@@ -8025,16 +8062,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"barrelsby@npm:2.3.4":
-  version: 2.3.4
-  resolution: "barrelsby@npm:2.3.4"
+"barrelsby@npm:2.4.0":
+  version: 2.4.0
+  resolution: "barrelsby@npm:2.4.0"
   dependencies:
     "@types/yargs": ^17.0.10
     signale: ^1.4.0
     yargs: ^17.4.1
   bin:
     barrelsby: bin/cli.js
-  checksum: b10e6d9460f440ef5ff23cc606b5caf1bceb0db7d42e2259a780ed4722883d755fb0012599516f08c1bb0aec1f2c66e7b9396251cb71d7d2128154757ef3cf2f
+  checksum: 265713a767d110bb0d2bcdb85d556f1b8e6e40138bca608de36432937c83d1d105784895eaa9687644bc9ca68fcd45eff0072284f22def3d4d6a5edf8031a2e4
   languageName: node
   linkType: hard
 
@@ -8094,7 +8131,7 @@ __metadata:
     "@babel/plugin-transform-typescript": 7.18.12
     "@emotion/react": 11.10.0
     "@emotion/styled": 11.10.0
-    "@graphql-codegen/cli": 2.11.5
+    "@graphql-codegen/cli": 2.11.6
     "@graphql-codegen/introspection": 2.2.1
     "@graphql-codegen/typescript": 2.7.3
     "@graphql-codegen/typescript-operations": 2.5.3
@@ -8102,17 +8139,17 @@ __metadata:
     "@mdx-js/react": 1.6.22
     "@mui/icons-material": 5.8.4
     "@mui/material": 5.10.0
-    "@sentry/gatsby": 7.9.0
+    "@sentry/gatsby": 7.10.0
     "@types/js-cookie": 3.0.2
     "@types/mdx-js__react": 1.5.5
-    "@types/node": 16.11.47
+    "@types/node": 16.11.48
     "@types/react": 18.0.17
     "@types/react-dom": 18.0.6
     "@typescript-eslint/eslint-plugin": 5.33.0
     "@typescript-eslint/parser": 5.33.0
     babel-plugin-i18next-extract: 0.8.3
     babel-preset-gatsby: 2.20.0
-    barrelsby: 2.3.4
+    barrelsby: 2.4.0
     dotenv: 16.0.1
     eslint: 8.21.0
     eslint-config-prettier: 8.5.0
