@@ -236,6 +236,15 @@ export const query = graphql`
             level
             name
           }
+          skillGroups {
+            id
+            name
+            skills {
+              id
+              level
+              name
+            }
+          }
         }
       }
     }

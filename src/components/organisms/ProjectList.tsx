@@ -64,67 +64,66 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
       {projects
         .filter(({ node }) => node.node_locale === language)
         ?.map(({ node }) => (
-          <section key={node.id}>
-            <Accordion
-              expanded={expanded === node.id || expanded === true}
-              onChange={() => handleChange(node.id)}
+          <Accordion
+            expanded={expanded === node.id || expanded === true}
+            onChange={() => handleChange(node.id)}
+            key={node.id}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`${node.id}-content`}
+              id={`${node.id}-header`}
             >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls={`${node.id}-content`}
-                id={`${node.id}-header`}
-              >
-                <CardHeader
-                  css={{ padding: 0 }}
-                  avatar={
-                    <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
-                  }
-                  title={
-                    <>
-                      <Typography variant="body2" component="div" color="textSecondary">
-                        {node?.startDate}年
-                      </Typography>
-                      <Typography component="h2" variant="h6">
-                        {node.name}
-                      </Typography>
-                    </>
-                  }
-                  subheader={
-                    <Typography variant="body2" component="div" role="list" aria-label="tags">
-                      {node.tags &&
-                        node.tags.map(
-                          tag =>
-                            tag?.name && (
-                              <Chip
-                                variant="outlined"
-                                size="small"
-                                key={tag.name}
-                                label={tag.name}
-                                role="listitem"
-                              />
-                            ),
-                        )}
+              <CardHeader
+                css={{ padding: 0 }}
+                avatar={
+                  <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
+                }
+                title={
+                  <>
+                    <Typography variant="body2" component="div" color="textSecondary">
+                      {node?.startDate}年
                     </Typography>
-                  }
-                  disableTypography
-                />
-              </AccordionSummary>
-              <AccordionDetails>
-                <>
-                  <Typography variant="subtitle1" paragraph>
-                    {node.subName}
+                    <Typography component="h2" variant="h6">
+                      {node.name}
+                    </Typography>
+                  </>
+                }
+                subheader={
+                  <Typography variant="body2" component="div" role="list" aria-label="tags">
+                    {node.tags &&
+                      node.tags.map(
+                        tag =>
+                          tag?.name && (
+                            <Chip
+                              variant="outlined"
+                              size="small"
+                              key={tag.name}
+                              label={tag.name}
+                              role="listitem"
+                            />
+                          ),
+                      )}
                   </Typography>
-                  <Typography variant="body2">
-                    <MDXProvider components={components}>
-                      <MDXRenderer components={components}>
-                        {node.detail?.childMdx?.body ?? ''}
-                      </MDXRenderer>
-                    </MDXProvider>
-                  </Typography>
-                </>
-              </AccordionDetails>
-            </Accordion>
-          </section>
+                }
+                disableTypography
+              />
+            </AccordionSummary>
+            <AccordionDetails>
+              <>
+                <Typography variant="subtitle1" paragraph>
+                  {node.subName}
+                </Typography>
+                <Typography variant="body2">
+                  <MDXProvider components={components}>
+                    <MDXRenderer components={components}>
+                      {node.detail?.childMdx?.body ?? ''}
+                    </MDXRenderer>
+                  </MDXProvider>
+                </Typography>
+              </>
+            </AccordionDetails>
+          </Accordion>
         ))}
     </>
   );

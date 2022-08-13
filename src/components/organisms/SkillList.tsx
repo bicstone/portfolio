@@ -3,11 +3,11 @@ import React from 'react';
 import {
   Typography,
   Grid,
-  LinearProgress,
   Card,
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Chip,
 } from '@mui/material';
 import { Breakpoint } from '@mui/material/styles';
 import { useI18next } from 'gatsby-plugin-react-i18next';
@@ -50,29 +50,30 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <div css={theme => ({ width: '100%', padding: theme.spacing(2) })}>
-                      {node?.skills?.map(skill => (
-                        <Grid
-                          container
-                          spacing={2}
-                          justifyContent="center"
-                          alignItems="center"
-                          key={skill?.id}
-                        >
-                          <Grid item xs={4}>
-                            <Typography component="span" variant="body2">
-                              {skill?.name}
-                            </Typography>
-                          </Grid>
-                          <Grid item xs={8}>
-                            <LinearProgress
-                              color="primary"
-                              variant="determinate"
-                              title={`${skill?.level ? skill.level * 20 : 0}%`}
-                              value={skill?.level ? skill.level * 20 : 0}
-                            />
-                          </Grid>
-                        </Grid>
+                    <div css={theme => ({ padding: theme.spacing(2) })}>
+                      {node?.skillGroups?.map(skill => (
+                        <div key={skill.id}>
+                          <Typography component="h3" variant="subtitle2" gutterBottom>
+                            {skill.name}
+                          </Typography>
+                          <ul
+                            css={theme => ({
+                              display: 'flex',
+                              justifyContent: 'flex-start',
+                              flexWrap: 'wrap',
+                              listStyle: 'none',
+                              margin: 0,
+                              marginBottom: theme.spacing(2),
+                              padding: 0,
+                            })}
+                          >
+                            {skill.skills.map(skill => (
+                              <li key={skill.id}>
+                                <Chip variant="outlined" size="small" label={skill.name} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       ))}
                     </div>
                   </AccordionDetails>
