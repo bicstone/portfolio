@@ -1,16 +1,9 @@
 import React from 'react';
 
-import {
-  Timeline,
-  TimelineItem,
-  TimelineSeparator,
-  TimelineConnector,
-  TimelineContent,
-} from '@mui/lab';
-import { Typography } from '@mui/material';
+import { Card, CardHeader, Divider, Typography } from '@mui/material';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import { AvatarCard, SvgAvatar } from 'src/components';
+import { SvgAvatar } from 'src/components';
 import { IndexPageQuery } from 'src/types';
 
 export type HistoryListProps = {
@@ -22,45 +15,36 @@ export type HistoryListProps = {
  */
 export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
   const { t, language } = useI18next();
-  const yearToAge = (year: number): number => React.useMemo(() => year - 1996, [year]);
 
   return (
-    <Timeline css={{ padding: 0 }}>
+    <Card>
       {histories
         .filter(({ node }) => node.node_locale === language)
         ?.map(({ node }, index, { length }) => (
-          <TimelineItem key={node.id} css={{ '&:before': { display: 'none' } }}>
-            <TimelineSeparator
-              css={theme => ({
-                flex: `0 0 ${theme.spacing(8)}`,
-                marginTop: 1,
-                wordBreak: 'keep-all',
-                whiteSpace: 'nowrap',
-              })}
-            >
-              <Typography variant="body2" color="textSecondary">
-                {t('histories.date', { date: node.date })}
-              </Typography>
-              <Typography variant="body2" color="textSecondary">
-                {t('histories.age', { age: `${yearToAge(Number(node.date))}` })}
-              </Typography>
-              {index < length - 2 && <TimelineConnector />}
-            </TimelineSeparator>
-            <TimelineContent>
-              <AvatarCard
-                avatar={
-                  <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
-                }
-                title={
+          <React.Fragment key={index}>
+            <CardHeader
+              avatar={<SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />}
+              title={
+                <>
+                  <Typography variant="body2" component="div" color="textSecondary">
+                    {t('histories.date', { date: node.date })}
+                  </Typography>
                   <Typography component="h2" variant="h6">
                     {node.name}
                   </Typography>
-                }
-                disableTypography
-              />
-            </TimelineContent>
-          </TimelineItem>
+                </>
+              }
+              subheader={
+                <Typography variant="body2" component="div">
+                  {node.subName}
+                </Typography>
+              }
+              disableTypography
+            />
+            {/* 1 px to be consistent with the accordion. */}
+            {index < length - 1 && <Divider css={{ borderBottomWidth: 1 }} />}
+          </React.Fragment>
         ))}
-    </Timeline>
+    </Card>
   );
 };

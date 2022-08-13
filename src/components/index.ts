@@ -12,7 +12,6 @@ export * from './molecules/CookieAlertContent';
 export * from './molecules/MediaCard';
 export * from './organisms/BlogPostIndex';
 export * from './organisms/CertificationList';
-export * from './organisms/ContactList';
 export * from './organisms/HelloGroup';
 export * from './organisms/HistoryList';
 export * from './organisms/OSSList';

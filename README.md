@@ -31,7 +31,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、脆弱性による改ざん等のリスクが軽減されます。
 - DNSSEC を構成しており、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクが軽減されます。
-- セキュリティを強化する HTTP ヘッダを設定しています。
+- セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory のベンチマークでスコア 105/100 を達成しています。
 - DeepSource, SonarCloud, LGTM を使用し、静的セキュリティレビューを受けています。
