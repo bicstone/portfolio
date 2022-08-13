@@ -21,7 +21,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
       {histories
         .filter(({ node }) => node.node_locale === language)
         ?.map(({ node }, index, { length }) => (
-          <>
+          <React.Fragment key={index}>
             <CardHeader
               avatar={<SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />}
               title={
@@ -43,7 +43,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
             />
             {/* 1 px to be consistent with the accordion. */}
             {index < length - 1 && <Divider css={{ borderBottomWidth: 1 }} />}
-          </>
+          </React.Fragment>
         ))}
     </Card>
   );

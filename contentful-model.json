@@ -12,7 +12,7 @@
         "id": "skillMap",
         "type": "ContentType",
         "createdAt": "2020-09-04T16:31:26.628Z",
-        "updatedAt": "2020-12-05T14:28:11.273Z",
+        "updatedAt": "2022-08-13T05:32:23.049Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 19,
-        "publishedAt": "2020-12-05T14:28:11.273Z",
+        "publishedVersion": 29,
+        "publishedAt": "2022-08-13T05:32:23.049Z",
         "firstPublishedAt": "2020-09-04T16:31:27.710Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 10,
-        "version": 20,
+        "publishedCounter": 15,
+        "version": 30,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -93,6 +93,25 @@
             "validations": [
               {
                 "linkContentType": ["tag"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "skillGroups",
+          "name": "skillGroups",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["skillGrpup"]
               }
             ],
             "linkType": "Entry"
@@ -695,7 +714,7 @@
         "id": "history",
         "type": "ContentType",
         "createdAt": "2020-11-15T10:21:01.748Z",
-        "updatedAt": "2020-12-05T14:47:53.127Z",
+        "updatedAt": "2022-08-13T12:27:24.689Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -703,8 +722,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 25,
-        "publishedAt": "2020-12-05T14:47:53.127Z",
+        "publishedVersion": 27,
+        "publishedAt": "2022-08-13T12:27:24.689Z",
         "firstPublishedAt": "2020-11-15T10:21:02.319Z",
         "createdBy": {
           "sys": {
@@ -720,8 +739,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 13,
-        "version": 26,
+        "publishedCounter": 14,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -754,6 +773,16 @@
           "type": "Date",
           "localized": false,
           "required": true,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "endDate",
+          "name": "endDate",
+          "type": "Date",
+          "localized": false,
+          "required": false,
           "validations": [],
           "disabled": false,
           "omitted": false
@@ -1304,7 +1333,7 @@
         "id": "blogPost",
         "type": "ContentType",
         "createdAt": "2021-12-31T07:20:23.437Z",
-        "updatedAt": "2022-03-21T13:58:06.415Z",
+        "updatedAt": "2022-04-10T02:47:49.092Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1312,8 +1341,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 37,
-        "publishedAt": "2022-03-21T13:58:06.415Z",
+        "publishedVersion": 41,
+        "publishedAt": "2022-04-10T02:47:49.092Z",
         "firstPublishedAt": "2021-12-31T07:20:23.909Z",
         "createdBy": {
           "sys": {
@@ -1329,8 +1358,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 19,
-        "version": 38,
+        "publishedCounter": 21,
+        "version": 42,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1423,7 +1452,7 @@
           "required": true,
           "validations": [
             {
-              "linkContentType": ["tag"]
+              "linkContentType": ["category"]
             }
           ],
           "disabled": false,
@@ -1465,6 +1494,180 @@
           "linkType": "Asset"
         }
       ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "knmizdo86ntg"
+          }
+        },
+        "id": "category",
+        "type": "ContentType",
+        "createdAt": "2022-04-10T00:44:33.918Z",
+        "updatedAt": "2022-04-10T03:01:03.969Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2022-04-10T03:01:03.969Z",
+        "firstPublishedAt": "2022-04-10T00:44:34.300Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2QdmDOaQBj8QsabbJPF3Es"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2QdmDOaQBj8QsabbJPF3Es"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2QdmDOaQBj8QsabbJPF3Es"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Category",
+      "description": "",
+      "fields": [
+        {
+          "id": "sortKey",
+          "name": "sortKey",
+          "type": "Integer",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "range": {
+                "min": 100,
+                "max": 999
+              },
+              "message": "3桁"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "name",
+          "name": "name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "knmizdo86ntg"
+          }
+        },
+        "id": "skillGrpup",
+        "type": "ContentType",
+        "createdAt": "2022-08-13T05:30:31.121Z",
+        "updatedAt": "2022-08-13T05:30:41.326Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2022-08-13T05:30:41.326Z",
+        "firstPublishedAt": "2022-08-13T05:30:31.476Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2QdmDOaQBj8QsabbJPF3Es"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2QdmDOaQBj8QsabbJPF3Es"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "2QdmDOaQBj8QsabbJPF3Es"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Skill Grpup",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "name",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "skills",
+          "name": "skills",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": ["tag"]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
     }
   ],
   "tags": [],
@@ -1480,7 +1683,7 @@
             "linkType": "Space"
           }
         },
-        "version": 30,
+        "version": 40,
         "createdAt": "2020-09-04T16:31:27.822Z",
         "createdBy": {
           "sys": {
@@ -1489,7 +1692,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-02-20T05:37:42.403Z",
+        "updatedAt": "2022-08-13T05:32:23.854Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -1557,6 +1760,16 @@
         },
         {
           "fieldId": "skills",
+          "settings": {
+            "bulkEditing": true,
+            "showLinkEntityAction": true,
+            "showCreateEntityAction": true
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "skillGroups",
           "settings": {
             "bulkEditing": true,
             "showLinkEntityAction": true,
@@ -2131,7 +2344,7 @@
             "linkType": "Space"
           }
         },
-        "version": 37,
+        "version": 39,
         "createdAt": "2020-11-15T10:21:02.450Z",
         "createdBy": {
           "sys": {
@@ -2140,7 +2353,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-02-20T05:37:44.255Z",
+        "updatedAt": "2022-08-13T12:27:25.334Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -2203,6 +2416,15 @@
         },
         {
           "fieldId": "date",
+          "settings": {
+            "ampm": "24",
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "endDate",
           "settings": {
             "ampm": "24",
             "format": "dateonly"
@@ -2597,7 +2819,7 @@
             "linkType": "Space"
           }
         },
-        "version": 38,
+        "version": 42,
         "createdAt": "2021-12-31T07:20:24.015Z",
         "createdBy": {
           "sys": {
@@ -2606,7 +2828,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-03-21T13:58:07.095Z",
+        "updatedAt": "2022-04-10T02:47:49.724Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -2682,6 +2904,123 @@
         {
           "fieldId": "thumbnail",
           "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "knmizdo86ntg",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2022-04-10T00:44:34.410Z",
+        "createdBy": {
+          "sys": {
+            "id": "2QdmDOaQBj8QsabbJPF3Es",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2022-04-10T03:01:04.603Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2QdmDOaQBj8QsabbJPF3Es",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "category",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "sortKey",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "knmizdo86ntg",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2022-08-13T05:30:31.538Z",
+        "createdBy": {
+          "sys": {
+            "id": "2QdmDOaQBj8QsabbJPF3Es",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2022-08-13T05:30:41.875Z",
+        "updatedBy": {
+          "sys": {
+            "id": "2QdmDOaQBj8QsabbJPF3Es",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "skillGrpup",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "skills",
+          "settings": {
+            "bulkEditing": true,
+            "showLinkEntityAction": true,
+            "showCreateEntityAction": true
+          },
+          "widgetId": "entryLinksEditor",
           "widgetNamespace": "builtin"
         }
       ]

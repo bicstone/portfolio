@@ -46,7 +46,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
 
   return (
     <>
-      <Typography align="right" paragraph>
+      <Typography component="div" align="right" paragraph>
         <Button
           css={{ backgroundColor: theme.palette.background.default }}
           variant="outlined"
@@ -114,7 +114,7 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
                 <Typography variant="subtitle1" paragraph>
                   {node.subName}
                 </Typography>
-                <Typography variant="body2">
+                <Typography component="div" variant="body2">
                   <MDXProvider components={components}>
                     <MDXRenderer components={components}>
                       {node.detail?.childMdx?.body ?? ''}

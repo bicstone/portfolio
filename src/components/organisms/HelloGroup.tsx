@@ -67,7 +67,7 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
                     href={node.href || ''}
                     variant="outlined"
                     color="secondary"
-                    size="medium"
+                    size="small"
                     rel="external noreferrer noopener nofollow"
                     css={theme => ({
                       marginTop: theme.spacing(1),
