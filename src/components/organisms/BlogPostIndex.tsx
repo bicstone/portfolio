@@ -46,7 +46,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
               {categoryName}
             </Typography>
             {edges.map(({ node }, index) => (
-              <>
+              <React.Fragment key={categoryName + index}>
                 {(index === 4 || (index !== 0 && index % 10 === 0)) && (
                   <aside>
                     <AvatarCardAd
@@ -139,7 +139,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                     </CardActionArea>
                   </Card>
                 </article>
-              </>
+              </React.Fragment>
             ))}
           </section>
         );
