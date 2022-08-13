@@ -53,7 +53,7 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                     <div css={theme => ({ padding: theme.spacing(2) })}>
                       {node?.skillGroups?.map(skill => (
                         <div key={skill.id}>
-                          <Typography component="h3" variant="subtitle2" gutterBottom>
+                          <Typography component="h3" variant="subtitle1" gutterBottom>
                             {skill.name}
                           </Typography>
                           <ul
