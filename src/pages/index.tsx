@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Container, Typography, styled } from '@mui/material';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import { Container, Typography, styled, Tooltip, IconButton } from '@mui/material';
 import { graphql, PageProps } from 'gatsby';
 import { GatsbySeo, LogoJsonLd } from 'gatsby-plugin-next-seo';
 import { useI18next } from 'gatsby-plugin-react-i18next';
@@ -21,7 +22,62 @@ import { IndexPageQuery } from 'src/types';
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
   marginBottom: theme.spacing(5),
-})).withComponent('section');
+}));
+
+type SectionProps = {
+  title: string;
+  help?: string;
+  children: React.ReactNode;
+};
+
+const Section: React.FC<SectionProps> = ({ title, help, children }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const openTooltip = () => {
+    setIsOpen(true);
+  };
+
+  const closeTooltip = () => {
+    setIsOpen(false);
+  };
+
+  const toggleTooltip = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <section>
+      <PaddingContainer maxWidth="lg">
+        <div
+          css={theme => ({
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            marginBottom: theme.spacing(2),
+            gap: theme.spacing(0.5),
+          })}
+        >
+          <Typography component="h2" variant="h4">
+            {title}
+          </Typography>
+          {help && (
+            <Tooltip title={help} open={isOpen} onOpen={openTooltip} onClose={closeTooltip}>
+              <IconButton
+                size="small"
+                color="primary"
+                css={{ cursor: 'help' }}
+                onClick={toggleTooltip}
+              >
+                <HelpOutlineIcon />
+              </IconButton>
+            </Tooltip>
+          )}
+        </div>
+        {children}
+      </PaddingContainer>
+    </section>
+  );
+};
 
 const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
@@ -54,42 +110,24 @@ const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
       <PaddingContainer maxWidth="lg">
         <HelloGroup links={data.links.edges} icon={icon} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.what-i-can-dos-title')}
-        </Typography>
+      <Section title={t('home.what-i-can-dos-title')}>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.projects-title')}
-        </Typography>
+      </Section>
+      <Section title={t('home.projects-title')}>
         <ProjectList projects={data.projects.edges} />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <Typography component="h2" variant="h4" align="center">
-          {t('home.histories-title')}
-        </Typography>
+      </Section>
+      <Section title={t('home.histories-title')}>
         <HistoryList histories={data.histories.edges} />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.osses-title')}
-        </Typography>
+      </Section>
+      <Section title={t('home.osses-title')} help={t('home.osses-help')}>
         <OSSList osses={data.osses.edges} />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.skills-title')}
-        </Typography>
+      </Section>
+      <Section title={t('home.skills-title')} help={t('home.skills-help')}>
         <SkillList skills={data.skills.edges} />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <Typography component="h2" variant="h4" align="center" paragraph>
-          {t('home.qualifications-title')}
-        </Typography>
+      </Section>
+      <Section title={t('home.qualifications-title')} help={t('home.qualifications-help')}>
         <CertificationList certification={data.certification.edges} />
-      </PaddingContainer>
+      </Section>
     </Layout>
   );
 };
