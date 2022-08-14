@@ -37,3 +37,5 @@ export const CookieAlertContent = React.forwardRef<HTMLDivElement, CookieAlertCo
     );
   },
 );
+
+CookieAlertContent.displayName = 'CookieAlertContent';

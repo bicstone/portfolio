@@ -21,9 +21,9 @@ import { IndexPageQuery } from 'src/types';
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
   marginBottom: theme.spacing(5),
-})) as typeof Container;
+})).withComponent('section');
 
-const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
+const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 
@@ -51,40 +51,40 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
         logo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
         defer
       />
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <HelloGroup links={data.links.edges} icon={icon} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.what-i-can-dos-title')}
         </Typography>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.projects-title')}
         </Typography>
         <ProjectList projects={data.projects.edges} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <Typography component="h2" variant="h4" align="center">
           {t('home.histories-title')}
         </Typography>
         <HistoryList histories={data.histories.edges} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.osses-title')}
         </Typography>
         <OSSList osses={data.osses.edges} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.skills-title')}
         </Typography>
         <SkillList skills={data.skills.edges} />
       </PaddingContainer>
-      <PaddingContainer maxWidth="lg" component="section">
+      <PaddingContainer maxWidth="lg">
         <Typography component="h2" variant="h4" align="center" paragraph>
           {t('home.qualifications-title')}
         </Typography>
@@ -94,7 +94,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   );
 };
 
-export default home;
+export default Home;
 
 export const query = graphql`
   query IndexPage($language: String!) {

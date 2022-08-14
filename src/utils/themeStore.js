@@ -28,9 +28,8 @@ module.exports = {
       return light;
     } else if (prefersDarkMode) {
       return dark;
-    } else {
-      return light;
     }
+    return light;
   },
 
   /**

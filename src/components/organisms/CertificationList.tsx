@@ -50,7 +50,7 @@ export const CertificationList: React.FC<CertificationListProps> = ({ certificat
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <List dense={true}>
+                  <List dense>
                     {node.qualifications?.map(
                       qualification =>
                         qualification && (

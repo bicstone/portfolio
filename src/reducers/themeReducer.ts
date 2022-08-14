@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as themeStore from 'src/utils/themeStore';
+import { setTheme, getTheme } from 'src/utils/themeStore';
 
 export const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
 export type ThemeAction = { type: typeof TOGGLE_DARKMODE };
@@ -18,7 +18,7 @@ export const themeInitialState: ThemeState = {
  * テーマの状態
  */
 export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, action) => {
-  themeStore.setTheme(state.palette);
+  setTheme(state.palette);
   switch (action.type) {
     case TOGGLE_DARKMODE:
       return {
@@ -33,7 +33,7 @@ export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, acti
  * テーマの状態・遅延初期化
  */
 export const themeInitial = (): ThemeState => {
-  const palette = themeStore.getTheme();
+  const palette = getTheme();
   return {
     palette,
   };
