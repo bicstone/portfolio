@@ -21,7 +21,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
       {histories
         .filter(({ node }) => node.node_locale === language)
         ?.map(({ node }, index, { length }) => (
-          <React.Fragment key={index}>
+          <React.Fragment key={node.id}>
             <CardHeader
               avatar={<SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />}
               title={

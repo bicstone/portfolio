@@ -21,9 +21,9 @@ import { IndexPageQuery } from 'src/types';
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
   marginBottom: theme.spacing(5),
-})) as typeof Container;
+}));
 
-const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
+const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 
@@ -94,7 +94,7 @@ const home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   );
 };
 
-export default home;
+export default Home;
 
 export const query = graphql`
   query IndexPage($language: String!) {

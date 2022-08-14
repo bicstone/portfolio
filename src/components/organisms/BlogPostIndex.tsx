@@ -46,11 +46,11 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
               {categoryName}
             </Typography>
             {edges.map(({ node }, index) => (
-              <React.Fragment key={categoryName + index}>
-                {(index === 4 || (index !== 0 && index % 10 === 0)) && (
+              <React.Fragment key={categoryName + node.id}>
+                {index !== 0 && index % 10 === 0 && (
                   <aside>
                     <AvatarCardAd
-                      key={`ad${index}`}
+                      key={`ad${node.id}`}
                       pubId={adsensePubId}
                       adId={mobile ? adsenseInfeedMobileAdId : adsenseInfeedDesktopAdId}
                       layoutKey={
