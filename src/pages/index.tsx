@@ -61,7 +61,13 @@ const Section: React.FC<SectionProps> = ({ title, help, children }) => {
             {title}
           </Typography>
           {help && (
-            <Tooltip title={help} open={isOpen} onOpen={openTooltip} onClose={closeTooltip}>
+            <Tooltip
+              title={help}
+              open={isOpen}
+              onOpen={openTooltip}
+              onClose={closeTooltip}
+              disableTouchListener
+            >
               <IconButton
                 size="small"
                 color="primary"
