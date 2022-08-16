@@ -318,6 +318,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, postTit
     <MuiBreadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
+      css={{ wordBreak: 'break-all' }}
       {...props}
     >
       <Link component={RouterLink} color="inherit" to="/">
