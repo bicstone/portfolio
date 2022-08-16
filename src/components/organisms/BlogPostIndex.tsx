@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { Typography, CardActionArea, Card, CardMedia, Breakpoint } from '@mui/material';
+import { Typography, CardActionArea, Card, Breakpoint } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
 
 import { Update as UpdateIcon, AccessTime as AccessTimeIcon } from '@mui/icons-material';
 
@@ -71,6 +70,8 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                         alignItems: 'center',
                       }}
                     >
+                      {/*
+                      サムネ未設定が多すぎるので一度コメントアウト
                       <CardMedia>
                         <GatsbyImage
                           css={theme => ({
@@ -83,6 +84,7 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({
                           alt={node.thumbnail.title}
                         />
                       </CardMedia>
+                      */}
                       <div
                         css={theme => ({
                           display: 'flex',

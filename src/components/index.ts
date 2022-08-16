@@ -16,6 +16,7 @@ export * from './organisms/HelloGroup';
 export * from './organisms/HistoryList';
 export * from './organisms/OSSList';
 export * from './organisms/ProjectList';
+export * from './organisms/RelatedBlogPostList';
 export * from './organisms/SkillList';
 export * from './organisms/WhatICanDoList';
 export * from './templates/BlogPost';

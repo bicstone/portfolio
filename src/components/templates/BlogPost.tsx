@@ -33,7 +33,7 @@ import {
   Link as LinkIcon,
 } from '@mui/icons-material';
 
-import { HelloGroup, Layout, InarticleAd } from 'src/components';
+import { HelloGroup, Layout, InarticleAd, RelatedBlogPostList } from 'src/components';
 import { useSiteMetadata } from 'src/hooks';
 import { BlogPostQuery } from 'src/types';
 
@@ -297,10 +297,13 @@ const components: MDXProviderComponentsProp = {
     />
   ),
   ad: () => (
-    <InarticleAd
-      pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-      adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
-    />
+    <aside>
+      <Typography variant="subtitle1">スポンサーリンク</Typography>
+      <InarticleAd
+        pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
+        adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
+      />
+    </aside>
   ),
 };
 
@@ -337,6 +340,13 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
 
   const post = data.post;
   const title = `${post.title} - ${siteMetadata.title}`;
+
+  const relatedPosts = React.useMemo(() => {
+    const posts = post.tags.flatMap(tag => tag.blog_post);
+    const filteredPosts = Array.from(new Map(posts.map(post => [post.id, post])).values());
+    filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
+    return filteredPosts;
+  }, [post.tags]);
 
   if (!post) {
     navigate('/404');
@@ -463,6 +473,9 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
               <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
             </MDXProvider>
             <aside>
+              <Typography variant="subtitle1" paragraph>
+                {t('blog.ad-label')}
+              </Typography>
               <InarticleAd
                 pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
                 adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
@@ -471,16 +484,27 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           </CardContent>
         </Card>
 
+        <aside css={theme => ({ margin: theme.spacing(4, 0) })}>
+          <Typography variant="h5" component="h2">
+            {t('blog.author-title')}
+          </Typography>
+          <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
+            <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
+          </section>
+        </aside>
+        <aside css={theme => ({ margin: theme.spacing(4, 0) })}>
+          <Typography variant="h5" component="h2" paragraph>
+            {t('blog.related-title')}
+          </Typography>
+          <RelatedBlogPostList posts={relatedPosts} />
+        </aside>
+
         <Breadcrumbs
           siteTitle={siteMetadata.title}
           blogTitle={t('blog.title')}
           postTitle={post.title}
           css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
         />
-
-        <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
-          <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
-        </section>
       </Container>
     </Layout>
   );
@@ -510,6 +534,12 @@ export const query = graphql`
       }
       tags {
         name
+        blog_post {
+          id
+          title
+          slug
+          createdDateTime: created(formatString: "X")
+        }
       }
       thumbnail {
         title
