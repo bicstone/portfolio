@@ -10,8 +10,7 @@ export type RelatedBlogPostListProps = {
 };
 
 /**
- * ブログ記事一覧
- * カテゴリー別に表示する
+ * 関連記事一覧
  */
 export const RelatedBlogPostList: React.FC<RelatedBlogPostListProps> = ({ posts }) => {
   return (
