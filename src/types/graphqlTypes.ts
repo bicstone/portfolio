@@ -20064,7 +20064,13 @@ export type BlogPostQueryVariables = Exact<{
 export type BlogPostQuery = { post: Maybe<(
     Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
     & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, thumbnail: Maybe<(
+    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
+      Pick<ContentfulTag, 'name'>
+      & { blog_post: Maybe<Array<Maybe<(
+        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
+        & { createdDateTime: ContentfulBlogPost['created'] }
+      )>>> }
+    )>>>, thumbnail: Maybe<(
       Pick<ContentfulAsset, 'title'>
       & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
     )> }
