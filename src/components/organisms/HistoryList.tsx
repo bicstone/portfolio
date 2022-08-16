@@ -35,7 +35,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
                 </>
               }
               subheader={
-                <Typography variant="body2" component="div">
+                <Typography variant="body2" color="text.secondary" component="div">
                   {node.subName}
                 </Typography>
               }

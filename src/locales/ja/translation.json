@@ -37,6 +37,7 @@
   "home": {
     "contacts-title": "お問い合わせ",
     "histories-title": "経歴",
+    "osses-help": "使用している OSS へのコントリビュートの他、微力ながら一部コミッターとしての活動をしています。",
     "osses-title": "OSS",
     "projects": {
       "all-expand": {
@@ -48,7 +49,9 @@
       }
     },
     "projects-title": "プロジェクト",
+    "qualifications-help": "取得した資格の一覧です。情報系の学問を修得していないため、資格取得を通して勉強をしています。",
     "qualifications-title": "資格",
+    "skills-help": "業務経験があるスキル一覧です。今後も使用したい技術に絞り込んでいます。",
     "skills-title": "スキル",
     "what-i-can-dos-title": "お手伝いできること"
   },

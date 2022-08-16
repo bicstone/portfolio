@@ -48,7 +48,10 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
     <>
       <Typography component="div" align="right" paragraph>
         <Button
-          css={{ backgroundColor: theme.palette.background.default }}
+          css={{
+            backgroundColor: theme.palette.background.default,
+            '&:hover': { backgroundColor: theme.palette.background.default },
+          }}
           variant="outlined"
           color="secondary"
           size="small"

@@ -31,7 +31,11 @@ export const WhatICanDoList: React.FC<WhatICanDoListProps> = ({ whatICanDos }) =
                     {node.name}
                   </Typography>
                 }
-                subheader={<Typography variant="body2">{node.subName}</Typography>}
+                subheader={
+                  <Typography variant="body2" color="text.secondary">
+                    {node.subName}
+                  </Typography>
+                }
                 disableTypography
               />
             </Card>
