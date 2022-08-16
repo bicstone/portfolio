@@ -20,7 +20,7 @@ import {
   CardActionArea,
   CardHeader,
 } from '@mui/material';
-import * as Sentry from '@sentry/gatsby';
+import { captureException } from '@sentry/gatsby';
 import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import { BlogPostJsonLd, GatsbySeo, BreadcrumbJsonLd } from 'gatsby-plugin-next-seo';
@@ -262,7 +262,7 @@ const components: MDXProviderComponentsProp = {
   a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
   link: props => {
     if (!props.title || !props.href) {
-      Sentry.captureException(
+      captureException(
         new Error(`Cannot provide both title: ${props.title} and href: ${props.href}`),
       );
     }
