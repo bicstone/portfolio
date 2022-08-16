@@ -3,18 +3,10 @@ import React from 'react';
 import { Typography, CardActionArea, Card, Grid, CardHeader } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 
-import { ContentfulAsset, ContentfulBlogPost, Maybe } from 'src/types';
+import { ContentfulBlogPost, Maybe } from 'src/types';
 
 export type RelatedBlogPostListProps = {
-  posts: Maybe<
-    Array<
-      Maybe<
-        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'> & {
-          thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>>;
-        }
-      >
-    >
-  >;
+  posts: Maybe<Array<Maybe<Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>>>>;
 };
 
 /**
