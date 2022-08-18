@@ -22,6 +22,7 @@
     "tc": "yarn typecheck",
     "barrelsby": "barrelsby -d ./src -D -i 'src/(components|contexts|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
     "b": "yarn barrelsby",
+    "vanilla": "vite build",
     "prepare": "husky install",
     "deploy": "gatsby-plugin-s3 deploy"
   },
@@ -98,7 +99,8 @@
     "husky": "8.0.1",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "vite": "3.0.8"
   },
   "repository": {
     "type": "git",

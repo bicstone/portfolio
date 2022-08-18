@@ -1,6 +1,8 @@
-const path = require('path');
+import path from 'path';
 
-exports.createPages = async ({ graphql, actions }) => {
+import type { GatsbyNode } from 'gatsby';
+
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const result = await graphql(`
     query BlogPosts {
@@ -18,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) throw result.errors;
   if (!result.data) throw Error;
 
-  result.data.allContentfulBlogPost.edges.forEach((post, index, posts) => {
+  (result.data as any).allContentfulBlogPost.edges.forEach((post, index, posts) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 

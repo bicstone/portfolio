@@ -1,12 +1,17 @@
-require('dotenv').config({ path: `.env` });
-const path = require('path');
+import path from 'path';
 
-const languages = require('./src/configs/languages');
-const siteMetaData = require('./src/configs/site-meta-data');
+import dotenv from 'dotenv';
+
+import languages from './src/constants/languages';
+import siteMetaData from './src/constants/site-meta-data';
+
+import type { GatsbyConfig } from 'gatsby';
+
+dotenv.config({ path: `.env` });
 
 const trailingSlash = 'never';
 
-module.exports = {
+const config: GatsbyConfig = {
   trailingSlash,
 
   siteMetadata: {
@@ -150,7 +155,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: locale => locale.code === 'ja',
-        pageLimit: 10,
+        pageLimit: 100,
       },
     },
     {
@@ -168,3 +173,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

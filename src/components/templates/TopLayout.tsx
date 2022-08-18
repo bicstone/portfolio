@@ -6,7 +6,7 @@ import { ThemeProvider as MuiThemeProvider, CssBaseline, createTheme } from '@mu
 import { green, pink } from '@mui/material/colors';
 
 import { ThemeContext } from 'src/contexts';
-import { themeReducer, themeInitialState } from 'src/reducers';
+import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
 
 import BackgroundImage from './background.svg';
 
@@ -21,8 +21,7 @@ export const TopLayout: React.FC<TopLayoutProps> = props => {
   const [themeState, themeDispatch] = React.useReducer(
     themeReducer,
     themeInitialState,
-    // FIXME: #264 で対応するまで一時的に無効にする
-    // themeInitial,
+    themeInitial,
   );
   const { palette } = themeState;
   const defaultTheme = React.useMemo(() => createTheme(), []);

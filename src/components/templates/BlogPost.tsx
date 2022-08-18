@@ -270,10 +270,21 @@ const components: MDXProviderComponentsProp = {
       <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
         <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
           <CardHeader
-            title={<Typography variant="subtitle1">{props.title}</Typography>}
+            title={
+              <Typography variant="subtitle1" css={{ wordBreak: 'break-all' }}>
+                {props.title}
+              </Typography>
+            }
             subheader={
               <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
-                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
+                <LinkIcon
+                  css={theme => ({
+                    marginRight: theme.spacing(0.5),
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                  })}
+                />
                 {props.href}
               </Typography>
             }

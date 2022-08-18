@@ -8,14 +8,20 @@ import {
   Link,
   Button,
   Breakpoint,
+  IconButton,
 } from '@mui/material';
 import { Link as RouterLink } from 'gatsby';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
-import { GitHub as GitHubIcon, StickyNote2 as StickyNote2Icon } from '@mui/icons-material';
+import {
+  LightMode as LightModeIcon,
+  DarkMode as DarkModeIcon,
+  GitHub as GitHubIcon,
+  StickyNote2 as StickyNote2Icon,
+} from '@mui/icons-material';
 
 import { SvgIcon } from 'src/components';
-import { useBreakPoint, useSiteMetadata } from 'src/hooks';
+import { useBreakPoint, useDarkMode, useSiteMetadata } from 'src/hooks';
 
 export type HeaderProps = {
   icon: string;
@@ -28,6 +34,7 @@ export type HeaderProps = {
  */
 export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   const { t } = useI18next();
+  const [darkMode, toggleDarkMode] = useDarkMode();
   const scrollTrigger = useScrollTrigger({ disableHysteresis: true, threshold: 0 });
   const siteMetaData = useSiteMetadata();
   const width = useBreakPoint();
@@ -114,20 +121,17 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
           >
             {isExpanded ? t('header.github-title') : <GitHubIcon />}
           </Button>
+          {isExpanded && (
+            <IconButton
+              size="small"
+              onClick={toggleDarkMode}
+              css={theme => ({ margin: theme.spacing(0, 1) })}
+              title={t('header.toggleDarkTheme-title')}
+            >
+              {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
+            </IconButton>
+          )}
         </nav>
-        {/*
-        FIXME: #264 で対応するまで一時的に無効にする
-        <nav>
-          <IconButton
-            size="small"
-            onClick={toggleDarkMode}
-            css={{ marginRight: theme.spacing(0.5) }}
-            title={t('header.toggleDarkTheme-title')}
-          >
-            {darkMode ? <Brightness2 /> : <WbSunny />}
-          </IconButton>
-        </nav>
-        */}
       </Toolbar>
     </AppBar>
   );
