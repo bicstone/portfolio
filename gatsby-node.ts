@@ -20,7 +20,8 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
   if (result.errors) throw result.errors;
   if (!result.data) throw Error;
 
-  (result.data as any).allContentfulBlogPost.edges.forEach((post, index, posts) => {
+  // @ts-expect-error - WIP contentful につながらないのであとで型を取る
+  result.data.allContentfulBlogPost.edges.forEach((post, index, posts) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 

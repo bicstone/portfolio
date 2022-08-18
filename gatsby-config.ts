@@ -155,7 +155,8 @@ const config: GatsbyConfig = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: locale => locale.code === 'ja',
-        pageLimit: 100,
+        pageLimit: 10,
+        assetDownloadWorkers: 10,
       },
     },
     {
