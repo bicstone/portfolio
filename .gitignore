@@ -177,3 +177,4 @@ Temporary Items
 
 # vanilla scripts
 static/vanilla
+!/static/vanilla/.gitkeep
