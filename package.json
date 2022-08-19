@@ -7,7 +7,7 @@
   "scripts": {
     "build": "yarn build:vanilla && yarn build:gatsby",
     "build:gatsby": "gatsby build --verbose",
-    "build:vanilla": "esbuild ./src/vanilla/index.ts --outdir=/static/vanilla --bundle --minify --target=es2015,chrome97,firefox96,safari14,edge97,ios14",
+    "build:vanilla": "esbuild ./src/vanilla/index.ts --outdir=./static/vanilla --bundle --minify --target=es2015,chrome97,firefox96,safari14,edge97,ios14",
     "develop": "yarn build:vanilla && gatsby develop --port 10014 --verbose",
     "dev": "yarn develop",
     "start": "yarn develop",
