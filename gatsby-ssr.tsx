@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 import { oneLineTrim } from 'common-tags';
-
-import { isLoadingClassName } from './src/constants/classNames';
+import { isLoadingClassName } from 'src/constants/classNames';
 
 import type { GatsbySSR } from 'gatsby';
 

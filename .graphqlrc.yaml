@@ -1,6 +1,6 @@
 schema: http://localhost:10014/___graphql
 documents:
-  - './src/**/*.{ts,tsx}'
+  - src/**/*.{ts,tsx}
   - gatsby-node.ts
 extensions:
   codegen:

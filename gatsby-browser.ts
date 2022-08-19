@@ -1,6 +1,5 @@
 import { captureException } from '@sentry/gatsby';
-
-import { isLoadingClassName } from './src/constants/classNames';
+import { isLoadingClassName } from 'src/constants/classNames';
 
 import type { GatsbyBrowser } from 'gatsby';
 
