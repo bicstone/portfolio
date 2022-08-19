@@ -1,0 +1,17 @@
+{
+  "overwrite": true,
+  "schema": "http://localhost:10014/___graphql",
+  "documents": ["./src/**/*.{ts,tsx}", "gatsby-node.ts"],
+  "generates": {
+    "src/types/graphqlTypes.ts": {
+      "plugins": ["typescript", "typescript-operations"]
+    }
+  },
+  "config": {
+    "skipTypename": true,
+    "numericEnums": true,
+    "avoidOptionals": true,
+    "preResolveTypes": false,
+    "maybeValue": "T"
+  }
+}
