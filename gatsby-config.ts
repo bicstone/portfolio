@@ -1,12 +1,20 @@
-require('dotenv').config({ path: `.env` });
-const path = require('path');
+import path from 'path';
 
-const languages = require('./src/configs/languages');
-const siteMetaData = require('./src/configs/site-meta-data');
+import dotenv from 'dotenv';
+
+import languages from './src/constants/languages';
+import siteMetaData from './src/constants/site-meta-data';
+
+import type { GatsbyConfig } from 'gatsby';
+
+dotenv.config({ path: `.env` });
+
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isCI = process.env.CI !== undefined;
 
 const trailingSlash = 'never';
 
-module.exports = {
+const config: GatsbyConfig = {
   trailingSlash,
 
   siteMetadata: {
@@ -63,14 +71,18 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images-contentful`,
-            options: {
-              maxWidth: 600,
-              showCaptions: true,
-              withWebp: true,
-            },
-          },
+          ...(isDevelopment
+            ? []
+            : [
+                {
+                  resolve: `gatsby-remark-images-contentful`,
+                  options: {
+                    maxWidth: 600,
+                    showCaptions: true,
+                    withWebp: true,
+                  },
+                },
+              ]),
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -150,7 +162,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: locale => locale.code === 'ja',
-        pageLimit: 10,
+        pageLimit: isCI ? 50 : 100,
       },
     },
     {
@@ -168,3 +180,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;

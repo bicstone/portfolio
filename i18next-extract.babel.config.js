@@ -1,4 +1,4 @@
-const languages = require('./src/configs/languages');
+const languages = require('./src/constants/languages');
 module.exports = {
   presets: ['babel-preset-gatsby'],
   plugins: [

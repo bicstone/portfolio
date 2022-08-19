@@ -1,12 +1,13 @@
-const Sentry = require('@sentry/gatsby');
+import { captureException } from '@sentry/gatsby';
 
-// see gatsby-ssr.js
-const isLoading = 'is-loading';
+import { isLoadingClassName } from './src/constants/classNames';
 
-exports.onInitialClientRender = () => {
+import type { GatsbyBrowser } from 'gatsby';
+
+export const onInitialClientRender: GatsbyBrowser['onInitialClientRender'] = () => {
   try {
-    window.document.body.classList.remove(isLoading);
+    window.document.body.classList.remove(isLoadingClassName);
   } catch (error) {
-    Sentry.captureException(error);
+    captureException(error);
   }
 };

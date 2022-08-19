@@ -1,38 +1,51 @@
-const React = require('react');
+import * as React from 'react';
 
-const styles = require('@mui/material/styles');
+import { oneLineTrim } from 'common-tags';
 
-// see gatsby-browser.js
-const isLoading = 'is-loading';
+import { isLoadingClassName } from './src/constants/classNames';
 
-exports.onRenderBody = ({ setBodyAttributes, setHeadComponents }) => {
-  const theme = styles.createTheme();
-  const xs = theme.breakpoints.values.sm - 1;
+import type { GatsbySSR } from 'gatsby';
 
+const generateHtml = (str: string): React.DOMAttributes<Element>['dangerouslySetInnerHTML'] => {
+  return {
+    __html: oneLineTrim(str),
+  };
+};
+
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+  setBodyAttributes,
+  setHeadComponents,
+  setPostBodyComponents,
+}) => {
   setBodyAttributes({
-    className: isLoading,
+    className: isLoadingClassName,
   });
 
   setHeadComponents([
-    React.createElement('style', {
-      key: 'loading-style',
-      dangerouslySetInnerHTML: {
-        __html: `body.${isLoading} { opacity: 0 } @media (max-width: ${xs}px) { body.${isLoading}{ opacity: 1 } }`,
-      },
-    }),
+    <style
+      key="loading-style"
+      dangerouslySetInnerHTML={generateHtml(`
+        body.${isLoadingClassName}{opacity:0}
+      `)}
+    />,
 
-    React.createElement('noscript', {
-      key: 'loading-noscript-style',
-      dangerouslySetInnerHTML: {
-        __html: `<style>body.${isLoading} { opacity: 1 !important }</style>`,
-      },
-    }),
-
-    React.createElement('script', {
-      key: 'loading-timeout',
-      dangerouslySetInnerHTML: {
-        __html: `setTimeout(function() { document.body.classList.remove("${isLoading}") }, 2000);`,
-      },
-    }),
+    <noscript
+      key="loading-noscript-style"
+      dangerouslySetInnerHTML={generateHtml(`
+      <style>
+        body.${isLoadingClassName}{opacity:1!important}
+      </style>
+      `)}
+    />,
+    <script
+      key="loading-fail-safe"
+      dangerouslySetInnerHTML={generateHtml(`
+        setTimeout(function(){
+          document.body.classList.remove("${isLoadingClassName}")
+        },2000)
+      `)}
+    />,
   ]);
+
+  setPostBodyComponents([<script key="loading-script" src="/vanilla/index.js" />]);
 };
