@@ -270,7 +270,11 @@ const components: MDXProviderComponentsProp = {
       <Card component="figure" css={theme => ({ margin: theme.spacing(2) })} elevation={2}>
         <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
           <CardHeader
-            title={<Typography variant="subtitle1">{props.title}</Typography>}
+            title={
+              <Typography variant="subtitle1" css={{ wordBreak: 'break-all' }}>
+                {props.title}
+              </Typography>
+            }
             subheader={
               <Typography
                 variant="caption"
