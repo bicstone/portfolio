@@ -1,4 +1,4 @@
-import siteMetaData from 'src/constants/site-meta-data';
+import siteMetaData from 'src/constants/siteMetaData';
 
 /**
  * gatsby 基本設定を返す
