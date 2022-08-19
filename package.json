@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build --verbose",
+    "build": "npm-run-all build:*",
+    "build:gatsby": "gatsby build --verbose",
+    "build:vanilla": "esbuild ./src/vanilla/index.ts --outdir=/static/vanilla --bundle --minify --target=es2015,chrome97,firefox96,safari14,edge97,ios14",
     "develop": "gatsby develop --port 10014 --verbose",
     "dev": "yarn develop",
     "start": "yarn develop",
@@ -22,9 +24,8 @@
     "tc": "yarn typecheck",
     "barrelsby": "barrelsby -d ./src -D -i 'src/(components|contexts|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
     "b": "yarn barrelsby",
-    "vanilla": "vite build",
-    "prepare": "husky install",
-    "deploy": "gatsby-plugin-s3 deploy"
+    "deploy": "gatsby-plugin-s3 deploy",
+    "prepare": "husky install && yarn build:vanilla"
   },
   "dependencies": {
     "@emotion/react": "11.10.0",
@@ -83,7 +84,9 @@
     "babel-plugin-i18next-extract": "0.8.3",
     "babel-preset-gatsby": "2.20.0",
     "barrelsby": "2.4.0",
+    "common-tags": "1.8.2",
     "dotenv": "16.0.1",
+    "esbuild": "0.15.5",
     "eslint": "8.21.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-standard": "17.0.0",
@@ -97,6 +100,7 @@
     "eslint-plugin-regexp": "1.8.0",
     "eslint-plugin-standard": "4.1.0",
     "husky": "8.0.1",
+    "npm-run-all": "4.1.5",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
     "typescript": "4.7.4",
@@ -110,7 +114,7 @@
     "url": "https://github.com/bicstone/portfolio/issues"
   },
   "browserslist": [
-    "last 1 Chrome major versions",
+    "last 2 Chrome major versions",
     "last 2 Firefox major versions",
     "last 2 Safari major versions",
     "last 2 Edge major versions",

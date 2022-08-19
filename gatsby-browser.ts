@@ -1,12 +1,20 @@
 import { captureException } from '@sentry/gatsby';
 
-import { isLoadingClassName } from './src/constants/classNames';
+import {
+  isDarkModeClassName,
+  isLightModeClassName,
+  isLoadingClassName,
+} from './src/constants/classNames';
 
 import type { GatsbyBrowser } from 'gatsby';
 
 export const onInitialClientRender: GatsbyBrowser['onInitialClientRender'] = () => {
   try {
-    window.document.body.classList.remove(isLoadingClassName);
+    const body = window.document.body;
+
+    body.classList.remove(isLoadingClassName);
+    body.classList.remove(isDarkModeClassName);
+    body.classList.remove(isLightModeClassName);
   } catch (error) {
     captureException(error);
   }

@@ -1,37 +1,56 @@
 import { createTheme } from '@mui/material/styles';
+import { captureException } from '@sentry/browser';
 
-import { isLoadingClassName, isDarkModeClassName } from '../constants/classNames';
-import { getTheme } from '../stores/themeStore';
+import {
+  isLoadingClassName,
+  isDarkModeClassName,
+  isLightModeClassName,
+} from '../constants/classNames';
+import { DARK, getTheme } from '../stores/themeStore';
+
+const inBrowser = () => typeof window !== 'undefined';
 
 const isEnableLoading = () => {
   const theme = createTheme();
   const sm = theme.breakpoints.values.sm;
-  const isBrowser = typeof window !== 'undefined';
-  const isUpXs = isBrowser && window.document.documentElement.clientWidth >= sm;
-  const isDarkMode = getTheme() === 'dark';
 
-  return isBrowser && (isUpXs || isDarkMode);
+  const isUpXs = inBrowser() && window.document.documentElement.clientWidth >= sm;
+  const isDarkMode = getTheme() === DARK;
+
+  return isUpXs || isDarkMode;
 };
 
 /**
- * react, gatsby がロードされる前に実行する (vanilla)
- * vite でビルド
+ * Scripts that do not depend on react, gatsby, etc.
+ * You `yarn build:vanilla` will output to static/vanilla.
  */
 
 const main = () => {
-  if (isEnableLoading()) {
-    // see gatsby-browser.ts
-    setTimeout(() => {
-      // フェールセーフ
-      window.document.body.classList.remove(isLoadingClassName);
-    }, 2000);
-  } else {
-    window.document.body.classList.remove(isLoadingClassName);
-  }
+  try {
+    const body = window.document.body;
 
-  if (getTheme() === 'dark') {
-    // see gatsby-ssr.ts
-    window.document.body.classList.add(isDarkModeClassName);
+    if (isEnableLoading()) {
+      setTimeout(() => {
+        // fail-safe
+        try {
+          body.classList.remove(isLoadingClassName);
+          body.classList.remove(isDarkModeClassName);
+          body.classList.remove(isLightModeClassName);
+        } catch (error) {
+          captureException(error);
+        }
+      }, 2000);
+    } else {
+      body.classList.remove(isLoadingClassName);
+    }
+
+    if (getTheme() === 'dark') {
+      body.classList.add(isDarkModeClassName);
+    } else {
+      body.classList.add(isLightModeClassName);
+    }
+  } catch (error) {
+    captureException(error);
   }
 };
 
