@@ -40,4 +40,13 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       src: '/vanilla/index.js',
     }),
   ]);
+
+  // setPostBodyComponents([
+  //   React.createElement('script', {
+  //     key: 'loading-script-2',
+  //     dangerouslySetInnerHTML: {
+  //       __html: require('./src/vanilla/index'),
+  //     },
+  //   }),
+  // ]);
 };

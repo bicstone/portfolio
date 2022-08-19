@@ -9,6 +9,9 @@ import type { GatsbyConfig } from 'gatsby';
 
 dotenv.config({ path: `.env` });
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isCI = process.env.CI !== undefined;
+
 const trailingSlash = 'never';
 
 const config: GatsbyConfig = {
@@ -68,14 +71,20 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images-contentful`,
-            options: {
-              maxWidth: 600,
-              showCaptions: true,
-              withWebp: true,
-            },
-          },
+          ...(isDevelopment
+            ? [
+                // Disabled for build time
+              ]
+            : [
+                {
+                  resolve: `gatsby-remark-images-contentful`,
+                  options: {
+                    maxWidth: 600,
+                    showCaptions: true,
+                    withWebp: true,
+                  },
+                },
+              ]),
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -155,8 +164,7 @@ const config: GatsbyConfig = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: locale => locale.code === 'ja',
-        pageLimit: 10,
-        assetDownloadWorkers: 10,
+        pageLimit: isCI ? 50 : 100,
       },
     },
     {
