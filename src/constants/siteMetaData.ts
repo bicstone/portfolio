@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: '大石貴則 (Oishi Takanori) Portfolio',
   shortTitle: 'bicstone',
   siteUrl: 'https://bicstone.me',
@@ -12,4 +12,6 @@ module.exports = {
   firstName: '貴則',
   lastName: '大石',
   gender: 'male',
-};
+  languages: ['ja'],
+  defaultLanguage: 'ja',
+} as const;

@@ -267,16 +267,34 @@ const components: MDXProviderComponentsProp = {
       );
     }
     return (
-      <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
+      <Card component="figure" css={theme => ({ margin: theme.spacing(2) })} elevation={2}>
         <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
           <CardHeader
-            title={<Typography variant="subtitle1">{props.title}</Typography>}
-            subheader={
-              <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
-                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
-                {props.href}
+            title={
+              <Typography variant="subtitle1" css={{ wordBreak: 'break-all' }}>
+                {props.title}
               </Typography>
             }
+            subheader={
+              <Typography
+                variant="caption"
+                css={{ display: 'flex', alignItems: 'center', width: '100%' }}
+              >
+                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5), flexShrink: 0 })} />
+                <div
+                  css={{
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                    wordBreak: 'normal',
+                  }}
+                >
+                  {props.href}
+                </div>
+              </Typography>
+            }
+            disableTypography
+            css={{ '& .MuiCardHeader-content': { overflow: 'hidden' } }}
           />
         </CardActionArea>
       </Card>

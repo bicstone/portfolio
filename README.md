@@ -72,6 +72,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 - Webpack
 - Babel
+- esbuild
 - ESLint
 - prettier (フォーマットを自動化することで省力化)
 - graphql-code-generator (型を自動生成することで省力化)
@@ -107,7 +108,13 @@ yarn dev
 yarn start
 ```
 
-### プロダクションビルドしてサーバーを立ち上げ
+### プロダクションビルド
+
+```shell
+yarn build
+```
+
+### プロダクションとしてサーバーを立ち上げ
 
 ```shell
 yarn build
@@ -151,7 +158,7 @@ yarn t
 ### GraphQL の型情報を取り込む
 
 ```shell
-yarn graphql-code-generate
+yarn graphql-codegen
 (...or)
 yarn g
 ```
@@ -162,6 +169,12 @@ yarn g
 yarn barrelsby
 (...or)
 yarn b
+```
+
+### amazon s3 への deploy
+
+```shell
+yarn deploy
 ```
 
 ## 動作対象ブラウザ

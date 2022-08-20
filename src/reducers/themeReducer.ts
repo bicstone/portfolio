@@ -1,17 +1,20 @@
 import React from 'react';
 
-import { setTheme, getTheme } from 'src/utils/themeStore';
+import { setTheme, getTheme } from 'src/stores/themeStore';
 
 export const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
 export type ThemeAction = { type: typeof TOGGLE_DARKMODE };
 
-export type Palette = 'dark' | 'light';
+export const DARK = 'dark';
+export const LIGHT = 'light';
+export type Palette = typeof DARK | typeof LIGHT;
+
 export type ThemeState = {
   palette: Palette;
 };
 
 export const themeInitialState: ThemeState = {
-  palette: 'light',
+  palette: LIGHT,
 };
 
 /**
@@ -22,7 +25,7 @@ export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, acti
   switch (action.type) {
     case TOGGLE_DARKMODE:
       return {
-        palette: state.palette === 'light' ? 'dark' : 'light',
+        palette: state.palette === LIGHT ? DARK : LIGHT,
       };
     default:
       return state;
