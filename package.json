@@ -19,7 +19,7 @@
     "extract": "esbuild i18next-extract.babel.config.ts --outfile=babel.config.js --bundle --platform=node && babel -o .tmp.js src/**/*.{js,jsx,ts,tsx} && rimraf babel.config.js .tmp.js",
     "t": "yarn extract",
     "g": "graphql-codegen",
-    "typecheck": "tsc . --noEmit",
+    "typecheck": "tsc -p . --noEmit",
     "tc": "yarn typecheck",
     "barrelsby": "barrelsby -d src -D -i 'src/(components|contexts|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
     "b": "yarn barrelsby",
