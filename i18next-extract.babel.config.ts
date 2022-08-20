@@ -1,4 +1,4 @@
-import siteMetaData from 'src/constants/siteMetaData';
+import siteMetaData from './src/constants/siteMetaData';
 
 import type { TransformOptions, ConfigAPI } from '@babel/core';
 
