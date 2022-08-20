@@ -1,7 +1,0 @@
-.cache
-.yarn
-package.json
-package-lock.json
-public
-src/types/graphqlTypes.ts
-static/vanilla

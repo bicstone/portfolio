@@ -1,10 +1,8 @@
+import { DARK, LIGHT, Palette } from 'src/reducers/themeReducer';
+
 const inBrowser = () => typeof window !== 'undefined';
 
 const localStorageName = 'paletteType';
-
-export const DARK = 'dark';
-export const LIGHT = 'light';
-export type Palette = 'dark' | 'light';
 
 /**
  * テーマの取得

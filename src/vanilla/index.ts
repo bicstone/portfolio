@@ -1,12 +1,12 @@
 import { createTheme } from '@mui/material/styles';
 import { captureException } from '@sentry/browser';
+import { DARK, getTheme } from 'src/stores/themeStore';
 
 import {
   isLoadingClassName,
   isDarkModeClassName,
   isLightModeClassName,
 } from '../constants/classNames';
-import { DARK, getTheme } from '../stores/themeStore';
 
 const inBrowser = () => typeof window !== 'undefined';
 

@@ -2,8 +2,7 @@ import path from 'path';
 
 import dotenv from 'dotenv';
 
-import languages from './src/constants/languages';
-import siteMetaData from './src/constants/site-meta-data';
+import siteMetaData from './src/constants/siteMetaData';
 
 import type { GatsbyConfig } from 'gatsby';
 
@@ -72,9 +71,7 @@ const config: GatsbyConfig = {
       options: {
         gatsbyRemarkPlugins: [
           ...(isDevelopment
-            ? [
-                // Disabled for build time
-              ]
+            ? []
             : [
                 {
                   resolve: `gatsby-remark-images-contentful`,
@@ -125,8 +122,8 @@ const config: GatsbyConfig = {
       options: {
         siteUrl: siteMetaData.siteUrl,
         localeJsonSourceName: `locales`,
-        languages: languages.languages,
-        defaultLanguage: languages.defaultLanguage,
+        languages: siteMetaData.languages,
+        defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
       },
     },
@@ -163,7 +160,7 @@ const config: GatsbyConfig = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        localeFilter: locale => locale.code === 'ja',
+        localeFilter: (locale: { code: string }) => locale.code === 'ja',
         pageLimit: isCI ? 50 : 100,
       },
     },
