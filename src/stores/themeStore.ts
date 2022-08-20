@@ -38,3 +38,5 @@ export const getTheme = (): Palette => {
 export const setTheme = (palette: Palette) => {
   inBrowser() && window.localStorage.setItem(localStorageName, palette);
 };
+
+export { DARK, LIGHT, Palette };

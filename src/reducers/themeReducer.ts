@@ -21,7 +21,7 @@ export const themeInitialState: ThemeState = {
  * テーマの状態
  */
 export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, action) => {
-  const palette = state.palette === LIGHT ? DARK : LIGHT
+  const palette = state.palette === LIGHT ? DARK : LIGHT;
   setTheme(palette);
   switch (action.type) {
     case TOGGLE_DARKMODE:
