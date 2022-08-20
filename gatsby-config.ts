@@ -1,7 +1,8 @@
 import path from 'path';
 
 import dotenv from 'dotenv';
-import siteMetaData from 'src/constants/siteMetaData';
+
+import siteMetaData from './src/constants/siteMetaData';
 
 import type { GatsbyConfig } from 'gatsby';
 

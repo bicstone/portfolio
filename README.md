@@ -158,7 +158,7 @@ yarn t
 ### GraphQL の型情報を取り込む
 
 ```shell
-yarn graphql-code-generate
+yarn graphql-codegen
 (...or)
 yarn g
 ```
