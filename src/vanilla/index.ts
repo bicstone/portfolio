@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import { captureException } from '@sentry/browser';
-import { DARK, getTheme } from 'src/stores/themeStore';
+import { DARK } from 'src/constants/palette';
+import { getTheme } from 'src/stores/themeStore';
 
 import {
   isLoadingClassName,
@@ -44,7 +45,7 @@ const main = () => {
       body.classList.remove(isLoadingClassName);
     }
 
-    if (getTheme() === 'dark') {
+    if (getTheme() === DARK) {
       body.classList.add(isDarkModeClassName);
     } else {
       body.classList.add(isLightModeClassName);

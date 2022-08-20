@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { createTheme } from '@mui/material/styles';
 import { oneLineTrim } from 'common-tags';
+import { DARK, LIGHT } from 'src/constants/palette';
 
 import {
   isLoadingClassName,
@@ -22,8 +23,8 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
   setHeadComponents,
   setPostBodyComponents,
 }) => {
-  const lightTheme = createTheme({ palette: { mode: 'light' } });
-  const darkTheme = createTheme({ palette: { mode: 'dark' } });
+  const lightTheme = createTheme({ palette: { mode: LIGHT } });
+  const darkTheme = createTheme({ palette: { mode: DARK } });
 
   setBodyAttributes({
     className: isLoadingClassName,

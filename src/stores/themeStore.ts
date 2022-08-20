@@ -1,4 +1,4 @@
-import { DARK, LIGHT, Palette } from 'src/reducers/themeReducer';
+import { Palette, DARK, LIGHT } from 'src/constants/palette';
 
 const inBrowser = () => typeof window !== 'undefined';
 
@@ -39,4 +39,5 @@ export const setTheme = (palette: Palette) => {
   inBrowser() && window.localStorage.setItem(localStorageName, palette);
 };
 
-export { DARK, LIGHT, Palette };
+export { DARK, LIGHT };
+export type { Palette };

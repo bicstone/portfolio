@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useTheme } from '@mui/material/styles';
+import { DARK } from 'src/constants/palette';
 
 import { ThemeContext } from 'src/contexts';
 import { TOGGLE_DARKMODE } from 'src/reducers';
@@ -10,5 +11,5 @@ import { TOGGLE_DARKMODE } from 'src/reducers';
  */
 export const useDarkMode: () => [boolean, () => void] = () => {
   const dispatch = React.useContext(ThemeContext);
-  return [useTheme().palette.mode === 'dark', () => dispatch({ type: TOGGLE_DARKMODE })];
+  return [useTheme().palette.mode === DARK, () => dispatch({ type: TOGGLE_DARKMODE })];
 };

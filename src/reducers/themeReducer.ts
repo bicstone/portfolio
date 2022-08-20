@@ -1,13 +1,10 @@
 import React from 'react';
 
+import { Palette, DARK, LIGHT } from 'src/constants/palette';
 import { setTheme, getTheme } from 'src/stores/themeStore';
 
 export const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
 export type ThemeAction = { type: typeof TOGGLE_DARKMODE };
-
-export const DARK = 'dark';
-export const LIGHT = 'light';
-export type Palette = typeof DARK | typeof LIGHT;
 
 export type ThemeState = {
   palette: Palette;

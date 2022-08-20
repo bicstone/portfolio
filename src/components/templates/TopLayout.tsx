@@ -4,6 +4,7 @@ import createEmotionCache from '@emotion/cache';
 import { Global, CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
+import { LIGHT } from 'src/constants/palette';
 
 import { ThemeContext } from 'src/contexts';
 import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
@@ -26,7 +27,7 @@ export const TopLayout: React.FC<TopLayoutProps> = props => {
   const { palette } = themeState;
   const defaultTheme = React.useMemo(() => createTheme(), []);
   const theme = React.useMemo(() => {
-    const isLight = palette === 'light';
+    const isLight = palette === LIGHT;
     return createTheme({
       palette: {
         mode: palette,
