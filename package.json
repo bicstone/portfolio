@@ -24,7 +24,8 @@
     "barrelsby": "barrelsby -d ./src -D -i 'src/(components|contexts|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
     "b": "yarn barrelsby",
     "deploy": "gatsby-plugin-s3 deploy",
-    "prepare": "husky install && yarn build:vanilla"
+    "postinstall": "yarn build:vanilla",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "11.10.0",

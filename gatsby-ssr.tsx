@@ -1,14 +1,15 @@
-import * as React from 'react';
+import React from 'react';
 
 import { createTheme } from '@mui/material/styles';
 import { oneLineTrim } from 'common-tags';
-import { DARK, LIGHT } from 'src/constants/palette';
 
+import { TopLayout } from './src/components/templates/TopLayout';
 import {
   isLoadingClassName,
   isDarkModeClassName,
   isLightModeClassName,
 } from './src/constants/classNames';
+import { DARK, LIGHT } from './src/constants/palette';
 
 import type { GatsbySSR } from 'gatsby';
 
@@ -52,9 +53,9 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       key="loading-fail-safe"
       dangerouslySetInnerHTML={generateHtml(`
         setTimeout(function(){
-          document.body.classList.remove("${isLoadingClassName}")
-          document.body.classList.remove("${isLightModeClassName}")
-          document.body.classList.remove("${isDarkModeClassName}")
+          document.body.classList.remove("${isLoadingClassName}");
+          /* document.body.classList.remove("${isLightModeClassName}");
+          document.body.classList.remove("${isDarkModeClassName}"); */
         },2000)
       `)}
     />,
@@ -62,3 +63,7 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
 
   setPostBodyComponents([<script key="loading-script" src="/vanilla/index.js" />]);
 };
+
+export const wrapRootElement: GatsbySSR['wrapRootElement'] = ({ element }) => (
+  <TopLayout>{element}</TopLayout>
+);

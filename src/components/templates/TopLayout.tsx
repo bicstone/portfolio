@@ -1,13 +1,14 @@
 import React from 'react';
 
-import createEmotionCache from '@emotion/cache';
-import { Global, CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
+import { Global, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider, CssBaseline, createTheme } from '@mui/material';
 import { green, pink } from '@mui/material/colors';
+import { captureException } from '@sentry/gatsby';
+import { isLoadingClassName } from 'src/constants/classNames';
 import { LIGHT } from 'src/constants/palette';
 
 import { ThemeContext } from 'src/contexts';
-import { themeReducer, themeInitialState, themeInitial } from 'src/reducers';
+import { themeReducer, themeInitialState, INITIALIZE } from 'src/reducers';
 
 import BackgroundImage from './background.svg';
 
@@ -19,15 +20,12 @@ type TopLayoutProps = {
  * TopLayout
  */
 export const TopLayout: React.FC<TopLayoutProps> = props => {
-  const [themeState, themeDispatch] = React.useReducer(
-    themeReducer,
-    themeInitialState,
-    themeInitial,
-  );
+  const [themeState, themeDispatch] = React.useReducer(themeReducer, themeInitialState);
   const { palette } = themeState;
   const defaultTheme = React.useMemo(() => createTheme(), []);
   const theme = React.useMemo(() => {
     const isLight = palette === LIGHT;
+    console.log(palette);
     return createTheme({
       palette: {
         mode: palette,
@@ -93,30 +91,42 @@ export const TopLayout: React.FC<TopLayoutProps> = props => {
     });
   }, [palette]);
 
-  const emotionCache = React.useMemo(() => createEmotionCache({ key: palette }), [palette]);
+  React.useEffect(() => {
+    themeDispatch({
+      type: INITIALIZE,
+    });
+
+    try {
+      const body = window.document.body;
+
+      body.classList.remove(isLoadingClassName);
+      // body.classList.remove(isDarkModeClassName);
+      // body.classList.remove(isLightModeClassName);
+    } catch (error) {
+      captureException(error);
+    }
+  }, []);
 
   return (
-    <CacheProvider value={emotionCache}>
-      <EmotionThemeProvider theme={theme}>
-        <MuiThemeProvider theme={theme}>
-          <Global
-            styles={{
-              body: {
-                display: 'flex',
-                flexDirection: 'column',
-                minHeight: '100vh',
-                cursor: 'default',
-                backgroundImage: `url(${BackgroundImage})`,
-                backgroundSize: '400px 400px',
-                backgroundRepeat: 'repeat',
-                opacity: 1,
-              },
-            }}
-          />
-          <CssBaseline />
-          <ThemeContext.Provider value={themeDispatch}>{props.children}</ThemeContext.Provider>
-        </MuiThemeProvider>
-      </EmotionThemeProvider>
-    </CacheProvider>
+    <EmotionThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
+        <Global
+          styles={{
+            body: {
+              display: 'flex',
+              flexDirection: 'column',
+              minHeight: '100vh',
+              cursor: 'default',
+              backgroundImage: `url(${BackgroundImage})`,
+              backgroundSize: '400px 400px',
+              backgroundRepeat: 'repeat',
+              opacity: 1,
+            },
+          }}
+        />
+        <CssBaseline />
+        <ThemeContext.Provider value={themeDispatch}>{props.children}</ThemeContext.Provider>
+      </MuiThemeProvider>
+    </EmotionThemeProvider>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { Palette, DARK, LIGHT } from 'src/constants/palette';
+import { DARK, LIGHT } from 'src/constants/palette';
 import { setTheme, getTheme } from 'src/stores/themeStore';
 
-export const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
-export type ThemeAction = { type: typeof TOGGLE_DARKMODE };
+import type { Palette } from 'src/constants/palette';
+
+export const TOGGLE_DARKMODE = Symbol('TOGGLE_DARKMODE');
+export const INITIALIZE = Symbol('INITIALIZE');
+
+export type ThemeAction = { type: typeof TOGGLE_DARKMODE } | { type: typeof INITIALIZE };
 
 export type ThemeState = {
   palette: Palette;
@@ -18,13 +22,21 @@ export const themeInitialState: ThemeState = {
  * テーマの状態
  */
 export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, action) => {
-  const palette = state.palette === LIGHT ? DARK : LIGHT;
-  setTheme(palette);
   switch (action.type) {
-    case TOGGLE_DARKMODE:
+    case TOGGLE_DARKMODE: {
+      const toggledPalette = state.palette === LIGHT ? DARK : LIGHT;
+      setTheme(toggledPalette);
       return {
-        palette,
+        palette: toggledPalette,
       };
+    }
+    case INITIALIZE: {
+      const initPalette = themeInitial();
+      setTheme(initPalette);
+      return {
+        palette: initPalette,
+      };
+    }
     default:
       return state;
   }
@@ -33,9 +45,7 @@ export const themeReducer: React.Reducer<ThemeState, ThemeAction> = (state, acti
 /**
  * テーマの状態・遅延初期化
  */
-export const themeInitial = (): ThemeState => {
+export const themeInitial = (): Palette => {
   const palette = getTheme();
-  return {
-    palette,
-  };
+  return palette as Palette;
 };

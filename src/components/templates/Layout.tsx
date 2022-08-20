@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NoSsr } from '@mui/material';
 
-import { CookieAlert, Head, Header, Footer, TopLayout } from 'src/components';
+import { CookieAlert, Head, Header, Footer } from 'src/components';
 
 export type LayoutProps = {
   cookieAlertShow?: boolean;
@@ -25,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({
   className,
 }) => {
   return (
-    <TopLayout>
+    <>
       <Head />
       <NoSsr>
         <CookieAlert show={cookieAlertShow} />
@@ -35,6 +35,6 @@ export const Layout: React.FC<LayoutProps> = ({
         {children}
       </main>
       <Footer />
-    </TopLayout>
+    </>
   );
 };

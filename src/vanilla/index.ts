@@ -35,8 +35,8 @@ const main = () => {
         // fail-safe
         try {
           body.classList.remove(isLoadingClassName);
-          body.classList.remove(isDarkModeClassName);
-          body.classList.remove(isLightModeClassName);
+          // body.classList.remove(isDarkModeClassName);
+          // body.classList.remove(isLightModeClassName);
         } catch (error) {
           captureException(error);
         }
