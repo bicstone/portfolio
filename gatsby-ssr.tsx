@@ -1,39 +1,32 @@
 import React from 'react';
 
 import { getInitColorSchemeScript } from '@mui/material/styles';
-import { oneLineTrim } from 'common-tags';
+import { GatsbySSR } from 'gatsby';
 
 import { TopLayout } from './src/components/templates/TopLayout';
 import { isLoadingClassName } from './src/constants/classNames';
 
-import type { GatsbySSR } from 'gatsby';
-
 const generateHtml = (str: string): React.DOMAttributes<Element>['dangerouslySetInnerHTML'] => {
   return {
-    __html: oneLineTrim(str),
+    __html: str.trim(),
   };
 };
 
 export const onRenderBody: GatsbySSR['onRenderBody'] = ({
-  setBodyAttributes,
   setHeadComponents,
-  setPostBodyComponents,
+  setBodyAttributes,
   setPreBodyComponents,
 }) => {
-  setBodyAttributes({
-    className: isLoadingClassName,
-  });
-
   setHeadComponents([
     <style
-      key="loading-style"
+      key="loading-screen-style"
       dangerouslySetInnerHTML={generateHtml(`
         body.${isLoadingClassName}{opacity:0}
       `)}
     />,
 
     <noscript
-      key="loading-noscript-style"
+      key="loading-screen-noscript-style"
       dangerouslySetInnerHTML={generateHtml(`
       <style>
         body.${isLoadingClassName}{opacity:1!important}
@@ -41,7 +34,7 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       `)}
     />,
     <script
-      key="loading-fail-safe"
+      key="loading-screen-fail-safe"
       dangerouslySetInnerHTML={generateHtml(`
         setTimeout(function(){
           document.body.classList.remove("${isLoadingClassName}")
@@ -50,10 +43,18 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
     />,
   ]);
 
-  setPostBodyComponents([<script key="loading-script" src="/vanilla/index.js" />]);
+  setBodyAttributes({
+    // loading-screen
+    className: isLoadingClassName,
+  });
 
   setPreBodyComponents([
-    <React.Fragment key="init-color-scheme-script">{getInitColorSchemeScript()}</React.Fragment>,
+    <script key="vanilla-script" src="/vanilla/index.js" />,
+    <React.Fragment key="init-color-scheme-script">
+      {getInitColorSchemeScript({
+        enableSystem: true,
+      })}
+    </React.Fragment>,
   ]);
 };
 

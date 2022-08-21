@@ -1,8 +1,10 @@
 import React from 'react';
 
+
 import { Global, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
+import { Script } from 'gatsby';
 
 import { useThemes } from 'src/hooks';
 
@@ -19,7 +21,18 @@ export const TopLayout: React.FC<TopLayoutProps> = ({ children }) => {
   const { theme } = useThemes();
   return (
     <EmotionThemeProvider theme={theme}>
-      <CssVarsProvider defaultMode="system" enableColorScheme={true} theme={theme}>
+      <CssVarsProvider
+        defaultMode="system"
+        enableColorScheme
+        disableTransitionOnChange
+        theme={theme}
+      >
+        <Script
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
+          async
+          crossOrigin="anonymous"
+          strategy="idle"
+        />
         <Global
           styles={{
             body: {

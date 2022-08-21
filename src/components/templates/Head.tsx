@@ -80,28 +80,6 @@ export const Head: React.FC = () => {
         <meta name="description" content={siteMetadata.description} />
 
         <meta name="format-detection" content="telephone=no" />
-
-        <script
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-          async
-          crossOrigin="anonymous"
-        />
-
-        {
-          /* CSP 検証用 Cloudfrontの設定と合わせる */
-          process.env.NODE_ENV === 'development' && (
-            <meta
-              httpEquiv="Content-Security-Policy"
-              content={process.env.GATSBY_CONTENT_SECURITY_POLICY}
-            />
-          )
-        }
-        {
-          /* Permissions-Policy 検証用 Cloudfrontの設定と合わせる */
-          process.env.NODE_ENV === 'development' && (
-            <meta httpEquiv="Permissions-Policy" content={process.env.GATSBY_PERMISSIONS_POLICY} />
-          )
-        }
       </Helmet>
       <GatsbySeo
         // 定数は gatsby-config.js で設定

@@ -52,7 +52,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     left: 0,
     height: '100%',
     width: theme.spacing(0.5),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
   },
 }));
@@ -60,7 +60,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 const StyledBlockquote = styled('blockquote')(({ theme }) => ({
   margin: theme.spacing(2),
   padding: theme.spacing(0, 1),
-  borderLeft: `${theme.palette.divider} solid ${theme.spacing(0.5)}`,
+  borderLeft: `${theme.vars.palette.divider} solid ${theme.spacing(0.5)}`,
 }));
 
 const StyledInlineCode = styled('span')(({ theme }) => ({
@@ -68,7 +68,7 @@ const StyledInlineCode = styled('span')(({ theme }) => ({
   fontFamily: consoleFontFamily,
   paddingLeft: theme.spacing(0.5),
   paddingRight: theme.spacing(0.5),
-  backgroundColor: theme.palette.divider,
+  backgroundColor: theme.vars.palette.divider,
   borderRadius: theme.shape.borderRadius,
 }));
 
