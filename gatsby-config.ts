@@ -1,5 +1,6 @@
 import path from 'path';
 
+import { createTheme } from '@mui/material';
 import dotenv from 'dotenv';
 
 import siteMetaData from './src/constants/siteMetaData';
@@ -73,14 +74,14 @@ const config: GatsbyConfig = {
           ...(isDevelopment
             ? []
             : [
-                {
-                  resolve: `gatsby-remark-images-contentful`,
-                  options: {
-                    maxWidth: 600,
-                    showCaptions: true,
-                    withWebp: true,
-                  },
-                },
+                // {
+                //   resolve: `gatsby-remark-images-contentful`,
+                //   options: {
+                //     maxWidth: 600,
+                //     showCaptions: true,
+                //     withWebp: true,
+                //   },
+                // },
               ]),
           {
             resolve: `gatsby-remark-prismjs`,
@@ -125,6 +126,12 @@ const config: GatsbyConfig = {
         languages: siteMetaData.languages,
         defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
+      },
+    },
+    {
+      resolve: path.resolve('./plugins/gatsby-plugin-fix-responsive-flash'),
+      options: {
+        breakpoint: createTheme().breakpoints.values.sm,
       },
     },
     {

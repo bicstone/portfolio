@@ -1,0 +1,46 @@
+{
+  "name": "gatsby-plugin-fix-responsive-flash",
+  "private": true,
+  "version": "0.1.0",
+  "description": "This solves the problem of flickering responsive content.",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir . --extensions \".ts,.tsx\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bicstone/gatsby-plugin-fix-responsive-flash.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "react",
+    "fouc",
+    "ssr",
+    "javascript",
+    "typescript",
+    "hacktoberfest"
+  ],
+  "author": "Oishi Takanori",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bicstone/gatsby-plugin-fix-responsive-flash/issues"
+  },
+  "homepage": "https://github.com/bicstone/gatsby-plugin-fix-responsive-flash#readme",
+  "packageManager": "yarn@3.2.2",
+  "volta": {
+    "node": "16.17.0",
+    "yarn": "1.22.19"
+  },
+  "peerDependencies": {
+    "gatsby": "^3 || ^4"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.18.10",
+    "@babel/core": "7.18.10",
+    "babel-preset-gatsby-package": "2.21.0"
+  },
+  "dependencies": {
+    "common-tags": "1.8.2"
+  }
+}

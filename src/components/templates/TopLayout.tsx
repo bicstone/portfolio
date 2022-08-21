@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { Global, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { CssBaseline } from '@mui/material';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';

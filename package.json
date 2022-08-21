@@ -5,10 +5,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn build:vanilla && yarn build:gatsby",
-    "build:gatsby": "gatsby build --verbose",
-    "build:vanilla": "esbuild src/vanilla/index.ts --outdir=static/vanilla --bundle --minify --target=es2015,chrome97,firefox96,safari14,edge97,ios14",
-    "develop": "yarn build:vanilla && gatsby develop --port 10014 --verbose",
+    "build": "gatsby build --verbose",
+    "develop": "gatsby develop --port 10014 --verbose",
     "dev": "yarn develop",
     "start": "yarn develop",
     "serve": "gatsby serve --port 20014",
@@ -24,7 +22,6 @@
     "barrelsby": "barrelsby -d ./src -D -i 'src/(components|hooks|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
     "b": "yarn barrelsby",
     "deploy": "gatsby-plugin-s3 deploy",
-    "postinstall": "yarn build:vanilla",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -124,5 +121,8 @@
   "volta": {
     "node": "16.17.0",
     "yarn": "1.22.19"
-  }
+  },
+  "workspaces": [
+    "plugins/*"
+  ]
 }
