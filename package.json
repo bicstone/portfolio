@@ -21,7 +21,7 @@
     "g": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
     "tc": "yarn typecheck",
-    "barrelsby": "barrelsby -d ./src -D -i 'src/(components|contexts|hooks|reducers|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
+    "barrelsby": "barrelsby -d ./src -D -i 'src/(components|hooks|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
     "b": "yarn barrelsby",
     "deploy": "gatsby-plugin-s3 deploy",
     "postinstall": "yarn build:vanilla",

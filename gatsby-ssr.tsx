@@ -1,15 +1,10 @@
 import React from 'react';
 
-import { createTheme } from '@mui/material/styles';
+import { getInitColorSchemeScript } from '@mui/material/styles';
 import { oneLineTrim } from 'common-tags';
 
 import { TopLayout } from './src/components/templates/TopLayout';
-import {
-  isLoadingClassName,
-  isDarkModeClassName,
-  isLightModeClassName,
-} from './src/constants/classNames';
-import { DARK, LIGHT } from './src/constants/palette';
+import { isLoadingClassName } from './src/constants/classNames';
 
 import type { GatsbySSR } from 'gatsby';
 
@@ -23,10 +18,8 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
   setBodyAttributes,
   setHeadComponents,
   setPostBodyComponents,
+  setPreBodyComponents,
 }) => {
-  const lightTheme = createTheme({ palette: { mode: LIGHT } });
-  const darkTheme = createTheme({ palette: { mode: DARK } });
-
   setBodyAttributes({
     className: isLoadingClassName,
   });
@@ -36,8 +29,6 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       key="loading-style"
       dangerouslySetInnerHTML={generateHtml(`
         body.${isLoadingClassName}{opacity:0}
-        body.${isLightModeClassName}{background-color:${lightTheme.palette.background.default}}
-        body.${isDarkModeClassName}{background-color:${darkTheme.palette.background.default}}
       `)}
     />,
 
@@ -53,15 +44,17 @@ export const onRenderBody: GatsbySSR['onRenderBody'] = ({
       key="loading-fail-safe"
       dangerouslySetInnerHTML={generateHtml(`
         setTimeout(function(){
-          document.body.classList.remove("${isLoadingClassName}");
-          /* document.body.classList.remove("${isLightModeClassName}");
-          document.body.classList.remove("${isDarkModeClassName}"); */
+          document.body.classList.remove("${isLoadingClassName}")
         },2000)
       `)}
     />,
   ]);
 
   setPostBodyComponents([<script key="loading-script" src="/vanilla/index.js" />]);
+
+  setPreBodyComponents([
+    <React.Fragment key="init-color-scheme-script">{getInitColorSchemeScript()}</React.Fragment>,
+  ]);
 };
 
 export const wrapRootElement: GatsbySSR['wrapRootElement'] = ({ element }) => (

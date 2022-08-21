@@ -1,58 +1,29 @@
 import { createTheme } from '@mui/material/styles';
-import { captureException } from '@sentry/browser';
-import { DARK } from 'src/constants/palette';
-import { getTheme } from 'src/stores/themeStore';
 
-import {
-  isLoadingClassName,
-  isDarkModeClassName,
-  isLightModeClassName,
-} from '../constants/classNames';
+import { isLoadingClassName } from '../constants/classNames';
 
 const inBrowser = () => typeof window !== 'undefined';
 
 const isEnableLoading = () => {
   const theme = createTheme();
   const sm = theme.breakpoints.values.sm;
-
-  const isUpXs = inBrowser() && window.document.documentElement.clientWidth >= sm;
-  const isDarkMode = getTheme() === DARK;
-
-  return isUpXs || isDarkMode;
+  return inBrowser() && window.document.documentElement.clientWidth >= sm;
 };
 
 /**
  * Scripts that do not depend on react, gatsby, etc.
- * You `yarn build:vanilla` will output to static/vanilla.
+ * You `yarn build:vanilla` will output to `/static/vanilla`.
  */
 
-const main = () => {
-  try {
-    const body = window.document.body;
+(() => {
+  const removeLoadingScreen = () => window.document.body.classList.remove(isLoadingClassName);
 
-    if (isEnableLoading()) {
-      setTimeout(() => {
-        // fail-safe
-        try {
-          body.classList.remove(isLoadingClassName);
-          // body.classList.remove(isDarkModeClassName);
-          // body.classList.remove(isLightModeClassName);
-        } catch (error) {
-          captureException(error);
-        }
-      }, 2000);
-    } else {
-      body.classList.remove(isLoadingClassName);
-    }
-
-    if (getTheme() === DARK) {
-      body.classList.add(isDarkModeClassName);
-    } else {
-      body.classList.add(isLightModeClassName);
-    }
-  } catch (error) {
-    captureException(error);
+  if (!isEnableLoading()) {
+    // When the width is xs, the loading screen is not displayed because FOUC does not occur.
+    removeLoadingScreen();
   }
-};
-
-main();
+  setTimeout(() => {
+    // As the fallback, hide the loading screen after a few seconds.
+    removeLoadingScreen();
+  }, 2000);
+})();
