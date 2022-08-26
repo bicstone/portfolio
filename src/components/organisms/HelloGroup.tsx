@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Typography, Grid, Button, styled, keyframes } from '@mui/material';
+import { Link } from 'gatsby';
 import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next';
 
 import { SvgIcon, AvatarCard } from 'src/components';
@@ -59,6 +60,20 @@ export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
               <Typography variant="body1" gutterBottom>
                 {t('hello.description')}
               </Typography>
+
+              <Button
+                component={Link}
+                to="/blog"
+                variant="outlined"
+                color="secondary"
+                size="small"
+                css={theme => ({
+                  marginTop: theme.spacing(1),
+                  marginRight: theme.spacing(1),
+                })}
+              >
+                {t('blog.title')}
+              </Button>
 
               {links
                 .filter(({ node }) => node.node_locale === language)

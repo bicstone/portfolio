@@ -481,12 +481,12 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           )}
         </Typography>
 
-        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(2, 0, 0) })}>
+        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(2, 0) })}>
           <MDXProvider components={components}>
             <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
           </MDXProvider>
           <aside>
-            <StyledTypography variant="h5" component="h2" paragraph>
+            <StyledTypography variant="h5" as="h2" paragraph>
               {t('blog.ad-label')}
             </StyledTypography>
             <InarticleAd

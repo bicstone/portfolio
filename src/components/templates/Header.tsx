@@ -91,47 +91,49 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
         )}
         <div css={{ flexGrow: 1 }} />
         <nav>
-          <Button
-            css={theme => ({
-              backgroundColor: theme.vars.palette.background.default,
-              marginRight: theme.spacing(0.5),
-            })}
-            variant="outlined"
-            color="inherit"
-            size="small"
-            component={RouterLink}
-            to="/blog"
-            title={t('blog.title')}
-            startIcon={isExpanded ? <StickyNote2Icon /> : null}
-          >
-            {isExpanded ? t('blog.title') : <StickyNote2Icon />}
-          </Button>
-          <Button
-            css={theme => ({
-              backgroundColor: theme.vars.palette.background.default,
-              marginRight: theme.spacing(0.5),
-            })}
-            variant="outlined"
-            color="inherit"
-            size="small"
-            href={`https://github.com/${siteMetaData.github}`}
-            title={t('header.github-title')}
-            startIcon={isExpanded ? <GitHubIcon /> : null}
-            rel="external noreferrer noopener nofollow"
-            target="_blank"
-          >
-            {isExpanded ? t('header.github-title') : <GitHubIcon />}
-          </Button>
           {isExpanded && (
-            <IconButton
-              size="small"
-              onClick={() => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')}
-              css={theme => ({ margin: theme.spacing(0, 1) })}
-              title={t('header.toggleDarkTheme-title')}
-            >
-              {paletteMode === 'light' ? <LightModeIcon /> : <DarkModeIcon />}
-            </IconButton>
+            <>
+              <Button
+                css={theme => ({
+                  backgroundColor: theme.vars.palette.background.default,
+                  marginRight: theme.spacing(0.5),
+                })}
+                variant="outlined"
+                color="inherit"
+                size="small"
+                component={RouterLink}
+                to="/blog"
+                title={t('blog.title')}
+                startIcon={<StickyNote2Icon />}
+              >
+                {t('blog.title')}
+              </Button>
+              <Button
+                css={theme => ({
+                  backgroundColor: theme.vars.palette.background.default,
+                  marginRight: theme.spacing(0.5),
+                })}
+                variant="outlined"
+                color="inherit"
+                size="small"
+                href={`https://github.com/${siteMetaData.github}`}
+                title={t('header.github-title')}
+                startIcon={<GitHubIcon />}
+                rel="external noreferrer noopener nofollow"
+                target="_blank"
+              >
+                {t('header.github-title')}
+              </Button>
+            </>
           )}
+          <IconButton
+            size="small"
+            onClick={() => setPaletteMode(paletteMode === 'light' ? 'dark' : 'light')}
+            css={theme => ({ margin: theme.spacing(0, 1) })}
+            title={t('header.toggleDarkTheme-title')}
+          >
+            {paletteMode === 'light' ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
         </nav>
       </Toolbar>
     </AppBar>
