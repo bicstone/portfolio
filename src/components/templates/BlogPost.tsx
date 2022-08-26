@@ -4,7 +4,6 @@ import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
   Breadcrumbs as MuiBreadcrumbs,
   Card,
-  CardContent,
   Container,
   Divider,
   Link,
