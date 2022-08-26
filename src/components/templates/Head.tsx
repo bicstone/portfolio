@@ -80,6 +80,22 @@ export const Head: React.FC = () => {
         <meta name="description" content={siteMetadata.description} />
 
         <meta name="format-detection" content="telephone=no" />
+
+        {
+          /* CSP 検証用 Cloudfrontの設定と合わせる */
+          process.env.NODE_ENV === 'development' && (
+            <meta
+              httpEquiv="Content-Security-Policy"
+              content={process.env.GATSBY_CONTENT_SECURITY_POLICY}
+            />
+          )
+        }
+        {
+          /* Permissions-Policy 検証用 Cloudfrontの設定と合わせる */
+          process.env.NODE_ENV === 'development' && (
+            <meta httpEquiv="Permissions-Policy" content={process.env.GATSBY_PERMISSIONS_POLICY} />
+          )
+        }
       </Helmet>
       <GatsbySeo
         // 定数は gatsby-config.js で設定
