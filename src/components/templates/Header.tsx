@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
         <nav>
           <Button
             css={theme => ({
-              backgroundColor: theme.palette.background.default,
+              backgroundColor: theme.vars.palette.background.default,
               marginRight: theme.spacing(0.5),
             })}
             variant="outlined"
@@ -108,7 +108,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
           </Button>
           <Button
             css={theme => ({
-              backgroundColor: theme.palette.background.default,
+              backgroundColor: theme.vars.palette.background.default,
               marginRight: theme.spacing(0.5),
             })}
             variant="outlined"

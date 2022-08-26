@@ -23,7 +23,7 @@ export const RelatedBlogPostList: React.FC<RelatedBlogPostListProps> = ({ posts 
                 <CardHeader
                   title={
                     <Typography
-                      component="h3"
+                      component="div"
                       variant="subtitle2"
                       css={theme => ({
                         wordBreak: 'break-all',

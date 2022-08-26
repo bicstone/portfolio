@@ -42,7 +42,7 @@ const consoleFontFamily = 'HackGen, PlemolJP, Consolas, Courier, monospace';
 const StyledTypography = styled(Typography)(({ theme }) => ({
   display: 'block',
   position: 'relative',
-  margin: theme.spacing(6, 0, 3),
+  margin: theme.spacing(6, 2, 3, 0),
   paddingLeft: theme.spacing(2),
   fontWeight: 'bold',
   '&::before': {
@@ -75,9 +75,10 @@ const StyledInlineCode = styled('span')(({ theme }) => ({
 const StyledPreWrap = styled('div')(({ theme }) => ({
   background: '#1e1e1e',
   borderRadius: theme.shape.borderRadius,
-  margin: theme.spacing(2, 0),
+  margin: theme.spacing(2),
   padding: theme.spacing(2),
   overflow: 'auto',
+  border: `1px solid ${theme.vars.palette.divider}`,
 }));
 
 const StyledPre = styled('pre')(({ theme }) => ({
@@ -90,13 +91,6 @@ const StyledPre = styled('pre')(({ theme }) => ({
   padding: 0,
   float: 'left',
   minWidth: '100%',
-
-  '::selection': {
-    backgroundColor: '#3a3d41',
-  },
-  '& ::selection': {
-    backgroundColor: '#3a3d41',
-  },
 
   code: {
     fontFamily: consoleFontFamily,
@@ -231,7 +225,9 @@ const StyledPre = styled('pre')(({ theme }) => ({
 
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
-  p: props => <Typography component="div" paragraph {...props} />,
+  p: props => (
+    <Typography component="div" css={theme => ({ margin: theme.spacing(0, 2, 2) })} {...props} />
+  ),
   h1: () => null,
   h2: props => <StyledTypography variant="h5" component="h2" {...props} />,
   h3: props => <StyledTypography variant="h6" component="h3" {...props} />,
@@ -486,21 +482,19 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           )}
         </Typography>
 
-        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(1, 0) })}>
-          <CardContent>
-            <MDXProvider components={components}>
-              <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
-            </MDXProvider>
-            <aside>
-              <Typography variant="subtitle1" paragraph>
-                {t('blog.ad-label')}
-              </Typography>
-              <InarticleAd
-                pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-                adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
-              />
-            </aside>
-          </CardContent>
+        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(2, 0, 0) })}>
+          <MDXProvider components={components}>
+            <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
+          </MDXProvider>
+          <aside>
+            <StyledTypography variant="h5" component="h2" paragraph>
+              {t('blog.ad-label')}
+            </StyledTypography>
+            <InarticleAd
+              pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
+              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
+            />
+          </aside>
         </Card>
 
         <aside css={theme => ({ margin: theme.spacing(4, 0) })}>
