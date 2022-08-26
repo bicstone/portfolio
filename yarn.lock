@@ -177,29 +177,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.18.10, @babel/core@npm:^7.18.9":
-  version: 7.18.10
-  resolution: "@babel/core@npm:7.18.10"
-  dependencies:
-    "@ampproject/remapping": ^2.1.0
-    "@babel/code-frame": ^7.18.6
-    "@babel/generator": ^7.18.10
-    "@babel/helper-compilation-targets": ^7.18.9
-    "@babel/helper-module-transforms": ^7.18.9
-    "@babel/helpers": ^7.18.9
-    "@babel/parser": ^7.18.10
-    "@babel/template": ^7.18.10
-    "@babel/traverse": ^7.18.10
-    "@babel/types": ^7.18.10
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.2.1
-    semver: ^6.3.0
-  checksum: 3a3fcd878430a9e1cb165f755c89fff45acc4efe4dd3a2ba356e89af331cb1947886b9782d56902a49af19ba3c24f08cf638a632699b9c5a4d8305c57c6a150d
-  languageName: node
-  linkType: hard
-
 "@babel/core@npm:^7.0.0":
   version: 7.15.0
   resolution: "@babel/core@npm:7.15.0"
@@ -266,6 +243,29 @@ __metadata:
     semver: ^6.3.0
     source-map: ^0.5.0
   checksum: 8121bf74040d98562b773c1e92a174cd53c99a5158ae5a9ef25645ed35d6f821c64155e394cdb04e7dc77a0871ba42a638f6703b2c44a75bc04564b21cad9e1b
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.18.9":
+  version: 7.18.10
+  resolution: "@babel/core@npm:7.18.10"
+  dependencies:
+    "@ampproject/remapping": ^2.1.0
+    "@babel/code-frame": ^7.18.6
+    "@babel/generator": ^7.18.10
+    "@babel/helper-compilation-targets": ^7.18.9
+    "@babel/helper-module-transforms": ^7.18.9
+    "@babel/helpers": ^7.18.9
+    "@babel/parser": ^7.18.10
+    "@babel/template": ^7.18.10
+    "@babel/traverse": ^7.18.10
+    "@babel/types": ^7.18.10
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.1
+    semver: ^6.3.0
+  checksum: 3a3fcd878430a9e1cb165f755c89fff45acc4efe4dd3a2ba356e89af331cb1947886b9782d56902a49af19ba3c24f08cf638a632699b9c5a4d8305c57c6a150d
   languageName: node
   linkType: hard
 
@@ -1664,17 +1664,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-flow@npm:^7.18.6":
-  version: 7.18.6
-  resolution: "@babel/plugin-syntax-flow@npm:7.18.6"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.18.6
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: abe82062b3eef14de7d2b3c0e4fecf80a3e796ca497e9df616d12dd250968abf71495ee85a955b43a6c827137203f0c409450cf792732ed0d6907c806580ea71
-  languageName: node
-  linkType: hard
-
 "@babel/plugin-syntax-json-strings@npm:^7.8.3":
   version: 7.8.3
   resolution: "@babel/plugin-syntax-json-strings@npm:7.8.3"
@@ -2008,18 +1997,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: c1d6d0612e9c55301d7ed9477cae1a2c6b1f7958b943c0289466ea7a4d2d53f93cf22fa4ab55756ed207b0672c042bbbd67fe38c89d48787345423e111850f96
-  languageName: node
-  linkType: hard
-
-"@babel/plugin-transform-flow-strip-types@npm:^7.18.6":
-  version: 7.18.9
-  resolution: "@babel/plugin-transform-flow-strip-types@npm:7.18.9"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.18.9
-    "@babel/plugin-syntax-flow": ^7.18.6
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: f25fe67b4986a5361539191ccfbf6a84fb6729db6f04c897799e2081c6b96b475cf4e05ab207bd63d7112d5d9465b5efbcc1def7940cba3ba69776a09f7db88d
   languageName: node
   linkType: hard
 
@@ -2383,7 +2360,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:7.18.12, @babel/plugin-transform-typescript@npm:^7.15.4":
+"@babel/plugin-transform-typescript@npm:7.18.12":
   version: 7.18.12
   resolution: "@babel/plugin-transform-typescript@npm:7.18.12"
   dependencies:
@@ -2535,19 +2512,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 096902ac397b6ab53bd6c03c59cc451d98b407d1863c185837f0cb56ff45414aa08ae6b950ef179c66a30c0680d4d1846cda0766a990f850ee477022353daf5b
-  languageName: node
-  linkType: hard
-
-"@babel/preset-flow@npm:^7.14.0":
-  version: 7.18.6
-  resolution: "@babel/preset-flow@npm:7.18.6"
-  dependencies:
-    "@babel/helper-plugin-utils": ^7.18.6
-    "@babel/helper-validator-option": ^7.18.6
-    "@babel/plugin-transform-flow-strip-types": ^7.18.6
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 9100d4eab3402e6601e361a5b235e46d90cfd389c12db19e2a071e1082ca2a00c04bd47eb185ce68d8979e7c8f3e548cd5d61b86dcd701135468fb929c3aecb6
   languageName: node
   linkType: hard
 
@@ -8203,28 +8167,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-preset-gatsby-package@npm:2.21.0":
-  version: 2.21.0
-  resolution: "babel-preset-gatsby-package@npm:2.21.0"
-  dependencies:
-    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.14.5
-    "@babel/plugin-proposal-optional-chaining": ^7.14.5
-    "@babel/plugin-syntax-dynamic-import": ^7.8.3
-    "@babel/plugin-transform-runtime": ^7.15.0
-    "@babel/plugin-transform-typescript": ^7.15.4
-    "@babel/preset-env": ^7.15.4
-    "@babel/preset-flow": ^7.14.0
-    "@babel/preset-react": ^7.14.0
-    "@babel/runtime": ^7.15.4
-    babel-plugin-dynamic-import-node: ^2.3.3
-    babel-plugin-lodash: ^3.3.4
-    core-js: ^3.22.3
-  peerDependencies:
-    "@babel/core": ^7.11.6
-  checksum: 909c5accddde8ade6c4cc22296551dd9402872c4ec81efa1671edfd3b9969147917d049fae8e2761d0553510593b6fd884fb14d2b2233280fab21424012f4bf5
-  languageName: node
-  linkType: hard
-
 "babel-preset-gatsby@npm:2.21.0, babel-preset-gatsby@npm:^2.21.0":
   version: 2.21.0
   resolution: "babel-preset-gatsby@npm:2.21.0"
@@ -8377,6 +8319,7 @@ __metadata:
     eslint-plugin-standard: 4.1.0
     gatsby: 4.21.1
     gatsby-plugin-emotion: 7.21.0
+    gatsby-plugin-fix-fouc: 0.1.0
     gatsby-plugin-google-tagmanager: 4.21.0
     gatsby-plugin-image: 2.21.0
     gatsby-plugin-manifest: 4.21.0
@@ -13208,18 +13151,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-fix-responsive-flash@workspace:plugins/gatsby-plugin-fix-responsive-flash":
-  version: 0.0.0-use.local
-  resolution: "gatsby-plugin-fix-responsive-flash@workspace:plugins/gatsby-plugin-fix-responsive-flash"
-  dependencies:
-    "@babel/cli": 7.18.10
-    "@babel/core": 7.18.10
-    babel-preset-gatsby-package: 2.21.0
-    common-tags: 1.8.2
+"gatsby-plugin-fix-fouc@npm:0.1.0":
+  version: 0.1.0
+  resolution: "gatsby-plugin-fix-fouc@npm:0.1.0"
   peerDependencies:
     gatsby: ^3 || ^4
-  languageName: unknown
-  linkType: soft
+  checksum: c97cb12202bc51ee8945f5419c400a645f519625a249d9329dd44aae683ace2ca2150149c18037b167d3f89162ddb42f2e0517eeac93340ee5dfb6d963dbcd71
+  languageName: node
+  linkType: hard
 
 "gatsby-plugin-google-tagmanager@npm:4.21.0":
   version: 4.21.0

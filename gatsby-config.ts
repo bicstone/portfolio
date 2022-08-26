@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import siteMetaData from './src/constants/siteMetaData';
 
 import type { GatsbyConfig } from 'gatsby';
+import type { GatsbyPluginFixFoucOptions } from 'gatsby-plugin-fix-fouc';
 
 dotenv.config({ path: `.env` });
 
@@ -74,14 +75,14 @@ const config: GatsbyConfig = {
           ...(isDevelopment
             ? []
             : [
-                // {
-                //   resolve: `gatsby-remark-images-contentful`,
-                //   options: {
-                //     maxWidth: 600,
-                //     showCaptions: true,
-                //     withWebp: true,
-                //   },
-                // },
+                {
+                  resolve: `gatsby-remark-images-contentful`,
+                  options: {
+                    maxWidth: 600,
+                    showCaptions: true,
+                    withWebp: true,
+                  },
+                },
               ]),
           {
             resolve: `gatsby-remark-prismjs`,
@@ -129,9 +130,9 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: path.resolve('./plugins/gatsby-plugin-fix-responsive-flash'),
+      resolve: 'gatsby-plugin-fix-fouc',
       options: {
-        breakpoint: createTheme().breakpoints.values.sm,
+        minWidth: createTheme().breakpoints.values.sm,
       },
     },
     {
