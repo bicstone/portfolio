@@ -81,12 +81,6 @@ export const Head: React.FC = () => {
 
         <meta name="format-detection" content="telephone=no" />
 
-        <script
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-          async
-          crossOrigin="anonymous"
-        />
-
         {
           /* CSP 検証用 Cloudfrontの設定と合わせる */
           process.env.NODE_ENV === 'development' && (

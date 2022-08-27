@@ -1,51 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 
-import { oneLineTrim } from 'common-tags';
+import { getInitColorSchemeScript } from '@mui/material/styles';
+import { GatsbySSR } from 'gatsby';
 
-import { isLoadingClassName } from './src/constants/classNames';
-
-import type { GatsbySSR } from 'gatsby';
-
-const generateHtml = (str: string): React.DOMAttributes<Element>['dangerouslySetInnerHTML'] => {
-  return {
-    __html: oneLineTrim(str),
-  };
-};
-
-export const onRenderBody: GatsbySSR['onRenderBody'] = ({
-  setBodyAttributes,
-  setHeadComponents,
-  setPostBodyComponents,
-}) => {
-  setBodyAttributes({
-    className: isLoadingClassName,
-  });
-
-  setHeadComponents([
-    <style
-      key="loading-style"
-      dangerouslySetInnerHTML={generateHtml(`
-        body.${isLoadingClassName}{opacity:0}
-      `)}
-    />,
-
-    <noscript
-      key="loading-noscript-style"
-      dangerouslySetInnerHTML={generateHtml(`
-      <style>
-        body.${isLoadingClassName}{opacity:1!important}
-      </style>
-      `)}
-    />,
-    <script
-      key="loading-fail-safe"
-      dangerouslySetInnerHTML={generateHtml(`
-        setTimeout(function(){
-          document.body.classList.remove("${isLoadingClassName}")
-        },2000)
-      `)}
-    />,
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({ setPreBodyComponents }) => {
+  setPreBodyComponents([
+    <React.Fragment key="init-color-scheme-script">
+      {getInitColorSchemeScript({
+        enableSystem: true,
+      })}
+    </React.Fragment>,
   ]);
-
-  setPostBodyComponents([<script key="loading-script" src="/vanilla/index.js" />]);
 };

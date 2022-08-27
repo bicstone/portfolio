@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
       css={theme => ({
         marginTop: 'auto',
         padding: theme.spacing(3),
-        borderTop: `1px solid ${theme.palette.divider}`,
+        borderTop: `1px solid ${theme.vars.palette.divider}`,
       })}
       role="contentinfo"
     >

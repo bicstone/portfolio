@@ -8303,7 +8303,6 @@ __metadata:
     babel-plugin-i18next-extract: 0.9.0
     babel-preset-gatsby: 2.21.0
     barrelsby: 2.4.0
-    common-tags: 1.8.2
     dotenv: 16.0.1
     esbuild: 0.15.5
     eslint: 8.22.0
@@ -8320,6 +8319,7 @@ __metadata:
     eslint-plugin-standard: 4.1.0
     gatsby: 4.21.1
     gatsby-plugin-emotion: 7.21.0
+    gatsby-plugin-fix-fouc: 0.1.2
     gatsby-plugin-google-tagmanager: 4.21.0
     gatsby-plugin-image: 2.21.0
     gatsby-plugin-manifest: 4.21.0
@@ -8791,6 +8791,13 @@ __metadata:
     camelcase: ^2.0.0
     map-obj: ^1.0.0
   checksum: 97d2993da5db44d45e285910c70a54ce7f83a2be05afceaafd9831f7aeaf38a48dcdede5ca3aae2b2694852281d38dc459706e346942c5df0bf755f4133f5c39
+  languageName: node
+  linkType: hard
+
+"camelcase@npm:7.0.0":
+  version: 7.0.0
+  resolution: "camelcase@npm:7.0.0"
+  checksum: 162d59607b3b46e910af151348d5e40af579048a5d07f3c06370b096ca0d42ba4a88bd92cf4e3482645ba1ffdd6f744d8273c1b9594e493fc10883d54adf7cbe
   languageName: node
   linkType: hard
 
@@ -13148,6 +13155,17 @@ __metadata:
     "@emotion/react": ^11.0.0
     gatsby: ^4.0.0-next
   checksum: a6a38fbc4bfab70018be2edba2f553c51044791a2fcda8f68f05d34791057a0825c3cc7cb5ac443ee6403cec6fec4b443dc8e2d21481b5879bb5f6f391062d3a
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-fix-fouc@npm:0.1.2":
+  version: 0.1.2
+  resolution: "gatsby-plugin-fix-fouc@npm:0.1.2"
+  dependencies:
+    camelcase: 7.0.0
+  peerDependencies:
+    gatsby: ^3 || ^4
+  checksum: 91e6c3b632b7ce3f65b317ed33ddce832b6c2c245d65ed7fd34314c30d3e666d58d2885afbab111ce7b86d2b8f39ff2173a0819f50d73a371ee8aa4412b0e05c
   languageName: node
   linkType: hard
 

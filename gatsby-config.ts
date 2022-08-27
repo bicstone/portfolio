@@ -1,10 +1,12 @@
 import path from 'path';
 
+import { createTheme } from '@mui/material';
 import dotenv from 'dotenv';
 
 import siteMetaData from './src/constants/siteMetaData';
 
 import type { GatsbyConfig } from 'gatsby';
+import type { GatsbyPluginFixFoucRefOptions } from 'gatsby-plugin-fix-fouc';
 
 dotenv.config({ path: `.env` });
 
@@ -126,6 +128,13 @@ const config: GatsbyConfig = {
         defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-fix-fouc',
+      options: {
+        minWidth: createTheme().breakpoints.values.sm,
+        attributeName: 'is-loading',
+      } as GatsbyPluginFixFoucRefOptions,
     },
     {
       resolve: 'gatsby-plugin-remove-serviceworker',
