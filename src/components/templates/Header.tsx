@@ -45,7 +45,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
   return (
     <AppBar
       position="fixed"
-      color={scrollTrigger ? 'inherit' : 'transparent'}
+      color={scrollTrigger ? 'default' : 'transparent'}
       elevation={scrollTrigger ? 4 : 0}
       role="banner"
     >
