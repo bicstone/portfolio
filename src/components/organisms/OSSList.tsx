@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Typography, Grid, CardHeader, CardActionArea, Card, CardMedia, Chip } from '@mui/material';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { Typography, Grid, CardHeader, CardActionArea, Card, Chip } from '@mui/material';
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 import { SvgAvatar } from 'src/components';
@@ -30,18 +29,6 @@ export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
                 rel="external noreferrer noopener nofollow"
                 target="_blank"
               >
-                <CardMedia>
-                  {node?.image?.gatsbyImageData && (
-                    <GatsbyImage
-                      css={{
-                        height: 0,
-                        paddingTop: '56.25%', // 16:9
-                      }}
-                      image={node.image.gatsbyImageData}
-                      alt={node.name || ''}
-                    />
-                  )}
-                </CardMedia>
                 <CardHeader
                   avatar={
                     <SvgAvatar name={node?.icon?.name || ''} svg={node?.icon?.svg?.svg || ''} />
