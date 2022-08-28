@@ -20055,6 +20055,11 @@ export type ContentfulProjectDetailTextNodeSysFilterInput = {
   type: InputMaybe<StringQueryOperatorInput>;
 };
 
+export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type BlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'id' | 'slug'> }> } };
+
 export type BlogPostQueryVariables = Exact<{
   id: Scalars['String'];
   language: Scalars['String'];

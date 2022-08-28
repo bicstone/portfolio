@@ -4,7 +4,6 @@ import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import {
   Breadcrumbs as MuiBreadcrumbs,
   Card,
-  CardContent,
   Container,
   Divider,
   Link,
@@ -42,7 +41,7 @@ const consoleFontFamily = 'HackGen, PlemolJP, Consolas, Courier, monospace';
 const StyledTypography = styled(Typography)(({ theme }) => ({
   display: 'block',
   position: 'relative',
-  margin: theme.spacing(6, 0, 3),
+  margin: theme.spacing(6, 2, 3, 0),
   paddingLeft: theme.spacing(2),
   fontWeight: 'bold',
   '&::before': {
@@ -52,7 +51,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
     left: 0,
     height: '100%',
     width: theme.spacing(0.5),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
   },
 }));
@@ -60,7 +59,7 @@ const StyledTypography = styled(Typography)(({ theme }) => ({
 const StyledBlockquote = styled('blockquote')(({ theme }) => ({
   margin: theme.spacing(2),
   padding: theme.spacing(0, 1),
-  borderLeft: `${theme.palette.divider} solid ${theme.spacing(0.5)}`,
+  borderLeft: `${theme.vars.palette.divider} solid ${theme.spacing(0.5)}`,
 }));
 
 const StyledInlineCode = styled('span')(({ theme }) => ({
@@ -68,16 +67,17 @@ const StyledInlineCode = styled('span')(({ theme }) => ({
   fontFamily: consoleFontFamily,
   paddingLeft: theme.spacing(0.5),
   paddingRight: theme.spacing(0.5),
-  backgroundColor: theme.palette.divider,
+  backgroundColor: theme.vars.palette.divider,
   borderRadius: theme.shape.borderRadius,
 }));
 
 const StyledPreWrap = styled('div')(({ theme }) => ({
   background: '#1e1e1e',
   borderRadius: theme.shape.borderRadius,
-  margin: theme.spacing(2, 0),
+  margin: theme.spacing(2),
   padding: theme.spacing(2),
   overflow: 'auto',
+  border: `1px solid ${theme.vars.palette.divider}`,
 }));
 
 const StyledPre = styled('pre')(({ theme }) => ({
@@ -90,13 +90,6 @@ const StyledPre = styled('pre')(({ theme }) => ({
   padding: 0,
   float: 'left',
   minWidth: '100%',
-
-  '::selection': {
-    backgroundColor: '#3a3d41',
-  },
-  '& ::selection': {
-    backgroundColor: '#3a3d41',
-  },
 
   code: {
     fontFamily: consoleFontFamily,
@@ -231,7 +224,9 @@ const StyledPre = styled('pre')(({ theme }) => ({
 
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
-  p: props => <Typography component="div" paragraph {...props} />,
+  p: props => (
+    <Typography component="div" css={theme => ({ margin: theme.spacing(0, 2, 2) })} {...props} />
+  ),
   h1: () => null,
   h2: props => <StyledTypography variant="h5" component="h2" {...props} />,
   h3: props => <StyledTypography variant="h6" component="h3" {...props} />,
@@ -267,16 +262,34 @@ const components: MDXProviderComponentsProp = {
       );
     }
     return (
-      <Card component="figure" css={theme => ({ margin: theme.spacing(2) })}>
+      <Card component="figure" css={theme => ({ margin: theme.spacing(2) })} elevation={2}>
         <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
           <CardHeader
-            title={<Typography variant="subtitle1">{props.title}</Typography>}
-            subheader={
-              <Typography variant="caption" css={{ display: 'flex', alignItems: 'center' }}>
-                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5) })} />
-                {props.href}
+            title={
+              <Typography variant="subtitle1" css={{ wordBreak: 'break-all' }}>
+                {props.title}
               </Typography>
             }
+            subheader={
+              <Typography
+                variant="caption"
+                css={{ display: 'flex', alignItems: 'center', width: '100%' }}
+              >
+                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5), flexShrink: 0 })} />
+                <div
+                  css={{
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                    wordBreak: 'normal',
+                  }}
+                >
+                  {props.href}
+                </div>
+              </Typography>
+            }
+            disableTypography
+            css={{ '& .MuiCardHeader-content': { overflow: 'hidden' } }}
           />
         </CardActionArea>
       </Card>
@@ -468,21 +481,19 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           )}
         </Typography>
 
-        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(1, 0) })}>
-          <CardContent>
-            <MDXProvider components={components}>
-              <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
-            </MDXProvider>
-            <aside>
-              <Typography variant="subtitle1" paragraph>
-                {t('blog.ad-label')}
-              </Typography>
-              <InarticleAd
-                pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-                adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
-              />
-            </aside>
-          </CardContent>
+        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(2, 0) })}>
+          <MDXProvider components={components}>
+            <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
+          </MDXProvider>
+          <aside>
+            <StyledTypography variant="h5" as="h2" paragraph>
+              {t('blog.ad-label')}
+            </StyledTypography>
+            <InarticleAd
+              pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
+              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
+            />
+          </aside>
         </Card>
 
         <aside css={theme => ({ margin: theme.spacing(4, 0) })}>

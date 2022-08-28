@@ -4,5 +4,5 @@
 
 export * from './useBreakPoint';
 export * from './useBuildTime';
-export * from './useDarkMode';
 export * from './useSiteMetadata';
+export * from './useThemes';
