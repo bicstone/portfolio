@@ -2,3 +2,4 @@
 .yarn
 public
 src/types/graphqlTypes.ts
+static/vanilla
