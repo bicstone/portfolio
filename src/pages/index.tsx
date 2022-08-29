@@ -230,13 +230,6 @@ export const query = graphql`
               svg
             }
           }
-          image {
-            title
-            file {
-              url
-            }
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
           subName
           startDate(formatString: "yyyy/MM")
           href
