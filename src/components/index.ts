@@ -6,7 +6,6 @@ export * from './atoms/InarticleAd';
 export * from './atoms/SvgAvatar';
 export * from './atoms/SvgIcon';
 export * from './molecules/AvatarCard';
-export * from './molecules/AvatarCardAd';
 export * from './molecules/CollapseResponsiveController';
 export * from './molecules/CookieAlertContent';
 export * from './molecules/MediaCard';
