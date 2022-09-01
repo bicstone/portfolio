@@ -121,18 +121,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         <Typography>{t('blog.caption')}</Typography>
 
         <div css={theme => ({ marginBottom: theme.spacing(2) })}>
-          <BlogPostIndex
-            posts={data.posts.group}
-            adsensePubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-            adsenseInfeedMobileAdId={process.env.GATSBY_ADSENSE_INFEED_MOBILE_AD_ID ?? ''}
-            adsenseInfeedMobileAdLayoutKey={
-              process.env.GATSBY_ADSENSE_INFEED_MOBILE_AD_LAYOUT_KEY ?? ''
-            }
-            adsenseInfeedDesktopAdId={process.env.GATSBY_ADSENSE_INFEED_DESKTOP_AD_ID ?? ''}
-            adsenseInfeedDesktopAdLayoutKey={
-              process.env.GATSBY_ADSENSE_INFEED_DESKTOP_AD_LAYOUT_KEY ?? ''
-            }
-          />
+          <BlogPostIndex posts={data.posts.group} />
         </div>
 
         <Breadcrumbs
