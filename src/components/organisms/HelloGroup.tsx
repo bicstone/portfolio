@@ -1,9 +1,10 @@
 import { Typography, Grid, Button, styled, keyframes } from "@mui/material";
 import { Link } from "gatsby";
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
+import { useState } from "react";
 import { SvgIcon, AvatarCard } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { IndexPageQuery } from "src/types";
 
 export interface HelloGroupProps {
   links: IndexPageQuery["links"]["edges"];
@@ -14,10 +15,10 @@ export interface HelloGroupProps {
  * 自己紹介
  * 顔写真、自己紹介と連絡先のリンク集がある
  */
-export const HelloGroup: React.FC<HelloGroupProps> = ({ links, icon }) => {
+export const HelloGroup = ({ links, icon }: HelloGroupProps): JSX.Element => {
   const { t } = useTranslation();
   const { language } = useI18next();
-  const [activeAnimation, setActiveAnimation] = React.useState<boolean>(false);
+  const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   const FukkiretaAnimationSvgIcon = styled(SvgIcon)({
     cursor: "pointer",

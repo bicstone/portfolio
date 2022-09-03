@@ -1,12 +1,13 @@
 import { Card, CardHeader } from "@mui/material";
-import React from "react";
+
+import type { ComponentProps } from "react";
 
 /**
  * 左にAvatarが付いたカード
  */
-export const AvatarCard: React.FC<React.ComponentProps<typeof CardHeader>> = (
-  props
-) => {
+export const AvatarCard = (
+  props: ComponentProps<typeof CardHeader>
+): JSX.Element => {
   return (
     <Card>
       <CardHeader {...props} />

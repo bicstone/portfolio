@@ -6,8 +6,8 @@ import {
   CardHeader,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
-import React from "react";
-import { ContentfulBlogPost, Maybe } from "src/types";
+
+import type { ContentfulBlogPost, Maybe } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
 
@@ -18,9 +18,9 @@ export interface RelatedBlogPostListProps {
 /**
  * 関連記事一覧
  */
-export const RelatedBlogPostList: React.FC<RelatedBlogPostListProps> = ({
+export const RelatedBlogPostList = ({
   posts,
-}) => {
+}: RelatedBlogPostListProps): JSX.Element => {
   return (
     <Grid container spacing={1}>
       {posts.map((post) => {

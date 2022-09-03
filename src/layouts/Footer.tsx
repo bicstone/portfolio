@@ -1,12 +1,11 @@
 import { Typography, Link } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 
 /**
  * フッター部
  */
-export const Footer: React.FC = () => {
+export const Footer = (): JSX.Element => {
   const { t } = useI18next();
   const nowDate = new Date();
   return (

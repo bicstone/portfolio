@@ -9,11 +9,11 @@ import {
   AccordionDetails,
   AccordionSummary,
 } from "@mui/material";
-import { Breakpoint } from "@mui/material/styles";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { CollapseResponsiveController } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { Breakpoint } from "@mui/material/styles";
+import type { IndexPageQuery } from "src/types";
 
 export interface CertificationListProps {
   certification: IndexPageQuery["certification"]["edges"];
@@ -22,9 +22,9 @@ export interface CertificationListProps {
 /**
  * 資格一覧
  */
-export const CertificationList: React.FC<CertificationListProps> = ({
+export const CertificationList = ({
   certification,
-}) => {
+}: CertificationListProps): JSX.Element => {
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ["lg", "xl", "md"];
 

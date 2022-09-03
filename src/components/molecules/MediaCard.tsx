@@ -1,5 +1,6 @@
 import { Card, CardHeader } from "@mui/material";
-import React from "react";
+
+import type { ComponentProps } from "react";
 
 export interface MediaCardProps {
   media?: React.ReactNode;
@@ -8,9 +9,10 @@ export interface MediaCardProps {
 /**
  * 上にMediaが付いたカード
  */
-export const MediaCard: React.FC<
-  React.ComponentProps<typeof CardHeader> & MediaCardProps
-> = ({ media, ...props }) => {
+export const MediaCard = ({
+  media,
+  ...props
+}: ComponentProps<typeof CardHeader> & MediaCardProps): JSX.Element => {
   return (
     <Card>
       {media}

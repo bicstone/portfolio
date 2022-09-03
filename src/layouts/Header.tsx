@@ -11,13 +11,20 @@ import {
   useScrollTrigger,
   Link,
   Button,
-  Breakpoint,
   IconButton,
   useColorScheme,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useBreakPoint, useSiteMetadata } from "src/hooks";
+
+import type { Breakpoint } from "@mui/material";
+
+export interface HeaderProps {
+  icon: string;
+  iconAlt: string;
+  isHome: boolean;
+}
 
 /**
  * ヘッダー部

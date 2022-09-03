@@ -1,5 +1,7 @@
-import { Theme, useTheme, useMediaQuery } from "@mui/material";
-import { Breakpoint } from "@mui/material/styles";
+import { useTheme, useMediaQuery } from "@mui/material";
+
+import type { Theme } from "@mui/material";
+import type { Breakpoint } from "@mui/material/styles";
 
 /**
  * 現在のMaterial-uiのブレークポイントを返す

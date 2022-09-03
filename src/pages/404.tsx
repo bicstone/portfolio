@@ -1,13 +1,13 @@
 import { SelfImprovement as SelfImprovementIcon } from "@mui/icons-material";
 import { Typography, Container, Button } from "@mui/material";
-import { graphql, PageProps, Link as RouterLink, HeadFC } from "gatsby";
+import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
-import { NotFoundPageQuery } from "src/types";
+
+import type { HeadFC} from "gatsby";
 
 import { HeadTemplate } from "@/templates/HeadTemplate";
 
-const NotFound: React.FC<PageProps<NotFoundPageQuery>> = () => {
+const NotFound = (): JSX.Element => {
   const { t } = useI18next();
 
   return (
@@ -47,14 +47,6 @@ export const query = graphql`
           data
           language
         }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
       }
     }
   }

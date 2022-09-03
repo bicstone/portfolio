@@ -6,10 +6,10 @@ import {
   Tooltip,
   IconButton,
 } from "@mui/material";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { graphql } from "gatsby";
 import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
+import { useState } from "react";
 import {
   HelloGroup,
   OSSList,
@@ -20,7 +20,10 @@ import {
   WhatICanDoList,
 } from "src/components";
 import { useSiteMetadata } from "src/hooks";
-import { IndexPageQuery } from "src/types";
+
+import type { PageProps , HeadFC  } from "gatsby";
+import type { ReactNode } from "react";
+import type { IndexPageQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
 import { HeadTemplate } from "@/templates/HeadTemplate";
@@ -33,11 +36,11 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 interface SectionProps {
   title: string;
   help?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ title, help, children }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const Section = ({ title, help, children }: SectionProps): JSX.Element => {
+  const [isOpen, setIsOpen] = useState(false);
 
   const openTooltip = (): void => {
     setIsOpen(true);
@@ -91,7 +94,7 @@ const Section: React.FC<SectionProps> = ({ title, help, children }) => {
   );
 };
 
-const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
+const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 

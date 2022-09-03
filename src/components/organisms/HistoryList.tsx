@@ -1,8 +1,9 @@
 import { Card, CardHeader, Divider, Typography } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
+import { Fragment } from "react";
 import { SvgAvatar } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { IndexPageQuery } from "src/types";
 
 export interface HistoryListProps {
   histories: IndexPageQuery["histories"]["edges"];
@@ -11,7 +12,7 @@ export interface HistoryListProps {
 /**
  * 経歴
  */
-export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
+export const HistoryList = ({ histories }: HistoryListProps): JSX.Element => {
   const { t, language } = useI18next();
 
   return (
@@ -19,7 +20,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
       {histories
         .filter(({ node }) => node.node_locale === language)
         .map(({ node }, index, { length }) => (
-          <React.Fragment key={node.id}>
+          <Fragment key={node.id}>
             <CardHeader
               avatar={
                 <SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />
@@ -51,7 +52,7 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
             />
             {/* 1 px to be consistent with the accordion. */}
             {index < length - 1 && <Divider css={{ borderBottomWidth: 1 }} />}
-          </React.Fragment>
+          </Fragment>
         ))}
     </Card>
   );

@@ -1,17 +1,17 @@
 import { green, pink } from "@mui/material/colors";
 import {
   createTheme,
-  CssVarsTheme,
   experimental_extendTheme as createExtendTheme,
-  Theme,
 } from "@mui/material/styles";
-import React from "react";
+import { useMemo } from "react";
+
+import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
 export const useThemes = (): {
   theme: Omit<Theme, "palette"> & CssVarsTheme;
 } => {
-  const defaultTheme = React.useMemo(() => createTheme(), []);
-  const theme = React.useMemo(() => {
+  const defaultTheme = useMemo(() => createTheme(), []);
+  const theme = useMemo(() => {
     return createExtendTheme({
       colorSchemes: {
         light: {

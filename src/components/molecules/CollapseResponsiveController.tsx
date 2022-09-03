@@ -1,31 +1,31 @@
-import { Accordion } from "@mui/material";
-import { Breakpoint } from "@mui/material/styles";
-import React from "react";
+import { useState, useEffect } from "react";
 import { useBreakPoint } from "src/hooks";
+
+import type { Accordion } from "@mui/material";
+import type { Breakpoint } from "@mui/material/styles";
+import type { ReactComponentElement } from "react";
 
 import { isDefined } from "@/commons/typeguard";
 
 export interface CollapseResponsiveControllerProps {
   defaultExpanded: boolean;
   defaultExpandedBreakpoints?: Breakpoint[];
-  children: React.ReactComponentElement<typeof Accordion>;
+  children: ReactComponentElement<typeof Accordion>;
 }
 
 /**
  * ブレークポイントが広くなった場合に展開するアコーディオン制御
  */
-export const CollapseResponsiveController: React.FC<
-  CollapseResponsiveControllerProps
-> = ({
+export const CollapseResponsiveController = ({
   defaultExpanded = true,
   defaultExpandedBreakpoints = undefined,
   children,
-}) => {
+}: CollapseResponsiveControllerProps): JSX.Element => {
   const width = useBreakPoint();
-  const [expanded, setExpanded] = React.useState<boolean>(defaultExpanded);
-  const [previousWidth, setPreviousWidth] = React.useState<Breakpoint>("xs");
+  const [expanded, setExpanded] = useState<boolean>(defaultExpanded);
+  const [previousWidth, setPreviousWidth] = useState<Breakpoint>("xs");
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (previousWidth === width) {
       return;
     }
