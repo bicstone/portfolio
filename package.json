@@ -19,7 +19,7 @@
     "g": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
     "tc": "yarn typecheck",
-    "barrelsby": "barrelsby -d ./src -D -i 'src/(components|hooks|types)/(?!.*\\.d\\.ts$).*$' -l below -q",
+    "barrelsby": "barrelsby -d ./src -D -i 'src/(components|hooks|types)/(?!.*\\.d\\.ts$).*$' -l below",
     "b": "yarn barrelsby",
     "deploy": "gatsby-plugin-s3 deploy",
     "prepare": "husky install"
