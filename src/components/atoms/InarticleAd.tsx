@@ -1,4 +1,3 @@
-import { Script } from "gatsby";
 import React from "react";
 
 import { isDefined } from "@/commons/typeguard";
@@ -32,24 +31,14 @@ export const InarticleAd = React.memo<InarticleAdProps>(({ pubId, adId }) => {
   }, []);
 
   return (
-    <>
-      <ins
-        className="adsbygoogle"
-        css={{ display: "block", textAlign: "center" }}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client={pubId}
-        data-ad-slot={adId}
-      />
-      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) && (
-        <Script
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-          async
-          crossOrigin="anonymous"
-          strategy="idle"
-        />
-      )}
-    </>
+    <ins
+      className="adsbygoogle"
+      css={{ display: "block", textAlign: "center" }}
+      data-ad-layout="in-article"
+      data-ad-format="fluid"
+      data-ad-client={pubId}
+      data-ad-slot={adId}
+    />
   );
 });
 

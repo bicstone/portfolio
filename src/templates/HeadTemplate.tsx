@@ -1,7 +1,10 @@
+import { Script } from "gatsby";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useEffect } from "react";
 import { useSiteMetadata } from "src/hooks";
+
+import { isDefined } from "@/commons/typeguard";
 
 /**
  * Headタグ部
@@ -120,6 +123,14 @@ export const HeadTemplate = (): JSX.Element => {
           locale: language,
         }}
       />
+      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) && (
+        <Script
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
+          async
+          crossOrigin="anonymous"
+          strategy="idle"
+        />
+      )}
     </>
   );
 };
