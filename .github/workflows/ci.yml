@@ -4,7 +4,7 @@ env:
   CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
   CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   # "bucketName" is a required option for gatsby-plugin-s3
-  AWS_S3_BUCKET_NAME: 'example'
+  AWS_S3_BUCKET_NAME: "example"
 
 on:
   push:
@@ -21,9 +21,9 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
-          cache: 'yarn'
-      - run: yarn install
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+      - run: yarn install --frozen-lockfile
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build

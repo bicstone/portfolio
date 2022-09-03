@@ -5,15 +5,15 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/' # Location of package manifests
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
-      interval: 'daily'
-      time: '05:00'
-      timezone: 'Asia/Tokyo'
+      interval: "daily"
+      time: "05:00"
+      timezone: "Asia/Tokyo"
     assignees:
-      - 'bicstone'
+      - "bicstone"
     reviewers:
-      - 'bicstone'
+      - "bicstone"
     # 依存関係の数と更新頻度が多すぎるため、対応を検討中
     open-pull-requests-limit: 0

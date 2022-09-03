@@ -1,6 +1,10 @@
-import React from 'react';
-
-import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
+import { MDXProvider, MDXProviderComponentsProp } from "@mdx-js/react";
+import {
+  AccessTime as AccessTimeIcon,
+  NavigateNext as NavigateNextIcon,
+  Update as UpdateIcon,
+  Link as LinkIcon,
+} from "@mui/icons-material";
 import {
   Breadcrumbs as MuiBreadcrumbs,
   Card,
@@ -18,52 +22,57 @@ import {
   BreadcrumbsProps as MuiBreadcrumbsProps,
   CardActionArea,
   CardHeader,
-} from '@mui/material';
-import { captureException } from '@sentry/gatsby';
-import { graphql, navigate, PageProps, Link as RouterLink } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import { BlogPostJsonLd, GatsbySeo, BreadcrumbJsonLd } from 'gatsby-plugin-next-seo';
-import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-
+  NoSsr,
+} from "@mui/material";
+import { captureException } from "@sentry/gatsby";
+import { graphql, PageProps, Link as RouterLink } from "gatsby";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import {
-  AccessTime as AccessTimeIcon,
-  NavigateNext as NavigateNextIcon,
-  Update as UpdateIcon,
-  Link as LinkIcon,
-} from '@mui/icons-material';
+  BlogPostJsonLd,
+  GatsbySeo,
+  BreadcrumbJsonLd,
+} from "gatsby-plugin-next-seo";
+import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
+import React from "react";
+import {
+  HelloGroup,
+  Layout,
+  InarticleAd,
+  RelatedBlogPostList,
+} from "src/components";
+import { useSiteMetadata } from "src/hooks";
+import { BlogPostQuery } from "src/types";
 
-import { HelloGroup, Layout, InarticleAd, RelatedBlogPostList } from 'src/components';
-import { useSiteMetadata } from 'src/hooks';
-import { BlogPostQuery } from 'src/types';
+import { isDefined } from "@/commons/typeguard";
 
-const consoleFontFamily = 'HackGen, PlemolJP, Consolas, Courier, monospace';
+const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
-  display: 'block',
-  position: 'relative',
+  display: "block",
+  position: "relative",
   margin: theme.spacing(6, 2, 3, 0),
   paddingLeft: theme.spacing(2),
-  fontWeight: 'bold',
-  '&::before': {
+  fontWeight: "bold",
+  "&::before": {
     content: '""',
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
-    height: '100%',
+    height: "100%",
     width: theme.spacing(0.5),
     backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
   },
 }));
 
-const StyledBlockquote = styled('blockquote')(({ theme }) => ({
+const StyledBlockquote = styled("blockquote")(({ theme }) => ({
   margin: theme.spacing(2),
   padding: theme.spacing(0, 1),
   borderLeft: `${theme.vars.palette.divider} solid ${theme.spacing(0.5)}`,
 }));
 
-const StyledInlineCode = styled('span')(({ theme }) => ({
-  display: 'inline-block',
+const StyledInlineCode = styled("span")(({ theme }) => ({
+  display: "inline-block",
   fontFamily: consoleFontFamily,
   paddingLeft: theme.spacing(0.5),
   paddingRight: theme.spacing(0.5),
@@ -71,25 +80,25 @@ const StyledInlineCode = styled('span')(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
 }));
 
-const StyledPreWrap = styled('div')(({ theme }) => ({
-  background: '#1e1e1e',
+const StyledPreWrap = styled("div")(({ theme }) => ({
+  background: "#1e1e1e",
   borderRadius: theme.shape.borderRadius,
   margin: theme.spacing(2),
   padding: theme.spacing(2),
-  overflow: 'auto',
+  overflow: "auto",
   border: `1px solid ${theme.vars.palette.divider}`,
 }));
 
-const StyledPre = styled('pre')(({ theme }) => ({
+const StyledPre = styled("pre")(({ theme }) => ({
   // fork from https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-vsc-dark-plus.css
   // MIT License https://github.com/PrismJS/prism-themes/blob/v1.9.0/LICENSE
-  color: '#d4d4d4',
-  whiteSpace: 'pre',
+  color: "#d4d4d4",
+  whiteSpace: "pre",
   tabSize: 2,
   margin: 0,
   padding: 0,
-  float: 'left',
-  minWidth: '100%',
+  float: "left",
+  minWidth: "100%",
 
   code: {
     fontFamily: consoleFontFamily,
@@ -106,7 +115,7 @@ const StyledPre = styled('pre')(({ theme }) => ({
     .token.punctuation.interpolation-punctuation,
     .token.tag
   `]: {
-    color: '#569cd6',
+    color: "#569cd6",
   },
   [`
     .language-javascript,
@@ -125,12 +134,12 @@ const StyledPre = styled('pre')(({ theme }) => ({
     .token.property,
     .token.variable
   `]: {
-    color: '#9cdcfe',
+    color: "#9cdcfe",
   },
   [`
     .token.comment,
     .token.prolog
-  `]: { color: '#6a9955' },
+  `]: { color: "#6a9955" },
   [`
     .language-html,
     .language-html .language-css .token.punctuation,
@@ -141,7 +150,7 @@ const StyledPre = styled('pre')(({ theme }) => ({
     .token.operator,
     .token.punctuation
   `]: {
-    color: '#d4d4d4',
+    color: "#d4d4d4",
   },
   [`
     .token.boolean,
@@ -153,7 +162,7 @@ const StyledPre = styled('pre')(({ theme }) => ({
     .token.tag,
     .token.unit
   `]: {
-    color: '#b5cea8',
+    color: "#b5cea8",
   },
   [`
     .language-css,
@@ -167,15 +176,15 @@ const StyledPre = styled('pre')(({ theme }) => ({
     .token.selector,
     .token.string
   `]: {
-    color: '#ce9178',
+    color: "#ce9178",
   },
-  [`.language-css .token.string.url`]: { textDecoration: 'underline' },
+  [`.language-css .token.string.url`]: { textDecoration: "underline" },
   [`
     .token.atrule .token.rule,
     .token.keyword.control-flow,
     .token.keyword.module
   `]: {
-    color: '#c586c0',
+    color: "#c586c0",
   },
   [`
   .language-regex .token.anchor,
@@ -183,105 +192,139 @@ const StyledPre = styled('pre')(({ theme }) => ({
   .token.function,
   .token.function .token.maybe-class-name
   `]: {
-    color: '#dcdcaa',
+    color: "#dcdcaa",
   },
-  [`.token.regex`]: { color: '#d16969' },
-  [`.token.italic`]: { fontStyle: 'italic' },
+  [`.token.regex`]: { color: "#d16969" },
+  [`.token.italic`]: { fontStyle: "italic" },
   [`
     .token.class-name,
     .token.maybe-class-name,
     .token.namespace
   `]: {
-    color: '#4ec9b0',
+    color: "#4ec9b0",
   },
   [`
     .token.escape,
     .token.selector
-  `]: { color: '#d7ba7d' },
+  `]: { color: "#d7ba7d" },
   [`
     .language-html .token.punctuation,
     .token.cdata,
     .token.tag .token.punctuation
   `]: {
-    color: 'gray',
+    color: "gray",
   },
 
   // https://github.com/gatsbyjs/gatsby/tree/v2.20.0/packages/gatsby-remark-prismjs
   [`.gatsby-highlight-code-line`]: {
-    display: 'block',
-    backgroundColor: '#373d29',
+    display: "block",
+    backgroundColor: "#373d29",
     margin: theme.spacing(0, -2),
     padding: theme.spacing(0, 2),
 
-    '::selection': {
-      backgroundColor: '#4d5645',
+    "::selection": {
+      backgroundColor: "#4d5645",
     },
-    '& ::selection': {
-      backgroundColor: '#4d5645',
+    "& ::selection": {
+      backgroundColor: "#4d5645",
     },
   },
 }));
 
 // FIXME: refactor
 const components: MDXProviderComponentsProp = {
-  p: props => (
-    <Typography component="div" css={theme => ({ margin: theme.spacing(0, 2, 2) })} {...props} />
+  p: (props) => (
+    <Typography
+      component="div"
+      css={(theme) => ({ margin: theme.spacing(0, 2, 2) })}
+      {...props}
+    />
   ),
   h1: () => null,
-  h2: props => <StyledTypography variant="h5" component="h2" {...props} />,
-  h3: props => <StyledTypography variant="h6" component="h3" {...props} />,
+  h2: (props) => <StyledTypography variant="h5" component="h2" {...props} />,
+  h3: (props) => <StyledTypography variant="h6" component="h3" {...props} />,
   h4: () => null,
   h5: () => null,
   h6: () => null,
-  blockquote: props => <StyledBlockquote {...props} />,
+  blockquote: (props) => <StyledBlockquote {...props} />,
   table: ({ children, ...props }) => (
     <TableContainer
       {...props}
-      css={theme => ({ marginTop: theme.spacing(1), marginBottom: theme.spacing(1) })}
+      css={(theme) => ({
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1),
+      })}
     >
       <Table size="small">{children}</Table>
     </TableContainer>
   ),
-  thead: props => <TableHead {...props} />,
-  tbody: props => <TableBody {...props} />,
-  tr: props => <TableRow {...props} />,
-  th: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="th" {...props} />,
-  td: ({ align, ...props }) => <TableCell align={align ?? 'inherit'} component="td" {...props} />,
-  inlineCode: props => <StyledInlineCode {...props} />,
-  pre: props => (
+  thead: (props) => <TableHead {...props} />,
+  tbody: (props) => <TableBody {...props} />,
+  tr: (props) => <TableRow {...props} />,
+  th: ({ align, ...props }) => (
+    <TableCell align={align ?? "inherit"} component="th" {...props} />
+  ),
+  td: ({ align, ...props }) => (
+    <TableCell align={align ?? "inherit"} component="td" {...props} />
+  ),
+  inlineCode: (props) => <StyledInlineCode {...props} />,
+  pre: (props) => (
     <StyledPreWrap>
       <StyledPre {...props} />
     </StyledPreWrap>
   ),
   hr: () => <Divider />,
-  a: props => <Link {...props} rel="external noreferrer noopener nofollow" target="_blank" />,
-  link: props => {
-    if (!props.title || !props.href) {
+  a: (props) => (
+    <Link
+      {...props}
+      rel="external noreferrer noopener nofollow"
+      target="_blank"
+    />
+  ),
+  link: (props) => {
+    if (!isDefined(props.title) || !isDefined(props.href)) {
       captureException(
-        new Error(`Cannot provide both title: ${props.title} and href: ${props.href}`),
+        new Error(
+          `Cannot provide both title: ${String(props.title)} and href: ${String(
+            props.href
+          )}`
+        )
       );
     }
     return (
-      <Card component="figure" css={theme => ({ margin: theme.spacing(2) })} elevation={2}>
-        <CardActionArea rel="external noreferrer noopener nofollow" target="_blank" {...props}>
+      <Card
+        component="figure"
+        css={(theme) => ({ margin: theme.spacing(2) })}
+        elevation={2}
+      >
+        <CardActionArea
+          rel="external noreferrer noopener nofollow"
+          target="_blank"
+          {...props}
+        >
           <CardHeader
             title={
-              <Typography variant="subtitle1" css={{ wordBreak: 'break-all' }}>
+              <Typography variant="subtitle1" css={{ wordBreak: "break-all" }}>
                 {props.title}
               </Typography>
             }
             subheader={
               <Typography
                 variant="caption"
-                css={{ display: 'flex', alignItems: 'center', width: '100%' }}
+                css={{ display: "flex", alignItems: "center", width: "100%" }}
               >
-                <LinkIcon css={theme => ({ marginRight: theme.spacing(0.5), flexShrink: 0 })} />
+                <LinkIcon
+                  css={(theme) => ({
+                    marginRight: theme.spacing(0.5),
+                    flexShrink: 0,
+                  })}
+                />
                 <div
                   css={{
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                    wordBreak: 'normal',
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                    wordBreak: "normal",
                   }}
                 >
                   {props.href}
@@ -289,22 +332,22 @@ const components: MDXProviderComponentsProp = {
               </Typography>
             }
             disableTypography
-            css={{ '& .MuiCardHeader-content': { overflow: 'hidden' } }}
+            css={{ "& .MuiCardHeader-content": { overflow: "hidden" } }}
           />
         </CardActionArea>
       </Card>
     );
   },
-  video: props => (
+  video: (props) => (
     // eslint-disable-next-line jsx-a11y/media-has-caption
     <video
       controls
       css={{
-        position: 'relative',
-        display: 'block',
+        position: "relative",
+        display: "block",
         maxWidth: 600,
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        marginLeft: "auto",
+        marginRight: "auto",
       }}
       {...props}
     />
@@ -312,10 +355,15 @@ const components: MDXProviderComponentsProp = {
   ad: () => (
     <aside>
       <Typography variant="subtitle1">スポンサーリンク</Typography>
-      <InarticleAd
-        pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-        adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
-      />
+      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
+        isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
+          <NoSsr defer>
+            <InarticleAd
+              pubId={process.env.GATSBY_ADSENSE_PUB_ID}
+              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+            />
+          </NoSsr>
+        )}
     </aside>
   ),
 };
@@ -326,12 +374,17 @@ type BreadcrumbsProps = {
   postTitle: string;
 } & MuiBreadcrumbsProps;
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, postTitle, ...props }) => {
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+  siteTitle,
+  blogTitle,
+  postTitle,
+  ...props
+}) => {
   return (
     <MuiBreadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
-      css={{ wordBreak: 'break-all' }}
+      css={{ wordBreak: "break-all" }}
       {...props}
     >
       <Link component={RouterLink} color="inherit" to="/">
@@ -356,28 +409,25 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const title = `${post.title} - ${siteMetadata.title}`;
 
   const relatedPosts = React.useMemo(() => {
-    const posts = post.tags.flatMap(tag => tag.blog_post);
-    const filteredPosts = Array.from(new Map(posts.map(post => [post.id, post])).values());
+    const posts = post.tags.flatMap((tag) => tag.blog_post);
+    const filteredPosts = Array.from(
+      new Map(posts.map((post) => [post.id, post])).values()
+    );
     filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
     return filteredPosts;
   }, [post.tags]);
-
-  if (!post) {
-    navigate('/404');
-    return null;
-  }
 
   return (
     <Layout
       icon={data.icon.svg.content}
       iconAlt={data.icon.title}
-      css={{ overflowWrap: 'break-word' }}
+      css={{ overflowWrap: "break-word" }}
     >
       <GatsbySeo
         title={title}
         description={post.excerpt}
         openGraph={{
-          type: 'article',
+          type: "article",
           title,
           description: post.excerpt,
           images: [
@@ -391,7 +441,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
             modifiedTime: post.updated,
             authors: [siteMetadata.siteUrl],
             section: post.category.name,
-            tags: post.tags.map(v => v.name),
+            tags: post.tags.map((v) => v.name),
           },
         }}
       />
@@ -406,13 +456,13 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
         dateModified={post.updated}
         description={post.excerpt}
         images={[post.thumbnail.file.url]}
-        keywords={post.tags.map(v => v.name)}
+        keywords={post.tags.map((v) => v.name)}
         publisherLogo={siteMetadata.image}
         publisherName={siteMetadata.title}
         overrides={{
-          '@type': 'BlogPosting',
+          "@type": "BlogPosting",
           author: {
-            '@type': 'Person',
+            "@type": "Person",
             name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
             url: siteMetadata.siteUrl,
           },
@@ -428,7 +478,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           },
           {
             position: 2,
-            name: t('blog.title'),
+            name: t("blog.title"),
             item: `${siteMetadata.siteUrl}/blog`,
           },
           {
@@ -442,9 +492,12 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
       <Container maxWidth="md">
         <Breadcrumbs
           siteTitle={siteMetadata.title}
-          blogTitle={t('blog.title')}
+          blogTitle={t("blog.title")}
           postTitle={post.title}
-          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
+          css={(theme) => ({
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+          })}
         />
 
         <Typography variant="h4" component="h1">
@@ -455,67 +508,93 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           variant="body2"
           color="textSecondary"
           component="div"
-          css={theme => ({
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
+          css={(theme) => ({
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
             marginTop: theme.spacing(1),
           })}
         >
-          {post.updated && (
+          {isDefined(post.updated) && (
             <>
-              <UpdateIcon fontSize="inherit" css={theme => ({ marginRight: theme.spacing(0.5) })} />
-              <time dateTime={post.updated} css={theme => ({ marginRight: theme.spacing(1) })}>
+              <UpdateIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time
+                dateTime={post.updated}
+                css={(theme) => ({ marginRight: theme.spacing(1) })}
+              >
                 {post.updatedDate}
               </time>
             </>
           )}
-          {post.created && (
+          {isDefined(post.created) && (
             <>
               <AccessTimeIcon
                 fontSize="inherit"
-                css={theme => ({ marginRight: theme.spacing(0.5) })}
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
               <time dateTime={post.created}>{post.createdDate}</time>
             </>
           )}
         </Typography>
 
-        <Card css={theme => ({ margin: theme.spacing(2, 0), padding: theme.spacing(2, 0) })}>
+        <Card
+          css={(theme) => ({
+            margin: theme.spacing(2, 0),
+            padding: theme.spacing(2, 0),
+          })}
+        >
           <MDXProvider components={components}>
-            <MDXRenderer components={components}>{post.content.childMdx.body}</MDXRenderer>
+            <MDXRenderer components={components}>
+              {post.content.childMdx.body}
+            </MDXRenderer>
           </MDXProvider>
           <aside>
             <StyledTypography variant="h5" as="h2" paragraph>
-              {t('blog.ad-label')}
+              {t("blog.ad-label")}
             </StyledTypography>
-            <InarticleAd
-              pubId={process.env.GATSBY_ADSENSE_PUB_ID ?? ''}
-              adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID ?? ''}
-            />
+            {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
+              isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
+                <NoSsr defer>
+                  <InarticleAd
+                    pubId={process.env.GATSBY_ADSENSE_PUB_ID}
+                    adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+                  />
+                </NoSsr>
+              )}
           </aside>
         </Card>
 
-        <aside css={theme => ({ margin: theme.spacing(4, 0) })}>
+        <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
           <Typography variant="h5" component="h2">
-            {t('blog.author-title')}
+            {t("blog.author-title")}
           </Typography>
-          <section css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}>
+          <section
+            css={(theme) => ({
+              marginTop: theme.spacing(2),
+              marginBottom: theme.spacing(2),
+            })}
+          >
             <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
           </section>
         </aside>
-        <aside css={theme => ({ margin: theme.spacing(4, 0) })}>
+        <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
           <Typography variant="h5" component="h2" paragraph>
-            {t('blog.related-title')}
+            {t("blog.related-title")}
           </Typography>
           <RelatedBlogPostList posts={relatedPosts} />
         </aside>
 
         <Breadcrumbs
           siteTitle={siteMetadata.title}
-          blogTitle={t('blog.title')}
+          blogTitle={t("blog.title")}
           postTitle={post.title}
-          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
+          css={(theme) => ({
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+          })}
         />
       </Container>
     </Layout>

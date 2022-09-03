@@ -1,10 +1,8 @@
-import React from 'react';
-
-import { GatsbySeo } from 'gatsby-plugin-next-seo';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-import { Helmet } from 'react-helmet-async';
-
-import { useSiteMetadata } from 'src/hooks';
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { useSiteMetadata } from "src/hooks";
 
 /**
  * Headタグ部
@@ -12,9 +10,17 @@ import { useSiteMetadata } from 'src/hooks';
 export const Head: React.FC = () => {
   const siteMetadata = useSiteMetadata();
 
-  const { languages, language, originalPath, defaultLanguage, siteUrl = '' } = useI18next();
-  const createUrlWithLang = (lng: string) => {
-    return `${siteUrl}${lng === defaultLanguage ? '' : `/${lng}`}${originalPath}`;
+  const {
+    languages,
+    language,
+    originalPath,
+    defaultLanguage,
+    siteUrl = "",
+  } = useI18next();
+  const createUrlWithLang = (lng: string): string => {
+    return `${siteUrl}${
+      lng === defaultLanguage ? "" : `/${lng}`
+    }${originalPath}`;
   };
 
   return (
@@ -23,12 +29,24 @@ export const Head: React.FC = () => {
         <html lang={language} />
 
         <link rel="canonical" href={createUrlWithLang(language)} />
-        {languages.map(lng => (
-          <link rel="alternate" key={lng} href={createUrlWithLang(lng)} hrefLang={lng} />
+        {languages.map((lng) => (
+          <link
+            rel="alternate"
+            key={lng}
+            href={createUrlWithLang(lng)}
+            hrefLang={lng}
+          />
         ))}
-        <link rel="alternate" href={createUrlWithLang(defaultLanguage)} hrefLang="x-default" />
+        <link
+          rel="alternate"
+          href={createUrlWithLang(defaultLanguage)}
+          hrefLang="x-default"
+        />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
 
         {/* contentful */}
         <link rel="dns-prefetch" href="https://images.ctfassets.net" />
@@ -73,7 +91,10 @@ export const Head: React.FC = () => {
           href={`${siteMetadata.siteUrl}/safari-pinned-tab.svg`}
           color="#2d1e1e"
         />
-        <meta name="apple-mobile-web-app-title" content={siteMetadata.shortTitle} />
+        <meta
+          name="apple-mobile-web-app-title"
+          content={siteMetadata.shortTitle}
+        />
         <meta name="application-name" content={siteMetadata.shortTitle} />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
@@ -83,7 +104,7 @@ export const Head: React.FC = () => {
 
         {
           /* CSP 検証用 Cloudfrontの設定と合わせる */
-          process.env.NODE_ENV === 'development' && (
+          process.env.NODE_ENV === "development" && (
             <meta
               httpEquiv="Content-Security-Policy"
               content={process.env.GATSBY_CONTENT_SECURITY_POLICY}
@@ -92,8 +113,11 @@ export const Head: React.FC = () => {
         }
         {
           /* Permissions-Policy 検証用 Cloudfrontの設定と合わせる */
-          process.env.NODE_ENV === 'development' && (
-            <meta httpEquiv="Permissions-Policy" content={process.env.GATSBY_PERMISSIONS_POLICY} />
+          process.env.NODE_ENV === "development" && (
+            <meta
+              httpEquiv="Permissions-Policy"
+              content={process.env.GATSBY_PERMISSIONS_POLICY}
+            />
           )
         }
       </Helmet>

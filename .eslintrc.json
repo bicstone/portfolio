@@ -1,22 +1,25 @@
 {
-  "env": {
-    "browser": true,
-    "es2020": true
-  },
   "extends": [
-    "standard",
-    "plugin:import/recommended",
+    "standard-with-typescript",
     "plugin:jsx-a11y/recommended",
+    "plugin:jsx-a11y/strict",
     "plugin:regexp/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": 11
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   },
   "rules": {
-    "no-use-before-define": "off",
-    "no-restricted-imports": ["error", { "patterns": ["^\\.\\./"] }],
-    "import/no-unresolved": ["error", { "ignore": ["^src/"] }],
     "import/order": [
       "error",
       {
@@ -30,60 +33,16 @@
           "object",
           "type"
         ],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          },
-          {
-            "pattern": "@mui/icons-material*",
-            "group": "internal",
-            "position": "before"
-          },
-          {
-            "pattern": "src/*",
-            "group": "internal"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react", "@mui/icons-material"],
         "alphabetize": {
           "order": "asc"
         },
         "newlines-between": "always"
       }
     ],
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }]
-  },
-  "overrides": [
-    {
-      "files": ["*.ts", "*.tsx"],
-      "extends": [
-        "standard",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-        "plugin:jsx-a11y/recommended",
-        "prettier"
-      ],
-      "parser": "@typescript-eslint/parser",
-      "parserOptions": {
-        "ecmaFeatures": {
-          "jsx": true
-        },
-        "ecmaVersion": 11,
-        "sourceType": "module"
-      },
-      "plugins": ["react", "react-hooks", "@typescript-eslint"],
-      "settings": {
-        "react": {
-          "version": "detect"
-        }
-      },
-      "rules": {
-        "react/prop-types": "off"
-      }
-    }
-  ]
+    "no-multiple-empty-lines": [
+      "error",
+      { "max": 1, "maxEOF": 1, "maxBOF": 0 }
+    ],
+    "react/prop-types": "off"
+  }
 }
