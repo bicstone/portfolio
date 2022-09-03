@@ -18,10 +18,10 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   ]);
 };
 
-export const wrapRootElement: GatsbySSR['wrapRootElement'] = ({ element }) => {
+export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
   return <WrapRootElement>{element}</WrapRootElement>;
 };
 
-export const wrapPageElement: GatsbySSR['wrapPageElement'] = ({ element }) => {
+export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => {
   return <WrapPageElement>{element}</WrapPageElement>;
 };

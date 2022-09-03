@@ -216,4 +216,3 @@ export const query = graphql`
 export const Head: HeadFC = () => {
   return <HeadTemplate />;
 };
-
