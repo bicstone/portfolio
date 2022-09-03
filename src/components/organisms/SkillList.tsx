@@ -8,11 +8,11 @@ import {
   AccordionSummary,
   Chip,
 } from "@mui/material";
-import { Breakpoint } from "@mui/material/styles";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { CollapseResponsiveController } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { Breakpoint } from "@mui/material/styles";
+import type { IndexPageQuery } from "src/types";
 
 export interface SkillListProps {
   skills: IndexPageQuery["skills"]["edges"];
@@ -21,7 +21,7 @@ export interface SkillListProps {
 /**
  * スキルリスト
  */
-export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
+export const SkillList = ({ skills }: SkillListProps): JSX.Element => {
   const { language } = useI18next();
   const defaultExpandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
 

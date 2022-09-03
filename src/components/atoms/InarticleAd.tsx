@@ -1,4 +1,4 @@
-import React from "react";
+import { memo, useEffect } from "react";
 
 import { isDefined } from "@/commons/typeguard";
 
@@ -17,8 +17,8 @@ export interface InarticleAdProps {
 /**
  * 記事内広告
  */
-export const InarticleAd = React.memo<InarticleAdProps>(({ pubId, adId }) => {
-  React.useEffect(() => {
+export const InarticleAd = memo<InarticleAdProps>(({ pubId, adId }) => {
+  useEffect(() => {
     if (!isDefined(window)) {
       return;
     }

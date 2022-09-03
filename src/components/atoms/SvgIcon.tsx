@@ -1,12 +1,9 @@
-import parse, {
-  attributesToProps,
-  domToReact,
-  HTMLReactParserOptions,
-  DOMNode,
-} from "html-react-parser";
-import React from "react";
+import parse, { attributesToProps, domToReact } from "html-react-parser";
 
-export interface SvgIconProps extends React.ComponentPropsWithRef<"svg"> {
+import type { HTMLReactParserOptions, DOMNode } from "html-react-parser";
+import type { ComponentPropsWithRef } from "react";
+
+export interface SvgIconProps extends ComponentPropsWithRef<"svg"> {
   width: number;
   height: number;
   icon: string;

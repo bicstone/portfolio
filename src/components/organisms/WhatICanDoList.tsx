@@ -1,8 +1,8 @@
 import { Typography, Grid, CardHeader, Card } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { SvgAvatar } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { IndexPageQuery } from "src/types";
 
 export interface WhatICanDoListProps {
   whatICanDos: IndexPageQuery["whatICanDos"]["edges"];
@@ -11,9 +11,9 @@ export interface WhatICanDoListProps {
 /**
  * お手伝いできることリスト
  */
-export const WhatICanDoList: React.FC<WhatICanDoListProps> = ({
+export const WhatICanDoList = ({
   whatICanDos,
-}) => {
+}: WhatICanDoListProps): JSX.Element => {
   const { language } = useI18next();
   return (
     <Grid container spacing={2} alignItems="center">

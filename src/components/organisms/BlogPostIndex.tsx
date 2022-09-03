@@ -2,17 +2,12 @@ import {
   Update as UpdateIcon,
   AccessTime as AccessTimeIcon,
 } from "@mui/icons-material";
-import {
-  Typography,
-  CardActionArea,
-  Card,
-  Breakpoint,
-  Collapse,
-} from "@mui/material";
+import { Typography, CardActionArea, Card, Collapse } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
-import React from "react";
 import { useBreakPoint } from "src/hooks";
-import { BlogPageQuery } from "src/types";
+
+import type { Breakpoint } from "@mui/material";
+import type { BlogPageQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
 
@@ -24,7 +19,7 @@ export interface BlogPostIndexProps {
  * ブログ記事一覧
  * カテゴリー別に表示する
  */
-export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
+export const BlogPostIndex = ({ posts }: BlogPostIndexProps): JSX.Element => {
   const breakpoints: Breakpoint[] = ["xs"];
   const width = useBreakPoint();
   const mobile = breakpoints.includes(width);

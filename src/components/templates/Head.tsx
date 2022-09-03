@@ -1,13 +1,12 @@
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useSiteMetadata } from "src/hooks";
 
 /**
  * Headタグ部
  */
-export const Head: React.FC = () => {
+export const Head = (): JSX.Element => {
   const siteMetadata = useSiteMetadata();
 
   const {

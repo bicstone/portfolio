@@ -7,9 +7,9 @@ import {
   Chip,
 } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { SvgAvatar } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { IndexPageQuery } from "src/types";
 
 export interface OSSListProps {
   osses: IndexPageQuery["osses"]["edges"];
@@ -18,7 +18,7 @@ export interface OSSListProps {
 /**
  * OSS 一覧
  */
-export const OSSList: React.FC<OSSListProps> = ({ osses }) => {
+export const OSSList = ({ osses }: OSSListProps): JSX.Element => {
   const { language } = useI18next();
 
   return (

@@ -21,6 +21,10 @@ const config: GatsbyConfig = {
     siteUrl: siteMetaData.siteUrl,
     description: siteMetaData.description,
   },
+
+  jsxRuntime: "automatic",
+  jsxImportSource: "@emotion/react",
+
   plugins: [
     {
       resolve: "@sentry/gatsby",
