@@ -9,6 +9,8 @@ import { Link as RouterLink } from "gatsby";
 import React from "react";
 import { ContentfulBlogPost, Maybe } from "src/types";
 
+import { isDefined } from "@/commons/typeguard";
+
 export interface RelatedBlogPostListProps {
   posts: Maybe<Array<Maybe<Pick<ContentfulBlogPost, "id" | "title" | "slug">>>>;
 }
@@ -35,17 +37,21 @@ export const RelatedBlogPostList: React.FC<RelatedBlogPostListProps> = ({
                     <Typography
                       component="div"
                       variant="subtitle2"
-                      css={(theme) => ({
-                        wordBreak: "break-all",
-                        display: "-webkit-box",
-                        WebkitBoxOrient: "vertical",
-                        WebkitLineClamp: 2,
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        // TODO
-                        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-                        height: `calc(${theme.typography.subtitle2.fontSize} * ${theme.typography.subtitle2.lineHeight} * 2)`,
-                      })}
+                      css={(theme) => {
+                        const typography = theme.typography.subtitle2;
+                        return {
+                          wordBreak: "break-all",
+                          display: "-webkit-box",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 2,
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          ...(isDefined(typography.fontSize) &&
+                            isDefined(typography.lineHeight) && {
+                              height: `calc(${typography.fontSize} * ${typography.lineHeight} * 2)`,
+                            }),
+                        };
+                      }}
                     >
                       {post.title}
                     </Typography>

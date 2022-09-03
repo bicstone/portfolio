@@ -41,8 +41,6 @@ export const TopLayout: React.FC<TopLayoutProps> = ({ children }) => {
               flexDirection: "column",
               minHeight: "100vh",
               cursor: "default",
-              // TODO
-              // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
               backgroundImage: `url(${BackgroundImage})`,
               backgroundSize: "400px 400px",
               backgroundRepeat: "repeat",

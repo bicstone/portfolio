@@ -282,9 +282,7 @@ const components: MDXProviderComponentsProp = {
     />
   ),
   link: (props) => {
-    // TODO
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (!props.title || !props.href) {
+    if (!isDefined(props.title) || !isDefined(props.href)) {
       captureException(
         new Error(
           `Cannot provide both title: ${String(props.title)} and href: ${String(

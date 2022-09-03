@@ -61,9 +61,10 @@ export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
           color="secondary"
           size="small"
           endIcon={expanded === false ? <UnfoldMoreIcon /> : <UnfoldLessIcon />}
-          // TODO
-          // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => {
+            const isExpanded = expanded !== false;
+            return setExpanded(!isExpanded);
+          }}
           aria-label={t("home.projects.all-expand.hint")}
         >
           {expanded === false
