@@ -23,7 +23,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
-      - run: yarn install --frozen-lock-file
+      - run: yarn install --frozen-lockfile
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build

@@ -3,6 +3,8 @@ import { Breakpoint } from "@mui/material/styles";
 import React from "react";
 import { useBreakPoint } from "src/hooks";
 
+import { isDefined } from "@/commons/typeguard";
+
 export interface CollapseResponsiveControllerProps {
   defaultExpanded: boolean;
   defaultExpandedBreakpoints?: Breakpoint[];
@@ -24,7 +26,7 @@ export const CollapseResponsiveController: React.FC<
 
   React.useEffect(() => {
     // ブレークポイントが広くなった場合に展開する
-    if (defaultExpandedBreakpoints != null) {
+    if (isDefined(defaultExpandedBreakpoints)) {
       const newValue = defaultExpandedBreakpoints.includes(width);
       if (!expanded && newValue) {
         setExpanded(newValue);
