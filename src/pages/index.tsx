@@ -6,12 +6,11 @@ import {
   Tooltip,
   IconButton,
 } from "@mui/material";
-import { graphql, PageProps } from "gatsby";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import React from "react";
 import {
-  Layout,
   HelloGroup,
   OSSList,
   CertificationList,
@@ -24,6 +23,7 @@ import { useSiteMetadata } from "src/hooks";
 import { IndexPageQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
+import { HeadTemplate } from "@/templates/HeadTemplate";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
@@ -96,10 +96,9 @@ const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const { t } = useI18next();
 
   const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
 
   return (
-    <Layout icon={icon} iconAlt={iconAlt} isHome>
+    <>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
@@ -144,7 +143,7 @@ const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
       >
         <CertificationList certification={data.certification.edges} />
       </Section>
-    </Layout>
+    </>
   );
 };
 
@@ -311,3 +310,7 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head: HeadFC = () => {
+  return <HeadTemplate />;
+};

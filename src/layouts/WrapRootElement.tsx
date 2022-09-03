@@ -1,22 +1,21 @@
 import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
-import { Script } from "gatsby";
-import React from "react";
 import { useThemes } from "src/hooks";
 
 import BackgroundImage from "./background.svg";
 
-import { isDefined } from "@/commons/typeguard";
-
-interface TopLayoutProps {
+interface WrapRootElementProps {
   children: React.ReactNode;
 }
 
 /**
- * TopLayout
+ * WrapRootElement
+ * This is useful to set up any Provider components that will wrap your application.
  */
-export const TopLayout: React.FC<TopLayoutProps> = ({ children }) => {
+export const WrapRootElement = ({
+  children,
+}: WrapRootElementProps): JSX.Element => {
   const { theme } = useThemes();
   return (
     <EmotionThemeProvider theme={theme}>
@@ -26,25 +25,14 @@ export const TopLayout: React.FC<TopLayoutProps> = ({ children }) => {
         disableTransitionOnChange
         theme={theme}
       >
-        {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) && (
-          <Script
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-            async
-            crossOrigin="anonymous"
-            strategy="idle"
-          />
-        )}
         <Global
           styles={{
             body: {
-              display: "flex",
-              flexDirection: "column",
-              minHeight: "100vh",
-              cursor: "default",
               backgroundImage: `url(${BackgroundImage})`,
-              backgroundSize: "400px 400px",
               backgroundRepeat: "repeat",
-              opacity: 1,
+              backgroundSize: "400px 400px",
+              cursor: "default",
+              minHeight: "100vh",
             },
           }}
         />

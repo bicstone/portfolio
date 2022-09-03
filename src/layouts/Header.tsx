@@ -17,21 +17,13 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
-import { SvgIcon } from "src/components";
 import { useBreakPoint, useSiteMetadata } from "src/hooks";
-
-export interface HeaderProps {
-  icon: string;
-  iconAlt: string;
-  isHome: boolean;
-}
 
 /**
  * ヘッダー部
  */
-export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
-  const { t } = useI18next();
+export const Header = (): JSX.Element => {
+  const { t, originalPath } = useI18next();
   const { mode: paletteMode, setMode: setPaletteMode } = useColorScheme();
   const scrollTrigger = useScrollTrigger({
     disableHysteresis: true,
@@ -50,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
       role="banner"
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
-        {isHome ? (
+        {originalPath === "" ? (
           <div css={{ display: "flex", alignItems: "center" }}>
             <Typography
               color="textPrimary"
@@ -70,22 +62,25 @@ export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
           </div>
         ) : (
           <Link component={RouterLink} to="/" title={t("header.back-to-home")}>
-            <div css={{ display: "flex", alignItems: "center" }}>
-              <SvgIcon
+            <div
+              css={(theme) => ({
+                display: "flex",
+                alignItems: "center",
+                gap: theme.spacing(0.5),
+              })}
+            >
+              <img
                 width={20}
                 height={20}
-                icon={icon}
-                alt={iconAlt}
-                css={(theme) => ({
-                  marginRight: theme.spacing(0.5),
-                  display: "inline-flex",
-                })}
+                src="/favicon-32x32.png"
+                alt={t("header.icon")}
+                decoding="async"
+                loading="lazy"
               />
               <Typography
                 color="textPrimary"
                 variant="h6"
                 component="span"
-                css={(theme) => ({ margin: theme.spacing(0, 0.5) })}
                 gutterBottom
               >
                 {t("header.title-home")}

@@ -20,6 +20,7 @@
     }
   },
   "rules": {
+    // import order
     "import/order": [
       "error",
       {
@@ -43,6 +44,12 @@
       "error",
       { "max": 1, "maxEOF": 1, "maxBOF": 0 }
     ],
-    "react/prop-types": "off"
+    // prop-types is not used because use typescript
+    "react/prop-types": "off",
+    // unnecessary import react because use new JSX transform
+    // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+    //
   }
 }

@@ -34,12 +34,7 @@ import {
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import React from "react";
-import {
-  HelloGroup,
-  Layout,
-  InarticleAd,
-  RelatedBlogPostList,
-} from "src/components";
+import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 import { BlogPostQuery } from "src/types";
 
@@ -354,10 +349,10 @@ const components: MDXProviderComponentsProp = {
   ),
   ad: () => (
     <aside>
-      <Typography variant="subtitle1">スポンサーリンク</Typography>
       {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
         isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
           <NoSsr defer>
+            <Typography variant="subtitle1">スポンサーリンク</Typography>
             <InarticleAd
               pubId={process.env.GATSBY_ADSENSE_PUB_ID}
               adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
@@ -400,7 +395,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   );
 };
 
-const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
+const BlogPostTemplate: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const { path } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
@@ -418,11 +413,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   }, [post.tags]);
 
   return (
-    <Layout
-      icon={data.icon.svg.content}
-      iconAlt={data.icon.title}
-      css={{ overflowWrap: "break-word" }}
-    >
+    <>
       <GatsbySeo
         title={title}
         description={post.excerpt}
@@ -552,12 +543,12 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
             </MDXRenderer>
           </MDXProvider>
           <aside>
-            <StyledTypography variant="h5" as="h2" paragraph>
-              {t("blog.ad-label")}
-            </StyledTypography>
             {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
               isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
                 <NoSsr defer>
+                  <StyledTypography variant="h5" as="h2" paragraph>
+                    {t("blog.ad-label")}
+                  </StyledTypography>
                   <InarticleAd
                     pubId={process.env.GATSBY_ADSENSE_PUB_ID}
                     adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
@@ -597,11 +588,11 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
           })}
         />
       </Container>
-    </Layout>
+    </>
   );
 };
 
-export default BlogPost;
+export default BlogPostTemplate;
 
 export const query = graphql`
   query BlogPost($id: String!, $language: String!) {

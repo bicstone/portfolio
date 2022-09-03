@@ -6,7 +6,7 @@ import {
   Link,
   BreadcrumbsProps as MuiBreadcrumbsProps,
 } from "@mui/material";
-import { graphql, PageProps, Link as RouterLink } from "gatsby";
+import { graphql, PageProps, Link as RouterLink, HeadFC } from "gatsby";
 import {
   BlogJsonLd,
   BreadcrumbJsonLd,
@@ -14,9 +14,11 @@ import {
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import React from "react";
-import { Layout, BlogPostIndex } from "src/components";
+import { BlogPostIndex } from "src/components";
 import { useSiteMetadata, useBuildTime } from "src/hooks";
 import { BlogPageQuery } from "src/types";
+
+import { HeadTemplate } from "@/templates/HeadTemplate";
 
 type BreadcrumbsProps = {
   siteTitle: string;
@@ -50,11 +52,10 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
 
-  const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
+
   return (
-    <Layout icon={icon} iconAlt={iconAlt}>
+    <>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
@@ -141,7 +142,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           })}
         />
       </Container>
-    </Layout>
+    </>
   );
 };
 
@@ -211,3 +212,8 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head: HeadFC = () => {
+  return <HeadTemplate />;
+};
+

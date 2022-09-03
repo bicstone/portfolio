@@ -55,7 +55,6 @@ const CookieAlertContent = React.forwardRef<
 CookieAlertContent.displayName = "CookieAlertContent";
 
 export interface CookieAlertProps {
-  show?: boolean;
   cookieName?: string;
   cookieValue?: string;
   cookieOptions?: Cookies.CookieAttributes;
@@ -72,7 +71,6 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
     secure: process.env.NODE_ENV !== "development",
     sameSite: "Strict",
   },
-  show = true,
 }) => {
   const breakpoints: Breakpoint[] = ["xs", "sm"];
   const [agree, setAgree] = React.useState(Cookies.get(cookieName));
@@ -85,7 +83,7 @@ export const CookieAlert: React.FC<CookieAlertProps> = ({
   };
 
   return (
-    <Snackbar open={show && agree === undefined}>
+    <Snackbar open={agree === undefined}>
       <CookieAlertContent
         breakpoints={breakpoints}
         action={
