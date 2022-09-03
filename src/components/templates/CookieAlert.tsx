@@ -6,51 +6,52 @@ import {
   SnackbarContent,
   Typography,
 } from "@mui/material";
-import { Breakpoint } from "@mui/material/styles";
 import { Link as RouterLink } from "gatsby";
 import { useTranslation, Trans } from "gatsby-plugin-react-i18next";
 import Cookies from "js-cookie";
-import React from "react";
+import { forwardRef, useState } from "react";
 import { useBreakPoint } from "src/hooks";
+
+import type { Breakpoint } from "@mui/material/styles";
+import type { ReactNode } from "react";
 
 interface CookieAlertContentProps {
   breakpoints: Breakpoint[];
-  action: React.ReactNode;
-  message: React.ReactNode;
+  action: ReactNode;
+  message: ReactNode;
 }
 
 /**
  * クッキーアラートのコンテンツ部
  */
-const CookieAlertContent = React.forwardRef<
-  HTMLDivElement,
-  CookieAlertContentProps
->(({ breakpoints, action, message }, ref) => {
-  const width = useBreakPoint();
-  return (
-    <SnackbarContent
-      ref={ref}
-      css={{
-        flexDirection: "row",
-        flexWrap: "nowrap",
-        alignItems: "flex-center",
-        wordBreak: "keep-all",
-        whiteSpace: "nowrap",
-      }}
-      action={
-        <div css={(theme) => ({ padding: theme.spacing(1) })}>{action}</div>
-      }
-      message={
-        <Typography
-          variant={breakpoints.includes(width) ? "caption" : "body2"}
-          component="div"
-        >
-          {message}
-        </Typography>
-      }
-    />
-  );
-});
+const CookieAlertContent = forwardRef<HTMLDivElement, CookieAlertContentProps>(
+  ({ breakpoints, action, message }, ref) => {
+    const width = useBreakPoint();
+    return (
+      <SnackbarContent
+        ref={ref}
+        css={{
+          flexDirection: "row",
+          flexWrap: "nowrap",
+          alignItems: "flex-center",
+          wordBreak: "keep-all",
+          whiteSpace: "nowrap",
+        }}
+        action={
+          <div css={(theme) => ({ padding: theme.spacing(1) })}>{action}</div>
+        }
+        message={
+          <Typography
+            variant={breakpoints.includes(width) ? "caption" : "body2"}
+            component="div"
+          >
+            {message}
+          </Typography>
+        }
+      />
+    );
+  }
+);
 
 CookieAlertContent.displayName = "CookieAlertContent";
 
@@ -64,18 +65,20 @@ export interface CookieAlertProps {
 /**
  * クッキーアラート
  */
-export const CookieAlert: React.FC<CookieAlertProps> = ({
+export const CookieAlert = ({
   cookieName = "cookie-licence",
   cookieValue = "1",
+
   cookieOptions = {
     expires: 790,
     secure: process.env.NODE_ENV !== "development",
     sameSite: "Strict",
   },
+
   show = true,
-}) => {
+}: CookieAlertProps): JSX.Element => {
   const breakpoints: Breakpoint[] = ["xs", "sm"];
-  const [agree, setAgree] = React.useState(Cookies.get(cookieName));
+  const [agree, setAgree] = useState(Cookies.get(cookieName));
   const { t } = useTranslation();
   const width = useBreakPoint();
 

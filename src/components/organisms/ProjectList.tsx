@@ -1,4 +1,4 @@
-import { MDXProvider, MDXProviderComponentsProp } from "@mdx-js/react";
+import { MDXProvider } from "@mdx-js/react";
 import {
   ExpandMore as ExpandMoreIcon,
   UnfoldMore as UnfoldMoreIcon,
@@ -17,9 +17,11 @@ import {
 } from "@mui/material";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
+import { useState } from "react";
 import { SvgAvatar } from "src/components";
-import { IndexPageQuery } from "src/types";
+
+import type { MDXProviderComponentsProp } from "@mdx-js/react";
+import type { IndexPageQuery } from "src/types";
 
 export interface ProjectListProps {
   projects: IndexPageQuery["projects"]["edges"];
@@ -38,10 +40,10 @@ const components: MDXProviderComponentsProp = {
 /**
  * プロジェクト一覧
  */
-export const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
+export const ProjectList = ({ projects }: ProjectListProps): JSX.Element => {
   const theme = useTheme();
   const { language, t } = useI18next();
-  const [expanded, setExpanded] = React.useState<string | boolean>(false);
+  const [expanded, setExpanded] = useState<string | boolean>(false);
 
   const handleChange = (id: string): void => {
     setExpanded(expanded === id ? false : id);

@@ -1,12 +1,13 @@
 import { SelfImprovement as SelfImprovementIcon } from "@mui/icons-material";
 import { Typography, Container, Button } from "@mui/material";
-import { graphql, PageProps, Link as RouterLink } from "gatsby";
+import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { Layout } from "src/components";
-import { NotFoundPageQuery } from "src/types";
 
-const NotFound: React.FC<PageProps<NotFoundPageQuery>> = ({ data }) => {
+import type { PageProps } from "gatsby";
+import type { NotFoundPageQuery } from "src/types";
+
+const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
   const { t } = useI18next();
   const icon = data.icon.svg.content;
   const iconAlt = data.icon.title;

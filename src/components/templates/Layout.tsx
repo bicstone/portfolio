@@ -1,6 +1,7 @@
 import { NoSsr } from "@mui/material";
-import React from "react";
 import { CookieAlert, Head, Header, Footer, TopLayout } from "src/components";
+
+import type { ReactNode } from "react";
 
 export interface LayoutProps {
   cookieAlertShow?: boolean;
@@ -8,20 +9,20 @@ export interface LayoutProps {
   icon: string;
   iconAlt: string;
   className?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**
  * 基本レイアウト
  */
-export const Layout: React.FC<LayoutProps> = ({
+export const Layout = ({
   children,
   cookieAlertShow,
   isHome = false,
   icon,
   iconAlt,
   className,
-}) => {
+}: LayoutProps): JSX.Element => {
   return (
     <TopLayout>
       <Head />

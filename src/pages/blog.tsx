@@ -4,30 +4,31 @@ import {
   Container,
   Typography,
   Link,
-  BreadcrumbsProps as MuiBreadcrumbsProps,
 } from "@mui/material";
-import { graphql, PageProps, Link as RouterLink } from "gatsby";
+import { graphql, Link as RouterLink } from "gatsby";
 import {
   BlogJsonLd,
   BreadcrumbJsonLd,
   GatsbySeo,
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { Layout, BlogPostIndex } from "src/components";
 import { useSiteMetadata, useBuildTime } from "src/hooks";
-import { BlogPageQuery } from "src/types";
+
+import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
+import type { PageProps } from "gatsby";
+import type { BlogPageQuery } from "src/types";
 
 type BreadcrumbsProps = {
   siteTitle: string;
   blogTitle: string;
 } & MuiBreadcrumbsProps;
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+const Breadcrumbs = ({
   siteTitle,
   blogTitle,
   ...props
-}) => {
+}: BreadcrumbsProps): JSX.Element => {
   return (
     <MuiBreadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
@@ -44,7 +45,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   );
 };
 
-const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
+const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const { path } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();

@@ -11,15 +11,15 @@ import {
   useScrollTrigger,
   Link,
   Button,
-  Breakpoint,
   IconButton,
   useColorScheme,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import React from "react";
 import { SvgIcon } from "src/components";
 import { useBreakPoint, useSiteMetadata } from "src/hooks";
+
+import type { Breakpoint } from "@mui/material";
 
 export interface HeaderProps {
   icon: string;
@@ -30,7 +30,7 @@ export interface HeaderProps {
 /**
  * ヘッダー部
  */
-export const Header: React.FC<HeaderProps> = ({ icon, iconAlt, isHome }) => {
+export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
   const { t } = useI18next();
   const { mode: paletteMode, setMode: setPaletteMode } = useColorScheme();
   const scrollTrigger = useScrollTrigger({

@@ -1,4 +1,4 @@
-import { MDXProvider, MDXProviderComponentsProp } from "@mdx-js/react";
+import { MDXProvider } from "@mdx-js/react";
 import {
   AccessTime as AccessTimeIcon,
   NavigateNext as NavigateNextIcon,
@@ -19,13 +19,12 @@ import {
   TableHead,
   TableRow,
   Typography,
-  BreadcrumbsProps as MuiBreadcrumbsProps,
   CardActionArea,
   CardHeader,
   NoSsr,
 } from "@mui/material";
 import { captureException } from "@sentry/gatsby";
-import { graphql, PageProps, Link as RouterLink } from "gatsby";
+import { graphql, Link as RouterLink } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import {
   BlogPostJsonLd,
@@ -33,7 +32,7 @@ import {
   BreadcrumbJsonLd,
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
-import React from "react";
+import { useMemo } from "react";
 import {
   HelloGroup,
   Layout,
@@ -41,7 +40,11 @@ import {
   RelatedBlogPostList,
 } from "src/components";
 import { useSiteMetadata } from "src/hooks";
-import { BlogPostQuery } from "src/types";
+
+import type { MDXProviderComponentsProp } from "@mdx-js/react";
+import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
+import type { PageProps } from "gatsby";
+import type { BlogPostQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
 
@@ -374,12 +377,12 @@ type BreadcrumbsProps = {
   postTitle: string;
 } & MuiBreadcrumbsProps;
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+const Breadcrumbs = ({
   siteTitle,
   blogTitle,
   postTitle,
   ...props
-}) => {
+}: BreadcrumbsProps): JSX.Element => {
   return (
     <MuiBreadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
@@ -400,7 +403,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   );
 };
 
-const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
+const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   const { path } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
@@ -408,7 +411,7 @@ const BlogPost: React.FC<PageProps<BlogPostQuery>> = ({ data }) => {
   const post = data.post;
   const title = `${post.title} - ${siteMetadata.title}`;
 
-  const relatedPosts = React.useMemo(() => {
+  const relatedPosts = useMemo(() => {
     const posts = post.tags.flatMap((tag) => tag.blog_post);
     const filteredPosts = Array.from(
       new Map(posts.map((post) => [post.id, post])).values()

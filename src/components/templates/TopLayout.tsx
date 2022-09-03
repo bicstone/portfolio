@@ -2,21 +2,22 @@ import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
 import { Script } from "gatsby";
-import React from "react";
 import { useThemes } from "src/hooks";
 
 import BackgroundImage from "./background.svg";
 
+import type { ReactNode } from "react";
+
 import { isDefined } from "@/commons/typeguard";
 
 interface TopLayoutProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**
  * TopLayout
  */
-export const TopLayout: React.FC<TopLayoutProps> = ({ children }) => {
+export const TopLayout = ({ children }: TopLayoutProps): JSX.Element => {
   const { theme } = useThemes();
   return (
     <EmotionThemeProvider theme={theme}>

@@ -1,6 +1,6 @@
 import { Avatar, SvgIcon } from "@mui/material";
 import parse from "html-react-parser";
-import React from "react";
+import { memo } from "react";
 
 export interface SvgAvatarProps {
   name: string;
@@ -12,7 +12,7 @@ export interface SvgAvatarProps {
  * ※svgをcontentfulから持ってくるときに使用
  * XXX: contentfulからmediaで返したほうが良かった
  */
-export const SvgAvatar = React.memo<
+export const SvgAvatar = memo<
   React.ComponentProps<typeof Avatar> & SvgAvatarProps
 >(({ name, svg, ...props }) => {
   return (
