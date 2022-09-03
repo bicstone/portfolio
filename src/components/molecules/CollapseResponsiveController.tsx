@@ -23,8 +23,13 @@ export const CollapseResponsiveController: React.FC<
 }) => {
   const width = useBreakPoint();
   const [expanded, setExpanded] = React.useState<boolean>(defaultExpanded);
+  const [previousWidth, setPreviousWidth] = React.useState<Breakpoint>("xs");
 
   React.useEffect(() => {
+    if (previousWidth === width) {
+      return;
+    }
+
     // ブレークポイントが広くなった場合に展開する
     if (isDefined(defaultExpandedBreakpoints)) {
       const newValue = defaultExpandedBreakpoints.includes(width);
@@ -32,7 +37,8 @@ export const CollapseResponsiveController: React.FC<
         setExpanded(newValue);
       }
     }
-  }, [defaultExpandedBreakpoints, expanded, width]);
+    setPreviousWidth(width);
+  }, [defaultExpandedBreakpoints, expanded, previousWidth, width]);
 
   const handleChange = (): void => setExpanded(!expanded);
 
