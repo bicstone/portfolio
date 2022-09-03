@@ -3,7 +3,7 @@ import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
-import type { HeadFC} from "gatsby";
+import type { HeadFC } from "gatsby";
 
 import { HeadTemplate } from "@/templates/HeadTemplate";
 

@@ -21,7 +21,7 @@ import {
 } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 
-import type { PageProps , HeadFC  } from "gatsby";
+import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 import type { IndexPageQuery } from "src/types";
 
