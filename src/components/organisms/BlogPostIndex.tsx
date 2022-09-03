@@ -1,23 +1,31 @@
-import React from 'react';
+import {
+  Update as UpdateIcon,
+  AccessTime as AccessTimeIcon,
+} from "@mui/icons-material";
+import {
+  Typography,
+  CardActionArea,
+  Card,
+  Breakpoint,
+  Collapse,
+} from "@mui/material";
+import { Link as RouterLink } from "gatsby";
+import React from "react";
+import { useBreakPoint } from "src/hooks";
+import { BlogPageQuery } from "src/types";
 
-import { Typography, CardActionArea, Card, Breakpoint, Collapse } from '@mui/material';
-import { Link as RouterLink } from 'gatsby';
+import { isDefined } from "@/commons/typeguard";
 
-import { Update as UpdateIcon, AccessTime as AccessTimeIcon } from '@mui/icons-material';
-
-import { useBreakPoint } from 'src/hooks';
-import { BlogPageQuery } from 'src/types';
-
-export type BlogPostIndexProps = {
-  posts: BlogPageQuery['posts']['group'];
-};
+export interface BlogPostIndexProps {
+  posts: BlogPageQuery["posts"]["group"];
+}
 
 /**
  * ブログ記事一覧
  * カテゴリー別に表示する
  */
 export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
-  const breakpoints: Breakpoint[] = ['xs'];
+  const breakpoints: Breakpoint[] = ["xs"];
   const width = useBreakPoint();
   const mobile = breakpoints.includes(width);
 
@@ -27,14 +35,17 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
         const categoryName = edges[0].node.category.name;
 
         return (
-          <section css={theme => ({ margin: theme.spacing(4, 0) })} key={categoryName}>
+          <section
+            css={(theme) => ({ margin: theme.spacing(4, 0) })}
+            key={categoryName}
+          >
             <Typography component="h2" variant="h5" paragraph>
               {categoryName}
             </Typography>
             {edges.map(({ node }) => (
               <article
                 key={categoryName + node.id}
-                css={theme => ({ margin: theme.spacing(1, 0) })}
+                css={(theme) => ({ margin: theme.spacing(1, 0) })}
               >
                 <Card>
                   <CardActionArea
@@ -42,9 +53,9 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                     to={`/${node.slug}`}
                     title={node.title}
                     css={{
-                      display: 'flex',
-                      justifyContent: 'flex-start',
-                      alignItems: 'center',
+                      display: "flex",
+                      justifyContent: "flex-start",
+                      alignItems: "center",
                     }}
                   >
                     {/*
@@ -63,20 +74,24 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                       </CardMedia>
                       */}
                     <div
-                      css={theme => ({
-                        display: 'flex',
-                        flexDirection: 'column',
+                      css={(theme) => ({
+                        display: "flex",
+                        flexDirection: "column",
                         margin: theme.spacing(2),
-                        width: '100%',
-                        minWidth: '60%', // for overflow-wrap
-                        overflowWrap: 'break-word',
+                        width: "100%",
+                        minWidth: "60%", // for overflow-wrap
+                        overflowWrap: "break-word",
                       })}
                     >
                       <Typography component="h3" variant="h6">
                         {node.title}
                       </Typography>
                       <Collapse in={!mobile}>
-                        <Typography variant="body2" color="text.secondary" paragraph>
+                        <Typography
+                          variant="body2"
+                          color="text.secondary"
+                          paragraph
+                        >
                           {node.excerpt}
                         </Typography>
                       </Collapse>
@@ -85,32 +100,40 @@ export const BlogPostIndex: React.FC<BlogPostIndexProps> = ({ posts }) => {
                         color="textSecondary"
                         component="div"
                         css={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'flex-end',
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "flex-end",
                         }}
                       >
-                        {node.updated && (
+                        {isDefined(node.updated) && (
                           <>
                             <UpdateIcon
                               fontSize="inherit"
-                              css={theme => ({ marginRight: theme.spacing(0.5) })}
+                              css={(theme) => ({
+                                marginRight: theme.spacing(0.5),
+                              })}
                             />
                             <time
                               dateTime={node.updated}
-                              css={theme => ({ marginRight: theme.spacing(1) })}
+                              css={(theme) => ({
+                                marginRight: theme.spacing(1),
+                              })}
                             >
                               {node.updatedDate}
                             </time>
                           </>
                         )}
-                        {node.created && (
+                        {isDefined(node.created) && (
                           <>
                             <AccessTimeIcon
                               fontSize="inherit"
-                              css={theme => ({ marginRight: theme.spacing(0.5) })}
+                              css={(theme) => ({
+                                marginRight: theme.spacing(0.5),
+                              })}
                             />
-                            <time dateTime={node.created}>{node.createdDate}</time>
+                            <time dateTime={node.created}>
+                              {node.createdDate}
+                            </time>
                           </>
                         )}
                       </Typography>

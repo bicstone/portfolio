@@ -1,9 +1,15 @@
-import React from 'react';
+import { green, pink } from "@mui/material/colors";
+import {
+  createTheme,
+  CssVarsTheme,
+  experimental_extendTheme as createExtendTheme,
+  Theme,
+} from "@mui/material/styles";
+import React from "react";
 
-import { green, pink } from '@mui/material/colors';
-import { createTheme, experimental_extendTheme as createExtendTheme } from '@mui/material/styles';
-
-export const useThemes = () => {
+export const useThemes = (): {
+  theme: Omit<Theme, "palette"> & CssVarsTheme;
+} => {
   const defaultTheme = React.useMemo(() => createTheme(), []);
   const theme = React.useMemo(() => {
     return createExtendTheme({
@@ -17,7 +23,7 @@ export const useThemes = () => {
               main: pink.A700,
             },
             text: {
-              secondary: 'rgba(0, 0, 0, 0.65)',
+              secondary: "rgba(0, 0, 0, 0.65)",
             },
             Avatar: {
               defaultBg: green[300],
@@ -35,7 +41,7 @@ export const useThemes = () => {
               main: pink[200],
             },
             text: {
-              secondary: 'rgba(255, 255, 255, 0.7)',
+              secondary: "rgba(255, 255, 255, 0.7)",
             },
             Avatar: {
               defaultBg: green[200],
@@ -47,14 +53,14 @@ export const useThemes = () => {
         MuiButton: {
           styleOverrides: {
             root: {
-              textTransform: 'none',
+              textTransform: "none",
             },
           },
         },
         MuiButtonBase: {
           styleOverrides: {
             root: {
-              userSelect: 'auto',
+              userSelect: "auto",
             },
           },
         },
@@ -75,12 +81,12 @@ export const useThemes = () => {
         },
         MuiLink: {
           defaultProps: {
-            color: 'inherit',
+            color: "inherit",
           },
         },
       },
     });
-  }, []);
+  }, [defaultTheme]);
 
   return { theme };
 };

@@ -1,14 +1,12 @@
-import React from 'react';
+import { Card, CardHeader, Divider, Typography } from "@mui/material";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import React from "react";
+import { SvgAvatar } from "src/components";
+import { IndexPageQuery } from "src/types";
 
-import { Card, CardHeader, Divider, Typography } from '@mui/material';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-
-import { SvgAvatar } from 'src/components';
-import { IndexPageQuery } from 'src/types';
-
-export type HistoryListProps = {
-  histories: IndexPageQuery['histories']['edges'];
-};
+export interface HistoryListProps {
+  histories: IndexPageQuery["histories"]["edges"];
+}
 
 /**
  * 経歴
@@ -20,14 +18,20 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
     <Card>
       {histories
         .filter(({ node }) => node.node_locale === language)
-        ?.map(({ node }, index, { length }) => (
+        .map(({ node }, index, { length }) => (
           <React.Fragment key={node.id}>
             <CardHeader
-              avatar={<SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />}
+              avatar={
+                <SvgAvatar name={node.icon.name} svg={node.icon.svg.svg} />
+              }
               title={
                 <>
-                  <Typography variant="body2" component="div" color="textSecondary">
-                    {t('histories.date', { date: node.date })}
+                  <Typography
+                    variant="body2"
+                    component="div"
+                    color="textSecondary"
+                  >
+                    {t("histories.date", { date: node.date })}
                   </Typography>
                   <Typography component="h2" variant="h6">
                     {node.name}
@@ -35,7 +39,11 @@ export const HistoryList: React.FC<HistoryListProps> = ({ histories }) => {
                 </>
               }
               subheader={
-                <Typography variant="body2" color="text.secondary" component="div">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  component="div"
+                >
                   {node.subName}
                 </Typography>
               }

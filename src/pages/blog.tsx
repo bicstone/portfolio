@@ -1,28 +1,33 @@
-import React from 'react';
-
+import { NavigateNext as NavigateNextIcon } from "@mui/icons-material";
 import {
   Breadcrumbs as MuiBreadcrumbs,
   Container,
   Typography,
   Link,
   BreadcrumbsProps as MuiBreadcrumbsProps,
-} from '@mui/material';
-import { graphql, PageProps, Link as RouterLink } from 'gatsby';
-import { BlogJsonLd, BreadcrumbJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
-import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next';
-
-import { NavigateNext as NavigateNextIcon } from '@mui/icons-material';
-
-import { Layout, BlogPostIndex } from 'src/components';
-import { useSiteMetadata, useBuildTime } from 'src/hooks';
-import { BlogPageQuery } from 'src/types';
+} from "@mui/material";
+import { graphql, PageProps, Link as RouterLink } from "gatsby";
+import {
+  BlogJsonLd,
+  BreadcrumbJsonLd,
+  GatsbySeo,
+} from "gatsby-plugin-next-seo";
+import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
+import React from "react";
+import { Layout, BlogPostIndex } from "src/components";
+import { useSiteMetadata, useBuildTime } from "src/hooks";
+import { BlogPageQuery } from "src/types";
 
 type BreadcrumbsProps = {
   siteTitle: string;
   blogTitle: string;
 } & MuiBreadcrumbsProps;
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ siteTitle, blogTitle, ...props }) => {
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+  siteTitle,
+  blogTitle,
+  ...props
+}) => {
   return (
     <MuiBreadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
@@ -47,14 +52,14 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
 
   const icon = data.icon.svg.content;
   const iconAlt = data.icon.title;
-  const title = `${t('blog.title')} - ${siteMetadata.title}`;
+  const title = `${t("blog.title")} - ${siteMetadata.title}`;
   return (
     <Layout icon={icon} iconAlt={iconAlt}>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
         openGraph={{
-          type: 'profile',
+          type: "profile",
           title,
           description: siteMetadata.description,
           images: [
@@ -78,9 +83,9 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
         publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
         publisherName={siteMetadata.title}
         overrides={{
-          '@type': 'Blog',
+          "@type": "Blog",
           author: {
-            '@type': 'Person',
+            "@type": "Person",
             name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
             url: siteMetadata.siteUrl,
           },
@@ -101,7 +106,7 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
           },
           {
             position: 2,
-            name: t('blog.title'),
+            name: t("blog.title"),
             item: `${siteMetadata.siteUrl}/blog`,
           },
         ]}
@@ -110,24 +115,30 @@ const Blog: React.FC<PageProps<BlogPageQuery>> = ({ data }) => {
       <Container maxWidth="md">
         <Breadcrumbs
           siteTitle={siteMetadata.title}
-          blogTitle={t('blog.title')}
-          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
+          blogTitle={t("blog.title")}
+          css={(theme) => ({
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+          })}
         />
 
         <Typography component="h1" variant="h5" align="center" paragraph>
-          {t('blog.title')}
+          {t("blog.title")}
         </Typography>
 
-        <Typography>{t('blog.caption')}</Typography>
+        <Typography>{t("blog.caption")}</Typography>
 
-        <div css={theme => ({ marginBottom: theme.spacing(2) })}>
+        <div css={(theme) => ({ marginBottom: theme.spacing(2) })}>
           <BlogPostIndex posts={data.posts.group} />
         </div>
 
         <Breadcrumbs
           siteTitle={siteMetadata.title}
-          blogTitle={t('blog.title')}
-          css={theme => ({ marginTop: theme.spacing(2), marginBottom: theme.spacing(2) })}
+          blogTitle={t("blog.title")}
+          css={(theme) => ({
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+          })}
         />
       </Container>
     </Layout>

@@ -1,11 +1,15 @@
-import React from 'react';
-
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-import { Container, Typography, styled, Tooltip, IconButton } from '@mui/material';
-import { graphql, PageProps } from 'gatsby';
-import { GatsbySeo, LogoJsonLd } from 'gatsby-plugin-next-seo';
-import { useI18next } from 'gatsby-plugin-react-i18next';
-
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import {
+  Container,
+  Typography,
+  styled,
+  Tooltip,
+  IconButton,
+} from "@mui/material";
+import { graphql, PageProps } from "gatsby";
+import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import React from "react";
 import {
   Layout,
   HelloGroup,
@@ -15,33 +19,35 @@ import {
   ProjectList,
   SkillList,
   WhatICanDoList,
-} from 'src/components';
-import { useSiteMetadata } from 'src/hooks';
-import { IndexPageQuery } from 'src/types';
+} from "src/components";
+import { useSiteMetadata } from "src/hooks";
+import { IndexPageQuery } from "src/types";
+
+import { isDefined } from "@/commons/typeguard";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
   marginBottom: theme.spacing(5),
 }));
 
-type SectionProps = {
+interface SectionProps {
   title: string;
   help?: string;
   children: React.ReactNode;
-};
+}
 
 const Section: React.FC<SectionProps> = ({ title, help, children }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const openTooltip = () => {
+  const openTooltip = (): void => {
     setIsOpen(true);
   };
 
-  const closeTooltip = () => {
+  const closeTooltip = (): void => {
     setIsOpen(false);
   };
 
-  const toggleTooltip = () => {
+  const toggleTooltip = (): void => {
     setIsOpen(!isOpen);
   };
 
@@ -49,10 +55,10 @@ const Section: React.FC<SectionProps> = ({ title, help, children }) => {
     <section>
       <PaddingContainer maxWidth="lg">
         <div
-          css={theme => ({
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'center',
+          css={(theme) => ({
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "center",
             marginBottom: theme.spacing(2),
             gap: theme.spacing(0.5),
           })}
@@ -60,7 +66,7 @@ const Section: React.FC<SectionProps> = ({ title, help, children }) => {
           <Typography component="h2" variant="h4">
             {title}
           </Typography>
-          {help && (
+          {isDefined(help) && (
             <Tooltip
               title={help}
               open={isOpen}
@@ -71,7 +77,7 @@ const Section: React.FC<SectionProps> = ({ title, help, children }) => {
               <IconButton
                 size="small"
                 color="primary"
-                css={{ cursor: 'help' }}
+                css={{ cursor: "help" }}
                 onClick={toggleTooltip}
               >
                 <HelpOutlineIcon />
@@ -89,15 +95,16 @@ const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
   const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 
-  const icon = data.icon?.svg?.content || '';
-  const iconAlt = data.icon?.title || '';
+  const icon = data.icon.svg.content;
+  const iconAlt = data.icon.title;
+
   return (
     <Layout icon={icon} iconAlt={iconAlt} isHome>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
         openGraph={{
-          type: 'profile',
+          type: "profile",
           title: siteMetadata.title,
           description: siteMetadata.description,
           images: [
@@ -116,22 +123,25 @@ const Home: React.FC<PageProps<IndexPageQuery>> = ({ data }) => {
       <PaddingContainer maxWidth="lg">
         <HelloGroup links={data.links.edges} icon={icon} />
       </PaddingContainer>
-      <Section title={t('home.what-i-can-dos-title')}>
+      <Section title={t("home.what-i-can-dos-title")}>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
       </Section>
-      <Section title={t('home.projects-title')}>
+      <Section title={t("home.projects-title")}>
         <ProjectList projects={data.projects.edges} />
       </Section>
-      <Section title={t('home.histories-title')}>
+      <Section title={t("home.histories-title")}>
         <HistoryList histories={data.histories.edges} />
       </Section>
-      <Section title={t('home.osses-title')} help={t('home.osses-help')}>
+      <Section title={t("home.osses-title")} help={t("home.osses-help")}>
         <OSSList osses={data.osses.edges} />
       </Section>
-      <Section title={t('home.skills-title')} help={t('home.skills-help')}>
+      <Section title={t("home.skills-title")} help={t("home.skills-help")}>
         <SkillList skills={data.skills.edges} />
       </Section>
-      <Section title={t('home.qualifications-title')} help={t('home.qualifications-help')}>
+      <Section
+        title={t("home.qualifications-title")}
+        help={t("home.qualifications-help")}
+      >
         <CertificationList certification={data.certification.edges} />
       </Section>
     </Layout>
@@ -154,7 +164,9 @@ export const query = graphql`
       }
     }
     # お手伝いできること一覧を取得する
-    whatICanDos: allContentfulWhatICanDo(sort: { fields: sortKey, order: ASC }) {
+    whatICanDos: allContentfulWhatICanDo(
+      sort: { fields: sortKey, order: ASC }
+    ) {
       edges {
         node {
           id
@@ -262,7 +274,9 @@ export const query = graphql`
       }
     }
     # 資格一覧を取得する
-    certification: allContentfulQualificationMap(sort: { fields: sortKey, order: ASC }) {
+    certification: allContentfulQualificationMap(
+      sort: { fields: sortKey, order: ASC }
+    ) {
       edges {
         node {
           id

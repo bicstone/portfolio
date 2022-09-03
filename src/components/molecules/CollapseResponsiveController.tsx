@@ -1,20 +1,20 @@
-import React from 'react';
+import { Accordion } from "@mui/material";
+import { Breakpoint } from "@mui/material/styles";
+import React from "react";
+import { useBreakPoint } from "src/hooks";
 
-import { Accordion } from '@mui/material';
-import { Breakpoint } from '@mui/material/styles';
-
-import { useBreakPoint } from 'src/hooks';
-
-export type CollapseResponsiveControllerProps = {
+export interface CollapseResponsiveControllerProps {
   defaultExpanded: boolean;
   defaultExpandedBreakpoints?: Breakpoint[];
   children: React.ReactComponentElement<typeof Accordion>;
-};
+}
 
 /**
  * ブレークポイントが広くなった場合に展開するアコーディオン制御
  */
-export const CollapseResponsiveController: React.FC<CollapseResponsiveControllerProps> = ({
+export const CollapseResponsiveController: React.FC<
+  CollapseResponsiveControllerProps
+> = ({
   defaultExpanded = true,
   defaultExpandedBreakpoints = undefined,
   children,
@@ -24,15 +24,21 @@ export const CollapseResponsiveController: React.FC<CollapseResponsiveController
 
   React.useEffect(() => {
     // ブレークポイントが広くなった場合に展開する
-    if (defaultExpandedBreakpoints) {
+    if (defaultExpandedBreakpoints != null) {
       const newValue = defaultExpandedBreakpoints.includes(width);
       if (!expanded && newValue) {
         setExpanded(newValue);
       }
     }
-  }, [width]);
+  }, [defaultExpandedBreakpoints, expanded, width]);
 
-  const handleChange = () => setExpanded(!expanded);
+  const handleChange = (): void => setExpanded(!expanded);
 
-  return <children.type expanded={expanded} onChange={handleChange} {...children.props} />;
+  return (
+    <children.type
+      expanded={expanded}
+      onChange={handleChange}
+      {...children.props}
+    />
+  );
 };
