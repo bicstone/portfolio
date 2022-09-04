@@ -1,7 +1,6 @@
 import { NoSsr } from "@mui/material";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
 import { Helmet, useI18next } from "gatsby-plugin-react-i18next";
-import { useEffect } from "react";
 import { useUrl } from "src/hooks";
 
 import type { ReactNode } from "react";
@@ -29,10 +28,6 @@ export const WrapPageElement = ({
 }: WrapPageElementProps): JSX.Element => {
   const { currentLangUrl } = useUrl();
   const { language } = useI18next();
-
-  useEffect(() => {
-    document?.documentElement?.setAttribute("lang", language);
-  }, [language]);
 
   return (
     <>
