@@ -5,23 +5,6 @@
     {
       "groupName": "dependencies",
       "matchPackagePatterns": ["*"]
-    },
-    {
-      "groupName": "ui dependencies",
-      "matchPackagePatterns": ["material-ui"]
-    },
-    {
-      "groupName": "ui dependencies",
-      "matchPackagePrefixes": ["@mui"]
-    },
-    {
-      "groupName": "ui dependencies",
-      "matchPackagePrefixes": ["@emotion"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePrefixes": ["@mdx-js"],
-      "matchUpdateTypes": ["major"]
     }
   ],
   "reviewers": ["bicstone"],
