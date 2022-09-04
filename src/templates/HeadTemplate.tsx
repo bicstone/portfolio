@@ -1,29 +1,17 @@
 import { useI18next } from "gatsby-plugin-react-i18next";
-import { useSiteMetadata } from "src/hooks";
+import { useSiteMetadata, useUrl } from "src/hooks";
 
 /**
  * Headタグ部
  */
 export const HeadTemplate = (): JSX.Element => {
   const siteMetadata = useSiteMetadata();
-
-  const {
-    languages,
-    language,
-    originalPath,
-    defaultLanguage,
-    siteUrl = "",
-  } = useI18next();
-
-  const createUrlWithLang = (lng: string): string => {
-    return `${siteUrl}${
-      lng === defaultLanguage ? "" : `/${lng}`
-    }${originalPath}`;
-  };
+  const { currentLangUrl, defaultLangUrl, createUrlWithLang } = useUrl();
+  const { languages } = useI18next();
 
   return (
     <>
-      <link rel="canonical" href={createUrlWithLang(language)} />
+      <link rel="canonical" href={currentLangUrl} />
       {languages.map((lng) => (
         <link
           rel="alternate"
@@ -32,11 +20,7 @@ export const HeadTemplate = (): JSX.Element => {
           hrefLang={lng}
         />
       ))}
-      <link
-        rel="alternate"
-        href={createUrlWithLang(defaultLanguage)}
-        hrefLang="x-default"
-      />
+      <link rel="alternate" href={defaultLangUrl} hrefLang="x-default" />
 
       <meta
         name="viewport"

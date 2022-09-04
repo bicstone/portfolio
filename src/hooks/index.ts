@@ -6,3 +6,4 @@ export * from "./useBreakPoint";
 export * from "./useBuildTime";
 export * from "./useSiteMetadata";
 export * from "./useThemes";
+export * from "./useUrl";
