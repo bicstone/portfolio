@@ -52,6 +52,8 @@
     "react/react-in-jsx-scope": "off",
     // prefer import type / export type
     "@typescript-eslint/consistent-type-imports": "error",
-    "@typescript-eslint/consistent-type-exports": "error"
+    "@typescript-eslint/consistent-type-exports": "error",
+    // Disabled for guarding in Typescript.
+    "react/no-unknown-property": "off"
   }
 }
