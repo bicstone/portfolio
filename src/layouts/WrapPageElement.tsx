@@ -1,15 +1,17 @@
 import { NoSsr } from "@mui/material";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
-import { useI18next } from "gatsby-plugin-react-i18next";
-import React, { useEffect } from "react";
+import { Helmet, useI18next } from "gatsby-plugin-react-i18next";
+import { useEffect } from "react";
 import { useUrl } from "src/hooks";
+
+import type { ReactNode } from "react";
 
 import { CookieAlert } from "@/layouts/CookieAlert";
 import { Footer } from "@/layouts/Footer";
 import { Header } from "@/layouts/Header";
 
 export interface WrapPageElementProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**
@@ -36,12 +38,14 @@ export const WrapPageElement = ({
         {children}
       </main>
       <Footer />
+
       <GatsbySeo
         openGraph={{
           url: currentLangUrl,
           locale: language,
         }}
       />
+      <Helmet />
     </>
   );
 };

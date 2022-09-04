@@ -7,10 +7,12 @@ import { useThemes } from "src/hooks";
 
 import BackgroundImage from "./background.svg";
 
+import type { ReactNode } from "react";
+
 import { isDefined } from "@/commons/typeguard";
 
 interface WrapRootElementProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**

@@ -16,10 +16,11 @@ import { BlogPostIndex } from "src/components";
 import { useSiteMetadata, useBuildTime } from "src/hooks";
 
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
-import type { PageProps, HeadFC } from "gatsby";
+import type { PageProps } from "gatsby";
 import type { BlogPageQuery } from "src/types";
 
-import { HeadTemplate } from "@/templates/HeadTemplate";
+import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { Head } from "@/templates/Head";
 
 type BreadcrumbsProps = {
   siteTitle: string;
@@ -56,7 +57,7 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
 
   return (
-    <>
+    <WrapPageElement>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
@@ -143,7 +144,7 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
           })}
         />
       </Container>
-    </>
+    </WrapPageElement>
   );
 };
 
@@ -214,6 +215,4 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => {
-  return <HeadTemplate />;
-};
+export { Head };

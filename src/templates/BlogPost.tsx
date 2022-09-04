@@ -42,6 +42,7 @@ import type { PageProps } from "gatsby";
 import type { BlogPostQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
+import { WrapPageElement } from "@/layouts/WrapPageElement";
 
 const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
 
@@ -416,7 +417,7 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   }, [post.tags]);
 
   return (
-    <>
+    <WrapPageElement>
       <GatsbySeo
         title={title}
         description={post.excerpt}
@@ -591,7 +592,7 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
           })}
         />
       </Container>
-    </>
+    </WrapPageElement>
   );
 };
 

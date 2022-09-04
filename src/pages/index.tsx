@@ -21,12 +21,13 @@ import {
 } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 
-import type { PageProps, HeadFC } from "gatsby";
+import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 import type { IndexPageQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
-import { HeadTemplate } from "@/templates/HeadTemplate";
+import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { Head } from "@/templates/Head";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
@@ -101,7 +102,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const icon = data.icon.svg.content;
 
   return (
-    <>
+    <WrapPageElement>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
@@ -146,7 +147,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       >
         <CertificationList certification={data.certification.edges} />
       </Section>
-    </>
+    </WrapPageElement>
   );
 };
 
@@ -314,6 +315,4 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => {
-  return <HeadTemplate />;
-};
+export { Head };

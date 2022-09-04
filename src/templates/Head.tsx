@@ -1,27 +1,13 @@
-import { useI18next } from "gatsby-plugin-react-i18next";
-import { useSiteMetadata, useUrl } from "src/hooks";
+import { useSiteMetadata } from "src/hooks";
 
 /**
  * Headタグ部
  */
-export const HeadTemplate = (): JSX.Element => {
+export const Head = (): JSX.Element => {
   const siteMetadata = useSiteMetadata();
-  const { currentLangUrl, defaultLangUrl, createUrlWithLang } = useUrl();
-  const { languages } = useI18next();
 
   return (
     <>
-      <link rel="canonical" href={currentLangUrl} />
-      {languages.map((lng) => (
-        <link
-          rel="alternate"
-          key={lng}
-          href={createUrlWithLang(lng)}
-          hrefLang={lng}
-        />
-      ))}
-      <link rel="alternate" href={defaultLangUrl} hrefLang="x-default" />
-
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
