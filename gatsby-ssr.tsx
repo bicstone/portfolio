@@ -3,6 +3,8 @@ import { Fragment } from "react";
 
 import type { GatsbySSR } from "gatsby";
 
+import { WrapRootElement } from "@/layouts/WrapRootElement";
+
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   setPreBodyComponents,
 }) => {
@@ -13,4 +15,8 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
       })}
     </Fragment>,
   ]);
+};
+
+export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
+  return <WrapRootElement>{element}</WrapRootElement>;
 };

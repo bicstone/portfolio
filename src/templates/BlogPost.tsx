@@ -33,12 +33,7 @@ import {
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
-import {
-  HelloGroup,
-  Layout,
-  InarticleAd,
-  RelatedBlogPostList,
-} from "src/components";
+import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 
 import type { MDXProviderComponentsProp } from "@mdx-js/react";
@@ -47,6 +42,7 @@ import type { PageProps } from "gatsby";
 import type { BlogPostQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
+import { WrapPageElement } from "@/layouts/WrapPageElement";
 
 const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
 
@@ -357,10 +353,10 @@ const components: MDXProviderComponentsProp = {
   ),
   ad: () => (
     <aside>
-      <Typography variant="subtitle1">スポンサーリンク</Typography>
       {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
         isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
           <NoSsr defer>
+            <Typography variant="subtitle1">広告</Typography>
             <InarticleAd
               pubId={process.env.GATSBY_ADSENSE_PUB_ID}
               adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
@@ -421,11 +417,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   }, [post.tags]);
 
   return (
-    <Layout
-      icon={data.icon.svg.content}
-      iconAlt={data.icon.title}
-      css={{ overflowWrap: "break-word" }}
-    >
+    <WrapPageElement icon={data.icon.svg.content} iconAlt={data.icon.title}>
       <GatsbySeo
         title={title}
         description={post.excerpt}
@@ -555,12 +547,12 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
             </MDXRenderer>
           </MDXProvider>
           <aside>
-            <StyledTypography variant="h5" as="h2" paragraph>
-              {t("blog.ad-label")}
-            </StyledTypography>
             {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
               isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
                 <NoSsr defer>
+                  <StyledTypography variant="h5" as="h2" paragraph>
+                    {t("blog.ad-label")}
+                  </StyledTypography>
                   <InarticleAd
                     pubId={process.env.GATSBY_ADSENSE_PUB_ID}
                     adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
@@ -600,7 +592,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
           })}
         />
       </Container>
-    </Layout>
+    </WrapPageElement>
   );
 };
 

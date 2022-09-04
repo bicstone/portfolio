@@ -11,7 +11,6 @@ import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 import {
-  Layout,
   HelloGroup,
   OSSList,
   CertificationList,
@@ -27,6 +26,8 @@ import type { ReactNode } from "react";
 import type { IndexPageQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
+import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { Head } from "@/templates/Head";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
@@ -102,7 +103,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const iconAlt = data.icon.title;
 
   return (
-    <Layout icon={icon} iconAlt={iconAlt} isHome>
+    <WrapPageElement icon={icon} iconAlt={iconAlt} isHome>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
@@ -147,7 +148,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       >
         <CertificationList certification={data.certification.edges} />
       </Section>
-    </Layout>
+    </WrapPageElement>
   );
 };
 
@@ -314,3 +315,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head };

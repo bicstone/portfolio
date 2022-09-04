@@ -142,6 +142,8 @@ const config: GatsbyConfig = {
       options: {
         src: path.resolve("src"),
         "@/commons": path.resolve("src/commons"),
+        "@/layouts": path.resolve("src/layouts"),
+        "@/templates": path.resolve("src/templates"),
       },
     },
     {

@@ -2,17 +2,21 @@ import { SelfImprovement as SelfImprovementIcon } from "@mui/icons-material";
 import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import { Layout } from "src/components";
 
 import type { PageProps } from "gatsby";
 import type { NotFoundPageQuery } from "src/types";
 
+import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { Head } from "@/templates/Head";
+
 const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
   const { t } = useI18next();
+
   const icon = data.icon.svg.content;
   const iconAlt = data.icon.title;
+
   return (
-    <Layout icon={icon} iconAlt={iconAlt}>
+    <WrapPageElement icon={icon} iconAlt={iconAlt}>
       <Container maxWidth="md">
         <div
           css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}
@@ -43,7 +47,7 @@ const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
           </Button>
         </div>
       </Container>
-    </Layout>
+    </WrapPageElement>
   );
 };
 
@@ -71,3 +75,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head };

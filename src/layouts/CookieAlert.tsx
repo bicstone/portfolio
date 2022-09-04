@@ -37,9 +37,7 @@ const CookieAlertContent = forwardRef<HTMLDivElement, CookieAlertContentProps>(
           wordBreak: "keep-all",
           whiteSpace: "nowrap",
         }}
-        action={
-          <div css={(theme) => ({ padding: theme.spacing(1) })}>{action}</div>
-        }
+        action={action}
         message={
           <Typography
             variant={breakpoints.includes(width) ? "caption" : "body2"}
@@ -56,7 +54,6 @@ const CookieAlertContent = forwardRef<HTMLDivElement, CookieAlertContentProps>(
 CookieAlertContent.displayName = "CookieAlertContent";
 
 export interface CookieAlertProps {
-  show?: boolean;
   cookieName?: string;
   cookieValue?: string;
   cookieOptions?: Cookies.CookieAttributes;
@@ -74,8 +71,6 @@ export const CookieAlert = ({
     secure: process.env.NODE_ENV !== "development",
     sameSite: "Strict",
   },
-
-  show = true,
 }: CookieAlertProps): JSX.Element => {
   const breakpoints: Breakpoint[] = ["xs", "sm"];
   const [agree, setAgree] = useState(Cookies.get(cookieName));
@@ -88,7 +83,7 @@ export const CookieAlert = ({
   };
 
   return (
-    <Snackbar open={show && agree === undefined}>
+    <Snackbar open={agree === undefined}>
       <CookieAlertContent
         breakpoints={breakpoints}
         action={

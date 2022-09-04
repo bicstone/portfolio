@@ -1,9 +1,9 @@
 import { Card, CardHeader } from "@mui/material";
 
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 export interface MediaCardProps {
-  media?: React.ReactNode;
+  media?: ReactNode;
 }
 
 /**

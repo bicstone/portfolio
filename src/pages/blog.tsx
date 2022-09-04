@@ -12,12 +12,15 @@ import {
   GatsbySeo,
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
-import { Layout, BlogPostIndex } from "src/components";
+import { BlogPostIndex } from "src/components";
 import { useSiteMetadata, useBuildTime } from "src/hooks";
 
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
 import type { BlogPageQuery } from "src/types";
+
+import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { Head } from "@/templates/Head";
 
 type BreadcrumbsProps = {
   siteTitle: string;
@@ -54,8 +57,9 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const icon = data.icon.svg.content;
   const iconAlt = data.icon.title;
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
+
   return (
-    <Layout icon={icon} iconAlt={iconAlt}>
+    <WrapPageElement icon={icon} iconAlt={iconAlt}>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
@@ -142,7 +146,7 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
           })}
         />
       </Container>
-    </Layout>
+    </WrapPageElement>
   );
 };
 
@@ -212,3 +216,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head };
