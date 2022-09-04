@@ -1,5 +1,8 @@
 import { NoSsr } from "@mui/material";
-import React from "react";
+import { GatsbySeo } from "gatsby-plugin-next-seo";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import React, { useEffect } from "react";
+import { useUrl } from "src/hooks";
 
 import { CookieAlert } from "@/layouts/CookieAlert";
 import { Footer } from "@/layouts/Footer";
@@ -16,6 +19,13 @@ export interface WrapPageElementProps {
 export const WrapPageElement = ({
   children,
 }: WrapPageElementProps): JSX.Element => {
+  const { currentLangUrl } = useUrl();
+  const { language } = useI18next();
+
+  useEffect(() => {
+    document?.documentElement?.setAttribute("lang", language);
+  }, [language]);
+
   return (
     <>
       <NoSsr defer>
@@ -26,6 +36,12 @@ export const WrapPageElement = ({
         {children}
       </main>
       <Footer />
+      <GatsbySeo
+        openGraph={{
+          url: currentLangUrl,
+          locale: language,
+        }}
+      />
     </>
   );
 };
