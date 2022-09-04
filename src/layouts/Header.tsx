@@ -96,7 +96,7 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
         <div css={{ flexGrow: 1 }} />
         <nav>
           <NoSsr>
-            {/* To prevent HOUC */}
+            {/* To prevent FOUC */}
             <Button
               css={(theme) => ({
                 backgroundColor: theme.vars.palette.background.default,
@@ -130,17 +130,17 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
                 {t("header.github-title")}
               </Button>
             )}
+            <IconButton
+              size="small"
+              onClick={() =>
+                setPaletteMode(paletteMode === "light" ? "dark" : "light")
+              }
+              css={(theme) => ({ margin: theme.spacing(0, 1) })}
+              title={t("header.toggleDarkTheme-title")}
+            >
+              {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
           </NoSsr>
-          <IconButton
-            size="small"
-            onClick={() =>
-              setPaletteMode(paletteMode === "light" ? "dark" : "light")
-            }
-            css={(theme) => ({ margin: theme.spacing(0, 1) })}
-            title={t("header.toggleDarkTheme-title")}
-          >
-            {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
-          </IconButton>
         </nav>
       </Toolbar>
     </AppBar>
