@@ -3,14 +3,20 @@ import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
+import type { PageProps } from "gatsby";
+import type { NotFoundPageQuery } from "src/types";
+
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { Head } from "@/templates/Head";
 
-const NotFound = (): JSX.Element => {
+const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
   const { t } = useI18next();
 
+  const icon = data.icon.svg.content;
+  const iconAlt = data.icon.title;
+
   return (
-    <WrapPageElement>
+    <WrapPageElement icon={icon} iconAlt={iconAlt}>
       <Container maxWidth="md">
         <div
           css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}
@@ -57,6 +63,14 @@ export const query = graphql`
           data
           language
         }
+      }
+    }
+    # Bicstoneアイコンを取得する
+    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
+    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
+      title
+      svg {
+        content
       }
     }
   }

@@ -356,7 +356,7 @@ const components: MDXProviderComponentsProp = {
       {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
         isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
           <NoSsr defer>
-            <Typography variant="subtitle1">スポンサーリンク</Typography>
+            <Typography variant="subtitle1">広告</Typography>
             <InarticleAd
               pubId={process.env.GATSBY_ADSENSE_PUB_ID}
               adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
@@ -399,7 +399,7 @@ const Breadcrumbs = ({
   );
 };
 
-const BlogPostTemplate = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
+const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   const { path } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
@@ -417,7 +417,7 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   }, [post.tags]);
 
   return (
-    <WrapPageElement>
+    <WrapPageElement icon={data.icon.svg.content} iconAlt={data.icon.title}>
       <GatsbySeo
         title={title}
         description={post.excerpt}
@@ -596,7 +596,7 @@ const BlogPostTemplate = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   );
 };
 
-export default BlogPostTemplate;
+export default BlogPost;
 
 export const query = graphql`
   query BlogPost($id: String!, $language: String!) {

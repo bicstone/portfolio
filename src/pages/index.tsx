@@ -100,9 +100,10 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const { t } = useI18next();
 
   const icon = data.icon.svg.content;
+  const iconAlt = data.icon.title;
 
   return (
-    <WrapPageElement>
+    <WrapPageElement icon={icon} iconAlt={iconAlt} isHome>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}

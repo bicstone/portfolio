@@ -11,6 +11,9 @@ import { Footer } from "@/layouts/Footer";
 import { Header } from "@/layouts/Header";
 
 export interface WrapPageElementProps {
+  isHome?: boolean;
+  icon: string;
+  iconAlt: string;
   children: ReactNode;
 }
 
@@ -19,6 +22,9 @@ export interface WrapPageElementProps {
  * This is useful for setting wrapper components around pages that won't get unmounted on page changes.
  */
 export const WrapPageElement = ({
+  isHome,
+  icon,
+  iconAlt,
   children,
 }: WrapPageElementProps): JSX.Element => {
   const { currentLangUrl } = useUrl();
@@ -33,7 +39,7 @@ export const WrapPageElement = ({
       <NoSsr defer>
         <CookieAlert />
       </NoSsr>
-      <Header />
+      <Header icon={icon} iconAlt={iconAlt} isHome={isHome ?? false} />
       <main role="main" css={(theme) => ({ marginTop: theme.spacing(8) })}>
         {children}
       </main>

@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
+import { SvgIcon } from "src/components";
 import { useBreakPoint, useSiteMetadata } from "src/hooks";
 
 import type { Breakpoint } from "@mui/material";
@@ -29,8 +30,8 @@ export interface HeaderProps {
 /**
  * ヘッダー部
  */
-export const Header = (): JSX.Element => {
-  const { t, originalPath } = useI18next();
+export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
+  const { t } = useI18next();
   const { mode: paletteMode, setMode: setPaletteMode } = useColorScheme();
   const scrollTrigger = useScrollTrigger({
     disableHysteresis: true,
@@ -49,7 +50,7 @@ export const Header = (): JSX.Element => {
       role="banner"
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
-        {originalPath === "" ? (
+        {isHome ? (
           <div css={{ display: "flex", alignItems: "center" }}>
             <Typography
               color="textPrimary"
@@ -76,13 +77,15 @@ export const Header = (): JSX.Element => {
                 gap: theme.spacing(0.5),
               })}
             >
-              <img
+              <SvgIcon
                 width={20}
                 height={20}
-                src="/favicon-32x32.png"
-                alt={t("header.icon")}
-                decoding="async"
-                loading="lazy"
+                icon={icon}
+                alt={iconAlt}
+                css={(theme) => ({
+                  marginRight: theme.spacing(0.5),
+                  display: "inline-flex",
+                })}
               />
               <Typography
                 color="textPrimary"

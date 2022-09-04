@@ -54,10 +54,12 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
 
+  const icon = data.icon.svg.content;
+  const iconAlt = data.icon.title;
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
 
   return (
-    <WrapPageElement>
+    <WrapPageElement icon={icon} iconAlt={iconAlt}>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
