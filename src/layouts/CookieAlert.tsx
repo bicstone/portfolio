@@ -37,9 +37,7 @@ const CookieAlertContent = forwardRef<HTMLDivElement, CookieAlertContentProps>(
           wordBreak: "keep-all",
           whiteSpace: "nowrap",
         }}
-        action={
-          <div css={(theme) => ({ padding: theme.spacing(1) })}>{action}</div>
-        }
+        action={action}
         message={
           <Typography
             variant={breakpoints.includes(width) ? "caption" : "body2"}

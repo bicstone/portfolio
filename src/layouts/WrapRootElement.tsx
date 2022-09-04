@@ -40,7 +40,10 @@ export const WrapRootElement = ({
                 backgroundRepeat: "repeat",
                 backgroundSize: "400px 400px",
                 cursor: "default",
+                display: "flex",
+                flexDirection: "column",
                 minHeight: "100vh",
+                overflowWrap: "break-word",
               },
             }}
           />

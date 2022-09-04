@@ -13,6 +13,7 @@ import {
   Button,
   IconButton,
   useColorScheme,
+  NoSsr,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -57,7 +58,6 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
               variant="h6"
               component="h1"
               css={(theme) => ({ margin: theme.spacing(0, 0.5) })}
-              gutterBottom
             >
               <Link
                 component={RouterLink}
@@ -87,12 +87,7 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
                   display: "inline-flex",
                 })}
               />
-              <Typography
-                color="textPrimary"
-                variant="h6"
-                component="span"
-                gutterBottom
-              >
+              <Typography color="textPrimary" variant="h6" component="span">
                 {t("header.title-home")}
               </Typography>
             </div>
@@ -100,23 +95,24 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
         )}
         <div css={{ flexGrow: 1 }} />
         <nav>
-          {isExpanded && (
-            <>
-              <Button
-                css={(theme) => ({
-                  backgroundColor: theme.vars.palette.background.default,
-                  marginRight: theme.spacing(0.5),
-                })}
-                variant="outlined"
-                color="inherit"
-                size="small"
-                component={RouterLink}
-                to="/blog"
-                title={t("blog.title")}
-                startIcon={<StickyNote2Icon />}
-              >
-                {t("blog.title")}
-              </Button>
+          <NoSsr>
+            {/* To prevent HOUC */}
+            <Button
+              css={(theme) => ({
+                backgroundColor: theme.vars.palette.background.default,
+                marginRight: theme.spacing(0.5),
+              })}
+              variant="outlined"
+              color="inherit"
+              size="small"
+              component={RouterLink}
+              to="/blog"
+              title={t("blog.title")}
+              startIcon={isExpanded ? <StickyNote2Icon /> : undefined}
+            >
+              {isExpanded ? t("blog.title") : <StickyNote2Icon />}
+            </Button>
+            {isExpanded && (
               <Button
                 css={(theme) => ({
                   backgroundColor: theme.vars.palette.background.default,
@@ -133,8 +129,8 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
               >
                 {t("header.github-title")}
               </Button>
-            </>
-          )}
+            )}
+          </NoSsr>
           <IconButton
             size="small"
             onClick={() =>
