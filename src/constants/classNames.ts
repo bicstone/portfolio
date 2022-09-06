@@ -1,1 +1,1 @@
-export const isLoadingClassName = 'is-loading';
+export const isLoadingClassName = "is-loading";

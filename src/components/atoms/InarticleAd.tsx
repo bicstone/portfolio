@@ -1,4 +1,6 @@
-import React from 'react';
+import { memo, useEffect } from "react";
+
+import { isDefined } from "@/commons/typeguard";
 
 declare global {
   interface Window {
@@ -7,27 +9,31 @@ declare global {
   }
 }
 
-export type InarticleAdProps = {
+export interface InarticleAdProps {
   pubId: string;
   adId: string;
-};
+}
 
 /**
  * 記事内広告
  */
-export const InarticleAd = React.memo<InarticleAdProps>(({ pubId, adId }) => {
-  React.useEffect(() => {
-    if (!window) {
+export const InarticleAd = memo<InarticleAdProps>(({ pubId, adId }) => {
+  useEffect(() => {
+    if (!isDefined(window)) {
       return;
     }
-    window.adsbygoogle = window.adsbygoogle || [];
-    window.adsbygoogle.push({});
+    try {
+      window.adsbygoogle = window.adsbygoogle ?? [];
+      window.adsbygoogle.push({});
+    } catch {
+      // ignore
+    }
   }, []);
 
   return (
     <ins
       className="adsbygoogle"
-      css={{ display: 'block', textAlign: 'center' }}
+      css={{ display: "block", textAlign: "center" }}
       data-ad-layout="in-article"
       data-ad-format="fluid"
       data-ad-client={pubId}
@@ -36,4 +42,4 @@ export const InarticleAd = React.memo<InarticleAdProps>(({ pubId, adId }) => {
   );
 });
 
-InarticleAd.displayName = 'InarticleAd';
+InarticleAd.displayName = "InarticleAd";

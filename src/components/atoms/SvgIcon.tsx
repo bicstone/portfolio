@@ -1,13 +1,9 @@
-import React from 'react';
+import parse, { attributesToProps, domToReact } from "html-react-parser";
 
-import parse, {
-  attributesToProps,
-  domToReact,
-  HTMLReactParserOptions,
-  DOMNode,
-} from 'html-react-parser';
+import type { HTMLReactParserOptions, DOMNode } from "html-react-parser";
+import type { ComponentPropsWithRef } from "react";
 
-export interface SvgIconProps extends React.ComponentPropsWithRef<'svg'> {
+export interface SvgIconProps extends ComponentPropsWithRef<"svg"> {
   width: number;
   height: number;
   icon: string;
@@ -18,14 +14,20 @@ export interface SvgIconProps extends React.ComponentPropsWithRef<'svg'> {
  * Contentfulから持ってきたSVGアイコンをsvgタグに出力する
  * ※ビックストーンアイコンはMITにできないため、contentfulから持ってくるときに使用
  */
-export const SvgIcon = ({ width, height, icon, alt, ...props }: SvgIconProps) => {
+export const SvgIcon = ({
+  width,
+  height,
+  icon,
+  alt,
+  ...props
+}: SvgIconProps): JSX.Element => {
   const options: HTMLReactParserOptions = {
-    replace: domNode => {
-      if ('name' in domNode && domNode.name === 'svg' && 'attribs' in domNode && domNode.attribs) {
+    replace: (domNode) => {
+      if ("name" in domNode && domNode.name === "svg" && "attribs" in domNode) {
         return (
           <svg
             {...attributesToProps(domNode.attribs)}
-            aria-label={alt || ''}
+            aria-label={alt}
             width={width}
             height={height}
             css={{ width, height }}
@@ -37,7 +39,7 @@ export const SvgIcon = ({ width, height, icon, alt, ...props }: SvgIconProps) =>
       }
     },
   };
-  return <> {parse(icon || '', options)} </>;
+  return <> {parse(icon, options)} </>;
 };
 
-SvgIcon.displayName = 'SvgIcon';
+SvgIcon.displayName = "SvgIcon";

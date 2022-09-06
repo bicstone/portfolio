@@ -1,11 +1,16 @@
-import path from 'path';
+import path from "path";
 
-import type { BlogPostsQuery } from './src/types';
-import type { GatsbyNode } from 'gatsby';
+import { isDefined } from "./src/commons/typeguard";
 
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }) => {
+import type { BlogPostsQuery } from "./src/types";
+import type { GatsbyNode } from "gatsby";
+
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+}) => {
   const { createPage } = actions;
-  const result = await graphql(`
+  const result = await graphql<BlogPostsQuery>(`
     query BlogPosts {
       allContentfulBlogPost {
         edges {
@@ -18,16 +23,15 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     }
   `);
 
-  if (result.errors) throw result.errors;
-  if (!result.data) throw Error;
+  if (!isDefined(result.data)) throw new Error();
 
-  (result.data as BlogPostsQuery).allContentfulBlogPost.edges.forEach((post, index, posts) => {
+  result.data.allContentfulBlogPost.edges.forEach((post, index, posts) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node;
     const next = index === 0 ? null : posts[index - 1].node;
 
     createPage({
       path: post.node.slug,
-      component: path.resolve('./src/components/templates/BlogPost.tsx'),
+      component: path.resolve("./src/templates/BlogPost.tsx"),
       context: {
         id: post.node.id,
         slug: post.node.slug,

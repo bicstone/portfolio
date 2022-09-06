@@ -1,5 +1,7 @@
-import { Theme, useTheme, useMediaQuery } from '@mui/material';
-import { Breakpoint } from '@mui/material/styles';
+import { useTheme, useMediaQuery } from "@mui/material";
+
+import type { Theme } from "@mui/material";
+import type { Breakpoint } from "@mui/material/styles";
 
 /**
  * 現在のMaterial-uiのブレークポイントを返す
@@ -10,9 +12,10 @@ export const useBreakPoint = (): Breakpoint => {
   const keys: Breakpoint[] = [...theme.breakpoints.keys].reverse();
   return (
     keys.reduce((output: Breakpoint | null, key: Breakpoint) => {
-      // FIXME: The violation of rules of hooks
+      // TODO: The violation of rules of hooks
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const matches = useMediaQuery(theme.breakpoints.up(key));
-      return !output && matches ? key : output;
-    }, null) || 'xs'
+      return output === null && matches ? key : output;
+    }, null) ?? "xs"
   );
 };

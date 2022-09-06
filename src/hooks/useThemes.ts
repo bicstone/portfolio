@@ -1,11 +1,17 @@
-import React from 'react';
+import { green, pink } from "@mui/material/colors";
+import {
+  createTheme,
+  experimental_extendTheme as createExtendTheme,
+} from "@mui/material/styles";
+import { useMemo } from "react";
 
-import { green, pink } from '@mui/material/colors';
-import { createTheme, experimental_extendTheme as createExtendTheme } from '@mui/material/styles';
+import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
-export const useThemes = () => {
-  const defaultTheme = React.useMemo(() => createTheme(), []);
-  const theme = React.useMemo(() => {
+export const useThemes = (): {
+  theme: Omit<Theme, "palette"> & CssVarsTheme;
+} => {
+  const defaultTheme = useMemo(() => createTheme(), []);
+  const theme = useMemo(() => {
     return createExtendTheme({
       colorSchemes: {
         light: {
@@ -17,7 +23,7 @@ export const useThemes = () => {
               main: pink.A700,
             },
             text: {
-              secondary: 'rgba(0, 0, 0, 0.65)',
+              secondary: "rgba(0, 0, 0, 0.65)",
             },
             Avatar: {
               defaultBg: green[300],
@@ -35,7 +41,7 @@ export const useThemes = () => {
               main: pink[200],
             },
             text: {
-              secondary: 'rgba(255, 255, 255, 0.7)',
+              secondary: "rgba(255, 255, 255, 0.7)",
             },
             Avatar: {
               defaultBg: green[200],
@@ -47,14 +53,14 @@ export const useThemes = () => {
         MuiButton: {
           styleOverrides: {
             root: {
-              textTransform: 'none',
+              textTransform: "none",
             },
           },
         },
         MuiButtonBase: {
           styleOverrides: {
             root: {
-              userSelect: 'auto',
+              userSelect: "auto",
             },
           },
         },
@@ -75,12 +81,12 @@ export const useThemes = () => {
         },
         MuiLink: {
           defaultProps: {
-            color: 'inherit',
+            color: "inherit",
           },
         },
       },
     });
-  }, []);
+  }, [defaultTheme]);
 
   return { theme };
 };

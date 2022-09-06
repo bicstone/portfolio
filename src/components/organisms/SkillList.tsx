@@ -1,5 +1,4 @@
-import React from 'react';
-
+import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import {
   Typography,
   Grid,
@@ -8,35 +7,33 @@ import {
   AccordionDetails,
   AccordionSummary,
   Chip,
-} from '@mui/material';
-import { Breakpoint } from '@mui/material/styles';
-import { useI18next } from 'gatsby-plugin-react-i18next';
+} from "@mui/material";
+import { useI18next } from "gatsby-plugin-react-i18next";
+import { CollapseResponsiveController } from "src/components";
 
-import { ExpandMore as ExpandMoreIcon } from '@mui/icons-material';
+import type { Breakpoint } from "@mui/material/styles";
+import type { IndexPageQuery } from "src/types";
 
-import { CollapseResponsiveController } from 'src/components';
-import { IndexPageQuery } from 'src/types';
-
-export type SkillListProps = {
-  skills: IndexPageQuery['skills']['edges'];
-};
+export interface SkillListProps {
+  skills: IndexPageQuery["skills"]["edges"];
+}
 
 /**
  * スキルリスト
  */
-export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
+export const SkillList = ({ skills }: SkillListProps): JSX.Element => {
   const { language } = useI18next();
-  const defaultExpandedBreakpoints: Breakpoint[] = ['xl', 'lg', 'md'];
+  const defaultExpandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
 
   return (
     <Grid container spacing={2}>
       {skills
         .filter(({ node }) => node.node_locale === language)
-        ?.map(({ node }) => (
+        .map(({ node }) => (
           <Grid item xs={12} sm={6} md={4} key={node.id}>
             <Card component="section">
               <CollapseResponsiveController
-                defaultExpanded={node.expanded || false}
+                defaultExpanded={node.expanded}
                 defaultExpandedBreakpoints={defaultExpandedBreakpoints}
               >
                 <Accordion>
@@ -50,26 +47,34 @@ export const SkillList: React.FC<SkillListProps> = ({ skills }) => {
                     </Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <div css={theme => ({ padding: theme.spacing(2) })}>
-                      {node?.skillGroups?.map(skill => (
+                    <div css={(theme) => ({ padding: theme.spacing(2) })}>
+                      {node.skillGroups.map((skill) => (
                         <div key={skill.id}>
-                          <Typography component="h3" variant="subtitle1" gutterBottom>
+                          <Typography
+                            component="h3"
+                            variant="subtitle1"
+                            gutterBottom
+                          >
                             {skill.name}
                           </Typography>
                           <ul
-                            css={theme => ({
-                              display: 'flex',
-                              justifyContent: 'flex-start',
-                              flexWrap: 'wrap',
-                              listStyle: 'none',
+                            css={(theme) => ({
+                              display: "flex",
+                              justifyContent: "flex-start",
+                              flexWrap: "wrap",
+                              listStyle: "none",
                               margin: 0,
                               marginBottom: theme.spacing(2),
                               padding: 0,
                             })}
                           >
-                            {skill.skills.map(skill => (
+                            {skill.skills.map((skill) => (
                               <li key={skill.id}>
-                                <Chip variant="outlined" size="small" label={skill.name} />
+                                <Chip
+                                  variant="outlined"
+                                  size="small"
+                                  label={skill.name}
+                                />
                               </li>
                             ))}
                           </ul>

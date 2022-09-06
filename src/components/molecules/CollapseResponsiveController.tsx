@@ -1,38 +1,52 @@
-import React from 'react';
+import { useState, useEffect } from "react";
+import { useBreakPoint } from "src/hooks";
 
-import { Accordion } from '@mui/material';
-import { Breakpoint } from '@mui/material/styles';
+import type { Accordion } from "@mui/material";
+import type { Breakpoint } from "@mui/material/styles";
+import type { ReactComponentElement } from "react";
 
-import { useBreakPoint } from 'src/hooks';
+import { isDefined } from "@/commons/typeguard";
 
-export type CollapseResponsiveControllerProps = {
+export interface CollapseResponsiveControllerProps {
   defaultExpanded: boolean;
   defaultExpandedBreakpoints?: Breakpoint[];
-  children: React.ReactComponentElement<typeof Accordion>;
-};
+  children: ReactComponentElement<typeof Accordion>;
+}
 
 /**
  * ブレークポイントが広くなった場合に展開するアコーディオン制御
  */
-export const CollapseResponsiveController: React.FC<CollapseResponsiveControllerProps> = ({
+export const CollapseResponsiveController = ({
   defaultExpanded = true,
   defaultExpandedBreakpoints = undefined,
   children,
-}) => {
+}: CollapseResponsiveControllerProps): JSX.Element => {
   const width = useBreakPoint();
-  const [expanded, setExpanded] = React.useState<boolean>(defaultExpanded);
+  const [expanded, setExpanded] = useState<boolean>(defaultExpanded);
+  const [previousWidth, setPreviousWidth] = useState<Breakpoint>("xs");
 
-  React.useEffect(() => {
+  useEffect(() => {
+    if (previousWidth === width) {
+      return;
+    }
+
     // ブレークポイントが広くなった場合に展開する
-    if (defaultExpandedBreakpoints) {
+    if (isDefined(defaultExpandedBreakpoints)) {
       const newValue = defaultExpandedBreakpoints.includes(width);
       if (!expanded && newValue) {
         setExpanded(newValue);
       }
     }
-  }, [width]);
+    setPreviousWidth(width);
+  }, [defaultExpandedBreakpoints, expanded, previousWidth, width]);
 
-  const handleChange = () => setExpanded(!expanded);
+  const handleChange = (): void => setExpanded(!expanded);
 
-  return <children.type expanded={expanded} onChange={handleChange} {...children.props} />;
+  return (
+    <children.type
+      expanded={expanded}
+      onChange={handleChange}
+      {...children.props}
+    />
+  );
 };

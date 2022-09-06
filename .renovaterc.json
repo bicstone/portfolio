@@ -7,20 +7,13 @@
       "matchPackagePatterns": ["*"]
     },
     {
-      "groupName": "ui dependencies",
-      "matchPackagePatterns": ["material-ui"]
-    },
-    {
-      "groupName": "ui dependencies",
-      "matchPackagePrefixes": ["@mui"]
-    },
-    {
-      "groupName": "ui dependencies",
-      "matchPackagePrefixes": ["@emotion"]
+      "enabled": false,
+      "matchPackagePrefixes": ["@mdx-js"],
+      "matchUpdateTypes": ["major"]
     },
     {
       "enabled": false,
-      "matchPackagePrefixes": ["@mdx-js"],
+      "matchPackagePrefixes": ["gatsby-plugin-mdx"],
       "matchUpdateTypes": ["major"]
     }
   ],
