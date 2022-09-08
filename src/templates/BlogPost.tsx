@@ -25,7 +25,6 @@ import {
 } from "@mui/material";
 import { captureException } from "@sentry/gatsby";
 import { graphql, Link as RouterLink } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import {
   BlogPostJsonLd,
   GatsbySeo,
@@ -36,9 +35,9 @@ import { useMemo } from "react";
 import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 
-import type { MDXProviderComponentsProp } from "@mdx-js/react";
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
+import type { MDXComponents } from "mdx/types";
 import type { BlogPostQuery } from "src/types";
 
 import { isDefined } from "@/commons/typeguard";
@@ -231,8 +230,8 @@ const StyledPre = styled("pre")(({ theme }) => ({
 }));
 
 // FIXME: refactor
-const components: MDXProviderComponentsProp = {
-  p: (props) => (
+const components: MDXComponents = {
+  p: ({ ref, ...props }) => (
     <Typography
       component="div"
       css={(theme) => ({ margin: theme.spacing(0, 2, 2) })}
@@ -240,13 +239,17 @@ const components: MDXProviderComponentsProp = {
     />
   ),
   h1: () => null,
-  h2: (props) => <StyledTypography variant="h5" component="h2" {...props} />,
-  h3: (props) => <StyledTypography variant="h6" component="h3" {...props} />,
+  h2: ({ ref, ...props }) => (
+    <StyledTypography variant="h5" as="h2" {...props} />
+  ),
+  h3: ({ ref, ...props }) => (
+    <StyledTypography variant="h6" as="h3" {...props} />
+  ),
   h4: () => null,
   h5: () => null,
   h6: () => null,
-  blockquote: (props) => <StyledBlockquote {...props} />,
-  table: ({ children, ...props }) => (
+  blockquote: ({ ref, ...props }) => <StyledBlockquote {...props} />,
+  table: ({ ref, children, ...props }) => (
     <TableContainer
       {...props}
       css={(theme) => ({
@@ -257,30 +260,45 @@ const components: MDXProviderComponentsProp = {
       <Table size="small">{children}</Table>
     </TableContainer>
   ),
-  thead: (props) => <TableHead {...props} />,
-  tbody: (props) => <TableBody {...props} />,
-  tr: (props) => <TableRow {...props} />,
-  th: ({ align, ...props }) => (
-    <TableCell align={align ?? "inherit"} component="th" {...props} />
-  ),
-  td: ({ align, ...props }) => (
-    <TableCell align={align ?? "inherit"} component="td" {...props} />
-  ),
-  inlineCode: (props) => <StyledInlineCode {...props} />,
-  pre: (props) => (
+  thead: ({ ref, ...props }) => <TableHead {...props} />,
+  tbody: ({ ref, ...props }) => <TableBody {...props} />,
+  tr: ({ ref, ...props }) => <TableRow {...props} />,
+  th: ({ ref, align, ...props }) => {
+    if (align === "char") {
+      captureException(new Error(`You cannot set char to align.`));
+      return <TableCell component="th" {...props} />;
+    }
+    return <TableCell align={align ?? "inherit"} component="th" {...props} />;
+  },
+  td: ({ ref, align, ...props }) => {
+    if (align === "char") {
+      captureException(new Error(`You cannot set char to align.`));
+      return <TableCell component="td" {...props} />;
+    }
+    return <TableCell align={align ?? "inherit"} component="td" {...props} />;
+  },
+  inlineCode: ({ ref, ...props }) => <StyledInlineCode {...props} />,
+  pre: ({ ref, ...props }) => (
     <StyledPreWrap>
       <StyledPre {...props} />
     </StyledPreWrap>
   ),
   hr: () => <Divider />,
-  a: (props) => (
+  a: ({ ref, ...props }) => (
     <Link
       {...props}
       rel="external noreferrer noopener nofollow"
       target="_blank"
     />
   ),
-  link: (props) => {
+  // @ts-expect-error -- TODO
+  link: ({
+    ref,
+    ...props
+  }: React.DetailedHTMLProps<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    HTMLAnchorElement
+  >) => {
     if (!isDefined(props.title) || !isDefined(props.href)) {
       captureException(
         new Error(
@@ -297,6 +315,7 @@ const components: MDXProviderComponentsProp = {
         elevation={2}
       >
         <CardActionArea
+          component="a"
           rel="external noreferrer noopener nofollow"
           target="_blank"
           {...props}
@@ -337,7 +356,7 @@ const components: MDXProviderComponentsProp = {
       </Card>
     );
   },
-  video: (props) => (
+  video: ({ ref, ...props }) => (
     // eslint-disable-next-line jsx-a11y/media-has-caption
     <video
       controls
@@ -542,9 +561,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
           })}
         >
           <MDXProvider components={components}>
-            <MDXRenderer components={components}>
-              {post.content.childMdx.body}
-            </MDXRenderer>
+            {post.content.childMdx.body}
           </MDXProvider>
           <aside>
             {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&

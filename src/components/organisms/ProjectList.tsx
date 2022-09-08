@@ -15,20 +15,19 @@ import {
   useTheme,
   Link,
 } from "@mui/material";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 import { SvgAvatar } from "src/components";
 
-import type { MDXProviderComponentsProp } from "@mdx-js/react";
+import type { MDXComponents } from "mdx/types";
 import type { IndexPageQuery } from "src/types";
 
 export interface ProjectListProps {
   projects: IndexPageQuery["projects"]["edges"];
 }
 
-const components: MDXProviderComponentsProp = {
-  a: (props) => (
+const components: MDXComponents = {
+  a: ({ ref, ...props }) => (
     <Link
       {...props}
       rel="external noreferrer noopener nofollow"
@@ -134,9 +133,7 @@ export const ProjectList = ({ projects }: ProjectListProps): JSX.Element => {
                 </Typography>
                 <Typography component="div" variant="body2">
                   <MDXProvider components={components}>
-                    <MDXRenderer components={components}>
-                      {node.detail.childMdx.body}
-                    </MDXRenderer>
+                    {node.detail.childMdx.body}
                   </MDXProvider>
                 </Typography>
               </>
