@@ -46,9 +46,14 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
   return (
     <AppBar
       position="fixed"
-      color={scrollTrigger ? "default" : "transparent"}
+      color="inherit"
       elevation={scrollTrigger ? 4 : 0}
       role="banner"
+      css={(theme) => ({
+        background: scrollTrigger
+          ? theme.vars.palette.background.paper
+          : "transparent",
+      })}
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
         {isHome ? (
