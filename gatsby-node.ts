@@ -5,6 +5,21 @@ import { isDefined } from "./src/commons/typeguard";
 import type { BlogPostsQuery } from "./src/types";
 import type { GatsbyNode } from "gatsby";
 
+export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
+  actions,
+}) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        src: path.resolve("src"),
+        "@/commons": path.resolve("src/commons"),
+        "@/layouts": path.resolve("src/layouts"),
+        "@/templates": path.resolve("src/templates"),
+      },
+    },
+  });
+};
+
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,

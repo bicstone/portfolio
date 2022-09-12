@@ -1,6 +1,6 @@
 import { NoSsr } from "@mui/material";
 import { GatsbySeo } from "gatsby-plugin-next-seo";
-import { Helmet, useI18next } from "gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import { useUrl } from "src/hooks";
 
 import type { ReactNode } from "react";
@@ -46,7 +46,6 @@ export const WrapPageElement = ({
           locale: language,
         }}
       />
-      <Helmet />
     </>
   );
 };

@@ -46,31 +46,6 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-image`,
     },
     {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        lang: "ja",
-        name: siteMetaData.title,
-        short_name: siteMetaData.shortTitle,
-        description: siteMetaData.description,
-        start_url: "/",
-        display: "minimal-ui",
-        icons: [
-          {
-            src: siteMetaData.image,
-            sizes: "512x512",
-            type: "image/png",
-          },
-          {
-            src: siteMetaData.image192,
-            sizes: "192x192",
-            type: "image/png",
-          },
-        ],
-        theme_color: "#ffffff",
-        background_color: "#ffffff",
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
@@ -129,21 +104,6 @@ const config: GatsbyConfig = {
         languages: siteMetaData.languages,
         defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-remove-serviceworker",
-    },
-    {
-      resolve: "gatsby-plugin-remove-trailing-slashes",
-    },
-    {
-      resolve: "gatsby-plugin-root-import",
-      options: {
-        src: path.resolve("src"),
-        "@/commons": path.resolve("src/commons"),
-        "@/layouts": path.resolve("src/layouts"),
-        "@/templates": path.resolve("src/templates"),
       },
     },
     {
