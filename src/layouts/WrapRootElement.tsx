@@ -1,15 +1,12 @@
 import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
-import { Script } from "gatsby";
 import { HelmetProvider } from "react-helmet-async";
 import { useThemes } from "src/hooks";
 
 import BackgroundImage from "./background.svg";
 
 import type { ReactNode } from "react";
-
-import { isDefined } from "@/commons/typeguard";
 
 interface WrapRootElementProps {
   children: ReactNode;
@@ -51,14 +48,6 @@ export const WrapRootElement = ({
           {children}
         </CssVarsProvider>
       </EmotionThemeProvider>
-      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) && (
-        <Script
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-          async
-          crossOrigin="anonymous"
-          strategy="idle"
-        />
-      )}
     </HelmetProvider>
   );
 };

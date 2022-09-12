@@ -14,4 +14,7 @@ export default {
   gender: "male",
   languages: ["ja"],
   defaultLanguage: "ja",
+  tileColor: "#81c784",
+  themeColor: "#81c784",
+  maskColor: "#81c784",
 } as const;
