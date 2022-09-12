@@ -75,7 +75,6 @@ export const Head: HeadFC<never, never> = ({ location }) => {
       />
       <meta name="application-name" content={siteMetadata.shortTitle} />
       <meta name="msapplication-TileColor" content={siteMetadata.tileColor} />
-      <meta name="theme-color" content={siteMetadata.themeColor} />
       <meta name="description" content={siteMetadata.description} />
 
       {/* others */}
