@@ -8,7 +8,7 @@ import type { HeadFC } from "gatsby";
  */
 export const Head: HeadFC<never, never> = ({ location }) => {
   const siteMetadata = useSiteMetadata();
-  const canonical = `${siteMetadata.siteUrl}/${location.pathname}`;
+  const canonical = `${siteMetadata.siteUrl}${location.pathname}`;
 
   return (
     <>
