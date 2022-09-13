@@ -291,7 +291,7 @@ const components: MDXProviderComponentsProp = {
   anchor: (props) => (
     <Typography
       {...props}
-      variant="subtitle1"
+      variant="button"
       css={(theme) => ({
         paddingLeft: theme.spacing(0.5),
         paddingRight: theme.spacing(0.5),
