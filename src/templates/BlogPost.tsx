@@ -273,12 +273,32 @@ const components: MDXProviderComponentsProp = {
     </StyledPreWrap>
   ),
   hr: () => <Divider />,
-  a: (props) => (
-    <Link
+  a: (props) => {
+    const href = props?.href;
+    if (typeof href === "string" && href.startsWith("#")) {
+      // anchor links
+      return <Link {...props} underline="hover" color="text.secondary" />;
+    }
+    return (
+      // other links
+      <Link
+        {...props}
+        rel="external noreferrer noopener nofollow"
+        target="_blank"
+      />
+    );
+  },
+  anchor: (props) => (
+    <Typography
       {...props}
-      rel="external noreferrer noopener nofollow"
-      target="_blank"
-    />
+      variant="subtitle1"
+      css={(theme) => ({
+        paddingLeft: theme.spacing(0.5),
+        paddingRight: theme.spacing(0.5),
+      })}
+    >
+      #
+    </Typography>
   ),
   link: (props) => {
     if (!isDefined(props.title) || !isDefined(props.href)) {
