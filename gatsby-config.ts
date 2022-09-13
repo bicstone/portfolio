@@ -1,6 +1,5 @@
 import path from "path";
 
-import { createTheme } from "@mui/material";
 import dotenv from "dotenv";
 
 import siteMetaData from "./src/constants/siteMetaData";
@@ -75,6 +74,15 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              // AppBar height = 6 * 8px
+              offsetY: (6 + 1) * 8,
+              isIconAfterHeader: true,
+              icon: "<anchor />",
+            },
+          },
           ...(isDevelopment
             ? []
             : [
@@ -87,15 +95,6 @@ const config: GatsbyConfig = {
                   },
                 },
               ]),
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              // AppBar height = 6
-              offsetY: createTheme().spacing(6 + 1),
-              isIconAfterHeader: true,
-              icon: "<anchor />",
-            },
-          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
