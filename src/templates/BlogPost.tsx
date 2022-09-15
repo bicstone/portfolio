@@ -51,15 +51,18 @@ const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
 const StyledTypography = styled(Typography)(({ theme }) => ({
   display: "block",
   position: "relative",
-  margin: theme.spacing(6, 2, 3, 0),
-  paddingLeft: theme.spacing(2),
+  // AppBar height = 6
+  // negative top margin for anchor link
+  marginTop: theme.spacing(-2),
+  padding: theme.spacing(8, 2, 3, 2),
   fontWeight: "bold",
   "&::before": {
     content: '""',
     position: "absolute",
-    top: 0,
+    top: theme.spacing(6 + 2),
+    bottom: theme.spacing(3),
     left: 0,
-    height: "100%",
+    height: "auto",
     width: theme.spacing(0.5),
     backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
@@ -275,11 +278,34 @@ const components: MDXProviderComponentsProp = {
     </StyledPreWrap>
   ),
   hr: () => <Divider />,
-  a: (props) => (
-    <Link
+  a: (props) => {
+    const href = props?.href;
+    if (typeof href === "string" && href.startsWith("#")) {
+      // anchor links
+      return (
+        <Link
+          {...props}
+          color="text.secondary"
+          tabIndex={-1}
+          css={{ verticalAlign: "middle" }}
+        />
+      );
+    }
+    return (
+      // other links
+      <Link
+        {...props}
+        rel="external noreferrer noopener nofollow"
+        target="_blank"
+      />
+    );
+  },
+  anchor: (props) => (
+    <LinkIcon
       {...props}
-      rel="external noreferrer noopener nofollow"
-      target="_blank"
+      css={(theme) => ({
+        paddingLeft: theme.spacing(0.5),
+      })}
     />
   ),
   link: (props) => {

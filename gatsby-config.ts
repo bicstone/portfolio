@@ -49,6 +49,13 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              icon: "<anchor />",
+            },
+          },
           ...(isDevelopment
             ? []
             : [
