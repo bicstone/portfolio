@@ -77,8 +77,6 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              // AppBar height = 6 * 8px
-              offsetY: (6 + 1) * 8,
               isIconAfterHeader: true,
               icon: "<anchor />",
             },
