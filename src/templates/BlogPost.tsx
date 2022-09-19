@@ -43,8 +43,8 @@ import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
 import type { BlogPostQuery } from "src/types";
 
-import { isDefined } from "@/commons/typeguard";
 import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { isDefined } from "@/utils/typeguard";
 
 const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
 

@@ -1,7 +1,7 @@
 import { Script } from "gatsby";
 import { useEffect } from "react";
 
-import { isDefined } from "@/commons/typeguard";
+import { isDefined } from "@/utils/typeguard";
 
 declare global {
   interface Window {
