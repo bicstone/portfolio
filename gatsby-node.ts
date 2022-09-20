@@ -1,6 +1,6 @@
 import path from "path";
 
-import { isDefined } from "./src/commons/typeguard";
+import { isDefined } from "./src/utils/typeguard";
 
 import type { BlogPostsQuery } from "./src/types";
 import type { GatsbyNode } from "gatsby";
@@ -12,7 +12,9 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
     resolve: {
       alias: {
         src: path.resolve("src"),
-        "@/commons": path.resolve("src/commons"),
+        "@/components": path.resolve("src/components"),
+        "@/features": path.resolve("src/features"),
+        "@/utils": path.resolve("src/utils"),
         "@/layouts": path.resolve("src/layouts"),
         "@/templates": path.resolve("src/templates"),
       },
