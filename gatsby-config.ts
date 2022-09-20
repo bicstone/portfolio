@@ -8,6 +8,7 @@ import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
 
+const isDevelopment = process.env.NODE_ENV === "development";
 const isCI = process.env.CI !== undefined;
 
 const trailingSlash = "never";
@@ -48,21 +49,18 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              isIconAfterHeader: true,
-              icon: "<anchor />",
-            },
-          },
-          {
-            resolve: `gatsby-remark-images-contentful`,
-            options: {
-              maxWidth: 600,
-              showCaptions: true,
-              withWebp: true,
-            },
-          },
+          ...(isDevelopment
+            ? []
+            : [
+                {
+                  resolve: `gatsby-remark-images-contentful`,
+                  options: {
+                    maxWidth: 600,
+                    showCaptions: true,
+                    withWebp: true,
+                  },
+                },
+              ]),
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -75,6 +73,13 @@ const config: GatsbyConfig = {
           },
           {
             resolve: `gatsby-plugin-mdx-embed`,
+          },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              icon: "<anchor />",
+            },
           },
         ],
       },
