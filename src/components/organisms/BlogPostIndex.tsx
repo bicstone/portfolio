@@ -9,7 +9,7 @@ import { useBreakPoint } from "src/hooks";
 import type { Breakpoint } from "@mui/material";
 import type { BlogPageQuery } from "src/types";
 
-import { isDefined } from "@/commons/typeguard";
+import { isDefined } from "@/utils/typeguard";
 
 export interface BlogPostIndexProps {
   posts: BlogPageQuery["posts"]["group"];

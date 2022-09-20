@@ -17848,6 +17848,7 @@ export type QuerySiteArgs = {
   host: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
+  jsxImportSource: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   pathPrefix: InputMaybe<StringQueryOperatorInput>;
@@ -18015,6 +18016,7 @@ export type Site = Node & {
   host: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   internal: Internal;
+  jsxImportSource: Maybe<Scalars['String']>;
   jsxRuntime: Maybe<Scalars['String']>;
   parent: Maybe<Node>;
   pathPrefix: Maybe<Scalars['String']>;
@@ -18345,55 +18347,56 @@ export enum SiteFieldsEnum {
   InternalMediaType = 52,
   InternalOwner = 53,
   InternalType = 54,
-  JsxRuntime = 55,
-  ParentChildren = 56,
-  ParentChildrenChildren = 57,
-  ParentChildrenChildrenChildren = 58,
-  ParentChildrenChildrenId = 59,
-  ParentChildrenId = 60,
-  ParentChildrenInternalContent = 61,
-  ParentChildrenInternalContentDigest = 62,
-  ParentChildrenInternalContentFilePath = 63,
-  ParentChildrenInternalDescription = 64,
-  ParentChildrenInternalFieldOwners = 65,
-  ParentChildrenInternalIgnoreType = 66,
-  ParentChildrenInternalMediaType = 67,
-  ParentChildrenInternalOwner = 68,
-  ParentChildrenInternalType = 69,
-  ParentChildrenParentChildren = 70,
-  ParentChildrenParentId = 71,
-  ParentId = 72,
-  ParentInternalContent = 73,
-  ParentInternalContentDigest = 74,
-  ParentInternalContentFilePath = 75,
-  ParentInternalDescription = 76,
-  ParentInternalFieldOwners = 77,
-  ParentInternalIgnoreType = 78,
-  ParentInternalMediaType = 79,
-  ParentInternalOwner = 80,
-  ParentInternalType = 81,
-  ParentParentChildren = 82,
-  ParentParentChildrenChildren = 83,
-  ParentParentChildrenId = 84,
-  ParentParentId = 85,
-  ParentParentInternalContent = 86,
-  ParentParentInternalContentDigest = 87,
-  ParentParentInternalContentFilePath = 88,
-  ParentParentInternalDescription = 89,
-  ParentParentInternalFieldOwners = 90,
-  ParentParentInternalIgnoreType = 91,
-  ParentParentInternalMediaType = 92,
-  ParentParentInternalOwner = 93,
-  ParentParentInternalType = 94,
-  ParentParentParentChildren = 95,
-  ParentParentParentId = 96,
-  PathPrefix = 97,
-  Polyfill = 98,
-  Port = 99,
-  SiteMetadataDescription = 100,
-  SiteMetadataSiteUrl = 101,
-  SiteMetadataTitle = 102,
-  TrailingSlash = 103
+  JsxImportSource = 55,
+  JsxRuntime = 56,
+  ParentChildren = 57,
+  ParentChildrenChildren = 58,
+  ParentChildrenChildrenChildren = 59,
+  ParentChildrenChildrenId = 60,
+  ParentChildrenId = 61,
+  ParentChildrenInternalContent = 62,
+  ParentChildrenInternalContentDigest = 63,
+  ParentChildrenInternalContentFilePath = 64,
+  ParentChildrenInternalDescription = 65,
+  ParentChildrenInternalFieldOwners = 66,
+  ParentChildrenInternalIgnoreType = 67,
+  ParentChildrenInternalMediaType = 68,
+  ParentChildrenInternalOwner = 69,
+  ParentChildrenInternalType = 70,
+  ParentChildrenParentChildren = 71,
+  ParentChildrenParentId = 72,
+  ParentId = 73,
+  ParentInternalContent = 74,
+  ParentInternalContentDigest = 75,
+  ParentInternalContentFilePath = 76,
+  ParentInternalDescription = 77,
+  ParentInternalFieldOwners = 78,
+  ParentInternalIgnoreType = 79,
+  ParentInternalMediaType = 80,
+  ParentInternalOwner = 81,
+  ParentInternalType = 82,
+  ParentParentChildren = 83,
+  ParentParentChildrenChildren = 84,
+  ParentParentChildrenId = 85,
+  ParentParentId = 86,
+  ParentParentInternalContent = 87,
+  ParentParentInternalContentDigest = 88,
+  ParentParentInternalContentFilePath = 89,
+  ParentParentInternalDescription = 90,
+  ParentParentInternalFieldOwners = 91,
+  ParentParentInternalIgnoreType = 92,
+  ParentParentInternalMediaType = 93,
+  ParentParentInternalOwner = 94,
+  ParentParentInternalType = 95,
+  ParentParentParentChildren = 96,
+  ParentParentParentId = 97,
+  PathPrefix = 98,
+  Polyfill = 99,
+  Port = 100,
+  SiteMetadataDescription = 101,
+  SiteMetadataSiteUrl = 102,
+  SiteMetadataTitle = 103,
+  TrailingSlash = 104
 }
 
 export type SiteFilterInput = {
@@ -18403,6 +18406,7 @@ export type SiteFilterInput = {
   host: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
+  jsxImportSource: InputMaybe<StringQueryOperatorInput>;
   jsxRuntime: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   pathPrefix: InputMaybe<StringQueryOperatorInput>;
@@ -20583,29 +20587,10 @@ export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type BlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'id' | 'slug'> }> } };
 
-export type BlogPostQueryVariables = Exact<{
-  id: Scalars['String'];
-  language: Scalars['String'];
-}>;
+export type SearchDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogPostQuery = { post: Maybe<(
-    Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
-    & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
-      Pick<ContentfulTag, 'name'>
-      & { blog_post: Maybe<Array<Maybe<(
-        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
-        & { createdDateTime: ContentfulBlogPost['created'] }
-      )>>> }
-    )>>>, thumbnail: Maybe<(
-      Pick<ContentfulAsset, 'title'>
-      & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    )> }
-  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )>, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+export type SearchDataQuery = { allContentfulBlogPost: { nodes: Array<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -20681,3 +20666,27 @@ export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHell
     Pick<ContentfulAsset, 'title'>
     & { svg: Maybe<Pick<InlineSvg, 'content'>> }
   )> };
+
+export type BlogPostQueryVariables = Exact<{
+  id: Scalars['String'];
+  language: Scalars['String'];
+}>;
+
+
+export type BlogPostQuery = { post: Maybe<(
+    Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
+    & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
+    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
+      Pick<ContentfulTag, 'name'>
+      & { blog_post: Maybe<Array<Maybe<(
+        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
+        & { createdDateTime: ContentfulBlogPost['created'] }
+      )>>> }
+    )>>>, thumbnail: Maybe<(
+      Pick<ContentfulAsset, 'title'>
+      & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+    )> }
+  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
+    Pick<ContentfulAsset, 'title'>
+    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
+  )>, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };

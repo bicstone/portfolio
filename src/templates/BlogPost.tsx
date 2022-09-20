@@ -35,28 +35,33 @@ import { useMemo } from "react";
 import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 
+import { Head } from "./Head";
+
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
 import type { MDXComponents } from "mdx/types";
 import type { BlogPostQuery } from "src/types";
 
-import { isDefined } from "@/commons/typeguard";
 import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { isDefined } from "@/utils/typeguard";
 
 const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
 
 const StyledTypography = styled(Typography)(({ theme }) => ({
   display: "block",
   position: "relative",
-  margin: theme.spacing(6, 2, 3, 0),
-  paddingLeft: theme.spacing(2),
+  // AppBar height = 6
+  // negative top margin for anchor link
+  marginTop: theme.spacing(-2),
+  padding: theme.spacing(8, 2, 3, 2),
   fontWeight: "bold",
   "&::before": {
     content: '""',
     position: "absolute",
-    top: 0,
+    top: theme.spacing(6 + 2),
+    bottom: theme.spacing(3),
     left: 0,
-    height: "100%",
+    height: "auto",
     width: theme.spacing(0.5),
     backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
@@ -284,14 +289,36 @@ const components: MDXComponents = {
     </StyledPreWrap>
   ),
   hr: () => <Divider />,
-  a: ({ ref, ...props }) => (
-    <Link
+  a: ({ ref, ...props }) => {
+    const href = props?.href;
+    if (typeof href === "string" && href.startsWith("#")) {
+      // anchor links
+      return (
+        <Link
+          {...props}
+          color="text.secondary"
+          tabIndex={-1}
+          css={{ verticalAlign: "middle" }}
+        />
+      );
+    }
+    return (
+      // other links
+      <Link
+        {...props}
+        rel="external noreferrer noopener nofollow"
+        target="_blank"
+      />
+    );
+  },
+  anchor: (props) => (
+    <LinkIcon
       {...props}
-      rel="external noreferrer noopener nofollow"
-      target="_blank"
+      css={(theme) => ({
+        paddingLeft: theme.spacing(0.5),
+      })}
     />
   ),
-  // @ts-expect-error -- TODO
   link: ({
     ref,
     ...props
@@ -682,3 +709,5 @@ export const query = graphql`
     }
   }
 `;
+
+export { Head };

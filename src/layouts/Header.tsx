@@ -22,6 +22,8 @@ import { useBreakPoint, useSiteMetadata } from "src/hooks";
 
 import type { Breakpoint } from "@mui/material";
 
+import { Search } from "@/features/search";
+
 export interface HeaderProps {
   icon: string;
   iconAlt: string;
@@ -29,7 +31,7 @@ export interface HeaderProps {
 }
 
 /**
- * ヘッダー部
+ * Header Layout
  */
 export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
   const { t } = useI18next();
@@ -46,9 +48,14 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
   return (
     <AppBar
       position="fixed"
-      color={scrollTrigger ? "default" : "transparent"}
+      color="inherit"
       elevation={scrollTrigger ? 4 : 0}
       role="banner"
+      css={(theme) => ({
+        background: scrollTrigger
+          ? theme.vars.palette.background.paper
+          : "transparent",
+      })}
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
         {isHome ? (
@@ -95,23 +102,27 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
         )}
         <div css={{ flexGrow: 1 }} />
         <nav>
+          {/* NoSSr to prevent FOUC */}
           <NoSsr>
-            {/* To prevent FOUC */}
-            <Button
-              css={(theme) => ({
-                backgroundColor: theme.vars.palette.background.default,
-                marginRight: theme.spacing(0.5),
-              })}
-              variant="outlined"
-              color="inherit"
-              size="small"
-              component={RouterLink}
-              to="/blog"
-              title={t("blog.title")}
-              startIcon={isExpanded ? <StickyNote2Icon /> : undefined}
-            >
-              {isExpanded ? t("blog.title") : <StickyNote2Icon />}
-            </Button>
+            {isHome ? (
+              <Button
+                css={(theme) => ({
+                  backgroundColor: theme.vars.palette.background.default,
+                  marginRight: theme.spacing(0.5),
+                })}
+                variant="outlined"
+                color="inherit"
+                size="small"
+                component={RouterLink}
+                to="/blog"
+                title={t("blog.title")}
+                startIcon={isExpanded ? <StickyNote2Icon /> : undefined}
+              >
+                {isExpanded ? t("blog.title") : <StickyNote2Icon />}
+              </Button>
+            ) : (
+              <Search isExpanded={isExpanded} />
+            )}
             {isExpanded && (
               <Button
                 css={(theme) => ({

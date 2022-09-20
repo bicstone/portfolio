@@ -45,32 +45,39 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-image`,
     },
     {
-      resolve: "gatsby-plugin-manifest",
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        lang: "ja",
-        name: siteMetaData.title,
-        short_name: siteMetaData.shortTitle,
-        description: siteMetaData.description,
-        start_url: "/",
-        display: "minimal-ui",
-        icons: [
+        gatsbyRemarkPlugins: [
           {
-            src: siteMetaData.image,
-            sizes: "512x512",
-            type: "image/png",
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              icon: "<anchor />",
+            },
+          },
+                {
+                  resolve: `gatsby-remark-images-contentful`,
+                  options: {
+                    maxWidth: 600,
+                    showCaptions: true,
+                    withWebp: true,
+                  },
+                },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true,
+              aliases: {
+                sh: "bash",
+                bat: "batch",
+              },
+            },
           },
           {
-            src: siteMetaData.image192,
-            sizes: "192x192",
-            type: "image/png",
+            resolve: `gatsby-plugin-mdx-embed`,
           },
         ],
-        theme_color: "#ffffff",
-        background_color: "#ffffff",
       },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
     },
     {
       resolve: `gatsby-plugin-next-seo`,
@@ -99,21 +106,6 @@ const config: GatsbyConfig = {
         languages: siteMetaData.languages,
         defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
-      },
-    },
-    {
-      resolve: "gatsby-plugin-remove-serviceworker",
-    },
-    {
-      resolve: "gatsby-plugin-remove-trailing-slashes",
-    },
-    {
-      resolve: "gatsby-plugin-root-import",
-      options: {
-        src: path.resolve("src"),
-        "@/commons": path.resolve("src/commons"),
-        "@/layouts": path.resolve("src/layouts"),
-        "@/templates": path.resolve("src/templates"),
       },
     },
     {
