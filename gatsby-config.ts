@@ -55,14 +55,14 @@ const config: GatsbyConfig = {
               icon: "<anchor />",
             },
           },
-                {
-                  resolve: `gatsby-remark-images-contentful`,
-                  options: {
-                    maxWidth: 600,
-                    showCaptions: true,
-                    withWebp: true,
-                  },
-                },
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 600,
+              showCaptions: true,
+              withWebp: true,
+            },
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
