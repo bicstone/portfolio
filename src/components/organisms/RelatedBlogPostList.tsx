@@ -9,7 +9,7 @@ import { Link as RouterLink } from "gatsby";
 
 import type { ContentfulBlogPost, Maybe } from "src/types";
 
-import { isDefined } from "@/commons/typeguard";
+import { isDefined } from "@/utils/typeguard";
 
 export interface RelatedBlogPostListProps {
   posts: Maybe<Array<Maybe<Pick<ContentfulBlogPost, "id" | "title" | "slug">>>>;

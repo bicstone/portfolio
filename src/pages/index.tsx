@@ -25,9 +25,9 @@ import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 import type { IndexPageQuery } from "src/types";
 
-import { isDefined } from "@/commons/typeguard";
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { Head } from "@/templates/Head";
+import { isDefined } from "@/utils/typeguard";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),

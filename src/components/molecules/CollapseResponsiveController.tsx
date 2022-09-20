@@ -5,7 +5,7 @@ import type { Accordion } from "@mui/material";
 import type { Breakpoint } from "@mui/material/styles";
 import type { ReactComponentElement } from "react";
 
-import { isDefined } from "@/commons/typeguard";
+import { isDefined } from "@/utils/typeguard";
 
 export interface CollapseResponsiveControllerProps {
   defaultExpanded: boolean;
