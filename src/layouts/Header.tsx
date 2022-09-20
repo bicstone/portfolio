@@ -31,7 +31,7 @@ export interface HeaderProps {
 }
 
 /**
- * ヘッダー部
+ * Header Layout
  */
 export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
   const { t } = useI18next();
@@ -102,8 +102,8 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
         )}
         <div css={{ flexGrow: 1 }} />
         <nav>
+          {/* NoSSr to prevent FOUC */}
           <NoSsr>
-            {/* To prevent FOUC */}
             {isHome ? (
               <Button
                 css={(theme) => ({
@@ -121,7 +121,7 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
                 {isExpanded ? t("blog.title") : <StickyNote2Icon />}
               </Button>
             ) : (
-              <Search />
+              <Search isExpanded={isExpanded} />
             )}
             {isExpanded && (
               <Button

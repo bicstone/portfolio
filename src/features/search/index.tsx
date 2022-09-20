@@ -7,7 +7,11 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 import { SearchModal } from "./SearchModal";
 
-export const Search = (): JSX.Element => {
+export interface SearchProps {
+  isExpanded: boolean;
+}
+
+export const Search = ({ isExpanded }: SearchProps): JSX.Element => {
   const { t } = useI18next();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,9 +43,9 @@ export const Search = (): JSX.Element => {
         size="small"
         title={t("search.button.hint")}
         onClick={handleOpen}
-        startIcon={<SearchIcon />}
+        startIcon={isExpanded ? <SearchIcon /> : undefined}
       >
-        {t("search.button.title")}
+        {isExpanded ? t("search.button.title") : <SearchIcon />}
       </Button>
       {isOpen &&
         createPortal(
