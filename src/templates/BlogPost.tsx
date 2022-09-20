@@ -319,6 +319,7 @@ const components: MDXComponents = {
       })}
     />
   ),
+  // @ts-expect-error -- TODO
   link: ({
     ref,
     ...props
