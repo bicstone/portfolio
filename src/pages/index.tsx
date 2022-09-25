@@ -19,12 +19,12 @@ import {
   SkillList,
   WhatICanDoList,
 } from "src/components";
-import { useSiteMetadata } from "src/hooks";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { Head } from "@/templates/Head";
 import { isDefined } from "@/utils/typeguard";

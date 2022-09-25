@@ -34,7 +34,6 @@ import {
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
-import { useSiteMetadata } from "src/hooks";
 
 import { Head } from "./Head";
 
@@ -43,6 +42,7 @@ import type { MDXProviderComponentsProp } from "@mdx-js/react";
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
 
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { isDefined } from "@/utils/typeguard";
 

@@ -51,6 +51,7 @@
       "@/components/*": ["src/components/*"],
       "@/features/*": ["src/features/*"],
       "@/generated/*": ["src/generated/*"],
+      "@/hooks/*": ["src/hooks/*"],
       "@/utils/*": ["src/utils/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/templates/*": ["src/templates/*"],

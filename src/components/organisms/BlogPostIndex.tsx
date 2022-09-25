@@ -4,11 +4,11 @@ import {
 } from "@mui/icons-material";
 import { Typography, CardActionArea, Card, Collapse } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
-import { useBreakPoint } from "src/hooks";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material";
 
+import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { isDefined } from "@/utils/typeguard";
 
 export interface BlogPostIndexProps {

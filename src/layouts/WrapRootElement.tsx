@@ -2,11 +2,12 @@ import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
 import { HelmetProvider } from "react-helmet-async";
-import { useThemes } from "src/hooks";
 
 import BackgroundImage from "./background.svg";
 
 import type { ReactNode } from "react";
+
+import { useThemes } from "@/hooks/useThemes";
 
 interface WrapRootElementProps {
   children: ReactNode;
