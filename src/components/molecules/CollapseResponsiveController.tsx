@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { useBreakPoint } from "src/hooks";
 
 import type { Accordion } from "@mui/material";
 import type { Breakpoint } from "@mui/material/styles";
 import type { ReactComponentElement } from "react";
 
+import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { isDefined } from "@/utils/typeguard";
 
 export interface CollapseResponsiveControllerProps {

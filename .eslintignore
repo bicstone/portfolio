@@ -1,5 +1,4 @@
 .cache
 .yarn
 public
-src/types/graphqlTypes.ts
-static/vanilla
+src/generated

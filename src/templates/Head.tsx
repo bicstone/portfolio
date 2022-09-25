@@ -1,6 +1,6 @@
-import { useSiteMetadata } from "src/hooks";
-
 import type { HeadFC } from "gatsby";
+
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
 /**
  * Head export

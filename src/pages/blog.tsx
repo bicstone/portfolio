@@ -13,12 +13,13 @@ import {
 } from "gatsby-plugin-next-seo";
 import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
 import { BlogPostIndex } from "src/components";
-import { useSiteMetadata, useBuildTime } from "src/hooks";
 
+import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
-import type { BlogPageQuery } from "src/types";
 
+import { useBuildTime } from "@/hooks/useBuildTime";
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { Head } from "@/templates/Head";
 
