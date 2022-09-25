@@ -9,7 +9,7 @@ import {
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { SvgAvatar } from "src/components";
 
-import type { IndexPageQuery } from "src/types";
+import type { IndexPageQuery } from "@/generated/graphqlTypes";
 
 export interface OSSListProps {
   osses: IndexPageQuery["osses"]["edges"];

@@ -21,9 +21,9 @@ import {
 } from "src/components";
 import { useSiteMetadata } from "src/hooks";
 
+import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
-import type { IndexPageQuery } from "src/types";
 
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { Head } from "@/templates/Head";

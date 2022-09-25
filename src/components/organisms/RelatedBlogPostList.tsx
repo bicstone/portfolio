@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 
-import type { ContentfulBlogPost, Maybe } from "src/types";
+import type { ContentfulBlogPost, Maybe } from "@/generated/graphqlTypes";
 
 import { isDefined } from "@/utils/typeguard";
 

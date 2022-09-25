@@ -20,8 +20,8 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 import { SvgAvatar } from "src/components";
 
+import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { MDXProviderComponentsProp } from "@mdx-js/react";
-import type { IndexPageQuery } from "src/types";
 
 export interface ProjectListProps {
   projects: IndexPageQuery["projects"]["edges"];

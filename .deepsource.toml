@@ -1,6 +1,6 @@
 version = 1
 
-exclude_patterns = ["/src/types/graphqlTypes.ts"]
+exclude_patterns = ["/.cache/**/*", "/.yarn/**/*", "/public/**/*", "/src/generated/**/*"]
 
 [[analyzers]]
 name = "shell"

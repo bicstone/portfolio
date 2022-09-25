@@ -19,8 +19,6 @@
     "g": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
     "tc": "yarn typecheck",
-    "barrelsby": "barrelsby -d ./src -D -i 'src/(components|hooks|types)/(?!.*\\.d\\.ts$).*$' -l below",
-    "b": "yarn barrelsby",
     "deploy": "gatsby-plugin-s3 deploy",
     "prepare": "husky install"
   },
@@ -81,7 +79,6 @@
     "@typescript-eslint/parser": "5.38.0",
     "babel-plugin-i18next-extract": "0.9.0",
     "babel-preset-gatsby": "2.23.0",
-    "barrelsby": "2.4.0",
     "dotenv": "16.0.2",
     "esbuild": "0.15.9",
     "eslint": "8.24.0",

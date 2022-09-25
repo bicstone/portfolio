@@ -3,8 +3,8 @@ import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
+import type { NotFoundPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
-import type { NotFoundPageQuery } from "src/types";
 
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { Head } from "@/templates/Head";

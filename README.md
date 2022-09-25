@@ -78,7 +78,6 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - ESLint
 - prettier (フォーマットを自動化することで省力化)
 - graphql-code-generator (型を自動生成することで省力化)
-- barrelsby (ES modules 管理の省力化)
 
 ### CI / CD ツール
 
@@ -163,14 +162,6 @@ yarn t
 yarn graphql-codegen
 (...or)
 yarn g
-```
-
-### barrelsby によるバレル(index.ts)の生成・更新
-
-```shell
-yarn barrelsby
-(...or)
-yarn b
 ```
 
 ### amazon s3 への deploy

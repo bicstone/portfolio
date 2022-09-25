@@ -6,8 +6,8 @@ import { Typography, CardActionArea, Card, Collapse } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useBreakPoint } from "src/hooks";
 
+import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material";
-import type { BlogPageQuery } from "src/types";
 
 import { isDefined } from "@/utils/typeguard";
 

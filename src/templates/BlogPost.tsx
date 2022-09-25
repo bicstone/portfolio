@@ -38,10 +38,10 @@ import { useSiteMetadata } from "src/hooks";
 
 import { Head } from "./Head";
 
+import type { BlogPostQuery } from "@/generated/graphqlTypes";
 import type { MDXProviderComponentsProp } from "@mdx-js/react";
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
-import type { BlogPostQuery } from "src/types";
 
 import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { isDefined } from "@/utils/typeguard";

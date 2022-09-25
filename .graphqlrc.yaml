@@ -6,7 +6,7 @@ extensions:
   codegen:
     overwrite: true
     generates:
-      src/types/graphqlTypes.ts:
+      src/generated/graphqlTypes.ts:
         plugins:
           - typescript
           - typescript-operations
