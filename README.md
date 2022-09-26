@@ -178,6 +178,6 @@ package.json の browserslist を参照
 
 MIT License
 
-Git Submodule で参照しているディレクトリは [No license](https://choosealicense.com/no-permission/) です。
+Git Submodule で参照しているプライベートリポジトリは [No license](https://choosealicense.com/no-permission/) です。
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)
