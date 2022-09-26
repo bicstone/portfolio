@@ -50,12 +50,16 @@ jobs:
         env:
           # "bucketName" is a required option for gatsby-plugin-s3
           AWS_S3_BUCKET_NAME: "example"
+          ALL_PAGES_TO_NO_INDEX: "true"
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           GTM_ID: ${{ secrets.GTM_ID }}
           PREFIX_PATHS: "true"
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         run: yarn build
+      - name: Add robots.txt
+        run: |
+          echo -e "User-agent: *\nDisallow: /" > ./public/robots.txt
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

@@ -87,6 +87,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-next-seo`,
       options: {
+        dangerouslySetAllPagesToNoIndex:
+          process.env.ALL_PAGES_TO_NO_INDEX === "true",
         twitter: {
           cardType: "summary_large_image",
           site: siteMetaData.twitter,
