@@ -1,16 +1,14 @@
 name: Node.js CI
 
-env:
-  CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-  # "bucketName" is a required option for gatsby-plugin-s3
-  AWS_S3_BUCKET_NAME: "example"
-
 on:
   push:
     branches: [main, develop]
   pull_request:
     branches: [main, develop]
+
+concurrency:
+  group: "ci"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -18,12 +16,29 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+          submodules: "recursive"
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
+      - name: Restore cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
       - run: yarn install --frozen-lockfile
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build
+        env:
+          # "bucketName" is a required option for gatsby-plugin-s3
+          AWS_S3_BUCKET_NAME: "example"
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
