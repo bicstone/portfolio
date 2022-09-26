@@ -87,6 +87,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-next-seo`,
       options: {
+        dangerouslySetAllPagesToNoFollow:
+          process.env.ALL_PAGES_TO_NO_INDEX === "true",
         dangerouslySetAllPagesToNoIndex:
           process.env.ALL_PAGES_TO_NO_INDEX === "true",
         twitter: {
