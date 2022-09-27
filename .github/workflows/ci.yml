@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: [main, develop]
 
-concurrency:
-  group: "ci"
-  cancel-in-progress: true
-
 jobs:
   build:
     runs-on: ubuntu-latest

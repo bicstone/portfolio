@@ -1,7 +1,8 @@
 # Oishi Takanori ポートフォリオ & ブログ 💚
 
 ![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/workflows/Node.js%20CI/badge.svg)
-![GitHub Actions による CD の結果](https://github.com/bicstone/portfolio/actions/workflows/deploy.yml/badge.svg?branch=main)
+![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy.yml/badge.svg?branch=main)
+![GitHub Actions による検証環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/pages.yml/badge.svg)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)
 [![sonarcloudによる静的スキャンの結果](https://sonarcloud.io/api/project_badges/measure?project=bicstone_masshiro.me&metric=alert_status)](https://sonarcloud.io/dashboard?id=bicstone_masshiro.me)
 [![DeepSourceによる静的スキャンの結果](https://deepsource.io/gh/bicstone/portfolio.svg/?label=active+issues&token=YEW43yfxCIzfiws5kGiZjSN0)](https://deepsource.io/gh/bicstone/portfolio/?ref=repository-badge)
@@ -12,11 +13,14 @@
 
 ![PC・タブレット・スマホでポートフォリオサイトを表示した写真、マルチプラットフォームに対応したことを示す図](./docs/readme-images/portfolio.jpg)
 
+- 本番環境 <https://bicstone.me/>
+- 検証環境 <https://bicstone.github.io/portfolio/>
+
 ## 構成
 
 Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstack 構成としました。
 
-※ ステージング環境は GitHub Pages を使用
+※ 検証環境は GitHub Pages を使用
 
 ## 特徴
 
@@ -80,12 +84,11 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 ### CI / CD ツール
 
-- husky (開発環境での CI)
+- husky (ローカル環境での CI)
 - GitHub Actions (CI / CD)
 - SonarCloud (静的レビュー)
 - DeepSource (静的レビュー)
 - FOSSA (ライセンスの管理)
-- action-semantic-pull-request (コミットメッセージの整形)
 - Renovate (ライブラリ管理)
 
 ### その他
@@ -96,7 +99,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 ## タスクランナー
 
-### 開発サーバーを立ち上げ
+### ローカルサーバーを立ち上げ
 
 ```shell
 yarn develop

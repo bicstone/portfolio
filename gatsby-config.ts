@@ -10,11 +10,13 @@ dotenv.config({ path: `.env` });
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const isCI = process.env.CI !== undefined;
-
+const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
+const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
 const config: GatsbyConfig = {
   trailingSlash,
+  pathPrefix,
 
   siteMetadata: {
     title: siteMetaData.title,
@@ -87,8 +89,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-next-seo`,
       options: {
-        dangerouslySetAllPagesToNoIndex:
-          process.env.ALL_PAGES_TO_NO_INDEX === "true",
+        dangerouslySetAllPagesToNoFollow: isAllPagesToNoIndex,
+        dangerouslySetAllPagesToNoIndex: isAllPagesToNoIndex,
         twitter: {
           cardType: "summary_large_image",
           site: siteMetaData.twitter,
