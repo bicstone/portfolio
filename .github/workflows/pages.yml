@@ -30,12 +30,13 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v2
-        with:
-          static_site_generator: gatsby
-          generator_config_file: "./gatsby-config.ts"
+      # https://github.com/actions/configure-pages/issues/28
+      # - name: Setup Pages
+      #   id: pages
+      #   uses: actions/configure-pages@v2
+      #   with:
+      #     static_site_generator: gatsby
+      #     generator_config_file: "./gatsby-config.ts"
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -56,6 +57,10 @@ jobs:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           GTM_ID: ${{ secrets.GTM_ID }}
           PREFIX_PATHS: "true"
+          # We are waiting for fix configure-pages.
+          # https://github.com/actions/configure-pages/issues/28
+          SITE_URL: "https://bicstone.github.io/portfolio"
+          PATH_PREFIX: "/portfolio"
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
         run: yarn build
       - name: Add robots.txt
