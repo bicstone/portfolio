@@ -50,6 +50,8 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/features/*": ["src/features/*"],
+      "@/generated/*": ["src/generated/*"],
+      "@/hooks/*": ["src/hooks/*"],
       "@/utils/*": ["src/utils/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/templates/*": ["src/templates/*"],
@@ -79,6 +81,6 @@
     "resolveJsonModule": true,
     "jsxImportSource": "@emotion/react"
   },
-  "exclude": ["node_modules", "public", ".cache"],
+  "exclude": [".cache", ".yarn", "node_modules", "public"],
   "include": ["src/**/*.ts", "src/**/*.tsx", "*.ts", "*.tsx"]
 }

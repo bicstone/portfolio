@@ -18,11 +18,12 @@ import {
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { SvgIcon } from "src/components";
-import { useBreakPoint, useSiteMetadata } from "src/hooks";
 
 import type { Breakpoint } from "@mui/material";
 
 import { Search } from "@/features/search";
+import { useBreakPoint } from "@/hooks/useBreakPoint";
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
 export interface HeaderProps {
   icon: string;

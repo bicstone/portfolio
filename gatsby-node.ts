@@ -2,7 +2,7 @@ import path from "path";
 
 import { isDefined } from "./src/utils/typeguard";
 
-import type { BlogPostsQuery } from "./src/types";
+import type { BlogPostsQuery } from "./src/generated/graphqlTypes";
 import type { GatsbyNode } from "gatsby";
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
@@ -14,6 +14,8 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
         src: path.resolve("src"),
         "@/components": path.resolve("src/components"),
         "@/features": path.resolve("src/features"),
+        "@/generated": path.resolve("src/generated"),
+        "@/hooks": path.resolve("src/hooks"),
         "@/utils": path.resolve("src/utils"),
         "@/layouts": path.resolve("src/layouts"),
         "@/templates": path.resolve("src/templates"),

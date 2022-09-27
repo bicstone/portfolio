@@ -11,8 +11,8 @@ import {
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { CollapseResponsiveController } from "src/components";
 
+import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material/styles";
-import type { IndexPageQuery } from "src/types";
 
 export interface SkillListProps {
   skills: IndexPageQuery["skills"]["edges"];

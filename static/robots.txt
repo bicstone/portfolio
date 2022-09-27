@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bicstone.me/sitemap/sitemap-index.xml

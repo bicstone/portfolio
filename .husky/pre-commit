@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn barrelsby && yarn lint && yarn format
+yarn lint && yarn format

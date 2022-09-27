@@ -1,10 +1,10 @@
 # Oishi Takanori ポートフォリオ & ブログ 💚
 
 ![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/workflows/Node.js%20CI/badge.svg)
-![GitHub Actions による CD の結果](https://github.com/bicstone/portfolio/actions/workflows/deploy.yml/badge.svg?branch=main)
+![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy.yml/badge.svg?branch=main)
+![GitHub Actions による検証環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/pages.yml/badge.svg)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)
 [![sonarcloudによる静的スキャンの結果](https://sonarcloud.io/api/project_badges/measure?project=bicstone_masshiro.me&metric=alert_status)](https://sonarcloud.io/dashboard?id=bicstone_masshiro.me)
-[![LGTMによる静的スキャンの結果](https://img.shields.io/lgtm/alerts/g/bicstone/masshiro.me.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/bicstone/masshiro.me/alerts/)
 [![DeepSourceによる静的スキャンの結果](https://deepsource.io/gh/bicstone/portfolio.svg/?label=active+issues&token=YEW43yfxCIzfiws5kGiZjSN0)](https://deepsource.io/gh/bicstone/portfolio/?ref=repository-badge)
 [![Javascript Standard Style を採用しています](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -13,11 +13,14 @@
 
 ![PC・タブレット・スマホでポートフォリオサイトを表示した写真、マルチプラットフォームに対応したことを示す図](./docs/readme-images/portfolio.jpg)
 
+- 本番環境 <https://bicstone.me/>
+- 検証環境 <https://bicstone.github.io/portfolio/>
+
 ## 構成
 
 Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstack 構成としました。
 
-※ ステージング環境は Gatsby Cloud を使用
+※ 検証環境は GitHub Pages を使用
 
 ## 特徴
 
@@ -36,7 +39,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory のベンチマークでスコア 105/100 を達成しています。
-- DeepSource, SonarCloud, LGTM を使用し、静的セキュリティレビューを受けています。
+- DeepSource, SonarCloud を使用し、静的セキュリティレビューを受けています。
 - 二要素認証を用いたアカウント保護を行っています。 GitHub 上で承認を行わないと deploy できないようにしています。
 - Renovate を用いて依存関係を定期的にアップデートしています。
 
@@ -78,18 +81,14 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - ESLint
 - prettier (フォーマットを自動化することで省力化)
 - graphql-code-generator (型を自動生成することで省力化)
-- barrelsby (ES modules 管理の省力化)
 
 ### CI / CD ツール
 
-- husky (開発環境での CI)
+- husky (ローカル環境での CI)
 - GitHub Actions (CI / CD)
-- Gatsby Cloud (ステージング環境の CD)
 - SonarCloud (静的レビュー)
-- LGTM (静的レビュー)
 - DeepSource (静的レビュー)
 - FOSSA (ライセンスの管理)
-- Semantic Pull Request (コミットメッセージの整形)
 - Renovate (ライブラリ管理)
 
 ### その他
@@ -100,7 +99,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 ## タスクランナー
 
-### 開発サーバーを立ち上げ
+### ローカルサーバーを立ち上げ
 
 ```shell
 yarn develop
@@ -165,14 +164,6 @@ yarn graphql-codegen
 yarn g
 ```
 
-### barrelsby によるバレル(index.ts)の生成・更新
-
-```shell
-yarn barrelsby
-(...or)
-yarn b
-```
-
 ### amazon s3 への deploy
 
 ```shell
@@ -185,6 +176,8 @@ package.json の browserslist を参照
 
 ## ライセンス
 
-MIT Licence
+MIT License
+
+Git Submodule で参照しているプライベートリポジトリは [No license](https://choosealicense.com/no-permission/) です。
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)

@@ -16,9 +16,9 @@ import { useState, useMemo, useTransition, useId } from "react";
 
 import { useSearch } from "./useSearch";
 
+import type { SearchDataQuery } from "@/generated/graphqlTypes";
 import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
-import type { SearchDataQuery } from "src/types";
 
 import {
   convertHiraganaToKatakana,

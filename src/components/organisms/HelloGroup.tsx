@@ -4,7 +4,7 @@ import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 import { SvgIcon, AvatarCard } from "src/components";
 
-import type { IndexPageQuery } from "src/types";
+import type { IndexPageQuery } from "@/generated/graphqlTypes";
 
 export interface HelloGroupProps {
   links: IndexPageQuery["links"]["edges"];

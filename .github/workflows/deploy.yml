@@ -1,20 +1,13 @@
 name: Deploy to S3
 
-env:
-  CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
-  AWS_REGION: ${{ secrets.AWS_REGION }}
-  GTM_ID: ${{ secrets.GTM_ID }}
-  SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-  GATSBY_ADSENSE_PUB_ID: ${{ secrets.GATSBY_ADSENSE_PUB_ID }}
-  GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ secrets.GATSBY_ADSENSE_INARTICLE_AD_ID }}
-
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: "deploy"
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -23,16 +16,35 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+          submodules: "recursive"
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
 
       - run: yarn install --frozen-lockfile
+
       - run: yarn build
+        env:
+          # "bucketName" is a required option for gatsby-plugin-s3
+          AWS_S3_BUCKET_NAME: "example"
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          GTM_ID: ${{ secrets.GTM_ID }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          GATSBY_ADSENSE_PUB_ID: ${{ secrets.GATSBY_ADSENSE_PUB_ID }}
+          GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ secrets.GATSBY_ADSENSE_INARTICLE_AD_ID }}
+
       - run: yarn deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
 
       - name: Invalidate CloudFront
         uses: chetan/invalidate-cloudfront-action@v2

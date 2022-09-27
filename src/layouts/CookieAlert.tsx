@@ -10,10 +10,11 @@ import { Link as RouterLink } from "gatsby";
 import { useTranslation, Trans } from "gatsby-plugin-react-i18next";
 import Cookies from "js-cookie";
 import { forwardRef, useState } from "react";
-import { useBreakPoint } from "src/hooks";
 
 import type { Breakpoint } from "@mui/material/styles";
 import type { ReactNode } from "react";
+
+import { useBreakPoint } from "@/hooks/useBreakPoint";
 
 interface CookieAlertContentProps {
   breakpoints: Breakpoint[];
