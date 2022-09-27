@@ -1,7 +1,7 @@
 export default {
   title: "Oishi Takanori Portfolio",
   shortTitle: "bicstone",
-  siteUrl: process.env.SITE_URL ?? "https://bicstone.me",
+  siteUrl: process.env.GATSBY_SITE_URL ?? "https://bicstone.me",
   description:
     "Webディベロッパー/機械エンジニア Oishi Takanori @bicstone のポートフォリオサイトです。",
   author: "bicstone",
