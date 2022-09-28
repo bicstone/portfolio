@@ -4,7 +4,6 @@
 
 export * from "./atoms/InarticleAd";
 export * from "./atoms/SvgAvatar";
-export * from "./atoms/SvgIcon";
 export * from "./molecules/AvatarCard";
 export * from "./molecules/CollapseResponsiveController";
 export * from "./molecules/MediaCard";

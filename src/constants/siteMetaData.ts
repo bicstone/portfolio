@@ -7,6 +7,7 @@ export default {
   author: "bicstone",
   image: "/android-chrome-512x512.png",
   image192: "/android-chrome-192x192.png",
+  imageAvatar: "/avatar.svg",
   twitter: "@bicstone_me",
   github: "bicstone",
   firstName: "Takanori",

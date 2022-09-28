@@ -445,7 +445,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   }, [post.tags]);
 
   return (
-    <WrapPageElement icon={data.icon.svg.content} iconAlt={data.icon.title}>
+    <WrapPageElement>
       <GatsbySeo
         title={title}
         description={post.excerpt}
@@ -600,7 +600,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
               marginBottom: theme.spacing(2),
             })}
           >
-            <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
+            <HelloGroup links={data.links.edges} />
           </section>
         </aside>
         <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
@@ -671,14 +671,6 @@ export const query = graphql`
           name
           href
         }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
       }
     }
     # 原稿を取得する

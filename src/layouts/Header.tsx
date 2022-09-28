@@ -17,7 +17,6 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import { SvgIcon } from "src/components";
 
 import type { Breakpoint } from "@mui/material";
 
@@ -26,15 +25,13 @@ import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
 export interface HeaderProps {
-  icon: string;
-  iconAlt: string;
   isHome: boolean;
 }
 
 /**
  * Header Layout
  */
-export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
+export const Header = ({ isHome }: HeaderProps): JSX.Element => {
   const { t } = useI18next();
   const { mode: paletteMode, setMode: setPaletteMode } = useColorScheme();
   const scrollTrigger = useScrollTrigger({
@@ -85,11 +82,13 @@ export const Header = ({ icon, iconAlt, isHome }: HeaderProps): JSX.Element => {
                 gap: theme.spacing(0.5),
               })}
             >
-              <SvgIcon
+              <img
                 width={20}
                 height={20}
-                icon={icon}
-                alt={iconAlt}
+                src={siteMetaData.imageAvatar}
+                alt={t("header.avatar")}
+                loading="eager"
+                decoding="async"
                 css={(theme) => ({
                   marginRight: theme.spacing(0.5),
                   display: "inline-flex",

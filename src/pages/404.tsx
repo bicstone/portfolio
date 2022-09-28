@@ -12,11 +12,8 @@ import { Head } from "@/templates/Head";
 const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
   const { t } = useI18next();
 
-  const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
-
   return (
-    <WrapPageElement icon={icon} iconAlt={iconAlt}>
+    <WrapPageElement>
       <Container maxWidth="md">
         <div
           css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}
@@ -63,14 +60,6 @@ export const query = graphql`
           data
           language
         }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
       }
     }
   }

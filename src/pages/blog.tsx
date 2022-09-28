@@ -55,12 +55,10 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
 
-  const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
 
   return (
-    <WrapPageElement icon={icon} iconAlt={iconAlt}>
+    <WrapPageElement>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
@@ -205,14 +203,6 @@ export const query = graphql`
           data
           language
         }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
       }
     }
   }

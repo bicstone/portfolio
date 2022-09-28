@@ -99,11 +99,8 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 
-  const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
-
   return (
-    <WrapPageElement icon={icon} iconAlt={iconAlt} isHome>
+    <WrapPageElement isHome>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
@@ -125,7 +122,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         defer
       />
       <PaddingContainer maxWidth="lg">
-        <HelloGroup links={data.links.edges} icon={icon} />
+        <HelloGroup links={data.links.edges} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
@@ -303,14 +300,6 @@ export const query = graphql`
           data
           language
         }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
       }
     }
   }

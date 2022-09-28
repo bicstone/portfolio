@@ -11,8 +11,6 @@ import { Header } from "@/layouts/Header";
 
 export interface WrapPageElementProps {
   isHome?: boolean;
-  icon: string;
-  iconAlt: string;
   children: ReactNode;
 }
 
@@ -22,8 +20,6 @@ export interface WrapPageElementProps {
  */
 export const WrapPageElement = ({
   isHome,
-  icon,
-  iconAlt,
   children,
 }: WrapPageElementProps): JSX.Element => {
   const { currentLangUrl } = useUrl();
@@ -34,7 +30,7 @@ export const WrapPageElement = ({
       <NoSsr defer>
         <CookieAlert />
       </NoSsr>
-      <Header icon={icon} iconAlt={iconAlt} isHome={isHome ?? false} />
+      <Header isHome={isHome ?? false} />
       <main role="main" css={(theme) => ({ marginTop: theme.spacing(8) })}>
         {children}
       </main>

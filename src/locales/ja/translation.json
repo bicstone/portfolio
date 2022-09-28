@@ -15,6 +15,7 @@
     "copyright": "© {{year}} Oishi Takanori"
   },
   "header": {
+    "avatar": "ニコニコした Oishi Takanori の似顔絵",
     "back-to-home": "ホームに移動",
     "changeLanguage-title": "言語切替",
     "github-title": "GitHub",
