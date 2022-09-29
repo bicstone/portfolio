@@ -52,7 +52,7 @@ export default NotFound;
 
 export const query = graphql`
   query NotFoundPage($language: String!) {
-    # 原稿を取得する
+    # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

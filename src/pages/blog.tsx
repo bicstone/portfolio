@@ -195,7 +195,7 @@ export const query = graphql`
         }
       }
     }
-    # 原稿を取得する
+    # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
