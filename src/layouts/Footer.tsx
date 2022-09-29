@@ -3,7 +3,7 @@ import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 /**
- * フッター部
+ * Footer Layout
  */
 export const Footer = (): JSX.Element => {
   const { t } = useI18next();

@@ -17,4 +17,5 @@ export default {
   defaultLanguage: "ja",
   tileColor: "#81c784",
   maskColor: "#2d1e1e",
+  privacyPolicyVersion: 20220929,
 } as const;

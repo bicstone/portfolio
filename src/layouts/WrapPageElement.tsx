@@ -4,8 +4,8 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { ReactNode } from "react";
 
+import { CookieAlert } from "@/features/CookieAlert";
 import { useUrl } from "@/hooks/useUrl";
-import { CookieAlert } from "@/layouts/CookieAlert";
 import { Footer } from "@/layouts/Footer";
 import { Header } from "@/layouts/Header";
 
