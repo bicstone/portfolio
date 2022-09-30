@@ -25,7 +25,7 @@ import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/templates/Head";
 import { isDefined } from "@/utils/typeguard";
 
@@ -97,10 +97,11 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 
 const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const siteMetadata = useSiteMetadata();
-  const { t } = useI18next();
+  const { t, language } = useI18next();
+  const { currentLangUrl } = useUrl();
 
   return (
-    <WrapPageElement isHome>
+    <>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
@@ -114,6 +115,8 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
               alt: siteMetadata.title,
             },
           ],
+          url: currentLangUrl,
+          locale: language,
         }}
       />
       <LogoJsonLd
@@ -145,7 +148,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       >
         <CertificationList certification={data.certification.edges} />
       </Section>
-    </WrapPageElement>
+    </>
   );
 };
 

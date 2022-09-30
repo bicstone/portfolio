@@ -48,6 +48,12 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-image`,
     },
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: path.resolve("src", "layouts", "WrapPageElement.tsx"),
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [

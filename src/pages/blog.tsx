@@ -20,7 +20,7 @@ import type { PageProps } from "gatsby";
 
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/templates/Head";
 
 type BreadcrumbsProps = {
@@ -50,15 +50,16 @@ const Breadcrumbs = ({
 };
 
 const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
-  const { path } = useI18next();
+  const { path, language } = useI18next();
   const { t } = useTranslation();
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
+  const { currentLangUrl } = useUrl();
 
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
 
   return (
-    <WrapPageElement>
+    <>
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
@@ -72,6 +73,8 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
               alt: title,
             },
           ],
+          url: currentLangUrl,
+          locale: language,
         }}
       />
       <BlogJsonLd
@@ -145,7 +148,7 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
           })}
         />
       </Container>
-    </WrapPageElement>
+    </>
   );
 };
 

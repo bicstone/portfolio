@@ -5765,6 +5765,7 @@ __metadata:
     gatsby-plugin-fix-fouc: 0.1.2
     gatsby-plugin-google-tagmanager: 4.23.1
     gatsby-plugin-image: 2.23.1
+    gatsby-plugin-layout: 3.24.0
     gatsby-plugin-mdx: 3.20.0
     gatsby-plugin-mdx-embed: 1.0.0
     gatsby-plugin-next-seo: 1.10.0
@@ -10064,6 +10065,17 @@ __metadata:
     react: ^16.9.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.9.0 || ^17.0.0 || ^18.0.0
   checksum: b59e2f12951f5c89aaea3c8f710b1ccba38419556710369f81a91a7801480e8d754382f1a874b52b4e11d9a87215387c62eb2765998644d7e789beeb8c9f7f53
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-layout@npm:3.24.0":
+  version: 3.24.0
+  resolution: "gatsby-plugin-layout@npm:3.24.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+  peerDependencies:
+    gatsby: ^4.0.0-next
+  checksum: 2f498589f00be2a5fc8029fd27bc768d3b6d7d48a1d27bcbd9237543d1e312958e8351045bff065e46d0b92e076beb8f473bf3bd2e93f99d08409be9bb31710b
   languageName: node
   linkType: hard
 
