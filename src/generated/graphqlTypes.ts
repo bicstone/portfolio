@@ -20587,6 +20587,21 @@ export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type BlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'id' | 'slug'> }> } };
 
+export type BlogPostCardFragment = (
+  Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
+  & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>>, thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>> }
+);
+
+export type BlogPostListFragment = (
+  Pick<ContentfulBlogPost, 'id' | 'title' | 'created' | 'slug' | 'updated' | 'excerpt'>
+  & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
+  & { thumbnail: Maybe<(
+    Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>
+    & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+  )>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>> }
+);
+
 export type SearchDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -20602,27 +20617,21 @@ export type NotFoundPageQueryVariables = Exact<{
 }>;
 
 
-export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )> };
+export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type BlogPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
-          Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
-          & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-          & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>>, thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>> }
-        ) }> }> }, postsLite: { edges: Array<{ node: (
-        Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>
-        & { thumbnail: Maybe<{ file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )> };
+export type BlogPageQuery = { blogPostList: { nodes: Array<(
+      Pick<ContentfulBlogPost, 'id' | 'title' | 'created' | 'slug' | 'updated' | 'excerpt'>
+      & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
+      & { thumbnail: Maybe<(
+        Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>
+        & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+      )>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>> }
+    )> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
@@ -20662,10 +20671,7 @@ export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHell
       ) }> }, certification: { edges: Array<{ node: (
         Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
         & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
-      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )> };
+      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPostQueryVariables = Exact<{
   id: Scalars['String'];
@@ -20686,7 +20692,4 @@ export type BlogPostQuery = { post: Maybe<(
       Pick<ContentfulAsset, 'title'>
       & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
     )> }
-  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )>, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
