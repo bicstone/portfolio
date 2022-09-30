@@ -15,6 +15,7 @@ import {
   useColorScheme,
   NoSsr,
 } from "@mui/material";
+import { useLocation } from "@reach/router";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
@@ -23,14 +24,13 @@ import type { Breakpoint } from "@mui/material";
 import { Search } from "@/features/search";
 import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { useUrl } from "@/hooks/useUrl";
 
 /**
  * Header Layout
  */
 export const Header = (): JSX.Element => {
   const { t } = useI18next();
-  const { currentLangUrl } = useUrl();
+  const location = useLocation();
   const { mode: paletteMode, setMode: setPaletteMode } = useColorScheme();
   const scrollTrigger = useScrollTrigger({
     disableHysteresis: true,
@@ -40,7 +40,7 @@ export const Header = (): JSX.Element => {
   const width = useBreakPoint();
   const expandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
   const isExpanded = expandedBreakpoints.includes(width);
-  const isHome = currentLangUrl === "/";
+  const isHome = location.pathname === "/";
 
   return (
     <AppBar
