@@ -31,7 +31,7 @@ import {
   GatsbySeo,
   BreadcrumbJsonLd,
 } from "gatsby-plugin-next-seo";
-import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
 
@@ -43,7 +43,7 @@ import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
 
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { useUrl } from "@/hooks/useUrl";
 import { isDefined } from "@/utils/typeguard";
 
 const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";
@@ -428,9 +428,9 @@ const Breadcrumbs = ({
 };
 
 const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
-  const { path } = useI18next();
-  const { t } = useTranslation();
+  const { t, path, language } = useI18next();
   const siteMetadata = useSiteMetadata();
+  const { currentLangUrl } = useUrl();
 
   const post = data.post;
   const title = `${post.title} - ${siteMetadata.title}`;
@@ -445,7 +445,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
   }, [post.tags]);
 
   return (
-    <WrapPageElement icon={data.icon.svg.content} iconAlt={data.icon.title}>
+    <>
       <GatsbySeo
         title={title}
         description={post.excerpt}
@@ -466,6 +466,8 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
             section: post.category.name,
             tags: post.tags.map((v) => v.name),
           },
+          url: currentLangUrl,
+          locale: language,
         }}
       />
       <BlogPostJsonLd
@@ -600,7 +602,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
               marginBottom: theme.spacing(2),
             })}
           >
-            <HelloGroup links={data.links.edges} icon={data.icon.svg.content} />
+            <HelloGroup links={data.links.edges} />
           </section>
         </aside>
         <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
@@ -620,7 +622,7 @@ const BlogPost = ({ data }: PageProps<BlogPostQuery>): JSX.Element => {
           })}
         />
       </Container>
-    </WrapPageElement>
+    </>
   );
 };
 
@@ -673,15 +675,7 @@ export const query = graphql`
         }
       }
     }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
-      }
-    }
-    # 原稿を取得する
+    # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {

@@ -6,15 +6,11 @@
     "related-title": "関連記事",
     "title": "まっしろブログ"
   },
-  "cookie-alert": {
-    "close": "閉じる",
-    "description": "詳しくは <1>プライバシーポリシー</1> をご覧ください。",
-    "title": "当ウェブサイトはCookieを使用しています。"
-  },
   "footer": {
     "copyright": "© {{year}} Oishi Takanori"
   },
   "header": {
+    "avatar": "ニコニコした Oishi Takanori の似顔絵",
     "back-to-home": "ホームに移動",
     "changeLanguage-title": "言語切替",
     "github-title": "GitHub",

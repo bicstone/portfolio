@@ -25,7 +25,7 @@ import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { WrapPageElement } from "@/layouts/WrapPageElement";
+import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/templates/Head";
 import { isDefined } from "@/utils/typeguard";
 
@@ -97,13 +97,11 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 
 const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const siteMetadata = useSiteMetadata();
-  const { t } = useI18next();
-
-  const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
+  const { t, language } = useI18next();
+  const { currentLangUrl } = useUrl();
 
   return (
-    <WrapPageElement icon={icon} iconAlt={iconAlt} isHome>
+    <>
       <GatsbySeo
         title={siteMetadata.title}
         description={siteMetadata.description}
@@ -117,6 +115,8 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
               alt: siteMetadata.title,
             },
           ],
+          url: currentLangUrl,
+          locale: language,
         }}
       />
       <LogoJsonLd
@@ -125,7 +125,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         defer
       />
       <PaddingContainer maxWidth="lg">
-        <HelloGroup links={data.links.edges} icon={icon} />
+        <HelloGroup links={data.links.edges} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
@@ -148,7 +148,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       >
         <CertificationList certification={data.certification.edges} />
       </Section>
-    </WrapPageElement>
+    </>
   );
 };
 
@@ -295,7 +295,7 @@ export const query = graphql`
         }
       }
     }
-    # 原稿を取得する
+    # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
@@ -303,14 +303,6 @@ export const query = graphql`
           data
           language
         }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
       }
     }
   }

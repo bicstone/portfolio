@@ -2,25 +2,27 @@ import { Typography, Grid, Button, styled, keyframes } from "@mui/material";
 import { Link } from "gatsby";
 import { useTranslation, useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
-import { SvgIcon, AvatarCard } from "src/components";
+import { AvatarCard } from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 
+import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+
 export interface HelloGroupProps {
   links: IndexPageQuery["links"]["edges"];
-  icon: string;
 }
 
 /**
  * 自己紹介
  * 顔写真、自己紹介と連絡先のリンク集がある
  */
-export const HelloGroup = ({ links, icon }: HelloGroupProps): JSX.Element => {
+export const HelloGroup = ({ links }: HelloGroupProps): JSX.Element => {
   const { t } = useTranslation();
   const { language } = useI18next();
+  const siteMetaData = useSiteMetadata();
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
-  const FukkiretaAnimationSvgIcon = styled(SvgIcon)({
+  const FukkiretaAnimationSvgIcon = styled("img")({
     cursor: "pointer",
     ...(activeAnimation && {
       transformOrigin: "center bottom",
@@ -41,7 +43,9 @@ export const HelloGroup = ({ links, icon }: HelloGroupProps): JSX.Element => {
         <FukkiretaAnimationSvgIcon
           width={100}
           height={100}
-          icon={icon}
+          src={siteMetaData.imageAvatar}
+          loading="eager"
+          decoding="async"
           alt={
             activeAnimation ? t("hello.icon.fukkireta") : t("hello.icon.normal")
           }
