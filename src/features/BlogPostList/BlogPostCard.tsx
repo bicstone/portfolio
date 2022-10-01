@@ -11,7 +11,7 @@ import type { Breakpoint } from "@mui/material";
 import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { isDefined } from "@/utils/typeguard";
 
-export const blogPostCardFragment = graphql`
+export const BlogPostCardQuery = graphql`
   fragment BlogPostCard on ContentfulBlogPost {
     title
     slug
@@ -20,23 +20,9 @@ export const blogPostCardFragment = graphql`
     updated
     updatedDate: updated(formatString: "yyyy/MM/DD")
     excerpt
-    tags {
-      name
-    }
-    category {
-      name
-    }
-    thumbnail {
-      title
-      gatsbyImageData(width: 400)
-    }
   }
 `;
 
-/**
- * ブログ記事一覧
- * カテゴリー別に表示する
- */
 export const BlogPostCard = (props: {
   post: BlogPostCardFragment;
 }): JSX.Element => {

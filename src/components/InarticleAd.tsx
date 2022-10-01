@@ -33,22 +33,24 @@ export const InarticleAd = ({ pubId, adId }: InarticleAdProps): JSX.Element => {
 
   return (
     <>
-      <ins
-        className="adsbygoogle"
-        css={{ display: "block", textAlign: "center" }}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client={pubId}
-        data-ad-slot={adId}
-      />
       {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) && (
-        <Script
-          id="adsbygoogle.js"
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-          crossOrigin="anonymous"
-          strategy="idle"
-          async
-        />
+        <>
+          <ins
+            className="adsbygoogle"
+            css={{ display: "block", textAlign: "center" }}
+            data-ad-layout="in-article"
+            data-ad-format="fluid"
+            data-ad-client={pubId}
+            data-ad-slot={adId}
+          />
+          <Script
+            id="adsbygoogle.js"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
+            crossOrigin="anonymous"
+            strategy="idle"
+            async
+          />
+        </>
       )}
     </>
   );

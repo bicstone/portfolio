@@ -20587,20 +20587,21 @@ export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type BlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'id' | 'slug'> }> } };
 
+export type BlogPostDetailFragment = { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> };
+
 export type BlogPostCardFragment = (
   Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
   & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>>, thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>> }
 );
 
 export type BlogPostListFragment = (
-  Pick<ContentfulBlogPost, 'id' | 'title' | 'created' | 'slug' | 'updated' | 'excerpt'>
+  Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
   & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-  & { thumbnail: Maybe<(
-    Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>
-    & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-  )>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>> }
 );
+
+export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
+
+export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
 
 export type SearchDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -20625,12 +20626,9 @@ export type BlogPageQueryVariables = Exact<{
 
 
 export type BlogPageQuery = { blogPostList: { nodes: Array<(
-      Pick<ContentfulBlogPost, 'id' | 'title' | 'created' | 'slug' | 'updated' | 'excerpt'>
+      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'updated' | 'excerpt'>
       & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-      & { thumbnail: Maybe<(
-        Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>
-        & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-      )>, tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>> }
+      & { thumbnail: Maybe<{ file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
     )> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
@@ -20673,16 +20671,16 @@ export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHell
         & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
       ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
-export type BlogPostQueryVariables = Exact<{
+export type BlogPostPageTemplateQueryVariables = Exact<{
   id: Scalars['String'];
   language: Scalars['String'];
 }>;
 
 
-export type BlogPostQuery = { post: Maybe<(
-    Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
+export type BlogPostPageTemplateQuery = { post: Maybe<(
+    Pick<ContentfulBlogPost, 'title' | 'excerpt' | 'created' | 'updated'>
     & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
+    & { category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
       Pick<ContentfulTag, 'name'>
       & { blog_post: Maybe<Array<Maybe<(
         Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
@@ -20691,5 +20689,5 @@ export type BlogPostQuery = { post: Maybe<(
     )>>>, thumbnail: Maybe<(
       Pick<ContentfulAsset, 'title'>
       & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    )> }
+    )>, content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
   )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
