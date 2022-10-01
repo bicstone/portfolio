@@ -4,11 +4,13 @@ import {
 } from "@mui/icons-material";
 import { Typography, CardActionArea, Card, Collapse } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
+import { useMemo } from "react";
 
 import type { BlogPostCardFragment } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material";
 
 import { useBreakPoint } from "@/hooks/useBreakPoint";
+import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const BlogPostCardQuery = graphql`
@@ -16,9 +18,7 @@ export const BlogPostCardQuery = graphql`
     title
     slug
     created
-    createdDate: created(formatString: "yyyy/MM/DD")
     updated
-    updatedDate: updated(formatString: "yyyy/MM/DD")
     excerpt
   }
 `;
@@ -29,7 +29,16 @@ export const BlogPostCard = (props: {
   const breakpoints: Breakpoint[] = ["xs"];
   const width = useBreakPoint();
   const mobile = breakpoints.includes(width);
+
   const post = props.post;
+  const createdDate = useMemo(
+    () => formatDateTime(post.created, { format: "yyyy/MM/dd" }),
+    [post.created]
+  );
+  const updatedDate = useMemo(
+    () => formatDateTime(post.updated, { format: "yyyy/MM/dd" }),
+    [post.updated]
+  );
 
   return (
     <article css={(theme) => ({ margin: theme.spacing(1, 0) })}>
@@ -86,7 +95,7 @@ export const BlogPostCard = (props: {
                       marginRight: theme.spacing(1),
                     })}
                   >
-                    {post.updatedDate}
+                    {updatedDate}
                   </time>
                 </>
               )}
@@ -98,7 +107,7 @@ export const BlogPostCard = (props: {
                       marginRight: theme.spacing(0.5),
                     })}
                   />
-                  <time dateTime={post.created}>{post.createdDate}</time>
+                  <time dateTime={post.created}>{createdDate}</time>
                 </>
               )}
             </Typography>

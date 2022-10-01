@@ -60,10 +60,7 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
       <Container maxWidth="md">
         <Breadcrumbs
           title={t("blog.title")}
-          css={(theme) => ({
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-          })}
+          css={(theme) => ({ margin: theme.spacing(2, 0) })}
         />
 
         <Typography component="h1" variant="h5" align="center" paragraph>
@@ -72,7 +69,7 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
 
         <Typography>{t("blog.caption")}</Typography>
 
-        <div css={(theme) => ({ marginBottom: theme.spacing(2) })}>
+        <div css={(theme) => ({ margin: theme.spacing(3, 0) })}>
           <BlogPostList blogPostList={blogPostList} />
         </div>
 

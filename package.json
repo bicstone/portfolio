@@ -30,6 +30,7 @@
     "@mui/icons-material": "5.10.6",
     "@mui/material": "5.10.6",
     "@sentry/gatsby": "7.13.0",
+    "date-fns": "2.29.3",
     "fuse.js": "6.6.2",
     "gatsby": "4.23.1",
     "gatsby-plugin-emotion": "7.23.0",
