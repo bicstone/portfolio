@@ -1,22 +1,22 @@
-import { Link as LinkIcon } from "@mui/icons-material";
 import {
   Divider,
-  Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
-  Typography,
 } from "@mui/material";
 import { captureException } from "@sentry/gatsby";
 
+import { AnchorIcon } from "./AnchorIcon";
 import { AnchorLink } from "./AnchorLink";
 import { Blockquote } from "./Blockquote";
 import { Heading } from "./Heading";
 import { InlineCode } from "./InlineCode";
 import { LinkCard } from "./LinkCard";
-import { QuotingCode, QuotingCodeWrap } from "./QuotingCode";
+import { Paragraph } from "./Paragraph";
+import { QuotingCode } from "./QuotingCode";
+import { Table } from "./Table";
+import { Video } from "./Video";
 
 import type { MDXProviderComponentsProp } from "@mdx-js/react";
 
@@ -26,28 +26,15 @@ const notImplemented = (name: string): null => {
 };
 
 export const mdxComponents: MDXProviderComponentsProp = {
-  p: (props) => (
-    <Typography
-      component="div"
-      css={(theme) => ({ margin: theme.spacing(0, 2, 2) })}
-      {...props}
-    />
-  ),
+  p: (props) => <Paragraph {...props} />,
   h1: notImplemented,
   h2: (props) => <Heading variant="h5" component="h2" {...props} />,
   h3: (props) => <Heading variant="h6" component="h3" {...props} />,
-  h4: (props) => <Heading variant="subtitle1" component="h4" {...props} />,
+  h4: (props) => <Heading variant="h6" component="h4" {...props} />,
   h5: notImplemented,
   h6: notImplemented,
   blockquote: (props) => <Blockquote {...props} />,
-  table: ({ children, ...props }) => (
-    <TableContainer
-      {...props}
-      css={(theme) => ({ margin: theme.spacing(1, 0) })}
-    >
-      <Table size="small">{children}</Table>
-    </TableContainer>
-  ),
+  table: (props) => <Table {...props} />,
   thead: (props) => <TableHead {...props} />,
   tbody: (props) => <TableBody {...props} />,
   tr: (props) => <TableRow {...props} />,
@@ -58,32 +45,10 @@ export const mdxComponents: MDXProviderComponentsProp = {
     <TableCell align={align ?? "inherit"} component="td" {...props} />
   ),
   inlineCode: (props) => <InlineCode {...props} />,
-  pre: (props) => (
-    <QuotingCodeWrap>
-      <QuotingCode {...props} />
-    </QuotingCodeWrap>
-  ),
+  pre: (props) => <QuotingCode {...props} />,
   hr: () => <Divider />,
   a: (props) => <AnchorLink {...props} />,
-  anchor: (props) => (
-    <LinkIcon
-      {...props}
-      css={(theme) => ({ paddingLeft: theme.spacing(0.5) })}
-    />
-  ),
+  anchor: (props) => <AnchorIcon {...props} />,
   link: (props) => <LinkCard {...props} />,
-  video: (props) => (
-    // eslint-disable-next-line jsx-a11y/media-has-caption
-    <video
-      controls
-      css={{
-        position: "relative",
-        display: "block",
-        maxWidth: 600,
-        marginLeft: "auto",
-        marginRight: "auto",
-      }}
-      {...props}
-    />
-  ),
+  video: (props) => <Video controls {...props} />,
 };

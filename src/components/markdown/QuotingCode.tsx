@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 
 import { CONSOLE_FONT_FAMILY } from "./constants";
 
-export const QuotingCodeWrap = styled("div")(({ theme }) => ({
+import type { HTMLAttributes } from "react";
+
+const StyledQuotingCodeWrap = styled("div")(({ theme }) => ({
   background: "#1e1e1e",
   borderRadius: theme.shape.borderRadius,
   margin: theme.spacing(2),
@@ -11,7 +13,7 @@ export const QuotingCodeWrap = styled("div")(({ theme }) => ({
   border: `1px solid ${theme.vars.palette.divider}`,
 }));
 
-export const QuotingCode = styled("pre")(({ theme }) => ({
+const StyledQuotingCode = styled("pre")(({ theme }) => ({
   // fork from https://github.com/PrismJS/prism-themes/blob/v1.9.0/themes/prism-vsc-dark-plus.css
   // MIT License https://github.com/PrismJS/prism-themes/blob/v1.9.0/LICENSE
   color: "#d4d4d4",
@@ -152,3 +154,14 @@ export const QuotingCode = styled("pre")(({ theme }) => ({
     },
   },
 }));
+
+export const QuotingCode = ({
+  children,
+  ...props
+}: HTMLAttributes<HTMLPreElement>): JSX.Element => {
+  return (
+    <StyledQuotingCodeWrap>
+      <StyledQuotingCode {...props} />
+    </StyledQuotingCodeWrap>
+  );
+};
