@@ -111,7 +111,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
           description: siteMetadata.description,
           images: [
             {
-              url: siteMetadata.image,
+              url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
               alt: siteMetadata.title,
             },
           ],

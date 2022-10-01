@@ -231,7 +231,7 @@ export const BlogPostPage = ({
         description={post.excerpt}
         images={[post.thumbnail.file.url]}
         keywords={post.tags.map((v) => v.name)}
-        publisherLogo={siteMetadata.image}
+        publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
         publisherName={siteMetadata.title}
         overrides={{
           "@type": "BlogPosting",

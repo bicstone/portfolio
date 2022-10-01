@@ -1,3 +1,5 @@
+import { withPrefix } from "gatsby";
+
 import type { HeadFC } from "gatsby";
 
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
@@ -8,7 +10,7 @@ import { useSiteMetadata } from "@/hooks/useSiteMetadata";
  */
 export const Head: HeadFC<never, never> = ({ location }) => {
   const siteMetadata = useSiteMetadata();
-  const canonical = `${siteMetadata.siteUrl}${location.pathname}`;
+  const canonical = `${siteMetadata.siteUrl}${withPrefix(location.pathname)}`;
 
   return (
     <>
