@@ -75,7 +75,9 @@ export const query = graphql`
 
 export { Head };
 
-export const BlogPostPage = ({ data }: PageProps<BlogPostPageQuery>): JSX.Element => {
+export const BlogPostPage = ({
+  data,
+}: PageProps<BlogPostPageQuery>): JSX.Element => {
   const { t, path, language } = useI18next();
   const siteMetadata = useSiteMetadata();
   const { currentLangUrl } = useUrl();
