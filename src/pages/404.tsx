@@ -6,7 +6,7 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import type { NotFoundPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 
-import { Head } from "@/templates/Head";
+import { Head } from "@/layouts/Head";
 
 const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
   const { t } = useI18next();

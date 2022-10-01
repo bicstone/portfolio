@@ -26,7 +26,7 @@ import type { ReactNode } from "react";
 
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
-import { Head } from "@/templates/Head";
+import { Head } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({

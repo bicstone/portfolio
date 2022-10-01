@@ -5747,6 +5747,7 @@ __metadata:
     "@typescript-eslint/parser": 5.38.0
     babel-plugin-i18next-extract: 0.9.0
     babel-preset-gatsby: 2.23.0
+    date-fns: 2.29.3
     dotenv: 16.0.2
     esbuild: 0.15.9
     eslint: 8.24.0
@@ -5785,7 +5786,6 @@ __metadata:
     i18next: 21.9.2
     mdx-embed: 1.0.0
     prettier: 2.7.1
-    prism-themes: 1.9.0
     prismjs: 1.29.0
     react: 18.2.0
     react-dom: 18.2.0
@@ -7358,6 +7358,13 @@ __metadata:
   version: 1.4.0
   resolution: "dataloader@npm:1.4.0"
   checksum: e2c93d43afde68980efc0cd9ff48e9851116e27a9687f863e02b56d46f7e7868cc762cd6dcbaf4197e1ca850a03651510c165c2ae24b8e9843fd894002ad0e20
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:2.29.3":
+  version: 2.29.3
+  resolution: "date-fns@npm:2.29.3"
+  checksum: e01cf5b62af04e05dfff921bb9c9933310ed0e1ae9a81eb8653452e64dc841acf7f6e01e1a5ae5644d0337e9a7f936175fd2cb6819dc122fdd9c5e86c56be484
   languageName: node
   linkType: hard
 
@@ -15792,13 +15799,6 @@ __metadata:
     lodash: ^4.17.20
     renderkid: ^2.0.4
   checksum: 16775d06f9a695d17103414d610b1281f9535ee1f2da1ce1e1b9be79584a114aa7eac6dcdcc5ef151756d3c014dfd4ac1c7303ed8016d0cec12437cfdf4021c6
-  languageName: node
-  linkType: hard
-
-"prism-themes@npm:1.9.0":
-  version: 1.9.0
-  resolution: "prism-themes@npm:1.9.0"
-  checksum: ddbadb8d83fc23e428409d7dd1d62dde6033a3afabd721d292e2d251f5693e3eccb7f9641704374f3df3dde59c0e2c8a3c069a7aa72990c4a00acb57f2af81f8
   languageName: node
   linkType: hard
 

@@ -1,65 +1,88 @@
-import { NavigateNext as NavigateNextIcon } from "@mui/icons-material";
-import {
-  Breadcrumbs as MuiBreadcrumbs,
-  Container,
-  Typography,
-  Link,
-} from "@mui/material";
-import { graphql, Link as RouterLink } from "gatsby";
+import { Container, Typography } from "@mui/material";
+import { graphql } from "gatsby";
 import {
   BlogJsonLd,
   BreadcrumbJsonLd,
   GatsbySeo,
 } from "gatsby-plugin-next-seo";
-import { useI18next, useTranslation } from "gatsby-plugin-react-i18next";
-import { BlogPostIndex } from "src/components";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
-import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 import type { PageProps } from "gatsby";
 
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BlogPostList } from "@/features/BlogPostList/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { useUrl } from "@/hooks/useUrl";
-import { Head } from "@/templates/Head";
+import { Head } from "@/layouts/Head";
 
-type BreadcrumbsProps = {
-  siteTitle: string;
-  blogTitle: string;
-} & MuiBreadcrumbsProps;
+export const query = graphql`
+  query BlogPage($language: String!) {
+    blogPostList: allContentfulBlogPost(
+      sort: { fields: created, order: DESC }
+    ) {
+      nodes {
+        title
+        created
+        thumbnail {
+          file {
+            url
+          }
+        }
+        ...BlogPostList
+      }
+    }
 
-const Breadcrumbs = ({
-  siteTitle,
-  blogTitle,
-  ...props
-}: BreadcrumbsProps): JSX.Element => {
-  return (
-    <MuiBreadcrumbs
-      separator={<NavigateNextIcon fontSize="small" />}
-      aria-label="breadcrumb"
-      {...props}
-    >
-      <Link component={RouterLink} color="inherit" to="/">
-        <Typography variant="body2">{siteTitle}</Typography>
-      </Link>
-      <Typography variant="body2" color="text.primary">
-        {blogTitle}
-      </Typography>
-    </MuiBreadcrumbs>
-  );
-};
+    # gatsby-plugin-react-i18next
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;
 
-const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
-  const { path, language } = useI18next();
-  const { t } = useTranslation();
+export { Head };
+
+const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
+  const blogPostList = data.blogPostList.nodes;
+  const { t, path } = useI18next();
   const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
-  const { currentLangUrl } = useUrl();
-
   const title = `${t("blog.title")} - ${siteMetadata.title}`;
 
   return (
     <>
+      <Container maxWidth="md">
+        <Breadcrumbs
+          title={t("blog.title")}
+          css={(theme) => ({ margin: theme.spacing(2, 0) })}
+        />
+
+        <Typography component="h1" variant="h5" align="center" paragraph>
+          {t("blog.title")}
+        </Typography>
+
+        <Typography>{t("blog.caption")}</Typography>
+
+        <div css={(theme) => ({ margin: theme.spacing(3, 0) })}>
+          <BlogPostList blogPostList={blogPostList} />
+        </div>
+
+        <Breadcrumbs
+          title={t("blog.title")}
+          css={(theme) => ({
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+          })}
+        />
+      </Container>
+
+      {/* TODO: Remove Gatsby SEO <!-- */}
       <GatsbySeo
         title={title}
         description={siteMetadata.description}
@@ -73,8 +96,6 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
               alt: title,
             },
           ],
-          url: currentLangUrl,
-          locale: language,
         }}
       />
       <BlogJsonLd
@@ -97,7 +118,7 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
             url: siteMetadata.siteUrl,
           },
         }}
-        posts={data.postsLite.edges.map(({ node }) => ({
+        posts={blogPostList.map((node) => ({
           headline: node.title,
           image: node.thumbnail.file.url,
           datePublished: node.created,
@@ -119,96 +140,9 @@ const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
         ]}
         defer
       />
-      <Container maxWidth="md">
-        <Breadcrumbs
-          siteTitle={siteMetadata.title}
-          blogTitle={t("blog.title")}
-          css={(theme) => ({
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-          })}
-        />
-
-        <Typography component="h1" variant="h5" align="center" paragraph>
-          {t("blog.title")}
-        </Typography>
-
-        <Typography>{t("blog.caption")}</Typography>
-
-        <div css={(theme) => ({ marginBottom: theme.spacing(2) })}>
-          <BlogPostIndex posts={data.posts.group} />
-        </div>
-
-        <Breadcrumbs
-          siteTitle={siteMetadata.title}
-          blogTitle={t("blog.title")}
-          css={(theme) => ({
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-          })}
-        />
-      </Container>
+      {/* --> Remove Gatsby SEO */}
     </>
   );
 };
 
-export default Blog;
-
-export const query = graphql`
-  query BlogPage($language: String!) {
-    # ブログ記事一覧を取得する
-    posts: allContentfulBlogPost(sort: { fields: created, order: DESC }) {
-      group(field: category___sortKey) {
-        edges {
-          node {
-            id
-            title
-            slug
-            created
-            createdDate: created(formatString: "yyyy/MM/DD")
-            updated
-            updatedDate: updated(formatString: "yyyy/MM/DD")
-            excerpt
-            tags {
-              name
-            }
-            category {
-              name
-            }
-            thumbnail {
-              title
-              gatsbyImageData(width: 400)
-            }
-          }
-        }
-      }
-    }
-    # JSON-LD用
-    postsLite: allContentfulBlogPost(sort: { order: DESC, fields: created }) {
-      edges {
-        node {
-          title
-          slug
-          created
-          thumbnail {
-            file {
-              url
-            }
-          }
-        }
-      }
-    }
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-  }
-`;
-
-export { Head };
+export default BlogPage;
