@@ -35,8 +35,6 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 import { HelloGroup, InarticleAd, RelatedBlogPostList } from "src/components";
 
-import { Head } from "./Head";
-
 import type { BlogPostQuery } from "@/generated/graphqlTypes";
 import type { MDXProviderComponentsProp } from "@mdx-js/react";
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
@@ -44,6 +42,7 @@ import type { PageProps } from "gatsby";
 
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
+import { Head } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
 
 const consoleFontFamily = "HackGen, PlemolJP, Consolas, Courier, monospace";

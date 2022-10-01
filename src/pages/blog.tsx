@@ -4,7 +4,7 @@ import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 
 import { BlogPostList } from "@/features/BlogPostList";
-import { Head } from "@/templates/Head";
+import { Head } from "@/layouts/Head";
 
 const Blog = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
