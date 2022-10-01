@@ -13,7 +13,7 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 import { HelloGroup } from "src/components";
 
-import type { BlogPostPageTemplateQuery } from "@/generated/graphqlTypes";
+import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -22,16 +22,15 @@ import { RelatedBlogPostList } from "@/features/RelatedBlogPostList/RelatedBlogP
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
+import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 export const query = graphql`
-  query BlogPostPageTemplate($id: String!, $language: String!) {
+  query BlogPostPage($id: String!, $language: String!) {
     post: contentfulBlogPost(id: { eq: $id }) {
       title
       excerpt
       created
-      createdDate: created(formatString: "yyyy/MM/DD")
       updated
-      updatedDate: updated(formatString: "yyyy/MM/DD")
       category {
         name
       }
@@ -76,13 +75,7 @@ export const query = graphql`
 
 export { Head };
 
-/**
- * TODO: move to page dir
- * https://www.gatsbyjs.com/docs/reference/routing/file-system-route-api/
- */
-export const BlogPostPageTemplate = ({
-  data,
-}: PageProps<BlogPostPageTemplateQuery>): JSX.Element => {
+export const BlogPostPage = ({ data }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const { t, path, language } = useI18next();
   const siteMetadata = useSiteMetadata();
   const { currentLangUrl } = useUrl();
@@ -98,6 +91,15 @@ export const BlogPostPageTemplate = ({
     filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
     return filteredPosts;
   }, [post.tags]);
+
+  const createdDate = useMemo(
+    () => formatDateTime(post.created, "yyyy/MM/dd"),
+    [post.created]
+  );
+  const updatedDate = useMemo(
+    () => formatDateTime(post.updated, "yyyy/MM/dd"),
+    [post.updated]
+  );
 
   return (
     <>
@@ -135,7 +137,7 @@ export const BlogPostPageTemplate = ({
                 dateTime={post.updated}
                 css={(theme) => ({ marginRight: theme.spacing(1) })}
               >
-                {post.updatedDate}
+                {updatedDate}
               </time>
             </>
           )}
@@ -145,7 +147,7 @@ export const BlogPostPageTemplate = ({
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
-              <time dateTime={post.created}>{post.createdDate}</time>
+              <time dateTime={post.created}>{createdDate}</time>
             </>
           )}
         </Typography>
@@ -264,4 +266,4 @@ export const BlogPostPageTemplate = ({
   );
 };
 
-export default BlogPostPageTemplate;
+export default BlogPostPage;

@@ -32,11 +32,11 @@ export const BlogPostCard = (props: {
 
   const post = props.post;
   const createdDate = useMemo(
-    () => formatDateTime(post.created, { format: "yyyy/MM/dd" }),
+    () => formatDateTime(post.created, "yyyy/MM/dd"),
     [post.created]
   );
   const updatedDate = useMemo(
-    () => formatDateTime(post.updated, { format: "yyyy/MM/dd" }),
+    () => formatDateTime(post.updated, "yyyy/MM/dd"),
     [post.updated]
   );
 
