@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
 import { RelatedBlogPostCard } from "./RelatedBlogPostCard";
@@ -15,10 +16,10 @@ export const RelatedBlogPostList = (props: {
   posts: RelatedBlogPostListFragment[];
 }): JSX.Element => {
   return (
-    <>
+    <Grid container spacing={1}>
       {props.posts.map((post) => (
         <RelatedBlogPostCard key={post.id} post={post} />
       ))}
-    </>
+    </Grid>
   );
 };

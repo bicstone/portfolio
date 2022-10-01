@@ -38,6 +38,9 @@ export const RelatedBlogPostCard = (props: {
                 variant="subtitle2"
                 css={(theme) => {
                   const typography = theme.typography.subtitle2;
+                  const fontSize = typography.fontSize;
+                  const lineHeight = typography.lineHeight;
+
                   return {
                     wordBreak: "break-all",
                     display: "-webkit-box",
@@ -45,9 +48,9 @@ export const RelatedBlogPostCard = (props: {
                     WebkitLineClamp: 2,
                     overflow: "hidden",
                     textOverflow: "ellipsis",
-                    ...(isDefined(typography.fontSize) &&
-                      isDefined(typography.lineHeight) && {
-                        height: `calc(${typography.fontSize} * ${typography.lineHeight} * 2)`,
+                    ...(isDefined(fontSize) &&
+                      isDefined(lineHeight) && {
+                        height: `calc(${fontSize} * ${lineHeight} * 2)`,
                       }),
                   };
                 }}
