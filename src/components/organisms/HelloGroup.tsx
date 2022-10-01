@@ -43,7 +43,7 @@ export const HelloGroup = ({ links }: HelloGroupProps): JSX.Element => {
         <FukkiretaAnimationSvgIcon
           width={100}
           height={100}
-          src={siteMetaData.imageAvatar}
+          src={`${siteMetaData.siteUrl}${siteMetaData.imageAvatar}`}
           loading="eager"
           decoding="async"
           alt={

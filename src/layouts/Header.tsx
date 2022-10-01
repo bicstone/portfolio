@@ -16,7 +16,7 @@ import {
   NoSsr,
 } from "@mui/material";
 import { useLocation } from "@reach/router";
-import { Link as RouterLink } from "gatsby";
+import { Link as RouterLink, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { Breakpoint } from "@mui/material";
@@ -40,7 +40,7 @@ export const Header = (): JSX.Element => {
   const width = useBreakPoint();
   const expandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
   const isExpanded = expandedBreakpoints.includes(width);
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === withPrefix("/");
 
   return (
     <AppBar
@@ -84,7 +84,7 @@ export const Header = (): JSX.Element => {
               <img
                 width={20}
                 height={20}
-                src={siteMetaData.imageAvatar}
+                src={`${siteMetaData.siteUrl}${siteMetaData.imageAvatar}`}
                 alt={t("header.avatar")}
                 loading="eager"
                 decoding="async"

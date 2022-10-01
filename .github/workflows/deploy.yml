@@ -30,8 +30,8 @@ jobs:
 
       - run: yarn build
         env:
-          # "bucketName" is a required option for gatsby-plugin-s3
-          AWS_S3_BUCKET_NAME: "example"
+          AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           GTM_ID: ${{ secrets.GTM_ID }}

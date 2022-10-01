@@ -1,7 +1,7 @@
 import { NavigateNext as NavigateNextIcon } from "@mui/icons-material";
 import { Breadcrumbs as MuiBreadcrumbs, Typography, Link } from "@mui/material";
 import { useLocation } from "@reach/router";
-import { Link as RouterLink } from "gatsby";
+import { Link as RouterLink, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
@@ -16,7 +16,7 @@ export const Breadcrumbs = (
   const { t } = useI18next();
   const siteMetadata = useSiteMetadata();
   const location = useLocation();
-  const isBlogPostList = location.pathname === "/blog";
+  const isBlogPostList = location.pathname === withPrefix("/blog");
 
   return (
     <MuiBreadcrumbs
