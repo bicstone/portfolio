@@ -46,7 +46,7 @@ export const mdxComponents: MDXProviderComponentsProp = {
   ),
   inlineCode: (props) => <InlineCode {...props} />,
   pre: (props) => <QuotingCode {...props} />,
-  hr: () => <Divider />,
+  hr: (props) => <Divider {...props} />,
   a: (props) => <AnchorLink {...props} />,
   anchor: (props) => <AnchorIcon {...props} />,
   link: (props) => <LinkCard {...props} />,

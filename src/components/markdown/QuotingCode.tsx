@@ -155,10 +155,9 @@ const StyledQuotingCode = styled("pre")(({ theme }) => ({
   },
 }));
 
-export const QuotingCode = ({
-  children,
-  ...props
-}: HTMLAttributes<HTMLPreElement>): JSX.Element => {
+export const QuotingCode = (
+  props: HTMLAttributes<HTMLPreElement>
+): JSX.Element => {
   return (
     <StyledQuotingCodeWrap>
       <StyledQuotingCode {...props} />
