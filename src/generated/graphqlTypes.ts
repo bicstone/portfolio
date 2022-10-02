@@ -20674,6 +20674,27 @@ export type PortfolioProjectListFragment = (
   )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
 );
 
+export type PortfolioSkillCardFragment = (
+  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  & { skillGroups: Maybe<Array<Maybe<(
+    Pick<ContentfulSkillGrpup, 'id' | 'name'>
+    & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  )>>> }
+);
+
+export type PortfolioSkillGroupDetailFragment = (
+  Pick<ContentfulSkillGrpup, 'name'>
+  & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+);
+
+export type PortfolioSkillListFragment = (
+  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  & { skillGroups: Maybe<Array<Maybe<(
+    Pick<ContentfulSkillGrpup, 'id' | 'name'>
+    & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  )>>> }
+);
+
 export type PortfolioWhatICanDoCardFragment = (
   Pick<ContentfulWhatICanDo, 'name' | 'subName'>
   & { icon: Maybe<(
@@ -20750,13 +20771,13 @@ export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' 
         Pick<ContentfulIcon, 'name'>
         & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, skills: { edges: Array<{ node: (
-        Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
-        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>, skillGroups: Maybe<Array<Maybe<(
-          Pick<ContentfulSkillGrpup, 'id' | 'name'>
-          & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-        )>>> }
-      ) }> }, certification: { edges: Array<{ node: (
+    )> }, skills: { nodes: Array<(
+      Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+      & { skillGroups: Maybe<Array<Maybe<(
+        Pick<ContentfulSkillGrpup, 'id' | 'name'>
+        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+      )>>> }
+    )> }, certification: { edges: Array<{ node: (
         Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
         & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
       ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
