@@ -11,13 +11,13 @@ import {
 } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
-import { HelloGroup } from "src/components";
 
 import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { BlogPostDetail } from "@/features/BlogPostDetail/BlogPostDetail";
+import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList/RelatedBlogPostList";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
@@ -49,15 +49,9 @@ export const query = graphql`
       }
       ...BlogPostDetail
     }
-    # TODO: Fragment
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          href
-        }
+      nodes {
+        ...PortfolioHello
       }
     }
     # gatsby-plugin-react-i18next
@@ -174,7 +168,7 @@ export const BlogPostPage = ({
               marginBottom: theme.spacing(2),
             })}
           >
-            <HelloGroup links={data.links.edges} />
+            <PortfolioHello links={data.links.nodes} />
           </section>
         </aside>
 

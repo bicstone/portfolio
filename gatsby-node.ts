@@ -8,7 +8,8 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        src: path.resolve("src"),
+        // see tsconfig.json
+        "@/constants": path.resolve("src/constants"),
         "@/components": path.resolve("src/components"),
         "@/features": path.resolve("src/features"),
         "@/generated": path.resolve("src/generated"),

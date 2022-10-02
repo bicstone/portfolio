@@ -20617,6 +20617,112 @@ export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | '
 
 export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
 
+export type PortfolioCertificationCardFragment = (
+  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+);
+
+export type PortfolioCertificationDetailFragment = Pick<ContentfulQualification, 'name' | 'date'>;
+
+export type PortfolioCertificationListFragment = (
+  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+);
+
+export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+
+export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+
+export type PortfolioHistoryCardFragment = (
+  Pick<ContentfulHistory, 'node_locale' | 'date' | 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioHistoryListFragment = (
+  Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioOssCardFragment = (
+  Pick<ContentfulOss, 'name' | 'startDate' | 'href'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioOssListFragment = (
+  Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioProjectCardFragment = (
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioProjectDetailFragment = (
+  Pick<ContentfulProject, 'subName'>
+  & { detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioProjectListFragment = (
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioSkillCardFragment = (
+  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  & { skillGroups: Maybe<Array<Maybe<(
+    Pick<ContentfulSkillGrpup, 'id' | 'name'>
+    & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  )>>> }
+);
+
+export type PortfolioSkillGroupDetailFragment = (
+  Pick<ContentfulSkillGrpup, 'name'>
+  & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+);
+
+export type PortfolioSkillListFragment = (
+  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  & { skillGroups: Maybe<Array<Maybe<(
+    Pick<ContentfulSkillGrpup, 'id' | 'name'>
+    & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  )>>> }
+);
+
+export type PortfolioWhatICanDoCardFragment = (
+  Pick<ContentfulWhatICanDo, 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioWhatICanDoListFragment = (
+  Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
 export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
 
 export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
@@ -20653,40 +20759,40 @@ export type IndexPageQueryVariables = Exact<{
 }>;
 
 
-export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, whatICanDos: { edges: Array<{ node: (
-        Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, projects: { edges: Array<{ node: (
-        Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-      ) }> }, histories: { edges: Array<{ node: (
-        Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, osses: { edges: Array<{ node: (
-        Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, skills: { edges: Array<{ node: (
-        Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
-        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>, skillGroups: Maybe<Array<Maybe<(
-          Pick<ContentfulSkillGrpup, 'id' | 'name'>
-          & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-        )>>> }
-      ) }> }, certification: { edges: Array<{ node: (
-        Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
-        & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
-      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, whatICanDos: { nodes: Array<(
+      Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
+      & { icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, projects: { nodes: Array<(
+      Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+      & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+    )> }, histories: { nodes: Array<(
+      Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
+      & { icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, osses: { nodes: Array<(
+      Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
+      & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, skills: { nodes: Array<(
+      Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+      & { skillGroups: Maybe<Array<Maybe<(
+        Pick<ContentfulSkillGrpup, 'id' | 'name'>
+        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+      )>>> }
+    )> }, certification: { nodes: Array<(
+      Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+      & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+    )> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -20706,4 +20812,4 @@ export type BlogPostPageQuery = { post: Maybe<(
       Pick<ContentfulAsset, 'title'>
       & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
     )>, content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+  )>, links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };

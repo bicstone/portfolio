@@ -10,20 +10,18 @@ import { graphql } from "gatsby";
 import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
-import {
-  HelloGroup,
-  OSSList,
-  CertificationList,
-  HistoryList,
-  ProjectList,
-  SkillList,
-  WhatICanDoList,
-} from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
+import { PortfolioCertificationList } from "@/features/PortfolioCertification/PortfolioCertificationList";
+import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
+import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
+import { PortfolioOssList } from "@/features/PortfolioOss/PortfolioOssList";
+import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
+import { PortfolioSkillList } from "@/features/PortfolioSkill/PortfolioSkillList";
+import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
@@ -125,28 +123,28 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         defer
       />
       <PaddingContainer maxWidth="lg">
-        <HelloGroup links={data.links.edges} />
+        <PortfolioHello links={data.links.nodes} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
-        <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
+        <PortfolioWhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </Section>
       <Section title={t("home.projects-title")}>
-        <ProjectList projects={data.projects.edges} />
+        <PortfolioProjectList projects={data.projects.nodes} />
       </Section>
       <Section title={t("home.histories-title")}>
-        <HistoryList histories={data.histories.edges} />
+        <PortfolioHistoryList histories={data.histories.nodes} />
       </Section>
       <Section title={t("home.osses-title")} help={t("home.osses-help")}>
-        <OSSList osses={data.osses.edges} />
+        <PortfolioOssList osses={data.osses.nodes} />
       </Section>
       <Section title={t("home.skills-title")} help={t("home.skills-help")}>
-        <SkillList skills={data.skills.edges} />
+        <PortfolioSkillList skills={data.skills.nodes} />
       </Section>
       <Section
         title={t("home.qualifications-title")}
         help={t("home.qualifications-help")}
       >
-        <CertificationList certification={data.certification.edges} />
+        <PortfolioCertificationList certifications={data.certification.nodes} />
       </Section>
     </>
   );
@@ -156,143 +154,44 @@ export default Home;
 
 export const query = graphql`
   query IndexPage($language: String!) {
-    # 自己紹介部分リンク先を取得する
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          href
-        }
+      nodes {
+        ...PortfolioHello
       }
     }
-    # お手伝いできること一覧を取得する
     whatICanDos: allContentfulWhatICanDo(
       sort: { fields: sortKey, order: ASC }
     ) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          subName
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-        }
+      nodes {
+        ...PortfolioWhatICanDoList
       }
     }
-    # プロジェクト一覧を取得する
     projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          tags {
-            name
-          }
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-          subName
-          detail {
-            childMdx {
-              body
-            }
-          }
-          startDate(formatString: "YYYY")
-        }
+      nodes {
+        ...PortfolioProjectList
       }
     }
-    # 経歴一覧を取得する
     histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          date(formatString: "yyyy")
-          name
-          subName
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-        }
+      nodes {
+        ...PortfolioHistoryList
       }
     }
-    # OSS一覧を取得する
     osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          tags {
-            name
-          }
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-          subName
-          startDate(formatString: "yyyy/MM")
-          href
-        }
+      nodes {
+        ...PortfolioOssList
       }
     }
-    # スキル一覧を取得する
     skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          name
-          node_locale
-          expanded
-          skills {
-            id
-            level
-            name
-          }
-          skillGroups {
-            id
-            name
-            skills {
-              id
-              level
-              name
-            }
-          }
-        }
+      nodes {
+        ...PortfolioSkillList
       }
     }
     # 資格一覧を取得する
     certification: allContentfulQualificationMap(
       sort: { fields: sortKey, order: ASC }
     ) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          expanded
-          qualifications {
-            id
-            name
-            date(formatString: "yyyy/MM")
-          }
-        }
+      nodes {
+        ...PortfolioCertificationList
       }
     }
     # gatsby-plugin-react-i18next
