@@ -20621,6 +20621,22 @@ export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name
 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
+export type PortfolioHistoryCardFragment = (
+  Pick<ContentfulHistory, 'node_locale' | 'date' | 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioHistoryListFragment = (
+  Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
 export type PortfolioProjectCardFragment = (
   Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
   & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
@@ -20706,13 +20722,13 @@ export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' 
         Pick<ContentfulIcon, 'name'>
         & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-    )> }, histories: { edges: Array<{ node: (
-        Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, osses: { edges: Array<{ node: (
+    )> }, histories: { nodes: Array<(
+      Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
+      & { icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, osses: { edges: Array<{ node: (
         Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
         & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
           Pick<ContentfulIcon, 'name'>

@@ -10,18 +10,14 @@ import { graphql } from "gatsby";
 import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
-import {
-  OSSList,
-  CertificationList,
-  HistoryList,
-  SkillList,
-} from "src/components";
+import { OSSList, CertificationList, SkillList } from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
+import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
 import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
 import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
@@ -134,7 +130,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <PortfolioProjectList projects={data.projects.nodes} />
       </Section>
       <Section title={t("home.histories-title")}>
-        <HistoryList histories={data.histories.edges} />
+        <PortfolioHistoryList histories={data.histories.nodes} />
       </Section>
       <Section title={t("home.osses-title")} help={t("home.osses-help")}>
         <OSSList osses={data.osses.edges} />
@@ -161,7 +157,6 @@ export const query = graphql`
         ...PortfolioHello
       }
     }
-    # お手伝いできること一覧を取得する
     whatICanDos: allContentfulWhatICanDo(
       sort: { fields: sortKey, order: ASC }
     ) {
@@ -169,28 +164,14 @@ export const query = graphql`
         ...PortfolioWhatICanDoList
       }
     }
-    # プロジェクト一覧を取得する
     projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
       nodes {
         ...PortfolioProjectList
       }
     }
-    # 経歴一覧を取得する
     histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          date(formatString: "yyyy")
-          name
-          subName
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-        }
+      nodes {
+        ...PortfolioHistoryList
       }
     }
     # OSS一覧を取得する
