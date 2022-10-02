@@ -10,7 +10,7 @@ import { graphql } from "gatsby";
 import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
-import { OSSList, CertificationList, SkillList } from "src/components";
+import { CertificationList, SkillList } from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
@@ -18,6 +18,7 @@ import type { ReactNode } from "react";
 
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
 import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
+import { PortfolioOssList } from "@/features/PortfolioOss/PortfolioOssList";
 import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
 import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
@@ -133,7 +134,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <PortfolioHistoryList histories={data.histories.nodes} />
       </Section>
       <Section title={t("home.osses-title")} help={t("home.osses-help")}>
-        <OSSList osses={data.osses.edges} />
+        <PortfolioOssList osses={data.osses.nodes} />
       </Section>
       <Section title={t("home.skills-title")} help={t("home.skills-help")}>
         <SkillList skills={data.skills.edges} />
@@ -174,26 +175,9 @@ export const query = graphql`
         ...PortfolioHistoryList
       }
     }
-    # OSS一覧を取得する
     osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          tags {
-            name
-          }
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-          subName
-          startDate(formatString: "yyyy/MM")
-          href
-        }
+      nodes {
+        ...PortfolioOssList
       }
     }
     # スキル一覧を取得する

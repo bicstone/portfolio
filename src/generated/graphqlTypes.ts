@@ -20637,6 +20637,22 @@ export type PortfolioHistoryListFragment = (
   )> }
 );
 
+export type PortfolioOssCardFragment = (
+  Pick<ContentfulOss, 'name' | 'startDate' | 'href'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioOssListFragment = (
+  Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
 export type PortfolioProjectCardFragment = (
   Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
   & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
@@ -20728,13 +20744,13 @@ export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' 
         Pick<ContentfulIcon, 'name'>
         & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, osses: { edges: Array<{ node: (
-        Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, skills: { edges: Array<{ node: (
+    )> }, osses: { nodes: Array<(
+      Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
+      & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, skills: { edges: Array<{ node: (
         Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
         & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>, skillGroups: Maybe<Array<Maybe<(
           Pick<ContentfulSkillGrpup, 'id' | 'name'>
