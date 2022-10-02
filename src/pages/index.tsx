@@ -14,7 +14,6 @@ import {
   OSSList,
   CertificationList,
   HistoryList,
-  ProjectList,
   SkillList,
 } from "src/components";
 
@@ -23,6 +22,7 @@ import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
+import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
 import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
@@ -131,7 +131,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <PortfolioWhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </Section>
       <Section title={t("home.projects-title")}>
-        <ProjectList projects={data.projects.edges} />
+        <PortfolioProjectList projects={data.projects.nodes} />
       </Section>
       <Section title={t("home.histories-title")}>
         <HistoryList histories={data.histories.edges} />
@@ -171,28 +171,8 @@ export const query = graphql`
     }
     # プロジェクト一覧を取得する
     projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          tags {
-            name
-          }
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-          subName
-          detail {
-            childMdx {
-              body
-            }
-          }
-          startDate(formatString: "YYYY")
-        }
+      nodes {
+        ...PortfolioProjectList
       }
     }
     # 経歴一覧を取得する

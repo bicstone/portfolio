@@ -20621,6 +20621,27 @@ export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name
 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
+export type PortfolioProjectCardFragment = (
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioProjectDetailFragment = (
+  Pick<ContentfulProject, 'subName'>
+  & { detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioProjectListFragment = (
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
 export type PortfolioWhatICanDoCardFragment = (
   Pick<ContentfulWhatICanDo, 'name' | 'subName'>
   & { icon: Maybe<(
@@ -20679,13 +20700,13 @@ export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' 
         Pick<ContentfulIcon, 'name'>
         & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, projects: { edges: Array<{ node: (
-        Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-      ) }> }, histories: { edges: Array<{ node: (
+    )> }, projects: { nodes: Array<(
+      Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+      & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+    )> }, histories: { edges: Array<{ node: (
         Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
         & { icon: Maybe<(
           Pick<ContentfulIcon, 'name'>
