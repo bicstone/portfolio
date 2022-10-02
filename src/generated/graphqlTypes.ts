@@ -20617,6 +20617,10 @@ export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | '
 
 export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
 
+export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+
+export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+
 export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
 
 export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
@@ -20653,7 +20657,7 @@ export type IndexPageQueryVariables = Exact<{
 }>;
 
 
-export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, whatICanDos: { edges: Array<{ node: (
+export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, whatICanDos: { edges: Array<{ node: (
         Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
         & { icon: Maybe<(
           Pick<ContentfulIcon, 'name'>
@@ -20706,4 +20710,4 @@ export type BlogPostPageQuery = { post: Maybe<(
       Pick<ContentfulAsset, 'title'>
       & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
     )>, content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+  )>, links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };

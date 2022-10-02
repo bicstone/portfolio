@@ -11,7 +11,6 @@ import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 import {
-  HelloGroup,
   OSSList,
   CertificationList,
   HistoryList,
@@ -24,6 +23,7 @@ import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
+import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
@@ -125,7 +125,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         defer
       />
       <PaddingContainer maxWidth="lg">
-        <HelloGroup links={data.links.edges} />
+        <PortfolioHello links={data.links.nodes} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
         <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
@@ -156,15 +156,9 @@ export default Home;
 
 export const query = graphql`
   query IndexPage($language: String!) {
-    # 自己紹介部分リンク先を取得する
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          href
-        }
+      nodes {
+        ...PortfolioHello
       }
     }
     # お手伝いできること一覧を取得する
