@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
-import { SvgAvatar } from "src/components";
 
 import type { PortfolioOssCardFragment } from "@/generated/graphqlTypes";
 
+import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
 export const PortfolioOssCardQuery = graphql`

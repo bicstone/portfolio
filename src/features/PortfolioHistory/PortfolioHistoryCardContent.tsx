@@ -2,10 +2,10 @@ import { CardHeader, Divider, Typography } from "@mui/material";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
-import { SvgAvatar } from "src/components";
 
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
+import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
 export const PortfolioHistoryCardQuery = graphql`

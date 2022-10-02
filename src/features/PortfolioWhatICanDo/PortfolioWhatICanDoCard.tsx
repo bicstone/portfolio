@@ -1,8 +1,9 @@
 import { Grid, CardHeader, Card } from "@mui/material";
 import { graphql } from "gatsby";
-import { SvgAvatar } from "src/components";
 
 import type { PortfolioWhatICanDoCardFragment } from "@/generated/graphqlTypes";
+
+import { SvgAvatar } from "@/components/SvgAvatar";
 
 export const PortfolioWhatICanDoCardQuery = graphql`
   fragment PortfolioWhatICanDoCard on ContentfulWhatICanDo {

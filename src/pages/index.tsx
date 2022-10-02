@@ -10,12 +10,12 @@ import { graphql } from "gatsby";
 import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
-import { CertificationList } from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
+import { PortfolioCertificationList } from "@/features/PortfolioCertification/PortfolioCertificationList";
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
 import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
 import { PortfolioOssList } from "@/features/PortfolioOss/PortfolioOssList";
@@ -144,7 +144,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         title={t("home.qualifications-title")}
         help={t("home.qualifications-help")}
       >
-        <CertificationList certification={data.certification.edges} />
+        <PortfolioCertificationList certifications={data.certification.nodes} />
       </Section>
     </>
   );
@@ -190,18 +190,8 @@ export const query = graphql`
     certification: allContentfulQualificationMap(
       sort: { fields: sortKey, order: ASC }
     ) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          expanded
-          qualifications {
-            id
-            name
-            date(formatString: "yyyy/MM")
-          }
-        }
+      nodes {
+        ...PortfolioCertificationList
       }
     }
     # gatsby-plugin-react-i18next

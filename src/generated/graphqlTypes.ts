@@ -20617,6 +20617,18 @@ export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | '
 
 export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
 
+export type PortfolioCertificationCardFragment = (
+  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+);
+
+export type PortfolioCertificationDetailFragment = Pick<ContentfulQualification, 'name' | 'date'>;
+
+export type PortfolioCertificationListFragment = (
+  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+);
+
 export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
@@ -20777,10 +20789,10 @@ export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' 
         Pick<ContentfulSkillGrpup, 'id' | 'name'>
         & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
       )>>> }
-    )> }, certification: { edges: Array<{ node: (
-        Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
-        & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
-      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+    )> }, certification: { nodes: Array<(
+      Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+      & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+    )> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];

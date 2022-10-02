@@ -8,12 +8,13 @@ import {
   Typography,
 } from "@mui/material";
 import { graphql } from "gatsby";
-import { CollapseResponsiveController } from "src/components";
 
 import { PortfolioSkillGroupDetail } from "./PortfolioSkillGroupDetail";
 
 import type { PortfolioSkillCardFragment } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material";
+
+import { CollapseResponsiveController } from "@/components/CollapseResponsiveController";
 
 export const PortfolioSkillCardQuery = graphql`
   fragment PortfolioSkillCard on ContentfulSkillMap {
