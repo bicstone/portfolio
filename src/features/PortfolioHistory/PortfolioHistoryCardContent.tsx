@@ -10,7 +10,6 @@ import { formatDateTime } from "@/utils/format";
 
 export const PortfolioHistoryCardQuery = graphql`
   fragment PortfolioHistoryCard on ContentfulHistory {
-    node_locale
     date
     name
     subName
