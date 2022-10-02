@@ -16,7 +16,6 @@ import {
   HistoryList,
   ProjectList,
   SkillList,
-  WhatICanDoList,
 } from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
@@ -24,6 +23,7 @@ import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
+import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
@@ -128,7 +128,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <PortfolioHello links={data.links.nodes} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
-        <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
+        <PortfolioWhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </Section>
       <Section title={t("home.projects-title")}>
         <ProjectList projects={data.projects.edges} />
@@ -165,19 +165,8 @@ export const query = graphql`
     whatICanDos: allContentfulWhatICanDo(
       sort: { fields: sortKey, order: ASC }
     ) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          subName
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-        }
+      nodes {
+        ...PortfolioWhatICanDoList
       }
     }
     # プロジェクト一覧を取得する

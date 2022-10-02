@@ -20621,6 +20621,22 @@ export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name
 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
+export type PortfolioWhatICanDoCardFragment = (
+  Pick<ContentfulWhatICanDo, 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioWhatICanDoListFragment = (
+  Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
+  & { icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
 export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
 
 export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
@@ -20657,13 +20673,13 @@ export type IndexPageQueryVariables = Exact<{
 }>;
 
 
-export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, whatICanDos: { edges: Array<{ node: (
-        Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, projects: { edges: Array<{ node: (
+export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, whatICanDos: { nodes: Array<(
+      Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
+      & { icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, projects: { edges: Array<{ node: (
         Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'>
         & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
           Pick<ContentfulIcon, 'name'>
