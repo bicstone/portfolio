@@ -16,7 +16,7 @@ export const PortfolioProjectListQuery = graphql`
 `;
 
 export const PortfolioProjectList = (props: {
-  projects: PortfolioProjectListFragment[];
+  projects: readonly PortfolioProjectListFragment[];
 }): JSX.Element => {
   const [expanded, dispatchExpanded] = useReducer(
     AccordionExpendReducer,

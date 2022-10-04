@@ -13,7 +13,7 @@ export const PortfolioHistoryListQuery = graphql`
 `;
 
 export const PortfolioHistoryList = (props: {
-  histories: PortfolioHistoryListFragment[];
+  histories: readonly PortfolioHistoryListFragment[];
 }): JSX.Element => {
   return (
     <Card>

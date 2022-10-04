@@ -6,6 +6,7 @@ export interface UseSearchProps<T> {
   keys: Array<Fuse.FuseOptionKey<T>>;
   keyword: string | Fuse.Expression;
   options?: Fuse.IFuseOptions<T>;
+  index?: Fuse.FuseIndex<T>;
 }
 
 /**
@@ -16,13 +17,18 @@ export const useSearch = <T>({
   keys,
   keyword,
   options,
+  index,
 }: UseSearchProps<T>): Array<Fuse.FuseResult<T>> => {
   const fuse = useMemo(() => {
-    return new Fuse(list, {
-      keys,
-      ...options,
-    });
-  }, [keys, list, options]);
+    return new Fuse(
+      list,
+      {
+        keys,
+        ...options,
+      },
+      index
+    );
+  }, [keys, list, options, index]);
 
   const result = useMemo(() => {
     return fuse.search(keyword);

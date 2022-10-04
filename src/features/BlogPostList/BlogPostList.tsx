@@ -12,7 +12,7 @@ export const BlogPostListQuery = graphql`
 `;
 
 export const BlogPostList = (props: {
-  blogPostList: BlogPostListFragment[];
+  blogPostList: readonly BlogPostListFragment[];
 }): JSX.Element => {
   return (
     <>

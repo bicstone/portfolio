@@ -13,7 +13,7 @@ export const PortfolioOssListQuery = graphql`
 `;
 
 export const PortfolioOssList = (props: {
-  osses: PortfolioOssListFragment[];
+  osses: readonly PortfolioOssListFragment[];
 }): JSX.Element => {
   return (
     <Grid

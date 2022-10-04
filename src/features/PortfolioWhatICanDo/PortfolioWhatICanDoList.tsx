@@ -13,7 +13,7 @@ export const PortfolioWhatICanDoListQuery = graphql`
 `;
 
 export const PortfolioWhatICanDoList = (props: {
-  whatICanDos: PortfolioWhatICanDoListFragment[];
+  whatICanDos: readonly PortfolioWhatICanDoListFragment[];
 }): JSX.Element => {
   return (
     <Grid container spacing={2} alignItems="center">

@@ -17,7 +17,7 @@ export const PortfolioHelloQuery = graphql`
 `;
 
 export const PortfolioHello = (props: {
-  links: PortfolioHelloFragment[];
+  links: readonly PortfolioHelloFragment[];
 }): JSX.Element => {
   const { t } = useTranslation();
   const siteMetaData = useSiteMetadata();

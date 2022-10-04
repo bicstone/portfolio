@@ -13,7 +13,7 @@ export const SocialLinksQuery = graphql`
 `;
 
 export const SocialLinks = (props: {
-  links: SocialLinksFragment[];
+  links: readonly SocialLinksFragment[];
 }): JSX.Element => {
   const { t } = useTranslation();
 

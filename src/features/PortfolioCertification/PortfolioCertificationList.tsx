@@ -13,7 +13,7 @@ export const PortfolioCertificationListQuery = graphql`
 `;
 
 export const PortfolioCertificationList = (props: {
-  certifications: PortfolioCertificationListFragment[];
+  certifications: readonly PortfolioCertificationListFragment[];
 }): JSX.Element => {
   return (
     <Grid container spacing={2}>

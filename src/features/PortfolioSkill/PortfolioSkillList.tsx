@@ -13,7 +13,7 @@ export const PortfolioSkillListQuery = graphql`
 `;
 
 export const PortfolioSkillList = (props: {
-  skills: PortfolioSkillListFragment[];
+  skills: readonly PortfolioSkillListFragment[];
 }): JSX.Element => {
   return (
     <Grid container spacing={2}>

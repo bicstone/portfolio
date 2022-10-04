@@ -21,7 +21,7 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { Breakpoint } from "@mui/material";
 
-import { Search } from "@/features/search";
+import { SearchButton } from "@/features/BlogPostSearch/SearchButton";
 import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
@@ -120,7 +120,7 @@ export const Header = (): JSX.Element => {
                 {isExpanded ? t("blog.title") : <StickyNote2Icon />}
               </Button>
             ) : (
-              <Search isExpanded={isExpanded} />
+              <SearchButton isExpanded={isExpanded} />
             )}
             {isExpanded && (
               <Button
