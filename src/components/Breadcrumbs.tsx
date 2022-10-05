@@ -13,6 +13,8 @@ export const Breadcrumbs = (
     title: string;
   } & MuiBreadcrumbsProps
 ): JSX.Element => {
+const { title, ...MuiBreadcrumbsProps } = props;
+
   const { t } = useI18next();
   const location = useLocation();
   const isBlogPostList = location.pathname === withPrefix("/blog");
@@ -22,7 +24,7 @@ export const Breadcrumbs = (
       separator={<NavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
       css={{ wordBreak: "break-all" }}
-      {...props}
+      {...MuiBreadcrumbsProps}
     >
       <Link component={RouterLink} color="inherit" to="/">
         <Typography variant="body2">{siteMetaData.title}</Typography>
@@ -33,7 +35,7 @@ export const Breadcrumbs = (
         </Link>
       )}
       <Typography variant="body2" color="text.primary">
-        {props.title}
+        {title}
       </Typography>
     </MuiBreadcrumbs>
   );

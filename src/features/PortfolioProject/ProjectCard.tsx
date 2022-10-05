@@ -40,27 +40,23 @@ export const ProjectCard = (props: {
   expanded: boolean;
   onChange: (id: string) => void;
 }): JSX.Element => {
+  const { project, expanded, onChange } = props;
+
   const startYear = useMemo(() => {
-    return formatDateTime(props.project.startDate, "yyyy");
-  }, [props.project.startDate]);
+    return formatDateTime(project.startDate, "yyyy");
+  }, [project.startDate]);
 
   return (
-    <Accordion
-      expanded={props.expanded}
-      onChange={() => props.onChange(props.project.id)}
-    >
+    <Accordion expanded={expanded} onChange={() => onChange(project.id)}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls={`${props.project.id}-content`}
-        id={`${props.project.id}-header`}
+        aria-controls={`${project.id}-content`}
+        id={`${project.id}-header`}
       >
         <CardHeader
           css={{ padding: 0 }}
           avatar={
-            <SvgAvatar
-              name={props.project.icon.name}
-              svg={props.project.icon.svg.svg}
-            />
+            <SvgAvatar name={project.icon.name} svg={project.icon.svg.svg} />
           }
           title={
             <>
@@ -68,7 +64,7 @@ export const ProjectCard = (props: {
                 {startYear}年
               </Typography>
               <Typography component="h2" variant="h6">
-                {props.project.name}
+                {project.name}
               </Typography>
             </>
           }
@@ -79,7 +75,7 @@ export const ProjectCard = (props: {
               role="list"
               aria-label="tags"
             >
-              {props.project.tags.map((tag) => (
+              {project.tags.map((tag) => (
                 <Chip
                   variant="outlined"
                   size="small"
@@ -94,7 +90,7 @@ export const ProjectCard = (props: {
         />
       </AccordionSummary>
       <AccordionDetails>
-        <ProjectDetail project={props.project} />
+        <ProjectDetail project={project} />
       </AccordionDetails>
     </Accordion>
   );

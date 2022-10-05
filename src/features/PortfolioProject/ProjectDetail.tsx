@@ -21,18 +21,20 @@ export const query = graphql`
 export const ProjectDetail = (props: {
   project: PortfolioProjectDetailFragment;
 }): JSX.Element => {
+  const { project } = props;
+
   return (
     <>
       <Typography
         variant="subtitle1"
         css={(theme) => ({ margin: theme.spacing(2) })}
       >
-        {props.project.subName}
+        {project.subName}
       </Typography>
       <Typography component="div" variant="body2">
         <MDXProvider components={mdxComponents}>
           <MDXRenderer components={mdxComponents}>
-            {props.project.detail.childMdx.body}
+            {project.detail.childMdx.body}
           </MDXRenderer>
         </MDXProvider>
       </Typography>

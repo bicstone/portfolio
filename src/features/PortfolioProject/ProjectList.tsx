@@ -18,6 +18,8 @@ export const query = graphql`
 export const ProjectList = (props: {
   projects: readonly PortfolioProjectListFragment[];
 }): JSX.Element => {
+  const { projects } = props;
+
   const [expanded, dispatchExpanded] = useReducer(
     AccordionExpendReducer,
     initialState
@@ -39,7 +41,7 @@ export const ProjectList = (props: {
           onClick={toggleBulkExpand}
         />
       </Typography>
-      {props.projects.map((project) => (
+      {projects.map((project) => (
         <ProjectCard
           key={project.id}
           project={project}

@@ -15,9 +15,11 @@ export const query = graphql`
 export const RelatedBlogPostList = (props: {
   posts: RelatedBlogPostListFragment[];
 }): JSX.Element => {
+  const { posts } = props;
+
   return (
     <Grid container spacing={1}>
-      {props.posts.map((post) => (
+      {posts.map((post) => (
         <RelatedBlogPostCard key={post.id} post={post} />
       ))}
     </Grid>

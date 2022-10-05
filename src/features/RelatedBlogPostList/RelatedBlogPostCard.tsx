@@ -21,7 +21,7 @@ export const query = graphql`
 export const RelatedBlogPostCard = (props: {
   post: RelatedBlogPostCardFragment;
 }): JSX.Element => {
-  const post = props.post;
+  const { post } = props;
 
   return (
     <Grid item component="article" xs={12} sm={6} md={4}>

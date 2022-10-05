@@ -22,7 +22,7 @@ export const SkillGroupDetail = (props: {
   return (
     <>
       <Typography component="h3" variant="subtitle1" gutterBottom>
-        {props.skillGroup.name}
+        {skillGroup.name}
       </Typography>
       <ul
         css={(theme) => ({
