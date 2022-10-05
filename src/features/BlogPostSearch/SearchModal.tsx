@@ -48,7 +48,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
   };
 
   const keyword: Fuse.Expression = useMemo(() => {
-    // TODO: Incorrect typescript type inference
+    // Incorrect typescript type inference
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     return {
       $or: [
