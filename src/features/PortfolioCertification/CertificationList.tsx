@@ -1,24 +1,26 @@
 import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { PortfolioCertificationCard } from "./PortfolioCertificationCard";
+import { CertificationCard } from "./CertificationCard";
 
 import type { PortfolioCertificationListFragment } from "@/generated/graphqlTypes";
 
-export const PortfolioCertificationListQuery = graphql`
+export const query = graphql`
   fragment PortfolioCertificationList on ContentfulQualificationMap {
     id
     ...PortfolioCertificationCard
   }
 `;
 
-export const PortfolioCertificationList = (props: {
-  certifications: PortfolioCertificationListFragment[];
+export const CertificationList = (props: {
+  certifications: readonly PortfolioCertificationListFragment[];
 }): JSX.Element => {
+  const { certifications } = props;
+
   return (
     <Grid container spacing={2}>
-      {props.certifications.map((certification) => (
-        <PortfolioCertificationCard
+      {certifications.map((certification) => (
+        <CertificationCard
           key={certification.id}
           certification={certification}
         />

@@ -6,21 +6,22 @@ import { useState } from "react";
 import { FukkiretaAnimationSvgIcon } from "./FukkiretaAnimationSvgIcon";
 import { SocialLinks } from "./SocialLinks";
 
-import type { PortfolioHelloFragment } from "@/generated/graphqlTypes";
+import type { PortfolioHelloContentFragment } from "@/generated/graphqlTypes";
 
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+import siteMetaData from "@/constants/siteMetaData";
 
-export const PortfolioHelloQuery = graphql`
-  fragment PortfolioHello on ContentfulHello {
+export const query = graphql`
+  fragment PortfolioHelloContent on ContentfulHello {
     ...SocialLinks
   }
 `;
 
-export const PortfolioHello = (props: {
-  links: PortfolioHelloFragment[];
+export const HelloContent = (props: {
+  links: readonly PortfolioHelloContentFragment[];
 }): JSX.Element => {
+  const { links } = props;
+
   const { t } = useTranslation();
-  const siteMetaData = useSiteMetadata();
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   return (
@@ -53,7 +54,7 @@ export const PortfolioHello = (props: {
                 <Typography variant="body1" gutterBottom>
                   {t("hello.description")}
                 </Typography>
-                <SocialLinks links={props.links} />
+                <SocialLinks links={links} />
               </>
             }
           />

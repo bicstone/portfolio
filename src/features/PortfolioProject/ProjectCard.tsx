@@ -10,14 +10,14 @@ import {
 import { graphql } from "gatsby";
 import { useMemo } from "react";
 
-import { PortfolioProjectDetail } from "./PortfolioProjectDetail";
+import { ProjectDetail } from "./ProjectDetail";
 
 import type { PortfolioProjectCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
-export const PortfolioProjectCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioProjectCard on ContentfulProject {
     id
     name
@@ -35,32 +35,28 @@ export const PortfolioProjectCardQuery = graphql`
   }
 `;
 
-export const PortfolioProjectCard = (props: {
+export const ProjectCard = (props: {
   project: PortfolioProjectCardFragment;
   expanded: boolean;
   onChange: (id: string) => void;
 }): JSX.Element => {
+  const { project, expanded, onChange } = props;
+
   const startYear = useMemo(() => {
-    return formatDateTime(props.project.startDate, "yyyy");
-  }, [props.project.startDate]);
+    return formatDateTime(project.startDate, "yyyy");
+  }, [project.startDate]);
 
   return (
-    <Accordion
-      expanded={props.expanded}
-      onChange={() => props.onChange(props.project.id)}
-    >
+    <Accordion expanded={expanded} onChange={() => onChange(project.id)}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls={`${props.project.id}-content`}
-        id={`${props.project.id}-header`}
+        aria-controls={`${project.id}-content`}
+        id={`${project.id}-header`}
       >
         <CardHeader
           css={{ padding: 0 }}
           avatar={
-            <SvgAvatar
-              name={props.project.icon.name}
-              svg={props.project.icon.svg.svg}
-            />
+            <SvgAvatar name={project.icon.name} svg={project.icon.svg.svg} />
           }
           title={
             <>
@@ -68,7 +64,7 @@ export const PortfolioProjectCard = (props: {
                 {startYear}年
               </Typography>
               <Typography component="h2" variant="h6">
-                {props.project.name}
+                {project.name}
               </Typography>
             </>
           }
@@ -79,7 +75,7 @@ export const PortfolioProjectCard = (props: {
               role="list"
               aria-label="tags"
             >
-              {props.project.tags.map((tag) => (
+              {project.tags.map((tag) => (
                 <Chip
                   variant="outlined"
                   size="small"
@@ -94,7 +90,7 @@ export const PortfolioProjectCard = (props: {
         />
       </AccordionSummary>
       <AccordionDetails>
-        <PortfolioProjectDetail project={props.project} />
+        <ProjectDetail project={project} />
       </AccordionDetails>
     </Accordion>
   );

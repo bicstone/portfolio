@@ -1,20 +1,22 @@
 import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { PortfolioOssCard } from "./PortfolioOssCard";
+import { OssCard } from "./OssCard";
 
 import type { PortfolioOssListFragment } from "@/generated/graphqlTypes";
 
-export const PortfolioOssListQuery = graphql`
+export const query = graphql`
   fragment PortfolioOssList on ContentfulOss {
     id
     ...PortfolioOssCard
   }
 `;
 
-export const PortfolioOssList = (props: {
-  osses: PortfolioOssListFragment[];
+export const OssList = (props: {
+  osses: readonly PortfolioOssListFragment[];
 }): JSX.Element => {
+  const { osses } = props;
+
   return (
     <Grid
       container
@@ -22,8 +24,8 @@ export const PortfolioOssList = (props: {
       justifyContent="flex-start"
       alignItems="flex-start"
     >
-      {props.osses.map((oss) => (
-        <PortfolioOssCard key={oss.id} oss={oss} />
+      {osses.map((oss) => (
+        <OssCard key={oss.id} oss={oss} />
       ))}
     </Grid>
   );

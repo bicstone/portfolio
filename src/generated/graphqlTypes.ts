@@ -16,53 +16,53 @@ export type Scalars = {
 };
 
 export type AvifOptions = {
-  lossless: InputMaybe<Scalars['Boolean']>;
-  quality: InputMaybe<Scalars['Int']>;
-  speed: InputMaybe<Scalars['Int']>;
+  readonly lossless: InputMaybe<Scalars['Boolean']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
+  readonly speed: InputMaybe<Scalars['Int']>;
 };
 
 export type BlurredOptions = {
   /** Force the output format for the low-res preview. Default is to use the same format as the input. You should rarely need to change this */
-  toFormat: InputMaybe<ImageFormat>;
+  readonly toFormat: InputMaybe<ImageFormat>;
   /** Width of the generated low-res preview. Default is 20px */
-  width: InputMaybe<Scalars['Int']>;
+  readonly width: InputMaybe<Scalars['Int']>;
 };
 
 export type BooleanQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Boolean']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  ne: InputMaybe<Scalars['Boolean']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
+  readonly eq: InputMaybe<Scalars['Boolean']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']>>>;
+  readonly ne: InputMaybe<Scalars['Boolean']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']>>>;
 };
 
 export type ContentfulAsset = ContentfulReference & Node & RemoteFile & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  description: Maybe<Scalars['String']>;
-  file: Maybe<ContentfulAssetFile>;
-  filename: Scalars['String'];
-  filesize: Maybe<Scalars['Int']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly file: Maybe<ContentfulAssetFile>;
+  readonly filename: Scalars['String'];
+  readonly filesize: Maybe<Scalars['Int']>;
   /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
-  gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
-  gatsbyImageData: Maybe<Scalars['GatsbyImageData']>;
-  height: Maybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  mimeType: Scalars['String'];
-  node_locale: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
-  placeholderUrl: Maybe<Scalars['String']>;
-  publicUrl: Scalars['String'];
-  resize: Maybe<RemoteFileResize>;
-  size: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  svg: Maybe<InlineSvg>;
-  sys: Maybe<ContentfulAssetSys>;
-  title: Maybe<Scalars['String']>;
-  updatedAt: Maybe<Scalars['Date']>;
-  url: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Int']>;
+  readonly gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
+  readonly gatsbyImageData: Maybe<Scalars['GatsbyImageData']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly mimeType: Scalars['String'];
+  readonly node_locale: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly placeholderUrl: Maybe<Scalars['String']>;
+  readonly publicUrl: Scalars['String'];
+  readonly resize: Maybe<RemoteFileResize>;
+  readonly size: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly svg: Maybe<InlineSvg>;
+  readonly sys: Maybe<ContentfulAssetSys>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 
@@ -77,13 +77,13 @@ export type ContentfulAssetCreatedAtArgs = {
 export type ContentfulAssetGatsbyImageArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
   backgroundColor: InputMaybe<Scalars['String']>;
-  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  breakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
-  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
   height: InputMaybe<Scalars['Int']>;
   layout?: InputMaybe<RemoteFileLayout>;
-  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder?: InputMaybe<RemoteFilePlaceholder>;
   quality?: InputMaybe<Scalars['Int']>;
   sizes: InputMaybe<Scalars['String']>;
@@ -94,14 +94,14 @@ export type ContentfulAssetGatsbyImageArgs = {
 export type ContentfulAssetGatsbyImageDataArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
   backgroundColor: InputMaybe<Scalars['String']>;
-  breakpoints: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  breakpoints: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   cornerRadius?: InputMaybe<Scalars['Int']>;
   cropFocus: InputMaybe<ContentfulImageCropFocus>;
-  formats?: InputMaybe<Array<InputMaybe<GatsbyImageFormat>>>;
+  formats?: InputMaybe<ReadonlyArray<InputMaybe<GatsbyImageFormat>>>;
   height: InputMaybe<Scalars['Int']>;
   jpegProgressive?: InputMaybe<Scalars['Boolean']>;
   layout: InputMaybe<GatsbyImageLayout>;
-  outputPixelDensities: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder: InputMaybe<GatsbyImagePlaceholder>;
   quality: InputMaybe<Scalars['Int']>;
   resizingBehavior: InputMaybe<ImageResizingBehavior>;
@@ -112,7 +112,7 @@ export type ContentfulAssetGatsbyImageDataArgs = {
 
 export type ContentfulAssetResizeArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
   format?: InputMaybe<RemoteFileFormat>;
   height: InputMaybe<Scalars['Int']>;
@@ -129,15 +129,15 @@ export type ContentfulAssetUpdatedAtArgs = {
 };
 
 export type ContentfulAssetConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulAssetEdge>;
-  group: Array<ContentfulAssetGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulAsset>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAssetEdge>;
+  readonly group: ReadonlyArray<ContentfulAssetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAsset>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -168,9 +168,9 @@ export type ContentfulAssetConnectionSumArgs = {
 };
 
 export type ContentfulAssetEdge = {
-  next: Maybe<ContentfulAsset>;
-  node: ContentfulAsset;
-  previous: Maybe<ContentfulAsset>;
+  readonly next: Maybe<ContentfulAsset>;
+  readonly node: ContentfulAsset;
+  readonly previous: Maybe<ContentfulAsset>;
 };
 
 export enum ContentfulAssetFieldsEnum {
@@ -299,79 +299,79 @@ export enum ContentfulAssetFieldsEnum {
 }
 
 export type ContentfulAssetFile = {
-  contentType: Maybe<Scalars['String']>;
-  details: Maybe<ContentfulAssetFileDetails>;
-  fileName: Maybe<Scalars['String']>;
-  url: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<Scalars['String']>;
+  readonly details: Maybe<ContentfulAssetFileDetails>;
+  readonly fileName: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssetFileDetails = {
-  image: Maybe<ContentfulAssetFileDetailsImage>;
-  size: Maybe<Scalars['Int']>;
+  readonly image: Maybe<ContentfulAssetFileDetailsImage>;
+  readonly size: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetFileDetailsFilterInput = {
-  image: InputMaybe<ContentfulAssetFileDetailsImageFilterInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
+  readonly image: InputMaybe<ContentfulAssetFileDetailsImageFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulAssetFileDetailsImage = {
-  height: Maybe<Scalars['Int']>;
-  width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetFileDetailsImageFilterInput = {
-  height: InputMaybe<IntQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulAssetFileFilterInput = {
-  contentType: InputMaybe<StringQueryOperatorInput>;
-  details: InputMaybe<ContentfulAssetFileDetailsFilterInput>;
-  fileName: InputMaybe<StringQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<StringQueryOperatorInput>;
+  readonly details: InputMaybe<ContentfulAssetFileDetailsFilterInput>;
+  readonly fileName: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulAssetFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  file: InputMaybe<ContentfulAssetFileFilterInput>;
-  filename: InputMaybe<StringQueryOperatorInput>;
-  filesize: InputMaybe<IntQueryOperatorInput>;
-  gatsbyImage: InputMaybe<GatsbyImageDataQueryOperatorInput>;
-  gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
-  height: InputMaybe<IntQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mimeType: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  placeholderUrl: InputMaybe<StringQueryOperatorInput>;
-  publicUrl: InputMaybe<StringQueryOperatorInput>;
-  resize: InputMaybe<RemoteFileResizeFilterInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulAssetSysFilterInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly file: InputMaybe<ContentfulAssetFileFilterInput>;
+  readonly filename: InputMaybe<StringQueryOperatorInput>;
+  readonly filesize: InputMaybe<IntQueryOperatorInput>;
+  readonly gatsbyImage: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mimeType: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly placeholderUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly publicUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly resize: InputMaybe<RemoteFileResizeFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulAssetSysFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulAssetGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulAssetEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulAssetGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulAsset>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAssetEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulAssetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAsset>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -402,45 +402,45 @@ export type ContentfulAssetGroupConnectionSumArgs = {
 };
 
 export type ContentfulAssetSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulAssetFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAssetFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulAssetSys = {
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssetSysFilterInput = {
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & {
-  category: Maybe<ContentfulCategory>;
+  readonly category: Maybe<ContentfulCategory>;
   /** Returns the first child node of type contentfulBlogPostContentTextNode or null if there are no children of given type on this node */
-  childContentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
-  children: Array<Node>;
+  readonly childContentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulBlogPostContentTextNode */
-  childrenContentfulBlogPostContentTextNode: Maybe<Array<Maybe<ContentfulBlogPostContentTextNode>>>;
-  content: Maybe<ContentfulBlogPostContentTextNode>;
-  contentful_id: Scalars['String'];
-  created: Maybe<Scalars['Date']>;
-  createdAt: Maybe<Scalars['Date']>;
-  excerpt: Maybe<Scalars['String']>;
-  gatsbyPath: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  slug: Maybe<Scalars['String']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulBlogPostSys>;
-  tags: Maybe<Array<Maybe<ContentfulTag>>>;
-  thumbnail: Maybe<ContentfulAsset>;
-  title: Maybe<Scalars['String']>;
-  updated: Maybe<Scalars['Date']>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly childrenContentfulBlogPostContentTextNode: Maybe<ReadonlyArray<Maybe<ContentfulBlogPostContentTextNode>>>;
+  readonly content: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly contentful_id: Scalars['String'];
+  readonly created: Maybe<Scalars['Date']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly gatsbyPath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulBlogPostSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly thumbnail: Maybe<ContentfulAsset>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updated: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -481,15 +481,15 @@ export type ContentfulBlogPostUpdatedAtArgs = {
 };
 
 export type ContentfulBlogPostConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostEdge>;
-  group: Array<ContentfulBlogPostGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPost>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostEdge>;
+  readonly group: ReadonlyArray<ContentfulBlogPostGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPost>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -520,9 +520,9 @@ export type ContentfulBlogPostConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostEdge = {
-  next: Maybe<ContentfulBlogPost>;
-  node: ContentfulBlogPost;
-  previous: Maybe<ContentfulBlogPost>;
+  readonly next: Maybe<ContentfulBlogPost>;
+  readonly node: ContentfulBlogPost;
+  readonly previous: Maybe<ContentfulBlogPost>;
 };
 
 export enum ContentfulBlogPostFieldsEnum {
@@ -1562,46 +1562,46 @@ export enum ContentfulBlogPostFieldsEnum {
 }
 
 export type ContentfulBlogPostFilterInput = {
-  category: InputMaybe<ContentfulCategoryFilterInput>;
-  childContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterListInput>;
-  content: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  created: InputMaybe<DateQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  excerpt: InputMaybe<StringQueryOperatorInput>;
-  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
-  tags: InputMaybe<ContentfulTagFilterListInput>;
-  thumbnail: InputMaybe<ContentfulAssetFilterInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
-  updated: InputMaybe<DateQueryOperatorInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly category: InputMaybe<ContentfulCategoryFilterInput>;
+  readonly childContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterListInput>;
+  readonly content: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly created: InputMaybe<DateQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
+  readonly tags: InputMaybe<ContentfulTagFilterListInput>;
+  readonly thumbnail: InputMaybe<ContentfulAssetFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updated: InputMaybe<DateQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulBlogPostFilterListInput = {
-  elemMatch: InputMaybe<ContentfulBlogPostFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulBlogPostFilterInput>;
 };
 
 export type ContentfulBlogPostGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulBlogPostGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPost>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulBlogPostGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPost>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -1632,56 +1632,56 @@ export type ContentfulBlogPostGroupConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulBlogPostFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulBlogPostFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulBlogPostSys = {
-  contentType: Maybe<ContentfulBlogPostSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulBlogPostSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogPostSysContentType = {
-  sys: Maybe<ContentfulBlogPostSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulBlogPostSysContentTypeSys>;
 };
 
 export type ContentfulBlogPostSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulBlogPostSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulBlogPostSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogPostSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulBlogPostSysFilterInput = {
-  contentType: InputMaybe<ContentfulBlogPostSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulBlogPostSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCategory = ContentfulEntry & ContentfulReference & Node & {
-  blog_post: Maybe<Array<Maybe<ContentfulBlogPost>>>;
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulCategorySys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly blog_post: Maybe<ReadonlyArray<Maybe<ContentfulBlogPost>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulCategorySys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -1701,15 +1701,15 @@ export type ContentfulCategoryUpdatedAtArgs = {
 };
 
 export type ContentfulCategoryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulCategoryEdge>;
-  group: Array<ContentfulCategoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulCategory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulCategoryEdge>;
+  readonly group: ReadonlyArray<ContentfulCategoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulCategory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -1740,9 +1740,9 @@ export type ContentfulCategoryConnectionSumArgs = {
 };
 
 export type ContentfulCategoryEdge = {
-  next: Maybe<ContentfulCategory>;
-  node: ContentfulCategory;
-  previous: Maybe<ContentfulCategory>;
+  readonly next: Maybe<ContentfulCategory>;
+  readonly node: ContentfulCategory;
+  readonly previous: Maybe<ContentfulCategory>;
 };
 
 export enum ContentfulCategoryFieldsEnum {
@@ -2210,33 +2210,33 @@ export enum ContentfulCategoryFieldsEnum {
 }
 
 export type ContentfulCategoryFilterInput = {
-  blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulCategorySysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulCategorySysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulCategoryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulCategoryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulCategoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulCategory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulCategoryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulCategoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulCategory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -2267,60 +2267,60 @@ export type ContentfulCategoryGroupConnectionSumArgs = {
 };
 
 export type ContentfulCategorySortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulCategoryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulCategoryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulCategorySys = {
-  contentType: Maybe<ContentfulCategorySysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulCategorySysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulCategorySysContentType = {
-  sys: Maybe<ContentfulCategorySysContentTypeSys>;
+  readonly sys: Maybe<ContentfulCategorySysContentTypeSys>;
 };
 
 export type ContentfulCategorySysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulCategorySysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulCategorySysContentTypeSysFilterInput>;
 };
 
 export type ContentfulCategorySysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulCategorySysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCategorySysFilterInput = {
-  contentType: InputMaybe<ContentfulCategorySysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulCategorySysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulContact = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  href: Maybe<Scalars['String']>;
-  icon: Maybe<ContentfulIcon>;
-  iconSvgDark: Maybe<ContentfulAsset>;
-  iconSvgLight: Maybe<ContentfulAsset>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulContactSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly href: Maybe<Scalars['String']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly iconSvgDark: Maybe<ContentfulAsset>;
+  readonly iconSvgLight: Maybe<ContentfulAsset>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulContactSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -2340,15 +2340,15 @@ export type ContentfulContactUpdatedAtArgs = {
 };
 
 export type ContentfulContactConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContactEdge>;
-  group: Array<ContentfulContactGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContact>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContactEdge>;
+  readonly group: ReadonlyArray<ContentfulContactGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContact>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -2379,9 +2379,9 @@ export type ContentfulContactConnectionSumArgs = {
 };
 
 export type ContentfulContactEdge = {
-  next: Maybe<ContentfulContact>;
-  node: ContentfulContact;
-  previous: Maybe<ContentfulContact>;
+  readonly next: Maybe<ContentfulContact>;
+  readonly node: ContentfulContact;
+  readonly previous: Maybe<ContentfulContact>;
 };
 
 export enum ContentfulContactFieldsEnum {
@@ -3126,41 +3126,41 @@ export enum ContentfulContactFieldsEnum {
 }
 
 export type ContentfulContactFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  iconSvgDark: InputMaybe<ContentfulAssetFilterInput>;
-  iconSvgLight: InputMaybe<ContentfulAssetFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulContactSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly iconSvgDark: InputMaybe<ContentfulAssetFilterInput>;
+  readonly iconSvgLight: InputMaybe<ContentfulAssetFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulContactSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulContactFilterListInput = {
-  elemMatch: InputMaybe<ContentfulContactFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulContactFilterInput>;
 };
 
 export type ContentfulContactGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContactEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulContactGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContact>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContactEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulContactGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContact>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3191,63 +3191,63 @@ export type ContentfulContactGroupConnectionSumArgs = {
 };
 
 export type ContentfulContactSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulContactFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulContactFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulContactSys = {
-  contentType: Maybe<ContentfulContactSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulContactSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContactSysContentType = {
-  sys: Maybe<ContentfulContactSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulContactSysContentTypeSys>;
 };
 
 export type ContentfulContactSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulContactSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulContactSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulContactSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContactSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulContactSysFilterInput = {
-  contentType: InputMaybe<ContentfulContactSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulContactSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulContentType = Node & {
-  children: Array<Node>;
-  description: Maybe<Scalars['String']>;
-  displayField: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulContentTypeSys>;
+  readonly children: ReadonlyArray<Node>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly displayField: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulContentTypeSys>;
 };
 
 export type ContentfulContentTypeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContentTypeEdge>;
-  group: Array<ContentfulContentTypeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContentType>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContentTypeEdge>;
+  readonly group: ReadonlyArray<ContentfulContentTypeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContentType>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3278,9 +3278,9 @@ export type ContentfulContentTypeConnectionSumArgs = {
 };
 
 export type ContentfulContentTypeEdge = {
-  next: Maybe<ContentfulContentType>;
-  node: ContentfulContentType;
-  previous: Maybe<ContentfulContentType>;
+  readonly next: Maybe<ContentfulContentType>;
+  readonly node: ContentfulContentType;
+  readonly previous: Maybe<ContentfulContentType>;
 };
 
 export enum ContentfulContentTypeFieldsEnum {
@@ -3384,28 +3384,28 @@ export enum ContentfulContentTypeFieldsEnum {
 }
 
 export type ContentfulContentTypeFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  displayField: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulContentTypeSysFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly displayField: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulContentTypeSysFilterInput>;
 };
 
 export type ContentfulContentTypeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContentTypeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulContentTypeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContentType>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContentTypeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulContentTypeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContentType>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3436,37 +3436,37 @@ export type ContentfulContentTypeGroupConnectionSumArgs = {
 };
 
 export type ContentfulContentTypeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulContentTypeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulContentTypeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulContentTypeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContentTypeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulEntry = {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
 };
 
 export type ContentfulEntryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulEntryEdge>;
-  group: Array<ContentfulEntryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulEntry>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulEntryEdge>;
+  readonly group: ReadonlyArray<ContentfulEntryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulEntry>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3497,9 +3497,9 @@ export type ContentfulEntryConnectionSumArgs = {
 };
 
 export type ContentfulEntryEdge = {
-  next: Maybe<ContentfulEntry>;
-  node: ContentfulEntry;
-  previous: Maybe<ContentfulEntry>;
+  readonly next: Maybe<ContentfulEntry>;
+  readonly node: ContentfulEntry;
+  readonly previous: Maybe<ContentfulEntry>;
 };
 
 export enum ContentfulEntryFieldsEnum {
@@ -3601,26 +3601,26 @@ export enum ContentfulEntryFieldsEnum {
 }
 
 export type ContentfulEntryFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type ContentfulEntryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulEntryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulEntryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulEntry>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulEntryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulEntryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulEntry>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3651,24 +3651,24 @@ export type ContentfulEntryGroupConnectionSumArgs = {
 };
 
 export type ContentfulEntrySortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulEntryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulEntryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulHello = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  href: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulHelloSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly href: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulHelloSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -3688,15 +3688,15 @@ export type ContentfulHelloUpdatedAtArgs = {
 };
 
 export type ContentfulHelloConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHelloEdge>;
-  group: Array<ContentfulHelloGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHello>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHelloEdge>;
+  readonly group: ReadonlyArray<ContentfulHelloGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHello>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3727,9 +3727,9 @@ export type ContentfulHelloConnectionSumArgs = {
 };
 
 export type ContentfulHelloEdge = {
-  next: Maybe<ContentfulHello>;
-  node: ContentfulHello;
-  previous: Maybe<ContentfulHello>;
+  readonly next: Maybe<ContentfulHello>;
+  readonly node: ContentfulHello;
+  readonly previous: Maybe<ContentfulHello>;
 };
 
 export enum ContentfulHelloFieldsEnum {
@@ -3842,33 +3842,33 @@ export enum ContentfulHelloFieldsEnum {
 }
 
 export type ContentfulHelloFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulHelloSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulHelloSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulHelloGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHelloEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulHelloGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHello>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHelloEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulHelloGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHello>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3899,57 +3899,57 @@ export type ContentfulHelloGroupConnectionSumArgs = {
 };
 
 export type ContentfulHelloSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulHelloFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulHelloFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulHelloSys = {
-  contentType: Maybe<ContentfulHelloSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulHelloSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHelloSysContentType = {
-  sys: Maybe<ContentfulHelloSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulHelloSysContentTypeSys>;
 };
 
 export type ContentfulHelloSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulHelloSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulHelloSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulHelloSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHelloSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulHelloSysFilterInput = {
-  contentType: InputMaybe<ContentfulHelloSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulHelloSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulHistory = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  date: Maybe<Scalars['Date']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  spaceId: Maybe<Scalars['String']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulHistorySys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulHistorySys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -3977,15 +3977,15 @@ export type ContentfulHistoryUpdatedAtArgs = {
 };
 
 export type ContentfulHistoryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHistoryEdge>;
-  group: Array<ContentfulHistoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHistory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHistoryEdge>;
+  readonly group: ReadonlyArray<ContentfulHistoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHistory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -4016,9 +4016,9 @@ export type ContentfulHistoryConnectionSumArgs = {
 };
 
 export type ContentfulHistoryEdge = {
-  next: Maybe<ContentfulHistory>;
-  node: ContentfulHistory;
-  previous: Maybe<ContentfulHistory>;
+  readonly next: Maybe<ContentfulHistory>;
+  readonly node: ContentfulHistory;
+  readonly previous: Maybe<ContentfulHistory>;
 };
 
 export enum ContentfulHistoryFieldsEnum {
@@ -4626,38 +4626,38 @@ export enum ContentfulHistoryFieldsEnum {
 }
 
 export type ContentfulHistoryFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  date: InputMaybe<DateQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulHistorySysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulHistorySysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulHistoryFilterListInput = {
-  elemMatch: InputMaybe<ContentfulHistoryFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulHistoryFilterInput>;
 };
 
 export type ContentfulHistoryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHistoryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulHistoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHistory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHistoryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulHistoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHistory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -4688,64 +4688,64 @@ export type ContentfulHistoryGroupConnectionSumArgs = {
 };
 
 export type ContentfulHistorySortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulHistoryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulHistoryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulHistorySys = {
-  contentType: Maybe<ContentfulHistorySysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulHistorySysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHistorySysContentType = {
-  sys: Maybe<ContentfulHistorySysContentTypeSys>;
+  readonly sys: Maybe<ContentfulHistorySysContentTypeSys>;
 };
 
 export type ContentfulHistorySysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulHistorySysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulHistorySysContentTypeSysFilterInput>;
 };
 
 export type ContentfulHistorySysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHistorySysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulHistorySysFilterInput = {
-  contentType: InputMaybe<ContentfulHistorySysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulHistorySysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulIcon = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulIconSvgTextNode or null if there are no children of given type on this node */
-  childContentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
-  children: Array<Node>;
+  readonly childContentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulIconSvgTextNode */
-  childrenContentfulIconSvgTextNode: Maybe<Array<Maybe<ContentfulIconSvgTextNode>>>;
-  contact: Maybe<Array<Maybe<ContentfulContact>>>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  history: Maybe<Array<Maybe<ContentfulHistory>>>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  oss: Maybe<Array<Maybe<ContentfulOss>>>;
-  parent: Maybe<Node>;
-  project: Maybe<Array<Maybe<ContentfulProject>>>;
-  spaceId: Maybe<Scalars['String']>;
-  svg: Maybe<ContentfulIconSvgTextNode>;
-  sys: Maybe<ContentfulIconSys>;
-  updatedAt: Maybe<Scalars['Date']>;
-  what_i_can_do: Maybe<Array<Maybe<ContentfulWhatICanDo>>>;
+  readonly childrenContentfulIconSvgTextNode: Maybe<ReadonlyArray<Maybe<ContentfulIconSvgTextNode>>>;
+  readonly contact: Maybe<ReadonlyArray<Maybe<ContentfulContact>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly history: Maybe<ReadonlyArray<Maybe<ContentfulHistory>>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly oss: Maybe<ReadonlyArray<Maybe<ContentfulOss>>>;
+  readonly parent: Maybe<Node>;
+  readonly project: Maybe<ReadonlyArray<Maybe<ContentfulProject>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly svg: Maybe<ContentfulIconSvgTextNode>;
+  readonly sys: Maybe<ContentfulIconSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly what_i_can_do: Maybe<ReadonlyArray<Maybe<ContentfulWhatICanDo>>>;
 };
 
 
@@ -4765,15 +4765,15 @@ export type ContentfulIconUpdatedAtArgs = {
 };
 
 export type ContentfulIconConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconEdge>;
-  group: Array<ContentfulIconGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIcon>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconEdge>;
+  readonly group: ReadonlyArray<ContentfulIconGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIcon>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -4804,9 +4804,9 @@ export type ContentfulIconConnectionSumArgs = {
 };
 
 export type ContentfulIconEdge = {
-  next: Maybe<ContentfulIcon>;
-  node: ContentfulIcon;
-  previous: Maybe<ContentfulIcon>;
+  readonly next: Maybe<ContentfulIcon>;
+  readonly node: ContentfulIcon;
+  readonly previous: Maybe<ContentfulIcon>;
 };
 
 export enum ContentfulIconFieldsEnum {
@@ -6552,39 +6552,39 @@ export enum ContentfulIconFieldsEnum {
 }
 
 export type ContentfulIconFilterInput = {
-  childContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterListInput>;
-  contact: InputMaybe<ContentfulContactFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  history: InputMaybe<ContentfulHistoryFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  oss: InputMaybe<ContentfulOssFilterListInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  project: InputMaybe<ContentfulProjectFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  svg: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
-  sys: InputMaybe<ContentfulIconSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
-  what_i_can_do: InputMaybe<ContentfulWhatICanDoFilterListInput>;
+  readonly childContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterListInput>;
+  readonly contact: InputMaybe<ContentfulContactFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly history: InputMaybe<ContentfulHistoryFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly oss: InputMaybe<ContentfulOssFilterListInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly project: InputMaybe<ContentfulProjectFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly svg: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulIconSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly what_i_can_do: InputMaybe<ContentfulWhatICanDoFilterListInput>;
 };
 
 export type ContentfulIconGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulIconGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIcon>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulIconGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIcon>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -6615,40 +6615,40 @@ export type ContentfulIconGroupConnectionSumArgs = {
 };
 
 export type ContentfulIconSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulIconFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulIconFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulIconSys = {
-  contentType: Maybe<ContentfulIconSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulIconSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSysContentType = {
-  sys: Maybe<ContentfulIconSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulIconSysContentTypeSys>;
 };
 
 export type ContentfulIconSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulIconSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulIconSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulIconSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulIconSysFilterInput = {
-  contentType: InputMaybe<ContentfulIconSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulIconSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export enum ContentfulImageCropFocus {
@@ -6667,27 +6667,27 @@ export enum ContentfulImageCropFocus {
 
 export type ContentfulOss = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulOssDetailTextNode or null if there are no children of given type on this node */
-  childContentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
-  children: Array<Node>;
+  readonly childContentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulOssDetailTextNode */
-  childrenContentfulOssDetailTextNode: Maybe<Array<Maybe<ContentfulOssDetailTextNode>>>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  detail: Maybe<ContentfulOssDetailTextNode>;
-  href: Maybe<Scalars['String']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  image: Maybe<ContentfulAsset>;
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  spaceId: Maybe<Scalars['String']>;
-  startDate: Maybe<Scalars['Date']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulOssSys>;
-  tags: Maybe<Array<Maybe<ContentfulTag>>>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly childrenContentfulOssDetailTextNode: Maybe<ReadonlyArray<Maybe<ContentfulOssDetailTextNode>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly detail: Maybe<ContentfulOssDetailTextNode>;
+  readonly href: Maybe<Scalars['String']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly image: Maybe<ContentfulAsset>;
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly startDate: Maybe<Scalars['Date']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulOssSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -6715,15 +6715,15 @@ export type ContentfulOssUpdatedAtArgs = {
 };
 
 export type ContentfulOssConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssEdge>;
-  group: Array<ContentfulOssGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOss>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssEdge>;
+  readonly group: ReadonlyArray<ContentfulOssGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOss>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -6754,9 +6754,9 @@ export type ContentfulOssConnectionSumArgs = {
 };
 
 export type ContentfulOssEdge = {
-  next: Maybe<ContentfulOss>;
-  node: ContentfulOss;
-  previous: Maybe<ContentfulOss>;
+  readonly next: Maybe<ContentfulOss>;
+  readonly node: ContentfulOss;
+  readonly previous: Maybe<ContentfulOss>;
 };
 
 export enum ContentfulOssFieldsEnum {
@@ -8152,44 +8152,44 @@ export enum ContentfulOssFieldsEnum {
 }
 
 export type ContentfulOssFilterInput = {
-  childContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  detail: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  image: InputMaybe<ContentfulAssetFilterInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  startDate: InputMaybe<DateQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulOssSysFilterInput>;
-  tags: InputMaybe<ContentfulTagFilterListInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly childContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly detail: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<ContentfulAssetFilterInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly startDate: InputMaybe<DateQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulOssSysFilterInput>;
+  readonly tags: InputMaybe<ContentfulTagFilterListInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulOssFilterListInput = {
-  elemMatch: InputMaybe<ContentfulOssFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulOssFilterInput>;
 };
 
 export type ContentfulOssGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulOssGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOss>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulOssGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOss>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -8220,64 +8220,64 @@ export type ContentfulOssGroupConnectionSumArgs = {
 };
 
 export type ContentfulOssSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulOssFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulOssFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulOssSys = {
-  contentType: Maybe<ContentfulOssSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulOssSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssSysContentType = {
-  sys: Maybe<ContentfulOssSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulOssSysContentTypeSys>;
 };
 
 export type ContentfulOssSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulOssSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulOssSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulOssSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulOssSysFilterInput = {
-  contentType: InputMaybe<ContentfulOssSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulOssSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProject = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulProjectDetailTextNode or null if there are no children of given type on this node */
-  childContentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
-  children: Array<Node>;
+  readonly childContentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulProjectDetailTextNode */
-  childrenContentfulProjectDetailTextNode: Maybe<Array<Maybe<ContentfulProjectDetailTextNode>>>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  detail: Maybe<ContentfulProjectDetailTextNode>;
-  endDate: Maybe<Scalars['Date']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  spaceId: Maybe<Scalars['String']>;
-  startDate: Maybe<Scalars['Date']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulProjectSys>;
-  tags: Maybe<Array<Maybe<ContentfulTag>>>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly childrenContentfulProjectDetailTextNode: Maybe<ReadonlyArray<Maybe<ContentfulProjectDetailTextNode>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly detail: Maybe<ContentfulProjectDetailTextNode>;
+  readonly endDate: Maybe<Scalars['Date']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly startDate: Maybe<Scalars['Date']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulProjectSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -8313,15 +8313,15 @@ export type ContentfulProjectUpdatedAtArgs = {
 };
 
 export type ContentfulProjectConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectEdge>;
-  group: Array<ContentfulProjectGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProject>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectEdge>;
+  readonly group: ReadonlyArray<ContentfulProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProject>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -8352,9 +8352,9 @@ export type ContentfulProjectConnectionSumArgs = {
 };
 
 export type ContentfulProjectEdge = {
-  next: Maybe<ContentfulProject>;
-  node: ContentfulProject;
-  previous: Maybe<ContentfulProject>;
+  readonly next: Maybe<ContentfulProject>;
+  readonly node: ContentfulProject;
+  readonly previous: Maybe<ContentfulProject>;
 };
 
 export enum ContentfulProjectFieldsEnum {
@@ -9682,43 +9682,43 @@ export enum ContentfulProjectFieldsEnum {
 }
 
 export type ContentfulProjectFilterInput = {
-  childContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  detail: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
-  endDate: InputMaybe<DateQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  startDate: InputMaybe<DateQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulProjectSysFilterInput>;
-  tags: InputMaybe<ContentfulTagFilterListInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly childContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly detail: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
+  readonly endDate: InputMaybe<DateQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly startDate: InputMaybe<DateQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulProjectSysFilterInput>;
+  readonly tags: InputMaybe<ContentfulTagFilterListInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulProjectFilterListInput = {
-  elemMatch: InputMaybe<ContentfulProjectFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulProjectFilterInput>;
 };
 
 export type ContentfulProjectGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulProjectGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProject>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProject>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -9749,56 +9749,56 @@ export type ContentfulProjectGroupConnectionSumArgs = {
 };
 
 export type ContentfulProjectSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulProjectFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulProjectFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulProjectSys = {
-  contentType: Maybe<ContentfulProjectSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulProjectSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectSysContentType = {
-  sys: Maybe<ContentfulProjectSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulProjectSysContentTypeSys>;
 };
 
 export type ContentfulProjectSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulProjectSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulProjectSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulProjectSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProjectSysFilterInput = {
-  contentType: InputMaybe<ContentfulProjectSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulProjectSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualification = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  date: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  qualification_map: Maybe<Array<Maybe<ContentfulQualificationMap>>>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulQualificationSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly qualification_map: Maybe<ReadonlyArray<Maybe<ContentfulQualificationMap>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulQualificationSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -9826,15 +9826,15 @@ export type ContentfulQualificationUpdatedAtArgs = {
 };
 
 export type ContentfulQualificationConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationEdge>;
-  group: Array<ContentfulQualificationGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualification>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationEdge>;
+  readonly group: ReadonlyArray<ContentfulQualificationGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualification>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -9865,9 +9865,9 @@ export type ContentfulQualificationConnectionSumArgs = {
 };
 
 export type ContentfulQualificationEdge = {
-  next: Maybe<ContentfulQualification>;
-  node: ContentfulQualification;
-  previous: Maybe<ContentfulQualification>;
+  readonly next: Maybe<ContentfulQualification>;
+  readonly node: ContentfulQualification;
+  readonly previous: Maybe<ContentfulQualification>;
 };
 
 export enum ContentfulQualificationFieldsEnum {
@@ -10068,37 +10068,37 @@ export enum ContentfulQualificationFieldsEnum {
 }
 
 export type ContentfulQualificationFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  date: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  qualification_map: InputMaybe<ContentfulQualificationMapFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulQualificationSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly qualification_map: InputMaybe<ContentfulQualificationMapFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulQualificationSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulQualificationFilterListInput = {
-  elemMatch: InputMaybe<ContentfulQualificationFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulQualificationFilterInput>;
 };
 
 export type ContentfulQualificationGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulQualificationGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualification>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulQualificationGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualification>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10129,20 +10129,20 @@ export type ContentfulQualificationGroupConnectionSumArgs = {
 };
 
 export type ContentfulQualificationMap = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  expanded: Maybe<Scalars['Boolean']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  qualifications: Maybe<Array<Maybe<ContentfulQualification>>>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulQualificationMapSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly expanded: Maybe<Scalars['Boolean']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly qualifications: Maybe<ReadonlyArray<Maybe<ContentfulQualification>>>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulQualificationMapSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -10162,15 +10162,15 @@ export type ContentfulQualificationMapUpdatedAtArgs = {
 };
 
 export type ContentfulQualificationMapConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationMapEdge>;
-  group: Array<ContentfulQualificationMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualificationMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationMapEdge>;
+  readonly group: ReadonlyArray<ContentfulQualificationMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualificationMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10201,9 +10201,9 @@ export type ContentfulQualificationMapConnectionSumArgs = {
 };
 
 export type ContentfulQualificationMapEdge = {
-  next: Maybe<ContentfulQualificationMap>;
-  node: ContentfulQualificationMap;
-  previous: Maybe<ContentfulQualificationMap>;
+  readonly next: Maybe<ContentfulQualificationMap>;
+  readonly node: ContentfulQualificationMap;
+  readonly previous: Maybe<ContentfulQualificationMap>;
 };
 
 export enum ContentfulQualificationMapFieldsEnum {
@@ -10404,38 +10404,38 @@ export enum ContentfulQualificationMapFieldsEnum {
 }
 
 export type ContentfulQualificationMapFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  expanded: InputMaybe<BooleanQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  qualifications: InputMaybe<ContentfulQualificationFilterListInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulQualificationMapSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly expanded: InputMaybe<BooleanQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly qualifications: InputMaybe<ContentfulQualificationFilterListInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulQualificationMapSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulQualificationMapFilterListInput = {
-  elemMatch: InputMaybe<ContentfulQualificationMapFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulQualificationMapFilterInput>;
 };
 
 export type ContentfulQualificationMapGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationMapEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulQualificationMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualificationMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationMapEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulQualificationMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualificationMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10466,98 +10466,98 @@ export type ContentfulQualificationMapGroupConnectionSumArgs = {
 };
 
 export type ContentfulQualificationMapSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulQualificationMapFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulQualificationMapFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulQualificationMapSys = {
-  contentType: Maybe<ContentfulQualificationMapSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulQualificationMapSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationMapSysContentType = {
-  sys: Maybe<ContentfulQualificationMapSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulQualificationMapSysContentTypeSys>;
 };
 
 export type ContentfulQualificationMapSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulQualificationMapSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulQualificationMapSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulQualificationMapSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationMapSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationMapSysFilterInput = {
-  contentType: InputMaybe<ContentfulQualificationMapSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulQualificationMapSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulQualificationFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulQualificationFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulQualificationSys = {
-  contentType: Maybe<ContentfulQualificationSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulQualificationSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationSysContentType = {
-  sys: Maybe<ContentfulQualificationSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulQualificationSysContentTypeSys>;
 };
 
 export type ContentfulQualificationSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulQualificationSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulQualificationSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulQualificationSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationSysFilterInput = {
-  contentType: InputMaybe<ContentfulQualificationSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulQualificationSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulReference = {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
 };
 
 export type ContentfulSkillGrpup = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  skill_map: Maybe<Array<Maybe<ContentfulSkillMap>>>;
-  skills: Maybe<Array<Maybe<ContentfulTag>>>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulSkillGrpupSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly skill_map: Maybe<ReadonlyArray<Maybe<ContentfulSkillMap>>>;
+  readonly skills: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulSkillGrpupSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -10577,15 +10577,15 @@ export type ContentfulSkillGrpupUpdatedAtArgs = {
 };
 
 export type ContentfulSkillGrpupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillGrpupEdge>;
-  group: Array<ContentfulSkillGrpupGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillGrpup>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillGrpupEdge>;
+  readonly group: ReadonlyArray<ContentfulSkillGrpupGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillGrpup>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10616,9 +10616,9 @@ export type ContentfulSkillGrpupConnectionSumArgs = {
 };
 
 export type ContentfulSkillGrpupEdge = {
-  next: Maybe<ContentfulSkillGrpup>;
-  node: ContentfulSkillGrpup;
-  previous: Maybe<ContentfulSkillGrpup>;
+  readonly next: Maybe<ContentfulSkillGrpup>;
+  readonly node: ContentfulSkillGrpup;
+  readonly previous: Maybe<ContentfulSkillGrpup>;
 };
 
 export enum ContentfulSkillGrpupFieldsEnum {
@@ -11326,37 +11326,37 @@ export enum ContentfulSkillGrpupFieldsEnum {
 }
 
 export type ContentfulSkillGrpupFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
-  skills: InputMaybe<ContentfulTagFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulSkillGrpupSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
+  readonly skills: InputMaybe<ContentfulTagFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulSkillGrpupSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulSkillGrpupFilterListInput = {
-  elemMatch: InputMaybe<ContentfulSkillGrpupFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulSkillGrpupFilterInput>;
 };
 
 export type ContentfulSkillGrpupGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillGrpupEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulSkillGrpupGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillGrpup>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillGrpupEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulSkillGrpupGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillGrpup>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -11387,58 +11387,58 @@ export type ContentfulSkillGrpupGroupConnectionSumArgs = {
 };
 
 export type ContentfulSkillGrpupSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulSkillGrpupFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulSkillGrpupFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulSkillGrpupSys = {
-  contentType: Maybe<ContentfulSkillGrpupSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulSkillGrpupSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillGrpupSysContentType = {
-  sys: Maybe<ContentfulSkillGrpupSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulSkillGrpupSysContentTypeSys>;
 };
 
 export type ContentfulSkillGrpupSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulSkillGrpupSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulSkillGrpupSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulSkillGrpupSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillGrpupSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillGrpupSysFilterInput = {
-  contentType: InputMaybe<ContentfulSkillGrpupSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulSkillGrpupSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillMap = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  expanded: Maybe<Scalars['Boolean']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  skillGroups: Maybe<Array<Maybe<ContentfulSkillGrpup>>>;
-  skills: Maybe<Array<Maybe<ContentfulTag>>>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulSkillMapSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly expanded: Maybe<Scalars['Boolean']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly skillGroups: Maybe<ReadonlyArray<Maybe<ContentfulSkillGrpup>>>;
+  readonly skills: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulSkillMapSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -11458,15 +11458,15 @@ export type ContentfulSkillMapUpdatedAtArgs = {
 };
 
 export type ContentfulSkillMapConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillMapEdge>;
-  group: Array<ContentfulSkillMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillMapEdge>;
+  readonly group: ReadonlyArray<ContentfulSkillMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -11497,9 +11497,9 @@ export type ContentfulSkillMapConnectionSumArgs = {
 };
 
 export type ContentfulSkillMapEdge = {
-  next: Maybe<ContentfulSkillMap>;
-  node: ContentfulSkillMap;
-  previous: Maybe<ContentfulSkillMap>;
+  readonly next: Maybe<ContentfulSkillMap>;
+  readonly node: ContentfulSkillMap;
+  readonly previous: Maybe<ContentfulSkillMap>;
 };
 
 export enum ContentfulSkillMapFieldsEnum {
@@ -12207,39 +12207,39 @@ export enum ContentfulSkillMapFieldsEnum {
 }
 
 export type ContentfulSkillMapFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  expanded: InputMaybe<BooleanQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  skillGroups: InputMaybe<ContentfulSkillGrpupFilterListInput>;
-  skills: InputMaybe<ContentfulTagFilterListInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulSkillMapSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly expanded: InputMaybe<BooleanQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly skillGroups: InputMaybe<ContentfulSkillGrpupFilterListInput>;
+  readonly skills: InputMaybe<ContentfulTagFilterListInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulSkillMapSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulSkillMapFilterListInput = {
-  elemMatch: InputMaybe<ContentfulSkillMapFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulSkillMapFilterInput>;
 };
 
 export type ContentfulSkillMapGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillMapEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulSkillMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillMapEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulSkillMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -12270,60 +12270,60 @@ export type ContentfulSkillMapGroupConnectionSumArgs = {
 };
 
 export type ContentfulSkillMapSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulSkillMapFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulSkillMapFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulSkillMapSys = {
-  contentType: Maybe<ContentfulSkillMapSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulSkillMapSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillMapSysContentType = {
-  sys: Maybe<ContentfulSkillMapSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulSkillMapSysContentTypeSys>;
 };
 
 export type ContentfulSkillMapSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulSkillMapSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulSkillMapSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulSkillMapSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillMapSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillMapSysFilterInput = {
-  contentType: InputMaybe<ContentfulSkillMapSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulSkillMapSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulTag = ContentfulEntry & ContentfulReference & Node & {
-  blog_post: Maybe<Array<Maybe<ContentfulBlogPost>>>;
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  level: Maybe<Scalars['Int']>;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  oss: Maybe<Array<Maybe<ContentfulOss>>>;
-  parent: Maybe<Node>;
-  project: Maybe<Array<Maybe<ContentfulProject>>>;
-  skill_grpup: Maybe<Array<Maybe<ContentfulSkillGrpup>>>;
-  skill_map: Maybe<Array<Maybe<ContentfulSkillMap>>>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulTagSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly blog_post: Maybe<ReadonlyArray<Maybe<ContentfulBlogPost>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly level: Maybe<Scalars['Int']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly oss: Maybe<ReadonlyArray<Maybe<ContentfulOss>>>;
+  readonly parent: Maybe<Node>;
+  readonly project: Maybe<ReadonlyArray<Maybe<ContentfulProject>>>;
+  readonly skill_grpup: Maybe<ReadonlyArray<Maybe<ContentfulSkillGrpup>>>;
+  readonly skill_map: Maybe<ReadonlyArray<Maybe<ContentfulSkillMap>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulTagSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -12343,15 +12343,15 @@ export type ContentfulTagUpdatedAtArgs = {
 };
 
 export type ContentfulTagConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulTagEdge>;
-  group: Array<ContentfulTagGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulTag>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulTagEdge>;
+  readonly group: ReadonlyArray<ContentfulTagGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulTag>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -12382,9 +12382,9 @@ export type ContentfulTagConnectionSumArgs = {
 };
 
 export type ContentfulTagEdge = {
-  next: Maybe<ContentfulTag>;
-  node: ContentfulTag;
-  previous: Maybe<ContentfulTag>;
+  readonly next: Maybe<ContentfulTag>;
+  readonly node: ContentfulTag;
+  readonly previous: Maybe<ContentfulTag>;
 };
 
 export enum ContentfulTagFieldsEnum {
@@ -14027,41 +14027,41 @@ export enum ContentfulTagFieldsEnum {
 }
 
 export type ContentfulTagFilterInput = {
-  blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  level: InputMaybe<IntQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  oss: InputMaybe<ContentfulOssFilterListInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  project: InputMaybe<ContentfulProjectFilterListInput>;
-  skill_grpup: InputMaybe<ContentfulSkillGrpupFilterListInput>;
-  skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulTagSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly level: InputMaybe<IntQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly oss: InputMaybe<ContentfulOssFilterListInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly project: InputMaybe<ContentfulProjectFilterListInput>;
+  readonly skill_grpup: InputMaybe<ContentfulSkillGrpupFilterListInput>;
+  readonly skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulTagSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulTagFilterListInput = {
-  elemMatch: InputMaybe<ContentfulTagFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulTagFilterInput>;
 };
 
 export type ContentfulTagGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulTagEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulTagGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulTag>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulTagEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulTagGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulTag>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -14092,57 +14092,57 @@ export type ContentfulTagGroupConnectionSumArgs = {
 };
 
 export type ContentfulTagSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulTagFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulTagFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulTagSys = {
-  contentType: Maybe<ContentfulTagSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulTagSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulTagSysContentType = {
-  sys: Maybe<ContentfulTagSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulTagSysContentTypeSys>;
 };
 
 export type ContentfulTagSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulTagSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulTagSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulTagSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulTagSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulTagSysFilterInput = {
-  contentType: InputMaybe<ContentfulTagSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulTagSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulWhatICanDo = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulWhatICanDoSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulWhatICanDoSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -14162,15 +14162,15 @@ export type ContentfulWhatICanDoUpdatedAtArgs = {
 };
 
 export type ContentfulWhatICanDoConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulWhatICanDoEdge>;
-  group: Array<ContentfulWhatICanDoGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulWhatICanDo>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulWhatICanDoEdge>;
+  readonly group: ReadonlyArray<ContentfulWhatICanDoGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulWhatICanDo>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -14201,9 +14201,9 @@ export type ContentfulWhatICanDoConnectionSumArgs = {
 };
 
 export type ContentfulWhatICanDoEdge = {
-  next: Maybe<ContentfulWhatICanDo>;
-  node: ContentfulWhatICanDo;
-  previous: Maybe<ContentfulWhatICanDo>;
+  readonly next: Maybe<ContentfulWhatICanDo>;
+  readonly node: ContentfulWhatICanDo;
+  readonly previous: Maybe<ContentfulWhatICanDo>;
 };
 
 export enum ContentfulWhatICanDoFieldsEnum {
@@ -14811,38 +14811,38 @@ export enum ContentfulWhatICanDoFieldsEnum {
 }
 
 export type ContentfulWhatICanDoFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulWhatICanDoSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulWhatICanDoSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulWhatICanDoFilterListInput = {
-  elemMatch: InputMaybe<ContentfulWhatICanDoFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulWhatICanDoFilterInput>;
 };
 
 export type ContentfulWhatICanDoGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulWhatICanDoEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulWhatICanDoGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulWhatICanDo>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulWhatICanDoEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulWhatICanDoGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulWhatICanDo>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -14873,91 +14873,91 @@ export type ContentfulWhatICanDoGroupConnectionSumArgs = {
 };
 
 export type ContentfulWhatICanDoSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulWhatICanDoFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulWhatICanDoFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulWhatICanDoSys = {
-  contentType: Maybe<ContentfulWhatICanDoSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulWhatICanDoSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulWhatICanDoSysContentType = {
-  sys: Maybe<ContentfulWhatICanDoSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulWhatICanDoSysContentTypeSys>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulWhatICanDoSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulWhatICanDoSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulWhatICanDoSysFilterInput = {
-  contentType: InputMaybe<ContentfulWhatICanDoSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulWhatICanDoSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type DateQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Date']>;
-  gt: InputMaybe<Scalars['Date']>;
-  gte: InputMaybe<Scalars['Date']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
-  lt: InputMaybe<Scalars['Date']>;
-  lte: InputMaybe<Scalars['Date']>;
-  ne: InputMaybe<Scalars['Date']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  readonly eq: InputMaybe<Scalars['Date']>;
+  readonly gt: InputMaybe<Scalars['Date']>;
+  readonly gte: InputMaybe<Scalars['Date']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']>>>;
+  readonly lt: InputMaybe<Scalars['Date']>;
+  readonly lte: InputMaybe<Scalars['Date']>;
+  readonly ne: InputMaybe<Scalars['Date']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']>>>;
 };
 
 export type Directory = Node & {
-  absolutePath: Scalars['String'];
-  accessTime: Scalars['Date'];
-  atime: Scalars['Date'];
-  atimeMs: Scalars['Float'];
-  base: Scalars['String'];
-  birthTime: Scalars['Date'];
+  readonly absolutePath: Scalars['String'];
+  readonly accessTime: Scalars['Date'];
+  readonly atime: Scalars['Date'];
+  readonly atimeMs: Scalars['Float'];
+  readonly base: Scalars['String'];
+  readonly birthTime: Scalars['Date'];
   /** @deprecated Use `birthTime` instead */
-  birthtime: Maybe<Scalars['Date']>;
+  readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs: Maybe<Scalars['Float']>;
-  changeTime: Scalars['Date'];
-  children: Array<Node>;
-  ctime: Scalars['Date'];
-  ctimeMs: Scalars['Float'];
-  dev: Scalars['Int'];
-  dir: Scalars['String'];
-  ext: Scalars['String'];
-  extension: Scalars['String'];
-  gid: Scalars['Int'];
-  id: Scalars['ID'];
-  ino: Scalars['Float'];
-  internal: Internal;
-  mode: Scalars['Int'];
-  modifiedTime: Scalars['Date'];
-  mtime: Scalars['Date'];
-  mtimeMs: Scalars['Float'];
-  name: Scalars['String'];
-  nlink: Scalars['Int'];
-  parent: Maybe<Node>;
-  prettySize: Scalars['String'];
-  rdev: Scalars['Int'];
-  relativeDirectory: Scalars['String'];
-  relativePath: Scalars['String'];
-  root: Scalars['String'];
-  size: Scalars['Int'];
-  sourceInstanceName: Scalars['String'];
-  uid: Scalars['Int'];
+  readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly changeTime: Scalars['Date'];
+  readonly children: ReadonlyArray<Node>;
+  readonly ctime: Scalars['Date'];
+  readonly ctimeMs: Scalars['Float'];
+  readonly dev: Scalars['Int'];
+  readonly dir: Scalars['String'];
+  readonly ext: Scalars['String'];
+  readonly extension: Scalars['String'];
+  readonly gid: Scalars['Int'];
+  readonly id: Scalars['ID'];
+  readonly ino: Scalars['Float'];
+  readonly internal: Internal;
+  readonly mode: Scalars['Int'];
+  readonly modifiedTime: Scalars['Date'];
+  readonly mtime: Scalars['Date'];
+  readonly mtimeMs: Scalars['Float'];
+  readonly name: Scalars['String'];
+  readonly nlink: Scalars['Int'];
+  readonly parent: Maybe<Node>;
+  readonly prettySize: Scalars['String'];
+  readonly rdev: Scalars['Int'];
+  readonly relativeDirectory: Scalars['String'];
+  readonly relativePath: Scalars['String'];
+  readonly root: Scalars['String'];
+  readonly size: Scalars['Int'];
+  readonly sourceInstanceName: Scalars['String'];
+  readonly uid: Scalars['Int'];
 };
 
 
@@ -15017,15 +15017,15 @@ export type DirectoryMtimeArgs = {
 };
 
 export type DirectoryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<DirectoryEdge>;
-  group: Array<DirectoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Directory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<DirectoryEdge>;
+  readonly group: ReadonlyArray<DirectoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Directory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15056,9 +15056,9 @@ export type DirectoryConnectionSumArgs = {
 };
 
 export type DirectoryEdge = {
-  next: Maybe<Directory>;
-  node: Directory;
-  previous: Maybe<Directory>;
+  readonly next: Maybe<Directory>;
+  readonly node: Directory;
+  readonly previous: Maybe<Directory>;
 };
 
 export enum DirectoryFieldsEnum {
@@ -15189,55 +15189,55 @@ export enum DirectoryFieldsEnum {
 }
 
 export type DirectoryFilterInput = {
-  absolutePath: InputMaybe<StringQueryOperatorInput>;
-  accessTime: InputMaybe<DateQueryOperatorInput>;
-  atime: InputMaybe<DateQueryOperatorInput>;
-  atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  base: InputMaybe<StringQueryOperatorInput>;
-  birthTime: InputMaybe<DateQueryOperatorInput>;
-  birthtime: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  changeTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  ctime: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  dev: InputMaybe<IntQueryOperatorInput>;
-  dir: InputMaybe<StringQueryOperatorInput>;
-  ext: InputMaybe<StringQueryOperatorInput>;
-  extension: InputMaybe<StringQueryOperatorInput>;
-  gid: InputMaybe<IntQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  ino: InputMaybe<FloatQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mode: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  mtime: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nlink: InputMaybe<IntQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  prettySize: InputMaybe<StringQueryOperatorInput>;
-  rdev: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  relativePath: InputMaybe<StringQueryOperatorInput>;
-  root: InputMaybe<StringQueryOperatorInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<IntQueryOperatorInput>;
+  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
+  readonly atime: InputMaybe<DateQueryOperatorInput>;
+  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly base: InputMaybe<StringQueryOperatorInput>;
+  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly ctime: InputMaybe<DateQueryOperatorInput>;
+  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly dev: InputMaybe<IntQueryOperatorInput>;
+  readonly dir: InputMaybe<StringQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly extension: InputMaybe<StringQueryOperatorInput>;
+  readonly gid: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ino: InputMaybe<FloatQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mode: InputMaybe<IntQueryOperatorInput>;
+  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nlink: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly rdev: InputMaybe<IntQueryOperatorInput>;
+  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
+  readonly root: InputMaybe<StringQueryOperatorInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type DirectoryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<DirectoryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<DirectoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Directory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<DirectoryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<DirectoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Directory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15268,67 +15268,67 @@ export type DirectoryGroupConnectionSumArgs = {
 };
 
 export type DirectorySortInput = {
-  fields: InputMaybe<Array<InputMaybe<DirectoryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<DirectoryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type DuotoneGradient = {
-  highlight: Scalars['String'];
-  opacity: InputMaybe<Scalars['Int']>;
-  shadow: Scalars['String'];
+  readonly highlight: Scalars['String'];
+  readonly opacity: InputMaybe<Scalars['Int']>;
+  readonly shadow: Scalars['String'];
 };
 
 export type File = Node & {
-  absolutePath: Scalars['String'];
-  accessTime: Scalars['Date'];
-  atime: Scalars['Date'];
-  atimeMs: Scalars['Float'];
-  base: Scalars['String'];
-  birthTime: Scalars['Date'];
+  readonly absolutePath: Scalars['String'];
+  readonly accessTime: Scalars['Date'];
+  readonly atime: Scalars['Date'];
+  readonly atimeMs: Scalars['Float'];
+  readonly base: Scalars['String'];
+  readonly birthTime: Scalars['Date'];
   /** @deprecated Use `birthTime` instead */
-  birthtime: Maybe<Scalars['Date']>;
+  readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs: Maybe<Scalars['Float']>;
-  blksize: Maybe<Scalars['Int']>;
-  blocks: Maybe<Scalars['Int']>;
-  changeTime: Scalars['Date'];
+  readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly blksize: Maybe<Scalars['Int']>;
+  readonly blocks: Maybe<Scalars['Int']>;
+  readonly changeTime: Scalars['Date'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
-  childImageSharp: Maybe<ImageSharp>;
+  readonly childImageSharp: Maybe<ImageSharp>;
   /** Returns the first child node of type Locale or null if there are no children of given type on this node */
-  childLocale: Maybe<Locale>;
-  children: Array<Node>;
+  readonly childLocale: Maybe<Locale>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
-  childrenImageSharp: Maybe<Array<Maybe<ImageSharp>>>;
+  readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
   /** Returns all children nodes filtered by type Locale */
-  childrenLocale: Maybe<Array<Maybe<Locale>>>;
-  ctime: Scalars['Date'];
-  ctimeMs: Scalars['Float'];
-  dev: Scalars['Int'];
-  dir: Scalars['String'];
-  ext: Scalars['String'];
-  extension: Scalars['String'];
-  gid: Scalars['Int'];
-  id: Scalars['ID'];
-  ino: Scalars['Float'];
-  internal: Internal;
-  mode: Scalars['Int'];
-  modifiedTime: Scalars['Date'];
-  mtime: Scalars['Date'];
-  mtimeMs: Scalars['Float'];
-  name: Scalars['String'];
-  nlink: Scalars['Int'];
-  parent: Maybe<Node>;
-  prettySize: Scalars['String'];
+  readonly childrenLocale: Maybe<ReadonlyArray<Maybe<Locale>>>;
+  readonly ctime: Scalars['Date'];
+  readonly ctimeMs: Scalars['Float'];
+  readonly dev: Scalars['Int'];
+  readonly dir: Scalars['String'];
+  readonly ext: Scalars['String'];
+  readonly extension: Scalars['String'];
+  readonly gid: Scalars['Int'];
+  readonly id: Scalars['ID'];
+  readonly ino: Scalars['Float'];
+  readonly internal: Internal;
+  readonly mode: Scalars['Int'];
+  readonly modifiedTime: Scalars['Date'];
+  readonly mtime: Scalars['Date'];
+  readonly mtimeMs: Scalars['Float'];
+  readonly name: Scalars['String'];
+  readonly nlink: Scalars['Int'];
+  readonly parent: Maybe<Node>;
+  readonly prettySize: Scalars['String'];
   /** Copy file to static directory and return public url to it */
-  publicURL: Maybe<Scalars['String']>;
-  rdev: Scalars['Int'];
-  relativeDirectory: Scalars['String'];
-  relativePath: Scalars['String'];
-  root: Scalars['String'];
-  size: Scalars['Int'];
-  sourceInstanceName: Scalars['String'];
-  svg: Maybe<InlineSvg>;
-  uid: Scalars['Int'];
+  readonly publicURL: Maybe<Scalars['String']>;
+  readonly rdev: Scalars['Int'];
+  readonly relativeDirectory: Scalars['String'];
+  readonly relativePath: Scalars['String'];
+  readonly root: Scalars['String'];
+  readonly size: Scalars['Int'];
+  readonly sourceInstanceName: Scalars['String'];
+  readonly svg: Maybe<InlineSvg>;
+  readonly uid: Scalars['Int'];
 };
 
 
@@ -15388,15 +15388,15 @@ export type FileMtimeArgs = {
 };
 
 export type FileConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<FileEdge>;
-  group: Array<FileGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<File>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<FileEdge>;
+  readonly group: ReadonlyArray<FileGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<File>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15427,9 +15427,9 @@ export type FileConnectionSumArgs = {
 };
 
 export type FileEdge = {
-  next: Maybe<File>;
-  node: File;
-  previous: Maybe<File>;
+  readonly next: Maybe<File>;
+  readonly node: File;
+  readonly previous: Maybe<File>;
 };
 
 export enum FileFieldsEnum {
@@ -15801,62 +15801,62 @@ export enum FileFieldsEnum {
 }
 
 export type FileFilterInput = {
-  absolutePath: InputMaybe<StringQueryOperatorInput>;
-  accessTime: InputMaybe<DateQueryOperatorInput>;
-  atime: InputMaybe<DateQueryOperatorInput>;
-  atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  base: InputMaybe<StringQueryOperatorInput>;
-  birthTime: InputMaybe<DateQueryOperatorInput>;
-  birthtime: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  blksize: InputMaybe<IntQueryOperatorInput>;
-  blocks: InputMaybe<IntQueryOperatorInput>;
-  changeTime: InputMaybe<DateQueryOperatorInput>;
-  childImageSharp: InputMaybe<ImageSharpFilterInput>;
-  childLocale: InputMaybe<LocaleFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
-  childrenLocale: InputMaybe<LocaleFilterListInput>;
-  ctime: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  dev: InputMaybe<IntQueryOperatorInput>;
-  dir: InputMaybe<StringQueryOperatorInput>;
-  ext: InputMaybe<StringQueryOperatorInput>;
-  extension: InputMaybe<StringQueryOperatorInput>;
-  gid: InputMaybe<IntQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  ino: InputMaybe<FloatQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mode: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  mtime: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nlink: InputMaybe<IntQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  prettySize: InputMaybe<StringQueryOperatorInput>;
-  publicURL: InputMaybe<StringQueryOperatorInput>;
-  rdev: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  relativePath: InputMaybe<StringQueryOperatorInput>;
-  root: InputMaybe<StringQueryOperatorInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<IntQueryOperatorInput>;
+  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
+  readonly atime: InputMaybe<DateQueryOperatorInput>;
+  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly base: InputMaybe<StringQueryOperatorInput>;
+  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly blksize: InputMaybe<IntQueryOperatorInput>;
+  readonly blocks: InputMaybe<IntQueryOperatorInput>;
+  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  readonly childLocale: InputMaybe<LocaleFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  readonly childrenLocale: InputMaybe<LocaleFilterListInput>;
+  readonly ctime: InputMaybe<DateQueryOperatorInput>;
+  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly dev: InputMaybe<IntQueryOperatorInput>;
+  readonly dir: InputMaybe<StringQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly extension: InputMaybe<StringQueryOperatorInput>;
+  readonly gid: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ino: InputMaybe<FloatQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mode: InputMaybe<IntQueryOperatorInput>;
+  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nlink: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly publicURL: InputMaybe<StringQueryOperatorInput>;
+  readonly rdev: InputMaybe<IntQueryOperatorInput>;
+  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
+  readonly root: InputMaybe<StringQueryOperatorInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type FileGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<FileEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<FileGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<File>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<FileEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<FileGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<File>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15887,26 +15887,26 @@ export type FileGroupConnectionSumArgs = {
 };
 
 export type FileSortInput = {
-  fields: InputMaybe<Array<InputMaybe<FileFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<FileFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type FloatQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Float']>;
-  gt: InputMaybe<Scalars['Float']>;
-  gte: InputMaybe<Scalars['Float']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  lt: InputMaybe<Scalars['Float']>;
-  lte: InputMaybe<Scalars['Float']>;
-  ne: InputMaybe<Scalars['Float']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  readonly eq: InputMaybe<Scalars['Float']>;
+  readonly gt: InputMaybe<Scalars['Float']>;
+  readonly gte: InputMaybe<Scalars['Float']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  readonly lt: InputMaybe<Scalars['Float']>;
+  readonly lte: InputMaybe<Scalars['Float']>;
+  readonly ne: InputMaybe<Scalars['Float']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
 };
 
 export type GatsbyImageDataQueryOperatorInput = {
-  eq: InputMaybe<Scalars['GatsbyImageData']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
-  ne: InputMaybe<Scalars['GatsbyImageData']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+  readonly eq: InputMaybe<Scalars['GatsbyImageData']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
+  readonly ne: InputMaybe<Scalars['GatsbyImageData']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
 export enum GatsbyImageFormat {
@@ -15999,15 +15999,15 @@ export enum ImageResizingBehavior {
 }
 
 export type ImageSharp = Node & {
-  children: Array<Node>;
-  fixed: Maybe<ImageSharpFixed>;
-  fluid: Maybe<ImageSharpFluid>;
-  gatsbyImageData: Scalars['GatsbyImageData'];
-  id: Scalars['ID'];
-  internal: Internal;
-  original: Maybe<ImageSharpOriginal>;
-  parent: Maybe<Node>;
-  resize: Maybe<ImageSharpResize>;
+  readonly children: ReadonlyArray<Node>;
+  readonly fixed: Maybe<ImageSharpFixed>;
+  readonly fluid: Maybe<ImageSharpFluid>;
+  readonly gatsbyImageData: Scalars['GatsbyImageData'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly original: Maybe<ImageSharpOriginal>;
+  readonly parent: Maybe<Node>;
+  readonly resize: Maybe<ImageSharpResize>;
 };
 
 
@@ -16050,7 +16050,7 @@ export type ImageSharpFluidArgs = {
   quality: InputMaybe<Scalars['Int']>;
   rotate?: InputMaybe<Scalars['Int']>;
   sizes?: InputMaybe<Scalars['String']>;
-  srcSetBreakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  srcSetBreakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   toFormat?: InputMaybe<ImageFormat>;
   toFormatBase64?: InputMaybe<ImageFormat>;
   traceSVG: InputMaybe<Potrace>;
@@ -16064,12 +16064,12 @@ export type ImageSharpGatsbyImageDataArgs = {
   avifOptions: InputMaybe<AvifOptions>;
   backgroundColor: InputMaybe<Scalars['String']>;
   blurredOptions: InputMaybe<BlurredOptions>;
-  breakpoints: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  formats: InputMaybe<Array<InputMaybe<ImageFormat>>>;
+  breakpoints: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  formats: InputMaybe<ReadonlyArray<InputMaybe<ImageFormat>>>;
   height: InputMaybe<Scalars['Int']>;
   jpgOptions: InputMaybe<JpgOptions>;
   layout?: InputMaybe<ImageLayout>;
-  outputPixelDensities: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder: InputMaybe<ImagePlaceholder>;
   pngOptions: InputMaybe<PngOptions>;
   quality: InputMaybe<Scalars['Int']>;
@@ -16104,15 +16104,15 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ImageSharpEdge>;
-  group: Array<ImageSharpGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ImageSharp>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ImageSharpEdge>;
+  readonly group: ReadonlyArray<ImageSharpGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ImageSharp>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16143,9 +16143,9 @@ export type ImageSharpConnectionSumArgs = {
 };
 
 export type ImageSharpEdge = {
-  next: Maybe<ImageSharp>;
-  node: ImageSharp;
-  previous: Maybe<ImageSharp>;
+  readonly next: Maybe<ImageSharp>;
+  readonly node: ImageSharp;
+  readonly previous: Maybe<ImageSharp>;
 };
 
 export enum ImageSharpFieldsEnum {
@@ -16277,89 +16277,89 @@ export enum ImageSharpFieldsEnum {
 }
 
 export type ImageSharpFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  fixed: InputMaybe<ImageSharpFixedFilterInput>;
-  fluid: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  original: InputMaybe<ImageSharpOriginalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  resize: InputMaybe<ImageSharpResizeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly fixed: InputMaybe<ImageSharpFixedFilterInput>;
+  readonly fluid: InputMaybe<ImageSharpFluidFilterInput>;
+  readonly gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly original: InputMaybe<ImageSharpOriginalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly resize: InputMaybe<ImageSharpResizeFilterInput>;
 };
 
 export type ImageSharpFilterListInput = {
-  elemMatch: InputMaybe<ImageSharpFilterInput>;
+  readonly elemMatch: InputMaybe<ImageSharpFilterInput>;
 };
 
 export type ImageSharpFixed = {
-  aspectRatio: Maybe<Scalars['Float']>;
-  base64: Maybe<Scalars['String']>;
-  height: Scalars['Float'];
-  originalName: Maybe<Scalars['String']>;
-  src: Scalars['String'];
-  srcSet: Scalars['String'];
-  srcSetWebp: Maybe<Scalars['String']>;
-  srcWebp: Maybe<Scalars['String']>;
-  tracedSVG: Maybe<Scalars['String']>;
-  width: Scalars['Float'];
+  readonly aspectRatio: Maybe<Scalars['Float']>;
+  readonly base64: Maybe<Scalars['String']>;
+  readonly height: Scalars['Float'];
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly src: Scalars['String'];
+  readonly srcSet: Scalars['String'];
+  readonly srcSetWebp: Maybe<Scalars['String']>;
+  readonly srcWebp: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly width: Scalars['Float'];
 };
 
 export type ImageSharpFixedFilterInput = {
-  aspectRatio: InputMaybe<FloatQueryOperatorInput>;
-  base64: InputMaybe<StringQueryOperatorInput>;
-  height: InputMaybe<FloatQueryOperatorInput>;
-  originalName: InputMaybe<StringQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  srcSet: InputMaybe<StringQueryOperatorInput>;
-  srcSetWebp: InputMaybe<StringQueryOperatorInput>;
-  srcWebp: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<FloatQueryOperatorInput>;
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly base64: InputMaybe<StringQueryOperatorInput>;
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSet: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<FloatQueryOperatorInput>;
 };
 
 export type ImageSharpFluid = {
-  aspectRatio: Scalars['Float'];
-  base64: Maybe<Scalars['String']>;
-  originalImg: Maybe<Scalars['String']>;
-  originalName: Maybe<Scalars['String']>;
-  presentationHeight: Scalars['Int'];
-  presentationWidth: Scalars['Int'];
-  sizes: Scalars['String'];
-  src: Scalars['String'];
-  srcSet: Scalars['String'];
-  srcSetWebp: Maybe<Scalars['String']>;
-  srcWebp: Maybe<Scalars['String']>;
-  tracedSVG: Maybe<Scalars['String']>;
+  readonly aspectRatio: Scalars['Float'];
+  readonly base64: Maybe<Scalars['String']>;
+  readonly originalImg: Maybe<Scalars['String']>;
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly presentationHeight: Scalars['Int'];
+  readonly presentationWidth: Scalars['Int'];
+  readonly sizes: Scalars['String'];
+  readonly src: Scalars['String'];
+  readonly srcSet: Scalars['String'];
+  readonly srcSetWebp: Maybe<Scalars['String']>;
+  readonly srcWebp: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
 };
 
 export type ImageSharpFluidFilterInput = {
-  aspectRatio: InputMaybe<FloatQueryOperatorInput>;
-  base64: InputMaybe<StringQueryOperatorInput>;
-  originalImg: InputMaybe<StringQueryOperatorInput>;
-  originalName: InputMaybe<StringQueryOperatorInput>;
-  presentationHeight: InputMaybe<IntQueryOperatorInput>;
-  presentationWidth: InputMaybe<IntQueryOperatorInput>;
-  sizes: InputMaybe<StringQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  srcSet: InputMaybe<StringQueryOperatorInput>;
-  srcSetWebp: InputMaybe<StringQueryOperatorInput>;
-  srcWebp: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly base64: InputMaybe<StringQueryOperatorInput>;
+  readonly originalImg: InputMaybe<StringQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly presentationHeight: InputMaybe<IntQueryOperatorInput>;
+  readonly presentationWidth: InputMaybe<IntQueryOperatorInput>;
+  readonly sizes: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSet: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ImageSharpGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ImageSharpEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ImageSharpGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ImageSharp>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ImageSharpEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ImageSharpGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ImageSharp>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16390,118 +16390,118 @@ export type ImageSharpGroupConnectionSumArgs = {
 };
 
 export type ImageSharpOriginal = {
-  height: Maybe<Scalars['Float']>;
-  src: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Float']>;
+  readonly height: Maybe<Scalars['Float']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Float']>;
 };
 
 export type ImageSharpOriginalFilterInput = {
-  height: InputMaybe<FloatQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<FloatQueryOperatorInput>;
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<FloatQueryOperatorInput>;
 };
 
 export type ImageSharpResize = {
-  aspectRatio: Maybe<Scalars['Float']>;
-  height: Maybe<Scalars['Int']>;
-  originalName: Maybe<Scalars['String']>;
-  src: Maybe<Scalars['String']>;
-  tracedSVG: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Int']>;
+  readonly aspectRatio: Maybe<Scalars['Float']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 export type ImageSharpResizeFilterInput = {
-  aspectRatio: InputMaybe<FloatQueryOperatorInput>;
-  height: InputMaybe<IntQueryOperatorInput>;
-  originalName: InputMaybe<StringQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ImageSharpSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ImageSharpFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type InlineSvg = {
-  absolutePath: Maybe<Scalars['String']>;
-  content: Maybe<Scalars['String']>;
-  dataURI: Maybe<Scalars['String']>;
-  originalContent: Maybe<Scalars['String']>;
-  relativePath: Maybe<Scalars['String']>;
+  readonly absolutePath: Maybe<Scalars['String']>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly dataURI: Maybe<Scalars['String']>;
+  readonly originalContent: Maybe<Scalars['String']>;
+  readonly relativePath: Maybe<Scalars['String']>;
 };
 
 export type IntQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Int']>;
-  gt: InputMaybe<Scalars['Int']>;
-  gte: InputMaybe<Scalars['Int']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  lt: InputMaybe<Scalars['Int']>;
-  lte: InputMaybe<Scalars['Int']>;
-  ne: InputMaybe<Scalars['Int']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  readonly eq: InputMaybe<Scalars['Int']>;
+  readonly gt: InputMaybe<Scalars['Int']>;
+  readonly gte: InputMaybe<Scalars['Int']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly lt: InputMaybe<Scalars['Int']>;
+  readonly lte: InputMaybe<Scalars['Int']>;
+  readonly ne: InputMaybe<Scalars['Int']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
 };
 
 export type Internal = {
-  content: Maybe<Scalars['String']>;
-  contentDigest: Scalars['String'];
-  contentFilePath: Maybe<Scalars['String']>;
-  description: Maybe<Scalars['String']>;
-  fieldOwners: Maybe<Array<Maybe<Scalars['String']>>>;
-  ignoreType: Maybe<Scalars['Boolean']>;
-  mediaType: Maybe<Scalars['String']>;
-  owner: Scalars['String'];
-  type: Scalars['String'];
+  readonly content: Maybe<Scalars['String']>;
+  readonly contentDigest: Scalars['String'];
+  readonly contentFilePath: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly fieldOwners: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly ignoreType: Maybe<Scalars['Boolean']>;
+  readonly mediaType: Maybe<Scalars['String']>;
+  readonly owner: Scalars['String'];
+  readonly type: Scalars['String'];
 };
 
 export type InternalFilterInput = {
-  content: InputMaybe<StringQueryOperatorInput>;
-  contentDigest: InputMaybe<StringQueryOperatorInput>;
-  contentFilePath: InputMaybe<StringQueryOperatorInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  fieldOwners: InputMaybe<StringQueryOperatorInput>;
-  ignoreType: InputMaybe<BooleanQueryOperatorInput>;
-  mediaType: InputMaybe<StringQueryOperatorInput>;
-  owner: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly contentDigest: InputMaybe<StringQueryOperatorInput>;
+  readonly contentFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly fieldOwners: InputMaybe<StringQueryOperatorInput>;
+  readonly ignoreType: InputMaybe<BooleanQueryOperatorInput>;
+  readonly mediaType: InputMaybe<StringQueryOperatorInput>;
+  readonly owner: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type JpgOptions = {
-  progressive: InputMaybe<Scalars['Boolean']>;
-  quality: InputMaybe<Scalars['Int']>;
+  readonly progressive: InputMaybe<Scalars['Boolean']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
 };
 
 export type JsonQueryOperatorInput = {
-  eq: InputMaybe<Scalars['JSON']>;
-  glob: InputMaybe<Scalars['JSON']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  ne: InputMaybe<Scalars['JSON']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  regex: InputMaybe<Scalars['JSON']>;
+  readonly eq: InputMaybe<Scalars['JSON']>;
+  readonly glob: InputMaybe<Scalars['JSON']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']>>>;
+  readonly ne: InputMaybe<Scalars['JSON']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']>>>;
+  readonly regex: InputMaybe<Scalars['JSON']>;
 };
 
 export type Locale = Node & {
-  children: Array<Node>;
-  data: Maybe<Scalars['String']>;
-  fileAbsolutePath: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  language: Maybe<Scalars['String']>;
-  ns: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly data: Maybe<Scalars['String']>;
+  readonly fileAbsolutePath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly language: Maybe<Scalars['String']>;
+  readonly ns: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
 };
 
 export type LocaleConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<LocaleEdge>;
-  group: Array<LocaleGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Locale>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<LocaleEdge>;
+  readonly group: ReadonlyArray<LocaleGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Locale>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16532,9 +16532,9 @@ export type LocaleConnectionSumArgs = {
 };
 
 export type LocaleEdge = {
-  next: Maybe<Locale>;
-  node: Locale;
-  previous: Maybe<Locale>;
+  readonly next: Maybe<Locale>;
+  readonly node: Locale;
+  readonly previous: Maybe<Locale>;
 };
 
 export enum LocaleFieldsEnum {
@@ -16638,32 +16638,32 @@ export enum LocaleFieldsEnum {
 }
 
 export type LocaleFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  data: InputMaybe<StringQueryOperatorInput>;
-  fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  language: InputMaybe<StringQueryOperatorInput>;
-  ns: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly data: InputMaybe<StringQueryOperatorInput>;
+  readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly language: InputMaybe<StringQueryOperatorInput>;
+  readonly ns: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type LocaleFilterListInput = {
-  elemMatch: InputMaybe<LocaleFilterInput>;
+  readonly elemMatch: InputMaybe<LocaleFilterInput>;
 };
 
 export type LocaleGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<LocaleEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<LocaleGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Locale>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<LocaleEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<LocaleGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Locale>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16694,27 +16694,27 @@ export type LocaleGroupConnectionSumArgs = {
 };
 
 export type LocaleSortInput = {
-  fields: InputMaybe<Array<InputMaybe<LocaleFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<LocaleFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type Mdx = Node & {
-  body: Scalars['String'];
-  children: Array<Node>;
-  excerpt: Scalars['String'];
-  fileAbsolutePath: Scalars['String'];
-  frontmatter: Maybe<MdxFrontmatter>;
-  headings: Maybe<Array<Maybe<MdxHeadingMdx>>>;
-  html: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  mdxAST: Maybe<Scalars['JSON']>;
-  parent: Maybe<Node>;
-  rawBody: Scalars['String'];
-  slug: Maybe<Scalars['String']>;
-  tableOfContents: Maybe<Scalars['JSON']>;
-  timeToRead: Maybe<Scalars['Int']>;
-  wordCount: Maybe<MdxWordCount>;
+  readonly body: Scalars['String'];
+  readonly children: ReadonlyArray<Node>;
+  readonly excerpt: Scalars['String'];
+  readonly fileAbsolutePath: Scalars['String'];
+  readonly frontmatter: Maybe<MdxFrontmatter>;
+  readonly headings: Maybe<ReadonlyArray<Maybe<MdxHeadingMdx>>>;
+  readonly html: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly mdxAST: Maybe<Scalars['JSON']>;
+  readonly parent: Maybe<Node>;
+  readonly rawBody: Scalars['String'];
+  readonly slug: Maybe<Scalars['String']>;
+  readonly tableOfContents: Maybe<Scalars['JSON']>;
+  readonly timeToRead: Maybe<Scalars['Int']>;
+  readonly wordCount: Maybe<MdxWordCount>;
 };
 
 
@@ -16734,15 +16734,15 @@ export type MdxTableOfContentsArgs = {
 };
 
 export type MdxConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<MdxEdge>;
-  group: Array<MdxGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Mdx>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<MdxEdge>;
+  readonly group: ReadonlyArray<MdxGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Mdx>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16773,9 +16773,9 @@ export type MdxConnectionSumArgs = {
 };
 
 export type MdxEdge = {
-  next: Maybe<Mdx>;
-  node: Mdx;
-  previous: Maybe<Mdx>;
+  readonly next: Maybe<Mdx>;
+  readonly node: Mdx;
+  readonly previous: Maybe<Mdx>;
 };
 
 export enum MdxFieldsEnum {
@@ -16891,48 +16891,48 @@ export enum MdxFieldsEnum {
 }
 
 export type MdxFilterInput = {
-  body: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  excerpt: InputMaybe<StringQueryOperatorInput>;
-  fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  headings: InputMaybe<MdxHeadingMdxFilterListInput>;
-  html: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mdxAST: InputMaybe<JsonQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  rawBody: InputMaybe<StringQueryOperatorInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
-  tableOfContents: InputMaybe<JsonQueryOperatorInput>;
-  timeToRead: InputMaybe<IntQueryOperatorInput>;
-  wordCount: InputMaybe<MdxWordCountFilterInput>;
+  readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
+  readonly headings: InputMaybe<MdxHeadingMdxFilterListInput>;
+  readonly html: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mdxAST: InputMaybe<JsonQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly rawBody: InputMaybe<StringQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tableOfContents: InputMaybe<JsonQueryOperatorInput>;
+  readonly timeToRead: InputMaybe<IntQueryOperatorInput>;
+  readonly wordCount: InputMaybe<MdxWordCountFilterInput>;
 };
 
 export type MdxFilterListInput = {
-  elemMatch: InputMaybe<MdxFilterInput>;
+  readonly elemMatch: InputMaybe<MdxFilterInput>;
 };
 
 export type MdxFrontmatter = {
-  title: Scalars['String'];
+  readonly title: Scalars['String'];
 };
 
 export type MdxFrontmatterFilterInput = {
-  title: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<MdxEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<MdxGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Mdx>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<MdxEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<MdxGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Mdx>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16963,80 +16963,80 @@ export type MdxGroupConnectionSumArgs = {
 };
 
 export type MdxHeadingMdx = {
-  depth: Maybe<Scalars['Int']>;
-  value: Maybe<Scalars['String']>;
+  readonly depth: Maybe<Scalars['Int']>;
+  readonly value: Maybe<Scalars['String']>;
 };
 
 export type MdxHeadingMdxFilterInput = {
-  depth: InputMaybe<IntQueryOperatorInput>;
-  value: InputMaybe<StringQueryOperatorInput>;
+  readonly depth: InputMaybe<IntQueryOperatorInput>;
+  readonly value: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type MdxHeadingMdxFilterListInput = {
-  elemMatch: InputMaybe<MdxHeadingMdxFilterInput>;
+  readonly elemMatch: InputMaybe<MdxHeadingMdxFilterInput>;
 };
 
 export type MdxSortInput = {
-  fields: InputMaybe<Array<InputMaybe<MdxFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<MdxFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type MdxWordCount = {
-  paragraphs: Maybe<Scalars['Int']>;
-  sentences: Maybe<Scalars['Int']>;
-  words: Maybe<Scalars['Int']>;
+  readonly paragraphs: Maybe<Scalars['Int']>;
+  readonly sentences: Maybe<Scalars['Int']>;
+  readonly words: Maybe<Scalars['Int']>;
 };
 
 export type MdxWordCountFilterInput = {
-  paragraphs: InputMaybe<IntQueryOperatorInput>;
-  sentences: InputMaybe<IntQueryOperatorInput>;
-  words: InputMaybe<IntQueryOperatorInput>;
+  readonly paragraphs: InputMaybe<IntQueryOperatorInput>;
+  readonly sentences: InputMaybe<IntQueryOperatorInput>;
+  readonly words: InputMaybe<IntQueryOperatorInput>;
 };
 
 /** Node Interface */
 export type Node = {
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
 };
 
 export type NodeFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type NodeFilterListInput = {
-  elemMatch: InputMaybe<NodeFilterInput>;
+  readonly elemMatch: InputMaybe<NodeFilterInput>;
 };
 
 export type PngOptions = {
-  compressionSpeed: InputMaybe<Scalars['Int']>;
-  quality: InputMaybe<Scalars['Int']>;
+  readonly compressionSpeed: InputMaybe<Scalars['Int']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
 };
 
 export type PageInfo = {
-  currentPage: Scalars['Int'];
-  hasNextPage: Scalars['Boolean'];
-  hasPreviousPage: Scalars['Boolean'];
-  itemCount: Scalars['Int'];
-  pageCount: Scalars['Int'];
-  perPage: Maybe<Scalars['Int']>;
-  totalCount: Scalars['Int'];
+  readonly currentPage: Scalars['Int'];
+  readonly hasNextPage: Scalars['Boolean'];
+  readonly hasPreviousPage: Scalars['Boolean'];
+  readonly itemCount: Scalars['Int'];
+  readonly pageCount: Scalars['Int'];
+  readonly perPage: Maybe<Scalars['Int']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 export type Potrace = {
-  alphaMax: InputMaybe<Scalars['Float']>;
-  background: InputMaybe<Scalars['String']>;
-  blackOnWhite: InputMaybe<Scalars['Boolean']>;
-  color: InputMaybe<Scalars['String']>;
-  optCurve: InputMaybe<Scalars['Boolean']>;
-  optTolerance: InputMaybe<Scalars['Float']>;
-  threshold: InputMaybe<Scalars['Int']>;
-  turdSize: InputMaybe<Scalars['Float']>;
-  turnPolicy: InputMaybe<PotraceTurnPolicy>;
+  readonly alphaMax: InputMaybe<Scalars['Float']>;
+  readonly background: InputMaybe<Scalars['String']>;
+  readonly blackOnWhite: InputMaybe<Scalars['Boolean']>;
+  readonly color: InputMaybe<Scalars['String']>;
+  readonly optCurve: InputMaybe<Scalars['Boolean']>;
+  readonly optTolerance: InputMaybe<Scalars['Float']>;
+  readonly threshold: InputMaybe<Scalars['Int']>;
+  readonly turdSize: InputMaybe<Scalars['Float']>;
+  readonly turnPolicy: InputMaybe<PotraceTurnPolicy>;
 };
 
 export enum PotraceTurnPolicy {
@@ -17049,68 +17049,68 @@ export enum PotraceTurnPolicy {
 }
 
 export type Query = {
-  allContentfulAsset: ContentfulAssetConnection;
-  allContentfulBlogPost: ContentfulBlogPostConnection;
-  allContentfulBlogPostContentTextNode: ContentfulBlogPostContentTextNodeConnection;
-  allContentfulCategory: ContentfulCategoryConnection;
-  allContentfulContact: ContentfulContactConnection;
-  allContentfulContentType: ContentfulContentTypeConnection;
-  allContentfulEntry: ContentfulEntryConnection;
-  allContentfulHello: ContentfulHelloConnection;
-  allContentfulHistory: ContentfulHistoryConnection;
-  allContentfulIcon: ContentfulIconConnection;
-  allContentfulIconSvgTextNode: ContentfulIconSvgTextNodeConnection;
-  allContentfulOss: ContentfulOssConnection;
-  allContentfulOssDetailTextNode: ContentfulOssDetailTextNodeConnection;
-  allContentfulProject: ContentfulProjectConnection;
-  allContentfulProjectDetailTextNode: ContentfulProjectDetailTextNodeConnection;
-  allContentfulQualification: ContentfulQualificationConnection;
-  allContentfulQualificationMap: ContentfulQualificationMapConnection;
-  allContentfulSkillGrpup: ContentfulSkillGrpupConnection;
-  allContentfulSkillMap: ContentfulSkillMapConnection;
-  allContentfulTag: ContentfulTagConnection;
-  allContentfulWhatICanDo: ContentfulWhatICanDoConnection;
-  allDirectory: DirectoryConnection;
-  allFile: FileConnection;
-  allImageSharp: ImageSharpConnection;
-  allLocale: LocaleConnection;
-  allMdx: MdxConnection;
-  allSite: SiteConnection;
-  allSiteBuildMetadata: SiteBuildMetadataConnection;
-  allSiteFunction: SiteFunctionConnection;
-  allSitePage: SitePageConnection;
-  allSitePlugin: SitePluginConnection;
-  contentfulAsset: Maybe<ContentfulAsset>;
-  contentfulBlogPost: Maybe<ContentfulBlogPost>;
-  contentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
-  contentfulCategory: Maybe<ContentfulCategory>;
-  contentfulContact: Maybe<ContentfulContact>;
-  contentfulContentType: Maybe<ContentfulContentType>;
-  contentfulEntry: Maybe<ContentfulEntry>;
-  contentfulHello: Maybe<ContentfulHello>;
-  contentfulHistory: Maybe<ContentfulHistory>;
-  contentfulIcon: Maybe<ContentfulIcon>;
-  contentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
-  contentfulOss: Maybe<ContentfulOss>;
-  contentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
-  contentfulProject: Maybe<ContentfulProject>;
-  contentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
-  contentfulQualification: Maybe<ContentfulQualification>;
-  contentfulQualificationMap: Maybe<ContentfulQualificationMap>;
-  contentfulSkillGrpup: Maybe<ContentfulSkillGrpup>;
-  contentfulSkillMap: Maybe<ContentfulSkillMap>;
-  contentfulTag: Maybe<ContentfulTag>;
-  contentfulWhatICanDo: Maybe<ContentfulWhatICanDo>;
-  directory: Maybe<Directory>;
-  file: Maybe<File>;
-  imageSharp: Maybe<ImageSharp>;
-  locale: Maybe<Locale>;
-  mdx: Maybe<Mdx>;
-  site: Maybe<Site>;
-  siteBuildMetadata: Maybe<SiteBuildMetadata>;
-  siteFunction: Maybe<SiteFunction>;
-  sitePage: Maybe<SitePage>;
-  sitePlugin: Maybe<SitePlugin>;
+  readonly allContentfulAsset: ContentfulAssetConnection;
+  readonly allContentfulBlogPost: ContentfulBlogPostConnection;
+  readonly allContentfulBlogPostContentTextNode: ContentfulBlogPostContentTextNodeConnection;
+  readonly allContentfulCategory: ContentfulCategoryConnection;
+  readonly allContentfulContact: ContentfulContactConnection;
+  readonly allContentfulContentType: ContentfulContentTypeConnection;
+  readonly allContentfulEntry: ContentfulEntryConnection;
+  readonly allContentfulHello: ContentfulHelloConnection;
+  readonly allContentfulHistory: ContentfulHistoryConnection;
+  readonly allContentfulIcon: ContentfulIconConnection;
+  readonly allContentfulIconSvgTextNode: ContentfulIconSvgTextNodeConnection;
+  readonly allContentfulOss: ContentfulOssConnection;
+  readonly allContentfulOssDetailTextNode: ContentfulOssDetailTextNodeConnection;
+  readonly allContentfulProject: ContentfulProjectConnection;
+  readonly allContentfulProjectDetailTextNode: ContentfulProjectDetailTextNodeConnection;
+  readonly allContentfulQualification: ContentfulQualificationConnection;
+  readonly allContentfulQualificationMap: ContentfulQualificationMapConnection;
+  readonly allContentfulSkillGrpup: ContentfulSkillGrpupConnection;
+  readonly allContentfulSkillMap: ContentfulSkillMapConnection;
+  readonly allContentfulTag: ContentfulTagConnection;
+  readonly allContentfulWhatICanDo: ContentfulWhatICanDoConnection;
+  readonly allDirectory: DirectoryConnection;
+  readonly allFile: FileConnection;
+  readonly allImageSharp: ImageSharpConnection;
+  readonly allLocale: LocaleConnection;
+  readonly allMdx: MdxConnection;
+  readonly allSite: SiteConnection;
+  readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
+  readonly allSiteFunction: SiteFunctionConnection;
+  readonly allSitePage: SitePageConnection;
+  readonly allSitePlugin: SitePluginConnection;
+  readonly contentfulAsset: Maybe<ContentfulAsset>;
+  readonly contentfulBlogPost: Maybe<ContentfulBlogPost>;
+  readonly contentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly contentfulCategory: Maybe<ContentfulCategory>;
+  readonly contentfulContact: Maybe<ContentfulContact>;
+  readonly contentfulContentType: Maybe<ContentfulContentType>;
+  readonly contentfulEntry: Maybe<ContentfulEntry>;
+  readonly contentfulHello: Maybe<ContentfulHello>;
+  readonly contentfulHistory: Maybe<ContentfulHistory>;
+  readonly contentfulIcon: Maybe<ContentfulIcon>;
+  readonly contentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
+  readonly contentfulOss: Maybe<ContentfulOss>;
+  readonly contentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
+  readonly contentfulProject: Maybe<ContentfulProject>;
+  readonly contentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
+  readonly contentfulQualification: Maybe<ContentfulQualification>;
+  readonly contentfulQualificationMap: Maybe<ContentfulQualificationMap>;
+  readonly contentfulSkillGrpup: Maybe<ContentfulSkillGrpup>;
+  readonly contentfulSkillMap: Maybe<ContentfulSkillMap>;
+  readonly contentfulTag: Maybe<ContentfulTag>;
+  readonly contentfulWhatICanDo: Maybe<ContentfulWhatICanDo>;
+  readonly directory: Maybe<Directory>;
+  readonly file: Maybe<File>;
+  readonly imageSharp: Maybe<ImageSharp>;
+  readonly locale: Maybe<Locale>;
+  readonly mdx: Maybe<Mdx>;
+  readonly site: Maybe<Site>;
+  readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
+  readonly siteFunction: Maybe<SiteFunction>;
+  readonly sitePage: Maybe<SitePage>;
+  readonly sitePlugin: Maybe<SitePlugin>;
 };
 
 
@@ -17945,16 +17945,16 @@ export type QuerySitePluginArgs = {
 
 /** Remote Interface */
 export type RemoteFile = {
-  filename: Scalars['String'];
-  filesize: Maybe<Scalars['Int']>;
+  readonly filename: Scalars['String'];
+  readonly filesize: Maybe<Scalars['Int']>;
   /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
-  gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
-  height: Maybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  mimeType: Scalars['String'];
-  publicUrl: Scalars['String'];
-  resize: Maybe<RemoteFileResize>;
-  width: Maybe<Scalars['Int']>;
+  readonly gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly mimeType: Scalars['String'];
+  readonly publicUrl: Scalars['String'];
+  readonly resize: Maybe<RemoteFileResize>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 
@@ -17962,13 +17962,13 @@ export type RemoteFile = {
 export type RemoteFileGatsbyImageArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
   backgroundColor: InputMaybe<Scalars['String']>;
-  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  breakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
-  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
   height: InputMaybe<Scalars['Int']>;
   layout?: InputMaybe<RemoteFileLayout>;
-  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder?: InputMaybe<RemoteFilePlaceholder>;
   quality?: InputMaybe<Scalars['Int']>;
   sizes: InputMaybe<Scalars['String']>;
@@ -17979,7 +17979,7 @@ export type RemoteFileGatsbyImageArgs = {
 /** Remote Interface */
 export type RemoteFileResizeArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
   format?: InputMaybe<RemoteFileFormat>;
   height: InputMaybe<Scalars['Int']>;
@@ -18027,32 +18027,32 @@ export enum RemoteFilePlaceholder {
 }
 
 export type RemoteFileResize = {
-  height: Maybe<Scalars['Int']>;
-  src: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 export type RemoteFileResizeFilterInput = {
-  height: InputMaybe<IntQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type Site = Node & {
-  buildTime: Maybe<Scalars['Date']>;
-  children: Array<Node>;
-  graphqlTypegen: Maybe<Scalars['Boolean']>;
-  host: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  jsxImportSource: Maybe<Scalars['String']>;
-  jsxRuntime: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
-  pathPrefix: Maybe<Scalars['String']>;
-  polyfill: Maybe<Scalars['Boolean']>;
-  port: Maybe<Scalars['Int']>;
-  siteMetadata: Maybe<SiteSiteMetadata>;
-  trailingSlash: Maybe<Scalars['String']>;
+  readonly buildTime: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly graphqlTypegen: Maybe<Scalars['Boolean']>;
+  readonly host: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly jsxImportSource: Maybe<Scalars['String']>;
+  readonly jsxRuntime: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly pathPrefix: Maybe<Scalars['String']>;
+  readonly polyfill: Maybe<Scalars['Boolean']>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly trailingSlash: Maybe<Scalars['String']>;
 };
 
 
@@ -18064,11 +18064,11 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteBuildMetadata = Node & {
-  buildTime: Maybe<Scalars['Date']>;
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
+  readonly buildTime: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
 };
 
 
@@ -18080,15 +18080,15 @@ export type SiteBuildMetadataBuildTimeArgs = {
 };
 
 export type SiteBuildMetadataConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteBuildMetadataEdge>;
-  group: Array<SiteBuildMetadataGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteBuildMetadata>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteBuildMetadataEdge>;
+  readonly group: ReadonlyArray<SiteBuildMetadataGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteBuildMetadata>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18119,9 +18119,9 @@ export type SiteBuildMetadataConnectionSumArgs = {
 };
 
 export type SiteBuildMetadataEdge = {
-  next: Maybe<SiteBuildMetadata>;
-  node: SiteBuildMetadata;
-  previous: Maybe<SiteBuildMetadata>;
+  readonly next: Maybe<SiteBuildMetadata>;
+  readonly node: SiteBuildMetadata;
+  readonly previous: Maybe<SiteBuildMetadata>;
 };
 
 export enum SiteBuildMetadataFieldsEnum {
@@ -18222,25 +18222,25 @@ export enum SiteBuildMetadataFieldsEnum {
 }
 
 export type SiteBuildMetadataFilterInput = {
-  buildTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly buildTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type SiteBuildMetadataGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteBuildMetadataEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SiteBuildMetadataGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteBuildMetadata>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteBuildMetadataEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SiteBuildMetadataGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteBuildMetadata>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18271,20 +18271,20 @@ export type SiteBuildMetadataGroupConnectionSumArgs = {
 };
 
 export type SiteBuildMetadataSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SiteConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteEdge>;
-  group: Array<SiteGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Site>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteEdge>;
+  readonly group: ReadonlyArray<SiteGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Site>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18315,9 +18315,9 @@ export type SiteConnectionSumArgs = {
 };
 
 export type SiteEdge = {
-  next: Maybe<Site>;
-  node: Site;
-  previous: Maybe<Site>;
+  readonly next: Maybe<Site>;
+  readonly node: Site;
+  readonly previous: Maybe<Site>;
 };
 
 export enum SiteFieldsEnum {
@@ -18429,46 +18429,46 @@ export enum SiteFieldsEnum {
 }
 
 export type SiteFilterInput = {
-  buildTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  graphqlTypegen: InputMaybe<BooleanQueryOperatorInput>;
-  host: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  jsxImportSource: InputMaybe<StringQueryOperatorInput>;
-  jsxRuntime: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  pathPrefix: InputMaybe<StringQueryOperatorInput>;
-  polyfill: InputMaybe<BooleanQueryOperatorInput>;
-  port: InputMaybe<IntQueryOperatorInput>;
-  siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
-  trailingSlash: InputMaybe<StringQueryOperatorInput>;
+  readonly buildTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly graphqlTypegen: InputMaybe<BooleanQueryOperatorInput>;
+  readonly host: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly jsxImportSource: InputMaybe<StringQueryOperatorInput>;
+  readonly jsxRuntime: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
+  readonly polyfill: InputMaybe<BooleanQueryOperatorInput>;
+  readonly port: InputMaybe<IntQueryOperatorInput>;
+  readonly siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  readonly trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteFunction = Node & {
-  absoluteCompiledFilePath: Scalars['String'];
-  children: Array<Node>;
-  functionRoute: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  matchPath: Maybe<Scalars['String']>;
-  originalAbsoluteFilePath: Scalars['String'];
-  originalRelativeFilePath: Scalars['String'];
-  parent: Maybe<Node>;
-  pluginName: Scalars['String'];
-  relativeCompiledFilePath: Scalars['String'];
+  readonly absoluteCompiledFilePath: Scalars['String'];
+  readonly children: ReadonlyArray<Node>;
+  readonly functionRoute: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly matchPath: Maybe<Scalars['String']>;
+  readonly originalAbsoluteFilePath: Scalars['String'];
+  readonly originalRelativeFilePath: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly pluginName: Scalars['String'];
+  readonly relativeCompiledFilePath: Scalars['String'];
 };
 
 export type SiteFunctionConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteFunctionEdge>;
-  group: Array<SiteFunctionGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteFunction>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteFunctionEdge>;
+  readonly group: ReadonlyArray<SiteFunctionGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteFunction>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18499,9 +18499,9 @@ export type SiteFunctionConnectionSumArgs = {
 };
 
 export type SiteFunctionEdge = {
-  next: Maybe<SiteFunction>;
-  node: SiteFunction;
-  previous: Maybe<SiteFunction>;
+  readonly next: Maybe<SiteFunction>;
+  readonly node: SiteFunction;
+  readonly previous: Maybe<SiteFunction>;
 };
 
 export enum SiteFunctionFieldsEnum {
@@ -18608,31 +18608,31 @@ export enum SiteFunctionFieldsEnum {
 }
 
 export type SiteFunctionFilterInput = {
-  absoluteCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  functionRoute: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  matchPath: InputMaybe<StringQueryOperatorInput>;
-  originalAbsoluteFilePath: InputMaybe<StringQueryOperatorInput>;
-  originalRelativeFilePath: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  pluginName: InputMaybe<StringQueryOperatorInput>;
-  relativeCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly absoluteCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly functionRoute: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly matchPath: InputMaybe<StringQueryOperatorInput>;
+  readonly originalAbsoluteFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly originalRelativeFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pluginName: InputMaybe<StringQueryOperatorInput>;
+  readonly relativeCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteFunctionGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteFunctionEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SiteFunctionGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteFunction>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteFunctionEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SiteFunctionGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteFunction>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18663,22 +18663,22 @@ export type SiteFunctionGroupConnectionSumArgs = {
 };
 
 export type SiteFunctionSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SiteFunctionFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFunctionFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SiteGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SiteGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Site>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SiteGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Site>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18709,29 +18709,29 @@ export type SiteGroupConnectionSumArgs = {
 };
 
 export type SitePage = Node & {
-  children: Array<Node>;
-  component: Scalars['String'];
-  componentChunkName: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  internalComponentName: Scalars['String'];
-  matchPath: Maybe<Scalars['String']>;
-  pageContext: Maybe<Scalars['JSON']>;
-  parent: Maybe<Node>;
-  path: Scalars['String'];
-  pluginCreator: Maybe<SitePlugin>;
+  readonly children: ReadonlyArray<Node>;
+  readonly component: Scalars['String'];
+  readonly componentChunkName: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly internalComponentName: Scalars['String'];
+  readonly matchPath: Maybe<Scalars['String']>;
+  readonly pageContext: Maybe<Scalars['JSON']>;
+  readonly parent: Maybe<Node>;
+  readonly path: Scalars['String'];
+  readonly pluginCreator: Maybe<SitePlugin>;
 };
 
 export type SitePageConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePageEdge>;
-  group: Array<SitePageGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePage>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePageEdge>;
+  readonly group: ReadonlyArray<SitePageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18762,9 +18762,9 @@ export type SitePageConnectionSumArgs = {
 };
 
 export type SitePageEdge = {
-  next: Maybe<SitePage>;
-  node: SitePage;
-  previous: Maybe<SitePage>;
+  readonly next: Maybe<SitePage>;
+  readonly node: SitePage;
+  readonly previous: Maybe<SitePage>;
 };
 
 export enum SitePageFieldsEnum {
@@ -18920,31 +18920,31 @@ export enum SitePageFieldsEnum {
 }
 
 export type SitePageFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  component: InputMaybe<StringQueryOperatorInput>;
-  componentChunkName: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  internalComponentName: InputMaybe<StringQueryOperatorInput>;
-  matchPath: InputMaybe<StringQueryOperatorInput>;
-  pageContext: InputMaybe<JsonQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  path: InputMaybe<StringQueryOperatorInput>;
-  pluginCreator: InputMaybe<SitePluginFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly component: InputMaybe<StringQueryOperatorInput>;
+  readonly componentChunkName: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly internalComponentName: InputMaybe<StringQueryOperatorInput>;
+  readonly matchPath: InputMaybe<StringQueryOperatorInput>;
+  readonly pageContext: InputMaybe<JsonQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly path: InputMaybe<StringQueryOperatorInput>;
+  readonly pluginCreator: InputMaybe<SitePluginFilterInput>;
 };
 
 export type SitePageGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePageEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SitePageGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePage>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePageEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SitePageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18975,36 +18975,36 @@ export type SitePageGroupConnectionSumArgs = {
 };
 
 export type SitePageSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SitePageFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePageFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SitePlugin = Node & {
-  browserAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  nodeAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
-  packageJson: Maybe<Scalars['JSON']>;
-  parent: Maybe<Node>;
-  pluginFilepath: Maybe<Scalars['String']>;
-  pluginOptions: Maybe<Scalars['JSON']>;
-  resolve: Maybe<Scalars['String']>;
-  ssrAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
-  version: Maybe<Scalars['String']>;
+  readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly nodeAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly packageJson: Maybe<Scalars['JSON']>;
+  readonly parent: Maybe<Node>;
+  readonly pluginFilepath: Maybe<Scalars['String']>;
+  readonly pluginOptions: Maybe<Scalars['JSON']>;
+  readonly resolve: Maybe<Scalars['String']>;
+  readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly version: Maybe<Scalars['String']>;
 };
 
 export type SitePluginConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePluginEdge>;
-  group: Array<SitePluginGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePlugin>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePluginEdge>;
+  readonly group: ReadonlyArray<SitePluginGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePlugin>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19035,9 +19035,9 @@ export type SitePluginConnectionSumArgs = {
 };
 
 export type SitePluginEdge = {
-  next: Maybe<SitePlugin>;
-  node: SitePlugin;
-  previous: Maybe<SitePlugin>;
+  readonly next: Maybe<SitePlugin>;
+  readonly node: SitePlugin;
+  readonly previous: Maybe<SitePlugin>;
 };
 
 export enum SitePluginFieldsEnum {
@@ -19146,33 +19146,33 @@ export enum SitePluginFieldsEnum {
 }
 
 export type SitePluginFilterInput = {
-  browserAPIs: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nodeAPIs: InputMaybe<StringQueryOperatorInput>;
-  packageJson: InputMaybe<JsonQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  pluginFilepath: InputMaybe<StringQueryOperatorInput>;
-  pluginOptions: InputMaybe<JsonQueryOperatorInput>;
-  resolve: InputMaybe<StringQueryOperatorInput>;
-  ssrAPIs: InputMaybe<StringQueryOperatorInput>;
-  version: InputMaybe<StringQueryOperatorInput>;
+  readonly browserAPIs: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nodeAPIs: InputMaybe<StringQueryOperatorInput>;
+  readonly packageJson: InputMaybe<JsonQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pluginFilepath: InputMaybe<StringQueryOperatorInput>;
+  readonly pluginOptions: InputMaybe<JsonQueryOperatorInput>;
+  readonly resolve: InputMaybe<StringQueryOperatorInput>;
+  readonly ssrAPIs: InputMaybe<StringQueryOperatorInput>;
+  readonly version: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePluginEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SitePluginGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePlugin>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePluginEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SitePluginGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePlugin>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19203,25 +19203,25 @@ export type SitePluginGroupConnectionSumArgs = {
 };
 
 export type SitePluginSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SitePluginFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePluginFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SiteSiteMetadata = {
-  description: Maybe<Scalars['String']>;
-  siteUrl: Maybe<Scalars['String']>;
-  title: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly siteUrl: Maybe<Scalars['String']>;
+  readonly title: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataFilterInput = {
-  description: InputMaybe<StringQueryOperatorInput>;
-  siteUrl: InputMaybe<StringQueryOperatorInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SiteFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export enum SortOrderEnum {
@@ -19230,50 +19230,50 @@ export enum SortOrderEnum {
 }
 
 export type StringQueryOperatorInput = {
-  eq: InputMaybe<Scalars['String']>;
-  glob: InputMaybe<Scalars['String']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ne: InputMaybe<Scalars['String']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  regex: InputMaybe<Scalars['String']>;
+  readonly eq: InputMaybe<Scalars['String']>;
+  readonly glob: InputMaybe<Scalars['String']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  readonly ne: InputMaybe<Scalars['String']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  readonly regex: InputMaybe<Scalars['String']>;
 };
 
 export type TransformOptions = {
-  cropFocus: InputMaybe<ImageCropFocus>;
-  duotone: InputMaybe<DuotoneGradient>;
-  fit: InputMaybe<ImageFit>;
-  grayscale: InputMaybe<Scalars['Boolean']>;
-  rotate: InputMaybe<Scalars['Int']>;
-  trim: InputMaybe<Scalars['Float']>;
+  readonly cropFocus: InputMaybe<ImageCropFocus>;
+  readonly duotone: InputMaybe<DuotoneGradient>;
+  readonly fit: InputMaybe<ImageFit>;
+  readonly grayscale: InputMaybe<Scalars['Boolean']>;
+  readonly rotate: InputMaybe<Scalars['Int']>;
+  readonly trim: InputMaybe<Scalars['Float']>;
 };
 
 export type WebPOptions = {
-  quality: InputMaybe<Scalars['Int']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
 };
 
 export type ContentfulBlogPostContentTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  content: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulBlogPostContentTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulBlogPostContentTextNodeSys>;
 };
 
 export type ContentfulBlogPostContentTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostContentTextNodeEdge>;
-  group: Array<ContentfulBlogPostContentTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPostContentTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostContentTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulBlogPostContentTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPostContentTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19304,9 +19304,9 @@ export type ContentfulBlogPostContentTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostContentTextNodeEdge = {
-  next: Maybe<ContentfulBlogPostContentTextNode>;
-  node: ContentfulBlogPostContentTextNode;
-  previous: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly next: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly node: ContentfulBlogPostContentTextNode;
+  readonly previous: Maybe<ContentfulBlogPostContentTextNode>;
 };
 
 export enum ContentfulBlogPostContentTextNodeFieldsEnum {
@@ -19523,32 +19523,32 @@ export enum ContentfulBlogPostContentTextNodeFieldsEnum {
 }
 
 export type ContentfulBlogPostContentTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  content: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulBlogPostContentTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostContentTextNodeSysFilterInput>;
 };
 
 export type ContentfulBlogPostContentTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
 };
 
 export type ContentfulBlogPostContentTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostContentTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulBlogPostContentTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPostContentTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostContentTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulBlogPostContentTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPostContentTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19579,41 +19579,41 @@ export type ContentfulBlogPostContentTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostContentTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulBlogPostContentTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulBlogPostContentTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulBlogPostContentTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogPostContentTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulIconSvgTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  svg: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulIconSvgTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly svg: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulIconSvgTextNodeSys>;
 };
 
 export type ContentfulIconSvgTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconSvgTextNodeEdge>;
-  group: Array<ContentfulIconSvgTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIconSvgTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconSvgTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulIconSvgTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIconSvgTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19644,9 +19644,9 @@ export type ContentfulIconSvgTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulIconSvgTextNodeEdge = {
-  next: Maybe<ContentfulIconSvgTextNode>;
-  node: ContentfulIconSvgTextNode;
-  previous: Maybe<ContentfulIconSvgTextNode>;
+  readonly next: Maybe<ContentfulIconSvgTextNode>;
+  readonly node: ContentfulIconSvgTextNode;
+  readonly previous: Maybe<ContentfulIconSvgTextNode>;
 };
 
 export enum ContentfulIconSvgTextNodeFieldsEnum {
@@ -19863,32 +19863,32 @@ export enum ContentfulIconSvgTextNodeFieldsEnum {
 }
 
 export type ContentfulIconSvgTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  svg: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulIconSvgTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly svg: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulIconSvgTextNodeSysFilterInput>;
 };
 
 export type ContentfulIconSvgTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
 };
 
 export type ContentfulIconSvgTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconSvgTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulIconSvgTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIconSvgTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconSvgTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulIconSvgTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIconSvgTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19919,41 +19919,41 @@ export type ContentfulIconSvgTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulIconSvgTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulIconSvgTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulIconSvgTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulIconSvgTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSvgTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulOssDetailTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  detail: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulOssDetailTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly detail: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulOssDetailTextNodeSys>;
 };
 
 export type ContentfulOssDetailTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssDetailTextNodeEdge>;
-  group: Array<ContentfulOssDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOssDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssDetailTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulOssDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOssDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19984,9 +19984,9 @@ export type ContentfulOssDetailTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulOssDetailTextNodeEdge = {
-  next: Maybe<ContentfulOssDetailTextNode>;
-  node: ContentfulOssDetailTextNode;
-  previous: Maybe<ContentfulOssDetailTextNode>;
+  readonly next: Maybe<ContentfulOssDetailTextNode>;
+  readonly node: ContentfulOssDetailTextNode;
+  readonly previous: Maybe<ContentfulOssDetailTextNode>;
 };
 
 export enum ContentfulOssDetailTextNodeFieldsEnum {
@@ -20203,32 +20203,32 @@ export enum ContentfulOssDetailTextNodeFieldsEnum {
 }
 
 export type ContentfulOssDetailTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  detail: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulOssDetailTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly detail: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulOssDetailTextNodeSysFilterInput>;
 };
 
 export type ContentfulOssDetailTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
 };
 
 export type ContentfulOssDetailTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssDetailTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulOssDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOssDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssDetailTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulOssDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOssDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -20259,41 +20259,41 @@ export type ContentfulOssDetailTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulOssDetailTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulOssDetailTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulOssDetailTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulOssDetailTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssDetailTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProjectDetailTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  detail: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulProjectDetailTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly detail: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulProjectDetailTextNodeSys>;
 };
 
 export type ContentfulProjectDetailTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectDetailTextNodeEdge>;
-  group: Array<ContentfulProjectDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProjectDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectDetailTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulProjectDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProjectDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -20324,9 +20324,9 @@ export type ContentfulProjectDetailTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulProjectDetailTextNodeEdge = {
-  next: Maybe<ContentfulProjectDetailTextNode>;
-  node: ContentfulProjectDetailTextNode;
-  previous: Maybe<ContentfulProjectDetailTextNode>;
+  readonly next: Maybe<ContentfulProjectDetailTextNode>;
+  readonly node: ContentfulProjectDetailTextNode;
+  readonly previous: Maybe<ContentfulProjectDetailTextNode>;
 };
 
 export enum ContentfulProjectDetailTextNodeFieldsEnum {
@@ -20543,32 +20543,32 @@ export enum ContentfulProjectDetailTextNodeFieldsEnum {
 }
 
 export type ContentfulProjectDetailTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  detail: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulProjectDetailTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly detail: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulProjectDetailTextNodeSysFilterInput>;
 };
 
 export type ContentfulProjectDetailTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
 };
 
 export type ContentfulProjectDetailTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectDetailTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulProjectDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProjectDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectDetailTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulProjectDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProjectDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -20599,19 +20599,24 @@ export type ContentfulProjectDetailTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulProjectDetailTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulProjectDetailTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulProjectDetailTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulProjectDetailTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectDetailTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type BlogPostDetailFragment = { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> };
+export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
+
+export type BlogPostDetailFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> };
 
 export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
 
@@ -20619,107 +20624,107 @@ export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'sl
 
 export type PortfolioCertificationCardFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
-  & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+  & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
 );
 
 export type PortfolioCertificationDetailFragment = Pick<ContentfulQualification, 'name' | 'date'>;
 
 export type PortfolioCertificationListFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
-  & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+  & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
 );
 
-export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+export type PortfolioHelloContentFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
 export type PortfolioHistoryCardFragment = (
-  Pick<ContentfulHistory, 'node_locale' | 'date' | 'name' | 'subName'>
-  & { icon: Maybe<(
+  Pick<ContentfulHistory, 'date' | 'name' | 'subName'>
+  & { readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
   )> }
 );
 
 export type PortfolioHistoryListFragment = (
-  Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-  & { icon: Maybe<(
+  Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
+  & { readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
   )> }
 );
 
 export type PortfolioOssCardFragment = (
   Pick<ContentfulOss, 'name' | 'startDate' | 'href'>
-  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
   )> }
 );
 
 export type PortfolioOssListFragment = (
   Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
-  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
   )> }
 );
 
 export type PortfolioProjectCardFragment = (
   Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
-  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-  )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
 );
 
 export type PortfolioProjectDetailFragment = (
   Pick<ContentfulProject, 'subName'>
-  & { detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+  & { readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
 );
 
 export type PortfolioProjectListFragment = (
   Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
-  & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-  )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
 );
 
 export type PortfolioSkillCardFragment = (
   Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
-  & { skillGroups: Maybe<Array<Maybe<(
+  & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
     Pick<ContentfulSkillGrpup, 'id' | 'name'>
-    & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+    & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
   )>>> }
 );
 
 export type PortfolioSkillGroupDetailFragment = (
   Pick<ContentfulSkillGrpup, 'name'>
-  & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
 );
 
 export type PortfolioSkillListFragment = (
   Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
-  & { skillGroups: Maybe<Array<Maybe<(
+  & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
     Pick<ContentfulSkillGrpup, 'id' | 'name'>
-    & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+    & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
   )>>> }
 );
 
 export type PortfolioWhatICanDoCardFragment = (
   Pick<ContentfulWhatICanDo, 'name' | 'subName'>
-  & { icon: Maybe<(
+  & { readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
   )> }
 );
 
 export type PortfolioWhatICanDoListFragment = (
   Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
-  & { icon: Maybe<(
+  & { readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
-    & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
   )> }
 );
 
@@ -20727,72 +20732,69 @@ export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'sl
 
 export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
 
-export type SearchDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type SearchDataQuery = { allContentfulBlogPost: { nodes: Array<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
-
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BuildTimeDataQuery = { site: Maybe<Pick<Site, 'buildTime'>> };
+export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
+
+export type UseUrlFragment = Pick<Locale, 'ns' | 'data' | 'language'>;
 
 export type NotFoundPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+export type NotFoundPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type BlogPageQuery = { blogPostList: { nodes: Array<(
+export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'updated' | 'excerpt'>
-      & { thumbnail: Maybe<{ file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-    )> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
+    )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type IndexPageQuery = { links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, whatICanDos: { nodes: Array<(
+export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly whatICanDos: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
-      & { icon: Maybe<(
+      & { readonly icon: Maybe<(
         Pick<ContentfulIcon, 'name'>
-        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, projects: { nodes: Array<(
+    )> }, readonly projects: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
-      & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+      & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
         Pick<ContentfulIcon, 'name'>
-        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-      )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-    )> }, histories: { nodes: Array<(
-      Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-      & { icon: Maybe<(
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+    )> }, readonly histories: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
+      & { readonly icon: Maybe<(
         Pick<ContentfulIcon, 'name'>
-        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, osses: { nodes: Array<(
+    )> }, readonly osses: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
-      & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
+      & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
         Pick<ContentfulIcon, 'name'>
-        & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, skills: { nodes: Array<(
+    )> }, readonly skills: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
-      & { skillGroups: Maybe<Array<Maybe<(
+      & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
         Pick<ContentfulSkillGrpup, 'id' | 'name'>
-        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+        & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
       )>>> }
-    )> }, certification: { nodes: Array<(
+    )> }, readonly certification: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
-      & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
-    )> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+    )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];
@@ -20800,16 +20802,16 @@ export type BlogPostPageQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostPageQuery = { post: Maybe<(
+export type BlogPostPageQuery = { readonly post: Maybe<(
     Pick<ContentfulBlogPost, 'title' | 'excerpt' | 'created' | 'updated'>
-    & { category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
+    & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
       Pick<ContentfulTag, 'name'>
-      & { blog_post: Maybe<Array<Maybe<(
+      & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(
         Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
         & { createdDateTime: ContentfulBlogPost['created'] }
       )>>> }
-    )>>>, thumbnail: Maybe<(
+    )>>>, readonly thumbnail: Maybe<(
       Pick<ContentfulAsset, 'title'>
-      & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    )>, content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-  )>, links: { nodes: Array<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      & { readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+    )>, readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };

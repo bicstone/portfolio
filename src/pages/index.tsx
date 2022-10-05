@@ -15,14 +15,14 @@ import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
-import { PortfolioCertificationList } from "@/features/PortfolioCertification/PortfolioCertificationList";
-import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
-import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
-import { PortfolioOssList } from "@/features/PortfolioOss/PortfolioOssList";
-import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
-import { PortfolioSkillList } from "@/features/PortfolioSkill/PortfolioSkillList";
-import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+import siteMetaData from "@/constants/siteMetaData";
+import { CertificationList } from "@/features/PortfolioCertification";
+import { HelloContent } from "@/features/PortfolioHello";
+import { HistoryList } from "@/features/PortfolioHistory";
+import { OssList } from "@/features/PortfolioOss";
+import { ProjectList } from "@/features/PortfolioProject";
+import { SkillList } from "@/features/PortfolioSkill";
+import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
@@ -94,23 +94,22 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 };
 
 const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const siteMetadata = useSiteMetadata();
   const { t, language } = useI18next();
   const { currentLangUrl } = useUrl();
 
   return (
     <>
       <GatsbySeo
-        title={siteMetadata.title}
-        description={siteMetadata.description}
+        title={siteMetaData.title}
+        description={siteMetaData.description}
         openGraph={{
           type: "profile",
-          title: siteMetadata.title,
-          description: siteMetadata.description,
+          title: siteMetaData.title,
+          description: siteMetaData.description,
           images: [
             {
-              url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
-              alt: siteMetadata.title,
+              url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+              alt: siteMetaData.title,
             },
           ],
           url: currentLangUrl,
@@ -118,33 +117,33 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         }}
       />
       <LogoJsonLd
-        url={siteMetadata.siteUrl}
-        logo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
+        url={siteMetaData.siteUrl}
+        logo={`${siteMetaData.siteUrl}${siteMetaData.image}`}
         defer
       />
       <PaddingContainer maxWidth="lg">
-        <PortfolioHello links={data.links.nodes} />
+        <HelloContent links={data.links.nodes} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
-        <PortfolioWhatICanDoList whatICanDos={data.whatICanDos.nodes} />
+        <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </Section>
       <Section title={t("home.projects-title")}>
-        <PortfolioProjectList projects={data.projects.nodes} />
+        <ProjectList projects={data.projects.nodes} />
       </Section>
       <Section title={t("home.histories-title")}>
-        <PortfolioHistoryList histories={data.histories.nodes} />
+        <HistoryList histories={data.histories.nodes} />
       </Section>
       <Section title={t("home.osses-title")} help={t("home.osses-help")}>
-        <PortfolioOssList osses={data.osses.nodes} />
+        <OssList osses={data.osses.nodes} />
       </Section>
       <Section title={t("home.skills-title")} help={t("home.skills-help")}>
-        <PortfolioSkillList skills={data.skills.nodes} />
+        <SkillList skills={data.skills.nodes} />
       </Section>
       <Section
         title={t("home.qualifications-title")}
         help={t("home.qualifications-help")}
       >
-        <PortfolioCertificationList certifications={data.certification.nodes} />
+        <CertificationList certifications={data.certification.nodes} />
       </Section>
     </>
   );
@@ -156,7 +155,7 @@ export const query = graphql`
   query IndexPage($language: String!) {
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
       nodes {
-        ...PortfolioHello
+        ...PortfolioHelloContent
       }
     }
     whatICanDos: allContentfulWhatICanDo(
@@ -198,9 +197,7 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
-          ns
-          data
-          language
+          ...UseUrl
         }
       }
     }

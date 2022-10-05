@@ -14,7 +14,7 @@ import type { PortfolioOssCardFragment } from "@/generated/graphqlTypes";
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
-export const PortfolioOssCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioOssCard on ContentfulOss {
     name
     tags {
@@ -31,28 +31,25 @@ export const PortfolioOssCardQuery = graphql`
   }
 `;
 
-export const PortfolioOssCard = (props: {
+export const OssCard = (props: {
   oss: PortfolioOssCardFragment;
 }): JSX.Element => {
+  const { oss } = props;
+
   const startYear = useMemo(() => {
-    return formatDateTime(props.oss.startDate, "yyyy/MM");
-  }, [props.oss.startDate]);
+    return formatDateTime(oss.startDate, "yyyy/MM");
+  }, [oss.startDate]);
 
   return (
     <Grid item xs={12} sm={6} md={4} component="section">
       <Card>
         <CardActionArea
-          title={props.oss.name}
-          href={props.oss.href}
+          title={oss.name}
+          href={oss.href}
           rel="external noreferrer noopener"
         >
           <CardHeader
-            avatar={
-              <SvgAvatar
-                name={props.oss.icon.name}
-                svg={props.oss.icon.svg.svg}
-              />
-            }
+            avatar={<SvgAvatar name={oss.icon.name} svg={oss.icon.svg.svg} />}
             title={
               <>
                 <Typography
@@ -63,13 +60,13 @@ export const PortfolioOssCard = (props: {
                   {startYear}～
                 </Typography>
                 <Typography component="h2" variant="h6">
-                  {props.oss.name}
+                  {oss.name}
                 </Typography>
               </>
             }
             subheader={
               <Typography variant="body2" component="div" color="textSecondary">
-                {props.oss.tags.map((tag) => (
+                {oss.tags.map((tag) => (
                   <Chip
                     variant="outlined"
                     size="small"

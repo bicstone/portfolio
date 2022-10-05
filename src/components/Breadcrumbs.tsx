@@ -6,15 +6,16 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
 
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+import siteMetaData from "@/constants/siteMetaData";
 
 export const Breadcrumbs = (
   props: {
     title: string;
   } & MuiBreadcrumbsProps
 ): JSX.Element => {
+  const { title, ...MuiBreadcrumbsProps } = props;
+
   const { t } = useI18next();
-  const siteMetadata = useSiteMetadata();
   const location = useLocation();
   const isBlogPostList = location.pathname === withPrefix("/blog");
 
@@ -23,10 +24,10 @@ export const Breadcrumbs = (
       separator={<NavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
       css={{ wordBreak: "break-all" }}
-      {...props}
+      {...MuiBreadcrumbsProps}
     >
       <Link component={RouterLink} color="inherit" to="/">
-        <Typography variant="body2">{siteMetadata.title}</Typography>
+        <Typography variant="body2">{siteMetaData.title}</Typography>
       </Link>
       {!isBlogPostList && (
         <Link component={RouterLink} color="inherit" to="/blog">
@@ -34,7 +35,7 @@ export const Breadcrumbs = (
         </Link>
       )}
       <Typography variant="body2" color="text.primary">
-        {props.title}
+        {title}
       </Typography>
     </MuiBreadcrumbs>
   );

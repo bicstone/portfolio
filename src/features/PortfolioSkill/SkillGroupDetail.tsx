@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 
 import type { PortfolioSkillGroupDetailFragment } from "@/generated/graphqlTypes";
 
-export const PortfolioSkillGroupDetailQuery = graphql`
+export const query = graphql`
   fragment PortfolioSkillGroupDetail on ContentfulSkillGrpup {
     name
     skills {
@@ -14,13 +14,15 @@ export const PortfolioSkillGroupDetailQuery = graphql`
   }
 `;
 
-export const PortfolioSkillGroupDetail = (props: {
+export const SkillGroupDetail = (props: {
   skillGroup: PortfolioSkillGroupDetailFragment;
 }): JSX.Element => {
+  const { skillGroup } = props;
+
   return (
     <>
       <Typography component="h3" variant="subtitle1" gutterBottom>
-        {props.skillGroup.name}
+        {skillGroup.name}
       </Typography>
       <ul
         css={(theme) => ({
@@ -33,7 +35,7 @@ export const PortfolioSkillGroupDetail = (props: {
           padding: 0,
         })}
       >
-        {props.skillGroup.skills.map((skill) => (
+        {skillGroup.skills.map((skill) => (
           <li key={skill.id}>
             <Chip variant="outlined" size="small" label={skill.name} />
           </li>

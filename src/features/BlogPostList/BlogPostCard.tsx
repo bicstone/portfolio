@@ -2,18 +2,23 @@ import {
   Update as UpdateIcon,
   AccessTime as AccessTimeIcon,
 } from "@mui/icons-material";
-import { Typography, CardActionArea, Card, Collapse } from "@mui/material";
+import {
+  Typography,
+  CardActionArea,
+  Card,
+  Collapse,
+  useMediaQuery,
+} from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useMemo } from "react";
 
 import type { BlogPostCardFragment } from "@/generated/graphqlTypes";
-import type { Breakpoint } from "@mui/material";
 
-import { useBreakPoint } from "@/hooks/useBreakPoint";
+import { useTheme } from "@/hooks/useTheme";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
-export const BlogPostCardQuery = graphql`
+export const query = graphql`
   fragment BlogPostCard on ContentfulBlogPost {
     title
     slug
@@ -26,11 +31,11 @@ export const BlogPostCardQuery = graphql`
 export const BlogPostCard = (props: {
   post: BlogPostCardFragment;
 }): JSX.Element => {
-  const breakpoints: Breakpoint[] = ["xs"];
-  const width = useBreakPoint();
-  const mobile = breakpoints.includes(width);
+  const { post } = props;
 
-  const post = props.post;
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("xs"));
+
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
     [post.created]

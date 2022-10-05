@@ -10,11 +10,13 @@ import { Header } from "@/layouts/Header";
 export const WrapPageElement = (props: {
   children: ReactNode;
 }): JSX.Element => {
+  const { children } = props;
+
   return (
     <>
       <Header />
       <main role="main" css={(theme) => ({ marginTop: theme.spacing(8) })}>
-        {props.children}
+        {children}
       </main>
       <Footer />
     </>

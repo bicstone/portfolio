@@ -1,24 +1,26 @@
 import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { PortfolioWhatICanDoCard } from "./PortfolioWhatICanDoCard";
+import { WhatICanDoCard } from "./WhatICanDoCard";
 
 import type { PortfolioWhatICanDoListFragment } from "@/generated/graphqlTypes";
 
-export const PortfolioWhatICanDoListQuery = graphql`
+export const query = graphql`
   fragment PortfolioWhatICanDoList on ContentfulWhatICanDo {
     id
     ...PortfolioWhatICanDoCard
   }
 `;
 
-export const PortfolioWhatICanDoList = (props: {
-  whatICanDos: PortfolioWhatICanDoListFragment[];
+export const WhatICanDoList = (props: {
+  whatICanDos: readonly PortfolioWhatICanDoListFragment[];
 }): JSX.Element => {
+  const { whatICanDos } = props;
+
   return (
     <Grid container spacing={2} alignItems="center">
-      {props.whatICanDos.map((whatICanDo) => (
-        <PortfolioWhatICanDoCard key={whatICanDo.id} whatICanDo={whatICanDo} />
+      {whatICanDos.map((whatICanDo) => (
+        <WhatICanDoCard key={whatICanDo.id} whatICanDo={whatICanDo} />
       ))}
     </Grid>
   );

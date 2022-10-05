@@ -8,7 +8,7 @@ import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
-export const PortfolioHistoryCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioHistoryCard on ContentfulHistory {
     date
     name
@@ -22,13 +22,16 @@ export const PortfolioHistoryCardQuery = graphql`
   }
 `;
 
-export const PortfolioHistoryCardContent = (props: {
+export const HistoryCardContent = (props: {
   history: PortfolioHistoryCardFragment;
 }): JSX.Element => {
+  const { history } = props;
+
   const { t } = useI18next();
+
   const year = useMemo(() => {
-    return formatDateTime(props.history.date, "yyyy");
-  }, [props.history.date]);
+    return formatDateTime(history.date, "yyyy");
+  }, [history.date]);
 
   return (
     <>
@@ -36,10 +39,7 @@ export const PortfolioHistoryCardContent = (props: {
       <Divider css={{ borderBottomWidth: 1 }} />
       <CardHeader
         avatar={
-          <SvgAvatar
-            name={props.history.icon.name}
-            svg={props.history.icon.svg.svg}
-          />
+          <SvgAvatar name={history.icon.name} svg={history.icon.svg.svg} />
         }
         title={
           <>
@@ -47,13 +47,13 @@ export const PortfolioHistoryCardContent = (props: {
               {t("histories.date", { date: year })}
             </Typography>
             <Typography component="h2" variant="h6">
-              {props.history.name}
+              {history.name}
             </Typography>
           </>
         }
         subheader={
           <Typography variant="body2" color="text.secondary" component="div">
-            {props.history.subName}
+            {history.subName}
           </Typography>
         }
         disableTypography

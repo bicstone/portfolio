@@ -9,9 +9,12 @@ import { isDefined } from "@/utils/typeguard";
 export const LinkCard = (
   props: AnchorHTMLAttributes<HTMLAnchorElement>
 ): JSX.Element => {
-  if (!isDefined(props.title) || !isDefined(props.href)) {
+  const { title, href } = props;
+
+  if (!isDefined(title) || !isDefined(href)) {
     captureException(new Error(`LinkCard must provide both title and href`));
   }
+
   return (
     <Card
       component="figure"
@@ -26,7 +29,7 @@ export const LinkCard = (
         <CardHeader
           title={
             <Typography variant="subtitle1" css={{ wordBreak: "break-all" }}>
-              {props.title}
+              {title}
             </Typography>
           }
           subheader={
@@ -48,7 +51,7 @@ export const LinkCard = (
                   wordBreak: "normal",
                 }}
               >
-                {props.href}
+                {href}
               </div>
             </Typography>
           }

@@ -4,7 +4,7 @@ import { BlogPostCard } from "./BlogPostCard";
 
 import type { BlogPostListFragment } from "@/generated/graphqlTypes";
 
-export const BlogPostListQuery = graphql`
+export const query = graphql`
   fragment BlogPostList on ContentfulBlogPost {
     id
     ...BlogPostCard
@@ -12,11 +12,13 @@ export const BlogPostListQuery = graphql`
 `;
 
 export const BlogPostList = (props: {
-  blogPostList: BlogPostListFragment[];
+  blogPostList: readonly BlogPostListFragment[];
 }): JSX.Element => {
+  const { blogPostList } = props;
+
   return (
     <>
-      {props.blogPostList.map((post) => (
+      {blogPostList.map((post) => (
         <BlogPostCard key={post.id} post={post} />
       ))}
     </>

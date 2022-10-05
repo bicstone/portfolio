@@ -6,23 +6,25 @@ import type { PortfolioCertificationDetailFragment } from "@/generated/graphqlTy
 
 import { formatDateTime } from "@/utils/format";
 
-export const PortfolioCertificationDetailQuery = graphql`
+export const query = graphql`
   fragment PortfolioCertificationDetail on ContentfulQualification {
     name
     date
   }
 `;
 
-export const PortfolioCertificationDetail = (props: {
+export const CertificationDetail = (props: {
   certification: PortfolioCertificationDetailFragment;
 }): JSX.Element => {
+  const { certification } = props;
+
   const date = useMemo(() => {
-    return formatDateTime(props.certification.date, "yyyy/MM");
-  }, [props.certification.date]);
+    return formatDateTime(certification.date, "yyyy/MM");
+  }, [certification.date]);
 
   return (
     <ListItem>
-      <ListItemText primary={props.certification.name} secondary={date} />
+      <ListItemText primary={certification.name} secondary={date} />
     </ListItem>
   );
 };

@@ -11,9 +11,9 @@ import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { BlogPostList } from "@/features/BlogPostList/BlogPostList";
+import siteMetaData from "@/constants/siteMetaData";
+import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { Head } from "@/layouts/Head";
 
 export const query = graphql`
@@ -37,9 +37,7 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
-          ns
-          data
-          language
+          ...UseUrl
         }
       }
     }
@@ -51,9 +49,8 @@ export { Head };
 const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
   const { t, path } = useI18next();
-  const siteMetadata = useSiteMetadata();
   const buildTime = useBuildTime();
-  const title = `${t("blog.title")} - ${siteMetadata.title}`;
+  const title = `${t("blog.title")} - ${siteMetaData.title}`;
 
   return (
     <>
@@ -85,14 +82,14 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
       {/* TODO: Remove Gatsby SEO <!-- */}
       <GatsbySeo
         title={title}
-        description={siteMetadata.description}
+        description={siteMetaData.description}
         openGraph={{
           type: "profile",
           title,
-          description: siteMetadata.description,
+          description: siteMetaData.description,
           images: [
             {
-              url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
+              url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
               alt: title,
             },
           ],
@@ -100,22 +97,22 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
       />
       <BlogJsonLd
         authorType="Person"
-        authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
-        url={`${siteMetadata.siteUrl}${path}`}
+        authorName={`${siteMetaData.lastName} ${siteMetaData.firstName}`}
+        url={`${siteMetaData.siteUrl}${path}`}
         title={title}
-        headline={siteMetadata.description}
+        headline={siteMetaData.description}
         datePublished={buildTime}
         dateModified={buildTime}
-        description={siteMetadata.description}
-        images={[`${siteMetadata.siteUrl}${siteMetadata.image}`]}
-        publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
-        publisherName={siteMetadata.title}
+        description={siteMetaData.description}
+        images={[`${siteMetaData.siteUrl}${siteMetaData.image}`]}
+        publisherLogo={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        publisherName={siteMetaData.title}
         overrides={{
           "@type": "Blog",
           author: {
             "@type": "Person",
-            name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
-            url: siteMetadata.siteUrl,
+            name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
+            url: siteMetaData.siteUrl,
           },
         }}
         posts={blogPostList.map((node) => ({
@@ -129,13 +126,13 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
         itemListElements={[
           {
             position: 1,
-            name: siteMetadata.title,
-            item: `${siteMetadata.siteUrl}/`,
+            name: siteMetaData.title,
+            item: `${siteMetaData.siteUrl}/`,
           },
           {
             position: 2,
             name: t("blog.title"),
-            item: `${siteMetadata.siteUrl}/blog`,
+            item: `${siteMetaData.siteUrl}/blog`,
           },
         ]}
         defer

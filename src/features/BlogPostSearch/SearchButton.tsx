@@ -1,5 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, Dialog, useTheme, useMediaQuery } from "@mui/material";
+import { Button, Dialog, useMediaQuery } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
@@ -7,11 +7,11 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 import { SearchModal } from "./SearchModal";
 
-export interface SearchProps {
-  isExpanded: boolean;
-}
+import { useTheme } from "@/hooks/useTheme";
 
-export const Search = ({ isExpanded }: SearchProps): JSX.Element => {
+export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
+  const { isExpanded } = props;
+
   const { t } = useI18next();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export const Search = ({ isExpanded }: SearchProps): JSX.Element => {
   });
 
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
@@ -49,7 +49,7 @@ export const Search = ({ isExpanded }: SearchProps): JSX.Element => {
       </Button>
       {isOpen &&
         createPortal(
-          <Dialog onClose={handleClose} open={isOpen} fullScreen={fullScreen}>
+          <Dialog onClose={handleClose} open={isOpen} fullScreen={mobile}>
             <SearchModal onClose={handleClose} />
           </Dialog>,
           document.body

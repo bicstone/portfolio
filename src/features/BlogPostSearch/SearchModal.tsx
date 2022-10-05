@@ -9,44 +9,35 @@ import {
   DialogTitle,
   Divider,
   ListItem,
+  Alert,
+  useMediaQuery,
 } from "@mui/material";
-import { useStaticQuery, graphql, Link as RouterLink } from "gatsby";
+import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useMemo, useTransition, useId } from "react";
 
 import { useSearch } from "./useSearch";
 
-import type { SearchDataQuery } from "@/generated/graphqlTypes";
 import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
 
+import { useTheme } from "@/hooks/useTheme";
 import {
   convertHiraganaToKatakana,
   convertKatakanaToHiragana,
 } from "@/utils/convert";
+import { isDefined } from "@/utils/typeguard";
 
-const blogPostListQuery = graphql`
-  query SearchData {
-    allContentfulBlogPost(sort: { fields: created, order: DESC }) {
-      nodes {
-        title
-        slug
-        excerpt
-      }
-    }
-  }
-`;
+export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
+  const { onClose } = props;
 
-export interface SearchModalProps {
-  onClose: () => void;
-}
-
-export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
   const { t } = useI18next();
-  const [, startTransition] = useTransition();
+  const [filtering, startTransition] = useTransition();
   const [inputValue, setInputValue] = useState("");
   const [inputValueSync, setInputValueSync] = useState("");
   const listId = useId();
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
@@ -56,12 +47,8 @@ export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
     });
   };
 
-  const blogPostList =
-    useStaticQuery<SearchDataQuery>(blogPostListQuery).allContentfulBlogPost
-      .nodes;
-
   const keyword: Fuse.Expression = useMemo(() => {
-    // TODO: Incorrect typescript type inference
+    // Incorrect typescript type inference
     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
     return {
       $or: [
@@ -75,22 +62,16 @@ export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
     } as { $or: Array<Record<string, string>> };
   }, [inputValue]);
 
-  const result = useSearch({
-    list: blogPostList,
-    keys: ["title", "excerpt"],
+  const { result, fetching, error } = useSearch({
     keyword,
-    options: {
-      ignoreLocation: true,
-      findAllMatches: true,
-    },
   });
 
   return (
     <div
       css={{
-        width: 600,
+        width: mobile ? "100%" : 600,
         maxWidth: "100%",
-        height: 500,
+        height: mobile ? "100%" : 500,
         maxHeight: "100%",
         display: "flex",
         overflow: "hidden",
@@ -129,22 +110,30 @@ export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
           ),
         }}
         inputProps={{
-          autocomplete: "off",
+          autoComplete: "off",
           "aria-controls": listId,
-          enterkeyhint: t("search.title"),
+          enterKeyHint: t("search.title"),
         }}
         onChange={handleChange}
         css={(theme) => ({ padding: theme.spacing(0, 3) })}
       />
       <Divider css={(theme) => ({ margin: theme.spacing(2, -3, 0, -3) })} />
-      <List role="listbox" id={listId} dense css={{ overflowY: "auto" }}>
-        {result.map((post) => (
-          <ListItem key={post.refIndex} role="option">
-            <ListItemButton component={RouterLink} to={`/${post.item.slug}`}>
-              <ListItemText primary={post.item.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+      <List
+        role="listbox"
+        id={listId}
+        dense
+        css={{ overflowY: "auto" }}
+        aria-busy={fetching || filtering}
+      >
+        {error && <Alert severity="error">{t("search.error")}</Alert>}
+        {isDefined(result) &&
+          result.map((post) => (
+            <ListItem key={post.refIndex} role="option">
+              <ListItemButton component={RouterLink} to={`/${post.item.slug}`}>
+                <ListItemText primary={post.item.title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
     </div>
   );

@@ -54,6 +54,13 @@
     "@typescript-eslint/consistent-type-imports": "error",
     "@typescript-eslint/consistent-type-exports": "error",
     // Disabled for guarding in Typescript.
-    "react/no-unknown-property": "off"
+    "react/no-unknown-property": "off",
+    // Feature should be imported from the index.ts file
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@/features/*/*"]
+      }
+    ]
   }
 }
