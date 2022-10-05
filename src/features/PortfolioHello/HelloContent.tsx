@@ -6,7 +6,7 @@ import { useState } from "react";
 import { FukkiretaAnimationSvgIcon } from "./FukkiretaAnimationSvgIcon";
 import { SocialLinks } from "./SocialLinks";
 
-import type { PortfolioHelloFragment } from "@/generated/graphqlTypes";
+import type { PortfolioHelloContentFragment } from "@/generated/graphqlTypes";
 
 import siteMetaData from "@/constants/siteMetaData";
 
@@ -17,7 +17,7 @@ export const query = graphql`
 `;
 
 export const HelloContent = (props: {
-  links: readonly PortfolioHelloFragment[];
+  links: readonly PortfolioHelloContentFragment[];
 }): JSX.Element => {
   const { links } = props;
 
