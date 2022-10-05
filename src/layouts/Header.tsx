@@ -21,7 +21,7 @@ import { Link as RouterLink, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 import siteMetaData from "@/constants/siteMetaData";
-import { SearchButton } from "@/features/BlogPostSearch/SearchButton";
+import { SearchButton } from "@/features/BlogPostSearch";
 
 /**
  * Header Layout

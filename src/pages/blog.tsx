@@ -12,7 +12,7 @@ import type { PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
-import { BlogPostList } from "@/features/BlogPostList/BlogPostList";
+import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { Head } from "@/layouts/Head";
 

@@ -1,5 +1,6 @@
 import { captureException } from "@sentry/gatsby";
 import Fuse from "fuse.js";
+import { withPrefix } from "gatsby";
 import { useEffect, useState } from "react";
 
 import {
@@ -40,10 +41,12 @@ export const useSearch = (props: {
 
   useEffect(() => {
     const fetchBlogPostList = fetch(
-      `${siteMetaData.siteUrl}/${BLOG_POST_LIST_JSON_FILENAME}`
+      `${siteMetaData.siteUrl}/${withPrefix(BLOG_POST_LIST_JSON_FILENAME)}`
     ).then(async (response) => await response.json());
     const fetchBlogPostListIndex = fetch(
-      `${siteMetaData.siteUrl}/${BLOG_POST_LIST_INDEX_JSON_FILENAME}`
+      `${siteMetaData.siteUrl}/${withPrefix(
+        BLOG_POST_LIST_INDEX_JSON_FILENAME
+      )}`
     ).then(async (response) => await response.json());
 
     Promise.all([fetchBlogPostList, fetchBlogPostListIndex])

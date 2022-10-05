@@ -17,9 +17,9 @@ import type { PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
-import { BlogPostDetail } from "@/features/BlogPostDetail/BlogPostDetail";
-import { HelloContent } from "@/features/PortfolioHello/HelloContent";
-import { RelatedBlogPostList } from "@/features/RelatedBlogPostList/RelatedBlogPostList";
+import { BlogPostDetail } from "@/features/BlogPostDetail";
+import { HelloContent } from "@/features/PortfolioHello";
+import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
 import { formatDateTime } from "@/utils/format";
