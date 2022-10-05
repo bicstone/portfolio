@@ -155,7 +155,7 @@ export const query = graphql`
   query IndexPage($language: String!) {
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
       nodes {
-        ...PortfolioHello
+        ...PortfolioHelloContent
       }
     }
     whatICanDos: allContentfulWhatICanDo(

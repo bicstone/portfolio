@@ -1,10 +1,11 @@
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { useState, useEffect } from "react";
 
 import type { Accordion, Theme } from "@mui/material";
 import type { Breakpoint } from "@mui/material/styles";
 import type { ReactComponentElement } from "react";
 
+import { useTheme } from "@/hooks/useTheme";
 import { isDefined } from "@/utils/typeguard";
 
 export interface CollapseResponsiveControllerProps {

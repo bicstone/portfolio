@@ -8,13 +8,13 @@ import {
   Card,
   Collapse,
   useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useMemo } from "react";
 
 import type { BlogPostCardFragment } from "@/generated/graphqlTypes";
 
+import { useTheme } from "@/hooks/useTheme";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 

@@ -7,9 +7,7 @@ import { useMemo } from "react";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
-export const useThemes = (): {
-  theme: Omit<Theme, "palette"> & CssVarsTheme;
-} => {
+export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
   const defaultTheme = useMemo(() => createTheme(), []);
   const theme = useMemo(() => {
     return createExtendTheme({
@@ -88,5 +86,5 @@ export const useThemes = (): {
     });
   }, [defaultTheme]);
 
-  return { theme };
+  return theme;
 };

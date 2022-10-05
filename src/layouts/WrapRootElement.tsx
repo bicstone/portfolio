@@ -7,7 +7,7 @@ import BackgroundImage from "./background.svg";
 
 import type { ReactNode } from "react";
 
-import { useThemes } from "@/hooks/useThemes";
+import { useTheme } from "@/hooks/useTheme";
 
 interface WrapRootElementProps {
   children: ReactNode;
@@ -20,7 +20,7 @@ interface WrapRootElementProps {
 export const WrapRootElement = ({
   children,
 }: WrapRootElementProps): JSX.Element => {
-  const { theme } = useThemes();
+  const theme = useTheme();
 
   return (
     <HelmetProvider>

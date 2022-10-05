@@ -13,7 +13,6 @@ import {
   Button,
   IconButton,
   useColorScheme,
-  useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { useLocation } from "@reach/router";
@@ -22,6 +21,7 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 
 import siteMetaData from "@/constants/siteMetaData";
 import { SearchButton } from "@/features/BlogPostSearch";
+import { useTheme } from "@/hooks/useTheme";
 
 /**
  * Header Layout

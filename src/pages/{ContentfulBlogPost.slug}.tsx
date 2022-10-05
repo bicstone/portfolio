@@ -51,7 +51,7 @@ export const query = graphql`
     }
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
       nodes {
-        ...PortfolioHello
+        ...PortfolioHelloContent
       }
     }
     # gatsby-plugin-react-i18next

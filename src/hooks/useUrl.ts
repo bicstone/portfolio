@@ -5,9 +5,9 @@ import { useMemo, useCallback } from "react";
  * return current URL
  */
 export const useUrl = (): {
-  currentLangUrl: string;
-  defaultLangUrl: string;
-  createUrlWithLang: (lng: string) => string;
+  readonly currentLangUrl: string;
+  readonly defaultLangUrl: string;
+  readonly createUrlWithLang: (lng: string) => string;
 } => {
   const {
     language,
@@ -38,5 +38,5 @@ export const useUrl = (): {
     currentLangUrl,
     defaultLangUrl,
     createUrlWithLang,
-  };
+  } as const;
 };

@@ -10,7 +10,6 @@ import {
   Divider,
   ListItem,
   Alert,
-  useTheme,
   useMediaQuery,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
@@ -22,6 +21,7 @@ import { useSearch } from "./useSearch";
 import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
 
+import { useTheme } from "@/hooks/useTheme";
 import {
   convertHiraganaToKatakana,
   convertKatakanaToHiragana,

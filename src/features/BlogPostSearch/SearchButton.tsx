@@ -1,11 +1,13 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { Button, Dialog, useTheme, useMediaQuery } from "@mui/material";
+import { Button, Dialog, useMediaQuery } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { SearchModal } from "./SearchModal";
+
+import { useTheme } from "@/hooks/useTheme";
 
 export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
   const { isExpanded } = props;
