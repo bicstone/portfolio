@@ -21,9 +21,9 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { Breakpoint } from "@mui/material";
 
+import siteMetaData from "@/constants/siteMetaData";
 import { SearchButton } from "@/features/BlogPostSearch/SearchButton";
 import { useBreakPoint } from "@/hooks/useBreakPoint";
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 
 /**
  * Header Layout
@@ -36,7 +36,6 @@ export const Header = (): JSX.Element => {
     disableHysteresis: true,
     threshold: 0,
   });
-  const siteMetaData = useSiteMetadata();
   const width = useBreakPoint();
   const expandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
   const isExpanded = expandedBreakpoints.includes(width);

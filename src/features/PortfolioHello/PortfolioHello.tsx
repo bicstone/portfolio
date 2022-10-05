@@ -8,7 +8,7 @@ import { SocialLinks } from "./SocialLinks";
 
 import type { PortfolioHelloFragment } from "@/generated/graphqlTypes";
 
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+import siteMetaData from "@/constants/siteMetaData";
 
 export const PortfolioHelloQuery = graphql`
   fragment PortfolioHello on ContentfulHello {
@@ -20,7 +20,6 @@ export const PortfolioHello = (props: {
   links: readonly PortfolioHelloFragment[];
 }): JSX.Element => {
   const { t } = useTranslation();
-  const siteMetaData = useSiteMetadata();
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   return (

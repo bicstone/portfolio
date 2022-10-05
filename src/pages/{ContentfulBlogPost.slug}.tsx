@@ -16,10 +16,10 @@ import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostDetail } from "@/features/BlogPostDetail/BlogPostDetail";
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList/RelatedBlogPostList";
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
 import { formatDateTime } from "@/utils/format";
@@ -73,11 +73,10 @@ export const BlogPostPage = ({
   data,
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const { t, path, language } = useI18next();
-  const siteMetadata = useSiteMetadata();
   const { currentLangUrl } = useUrl();
 
   const post = data.post;
-  const title = `${post.title} - ${siteMetadata.title}`;
+  const title = `${post.title} - ${siteMetaData.title}`;
 
   const relatedPosts = useMemo(() => {
     const posts = post.tags.flatMap((tag) => tag.blog_post);
@@ -205,7 +204,7 @@ export const BlogPostPage = ({
           article: {
             publishedTime: post.created,
             modifiedTime: post.updated,
-            authors: [siteMetadata.siteUrl],
+            authors: [siteMetaData.siteUrl],
             section: post.category.name,
             tags: post.tags.map((v) => v.name),
           },
@@ -215,8 +214,8 @@ export const BlogPostPage = ({
       />
       <BlogPostJsonLd
         authorType="Person"
-        authorName={`${siteMetadata.lastName} ${siteMetadata.firstName}`}
-        url={`${siteMetadata.siteUrl}${path}`}
+        authorName={`${siteMetaData.lastName} ${siteMetaData.firstName}`}
+        url={`${siteMetaData.siteUrl}${path}`}
         title={title}
         headline={post.excerpt}
         dateCreated={post.created}
@@ -225,14 +224,14 @@ export const BlogPostPage = ({
         description={post.excerpt}
         images={[post.thumbnail.file.url]}
         keywords={post.tags.map((v) => v.name)}
-        publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
-        publisherName={siteMetadata.title}
+        publisherLogo={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        publisherName={siteMetaData.title}
         overrides={{
           "@type": "BlogPosting",
           author: {
             "@type": "Person",
-            name: `${siteMetadata.lastName} ${siteMetadata.firstName}`,
-            url: siteMetadata.siteUrl,
+            name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
+            url: siteMetaData.siteUrl,
           },
         }}
         defer
@@ -241,18 +240,18 @@ export const BlogPostPage = ({
         itemListElements={[
           {
             position: 1,
-            name: siteMetadata.title,
-            item: `${siteMetadata.siteUrl}/`,
+            name: siteMetaData.title,
+            item: `${siteMetaData.siteUrl}/`,
           },
           {
             position: 2,
             name: t("blog.title"),
-            item: `${siteMetadata.siteUrl}/blog`,
+            item: `${siteMetaData.siteUrl}/blog`,
           },
           {
             position: 3,
             name: post.title,
-            item: `${siteMetadata.siteUrl}${path}`,
+            item: `${siteMetaData.siteUrl}${path}`,
           },
         ]}
         defer

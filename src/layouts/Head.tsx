@@ -2,15 +2,14 @@ import { withPrefix } from "gatsby";
 
 import type { HeadFC } from "gatsby";
 
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
+import siteMetaData from "@/constants/siteMetaData";
 
 /**
  * Head export
  * see https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
 export const Head: HeadFC<never, never> = ({ location }) => {
-  const siteMetadata = useSiteMetadata();
-  const canonical = `${siteMetadata.siteUrl}${withPrefix(location.pathname)}`;
+  const canonical = `${siteMetaData.siteUrl}${withPrefix(location.pathname)}`;
 
   return (
     <>
@@ -19,7 +18,7 @@ export const Head: HeadFC<never, never> = ({ location }) => {
       <link
         rel="alternate"
         href={canonical}
-        hrefLang={siteMetadata.defaultLanguage}
+        hrefLang={siteMetaData.defaultLanguage}
       />
       <link rel="alternate" href={canonical} hrefLang="x-default" />
 
@@ -48,36 +47,36 @@ export const Head: HeadFC<never, never> = ({ location }) => {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href={`${siteMetadata.siteUrl}/apple-touch-icon.png`}
+        href={`${siteMetaData.siteUrl}/apple-touch-icon.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`${siteMetadata.siteUrl}/favicon-32x32.png`}
+        href={`${siteMetaData.siteUrl}/favicon-32x32.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={`${siteMetadata.siteUrl}/favicon-16x16.png`}
+        href={`${siteMetaData.siteUrl}/favicon-16x16.png`}
       />
       <link
         rel="manifest"
-        href={`${siteMetadata.siteUrl}/manifest.webmanifest`}
+        href={`${siteMetaData.siteUrl}/manifest.webmanifest`}
       />
       <link
         rel="mask-icon"
-        href={`${siteMetadata.siteUrl}/safari-pinned-tab.svg`}
-        color={siteMetadata.maskColor}
+        href={`${siteMetaData.siteUrl}/safari-pinned-tab.svg`}
+        color={siteMetaData.maskColor}
       />
       <meta
         name="apple-mobile-web-app-title"
-        content={siteMetadata.shortTitle}
+        content={siteMetaData.shortTitle}
       />
-      <meta name="application-name" content={siteMetadata.shortTitle} />
-      <meta name="msapplication-TileColor" content={siteMetadata.tileColor} />
-      <meta name="description" content={siteMetadata.description} />
+      <meta name="application-name" content={siteMetaData.shortTitle} />
+      <meta name="msapplication-TileColor" content={siteMetaData.tileColor} />
+      <meta name="description" content={siteMetaData.description} />
 
       {/* others */}
       <meta

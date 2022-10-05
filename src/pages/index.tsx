@@ -15,6 +15,7 @@ import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
+import siteMetaData from "@/constants/siteMetaData";
 import { PortfolioCertificationList } from "@/features/PortfolioCertification/PortfolioCertificationList";
 import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
 import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
@@ -22,7 +23,6 @@ import { PortfolioOssList } from "@/features/PortfolioOss/PortfolioOssList";
 import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
 import { PortfolioSkillList } from "@/features/PortfolioSkill/PortfolioSkillList";
 import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
@@ -94,23 +94,22 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 };
 
 const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const siteMetadata = useSiteMetadata();
   const { t, language } = useI18next();
   const { currentLangUrl } = useUrl();
 
   return (
     <>
       <GatsbySeo
-        title={siteMetadata.title}
-        description={siteMetadata.description}
+        title={siteMetaData.title}
+        description={siteMetaData.description}
         openGraph={{
           type: "profile",
-          title: siteMetadata.title,
-          description: siteMetadata.description,
+          title: siteMetaData.title,
+          description: siteMetaData.description,
           images: [
             {
-              url: `${siteMetadata.siteUrl}${siteMetadata.image}`,
-              alt: siteMetadata.title,
+              url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+              alt: siteMetaData.title,
             },
           ],
           url: currentLangUrl,
@@ -118,8 +117,8 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         }}
       />
       <LogoJsonLd
-        url={siteMetadata.siteUrl}
-        logo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
+        url={siteMetaData.siteUrl}
+        logo={`${siteMetaData.siteUrl}${siteMetaData.image}`}
         defer
       />
       <PaddingContainer maxWidth="lg">
