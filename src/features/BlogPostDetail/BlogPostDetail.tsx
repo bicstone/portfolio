@@ -1,5 +1,4 @@
 import { MDXProvider } from "@mdx-js/react";
-import { Card } from "@mui/material";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -23,17 +22,10 @@ export const BlogPostDetail = (props: {
   const { post } = props;
 
   return (
-    <Card
-      css={(theme) => ({
-        margin: theme.spacing(2, 0),
-        padding: theme.spacing(2, 0),
-      })}
-    >
-      <MDXProvider components={mdxComponents}>
-        <MDXRenderer components={mdxComponents}>
-          {post.content.childMdx.body}
-        </MDXRenderer>
-      </MDXProvider>
-    </Card>
+    <MDXProvider components={mdxComponents}>
+      <MDXRenderer components={mdxComponents}>
+        {post.content.childMdx.body}
+      </MDXRenderer>
+    </MDXProvider>
   );
 };

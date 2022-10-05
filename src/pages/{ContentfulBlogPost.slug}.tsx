@@ -2,7 +2,7 @@ import {
   AccessTime as AccessTimeIcon,
   Update as UpdateIcon,
 } from "@mui/icons-material";
-import { Card, Container, Typography } from "@mui/material";
+import { Card, Container, NoSsr, Typography } from "@mui/material";
 import { graphql, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
@@ -11,6 +11,7 @@ import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { InarticleAd } from "@/components/InarticleAd";
 import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { HelloContent } from "@/features/PortfolioHello";
@@ -264,6 +265,21 @@ export const BlogPostPage = ({
           <HelloContent links={data.links.nodes} />
         </section>
       </aside>
+
+      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
+        isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
+          <NoSsr defer>
+            <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
+              <Typography variant="h5" component="h2" paragraph>
+                {t("blog.ad-label")}
+              </Typography>
+              <InarticleAd
+                pubId={process.env.GATSBY_ADSENSE_PUB_ID}
+                adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+              />
+            </aside>
+          </NoSsr>
+        )}
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
         <Typography variant="h5" component="h2" paragraph>
