@@ -3,12 +3,24 @@ import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
-import type { NotFoundPageQuery } from "@/generated/graphqlTypes";
-import type { PageProps } from "gatsby";
-
 import { Head } from "@/layouts/Head";
 
-const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
+export const query = graphql`
+  query NotFoundPage($language: String!) {
+    # gatsby-plugin-react-i18next
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ...UseUrl
+        }
+      }
+    }
+  }
+`;
+
+export { Head };
+
+const NotFound = (): JSX.Element => {
   const { t } = useI18next();
 
   return (
@@ -37,18 +49,3 @@ const NotFound = ({ data }: PageProps<NotFoundPageQuery>): JSX.Element => {
 };
 
 export default NotFound;
-
-export const query = graphql`
-  query NotFoundPage($language: String!) {
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
-  }
-`;
-
-export { Head };

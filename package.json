@@ -40,7 +40,6 @@
     "gatsby-plugin-layout": "3.24.0",
     "gatsby-plugin-mdx": "3.20.0",
     "gatsby-plugin-mdx-embed": "1.0.0",
-    "gatsby-plugin-next-seo": "1.10.0",
     "gatsby-plugin-react-i18next": "2.0.4",
     "gatsby-plugin-s3": "0.3.8",
     "gatsby-plugin-sharp": "4.24.0",
@@ -50,7 +49,6 @@
     "gatsby-remark-prismjs": "6.24.0",
     "gatsby-source-contentful": "7.22.0",
     "gatsby-source-filesystem": "4.24.0",
-    "gatsby-transformer-inline-svg": "1.2.0",
     "gatsby-transformer-sharp": "4.24.0",
     "html-react-parser": "3.0.4",
     "i18next": "21.9.2",
@@ -58,7 +56,6 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-helmet-async": "1.3.0",
     "react-hotkeys-hook": "3.4.7",
     "react-i18next": "11.18.6"
   },

@@ -35,7 +35,7 @@ export const Header = (): JSX.Element => {
     threshold: 0,
   });
   const theme = useTheme();
-  const isExpanded = useMediaQuery(theme.breakpoints.down("md"));
+  const isExpanded = useMediaQuery(theme.breakpoints.up("sm"));
   const isHome = location.pathname === withPrefix("/");
 
   return (

@@ -1,6 +1,6 @@
 import { withPrefix } from "gatsby";
 
-import type { HeadFC } from "gatsby";
+import type { HeadProps } from "gatsby";
 
 import siteMetaData from "@/constants/siteMetaData";
 
@@ -8,7 +8,17 @@ import siteMetaData from "@/constants/siteMetaData";
  * Head export
  * see https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head: HeadFC<never, never> = ({ location }) => {
+export const Head = (props: {
+  location: HeadProps["location"];
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  type: string;
+}): JSX.Element => {
+  const { location, title, description, image, imageAlt, type } = props;
+
+  const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
   const canonical = `${siteMetaData.siteUrl}${withPrefix(location.pathname)}`;
 
   return (
@@ -76,14 +86,45 @@ export const Head: HeadFC<never, never> = ({ location }) => {
       />
       <meta name="application-name" content={siteMetaData.shortTitle} />
       <meta name="msapplication-TileColor" content={siteMetaData.tileColor} />
-      <meta name="description" content={siteMetaData.description} />
 
       {/* others */}
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, viewport-fit=cover"
       />
-      <meta name="format-detection" content="telephone=no" />
+      <meta
+        name="format-detection"
+        content="email=no, telephone=no, address=no"
+      />
+
+      {/* SEO */}
+      <title>{title}</title>
+      <meta name="description" content={description} />
+
+      {isAllPagesToNoIndex ? (
+        <>
+          <meta name="robots" content="noindex,follow" />
+          <meta name="googlebot" content="noindex,follow" />
+        </>
+      ) : (
+        <>
+          <meta name="robots" content="index,follow" />
+          <meta name="googlebot" content="index,follow" />
+        </>
+      )}
+
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={imageAlt} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:site_name" content={siteMetaData.title} />
+      <meta property="og:locale" content={siteMetaData.defaultLanguage} />
+      <meta property="og:type" content={type} />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@bicstone_me" />
+      <meta name="twitter:creator" content="@bicstone_me" />
 
       {
         /* local dev server CSP */

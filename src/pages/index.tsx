@@ -6,13 +6,12 @@ import {
   Tooltip,
   IconButton,
 } from "@mui/material";
-import { graphql } from "gatsby";
-import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
+import { graphql, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
-import type { PageProps } from "gatsby";
+import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 
 import siteMetaData from "@/constants/siteMetaData";
@@ -23,8 +22,7 @@ import { OssList } from "@/features/PortfolioOss";
 import { ProjectList } from "@/features/PortfolioProject";
 import { SkillList } from "@/features/PortfolioSkill";
 import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
-import { useUrl } from "@/hooks/useUrl";
-import { Head } from "@/layouts/Head";
+import { Head as HeadTemplate } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
@@ -93,64 +91,6 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
   );
 };
 
-const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const { t, language } = useI18next();
-  const { currentLangUrl } = useUrl();
-
-  return (
-    <>
-      <GatsbySeo
-        title={siteMetaData.title}
-        description={siteMetaData.description}
-        openGraph={{
-          type: "profile",
-          title: siteMetaData.title,
-          description: siteMetaData.description,
-          images: [
-            {
-              url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
-              alt: siteMetaData.title,
-            },
-          ],
-          url: currentLangUrl,
-          locale: language,
-        }}
-      />
-      <LogoJsonLd
-        url={siteMetaData.siteUrl}
-        logo={`${siteMetaData.siteUrl}${siteMetaData.image}`}
-        defer
-      />
-      <PaddingContainer maxWidth="lg">
-        <HelloContent links={data.links.nodes} />
-      </PaddingContainer>
-      <Section title={t("home.what-i-can-dos-title")}>
-        <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
-      </Section>
-      <Section title={t("home.projects-title")}>
-        <ProjectList projects={data.projects.nodes} />
-      </Section>
-      <Section title={t("home.histories-title")}>
-        <HistoryList histories={data.histories.nodes} />
-      </Section>
-      <Section title={t("home.osses-title")} help={t("home.osses-help")}>
-        <OssList osses={data.osses.nodes} />
-      </Section>
-      <Section title={t("home.skills-title")} help={t("home.skills-help")}>
-        <SkillList skills={data.skills.nodes} />
-      </Section>
-      <Section
-        title={t("home.qualifications-title")}
-        help={t("home.qualifications-help")}
-      >
-        <CertificationList certifications={data.certification.nodes} />
-      </Section>
-    </>
-  );
-};
-
-export default Home;
-
 export const query = graphql`
   query IndexPage($language: String!) {
     links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
@@ -204,4 +144,63 @@ export const query = graphql`
   }
 `;
 
-export { Head };
+export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
+  return (
+    <>
+      <HeadTemplate
+        location={location}
+        title={siteMetaData.title}
+        description={siteMetaData.description}
+        image={`${siteMetaData.siteUrl}${withPrefix(siteMetaData.image)}`}
+        imageAlt={siteMetaData.title}
+        type="profile"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            url: siteMetaData.siteUrl,
+            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+          }),
+        }}
+      />
+    </>
+  );
+};
+
+const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
+  const { t } = useI18next();
+
+  return (
+    <>
+      <PaddingContainer maxWidth="lg">
+        <HelloContent links={data.links.nodes} />
+      </PaddingContainer>
+      <Section title={t("home.what-i-can-dos-title")}>
+        <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
+      </Section>
+      <Section title={t("home.projects-title")}>
+        <ProjectList projects={data.projects.nodes} />
+      </Section>
+      <Section title={t("home.histories-title")}>
+        <HistoryList histories={data.histories.nodes} />
+      </Section>
+      <Section title={t("home.osses-title")} help={t("home.osses-help")}>
+        <OssList osses={data.osses.nodes} />
+      </Section>
+      <Section title={t("home.skills-title")} help={t("home.skills-help")}>
+        <SkillList skills={data.skills.nodes} />
+      </Section>
+      <Section
+        title={t("home.qualifications-title")}
+        help={t("home.qualifications-help")}
+      >
+        <CertificationList certifications={data.certification.nodes} />
+      </Section>
+    </>
+  );
+};
+
+export default Home;

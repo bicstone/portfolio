@@ -34,7 +34,7 @@ export const BlogPostCard = (props: {
   const { post } = props;
 
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("xs"));
+  const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
