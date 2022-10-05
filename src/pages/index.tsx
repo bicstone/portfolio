@@ -16,13 +16,13 @@ import type { PageProps } from "gatsby";
 import type { ReactNode } from "react";
 
 import siteMetaData from "@/constants/siteMetaData";
-import { PortfolioCertificationList } from "@/features/PortfolioCertification/PortfolioCertificationList";
-import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
-import { PortfolioHistoryList } from "@/features/PortfolioHistory/PortfolioHistoryList";
-import { PortfolioOssList } from "@/features/PortfolioOss/PortfolioOssList";
-import { PortfolioProjectList } from "@/features/PortfolioProject/PortfolioProjectList";
-import { PortfolioSkillList } from "@/features/PortfolioSkill/PortfolioSkillList";
-import { PortfolioWhatICanDoList } from "@/features/PortfolioWhatICanDo/PortfolioWhatICanDoList";
+import { CertificationList } from "@/features/PortfolioCertification/CertificationList";
+import { HelloContent } from "@/features/PortfolioHello/HelloContent";
+import { HistoryList } from "@/features/PortfolioHistory/HistoryList";
+import { OssList } from "@/features/PortfolioOss/OssList";
+import { ProjectList } from "@/features/PortfolioProject/ProjectList";
+import { SkillList } from "@/features/PortfolioSkill/SkillList";
+import { WhatICanDoList } from "@/features/PortfolioWhatICanDo/WhatICanDoList";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
@@ -122,28 +122,28 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         defer
       />
       <PaddingContainer maxWidth="lg">
-        <PortfolioHello links={data.links.nodes} />
+        <HelloContent links={data.links.nodes} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
-        <PortfolioWhatICanDoList whatICanDos={data.whatICanDos.nodes} />
+        <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </Section>
       <Section title={t("home.projects-title")}>
-        <PortfolioProjectList projects={data.projects.nodes} />
+        <ProjectList projects={data.projects.nodes} />
       </Section>
       <Section title={t("home.histories-title")}>
-        <PortfolioHistoryList histories={data.histories.nodes} />
+        <HistoryList histories={data.histories.nodes} />
       </Section>
       <Section title={t("home.osses-title")} help={t("home.osses-help")}>
-        <PortfolioOssList osses={data.osses.nodes} />
+        <OssList osses={data.osses.nodes} />
       </Section>
       <Section title={t("home.skills-title")} help={t("home.skills-help")}>
-        <PortfolioSkillList skills={data.skills.nodes} />
+        <SkillList skills={data.skills.nodes} />
       </Section>
       <Section
         title={t("home.qualifications-title")}
         help={t("home.qualifications-help")}
       >
-        <PortfolioCertificationList certifications={data.certification.nodes} />
+        <CertificationList certifications={data.certification.nodes} />
       </Section>
     </>
   );

@@ -10,14 +10,14 @@ import {
 import { graphql } from "gatsby";
 import { useMemo } from "react";
 
-import { PortfolioProjectDetail } from "./PortfolioProjectDetail";
+import { ProjectDetail } from "./ProjectDetail";
 
 import type { PortfolioProjectCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
-export const PortfolioProjectCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioProjectCard on ContentfulProject {
     id
     name
@@ -35,7 +35,7 @@ export const PortfolioProjectCardQuery = graphql`
   }
 `;
 
-export const PortfolioProjectCard = (props: {
+export const ProjectCard = (props: {
   project: PortfolioProjectCardFragment;
   expanded: boolean;
   onChange: (id: string) => void;
@@ -94,7 +94,7 @@ export const PortfolioProjectCard = (props: {
         />
       </AccordionSummary>
       <AccordionDetails>
-        <PortfolioProjectDetail project={props.project} />
+        <ProjectDetail project={props.project} />
       </AccordionDetails>
     </Accordion>
   );

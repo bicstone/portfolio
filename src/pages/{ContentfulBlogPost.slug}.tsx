@@ -18,7 +18,7 @@ import type { PageProps } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostDetail } from "@/features/BlogPostDetail/BlogPostDetail";
-import { PortfolioHello } from "@/features/PortfolioHello/PortfolioHello";
+import { HelloContent } from "@/features/PortfolioHello/HelloContent";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList/RelatedBlogPostList";
 import { useUrl } from "@/hooks/useUrl";
 import { Head } from "@/layouts/Head";
@@ -167,7 +167,7 @@ export const BlogPostPage = ({
               marginBottom: theme.spacing(2),
             })}
           >
-            <PortfolioHello links={data.links.nodes} />
+            <HelloContent links={data.links.nodes} />
           </section>
         </aside>
 

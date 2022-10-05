@@ -1,10 +1,10 @@
+import { useTheme, useMediaQuery } from "@mui/material";
 import { useState, useEffect } from "react";
 
-import type { Accordion } from "@mui/material";
+import type { Accordion, Theme } from "@mui/material";
 import type { Breakpoint } from "@mui/material/styles";
 import type { ReactComponentElement } from "react";
 
-import { useBreakPoint } from "@/hooks/useBreakPoint";
 import { isDefined } from "@/utils/typeguard";
 
 export interface CollapseResponsiveControllerProps {
@@ -13,8 +13,22 @@ export interface CollapseResponsiveControllerProps {
   children: ReactComponentElement<typeof Accordion>;
 }
 
+const useBreakPoint = (): Breakpoint => {
+  const theme: Theme = useTheme();
+  const keys: Breakpoint[] = [...theme.breakpoints.keys].reverse();
+  return (
+    keys.reduce((output: Breakpoint | null, key: Breakpoint) => {
+      // TODO: The violation of rules of hooks
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const matches = useMediaQuery(theme.breakpoints.up(key));
+      return output === null && matches ? key : output;
+    }, null) ?? "xs"
+  );
+};
+
 /**
  * ブレークポイントが広くなった場合に展開するアコーディオン制御
+ * @deprecated
  */
 export const CollapseResponsiveController = ({
   defaultExpanded = true,

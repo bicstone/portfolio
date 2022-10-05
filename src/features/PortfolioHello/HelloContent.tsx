@@ -10,15 +10,17 @@ import type { PortfolioHelloFragment } from "@/generated/graphqlTypes";
 
 import siteMetaData from "@/constants/siteMetaData";
 
-export const PortfolioHelloQuery = graphql`
-  fragment PortfolioHello on ContentfulHello {
+export const query = graphql`
+  fragment PortfolioHelloContent on ContentfulHello {
     ...SocialLinks
   }
 `;
 
-export const PortfolioHello = (props: {
+export const HelloContent = (props: {
   links: readonly PortfolioHelloFragment[];
 }): JSX.Element => {
+  const { links } = props;
+
   const { t } = useTranslation();
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
@@ -52,7 +54,7 @@ export const PortfolioHello = (props: {
                 <Typography variant="body1" gutterBottom>
                   {t("hello.description")}
                 </Typography>
-                <SocialLinks links={props.links} />
+                <SocialLinks links={links} />
               </>
             }
           />

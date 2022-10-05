@@ -9,14 +9,14 @@ import {
 } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { PortfolioSkillGroupDetail } from "./PortfolioSkillGroupDetail";
+import { SkillGroupDetail } from "./SkillGroupDetail";
 
 import type { PortfolioSkillCardFragment } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material";
 
 import { CollapseResponsiveController } from "@/components/CollapseResponsiveController";
 
-export const PortfolioSkillCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioSkillCard on ContentfulSkillMap {
     id
     name
@@ -30,30 +30,32 @@ export const PortfolioSkillCardQuery = graphql`
 
 const defaultExpandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
 
-export const PortfolioSkillCard = (props: {
+export const SkillCard = (props: {
   skill: PortfolioSkillCardFragment;
 }): JSX.Element => {
+  const { skill } = props;
+
   return (
-    <Grid item xs={12} sm={6} md={4} key={props.skill.id}>
+    <Grid item xs={12} sm={6} md={4} key={skill.id}>
       <Card component="section">
         <CollapseResponsiveController
-          defaultExpanded={props.skill.expanded}
+          defaultExpanded={skill.expanded}
           defaultExpandedBreakpoints={defaultExpandedBreakpoints}
         >
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
-              aria-controls={`${props.skill.id}-content`}
-              id={`${props.skill.id}-header`}
+              aria-controls={`${skill.id}-content`}
+              id={`${skill.id}-header`}
             >
               <Typography component="h2" variant="h6">
-                {props.skill.name}
+                {skill.name}
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <div css={(theme) => ({ padding: theme.spacing(2) })}>
-                {props.skill.skillGroups.map((skillGroup) => (
-                  <PortfolioSkillGroupDetail
+                {skill.skillGroups.map((skillGroup) => (
+                  <SkillGroupDetail
                     key={skillGroup.id}
                     skillGroup={skillGroup}
                   />

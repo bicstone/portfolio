@@ -11,7 +11,7 @@ import type { RelatedBlogPostCardFragment } from "@/generated/graphqlTypes";
 
 import { isDefined } from "@/utils/typeguard";
 
-export const RelatedBlogPostCardQuery = graphql`
+export const query = graphql`
   fragment RelatedBlogPostCard on ContentfulBlogPost {
     title
     slug

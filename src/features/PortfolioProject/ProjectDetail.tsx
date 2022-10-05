@@ -7,7 +7,7 @@ import type { PortfolioProjectDetailFragment } from "@/generated/graphqlTypes";
 
 import { mdxComponents } from "@/components/markdown/mdxComponents";
 
-export const PortfolioProjectDetailQuery = graphql`
+export const query = graphql`
   fragment PortfolioProjectDetail on ContentfulProject {
     subName
     detail {
@@ -18,7 +18,7 @@ export const PortfolioProjectDetailQuery = graphql`
   }
 `;
 
-export const PortfolioProjectDetail = (props: {
+export const ProjectDetail = (props: {
   project: PortfolioProjectDetailFragment;
 }): JSX.Element => {
   return (

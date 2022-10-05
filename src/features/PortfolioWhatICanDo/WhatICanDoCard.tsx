@@ -5,7 +5,7 @@ import type { PortfolioWhatICanDoCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
 
-export const PortfolioWhatICanDoCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioWhatICanDoCard on ContentfulWhatICanDo {
     name
     subName
@@ -18,22 +18,24 @@ export const PortfolioWhatICanDoCardQuery = graphql`
   }
 `;
 
-export const PortfolioWhatICanDoCard = (props: {
+export const WhatICanDoCard = (props: {
   whatICanDo: PortfolioWhatICanDoCardFragment;
 }): JSX.Element => {
+  const { whatICanDo } = props;
+
   return (
     <Grid component="section" item xs={12} sm={6} md={4}>
       <Card>
         <CardHeader
           avatar={
             <SvgAvatar
-              name={props.whatICanDo.icon.name}
-              svg={props.whatICanDo.icon.svg.svg}
+              name={whatICanDo.icon.name}
+              svg={whatICanDo.icon.svg.svg}
             />
           }
-          title={props.whatICanDo.name}
+          title={whatICanDo.name}
           titleTypographyProps={{ component: "h2", variant: "h6" }}
-          subheader={props.whatICanDo.subName}
+          subheader={whatICanDo.subName}
           subheaderTypographyProps={{
             variant: "body2",
             color: "text.secondary",

@@ -18,20 +18,18 @@ export type BlogPost = Pick<
   typeof BLOG_POST_SEARCH_FIELDS[number]
 >;
 
-export interface UseSearchProps {
-  keyword: string | Fuse.Expression;
-}
-
 /**
  * Search using Fuse.
  */
-export const useSearch = ({
-  keyword,
-}: UseSearchProps): {
+export const useSearch = (props: {
+  keyword: string | Fuse.Expression;
+}): {
   readonly result?: Array<Fuse.FuseResult<BlogPost>>;
   readonly fetching: boolean;
   readonly error: boolean;
 } => {
+  const { keyword } = props;
+
   const [blogPostList, setBlogPostList] = useState<readonly BlogPost[]>();
   const [blogPostListIndex, setBlogPostListIndex] =
     useState<Fuse.FuseIndex<BlogPost>>();

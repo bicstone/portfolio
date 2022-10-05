@@ -4,7 +4,7 @@ import { useTranslation } from "gatsby-plugin-react-i18next";
 
 import type { SocialLinksFragment } from "@/generated/graphqlTypes";
 
-export const SocialLinksQuery = graphql`
+export const query = graphql`
   fragment SocialLinks on ContentfulHello {
     id
     href
@@ -15,6 +15,8 @@ export const SocialLinksQuery = graphql`
 export const SocialLinks = (props: {
   links: readonly SocialLinksFragment[];
 }): JSX.Element => {
+  const { links } = props;
+
   const { t } = useTranslation();
 
   return (
@@ -33,7 +35,7 @@ export const SocialLinks = (props: {
         {t("blog.title")}
       </Button>
 
-      {props.links.map((link) => (
+      {links.map((link) => (
         <Button
           key={link.id}
           href={link.href}

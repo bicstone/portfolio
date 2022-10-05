@@ -1,24 +1,26 @@
 import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { PortfolioSkillCard } from "./PortfolioSkillCard";
+import { SkillCard } from "./SkillCard";
 
 import type { PortfolioSkillListFragment } from "@/generated/graphqlTypes";
 
-export const PortfolioSkillListQuery = graphql`
+export const query = graphql`
   fragment PortfolioSkillList on ContentfulSkillMap {
     id
     ...PortfolioSkillCard
   }
 `;
 
-export const PortfolioSkillList = (props: {
+export const SkillList = (props: {
   skills: readonly PortfolioSkillListFragment[];
 }): JSX.Element => {
+  const { skills } = props;
+
   return (
     <Grid container spacing={2}>
-      {props.skills.map((skill) => (
-        <PortfolioSkillCard key={skill.id} skill={skill} />
+      {skills.map((skill) => (
+        <SkillCard key={skill.id} skill={skill} />
       ))}
     </Grid>
   );

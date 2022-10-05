@@ -8,6 +8,8 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { SearchModal } from "./SearchModal";
 
 export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
+  const { isExpanded } = props;
+
   const { t } = useI18next();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,7 +27,7 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
   });
 
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <>
@@ -39,13 +41,13 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
         size="small"
         title={t("search.button.hint")}
         onClick={handleOpen}
-        startIcon={props.isExpanded ? <SearchIcon /> : undefined}
+        startIcon={isExpanded ? <SearchIcon /> : undefined}
       >
-        {props.isExpanded ? t("search.button.title") : <SearchIcon />}
+        {isExpanded ? t("search.button.title") : <SearchIcon />}
       </Button>
       {isOpen &&
         createPortal(
-          <Dialog onClose={handleClose} open={isOpen} fullScreen={fullScreen}>
+          <Dialog onClose={handleClose} open={isOpen} fullScreen={mobile}>
             <SearchModal onClose={handleClose} />
           </Dialog>,
           document.body

@@ -3,19 +3,19 @@ import { graphql } from "gatsby";
 import { useCallback, useReducer } from "react";
 
 import { AccordionExpendReducer, initialState } from "./AccordionExpendReducer";
-import { PortfolioProjectBulkExpandButton } from "./PortfolioProjectBulkExpandButton";
-import { PortfolioProjectCard } from "./PortfolioProjectCard";
+import { PortfolioProjectBulkExpandButton } from "./BulkExpandButton";
+import { ProjectCard } from "./ProjectCard";
 
 import type { PortfolioProjectListFragment } from "@/generated/graphqlTypes";
 
-export const PortfolioProjectListQuery = graphql`
+export const query = graphql`
   fragment PortfolioProjectList on ContentfulProject {
     id
     ...PortfolioProjectCard
   }
 `;
 
-export const PortfolioProjectList = (props: {
+export const ProjectList = (props: {
   projects: readonly PortfolioProjectListFragment[];
 }): JSX.Element => {
   const [expanded, dispatchExpanded] = useReducer(
@@ -40,7 +40,7 @@ export const PortfolioProjectList = (props: {
         />
       </Typography>
       {props.projects.map((project) => (
-        <PortfolioProjectCard
+        <ProjectCard
           key={project.id}
           project={project}
           expanded={expanded === project.id || expanded === true}

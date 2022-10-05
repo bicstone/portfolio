@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { PortfolioCertificationDetail } from "./PortfolioCertificationDetail";
+import { CertificationDetail } from "./CertificationDetail";
 
 import type { PortfolioCertificationCardFragment } from "@/generated/graphqlTypes";
 import type { Breakpoint } from "@mui/material";
@@ -18,7 +18,7 @@ import { CollapseResponsiveController } from "@/components/CollapseResponsiveCon
 
 const defaultExpandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
 
-export const PortfolioCertificationCardQuery = graphql`
+export const query = graphql`
   fragment PortfolioCertificationCard on ContentfulQualificationMap {
     id
     name
@@ -30,29 +30,31 @@ export const PortfolioCertificationCardQuery = graphql`
   }
 `;
 
-export const PortfolioCertificationCard = (props: {
+export const CertificationCard = (props: {
   certification: PortfolioCertificationCardFragment;
 }): JSX.Element => {
+  const { certification } = props;
+
   return (
     <Grid item xs={12} sm={6} md={4} component="section">
       <CollapseResponsiveController
-        defaultExpanded={props.certification.expanded}
+        defaultExpanded={certification.expanded}
         defaultExpandedBreakpoints={defaultExpandedBreakpoints}
       >
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
-            aria-controls={`${props.certification.id}-content`}
-            id={`${props.certification.id}-header`}
+            aria-controls={`${certification.id}-content`}
+            id={`${certification.id}-header`}
           >
             <Typography component="h2" variant="h6">
-              {props.certification.name}
+              {certification.name}
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <List dense>
-              {props.certification.qualifications.map((certification) => (
-                <PortfolioCertificationDetail
+              {certification.qualifications.map((certification) => (
+                <CertificationDetail
                   key={certification.id}
                   certification={certification}
                 />

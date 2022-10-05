@@ -7,7 +7,7 @@ import type { BlogPostDetailFragment } from "@/generated/graphqlTypes";
 
 import { mdxComponents } from "@/components/markdown/mdxComponents";
 
-export const BlogPostDetailQuery = graphql`
+export const query = graphql`
   fragment BlogPostDetail on ContentfulBlogPost {
     content {
       childMdx {
@@ -20,6 +20,8 @@ export const BlogPostDetailQuery = graphql`
 export const BlogPostDetail = (props: {
   post: BlogPostDetailFragment;
 }): JSX.Element => {
+  const { post } = props;
+
   return (
     <Card
       css={(theme) => ({
@@ -29,7 +31,7 @@ export const BlogPostDetail = (props: {
     >
       <MDXProvider components={mdxComponents}>
         <MDXRenderer components={mdxComponents}>
-          {props.post.content.childMdx.body}
+          {post.content.childMdx.body}
         </MDXRenderer>
       </MDXProvider>
     </Card>

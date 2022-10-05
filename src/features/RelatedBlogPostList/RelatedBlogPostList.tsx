@@ -5,7 +5,7 @@ import { RelatedBlogPostCard } from "./RelatedBlogPostCard";
 
 import type { RelatedBlogPostListFragment } from "@/generated/graphqlTypes";
 
-export const RelatedBlogPostListQuery = graphql`
+export const query = graphql`
   fragment RelatedBlogPostList on ContentfulBlogPost {
     id
     ...RelatedBlogPostCard

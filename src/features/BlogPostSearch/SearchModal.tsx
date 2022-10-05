@@ -10,6 +10,8 @@ import {
   Divider,
   ListItem,
   Alert,
+  useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -26,16 +28,16 @@ import {
 } from "@/utils/convert";
 import { isDefined } from "@/utils/typeguard";
 
-export interface SearchModalProps {
-  onClose: () => void;
-}
+export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
+  const { onClose } = props;
 
-export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
   const { t } = useI18next();
   const [filtering, startTransition] = useTransition();
   const [inputValue, setInputValue] = useState("");
   const [inputValueSync, setInputValueSync] = useState("");
   const listId = useId();
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
@@ -67,9 +69,9 @@ export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
   return (
     <div
       css={{
-        width: 600,
+        width: mobile ? "100%" : 600,
         maxWidth: "100%",
-        height: 500,
+        height: mobile ? "100%" : 500,
         maxHeight: "100%",
         display: "flex",
         overflow: "hidden",
