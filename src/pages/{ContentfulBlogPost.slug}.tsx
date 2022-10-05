@@ -58,9 +58,7 @@ export const query = graphql`
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
-          ns
-          data
-          language
+          ...UseUrl
         }
       }
     }

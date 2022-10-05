@@ -1,9 +1,15 @@
+import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo, useCallback } from "react";
 
-/**
- * return current URL
- */
+export const query = graphql`
+  fragment UseUrl on Locale {
+    ns
+    data
+    language
+  }
+`;
+
 export const useUrl = (): {
   readonly currentLangUrl: string;
   readonly defaultLangUrl: string;
