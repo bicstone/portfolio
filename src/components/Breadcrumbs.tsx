@@ -13,7 +13,7 @@ export const Breadcrumbs = (
     title: string;
   } & MuiBreadcrumbsProps
 ): JSX.Element => {
-const { title, ...MuiBreadcrumbsProps } = props;
+  const { title, ...MuiBreadcrumbsProps } = props;
 
   const { t } = useI18next();
   const location = useLocation();
