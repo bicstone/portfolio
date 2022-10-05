@@ -20634,7 +20634,7 @@ export type PortfolioCertificationListFragment = (
   & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
 );
 
-export type PortfolioHelloFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+export type PortfolioHelloContentFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
@@ -20736,6 +20736,8 @@ export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
+
+export type UseUrlFragment = Pick<Locale, 'ns' | 'data' | 'language'>;
 
 export type NotFoundPageQueryVariables = Exact<{
   language: Scalars['String'];
