@@ -20622,10 +20622,6 @@ export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | '
 
 export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
 
-export type SearchButtonFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>;
-
-export type SearchModalFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>;
-
 export type PortfolioCertificationCardFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
   & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }

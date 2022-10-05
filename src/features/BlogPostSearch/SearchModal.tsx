@@ -9,15 +9,14 @@ import {
   DialogTitle,
   Divider,
   ListItem,
+  Alert,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useMemo, useTransition, useId } from "react";
 
-import { useFetchPost } from "./useFetchPost";
 import { useSearch } from "./useSearch";
 
-import type { BlogPost } from "./useFetchPost";
 import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
 
@@ -25,6 +24,7 @@ import {
   convertHiraganaToKatakana,
   convertKatakanaToHiragana,
 } from "@/utils/convert";
+import { isDefined } from "@/utils/typeguard";
 
 export interface SearchModalProps {
   onClose: () => void;
@@ -32,10 +32,9 @@ export interface SearchModalProps {
 
 export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
   const { t } = useI18next();
-  const [, startTransition] = useTransition();
+  const [filtering, startTransition] = useTransition();
   const [inputValue, setInputValue] = useState("");
   const [inputValueSync, setInputValueSync] = useState("");
-  const { blogPostList, blogPostListIndex, error, fetching } = useFetchPost();
   const listId = useId();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -61,15 +60,8 @@ export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
     } as { $or: Array<Record<string, string>> };
   }, [inputValue]);
 
-  const result = useSearch<BlogPost>({
-    list: blogPostList ?? [],
-    keys: ["title", "excerpt"],
+  const { result, fetching, error } = useSearch({
     keyword,
-    options: {
-      ignoreLocation: true,
-      findAllMatches: true,
-    },
-    index: blogPostListIndex,
   });
 
   return (
@@ -124,16 +116,22 @@ export const SearchModal = ({ onClose }: SearchModalProps): JSX.Element => {
         css={(theme) => ({ padding: theme.spacing(0, 3) })}
       />
       <Divider css={(theme) => ({ margin: theme.spacing(2, -3, 0, -3) })} />
-      <List role="listbox" id={listId} dense css={{ overflowY: "auto" }}>
-        {fetching && <div>ローディング</div>}
-        {error && <div>エラー</div>}
-        {result.map((post) => (
-          <ListItem key={post.refIndex} role="option">
-            <ListItemButton component={RouterLink} to={`/${post.item.slug}`}>
-              <ListItemText primary={post.item.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+      <List
+        role="listbox"
+        id={listId}
+        dense
+        css={{ overflowY: "auto" }}
+        aria-busy={fetching || filtering}
+      >
+        {error && <Alert severity="error">{t("search.error")}</Alert>}
+        {isDefined(result) &&
+          result.map((post) => (
+            <ListItem key={post.refIndex} role="option">
+              <ListItemButton component={RouterLink} to={`/${post.item.slug}`}>
+                <ListItemText primary={post.item.title} />
+              </ListItemButton>
+            </ListItem>
+          ))}
       </List>
     </div>
   );

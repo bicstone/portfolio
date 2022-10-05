@@ -1,38 +1,87 @@
+import { captureException } from "@sentry/gatsby";
 import Fuse from "fuse.js";
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 
-export interface UseSearchProps<T> {
-  list: readonly T[];
-  keys: Array<Fuse.FuseOptionKey<T>>;
+import {
+  BLOG_POST_LIST_INDEX_JSON_FILENAME,
+  BLOG_POST_LIST_JSON_FILENAME,
+} from "./constants";
+
+import type { BLOG_POST_SEARCH_FIELDS } from "./constants";
+import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
+
+import siteMetaData from "@/constants/siteMetaData";
+import { isDefined } from "@/utils/typeguard";
+
+export type BlogPost = Pick<
+  ContentfulBlogPost,
+  typeof BLOG_POST_SEARCH_FIELDS[number]
+>;
+
+export interface UseSearchProps {
   keyword: string | Fuse.Expression;
-  options?: Fuse.IFuseOptions<T>;
-  index?: Fuse.FuseIndex<T>;
 }
 
 /**
  * Search using Fuse.
  */
-export const useSearch = <T>({
-  list,
-  keys,
+export const useSearch = ({
   keyword,
-  options,
-  index,
-}: UseSearchProps<T>): Array<Fuse.FuseResult<T>> => {
-  const fuse = useMemo(() => {
-    return new Fuse(
-      list,
-      {
-        keys,
-        ...options,
-      },
-      index
-    );
-  }, [keys, list, options, index]);
+}: UseSearchProps): {
+  readonly result?: Array<Fuse.FuseResult<BlogPost>>;
+  readonly fetching: boolean;
+  readonly error: boolean;
+} => {
+  const [blogPostList, setBlogPostList] = useState<readonly BlogPost[]>();
+  const [blogPostListIndex, setBlogPostListIndex] =
+    useState<Fuse.FuseIndex<BlogPost>>();
+  const [error, setError] = useState<boolean>(false);
+  const [fetching, setFetching] = useState<boolean>(true);
+  const [fuse, setFuse] = useState<Fuse<BlogPost>>();
+  const [result, setResult] = useState<Array<Fuse.FuseResult<BlogPost>>>();
 
-  const result = useMemo(() => {
-    return fuse.search(keyword);
+  useEffect(() => {
+    const fetchBlogPostList = fetch(
+      `${siteMetaData.siteUrl}/${BLOG_POST_LIST_JSON_FILENAME}`
+    ).then(async (response) => await response.json());
+    const fetchBlogPostListIndex = fetch(
+      `${siteMetaData.siteUrl}/${BLOG_POST_LIST_INDEX_JSON_FILENAME}`
+    ).then(async (response) => await response.json());
+
+    Promise.all([fetchBlogPostList, fetchBlogPostListIndex])
+      .then(([blogPostList, blogPostListIndex]) => {
+        setBlogPostList(blogPostList);
+        setBlogPostListIndex(Fuse.parseIndex(blogPostListIndex));
+      })
+      .catch((error) => {
+        captureException(error);
+        setError(true);
+      })
+      .finally(() => {
+        setFetching(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (isDefined(blogPostList) && isDefined(blogPostListIndex)) {
+      setFuse(
+        new Fuse(
+          blogPostList,
+          {
+            ignoreLocation: true,
+            findAllMatches: true,
+          },
+          blogPostListIndex
+        )
+      );
+    }
+  }, [blogPostList, blogPostListIndex]);
+
+  useEffect(() => {
+    if (isDefined(fuse)) {
+      setResult(fuse.search(keyword));
+    }
   }, [fuse, keyword]);
 
-  return result;
+  return { result, fetching, error } as const;
 };
