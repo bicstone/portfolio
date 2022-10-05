@@ -151,9 +151,20 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            url: siteMetaData.siteUrl,
+            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+          }),
+        }}
+      />
     </>
   );
-};;;;
+};
 
 export const BlogPostPage = ({
   data,
