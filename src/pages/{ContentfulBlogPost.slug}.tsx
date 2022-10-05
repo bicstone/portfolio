@@ -61,11 +61,10 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
+  const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const post = data.post;
   const title = `${post.title} - ${siteMetaData.title}`;
   const canonical = `${siteMetaData.siteUrl}${withPrefix(location.pathname)}`;
-
-  const { t } = useI18next();
 
   return (
     <>
@@ -91,10 +90,6 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            mainEntityOfPage: {
-              "@type": "WebPage",
-              "@id": canonical,
-            },
             headline: title,
             image: [post.thumbnail.file.url],
             datePublished: post.created,
@@ -114,7 +109,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
               },
             },
             description: post.excerpt,
-            keywords: post.tags.join(", "),
+            keywords: post.tags.map((tag) => tag.name).join(", "),
           }),
         }}
       />
@@ -139,7 +134,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 position: 2,
                 item: {
                   "@id": `${siteMetaData.siteUrl}${withPrefix("/blog")}`,
-                  name: t("blog.title"),
+                  name: BLOG_TITLE,
                   "@type": "Thing",
                 },
               },
@@ -158,7 +153,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
       />
     </>
   );
-};
+};;;;
 
 export const BlogPostPage = ({
   data,

@@ -30,6 +30,85 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
   marginBottom: theme.spacing(5),
 }));
 
+export const query = graphql`
+  query IndexPage($language: String!) {
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        ...PortfolioHelloContent
+      }
+    }
+    whatICanDos: allContentfulWhatICanDo(
+      sort: { fields: sortKey, order: ASC }
+    ) {
+      nodes {
+        ...PortfolioWhatICanDoList
+      }
+    }
+    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
+      nodes {
+        ...PortfolioProjectList
+      }
+    }
+    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
+      nodes {
+        ...PortfolioHistoryList
+      }
+    }
+    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
+      nodes {
+        ...PortfolioOssList
+      }
+    }
+    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        ...PortfolioSkillList
+      }
+    }
+    # 資格一覧を取得する
+    certification: allContentfulQualificationMap(
+      sort: { fields: sortKey, order: ASC }
+    ) {
+      nodes {
+        ...PortfolioCertificationList
+      }
+    }
+    # gatsby-plugin-react-i18next
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ...UseUrl
+        }
+      }
+    }
+  }
+`;
+
+export const Head: HeadFC = ({ location }) => {
+  return (
+    <>
+      <HeadTemplate
+        location={location}
+        title={siteMetaData.title}
+        description={siteMetaData.description}
+        image={`${siteMetaData.siteUrl}${withPrefix(siteMetaData.image)}`}
+        imageAlt={siteMetaData.title}
+        type="profile"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            url: siteMetaData.siteUrl,
+            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+          }),
+        }}
+      />
+    </>
+  );
+};
+
 interface SectionProps {
   title: string;
   help?: string;
@@ -88,85 +167,6 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
         {children}
       </PaddingContainer>
     </section>
-  );
-};
-
-export const query = graphql`
-  query IndexPage($language: String!) {
-    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
-      nodes {
-        ...PortfolioHelloContent
-      }
-    }
-    whatICanDos: allContentfulWhatICanDo(
-      sort: { fields: sortKey, order: ASC }
-    ) {
-      nodes {
-        ...PortfolioWhatICanDoList
-      }
-    }
-    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
-      nodes {
-        ...PortfolioProjectList
-      }
-    }
-    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
-      nodes {
-        ...PortfolioHistoryList
-      }
-    }
-    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
-      nodes {
-        ...PortfolioOssList
-      }
-    }
-    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
-      nodes {
-        ...PortfolioSkillList
-      }
-    }
-    # 資格一覧を取得する
-    certification: allContentfulQualificationMap(
-      sort: { fields: sortKey, order: ASC }
-    ) {
-      nodes {
-        ...PortfolioCertificationList
-      }
-    }
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
-  }
-`;
-
-export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
-  return (
-    <>
-      <HeadTemplate
-        location={location}
-        title={siteMetaData.title}
-        description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${withPrefix(siteMetaData.image)}`}
-        imageAlt={siteMetaData.title}
-        type="profile"
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            url: siteMetaData.siteUrl,
-            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
-          }),
-        }}
-      />
-    </>
   );
 };
 

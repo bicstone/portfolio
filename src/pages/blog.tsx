@@ -40,11 +40,10 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
-  const { t } = useI18next();
-
+  const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const blogPostList = data.blogPostList.nodes;
   const canonical = `${siteMetaData.siteUrl}${withPrefix(location.pathname)}`;
-  const title = `${t("blog.title")} - ${siteMetaData.title}`;
+  const title = `${BLOG_TITLE} - ${siteMetaData.title}`;
   const buildTime = useBuildTime();
 
   return (
@@ -64,10 +63,6 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Blog",
-            mainEntityOfPage: {
-              "@type": "Blog",
-              "@id": canonical,
-            },
             headline: title,
             image: [`${siteMetaData.siteUrl}${withPrefix(siteMetaData.image)}`],
             datePublished: buildTime,
@@ -92,6 +87,11 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
                 headline: post.title,
                 image: post.thumbnail.file.url,
                 datePublished: post.created,
+                author: {
+                  "@type": "Person",
+                  name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
+                  url: siteMetaData.siteUrl,
+                },
               })),
             ],
           }),
@@ -117,8 +117,8 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 2,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${withPrefix("/blog")}`,
-                  name: t("blog.title"),
+                  "@id": canonical,
+                  name: BLOG_TITLE,
                   "@type": "Thing",
                 },
               },
@@ -128,7 +128,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
       />
     </>
   );
-};
+};;;;;;
 
 const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
