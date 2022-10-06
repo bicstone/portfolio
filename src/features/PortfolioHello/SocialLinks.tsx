@@ -43,6 +43,7 @@ export const SocialLinks = (props: {
           color="secondary"
           size="small"
           rel="external noreferrer noopener"
+          target="_blank"
           css={(theme) => ({
             marginTop: theme.spacing(1),
             marginRight: theme.spacing(1),

@@ -57,7 +57,6 @@ export type ContentfulAsset = ContentfulReference & Node & RemoteFile & {
   readonly resize: Maybe<RemoteFileResize>;
   readonly size: Maybe<Scalars['Int']>;
   readonly spaceId: Maybe<Scalars['String']>;
-  readonly svg: Maybe<InlineSvg>;
   readonly sys: Maybe<ContentfulAssetSys>;
   readonly title: Maybe<Scalars['String']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -15327,7 +15326,6 @@ export type File = Node & {
   readonly root: Scalars['String'];
   readonly size: Scalars['Int'];
   readonly sourceInstanceName: Scalars['String'];
-  readonly svg: Maybe<InlineSvg>;
   readonly uid: Scalars['Int'];
 };
 
@@ -16422,14 +16420,6 @@ export type ImageSharpResizeFilterInput = {
 export type ImageSharpSortInput = {
   readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpFieldsEnum>>>;
   readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
-};
-
-export type InlineSvg = {
-  readonly absolutePath: Maybe<Scalars['String']>;
-  readonly content: Maybe<Scalars['String']>;
-  readonly dataURI: Maybe<Scalars['String']>;
-  readonly originalContent: Maybe<Scalars['String']>;
-  readonly relativePath: Maybe<Scalars['String']>;
 };
 
 export type IntQueryOperatorInput = {

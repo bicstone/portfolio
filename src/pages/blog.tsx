@@ -1,20 +1,15 @@
 import { Container, Typography } from "@mui/material";
 import { graphql } from "gatsby";
-import {
-  BlogJsonLd,
-  BreadcrumbJsonLd,
-  GatsbySeo,
-} from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
-import type { PageProps } from "gatsby";
+import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
-import { Head } from "@/layouts/Head";
+import { Head as HeadTemplate } from "@/layouts/Head";
 
 export const query = graphql`
   query BlogPage($language: String!) {
@@ -44,101 +39,137 @@ export const query = graphql`
   }
 `;
 
-export { Head };
-
-const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
+export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
+  const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const blogPostList = data.blogPostList.nodes;
-  const { t, path } = useI18next();
+  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
+  const title = `${BLOG_TITLE} - ${siteMetaData.title}`;
   const buildTime = useBuildTime();
-  const title = `${t("blog.title")} - ${siteMetaData.title}`;
 
   return (
     <>
-      <Container maxWidth="md">
-        <Breadcrumbs
-          title={t("blog.title")}
-          css={(theme) => ({ margin: theme.spacing(2, 0) })}
-        />
-
-        <Typography component="h1" variant="h5" align="center" paragraph>
-          {t("blog.title")}
-        </Typography>
-
-        <Typography>{t("blog.caption")}</Typography>
-
-        <div css={(theme) => ({ margin: theme.spacing(3, 0) })}>
-          <BlogPostList blogPostList={blogPostList} />
-        </div>
-
-        <Breadcrumbs
-          title={t("blog.title")}
-          css={(theme) => ({
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-          })}
-        />
-      </Container>
-
-      {/* TODO: Remove Gatsby SEO <!-- */}
-      <GatsbySeo
+      <HeadTemplate
+        location={location}
         title={title}
         description={siteMetaData.description}
-        openGraph={{
-          type: "profile",
-          title,
-          description: siteMetaData.description,
-          images: [
-            {
-              url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
-              alt: title,
+        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        imageAlt={title}
+        type="blog"
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            headline: title,
+            image: [`${siteMetaData.siteUrl}${siteMetaData.image}`],
+            datePublished: buildTime,
+            dateModified: buildTime,
+            description: siteMetaData.description,
+            author: {
+              "@type": "Person",
+              name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
+              url: siteMetaData.siteUrl,
             },
-          ],
+            publisher: {
+              "@type": "Organization",
+              name: siteMetaData.title,
+              logo: {
+                "@type": "ImageObject",
+                url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+              },
+            },
+            blogPost: [
+              ...blogPostList.map((post) => ({
+                "@type": "BlogPosting",
+                headline: post.title,
+                image: post.thumbnail.file.url,
+                datePublished: post.created,
+                author: {
+                  "@type": "Person",
+                  name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
+                  url: siteMetaData.siteUrl,
+                },
+              })),
+            ],
+          }),
         }}
       />
-      <BlogJsonLd
-        authorType="Person"
-        authorName={`${siteMetaData.lastName} ${siteMetaData.firstName}`}
-        url={`${siteMetaData.siteUrl}${path}`}
-        title={title}
-        headline={siteMetaData.description}
-        datePublished={buildTime}
-        dateModified={buildTime}
-        description={siteMetaData.description}
-        images={[`${siteMetaData.siteUrl}${siteMetaData.image}`]}
-        publisherLogo={`${siteMetaData.siteUrl}${siteMetaData.image}`}
-        publisherName={siteMetaData.title}
-        overrides={{
-          "@type": "Blog",
-          author: {
-            "@type": "Person",
-            name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": `${siteMetaData.siteUrl}${"/"}`,
+                  name: siteMetaData.title,
+                  "@type": "Thing",
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@id": canonical,
+                  name: BLOG_TITLE,
+                  "@type": "Thing",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
             url: siteMetaData.siteUrl,
-          },
+            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+          }),
         }}
-        posts={blogPostList.map((node) => ({
-          headline: node.title,
-          image: node.thumbnail.file.url,
-          datePublished: node.created,
-        }))}
-        defer
       />
-      <BreadcrumbJsonLd
-        itemListElements={[
-          {
-            position: 1,
-            name: siteMetaData.title,
-            item: `${siteMetaData.siteUrl}/`,
-          },
-          {
-            position: 2,
-            name: t("blog.title"),
-            item: `${siteMetaData.siteUrl}/blog`,
-          },
-        ]}
-        defer
-      />
-      {/* --> Remove Gatsby SEO */}
     </>
+  );
+};
+
+const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
+  const blogPostList = data.blogPostList.nodes;
+  const { t } = useI18next();
+
+  return (
+    <Container maxWidth="md">
+      <Breadcrumbs
+        title={t("blog.title")}
+        css={(theme) => ({ margin: theme.spacing(2, 0) })}
+      />
+
+      <Typography component="h1" variant="h5" align="center" paragraph>
+        {t("blog.title")}
+      </Typography>
+
+      <Typography>{t("blog.caption")}</Typography>
+
+      <div css={(theme) => ({ margin: theme.spacing(3, 0) })}>
+        <BlogPostList blogPostList={blogPostList} />
+      </div>
+
+      <Breadcrumbs
+        title={t("blog.title")}
+        css={(theme) => ({
+          marginTop: theme.spacing(2),
+          marginBottom: theme.spacing(2),
+        })}
+      />
+    </Container>
   );
 };
 

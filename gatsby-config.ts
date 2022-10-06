@@ -10,7 +10,6 @@ dotenv.config({ path: `.env` });
 
 const isDevelopment = process.env.NODE_ENV === "development";
 const isCI = process.env.CI !== undefined;
-const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
@@ -93,27 +92,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-next-seo`,
-      options: {
-        dangerouslySetAllPagesToNoFollow: isAllPagesToNoIndex,
-        dangerouslySetAllPagesToNoIndex: isAllPagesToNoIndex,
-        twitter: {
-          cardType: "summary_large_image",
-          site: siteMetaData.twitter,
-          handle: siteMetaData.twitter,
-        },
-        openGraph: {
-          site_name: siteMetaData.title,
-          profile: {
-            firstName: siteMetaData.firstName,
-            lastName: siteMetaData.lastName,
-            username: siteMetaData.author,
-            gender: siteMetaData.gender,
-          },
-        },
-      },
-    },
-    {
       resolve: "gatsby-plugin-react-i18next",
       options: {
         siteUrl: siteMetaData.siteUrl,
@@ -154,9 +132,6 @@ const config: GatsbyConfig = {
         name: `locales`,
         path: path.resolve("src", "locales"),
       },
-    },
-    {
-      resolve: "gatsby-transformer-inline-svg",
     },
     {
       resolve: `gatsby-transformer-sharp`,
