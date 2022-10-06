@@ -96,6 +96,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - Google Tag Manager
 - Google Analytics
 - Google AdSense
+- Sentry
 
 ## タスクランナー
 
@@ -176,8 +177,8 @@ package.json の browserslist を参照
 
 ## ライセンス
 
-MIT License
-
-Git Submodule で参照しているプライベートリポジトリは [No license](https://choosealicense.com/no-permission/) です。
+- content ディレクトリは [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+- Git Submodule で参照しているプライベートリポジトリは [No license](https://choosealicense.com/no-permission/)
+- その他は MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)

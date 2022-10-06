@@ -98,13 +98,13 @@
     "url": "https://github.com/bicstone/portfolio/issues"
   },
   "browserslist": [
-    "last 2 Chrome major versions",
-    "last 2 Firefox major versions",
-    "last 2 Safari major versions",
-    "last 2 Edge major versions",
-    "last 2 Android major versions",
-    "last 2 ChromeAndroid major versions",
-    "last 2 iOS major versions"
+    "last 3 Chrome major versions",
+    "last 3 Firefox major versions",
+    "last 3 Edge major versions",
+    "last 3 Safari major versions",
+    "last 3 Android major versions",
+    "last 3 ChromeAndroid major versions",
+    "last 3 iOS major versions"
   ],
   "packageManager": "yarn@3.2.3",
   "volta": {
