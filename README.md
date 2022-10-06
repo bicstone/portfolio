@@ -178,7 +178,13 @@ package.json の browserslist を参照
 ## ライセンス
 
 - content ディレクトリは [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
-- Git Submodule で参照しているプライベートリポジトリは [No license](https://choosealicense.com/no-permission/)
+- static ディレクトリは [ライセンスなし](https://choosealicense.com/no-permission/)
 - その他は MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)
+
+## Contributing
+
+- content ディレクトリ内については、権利が複雑になるのを防ぐため Pull Request は受け付けておりません。
+- static ディレクトリで参照しているリポジトリは非公開です。
+- その他はいつでも歓迎いたします。
