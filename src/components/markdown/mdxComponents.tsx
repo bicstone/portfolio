@@ -28,8 +28,8 @@ const notImplemented = (name: string): null => {
 export const mdxComponents: Components = {
   p: ({ ref, ...props }) => <Paragraph {...props} />,
   h1: () => notImplemented("h1"),
-  h2: ({ ref, ...props }) => <Heading variant="h5" component="h2" {...props} />,
-  h3: ({ ref, ...props }) => <Heading variant="h6" component="h3" {...props} />,
+  h2: ({ ref, ...props }) => <Heading variant="h4" component="h2" {...props} />,
+  h3: ({ ref, ...props }) => <Heading variant="h5" component="h3" {...props} />,
   h4: ({ ref, ...props }) => <Heading variant="h6" component="h4" {...props} />,
   h5: () => notImplemented("h5"),
   h6: () => notImplemented("h6"),
