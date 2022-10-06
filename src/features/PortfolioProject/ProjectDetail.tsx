@@ -10,9 +10,10 @@ export const query = graphql`
   fragment PortfolioProjectDetail on ContentfulProject {
     subName
     detail {
-      childMdx {
-        body
-      }
+      detail
+      # childMdx {
+      #   body
+      # }
     }
   }
 `;
@@ -32,7 +33,7 @@ export const ProjectDetail = (props: {
       </Typography>
       <Typography component="div" variant="body2">
         <MDXProvider components={mdxComponents}>
-          {project.detail.childMdx.body}
+          {project.detail.detail}
         </MDXProvider>
       </Typography>
     </>

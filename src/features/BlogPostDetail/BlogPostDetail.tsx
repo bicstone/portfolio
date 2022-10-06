@@ -8,9 +8,10 @@ import { mdxComponents } from "@/components/markdown/mdxComponents";
 export const query = graphql`
   fragment BlogPostDetail on ContentfulBlogPost {
     content {
-      childMdx {
-        body
-      }
+      content
+      # childMdx {
+      #   body
+      # }
     }
   }
 `;
@@ -21,8 +22,6 @@ export const BlogPostDetail = (props: {
   const { post } = props;
 
   return (
-    <MDXProvider components={mdxComponents}>
-      {post.content.childMdx.body}
-    </MDXProvider>
+    <MDXProvider components={mdxComponents}>{post.content.content}</MDXProvider>
   );
 };
