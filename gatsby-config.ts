@@ -55,6 +55,7 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
+          { resolve: `gatsby-remark-responsive-iframe` },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
