@@ -16,53 +16,52 @@ export type Scalars = {
 };
 
 export type AvifOptions = {
-  lossless: InputMaybe<Scalars['Boolean']>;
-  quality: InputMaybe<Scalars['Int']>;
-  speed: InputMaybe<Scalars['Int']>;
+  readonly lossless: InputMaybe<Scalars['Boolean']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
+  readonly speed: InputMaybe<Scalars['Int']>;
 };
 
 export type BlurredOptions = {
   /** Force the output format for the low-res preview. Default is to use the same format as the input. You should rarely need to change this */
-  toFormat: InputMaybe<ImageFormat>;
+  readonly toFormat: InputMaybe<ImageFormat>;
   /** Width of the generated low-res preview. Default is 20px */
-  width: InputMaybe<Scalars['Int']>;
+  readonly width: InputMaybe<Scalars['Int']>;
 };
 
 export type BooleanQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Boolean']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
-  ne: InputMaybe<Scalars['Boolean']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Boolean']>>>;
+  readonly eq: InputMaybe<Scalars['Boolean']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']>>>;
+  readonly ne: InputMaybe<Scalars['Boolean']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']>>>;
 };
 
 export type ContentfulAsset = ContentfulReference & Node & RemoteFile & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  description: Maybe<Scalars['String']>;
-  file: Maybe<ContentfulAssetFile>;
-  filename: Scalars['String'];
-  filesize: Maybe<Scalars['Int']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly file: Maybe<ContentfulAssetFile>;
+  readonly filename: Scalars['String'];
+  readonly filesize: Maybe<Scalars['Int']>;
   /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
-  gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
-  gatsbyImageData: Maybe<Scalars['GatsbyImageData']>;
-  height: Maybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  mimeType: Scalars['String'];
-  node_locale: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
-  placeholderUrl: Maybe<Scalars['String']>;
-  publicUrl: Scalars['String'];
-  resize: Maybe<RemoteFileResize>;
-  size: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  svg: Maybe<InlineSvg>;
-  sys: Maybe<ContentfulAssetSys>;
-  title: Maybe<Scalars['String']>;
-  updatedAt: Maybe<Scalars['Date']>;
-  url: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Int']>;
+  readonly gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
+  readonly gatsbyImageData: Maybe<Scalars['GatsbyImageData']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly mimeType: Scalars['String'];
+  readonly node_locale: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly placeholderUrl: Maybe<Scalars['String']>;
+  readonly publicUrl: Scalars['String'];
+  readonly resize: Maybe<RemoteFileResize>;
+  readonly size: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulAssetSys>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 
@@ -77,13 +76,13 @@ export type ContentfulAssetCreatedAtArgs = {
 export type ContentfulAssetGatsbyImageArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
   backgroundColor: InputMaybe<Scalars['String']>;
-  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  breakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
-  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
   height: InputMaybe<Scalars['Int']>;
   layout?: InputMaybe<RemoteFileLayout>;
-  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder?: InputMaybe<RemoteFilePlaceholder>;
   quality?: InputMaybe<Scalars['Int']>;
   sizes: InputMaybe<Scalars['String']>;
@@ -94,14 +93,14 @@ export type ContentfulAssetGatsbyImageArgs = {
 export type ContentfulAssetGatsbyImageDataArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
   backgroundColor: InputMaybe<Scalars['String']>;
-  breakpoints: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  breakpoints: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   cornerRadius?: InputMaybe<Scalars['Int']>;
   cropFocus: InputMaybe<ContentfulImageCropFocus>;
-  formats?: InputMaybe<Array<InputMaybe<GatsbyImageFormat>>>;
+  formats?: InputMaybe<ReadonlyArray<InputMaybe<GatsbyImageFormat>>>;
   height: InputMaybe<Scalars['Int']>;
   jpegProgressive?: InputMaybe<Scalars['Boolean']>;
   layout: InputMaybe<GatsbyImageLayout>;
-  outputPixelDensities: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder: InputMaybe<GatsbyImagePlaceholder>;
   quality: InputMaybe<Scalars['Int']>;
   resizingBehavior: InputMaybe<ImageResizingBehavior>;
@@ -112,7 +111,7 @@ export type ContentfulAssetGatsbyImageDataArgs = {
 
 export type ContentfulAssetResizeArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
   format?: InputMaybe<RemoteFileFormat>;
   height: InputMaybe<Scalars['Int']>;
@@ -129,15 +128,15 @@ export type ContentfulAssetUpdatedAtArgs = {
 };
 
 export type ContentfulAssetConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulAssetEdge>;
-  group: Array<ContentfulAssetGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulAsset>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAssetEdge>;
+  readonly group: ReadonlyArray<ContentfulAssetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAsset>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -168,9 +167,9 @@ export type ContentfulAssetConnectionSumArgs = {
 };
 
 export type ContentfulAssetEdge = {
-  next: Maybe<ContentfulAsset>;
-  node: ContentfulAsset;
-  previous: Maybe<ContentfulAsset>;
+  readonly next: Maybe<ContentfulAsset>;
+  readonly node: ContentfulAsset;
+  readonly previous: Maybe<ContentfulAsset>;
 };
 
 export enum ContentfulAssetFieldsEnum {
@@ -299,79 +298,79 @@ export enum ContentfulAssetFieldsEnum {
 }
 
 export type ContentfulAssetFile = {
-  contentType: Maybe<Scalars['String']>;
-  details: Maybe<ContentfulAssetFileDetails>;
-  fileName: Maybe<Scalars['String']>;
-  url: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<Scalars['String']>;
+  readonly details: Maybe<ContentfulAssetFileDetails>;
+  readonly fileName: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssetFileDetails = {
-  image: Maybe<ContentfulAssetFileDetailsImage>;
-  size: Maybe<Scalars['Int']>;
+  readonly image: Maybe<ContentfulAssetFileDetailsImage>;
+  readonly size: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetFileDetailsFilterInput = {
-  image: InputMaybe<ContentfulAssetFileDetailsImageFilterInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
+  readonly image: InputMaybe<ContentfulAssetFileDetailsImageFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulAssetFileDetailsImage = {
-  height: Maybe<Scalars['Int']>;
-  width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 export type ContentfulAssetFileDetailsImageFilterInput = {
-  height: InputMaybe<IntQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulAssetFileFilterInput = {
-  contentType: InputMaybe<StringQueryOperatorInput>;
-  details: InputMaybe<ContentfulAssetFileDetailsFilterInput>;
-  fileName: InputMaybe<StringQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<StringQueryOperatorInput>;
+  readonly details: InputMaybe<ContentfulAssetFileDetailsFilterInput>;
+  readonly fileName: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulAssetFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  file: InputMaybe<ContentfulAssetFileFilterInput>;
-  filename: InputMaybe<StringQueryOperatorInput>;
-  filesize: InputMaybe<IntQueryOperatorInput>;
-  gatsbyImage: InputMaybe<GatsbyImageDataQueryOperatorInput>;
-  gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
-  height: InputMaybe<IntQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mimeType: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  placeholderUrl: InputMaybe<StringQueryOperatorInput>;
-  publicUrl: InputMaybe<StringQueryOperatorInput>;
-  resize: InputMaybe<RemoteFileResizeFilterInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulAssetSysFilterInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly file: InputMaybe<ContentfulAssetFileFilterInput>;
+  readonly filename: InputMaybe<StringQueryOperatorInput>;
+  readonly filesize: InputMaybe<IntQueryOperatorInput>;
+  readonly gatsbyImage: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mimeType: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly placeholderUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly publicUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly resize: InputMaybe<RemoteFileResizeFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulAssetSysFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ContentfulAssetGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulAssetEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulAssetGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulAsset>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAssetEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulAssetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAsset>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -402,44 +401,45 @@ export type ContentfulAssetGroupConnectionSumArgs = {
 };
 
 export type ContentfulAssetSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulAssetFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAssetFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulAssetSys = {
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulAssetSysFilterInput = {
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & {
-  category: Maybe<ContentfulCategory>;
+  readonly category: Maybe<ContentfulCategory>;
   /** Returns the first child node of type contentfulBlogPostContentTextNode or null if there are no children of given type on this node */
-  childContentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
-  children: Array<Node>;
+  readonly childContentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulBlogPostContentTextNode */
-  childrenContentfulBlogPostContentTextNode: Maybe<Array<Maybe<ContentfulBlogPostContentTextNode>>>;
-  content: Maybe<ContentfulBlogPostContentTextNode>;
-  contentful_id: Scalars['String'];
-  created: Maybe<Scalars['Date']>;
-  createdAt: Maybe<Scalars['Date']>;
-  excerpt: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  slug: Maybe<Scalars['String']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulBlogPostSys>;
-  tags: Maybe<Array<Maybe<ContentfulTag>>>;
-  thumbnail: Maybe<ContentfulAsset>;
-  title: Maybe<Scalars['String']>;
-  updated: Maybe<Scalars['Date']>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly childrenContentfulBlogPostContentTextNode: Maybe<ReadonlyArray<Maybe<ContentfulBlogPostContentTextNode>>>;
+  readonly content: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly contentful_id: Scalars['String'];
+  readonly created: Maybe<Scalars['Date']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly gatsbyPath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulBlogPostSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly thumbnail: Maybe<ContentfulAsset>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updated: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -459,6 +459,11 @@ export type ContentfulBlogPostCreatedAtArgs = {
 };
 
 
+export type ContentfulBlogPostGatsbyPathArgs = {
+  filePath: InputMaybe<Scalars['String']>;
+};
+
+
 export type ContentfulBlogPostUpdatedArgs = {
   difference: InputMaybe<Scalars['String']>;
   formatString: InputMaybe<Scalars['String']>;
@@ -475,15 +480,15 @@ export type ContentfulBlogPostUpdatedAtArgs = {
 };
 
 export type ContentfulBlogPostConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostEdge>;
-  group: Array<ContentfulBlogPostGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPost>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostEdge>;
+  readonly group: ReadonlyArray<ContentfulBlogPostGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPost>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -514,9 +519,9 @@ export type ContentfulBlogPostConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostEdge = {
-  next: Maybe<ContentfulBlogPost>;
-  node: ContentfulBlogPost;
-  previous: Maybe<ContentfulBlogPost>;
+  readonly next: Maybe<ContentfulBlogPost>;
+  readonly node: ContentfulBlogPost;
+  readonly previous: Maybe<ContentfulBlogPost>;
 };
 
 export enum ContentfulBlogPostFieldsEnum {
@@ -551,1047 +556,1051 @@ export enum ContentfulBlogPostFieldsEnum {
   CategoryBlogPostCreated = 28,
   CategoryBlogPostCreatedAt = 29,
   CategoryBlogPostExcerpt = 30,
-  CategoryBlogPostId = 31,
-  CategoryBlogPostInternalContent = 32,
-  CategoryBlogPostInternalContentDigest = 33,
-  CategoryBlogPostInternalContentFilePath = 34,
-  CategoryBlogPostInternalDescription = 35,
-  CategoryBlogPostInternalFieldOwners = 36,
-  CategoryBlogPostInternalIgnoreType = 37,
-  CategoryBlogPostInternalMediaType = 38,
-  CategoryBlogPostInternalOwner = 39,
-  CategoryBlogPostInternalType = 40,
-  CategoryBlogPostNodeLocale = 41,
-  CategoryBlogPostParentChildren = 42,
-  CategoryBlogPostParentId = 43,
-  CategoryBlogPostSlug = 44,
-  CategoryBlogPostSpaceId = 45,
-  CategoryBlogPostSysRevision = 46,
-  CategoryBlogPostSysType = 47,
-  CategoryBlogPostTags = 48,
-  CategoryBlogPostTagsBlogPost = 49,
-  CategoryBlogPostTagsChildren = 50,
-  CategoryBlogPostTagsContentfulId = 51,
-  CategoryBlogPostTagsCreatedAt = 52,
-  CategoryBlogPostTagsId = 53,
-  CategoryBlogPostTagsLevel = 54,
-  CategoryBlogPostTagsName = 55,
-  CategoryBlogPostTagsNodeLocale = 56,
-  CategoryBlogPostTagsOss = 57,
-  CategoryBlogPostTagsProject = 58,
-  CategoryBlogPostTagsSkillGrpup = 59,
-  CategoryBlogPostTagsSkillMap = 60,
-  CategoryBlogPostTagsSpaceId = 61,
-  CategoryBlogPostTagsUpdatedAt = 62,
-  CategoryBlogPostThumbnailChildren = 63,
-  CategoryBlogPostThumbnailContentfulId = 64,
-  CategoryBlogPostThumbnailCreatedAt = 65,
-  CategoryBlogPostThumbnailDescription = 66,
-  CategoryBlogPostThumbnailFilename = 67,
-  CategoryBlogPostThumbnailFilesize = 68,
-  CategoryBlogPostThumbnailGatsbyImage = 69,
-  CategoryBlogPostThumbnailGatsbyImageData = 70,
-  CategoryBlogPostThumbnailHeight = 71,
-  CategoryBlogPostThumbnailId = 72,
-  CategoryBlogPostThumbnailMimeType = 73,
-  CategoryBlogPostThumbnailNodeLocale = 74,
-  CategoryBlogPostThumbnailPlaceholderUrl = 75,
-  CategoryBlogPostThumbnailPublicUrl = 76,
-  CategoryBlogPostThumbnailSize = 77,
-  CategoryBlogPostThumbnailSpaceId = 78,
-  CategoryBlogPostThumbnailTitle = 79,
-  CategoryBlogPostThumbnailUpdatedAt = 80,
-  CategoryBlogPostThumbnailUrl = 81,
-  CategoryBlogPostThumbnailWidth = 82,
-  CategoryBlogPostTitle = 83,
-  CategoryBlogPostUpdated = 84,
-  CategoryBlogPostUpdatedAt = 85,
-  CategoryChildren = 86,
-  CategoryChildrenChildren = 87,
-  CategoryChildrenChildrenChildren = 88,
-  CategoryChildrenChildrenId = 89,
-  CategoryChildrenId = 90,
-  CategoryChildrenInternalContent = 91,
-  CategoryChildrenInternalContentDigest = 92,
-  CategoryChildrenInternalContentFilePath = 93,
-  CategoryChildrenInternalDescription = 94,
-  CategoryChildrenInternalFieldOwners = 95,
-  CategoryChildrenInternalIgnoreType = 96,
-  CategoryChildrenInternalMediaType = 97,
-  CategoryChildrenInternalOwner = 98,
-  CategoryChildrenInternalType = 99,
-  CategoryChildrenParentChildren = 100,
-  CategoryChildrenParentId = 101,
-  CategoryContentfulId = 102,
-  CategoryCreatedAt = 103,
-  CategoryId = 104,
-  CategoryInternalContent = 105,
-  CategoryInternalContentDigest = 106,
-  CategoryInternalContentFilePath = 107,
-  CategoryInternalDescription = 108,
-  CategoryInternalFieldOwners = 109,
-  CategoryInternalIgnoreType = 110,
-  CategoryInternalMediaType = 111,
-  CategoryInternalOwner = 112,
-  CategoryInternalType = 113,
-  CategoryName = 114,
-  CategoryNodeLocale = 115,
-  CategoryParentChildren = 116,
-  CategoryParentChildrenChildren = 117,
-  CategoryParentChildrenId = 118,
-  CategoryParentId = 119,
-  CategoryParentInternalContent = 120,
-  CategoryParentInternalContentDigest = 121,
-  CategoryParentInternalContentFilePath = 122,
-  CategoryParentInternalDescription = 123,
-  CategoryParentInternalFieldOwners = 124,
-  CategoryParentInternalIgnoreType = 125,
-  CategoryParentInternalMediaType = 126,
-  CategoryParentInternalOwner = 127,
-  CategoryParentInternalType = 128,
-  CategoryParentParentChildren = 129,
-  CategoryParentParentId = 130,
-  CategorySortKey = 131,
-  CategorySpaceId = 132,
-  CategorySysRevision = 133,
-  CategorySysType = 134,
-  CategoryUpdatedAt = 135,
-  ChildContentfulBlogPostContentTextNodeChildMdxBody = 136,
-  ChildContentfulBlogPostContentTextNodeChildMdxChildren = 137,
-  ChildContentfulBlogPostContentTextNodeChildMdxChildrenChildren = 138,
-  ChildContentfulBlogPostContentTextNodeChildMdxChildrenId = 139,
-  ChildContentfulBlogPostContentTextNodeChildMdxExcerpt = 140,
-  ChildContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 141,
-  ChildContentfulBlogPostContentTextNodeChildMdxFrontmatterTitle = 142,
-  ChildContentfulBlogPostContentTextNodeChildMdxHeadings = 143,
-  ChildContentfulBlogPostContentTextNodeChildMdxHeadingsDepth = 144,
-  ChildContentfulBlogPostContentTextNodeChildMdxHeadingsValue = 145,
-  ChildContentfulBlogPostContentTextNodeChildMdxHtml = 146,
-  ChildContentfulBlogPostContentTextNodeChildMdxId = 147,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalContent = 148,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalContentDigest = 149,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalContentFilePath = 150,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalDescription = 151,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalFieldOwners = 152,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalIgnoreType = 153,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalMediaType = 154,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalOwner = 155,
-  ChildContentfulBlogPostContentTextNodeChildMdxInternalType = 156,
-  ChildContentfulBlogPostContentTextNodeChildMdxMdxAst = 157,
-  ChildContentfulBlogPostContentTextNodeChildMdxParentChildren = 158,
-  ChildContentfulBlogPostContentTextNodeChildMdxParentId = 159,
-  ChildContentfulBlogPostContentTextNodeChildMdxRawBody = 160,
-  ChildContentfulBlogPostContentTextNodeChildMdxSlug = 161,
-  ChildContentfulBlogPostContentTextNodeChildMdxTableOfContents = 162,
-  ChildContentfulBlogPostContentTextNodeChildMdxTimeToRead = 163,
-  ChildContentfulBlogPostContentTextNodeChildMdxWordCountParagraphs = 164,
-  ChildContentfulBlogPostContentTextNodeChildMdxWordCountSentences = 165,
-  ChildContentfulBlogPostContentTextNodeChildMdxWordCountWords = 166,
-  ChildContentfulBlogPostContentTextNodeChildren = 167,
-  ChildContentfulBlogPostContentTextNodeChildrenMdx = 168,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxBody = 169,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxChildren = 170,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxChildrenChildren = 171,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxChildrenId = 172,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 173,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 174,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxFrontmatterTitle = 175,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxHeadings = 176,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxHeadingsDepth = 177,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxHeadingsValue = 178,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxHtml = 179,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxId = 180,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalContent = 181,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalContentDigest = 182,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalContentFilePath = 183,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalDescription = 184,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalFieldOwners = 185,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalIgnoreType = 186,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalMediaType = 187,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalOwner = 188,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalType = 189,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 190,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxParentChildren = 191,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxParentId = 192,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxRawBody = 193,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxSlug = 194,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 195,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 196,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxWordCountParagraphs = 197,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxWordCountSentences = 198,
-  ChildContentfulBlogPostContentTextNodeChildrenMdxWordCountWords = 199,
-  ChildContentfulBlogPostContentTextNodeChildrenChildren = 200,
-  ChildContentfulBlogPostContentTextNodeChildrenChildrenChildren = 201,
-  ChildContentfulBlogPostContentTextNodeChildrenChildrenId = 202,
-  ChildContentfulBlogPostContentTextNodeChildrenId = 203,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalContent = 204,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalContentDigest = 205,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalContentFilePath = 206,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalDescription = 207,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalFieldOwners = 208,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalIgnoreType = 209,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalMediaType = 210,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalOwner = 211,
-  ChildContentfulBlogPostContentTextNodeChildrenInternalType = 212,
-  ChildContentfulBlogPostContentTextNodeChildrenParentChildren = 213,
-  ChildContentfulBlogPostContentTextNodeChildrenParentId = 214,
-  ChildContentfulBlogPostContentTextNodeContent = 215,
-  ChildContentfulBlogPostContentTextNodeId = 216,
-  ChildContentfulBlogPostContentTextNodeInternalContent = 217,
-  ChildContentfulBlogPostContentTextNodeInternalContentDigest = 218,
-  ChildContentfulBlogPostContentTextNodeInternalContentFilePath = 219,
-  ChildContentfulBlogPostContentTextNodeInternalDescription = 220,
-  ChildContentfulBlogPostContentTextNodeInternalFieldOwners = 221,
-  ChildContentfulBlogPostContentTextNodeInternalIgnoreType = 222,
-  ChildContentfulBlogPostContentTextNodeInternalMediaType = 223,
-  ChildContentfulBlogPostContentTextNodeInternalOwner = 224,
-  ChildContentfulBlogPostContentTextNodeInternalType = 225,
-  ChildContentfulBlogPostContentTextNodeParentChildren = 226,
-  ChildContentfulBlogPostContentTextNodeParentChildrenChildren = 227,
-  ChildContentfulBlogPostContentTextNodeParentChildrenId = 228,
-  ChildContentfulBlogPostContentTextNodeParentId = 229,
-  ChildContentfulBlogPostContentTextNodeParentInternalContent = 230,
-  ChildContentfulBlogPostContentTextNodeParentInternalContentDigest = 231,
-  ChildContentfulBlogPostContentTextNodeParentInternalContentFilePath = 232,
-  ChildContentfulBlogPostContentTextNodeParentInternalDescription = 233,
-  ChildContentfulBlogPostContentTextNodeParentInternalFieldOwners = 234,
-  ChildContentfulBlogPostContentTextNodeParentInternalIgnoreType = 235,
-  ChildContentfulBlogPostContentTextNodeParentInternalMediaType = 236,
-  ChildContentfulBlogPostContentTextNodeParentInternalOwner = 237,
-  ChildContentfulBlogPostContentTextNodeParentInternalType = 238,
-  ChildContentfulBlogPostContentTextNodeParentParentChildren = 239,
-  ChildContentfulBlogPostContentTextNodeParentParentId = 240,
-  ChildContentfulBlogPostContentTextNodeSysType = 241,
-  Children = 242,
-  ChildrenContentfulBlogPostContentTextNode = 243,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxBody = 244,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxChildren = 245,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxChildrenChildren = 246,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxChildrenId = 247,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxExcerpt = 248,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 249,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxFrontmatterTitle = 250,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxHeadings = 251,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxHeadingsDepth = 252,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxHeadingsValue = 253,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxHtml = 254,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxId = 255,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalContent = 256,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalContentDigest = 257,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalContentFilePath = 258,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalDescription = 259,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalFieldOwners = 260,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalIgnoreType = 261,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalMediaType = 262,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalOwner = 263,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalType = 264,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxMdxAst = 265,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxParentChildren = 266,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxParentId = 267,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxRawBody = 268,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxSlug = 269,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxTableOfContents = 270,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxTimeToRead = 271,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxWordCountParagraphs = 272,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxWordCountSentences = 273,
-  ChildrenContentfulBlogPostContentTextNodeChildMdxWordCountWords = 274,
-  ChildrenContentfulBlogPostContentTextNodeChildren = 275,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdx = 276,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxBody = 277,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxChildren = 278,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxChildrenChildren = 279,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxChildrenId = 280,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 281,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 282,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxFrontmatterTitle = 283,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadings = 284,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadingsDepth = 285,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadingsValue = 286,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHtml = 287,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxId = 288,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalContent = 289,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalContentDigest = 290,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalContentFilePath = 291,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalDescription = 292,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalFieldOwners = 293,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalIgnoreType = 294,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalMediaType = 295,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalOwner = 296,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalType = 297,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 298,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxParentChildren = 299,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxParentId = 300,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxRawBody = 301,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxSlug = 302,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 303,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 304,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxWordCountParagraphs = 305,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxWordCountSentences = 306,
-  ChildrenContentfulBlogPostContentTextNodeChildrenMdxWordCountWords = 307,
-  ChildrenContentfulBlogPostContentTextNodeChildrenChildren = 308,
-  ChildrenContentfulBlogPostContentTextNodeChildrenChildrenChildren = 309,
-  ChildrenContentfulBlogPostContentTextNodeChildrenChildrenId = 310,
-  ChildrenContentfulBlogPostContentTextNodeChildrenId = 311,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalContent = 312,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalContentDigest = 313,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalContentFilePath = 314,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalDescription = 315,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalFieldOwners = 316,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalIgnoreType = 317,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalMediaType = 318,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalOwner = 319,
-  ChildrenContentfulBlogPostContentTextNodeChildrenInternalType = 320,
-  ChildrenContentfulBlogPostContentTextNodeChildrenParentChildren = 321,
-  ChildrenContentfulBlogPostContentTextNodeChildrenParentId = 322,
-  ChildrenContentfulBlogPostContentTextNodeContent = 323,
-  ChildrenContentfulBlogPostContentTextNodeId = 324,
-  ChildrenContentfulBlogPostContentTextNodeInternalContent = 325,
-  ChildrenContentfulBlogPostContentTextNodeInternalContentDigest = 326,
-  ChildrenContentfulBlogPostContentTextNodeInternalContentFilePath = 327,
-  ChildrenContentfulBlogPostContentTextNodeInternalDescription = 328,
-  ChildrenContentfulBlogPostContentTextNodeInternalFieldOwners = 329,
-  ChildrenContentfulBlogPostContentTextNodeInternalIgnoreType = 330,
-  ChildrenContentfulBlogPostContentTextNodeInternalMediaType = 331,
-  ChildrenContentfulBlogPostContentTextNodeInternalOwner = 332,
-  ChildrenContentfulBlogPostContentTextNodeInternalType = 333,
-  ChildrenContentfulBlogPostContentTextNodeParentChildren = 334,
-  ChildrenContentfulBlogPostContentTextNodeParentChildrenChildren = 335,
-  ChildrenContentfulBlogPostContentTextNodeParentChildrenId = 336,
-  ChildrenContentfulBlogPostContentTextNodeParentId = 337,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalContent = 338,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalContentDigest = 339,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalContentFilePath = 340,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalDescription = 341,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalFieldOwners = 342,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalIgnoreType = 343,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalMediaType = 344,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalOwner = 345,
-  ChildrenContentfulBlogPostContentTextNodeParentInternalType = 346,
-  ChildrenContentfulBlogPostContentTextNodeParentParentChildren = 347,
-  ChildrenContentfulBlogPostContentTextNodeParentParentId = 348,
-  ChildrenContentfulBlogPostContentTextNodeSysType = 349,
-  ChildrenChildren = 350,
-  ChildrenChildrenChildren = 351,
-  ChildrenChildrenChildrenChildren = 352,
-  ChildrenChildrenChildrenId = 353,
-  ChildrenChildrenId = 354,
-  ChildrenChildrenInternalContent = 355,
-  ChildrenChildrenInternalContentDigest = 356,
-  ChildrenChildrenInternalContentFilePath = 357,
-  ChildrenChildrenInternalDescription = 358,
-  ChildrenChildrenInternalFieldOwners = 359,
-  ChildrenChildrenInternalIgnoreType = 360,
-  ChildrenChildrenInternalMediaType = 361,
-  ChildrenChildrenInternalOwner = 362,
-  ChildrenChildrenInternalType = 363,
-  ChildrenChildrenParentChildren = 364,
-  ChildrenChildrenParentId = 365,
-  ChildrenId = 366,
-  ChildrenInternalContent = 367,
-  ChildrenInternalContentDigest = 368,
-  ChildrenInternalContentFilePath = 369,
-  ChildrenInternalDescription = 370,
-  ChildrenInternalFieldOwners = 371,
-  ChildrenInternalIgnoreType = 372,
-  ChildrenInternalMediaType = 373,
-  ChildrenInternalOwner = 374,
-  ChildrenInternalType = 375,
-  ChildrenParentChildren = 376,
-  ChildrenParentChildrenChildren = 377,
-  ChildrenParentChildrenId = 378,
-  ChildrenParentId = 379,
-  ChildrenParentInternalContent = 380,
-  ChildrenParentInternalContentDigest = 381,
-  ChildrenParentInternalContentFilePath = 382,
-  ChildrenParentInternalDescription = 383,
-  ChildrenParentInternalFieldOwners = 384,
-  ChildrenParentInternalIgnoreType = 385,
-  ChildrenParentInternalMediaType = 386,
-  ChildrenParentInternalOwner = 387,
-  ChildrenParentInternalType = 388,
-  ChildrenParentParentChildren = 389,
-  ChildrenParentParentId = 390,
-  ContentChildMdxBody = 391,
-  ContentChildMdxChildren = 392,
-  ContentChildMdxChildrenChildren = 393,
-  ContentChildMdxChildrenId = 394,
-  ContentChildMdxExcerpt = 395,
-  ContentChildMdxFileAbsolutePath = 396,
-  ContentChildMdxFrontmatterTitle = 397,
-  ContentChildMdxHeadings = 398,
-  ContentChildMdxHeadingsDepth = 399,
-  ContentChildMdxHeadingsValue = 400,
-  ContentChildMdxHtml = 401,
-  ContentChildMdxId = 402,
-  ContentChildMdxInternalContent = 403,
-  ContentChildMdxInternalContentDigest = 404,
-  ContentChildMdxInternalContentFilePath = 405,
-  ContentChildMdxInternalDescription = 406,
-  ContentChildMdxInternalFieldOwners = 407,
-  ContentChildMdxInternalIgnoreType = 408,
-  ContentChildMdxInternalMediaType = 409,
-  ContentChildMdxInternalOwner = 410,
-  ContentChildMdxInternalType = 411,
-  ContentChildMdxMdxAst = 412,
-  ContentChildMdxParentChildren = 413,
-  ContentChildMdxParentId = 414,
-  ContentChildMdxRawBody = 415,
-  ContentChildMdxSlug = 416,
-  ContentChildMdxTableOfContents = 417,
-  ContentChildMdxTimeToRead = 418,
-  ContentChildMdxWordCountParagraphs = 419,
-  ContentChildMdxWordCountSentences = 420,
-  ContentChildMdxWordCountWords = 421,
-  ContentChildren = 422,
-  ContentChildrenMdx = 423,
-  ContentChildrenMdxBody = 424,
-  ContentChildrenMdxChildren = 425,
-  ContentChildrenMdxChildrenChildren = 426,
-  ContentChildrenMdxChildrenId = 427,
-  ContentChildrenMdxExcerpt = 428,
-  ContentChildrenMdxFileAbsolutePath = 429,
-  ContentChildrenMdxFrontmatterTitle = 430,
-  ContentChildrenMdxHeadings = 431,
-  ContentChildrenMdxHeadingsDepth = 432,
-  ContentChildrenMdxHeadingsValue = 433,
-  ContentChildrenMdxHtml = 434,
-  ContentChildrenMdxId = 435,
-  ContentChildrenMdxInternalContent = 436,
-  ContentChildrenMdxInternalContentDigest = 437,
-  ContentChildrenMdxInternalContentFilePath = 438,
-  ContentChildrenMdxInternalDescription = 439,
-  ContentChildrenMdxInternalFieldOwners = 440,
-  ContentChildrenMdxInternalIgnoreType = 441,
-  ContentChildrenMdxInternalMediaType = 442,
-  ContentChildrenMdxInternalOwner = 443,
-  ContentChildrenMdxInternalType = 444,
-  ContentChildrenMdxMdxAst = 445,
-  ContentChildrenMdxParentChildren = 446,
-  ContentChildrenMdxParentId = 447,
-  ContentChildrenMdxRawBody = 448,
-  ContentChildrenMdxSlug = 449,
-  ContentChildrenMdxTableOfContents = 450,
-  ContentChildrenMdxTimeToRead = 451,
-  ContentChildrenMdxWordCountParagraphs = 452,
-  ContentChildrenMdxWordCountSentences = 453,
-  ContentChildrenMdxWordCountWords = 454,
-  ContentChildrenChildren = 455,
-  ContentChildrenChildrenChildren = 456,
-  ContentChildrenChildrenId = 457,
-  ContentChildrenId = 458,
-  ContentChildrenInternalContent = 459,
-  ContentChildrenInternalContentDigest = 460,
-  ContentChildrenInternalContentFilePath = 461,
-  ContentChildrenInternalDescription = 462,
-  ContentChildrenInternalFieldOwners = 463,
-  ContentChildrenInternalIgnoreType = 464,
-  ContentChildrenInternalMediaType = 465,
-  ContentChildrenInternalOwner = 466,
-  ContentChildrenInternalType = 467,
-  ContentChildrenParentChildren = 468,
-  ContentChildrenParentId = 469,
-  ContentContent = 470,
-  ContentId = 471,
-  ContentInternalContent = 472,
-  ContentInternalContentDigest = 473,
-  ContentInternalContentFilePath = 474,
-  ContentInternalDescription = 475,
-  ContentInternalFieldOwners = 476,
-  ContentInternalIgnoreType = 477,
-  ContentInternalMediaType = 478,
-  ContentInternalOwner = 479,
-  ContentInternalType = 480,
-  ContentParentChildren = 481,
-  ContentParentChildrenChildren = 482,
-  ContentParentChildrenId = 483,
-  ContentParentId = 484,
-  ContentParentInternalContent = 485,
-  ContentParentInternalContentDigest = 486,
-  ContentParentInternalContentFilePath = 487,
-  ContentParentInternalDescription = 488,
-  ContentParentInternalFieldOwners = 489,
-  ContentParentInternalIgnoreType = 490,
-  ContentParentInternalMediaType = 491,
-  ContentParentInternalOwner = 492,
-  ContentParentInternalType = 493,
-  ContentParentParentChildren = 494,
-  ContentParentParentId = 495,
-  ContentSysType = 496,
-  ContentfulId = 497,
-  Created = 498,
-  CreatedAt = 499,
-  Excerpt = 500,
-  Id = 501,
-  InternalContent = 502,
-  InternalContentDigest = 503,
-  InternalContentFilePath = 504,
-  InternalDescription = 505,
-  InternalFieldOwners = 506,
-  InternalIgnoreType = 507,
-  InternalMediaType = 508,
-  InternalOwner = 509,
-  InternalType = 510,
-  NodeLocale = 511,
-  ParentChildren = 512,
-  ParentChildrenChildren = 513,
-  ParentChildrenChildrenChildren = 514,
-  ParentChildrenChildrenId = 515,
-  ParentChildrenId = 516,
-  ParentChildrenInternalContent = 517,
-  ParentChildrenInternalContentDigest = 518,
-  ParentChildrenInternalContentFilePath = 519,
-  ParentChildrenInternalDescription = 520,
-  ParentChildrenInternalFieldOwners = 521,
-  ParentChildrenInternalIgnoreType = 522,
-  ParentChildrenInternalMediaType = 523,
-  ParentChildrenInternalOwner = 524,
-  ParentChildrenInternalType = 525,
-  ParentChildrenParentChildren = 526,
-  ParentChildrenParentId = 527,
-  ParentId = 528,
-  ParentInternalContent = 529,
-  ParentInternalContentDigest = 530,
-  ParentInternalContentFilePath = 531,
-  ParentInternalDescription = 532,
-  ParentInternalFieldOwners = 533,
-  ParentInternalIgnoreType = 534,
-  ParentInternalMediaType = 535,
-  ParentInternalOwner = 536,
-  ParentInternalType = 537,
-  ParentParentChildren = 538,
-  ParentParentChildrenChildren = 539,
-  ParentParentChildrenId = 540,
-  ParentParentId = 541,
-  ParentParentInternalContent = 542,
-  ParentParentInternalContentDigest = 543,
-  ParentParentInternalContentFilePath = 544,
-  ParentParentInternalDescription = 545,
-  ParentParentInternalFieldOwners = 546,
-  ParentParentInternalIgnoreType = 547,
-  ParentParentInternalMediaType = 548,
-  ParentParentInternalOwner = 549,
-  ParentParentInternalType = 550,
-  ParentParentParentChildren = 551,
-  ParentParentParentId = 552,
-  Slug = 553,
-  SpaceId = 554,
-  SysContentTypeSysId = 555,
-  SysContentTypeSysLinkType = 556,
-  SysContentTypeSysType = 557,
-  SysRevision = 558,
-  SysType = 559,
-  Tags = 560,
-  TagsBlogPost = 561,
-  TagsBlogPostCategoryBlogPost = 562,
-  TagsBlogPostCategoryChildren = 563,
-  TagsBlogPostCategoryContentfulId = 564,
-  TagsBlogPostCategoryCreatedAt = 565,
-  TagsBlogPostCategoryId = 566,
-  TagsBlogPostCategoryName = 567,
-  TagsBlogPostCategoryNodeLocale = 568,
-  TagsBlogPostCategorySortKey = 569,
-  TagsBlogPostCategorySpaceId = 570,
-  TagsBlogPostCategoryUpdatedAt = 571,
-  TagsBlogPostChildContentfulBlogPostContentTextNodeChildren = 572,
-  TagsBlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 573,
-  TagsBlogPostChildContentfulBlogPostContentTextNodeContent = 574,
-  TagsBlogPostChildContentfulBlogPostContentTextNodeId = 575,
-  TagsBlogPostChildren = 576,
-  TagsBlogPostChildrenContentfulBlogPostContentTextNode = 577,
-  TagsBlogPostChildrenContentfulBlogPostContentTextNodeChildren = 578,
-  TagsBlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 579,
-  TagsBlogPostChildrenContentfulBlogPostContentTextNodeContent = 580,
-  TagsBlogPostChildrenContentfulBlogPostContentTextNodeId = 581,
-  TagsBlogPostChildrenChildren = 582,
-  TagsBlogPostChildrenId = 583,
-  TagsBlogPostContentChildren = 584,
-  TagsBlogPostContentChildrenMdx = 585,
-  TagsBlogPostContentContent = 586,
-  TagsBlogPostContentId = 587,
-  TagsBlogPostContentfulId = 588,
-  TagsBlogPostCreated = 589,
-  TagsBlogPostCreatedAt = 590,
-  TagsBlogPostExcerpt = 591,
-  TagsBlogPostId = 592,
-  TagsBlogPostInternalContent = 593,
-  TagsBlogPostInternalContentDigest = 594,
-  TagsBlogPostInternalContentFilePath = 595,
-  TagsBlogPostInternalDescription = 596,
-  TagsBlogPostInternalFieldOwners = 597,
-  TagsBlogPostInternalIgnoreType = 598,
-  TagsBlogPostInternalMediaType = 599,
-  TagsBlogPostInternalOwner = 600,
-  TagsBlogPostInternalType = 601,
-  TagsBlogPostNodeLocale = 602,
-  TagsBlogPostParentChildren = 603,
-  TagsBlogPostParentId = 604,
-  TagsBlogPostSlug = 605,
-  TagsBlogPostSpaceId = 606,
-  TagsBlogPostSysRevision = 607,
-  TagsBlogPostSysType = 608,
-  TagsBlogPostTags = 609,
-  TagsBlogPostTagsBlogPost = 610,
-  TagsBlogPostTagsChildren = 611,
-  TagsBlogPostTagsContentfulId = 612,
-  TagsBlogPostTagsCreatedAt = 613,
-  TagsBlogPostTagsId = 614,
-  TagsBlogPostTagsLevel = 615,
-  TagsBlogPostTagsName = 616,
-  TagsBlogPostTagsNodeLocale = 617,
-  TagsBlogPostTagsOss = 618,
-  TagsBlogPostTagsProject = 619,
-  TagsBlogPostTagsSkillGrpup = 620,
-  TagsBlogPostTagsSkillMap = 621,
-  TagsBlogPostTagsSpaceId = 622,
-  TagsBlogPostTagsUpdatedAt = 623,
-  TagsBlogPostThumbnailChildren = 624,
-  TagsBlogPostThumbnailContentfulId = 625,
-  TagsBlogPostThumbnailCreatedAt = 626,
-  TagsBlogPostThumbnailDescription = 627,
-  TagsBlogPostThumbnailFilename = 628,
-  TagsBlogPostThumbnailFilesize = 629,
-  TagsBlogPostThumbnailGatsbyImage = 630,
-  TagsBlogPostThumbnailGatsbyImageData = 631,
-  TagsBlogPostThumbnailHeight = 632,
-  TagsBlogPostThumbnailId = 633,
-  TagsBlogPostThumbnailMimeType = 634,
-  TagsBlogPostThumbnailNodeLocale = 635,
-  TagsBlogPostThumbnailPlaceholderUrl = 636,
-  TagsBlogPostThumbnailPublicUrl = 637,
-  TagsBlogPostThumbnailSize = 638,
-  TagsBlogPostThumbnailSpaceId = 639,
-  TagsBlogPostThumbnailTitle = 640,
-  TagsBlogPostThumbnailUpdatedAt = 641,
-  TagsBlogPostThumbnailUrl = 642,
-  TagsBlogPostThumbnailWidth = 643,
-  TagsBlogPostTitle = 644,
-  TagsBlogPostUpdated = 645,
-  TagsBlogPostUpdatedAt = 646,
-  TagsChildren = 647,
-  TagsChildrenChildren = 648,
-  TagsChildrenChildrenChildren = 649,
-  TagsChildrenChildrenId = 650,
-  TagsChildrenId = 651,
-  TagsChildrenInternalContent = 652,
-  TagsChildrenInternalContentDigest = 653,
-  TagsChildrenInternalContentFilePath = 654,
-  TagsChildrenInternalDescription = 655,
-  TagsChildrenInternalFieldOwners = 656,
-  TagsChildrenInternalIgnoreType = 657,
-  TagsChildrenInternalMediaType = 658,
-  TagsChildrenInternalOwner = 659,
-  TagsChildrenInternalType = 660,
-  TagsChildrenParentChildren = 661,
-  TagsChildrenParentId = 662,
-  TagsContentfulId = 663,
-  TagsCreatedAt = 664,
-  TagsId = 665,
-  TagsInternalContent = 666,
-  TagsInternalContentDigest = 667,
-  TagsInternalContentFilePath = 668,
-  TagsInternalDescription = 669,
-  TagsInternalFieldOwners = 670,
-  TagsInternalIgnoreType = 671,
-  TagsInternalMediaType = 672,
-  TagsInternalOwner = 673,
-  TagsInternalType = 674,
-  TagsLevel = 675,
-  TagsName = 676,
-  TagsNodeLocale = 677,
-  TagsOss = 678,
-  TagsOssChildContentfulOssDetailTextNodeChildren = 679,
-  TagsOssChildContentfulOssDetailTextNodeChildrenMdx = 680,
-  TagsOssChildContentfulOssDetailTextNodeDetail = 681,
-  TagsOssChildContentfulOssDetailTextNodeId = 682,
-  TagsOssChildren = 683,
-  TagsOssChildrenContentfulOssDetailTextNode = 684,
-  TagsOssChildrenContentfulOssDetailTextNodeChildren = 685,
-  TagsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 686,
-  TagsOssChildrenContentfulOssDetailTextNodeDetail = 687,
-  TagsOssChildrenContentfulOssDetailTextNodeId = 688,
-  TagsOssChildrenChildren = 689,
-  TagsOssChildrenId = 690,
-  TagsOssContentfulId = 691,
-  TagsOssCreatedAt = 692,
-  TagsOssDetailChildren = 693,
-  TagsOssDetailChildrenMdx = 694,
-  TagsOssDetailDetail = 695,
-  TagsOssDetailId = 696,
-  TagsOssHref = 697,
-  TagsOssIconChildren = 698,
-  TagsOssIconChildrenContentfulIconSvgTextNode = 699,
-  TagsOssIconContact = 700,
-  TagsOssIconContentfulId = 701,
-  TagsOssIconCreatedAt = 702,
-  TagsOssIconHistory = 703,
-  TagsOssIconId = 704,
-  TagsOssIconName = 705,
-  TagsOssIconNodeLocale = 706,
-  TagsOssIconOss = 707,
-  TagsOssIconProject = 708,
-  TagsOssIconSpaceId = 709,
-  TagsOssIconUpdatedAt = 710,
-  TagsOssIconWhatICanDo = 711,
-  TagsOssId = 712,
-  TagsOssImageChildren = 713,
-  TagsOssImageContentfulId = 714,
-  TagsOssImageCreatedAt = 715,
-  TagsOssImageDescription = 716,
-  TagsOssImageFilename = 717,
-  TagsOssImageFilesize = 718,
-  TagsOssImageGatsbyImage = 719,
-  TagsOssImageGatsbyImageData = 720,
-  TagsOssImageHeight = 721,
-  TagsOssImageId = 722,
-  TagsOssImageMimeType = 723,
-  TagsOssImageNodeLocale = 724,
-  TagsOssImagePlaceholderUrl = 725,
-  TagsOssImagePublicUrl = 726,
-  TagsOssImageSize = 727,
-  TagsOssImageSpaceId = 728,
-  TagsOssImageTitle = 729,
-  TagsOssImageUpdatedAt = 730,
-  TagsOssImageUrl = 731,
-  TagsOssImageWidth = 732,
-  TagsOssInternalContent = 733,
-  TagsOssInternalContentDigest = 734,
-  TagsOssInternalContentFilePath = 735,
-  TagsOssInternalDescription = 736,
-  TagsOssInternalFieldOwners = 737,
-  TagsOssInternalIgnoreType = 738,
-  TagsOssInternalMediaType = 739,
-  TagsOssInternalOwner = 740,
-  TagsOssInternalType = 741,
-  TagsOssName = 742,
-  TagsOssNodeLocale = 743,
-  TagsOssParentChildren = 744,
-  TagsOssParentId = 745,
-  TagsOssSpaceId = 746,
-  TagsOssStartDate = 747,
-  TagsOssSubName = 748,
-  TagsOssSysRevision = 749,
-  TagsOssSysType = 750,
-  TagsOssTags = 751,
-  TagsOssTagsBlogPost = 752,
-  TagsOssTagsChildren = 753,
-  TagsOssTagsContentfulId = 754,
-  TagsOssTagsCreatedAt = 755,
-  TagsOssTagsId = 756,
-  TagsOssTagsLevel = 757,
-  TagsOssTagsName = 758,
-  TagsOssTagsNodeLocale = 759,
-  TagsOssTagsOss = 760,
-  TagsOssTagsProject = 761,
-  TagsOssTagsSkillGrpup = 762,
-  TagsOssTagsSkillMap = 763,
-  TagsOssTagsSpaceId = 764,
-  TagsOssTagsUpdatedAt = 765,
-  TagsOssUpdatedAt = 766,
-  TagsParentChildren = 767,
-  TagsParentChildrenChildren = 768,
-  TagsParentChildrenId = 769,
-  TagsParentId = 770,
-  TagsParentInternalContent = 771,
-  TagsParentInternalContentDigest = 772,
-  TagsParentInternalContentFilePath = 773,
-  TagsParentInternalDescription = 774,
-  TagsParentInternalFieldOwners = 775,
-  TagsParentInternalIgnoreType = 776,
-  TagsParentInternalMediaType = 777,
-  TagsParentInternalOwner = 778,
-  TagsParentInternalType = 779,
-  TagsParentParentChildren = 780,
-  TagsParentParentId = 781,
-  TagsProject = 782,
-  TagsProjectChildContentfulProjectDetailTextNodeChildren = 783,
-  TagsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 784,
-  TagsProjectChildContentfulProjectDetailTextNodeDetail = 785,
-  TagsProjectChildContentfulProjectDetailTextNodeId = 786,
-  TagsProjectChildren = 787,
-  TagsProjectChildrenContentfulProjectDetailTextNode = 788,
-  TagsProjectChildrenContentfulProjectDetailTextNodeChildren = 789,
-  TagsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 790,
-  TagsProjectChildrenContentfulProjectDetailTextNodeDetail = 791,
-  TagsProjectChildrenContentfulProjectDetailTextNodeId = 792,
-  TagsProjectChildrenChildren = 793,
-  TagsProjectChildrenId = 794,
-  TagsProjectContentfulId = 795,
-  TagsProjectCreatedAt = 796,
-  TagsProjectDetailChildren = 797,
-  TagsProjectDetailChildrenMdx = 798,
-  TagsProjectDetailDetail = 799,
-  TagsProjectDetailId = 800,
-  TagsProjectEndDate = 801,
-  TagsProjectIconChildren = 802,
-  TagsProjectIconChildrenContentfulIconSvgTextNode = 803,
-  TagsProjectIconContact = 804,
-  TagsProjectIconContentfulId = 805,
-  TagsProjectIconCreatedAt = 806,
-  TagsProjectIconHistory = 807,
-  TagsProjectIconId = 808,
-  TagsProjectIconName = 809,
-  TagsProjectIconNodeLocale = 810,
-  TagsProjectIconOss = 811,
-  TagsProjectIconProject = 812,
-  TagsProjectIconSpaceId = 813,
-  TagsProjectIconUpdatedAt = 814,
-  TagsProjectIconWhatICanDo = 815,
-  TagsProjectId = 816,
-  TagsProjectInternalContent = 817,
-  TagsProjectInternalContentDigest = 818,
-  TagsProjectInternalContentFilePath = 819,
-  TagsProjectInternalDescription = 820,
-  TagsProjectInternalFieldOwners = 821,
-  TagsProjectInternalIgnoreType = 822,
-  TagsProjectInternalMediaType = 823,
-  TagsProjectInternalOwner = 824,
-  TagsProjectInternalType = 825,
-  TagsProjectName = 826,
-  TagsProjectNodeLocale = 827,
-  TagsProjectParentChildren = 828,
-  TagsProjectParentId = 829,
-  TagsProjectSpaceId = 830,
-  TagsProjectStartDate = 831,
-  TagsProjectSubName = 832,
-  TagsProjectSysRevision = 833,
-  TagsProjectSysType = 834,
-  TagsProjectTags = 835,
-  TagsProjectTagsBlogPost = 836,
-  TagsProjectTagsChildren = 837,
-  TagsProjectTagsContentfulId = 838,
-  TagsProjectTagsCreatedAt = 839,
-  TagsProjectTagsId = 840,
-  TagsProjectTagsLevel = 841,
-  TagsProjectTagsName = 842,
-  TagsProjectTagsNodeLocale = 843,
-  TagsProjectTagsOss = 844,
-  TagsProjectTagsProject = 845,
-  TagsProjectTagsSkillGrpup = 846,
-  TagsProjectTagsSkillMap = 847,
-  TagsProjectTagsSpaceId = 848,
-  TagsProjectTagsUpdatedAt = 849,
-  TagsProjectUpdatedAt = 850,
-  TagsSkillGrpup = 851,
-  TagsSkillGrpupChildren = 852,
-  TagsSkillGrpupChildrenChildren = 853,
-  TagsSkillGrpupChildrenId = 854,
-  TagsSkillGrpupContentfulId = 855,
-  TagsSkillGrpupCreatedAt = 856,
-  TagsSkillGrpupId = 857,
-  TagsSkillGrpupInternalContent = 858,
-  TagsSkillGrpupInternalContentDigest = 859,
-  TagsSkillGrpupInternalContentFilePath = 860,
-  TagsSkillGrpupInternalDescription = 861,
-  TagsSkillGrpupInternalFieldOwners = 862,
-  TagsSkillGrpupInternalIgnoreType = 863,
-  TagsSkillGrpupInternalMediaType = 864,
-  TagsSkillGrpupInternalOwner = 865,
-  TagsSkillGrpupInternalType = 866,
-  TagsSkillGrpupName = 867,
-  TagsSkillGrpupNodeLocale = 868,
-  TagsSkillGrpupParentChildren = 869,
-  TagsSkillGrpupParentId = 870,
-  TagsSkillGrpupSkillMap = 871,
-  TagsSkillGrpupSkillMapChildren = 872,
-  TagsSkillGrpupSkillMapContentfulId = 873,
-  TagsSkillGrpupSkillMapCreatedAt = 874,
-  TagsSkillGrpupSkillMapExpanded = 875,
-  TagsSkillGrpupSkillMapId = 876,
-  TagsSkillGrpupSkillMapName = 877,
-  TagsSkillGrpupSkillMapNodeLocale = 878,
-  TagsSkillGrpupSkillMapSkillGroups = 879,
-  TagsSkillGrpupSkillMapSkills = 880,
-  TagsSkillGrpupSkillMapSortKey = 881,
-  TagsSkillGrpupSkillMapSpaceId = 882,
-  TagsSkillGrpupSkillMapUpdatedAt = 883,
-  TagsSkillGrpupSkills = 884,
-  TagsSkillGrpupSkillsBlogPost = 885,
-  TagsSkillGrpupSkillsChildren = 886,
-  TagsSkillGrpupSkillsContentfulId = 887,
-  TagsSkillGrpupSkillsCreatedAt = 888,
-  TagsSkillGrpupSkillsId = 889,
-  TagsSkillGrpupSkillsLevel = 890,
-  TagsSkillGrpupSkillsName = 891,
-  TagsSkillGrpupSkillsNodeLocale = 892,
-  TagsSkillGrpupSkillsOss = 893,
-  TagsSkillGrpupSkillsProject = 894,
-  TagsSkillGrpupSkillsSkillGrpup = 895,
-  TagsSkillGrpupSkillsSkillMap = 896,
-  TagsSkillGrpupSkillsSpaceId = 897,
-  TagsSkillGrpupSkillsUpdatedAt = 898,
-  TagsSkillGrpupSpaceId = 899,
-  TagsSkillGrpupSysRevision = 900,
-  TagsSkillGrpupSysType = 901,
-  TagsSkillGrpupUpdatedAt = 902,
-  TagsSkillMap = 903,
-  TagsSkillMapChildren = 904,
-  TagsSkillMapChildrenChildren = 905,
-  TagsSkillMapChildrenId = 906,
-  TagsSkillMapContentfulId = 907,
-  TagsSkillMapCreatedAt = 908,
-  TagsSkillMapExpanded = 909,
-  TagsSkillMapId = 910,
-  TagsSkillMapInternalContent = 911,
-  TagsSkillMapInternalContentDigest = 912,
-  TagsSkillMapInternalContentFilePath = 913,
-  TagsSkillMapInternalDescription = 914,
-  TagsSkillMapInternalFieldOwners = 915,
-  TagsSkillMapInternalIgnoreType = 916,
-  TagsSkillMapInternalMediaType = 917,
-  TagsSkillMapInternalOwner = 918,
-  TagsSkillMapInternalType = 919,
-  TagsSkillMapName = 920,
-  TagsSkillMapNodeLocale = 921,
-  TagsSkillMapParentChildren = 922,
-  TagsSkillMapParentId = 923,
-  TagsSkillMapSkillGroups = 924,
-  TagsSkillMapSkillGroupsChildren = 925,
-  TagsSkillMapSkillGroupsContentfulId = 926,
-  TagsSkillMapSkillGroupsCreatedAt = 927,
-  TagsSkillMapSkillGroupsId = 928,
-  TagsSkillMapSkillGroupsName = 929,
-  TagsSkillMapSkillGroupsNodeLocale = 930,
-  TagsSkillMapSkillGroupsSkillMap = 931,
-  TagsSkillMapSkillGroupsSkills = 932,
-  TagsSkillMapSkillGroupsSpaceId = 933,
-  TagsSkillMapSkillGroupsUpdatedAt = 934,
-  TagsSkillMapSkills = 935,
-  TagsSkillMapSkillsBlogPost = 936,
-  TagsSkillMapSkillsChildren = 937,
-  TagsSkillMapSkillsContentfulId = 938,
-  TagsSkillMapSkillsCreatedAt = 939,
-  TagsSkillMapSkillsId = 940,
-  TagsSkillMapSkillsLevel = 941,
-  TagsSkillMapSkillsName = 942,
-  TagsSkillMapSkillsNodeLocale = 943,
-  TagsSkillMapSkillsOss = 944,
-  TagsSkillMapSkillsProject = 945,
-  TagsSkillMapSkillsSkillGrpup = 946,
-  TagsSkillMapSkillsSkillMap = 947,
-  TagsSkillMapSkillsSpaceId = 948,
-  TagsSkillMapSkillsUpdatedAt = 949,
-  TagsSkillMapSortKey = 950,
-  TagsSkillMapSpaceId = 951,
-  TagsSkillMapSysRevision = 952,
-  TagsSkillMapSysType = 953,
-  TagsSkillMapUpdatedAt = 954,
-  TagsSpaceId = 955,
-  TagsSysRevision = 956,
-  TagsSysType = 957,
-  TagsUpdatedAt = 958,
-  ThumbnailChildren = 959,
-  ThumbnailChildrenChildren = 960,
-  ThumbnailChildrenChildrenChildren = 961,
-  ThumbnailChildrenChildrenId = 962,
-  ThumbnailChildrenId = 963,
-  ThumbnailChildrenInternalContent = 964,
-  ThumbnailChildrenInternalContentDigest = 965,
-  ThumbnailChildrenInternalContentFilePath = 966,
-  ThumbnailChildrenInternalDescription = 967,
-  ThumbnailChildrenInternalFieldOwners = 968,
-  ThumbnailChildrenInternalIgnoreType = 969,
-  ThumbnailChildrenInternalMediaType = 970,
-  ThumbnailChildrenInternalOwner = 971,
-  ThumbnailChildrenInternalType = 972,
-  ThumbnailChildrenParentChildren = 973,
-  ThumbnailChildrenParentId = 974,
-  ThumbnailContentfulId = 975,
-  ThumbnailCreatedAt = 976,
-  ThumbnailDescription = 977,
-  ThumbnailFileContentType = 978,
-  ThumbnailFileDetailsSize = 979,
-  ThumbnailFileFileName = 980,
-  ThumbnailFileUrl = 981,
-  ThumbnailFilename = 982,
-  ThumbnailFilesize = 983,
-  ThumbnailGatsbyImage = 984,
-  ThumbnailGatsbyImageData = 985,
-  ThumbnailHeight = 986,
-  ThumbnailId = 987,
-  ThumbnailInternalContent = 988,
-  ThumbnailInternalContentDigest = 989,
-  ThumbnailInternalContentFilePath = 990,
-  ThumbnailInternalDescription = 991,
-  ThumbnailInternalFieldOwners = 992,
-  ThumbnailInternalIgnoreType = 993,
-  ThumbnailInternalMediaType = 994,
-  ThumbnailInternalOwner = 995,
-  ThumbnailInternalType = 996,
-  ThumbnailMimeType = 997,
-  ThumbnailNodeLocale = 998,
-  ThumbnailParentChildren = 999,
-  ThumbnailParentChildrenChildren = 1000,
-  ThumbnailParentChildrenId = 1001,
-  ThumbnailParentId = 1002,
-  ThumbnailParentInternalContent = 1003,
-  ThumbnailParentInternalContentDigest = 1004,
-  ThumbnailParentInternalContentFilePath = 1005,
-  ThumbnailParentInternalDescription = 1006,
-  ThumbnailParentInternalFieldOwners = 1007,
-  ThumbnailParentInternalIgnoreType = 1008,
-  ThumbnailParentInternalMediaType = 1009,
-  ThumbnailParentInternalOwner = 1010,
-  ThumbnailParentInternalType = 1011,
-  ThumbnailParentParentChildren = 1012,
-  ThumbnailParentParentId = 1013,
-  ThumbnailPlaceholderUrl = 1014,
-  ThumbnailPublicUrl = 1015,
-  ThumbnailResizeHeight = 1016,
-  ThumbnailResizeSrc = 1017,
-  ThumbnailResizeWidth = 1018,
-  ThumbnailSize = 1019,
-  ThumbnailSpaceId = 1020,
-  ThumbnailSysRevision = 1021,
-  ThumbnailSysType = 1022,
-  ThumbnailTitle = 1023,
-  ThumbnailUpdatedAt = 1024,
-  ThumbnailUrl = 1025,
-  ThumbnailWidth = 1026,
-  Title = 1027,
-  Updated = 1028,
-  UpdatedAt = 1029
+  CategoryBlogPostGatsbyPath = 31,
+  CategoryBlogPostId = 32,
+  CategoryBlogPostInternalContent = 33,
+  CategoryBlogPostInternalContentDigest = 34,
+  CategoryBlogPostInternalContentFilePath = 35,
+  CategoryBlogPostInternalDescription = 36,
+  CategoryBlogPostInternalFieldOwners = 37,
+  CategoryBlogPostInternalIgnoreType = 38,
+  CategoryBlogPostInternalMediaType = 39,
+  CategoryBlogPostInternalOwner = 40,
+  CategoryBlogPostInternalType = 41,
+  CategoryBlogPostNodeLocale = 42,
+  CategoryBlogPostParentChildren = 43,
+  CategoryBlogPostParentId = 44,
+  CategoryBlogPostSlug = 45,
+  CategoryBlogPostSpaceId = 46,
+  CategoryBlogPostSysRevision = 47,
+  CategoryBlogPostSysType = 48,
+  CategoryBlogPostTags = 49,
+  CategoryBlogPostTagsBlogPost = 50,
+  CategoryBlogPostTagsChildren = 51,
+  CategoryBlogPostTagsContentfulId = 52,
+  CategoryBlogPostTagsCreatedAt = 53,
+  CategoryBlogPostTagsId = 54,
+  CategoryBlogPostTagsLevel = 55,
+  CategoryBlogPostTagsName = 56,
+  CategoryBlogPostTagsNodeLocale = 57,
+  CategoryBlogPostTagsOss = 58,
+  CategoryBlogPostTagsProject = 59,
+  CategoryBlogPostTagsSkillGrpup = 60,
+  CategoryBlogPostTagsSkillMap = 61,
+  CategoryBlogPostTagsSpaceId = 62,
+  CategoryBlogPostTagsUpdatedAt = 63,
+  CategoryBlogPostThumbnailChildren = 64,
+  CategoryBlogPostThumbnailContentfulId = 65,
+  CategoryBlogPostThumbnailCreatedAt = 66,
+  CategoryBlogPostThumbnailDescription = 67,
+  CategoryBlogPostThumbnailFilename = 68,
+  CategoryBlogPostThumbnailFilesize = 69,
+  CategoryBlogPostThumbnailGatsbyImage = 70,
+  CategoryBlogPostThumbnailGatsbyImageData = 71,
+  CategoryBlogPostThumbnailHeight = 72,
+  CategoryBlogPostThumbnailId = 73,
+  CategoryBlogPostThumbnailMimeType = 74,
+  CategoryBlogPostThumbnailNodeLocale = 75,
+  CategoryBlogPostThumbnailPlaceholderUrl = 76,
+  CategoryBlogPostThumbnailPublicUrl = 77,
+  CategoryBlogPostThumbnailSize = 78,
+  CategoryBlogPostThumbnailSpaceId = 79,
+  CategoryBlogPostThumbnailTitle = 80,
+  CategoryBlogPostThumbnailUpdatedAt = 81,
+  CategoryBlogPostThumbnailUrl = 82,
+  CategoryBlogPostThumbnailWidth = 83,
+  CategoryBlogPostTitle = 84,
+  CategoryBlogPostUpdated = 85,
+  CategoryBlogPostUpdatedAt = 86,
+  CategoryChildren = 87,
+  CategoryChildrenChildren = 88,
+  CategoryChildrenChildrenChildren = 89,
+  CategoryChildrenChildrenId = 90,
+  CategoryChildrenId = 91,
+  CategoryChildrenInternalContent = 92,
+  CategoryChildrenInternalContentDigest = 93,
+  CategoryChildrenInternalContentFilePath = 94,
+  CategoryChildrenInternalDescription = 95,
+  CategoryChildrenInternalFieldOwners = 96,
+  CategoryChildrenInternalIgnoreType = 97,
+  CategoryChildrenInternalMediaType = 98,
+  CategoryChildrenInternalOwner = 99,
+  CategoryChildrenInternalType = 100,
+  CategoryChildrenParentChildren = 101,
+  CategoryChildrenParentId = 102,
+  CategoryContentfulId = 103,
+  CategoryCreatedAt = 104,
+  CategoryId = 105,
+  CategoryInternalContent = 106,
+  CategoryInternalContentDigest = 107,
+  CategoryInternalContentFilePath = 108,
+  CategoryInternalDescription = 109,
+  CategoryInternalFieldOwners = 110,
+  CategoryInternalIgnoreType = 111,
+  CategoryInternalMediaType = 112,
+  CategoryInternalOwner = 113,
+  CategoryInternalType = 114,
+  CategoryName = 115,
+  CategoryNodeLocale = 116,
+  CategoryParentChildren = 117,
+  CategoryParentChildrenChildren = 118,
+  CategoryParentChildrenId = 119,
+  CategoryParentId = 120,
+  CategoryParentInternalContent = 121,
+  CategoryParentInternalContentDigest = 122,
+  CategoryParentInternalContentFilePath = 123,
+  CategoryParentInternalDescription = 124,
+  CategoryParentInternalFieldOwners = 125,
+  CategoryParentInternalIgnoreType = 126,
+  CategoryParentInternalMediaType = 127,
+  CategoryParentInternalOwner = 128,
+  CategoryParentInternalType = 129,
+  CategoryParentParentChildren = 130,
+  CategoryParentParentId = 131,
+  CategorySortKey = 132,
+  CategorySpaceId = 133,
+  CategorySysRevision = 134,
+  CategorySysType = 135,
+  CategoryUpdatedAt = 136,
+  ChildContentfulBlogPostContentTextNodeChildMdxBody = 137,
+  ChildContentfulBlogPostContentTextNodeChildMdxChildren = 138,
+  ChildContentfulBlogPostContentTextNodeChildMdxChildrenChildren = 139,
+  ChildContentfulBlogPostContentTextNodeChildMdxChildrenId = 140,
+  ChildContentfulBlogPostContentTextNodeChildMdxExcerpt = 141,
+  ChildContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 142,
+  ChildContentfulBlogPostContentTextNodeChildMdxFrontmatterTitle = 143,
+  ChildContentfulBlogPostContentTextNodeChildMdxHeadings = 144,
+  ChildContentfulBlogPostContentTextNodeChildMdxHeadingsDepth = 145,
+  ChildContentfulBlogPostContentTextNodeChildMdxHeadingsValue = 146,
+  ChildContentfulBlogPostContentTextNodeChildMdxHtml = 147,
+  ChildContentfulBlogPostContentTextNodeChildMdxId = 148,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalContent = 149,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalContentDigest = 150,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalContentFilePath = 151,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalDescription = 152,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalFieldOwners = 153,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalIgnoreType = 154,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalMediaType = 155,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalOwner = 156,
+  ChildContentfulBlogPostContentTextNodeChildMdxInternalType = 157,
+  ChildContentfulBlogPostContentTextNodeChildMdxMdxAst = 158,
+  ChildContentfulBlogPostContentTextNodeChildMdxParentChildren = 159,
+  ChildContentfulBlogPostContentTextNodeChildMdxParentId = 160,
+  ChildContentfulBlogPostContentTextNodeChildMdxRawBody = 161,
+  ChildContentfulBlogPostContentTextNodeChildMdxSlug = 162,
+  ChildContentfulBlogPostContentTextNodeChildMdxTableOfContents = 163,
+  ChildContentfulBlogPostContentTextNodeChildMdxTimeToRead = 164,
+  ChildContentfulBlogPostContentTextNodeChildMdxWordCountParagraphs = 165,
+  ChildContentfulBlogPostContentTextNodeChildMdxWordCountSentences = 166,
+  ChildContentfulBlogPostContentTextNodeChildMdxWordCountWords = 167,
+  ChildContentfulBlogPostContentTextNodeChildren = 168,
+  ChildContentfulBlogPostContentTextNodeChildrenMdx = 169,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxBody = 170,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxChildren = 171,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxChildrenChildren = 172,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxChildrenId = 173,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 174,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 175,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxFrontmatterTitle = 176,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxHeadings = 177,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxHeadingsDepth = 178,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxHeadingsValue = 179,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxHtml = 180,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxId = 181,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalContent = 182,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalContentDigest = 183,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalContentFilePath = 184,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalDescription = 185,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalFieldOwners = 186,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalIgnoreType = 187,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalMediaType = 188,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalOwner = 189,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxInternalType = 190,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 191,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxParentChildren = 192,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxParentId = 193,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxRawBody = 194,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxSlug = 195,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 196,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 197,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxWordCountParagraphs = 198,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxWordCountSentences = 199,
+  ChildContentfulBlogPostContentTextNodeChildrenMdxWordCountWords = 200,
+  ChildContentfulBlogPostContentTextNodeChildrenChildren = 201,
+  ChildContentfulBlogPostContentTextNodeChildrenChildrenChildren = 202,
+  ChildContentfulBlogPostContentTextNodeChildrenChildrenId = 203,
+  ChildContentfulBlogPostContentTextNodeChildrenId = 204,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalContent = 205,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalContentDigest = 206,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalContentFilePath = 207,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalDescription = 208,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalFieldOwners = 209,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalIgnoreType = 210,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalMediaType = 211,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalOwner = 212,
+  ChildContentfulBlogPostContentTextNodeChildrenInternalType = 213,
+  ChildContentfulBlogPostContentTextNodeChildrenParentChildren = 214,
+  ChildContentfulBlogPostContentTextNodeChildrenParentId = 215,
+  ChildContentfulBlogPostContentTextNodeContent = 216,
+  ChildContentfulBlogPostContentTextNodeId = 217,
+  ChildContentfulBlogPostContentTextNodeInternalContent = 218,
+  ChildContentfulBlogPostContentTextNodeInternalContentDigest = 219,
+  ChildContentfulBlogPostContentTextNodeInternalContentFilePath = 220,
+  ChildContentfulBlogPostContentTextNodeInternalDescription = 221,
+  ChildContentfulBlogPostContentTextNodeInternalFieldOwners = 222,
+  ChildContentfulBlogPostContentTextNodeInternalIgnoreType = 223,
+  ChildContentfulBlogPostContentTextNodeInternalMediaType = 224,
+  ChildContentfulBlogPostContentTextNodeInternalOwner = 225,
+  ChildContentfulBlogPostContentTextNodeInternalType = 226,
+  ChildContentfulBlogPostContentTextNodeParentChildren = 227,
+  ChildContentfulBlogPostContentTextNodeParentChildrenChildren = 228,
+  ChildContentfulBlogPostContentTextNodeParentChildrenId = 229,
+  ChildContentfulBlogPostContentTextNodeParentId = 230,
+  ChildContentfulBlogPostContentTextNodeParentInternalContent = 231,
+  ChildContentfulBlogPostContentTextNodeParentInternalContentDigest = 232,
+  ChildContentfulBlogPostContentTextNodeParentInternalContentFilePath = 233,
+  ChildContentfulBlogPostContentTextNodeParentInternalDescription = 234,
+  ChildContentfulBlogPostContentTextNodeParentInternalFieldOwners = 235,
+  ChildContentfulBlogPostContentTextNodeParentInternalIgnoreType = 236,
+  ChildContentfulBlogPostContentTextNodeParentInternalMediaType = 237,
+  ChildContentfulBlogPostContentTextNodeParentInternalOwner = 238,
+  ChildContentfulBlogPostContentTextNodeParentInternalType = 239,
+  ChildContentfulBlogPostContentTextNodeParentParentChildren = 240,
+  ChildContentfulBlogPostContentTextNodeParentParentId = 241,
+  ChildContentfulBlogPostContentTextNodeSysType = 242,
+  Children = 243,
+  ChildrenContentfulBlogPostContentTextNode = 244,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxBody = 245,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxChildren = 246,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxChildrenChildren = 247,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxChildrenId = 248,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxExcerpt = 249,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 250,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxFrontmatterTitle = 251,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxHeadings = 252,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxHeadingsDepth = 253,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxHeadingsValue = 254,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxHtml = 255,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxId = 256,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalContent = 257,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalContentDigest = 258,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalContentFilePath = 259,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalDescription = 260,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalFieldOwners = 261,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalIgnoreType = 262,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalMediaType = 263,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalOwner = 264,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxInternalType = 265,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxMdxAst = 266,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxParentChildren = 267,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxParentId = 268,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxRawBody = 269,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxSlug = 270,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxTableOfContents = 271,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxTimeToRead = 272,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxWordCountParagraphs = 273,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxWordCountSentences = 274,
+  ChildrenContentfulBlogPostContentTextNodeChildMdxWordCountWords = 275,
+  ChildrenContentfulBlogPostContentTextNodeChildren = 276,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdx = 277,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxBody = 278,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxChildren = 279,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxChildrenChildren = 280,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxChildrenId = 281,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 282,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 283,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxFrontmatterTitle = 284,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadings = 285,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadingsDepth = 286,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadingsValue = 287,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxHtml = 288,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxId = 289,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalContent = 290,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalContentDigest = 291,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalContentFilePath = 292,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalDescription = 293,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalFieldOwners = 294,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalIgnoreType = 295,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalMediaType = 296,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalOwner = 297,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxInternalType = 298,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 299,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxParentChildren = 300,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxParentId = 301,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxRawBody = 302,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxSlug = 303,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 304,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 305,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxWordCountParagraphs = 306,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxWordCountSentences = 307,
+  ChildrenContentfulBlogPostContentTextNodeChildrenMdxWordCountWords = 308,
+  ChildrenContentfulBlogPostContentTextNodeChildrenChildren = 309,
+  ChildrenContentfulBlogPostContentTextNodeChildrenChildrenChildren = 310,
+  ChildrenContentfulBlogPostContentTextNodeChildrenChildrenId = 311,
+  ChildrenContentfulBlogPostContentTextNodeChildrenId = 312,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalContent = 313,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalContentDigest = 314,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalContentFilePath = 315,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalDescription = 316,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalFieldOwners = 317,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalIgnoreType = 318,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalMediaType = 319,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalOwner = 320,
+  ChildrenContentfulBlogPostContentTextNodeChildrenInternalType = 321,
+  ChildrenContentfulBlogPostContentTextNodeChildrenParentChildren = 322,
+  ChildrenContentfulBlogPostContentTextNodeChildrenParentId = 323,
+  ChildrenContentfulBlogPostContentTextNodeContent = 324,
+  ChildrenContentfulBlogPostContentTextNodeId = 325,
+  ChildrenContentfulBlogPostContentTextNodeInternalContent = 326,
+  ChildrenContentfulBlogPostContentTextNodeInternalContentDigest = 327,
+  ChildrenContentfulBlogPostContentTextNodeInternalContentFilePath = 328,
+  ChildrenContentfulBlogPostContentTextNodeInternalDescription = 329,
+  ChildrenContentfulBlogPostContentTextNodeInternalFieldOwners = 330,
+  ChildrenContentfulBlogPostContentTextNodeInternalIgnoreType = 331,
+  ChildrenContentfulBlogPostContentTextNodeInternalMediaType = 332,
+  ChildrenContentfulBlogPostContentTextNodeInternalOwner = 333,
+  ChildrenContentfulBlogPostContentTextNodeInternalType = 334,
+  ChildrenContentfulBlogPostContentTextNodeParentChildren = 335,
+  ChildrenContentfulBlogPostContentTextNodeParentChildrenChildren = 336,
+  ChildrenContentfulBlogPostContentTextNodeParentChildrenId = 337,
+  ChildrenContentfulBlogPostContentTextNodeParentId = 338,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalContent = 339,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalContentDigest = 340,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalContentFilePath = 341,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalDescription = 342,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalFieldOwners = 343,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalIgnoreType = 344,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalMediaType = 345,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalOwner = 346,
+  ChildrenContentfulBlogPostContentTextNodeParentInternalType = 347,
+  ChildrenContentfulBlogPostContentTextNodeParentParentChildren = 348,
+  ChildrenContentfulBlogPostContentTextNodeParentParentId = 349,
+  ChildrenContentfulBlogPostContentTextNodeSysType = 350,
+  ChildrenChildren = 351,
+  ChildrenChildrenChildren = 352,
+  ChildrenChildrenChildrenChildren = 353,
+  ChildrenChildrenChildrenId = 354,
+  ChildrenChildrenId = 355,
+  ChildrenChildrenInternalContent = 356,
+  ChildrenChildrenInternalContentDigest = 357,
+  ChildrenChildrenInternalContentFilePath = 358,
+  ChildrenChildrenInternalDescription = 359,
+  ChildrenChildrenInternalFieldOwners = 360,
+  ChildrenChildrenInternalIgnoreType = 361,
+  ChildrenChildrenInternalMediaType = 362,
+  ChildrenChildrenInternalOwner = 363,
+  ChildrenChildrenInternalType = 364,
+  ChildrenChildrenParentChildren = 365,
+  ChildrenChildrenParentId = 366,
+  ChildrenId = 367,
+  ChildrenInternalContent = 368,
+  ChildrenInternalContentDigest = 369,
+  ChildrenInternalContentFilePath = 370,
+  ChildrenInternalDescription = 371,
+  ChildrenInternalFieldOwners = 372,
+  ChildrenInternalIgnoreType = 373,
+  ChildrenInternalMediaType = 374,
+  ChildrenInternalOwner = 375,
+  ChildrenInternalType = 376,
+  ChildrenParentChildren = 377,
+  ChildrenParentChildrenChildren = 378,
+  ChildrenParentChildrenId = 379,
+  ChildrenParentId = 380,
+  ChildrenParentInternalContent = 381,
+  ChildrenParentInternalContentDigest = 382,
+  ChildrenParentInternalContentFilePath = 383,
+  ChildrenParentInternalDescription = 384,
+  ChildrenParentInternalFieldOwners = 385,
+  ChildrenParentInternalIgnoreType = 386,
+  ChildrenParentInternalMediaType = 387,
+  ChildrenParentInternalOwner = 388,
+  ChildrenParentInternalType = 389,
+  ChildrenParentParentChildren = 390,
+  ChildrenParentParentId = 391,
+  ContentChildMdxBody = 392,
+  ContentChildMdxChildren = 393,
+  ContentChildMdxChildrenChildren = 394,
+  ContentChildMdxChildrenId = 395,
+  ContentChildMdxExcerpt = 396,
+  ContentChildMdxFileAbsolutePath = 397,
+  ContentChildMdxFrontmatterTitle = 398,
+  ContentChildMdxHeadings = 399,
+  ContentChildMdxHeadingsDepth = 400,
+  ContentChildMdxHeadingsValue = 401,
+  ContentChildMdxHtml = 402,
+  ContentChildMdxId = 403,
+  ContentChildMdxInternalContent = 404,
+  ContentChildMdxInternalContentDigest = 405,
+  ContentChildMdxInternalContentFilePath = 406,
+  ContentChildMdxInternalDescription = 407,
+  ContentChildMdxInternalFieldOwners = 408,
+  ContentChildMdxInternalIgnoreType = 409,
+  ContentChildMdxInternalMediaType = 410,
+  ContentChildMdxInternalOwner = 411,
+  ContentChildMdxInternalType = 412,
+  ContentChildMdxMdxAst = 413,
+  ContentChildMdxParentChildren = 414,
+  ContentChildMdxParentId = 415,
+  ContentChildMdxRawBody = 416,
+  ContentChildMdxSlug = 417,
+  ContentChildMdxTableOfContents = 418,
+  ContentChildMdxTimeToRead = 419,
+  ContentChildMdxWordCountParagraphs = 420,
+  ContentChildMdxWordCountSentences = 421,
+  ContentChildMdxWordCountWords = 422,
+  ContentChildren = 423,
+  ContentChildrenMdx = 424,
+  ContentChildrenMdxBody = 425,
+  ContentChildrenMdxChildren = 426,
+  ContentChildrenMdxChildrenChildren = 427,
+  ContentChildrenMdxChildrenId = 428,
+  ContentChildrenMdxExcerpt = 429,
+  ContentChildrenMdxFileAbsolutePath = 430,
+  ContentChildrenMdxFrontmatterTitle = 431,
+  ContentChildrenMdxHeadings = 432,
+  ContentChildrenMdxHeadingsDepth = 433,
+  ContentChildrenMdxHeadingsValue = 434,
+  ContentChildrenMdxHtml = 435,
+  ContentChildrenMdxId = 436,
+  ContentChildrenMdxInternalContent = 437,
+  ContentChildrenMdxInternalContentDigest = 438,
+  ContentChildrenMdxInternalContentFilePath = 439,
+  ContentChildrenMdxInternalDescription = 440,
+  ContentChildrenMdxInternalFieldOwners = 441,
+  ContentChildrenMdxInternalIgnoreType = 442,
+  ContentChildrenMdxInternalMediaType = 443,
+  ContentChildrenMdxInternalOwner = 444,
+  ContentChildrenMdxInternalType = 445,
+  ContentChildrenMdxMdxAst = 446,
+  ContentChildrenMdxParentChildren = 447,
+  ContentChildrenMdxParentId = 448,
+  ContentChildrenMdxRawBody = 449,
+  ContentChildrenMdxSlug = 450,
+  ContentChildrenMdxTableOfContents = 451,
+  ContentChildrenMdxTimeToRead = 452,
+  ContentChildrenMdxWordCountParagraphs = 453,
+  ContentChildrenMdxWordCountSentences = 454,
+  ContentChildrenMdxWordCountWords = 455,
+  ContentChildrenChildren = 456,
+  ContentChildrenChildrenChildren = 457,
+  ContentChildrenChildrenId = 458,
+  ContentChildrenId = 459,
+  ContentChildrenInternalContent = 460,
+  ContentChildrenInternalContentDigest = 461,
+  ContentChildrenInternalContentFilePath = 462,
+  ContentChildrenInternalDescription = 463,
+  ContentChildrenInternalFieldOwners = 464,
+  ContentChildrenInternalIgnoreType = 465,
+  ContentChildrenInternalMediaType = 466,
+  ContentChildrenInternalOwner = 467,
+  ContentChildrenInternalType = 468,
+  ContentChildrenParentChildren = 469,
+  ContentChildrenParentId = 470,
+  ContentContent = 471,
+  ContentId = 472,
+  ContentInternalContent = 473,
+  ContentInternalContentDigest = 474,
+  ContentInternalContentFilePath = 475,
+  ContentInternalDescription = 476,
+  ContentInternalFieldOwners = 477,
+  ContentInternalIgnoreType = 478,
+  ContentInternalMediaType = 479,
+  ContentInternalOwner = 480,
+  ContentInternalType = 481,
+  ContentParentChildren = 482,
+  ContentParentChildrenChildren = 483,
+  ContentParentChildrenId = 484,
+  ContentParentId = 485,
+  ContentParentInternalContent = 486,
+  ContentParentInternalContentDigest = 487,
+  ContentParentInternalContentFilePath = 488,
+  ContentParentInternalDescription = 489,
+  ContentParentInternalFieldOwners = 490,
+  ContentParentInternalIgnoreType = 491,
+  ContentParentInternalMediaType = 492,
+  ContentParentInternalOwner = 493,
+  ContentParentInternalType = 494,
+  ContentParentParentChildren = 495,
+  ContentParentParentId = 496,
+  ContentSysType = 497,
+  ContentfulId = 498,
+  Created = 499,
+  CreatedAt = 500,
+  Excerpt = 501,
+  GatsbyPath = 502,
+  Id = 503,
+  InternalContent = 504,
+  InternalContentDigest = 505,
+  InternalContentFilePath = 506,
+  InternalDescription = 507,
+  InternalFieldOwners = 508,
+  InternalIgnoreType = 509,
+  InternalMediaType = 510,
+  InternalOwner = 511,
+  InternalType = 512,
+  NodeLocale = 513,
+  ParentChildren = 514,
+  ParentChildrenChildren = 515,
+  ParentChildrenChildrenChildren = 516,
+  ParentChildrenChildrenId = 517,
+  ParentChildrenId = 518,
+  ParentChildrenInternalContent = 519,
+  ParentChildrenInternalContentDigest = 520,
+  ParentChildrenInternalContentFilePath = 521,
+  ParentChildrenInternalDescription = 522,
+  ParentChildrenInternalFieldOwners = 523,
+  ParentChildrenInternalIgnoreType = 524,
+  ParentChildrenInternalMediaType = 525,
+  ParentChildrenInternalOwner = 526,
+  ParentChildrenInternalType = 527,
+  ParentChildrenParentChildren = 528,
+  ParentChildrenParentId = 529,
+  ParentId = 530,
+  ParentInternalContent = 531,
+  ParentInternalContentDigest = 532,
+  ParentInternalContentFilePath = 533,
+  ParentInternalDescription = 534,
+  ParentInternalFieldOwners = 535,
+  ParentInternalIgnoreType = 536,
+  ParentInternalMediaType = 537,
+  ParentInternalOwner = 538,
+  ParentInternalType = 539,
+  ParentParentChildren = 540,
+  ParentParentChildrenChildren = 541,
+  ParentParentChildrenId = 542,
+  ParentParentId = 543,
+  ParentParentInternalContent = 544,
+  ParentParentInternalContentDigest = 545,
+  ParentParentInternalContentFilePath = 546,
+  ParentParentInternalDescription = 547,
+  ParentParentInternalFieldOwners = 548,
+  ParentParentInternalIgnoreType = 549,
+  ParentParentInternalMediaType = 550,
+  ParentParentInternalOwner = 551,
+  ParentParentInternalType = 552,
+  ParentParentParentChildren = 553,
+  ParentParentParentId = 554,
+  Slug = 555,
+  SpaceId = 556,
+  SysContentTypeSysId = 557,
+  SysContentTypeSysLinkType = 558,
+  SysContentTypeSysType = 559,
+  SysRevision = 560,
+  SysType = 561,
+  Tags = 562,
+  TagsBlogPost = 563,
+  TagsBlogPostCategoryBlogPost = 564,
+  TagsBlogPostCategoryChildren = 565,
+  TagsBlogPostCategoryContentfulId = 566,
+  TagsBlogPostCategoryCreatedAt = 567,
+  TagsBlogPostCategoryId = 568,
+  TagsBlogPostCategoryName = 569,
+  TagsBlogPostCategoryNodeLocale = 570,
+  TagsBlogPostCategorySortKey = 571,
+  TagsBlogPostCategorySpaceId = 572,
+  TagsBlogPostCategoryUpdatedAt = 573,
+  TagsBlogPostChildContentfulBlogPostContentTextNodeChildren = 574,
+  TagsBlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 575,
+  TagsBlogPostChildContentfulBlogPostContentTextNodeContent = 576,
+  TagsBlogPostChildContentfulBlogPostContentTextNodeId = 577,
+  TagsBlogPostChildren = 578,
+  TagsBlogPostChildrenContentfulBlogPostContentTextNode = 579,
+  TagsBlogPostChildrenContentfulBlogPostContentTextNodeChildren = 580,
+  TagsBlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 581,
+  TagsBlogPostChildrenContentfulBlogPostContentTextNodeContent = 582,
+  TagsBlogPostChildrenContentfulBlogPostContentTextNodeId = 583,
+  TagsBlogPostChildrenChildren = 584,
+  TagsBlogPostChildrenId = 585,
+  TagsBlogPostContentChildren = 586,
+  TagsBlogPostContentChildrenMdx = 587,
+  TagsBlogPostContentContent = 588,
+  TagsBlogPostContentId = 589,
+  TagsBlogPostContentfulId = 590,
+  TagsBlogPostCreated = 591,
+  TagsBlogPostCreatedAt = 592,
+  TagsBlogPostExcerpt = 593,
+  TagsBlogPostGatsbyPath = 594,
+  TagsBlogPostId = 595,
+  TagsBlogPostInternalContent = 596,
+  TagsBlogPostInternalContentDigest = 597,
+  TagsBlogPostInternalContentFilePath = 598,
+  TagsBlogPostInternalDescription = 599,
+  TagsBlogPostInternalFieldOwners = 600,
+  TagsBlogPostInternalIgnoreType = 601,
+  TagsBlogPostInternalMediaType = 602,
+  TagsBlogPostInternalOwner = 603,
+  TagsBlogPostInternalType = 604,
+  TagsBlogPostNodeLocale = 605,
+  TagsBlogPostParentChildren = 606,
+  TagsBlogPostParentId = 607,
+  TagsBlogPostSlug = 608,
+  TagsBlogPostSpaceId = 609,
+  TagsBlogPostSysRevision = 610,
+  TagsBlogPostSysType = 611,
+  TagsBlogPostTags = 612,
+  TagsBlogPostTagsBlogPost = 613,
+  TagsBlogPostTagsChildren = 614,
+  TagsBlogPostTagsContentfulId = 615,
+  TagsBlogPostTagsCreatedAt = 616,
+  TagsBlogPostTagsId = 617,
+  TagsBlogPostTagsLevel = 618,
+  TagsBlogPostTagsName = 619,
+  TagsBlogPostTagsNodeLocale = 620,
+  TagsBlogPostTagsOss = 621,
+  TagsBlogPostTagsProject = 622,
+  TagsBlogPostTagsSkillGrpup = 623,
+  TagsBlogPostTagsSkillMap = 624,
+  TagsBlogPostTagsSpaceId = 625,
+  TagsBlogPostTagsUpdatedAt = 626,
+  TagsBlogPostThumbnailChildren = 627,
+  TagsBlogPostThumbnailContentfulId = 628,
+  TagsBlogPostThumbnailCreatedAt = 629,
+  TagsBlogPostThumbnailDescription = 630,
+  TagsBlogPostThumbnailFilename = 631,
+  TagsBlogPostThumbnailFilesize = 632,
+  TagsBlogPostThumbnailGatsbyImage = 633,
+  TagsBlogPostThumbnailGatsbyImageData = 634,
+  TagsBlogPostThumbnailHeight = 635,
+  TagsBlogPostThumbnailId = 636,
+  TagsBlogPostThumbnailMimeType = 637,
+  TagsBlogPostThumbnailNodeLocale = 638,
+  TagsBlogPostThumbnailPlaceholderUrl = 639,
+  TagsBlogPostThumbnailPublicUrl = 640,
+  TagsBlogPostThumbnailSize = 641,
+  TagsBlogPostThumbnailSpaceId = 642,
+  TagsBlogPostThumbnailTitle = 643,
+  TagsBlogPostThumbnailUpdatedAt = 644,
+  TagsBlogPostThumbnailUrl = 645,
+  TagsBlogPostThumbnailWidth = 646,
+  TagsBlogPostTitle = 647,
+  TagsBlogPostUpdated = 648,
+  TagsBlogPostUpdatedAt = 649,
+  TagsChildren = 650,
+  TagsChildrenChildren = 651,
+  TagsChildrenChildrenChildren = 652,
+  TagsChildrenChildrenId = 653,
+  TagsChildrenId = 654,
+  TagsChildrenInternalContent = 655,
+  TagsChildrenInternalContentDigest = 656,
+  TagsChildrenInternalContentFilePath = 657,
+  TagsChildrenInternalDescription = 658,
+  TagsChildrenInternalFieldOwners = 659,
+  TagsChildrenInternalIgnoreType = 660,
+  TagsChildrenInternalMediaType = 661,
+  TagsChildrenInternalOwner = 662,
+  TagsChildrenInternalType = 663,
+  TagsChildrenParentChildren = 664,
+  TagsChildrenParentId = 665,
+  TagsContentfulId = 666,
+  TagsCreatedAt = 667,
+  TagsId = 668,
+  TagsInternalContent = 669,
+  TagsInternalContentDigest = 670,
+  TagsInternalContentFilePath = 671,
+  TagsInternalDescription = 672,
+  TagsInternalFieldOwners = 673,
+  TagsInternalIgnoreType = 674,
+  TagsInternalMediaType = 675,
+  TagsInternalOwner = 676,
+  TagsInternalType = 677,
+  TagsLevel = 678,
+  TagsName = 679,
+  TagsNodeLocale = 680,
+  TagsOss = 681,
+  TagsOssChildContentfulOssDetailTextNodeChildren = 682,
+  TagsOssChildContentfulOssDetailTextNodeChildrenMdx = 683,
+  TagsOssChildContentfulOssDetailTextNodeDetail = 684,
+  TagsOssChildContentfulOssDetailTextNodeId = 685,
+  TagsOssChildren = 686,
+  TagsOssChildrenContentfulOssDetailTextNode = 687,
+  TagsOssChildrenContentfulOssDetailTextNodeChildren = 688,
+  TagsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 689,
+  TagsOssChildrenContentfulOssDetailTextNodeDetail = 690,
+  TagsOssChildrenContentfulOssDetailTextNodeId = 691,
+  TagsOssChildrenChildren = 692,
+  TagsOssChildrenId = 693,
+  TagsOssContentfulId = 694,
+  TagsOssCreatedAt = 695,
+  TagsOssDetailChildren = 696,
+  TagsOssDetailChildrenMdx = 697,
+  TagsOssDetailDetail = 698,
+  TagsOssDetailId = 699,
+  TagsOssHref = 700,
+  TagsOssIconChildren = 701,
+  TagsOssIconChildrenContentfulIconSvgTextNode = 702,
+  TagsOssIconContact = 703,
+  TagsOssIconContentfulId = 704,
+  TagsOssIconCreatedAt = 705,
+  TagsOssIconHistory = 706,
+  TagsOssIconId = 707,
+  TagsOssIconName = 708,
+  TagsOssIconNodeLocale = 709,
+  TagsOssIconOss = 710,
+  TagsOssIconProject = 711,
+  TagsOssIconSpaceId = 712,
+  TagsOssIconUpdatedAt = 713,
+  TagsOssIconWhatICanDo = 714,
+  TagsOssId = 715,
+  TagsOssImageChildren = 716,
+  TagsOssImageContentfulId = 717,
+  TagsOssImageCreatedAt = 718,
+  TagsOssImageDescription = 719,
+  TagsOssImageFilename = 720,
+  TagsOssImageFilesize = 721,
+  TagsOssImageGatsbyImage = 722,
+  TagsOssImageGatsbyImageData = 723,
+  TagsOssImageHeight = 724,
+  TagsOssImageId = 725,
+  TagsOssImageMimeType = 726,
+  TagsOssImageNodeLocale = 727,
+  TagsOssImagePlaceholderUrl = 728,
+  TagsOssImagePublicUrl = 729,
+  TagsOssImageSize = 730,
+  TagsOssImageSpaceId = 731,
+  TagsOssImageTitle = 732,
+  TagsOssImageUpdatedAt = 733,
+  TagsOssImageUrl = 734,
+  TagsOssImageWidth = 735,
+  TagsOssInternalContent = 736,
+  TagsOssInternalContentDigest = 737,
+  TagsOssInternalContentFilePath = 738,
+  TagsOssInternalDescription = 739,
+  TagsOssInternalFieldOwners = 740,
+  TagsOssInternalIgnoreType = 741,
+  TagsOssInternalMediaType = 742,
+  TagsOssInternalOwner = 743,
+  TagsOssInternalType = 744,
+  TagsOssName = 745,
+  TagsOssNodeLocale = 746,
+  TagsOssParentChildren = 747,
+  TagsOssParentId = 748,
+  TagsOssSpaceId = 749,
+  TagsOssStartDate = 750,
+  TagsOssSubName = 751,
+  TagsOssSysRevision = 752,
+  TagsOssSysType = 753,
+  TagsOssTags = 754,
+  TagsOssTagsBlogPost = 755,
+  TagsOssTagsChildren = 756,
+  TagsOssTagsContentfulId = 757,
+  TagsOssTagsCreatedAt = 758,
+  TagsOssTagsId = 759,
+  TagsOssTagsLevel = 760,
+  TagsOssTagsName = 761,
+  TagsOssTagsNodeLocale = 762,
+  TagsOssTagsOss = 763,
+  TagsOssTagsProject = 764,
+  TagsOssTagsSkillGrpup = 765,
+  TagsOssTagsSkillMap = 766,
+  TagsOssTagsSpaceId = 767,
+  TagsOssTagsUpdatedAt = 768,
+  TagsOssUpdatedAt = 769,
+  TagsParentChildren = 770,
+  TagsParentChildrenChildren = 771,
+  TagsParentChildrenId = 772,
+  TagsParentId = 773,
+  TagsParentInternalContent = 774,
+  TagsParentInternalContentDigest = 775,
+  TagsParentInternalContentFilePath = 776,
+  TagsParentInternalDescription = 777,
+  TagsParentInternalFieldOwners = 778,
+  TagsParentInternalIgnoreType = 779,
+  TagsParentInternalMediaType = 780,
+  TagsParentInternalOwner = 781,
+  TagsParentInternalType = 782,
+  TagsParentParentChildren = 783,
+  TagsParentParentId = 784,
+  TagsProject = 785,
+  TagsProjectChildContentfulProjectDetailTextNodeChildren = 786,
+  TagsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 787,
+  TagsProjectChildContentfulProjectDetailTextNodeDetail = 788,
+  TagsProjectChildContentfulProjectDetailTextNodeId = 789,
+  TagsProjectChildren = 790,
+  TagsProjectChildrenContentfulProjectDetailTextNode = 791,
+  TagsProjectChildrenContentfulProjectDetailTextNodeChildren = 792,
+  TagsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 793,
+  TagsProjectChildrenContentfulProjectDetailTextNodeDetail = 794,
+  TagsProjectChildrenContentfulProjectDetailTextNodeId = 795,
+  TagsProjectChildrenChildren = 796,
+  TagsProjectChildrenId = 797,
+  TagsProjectContentfulId = 798,
+  TagsProjectCreatedAt = 799,
+  TagsProjectDetailChildren = 800,
+  TagsProjectDetailChildrenMdx = 801,
+  TagsProjectDetailDetail = 802,
+  TagsProjectDetailId = 803,
+  TagsProjectEndDate = 804,
+  TagsProjectIconChildren = 805,
+  TagsProjectIconChildrenContentfulIconSvgTextNode = 806,
+  TagsProjectIconContact = 807,
+  TagsProjectIconContentfulId = 808,
+  TagsProjectIconCreatedAt = 809,
+  TagsProjectIconHistory = 810,
+  TagsProjectIconId = 811,
+  TagsProjectIconName = 812,
+  TagsProjectIconNodeLocale = 813,
+  TagsProjectIconOss = 814,
+  TagsProjectIconProject = 815,
+  TagsProjectIconSpaceId = 816,
+  TagsProjectIconUpdatedAt = 817,
+  TagsProjectIconWhatICanDo = 818,
+  TagsProjectId = 819,
+  TagsProjectInternalContent = 820,
+  TagsProjectInternalContentDigest = 821,
+  TagsProjectInternalContentFilePath = 822,
+  TagsProjectInternalDescription = 823,
+  TagsProjectInternalFieldOwners = 824,
+  TagsProjectInternalIgnoreType = 825,
+  TagsProjectInternalMediaType = 826,
+  TagsProjectInternalOwner = 827,
+  TagsProjectInternalType = 828,
+  TagsProjectName = 829,
+  TagsProjectNodeLocale = 830,
+  TagsProjectParentChildren = 831,
+  TagsProjectParentId = 832,
+  TagsProjectSpaceId = 833,
+  TagsProjectStartDate = 834,
+  TagsProjectSubName = 835,
+  TagsProjectSysRevision = 836,
+  TagsProjectSysType = 837,
+  TagsProjectTags = 838,
+  TagsProjectTagsBlogPost = 839,
+  TagsProjectTagsChildren = 840,
+  TagsProjectTagsContentfulId = 841,
+  TagsProjectTagsCreatedAt = 842,
+  TagsProjectTagsId = 843,
+  TagsProjectTagsLevel = 844,
+  TagsProjectTagsName = 845,
+  TagsProjectTagsNodeLocale = 846,
+  TagsProjectTagsOss = 847,
+  TagsProjectTagsProject = 848,
+  TagsProjectTagsSkillGrpup = 849,
+  TagsProjectTagsSkillMap = 850,
+  TagsProjectTagsSpaceId = 851,
+  TagsProjectTagsUpdatedAt = 852,
+  TagsProjectUpdatedAt = 853,
+  TagsSkillGrpup = 854,
+  TagsSkillGrpupChildren = 855,
+  TagsSkillGrpupChildrenChildren = 856,
+  TagsSkillGrpupChildrenId = 857,
+  TagsSkillGrpupContentfulId = 858,
+  TagsSkillGrpupCreatedAt = 859,
+  TagsSkillGrpupId = 860,
+  TagsSkillGrpupInternalContent = 861,
+  TagsSkillGrpupInternalContentDigest = 862,
+  TagsSkillGrpupInternalContentFilePath = 863,
+  TagsSkillGrpupInternalDescription = 864,
+  TagsSkillGrpupInternalFieldOwners = 865,
+  TagsSkillGrpupInternalIgnoreType = 866,
+  TagsSkillGrpupInternalMediaType = 867,
+  TagsSkillGrpupInternalOwner = 868,
+  TagsSkillGrpupInternalType = 869,
+  TagsSkillGrpupName = 870,
+  TagsSkillGrpupNodeLocale = 871,
+  TagsSkillGrpupParentChildren = 872,
+  TagsSkillGrpupParentId = 873,
+  TagsSkillGrpupSkillMap = 874,
+  TagsSkillGrpupSkillMapChildren = 875,
+  TagsSkillGrpupSkillMapContentfulId = 876,
+  TagsSkillGrpupSkillMapCreatedAt = 877,
+  TagsSkillGrpupSkillMapExpanded = 878,
+  TagsSkillGrpupSkillMapId = 879,
+  TagsSkillGrpupSkillMapName = 880,
+  TagsSkillGrpupSkillMapNodeLocale = 881,
+  TagsSkillGrpupSkillMapSkillGroups = 882,
+  TagsSkillGrpupSkillMapSkills = 883,
+  TagsSkillGrpupSkillMapSortKey = 884,
+  TagsSkillGrpupSkillMapSpaceId = 885,
+  TagsSkillGrpupSkillMapUpdatedAt = 886,
+  TagsSkillGrpupSkills = 887,
+  TagsSkillGrpupSkillsBlogPost = 888,
+  TagsSkillGrpupSkillsChildren = 889,
+  TagsSkillGrpupSkillsContentfulId = 890,
+  TagsSkillGrpupSkillsCreatedAt = 891,
+  TagsSkillGrpupSkillsId = 892,
+  TagsSkillGrpupSkillsLevel = 893,
+  TagsSkillGrpupSkillsName = 894,
+  TagsSkillGrpupSkillsNodeLocale = 895,
+  TagsSkillGrpupSkillsOss = 896,
+  TagsSkillGrpupSkillsProject = 897,
+  TagsSkillGrpupSkillsSkillGrpup = 898,
+  TagsSkillGrpupSkillsSkillMap = 899,
+  TagsSkillGrpupSkillsSpaceId = 900,
+  TagsSkillGrpupSkillsUpdatedAt = 901,
+  TagsSkillGrpupSpaceId = 902,
+  TagsSkillGrpupSysRevision = 903,
+  TagsSkillGrpupSysType = 904,
+  TagsSkillGrpupUpdatedAt = 905,
+  TagsSkillMap = 906,
+  TagsSkillMapChildren = 907,
+  TagsSkillMapChildrenChildren = 908,
+  TagsSkillMapChildrenId = 909,
+  TagsSkillMapContentfulId = 910,
+  TagsSkillMapCreatedAt = 911,
+  TagsSkillMapExpanded = 912,
+  TagsSkillMapId = 913,
+  TagsSkillMapInternalContent = 914,
+  TagsSkillMapInternalContentDigest = 915,
+  TagsSkillMapInternalContentFilePath = 916,
+  TagsSkillMapInternalDescription = 917,
+  TagsSkillMapInternalFieldOwners = 918,
+  TagsSkillMapInternalIgnoreType = 919,
+  TagsSkillMapInternalMediaType = 920,
+  TagsSkillMapInternalOwner = 921,
+  TagsSkillMapInternalType = 922,
+  TagsSkillMapName = 923,
+  TagsSkillMapNodeLocale = 924,
+  TagsSkillMapParentChildren = 925,
+  TagsSkillMapParentId = 926,
+  TagsSkillMapSkillGroups = 927,
+  TagsSkillMapSkillGroupsChildren = 928,
+  TagsSkillMapSkillGroupsContentfulId = 929,
+  TagsSkillMapSkillGroupsCreatedAt = 930,
+  TagsSkillMapSkillGroupsId = 931,
+  TagsSkillMapSkillGroupsName = 932,
+  TagsSkillMapSkillGroupsNodeLocale = 933,
+  TagsSkillMapSkillGroupsSkillMap = 934,
+  TagsSkillMapSkillGroupsSkills = 935,
+  TagsSkillMapSkillGroupsSpaceId = 936,
+  TagsSkillMapSkillGroupsUpdatedAt = 937,
+  TagsSkillMapSkills = 938,
+  TagsSkillMapSkillsBlogPost = 939,
+  TagsSkillMapSkillsChildren = 940,
+  TagsSkillMapSkillsContentfulId = 941,
+  TagsSkillMapSkillsCreatedAt = 942,
+  TagsSkillMapSkillsId = 943,
+  TagsSkillMapSkillsLevel = 944,
+  TagsSkillMapSkillsName = 945,
+  TagsSkillMapSkillsNodeLocale = 946,
+  TagsSkillMapSkillsOss = 947,
+  TagsSkillMapSkillsProject = 948,
+  TagsSkillMapSkillsSkillGrpup = 949,
+  TagsSkillMapSkillsSkillMap = 950,
+  TagsSkillMapSkillsSpaceId = 951,
+  TagsSkillMapSkillsUpdatedAt = 952,
+  TagsSkillMapSortKey = 953,
+  TagsSkillMapSpaceId = 954,
+  TagsSkillMapSysRevision = 955,
+  TagsSkillMapSysType = 956,
+  TagsSkillMapUpdatedAt = 957,
+  TagsSpaceId = 958,
+  TagsSysRevision = 959,
+  TagsSysType = 960,
+  TagsUpdatedAt = 961,
+  ThumbnailChildren = 962,
+  ThumbnailChildrenChildren = 963,
+  ThumbnailChildrenChildrenChildren = 964,
+  ThumbnailChildrenChildrenId = 965,
+  ThumbnailChildrenId = 966,
+  ThumbnailChildrenInternalContent = 967,
+  ThumbnailChildrenInternalContentDigest = 968,
+  ThumbnailChildrenInternalContentFilePath = 969,
+  ThumbnailChildrenInternalDescription = 970,
+  ThumbnailChildrenInternalFieldOwners = 971,
+  ThumbnailChildrenInternalIgnoreType = 972,
+  ThumbnailChildrenInternalMediaType = 973,
+  ThumbnailChildrenInternalOwner = 974,
+  ThumbnailChildrenInternalType = 975,
+  ThumbnailChildrenParentChildren = 976,
+  ThumbnailChildrenParentId = 977,
+  ThumbnailContentfulId = 978,
+  ThumbnailCreatedAt = 979,
+  ThumbnailDescription = 980,
+  ThumbnailFileContentType = 981,
+  ThumbnailFileDetailsSize = 982,
+  ThumbnailFileFileName = 983,
+  ThumbnailFileUrl = 984,
+  ThumbnailFilename = 985,
+  ThumbnailFilesize = 986,
+  ThumbnailGatsbyImage = 987,
+  ThumbnailGatsbyImageData = 988,
+  ThumbnailHeight = 989,
+  ThumbnailId = 990,
+  ThumbnailInternalContent = 991,
+  ThumbnailInternalContentDigest = 992,
+  ThumbnailInternalContentFilePath = 993,
+  ThumbnailInternalDescription = 994,
+  ThumbnailInternalFieldOwners = 995,
+  ThumbnailInternalIgnoreType = 996,
+  ThumbnailInternalMediaType = 997,
+  ThumbnailInternalOwner = 998,
+  ThumbnailInternalType = 999,
+  ThumbnailMimeType = 1000,
+  ThumbnailNodeLocale = 1001,
+  ThumbnailParentChildren = 1002,
+  ThumbnailParentChildrenChildren = 1003,
+  ThumbnailParentChildrenId = 1004,
+  ThumbnailParentId = 1005,
+  ThumbnailParentInternalContent = 1006,
+  ThumbnailParentInternalContentDigest = 1007,
+  ThumbnailParentInternalContentFilePath = 1008,
+  ThumbnailParentInternalDescription = 1009,
+  ThumbnailParentInternalFieldOwners = 1010,
+  ThumbnailParentInternalIgnoreType = 1011,
+  ThumbnailParentInternalMediaType = 1012,
+  ThumbnailParentInternalOwner = 1013,
+  ThumbnailParentInternalType = 1014,
+  ThumbnailParentParentChildren = 1015,
+  ThumbnailParentParentId = 1016,
+  ThumbnailPlaceholderUrl = 1017,
+  ThumbnailPublicUrl = 1018,
+  ThumbnailResizeHeight = 1019,
+  ThumbnailResizeSrc = 1020,
+  ThumbnailResizeWidth = 1021,
+  ThumbnailSize = 1022,
+  ThumbnailSpaceId = 1023,
+  ThumbnailSysRevision = 1024,
+  ThumbnailSysType = 1025,
+  ThumbnailTitle = 1026,
+  ThumbnailUpdatedAt = 1027,
+  ThumbnailUrl = 1028,
+  ThumbnailWidth = 1029,
+  Title = 1030,
+  Updated = 1031,
+  UpdatedAt = 1032
 }
 
 export type ContentfulBlogPostFilterInput = {
-  category: InputMaybe<ContentfulCategoryFilterInput>;
-  childContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterListInput>;
-  content: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  created: InputMaybe<DateQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  excerpt: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
-  tags: InputMaybe<ContentfulTagFilterListInput>;
-  thumbnail: InputMaybe<ContentfulAssetFilterInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
-  updated: InputMaybe<DateQueryOperatorInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly category: InputMaybe<ContentfulCategoryFilterInput>;
+  readonly childContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulBlogPostContentTextNode: InputMaybe<ContentfulBlogPostContentTextNodeFilterListInput>;
+  readonly content: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly created: InputMaybe<DateQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
+  readonly tags: InputMaybe<ContentfulTagFilterListInput>;
+  readonly thumbnail: InputMaybe<ContentfulAssetFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updated: InputMaybe<DateQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulBlogPostFilterListInput = {
-  elemMatch: InputMaybe<ContentfulBlogPostFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulBlogPostFilterInput>;
 };
 
 export type ContentfulBlogPostGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulBlogPostGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPost>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulBlogPostGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPost>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -1622,56 +1631,56 @@ export type ContentfulBlogPostGroupConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulBlogPostFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulBlogPostFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulBlogPostSys = {
-  contentType: Maybe<ContentfulBlogPostSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulBlogPostSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogPostSysContentType = {
-  sys: Maybe<ContentfulBlogPostSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulBlogPostSysContentTypeSys>;
 };
 
 export type ContentfulBlogPostSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulBlogPostSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulBlogPostSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogPostSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulBlogPostSysFilterInput = {
-  contentType: InputMaybe<ContentfulBlogPostSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulBlogPostSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCategory = ContentfulEntry & ContentfulReference & Node & {
-  blog_post: Maybe<Array<Maybe<ContentfulBlogPost>>>;
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulCategorySys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly blog_post: Maybe<ReadonlyArray<Maybe<ContentfulBlogPost>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulCategorySys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -1691,15 +1700,15 @@ export type ContentfulCategoryUpdatedAtArgs = {
 };
 
 export type ContentfulCategoryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulCategoryEdge>;
-  group: Array<ContentfulCategoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulCategory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulCategoryEdge>;
+  readonly group: ReadonlyArray<ContentfulCategoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulCategory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -1730,9 +1739,9 @@ export type ContentfulCategoryConnectionSumArgs = {
 };
 
 export type ContentfulCategoryEdge = {
-  next: Maybe<ContentfulCategory>;
-  node: ContentfulCategory;
-  previous: Maybe<ContentfulCategory>;
+  readonly next: Maybe<ContentfulCategory>;
+  readonly node: ContentfulCategory;
+  readonly previous: Maybe<ContentfulCategory>;
 };
 
 export enum ContentfulCategoryFieldsEnum {
@@ -1744,486 +1753,489 @@ export enum ContentfulCategoryFieldsEnum {
   BlogPostCategoryBlogPostCreated = 5,
   BlogPostCategoryBlogPostCreatedAt = 6,
   BlogPostCategoryBlogPostExcerpt = 7,
-  BlogPostCategoryBlogPostId = 8,
-  BlogPostCategoryBlogPostNodeLocale = 9,
-  BlogPostCategoryBlogPostSlug = 10,
-  BlogPostCategoryBlogPostSpaceId = 11,
-  BlogPostCategoryBlogPostTags = 12,
-  BlogPostCategoryBlogPostTitle = 13,
-  BlogPostCategoryBlogPostUpdated = 14,
-  BlogPostCategoryBlogPostUpdatedAt = 15,
-  BlogPostCategoryChildren = 16,
-  BlogPostCategoryChildrenChildren = 17,
-  BlogPostCategoryChildrenId = 18,
-  BlogPostCategoryContentfulId = 19,
-  BlogPostCategoryCreatedAt = 20,
-  BlogPostCategoryId = 21,
-  BlogPostCategoryInternalContent = 22,
-  BlogPostCategoryInternalContentDigest = 23,
-  BlogPostCategoryInternalContentFilePath = 24,
-  BlogPostCategoryInternalDescription = 25,
-  BlogPostCategoryInternalFieldOwners = 26,
-  BlogPostCategoryInternalIgnoreType = 27,
-  BlogPostCategoryInternalMediaType = 28,
-  BlogPostCategoryInternalOwner = 29,
-  BlogPostCategoryInternalType = 30,
-  BlogPostCategoryName = 31,
-  BlogPostCategoryNodeLocale = 32,
-  BlogPostCategoryParentChildren = 33,
-  BlogPostCategoryParentId = 34,
-  BlogPostCategorySortKey = 35,
-  BlogPostCategorySpaceId = 36,
-  BlogPostCategorySysRevision = 37,
-  BlogPostCategorySysType = 38,
-  BlogPostCategoryUpdatedAt = 39,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxBody = 40,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxChildren = 41,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxExcerpt = 42,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 43,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHeadings = 44,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHtml = 45,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxId = 46,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxMdxAst = 47,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxRawBody = 48,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxSlug = 49,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTableOfContents = 50,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTimeToRead = 51,
-  BlogPostChildContentfulBlogPostContentTextNodeChildren = 52,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 53,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxBody = 54,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxChildren = 55,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 56,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 57,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHeadings = 58,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHtml = 59,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxId = 60,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 61,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxRawBody = 62,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxSlug = 63,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 64,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 65,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenChildren = 66,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenId = 67,
-  BlogPostChildContentfulBlogPostContentTextNodeContent = 68,
-  BlogPostChildContentfulBlogPostContentTextNodeId = 69,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalContent = 70,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalContentDigest = 71,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalContentFilePath = 72,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalDescription = 73,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalFieldOwners = 74,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalIgnoreType = 75,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalMediaType = 76,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalOwner = 77,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalType = 78,
-  BlogPostChildContentfulBlogPostContentTextNodeParentChildren = 79,
-  BlogPostChildContentfulBlogPostContentTextNodeParentId = 80,
-  BlogPostChildContentfulBlogPostContentTextNodeSysType = 81,
-  BlogPostChildren = 82,
-  BlogPostChildrenContentfulBlogPostContentTextNode = 83,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxBody = 84,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxChildren = 85,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxExcerpt = 86,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 87,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHeadings = 88,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHtml = 89,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxId = 90,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxMdxAst = 91,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxRawBody = 92,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxSlug = 93,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTableOfContents = 94,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTimeToRead = 95,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildren = 96,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 97,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxBody = 98,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxChildren = 99,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 100,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 101,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadings = 102,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHtml = 103,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxId = 104,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 105,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxRawBody = 106,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxSlug = 107,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 108,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 109,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenChildren = 110,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenId = 111,
-  BlogPostChildrenContentfulBlogPostContentTextNodeContent = 112,
-  BlogPostChildrenContentfulBlogPostContentTextNodeId = 113,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContent = 114,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentDigest = 115,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentFilePath = 116,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalDescription = 117,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalFieldOwners = 118,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalIgnoreType = 119,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalMediaType = 120,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalOwner = 121,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalType = 122,
-  BlogPostChildrenContentfulBlogPostContentTextNodeParentChildren = 123,
-  BlogPostChildrenContentfulBlogPostContentTextNodeParentId = 124,
-  BlogPostChildrenContentfulBlogPostContentTextNodeSysType = 125,
-  BlogPostChildrenChildren = 126,
-  BlogPostChildrenChildrenChildren = 127,
-  BlogPostChildrenChildrenId = 128,
-  BlogPostChildrenId = 129,
-  BlogPostChildrenInternalContent = 130,
-  BlogPostChildrenInternalContentDigest = 131,
-  BlogPostChildrenInternalContentFilePath = 132,
-  BlogPostChildrenInternalDescription = 133,
-  BlogPostChildrenInternalFieldOwners = 134,
-  BlogPostChildrenInternalIgnoreType = 135,
-  BlogPostChildrenInternalMediaType = 136,
-  BlogPostChildrenInternalOwner = 137,
-  BlogPostChildrenInternalType = 138,
-  BlogPostChildrenParentChildren = 139,
-  BlogPostChildrenParentId = 140,
-  BlogPostContentChildMdxBody = 141,
-  BlogPostContentChildMdxChildren = 142,
-  BlogPostContentChildMdxExcerpt = 143,
-  BlogPostContentChildMdxFileAbsolutePath = 144,
-  BlogPostContentChildMdxHeadings = 145,
-  BlogPostContentChildMdxHtml = 146,
-  BlogPostContentChildMdxId = 147,
-  BlogPostContentChildMdxMdxAst = 148,
-  BlogPostContentChildMdxRawBody = 149,
-  BlogPostContentChildMdxSlug = 150,
-  BlogPostContentChildMdxTableOfContents = 151,
-  BlogPostContentChildMdxTimeToRead = 152,
-  BlogPostContentChildren = 153,
-  BlogPostContentChildrenMdx = 154,
-  BlogPostContentChildrenMdxBody = 155,
-  BlogPostContentChildrenMdxChildren = 156,
-  BlogPostContentChildrenMdxExcerpt = 157,
-  BlogPostContentChildrenMdxFileAbsolutePath = 158,
-  BlogPostContentChildrenMdxHeadings = 159,
-  BlogPostContentChildrenMdxHtml = 160,
-  BlogPostContentChildrenMdxId = 161,
-  BlogPostContentChildrenMdxMdxAst = 162,
-  BlogPostContentChildrenMdxRawBody = 163,
-  BlogPostContentChildrenMdxSlug = 164,
-  BlogPostContentChildrenMdxTableOfContents = 165,
-  BlogPostContentChildrenMdxTimeToRead = 166,
-  BlogPostContentChildrenChildren = 167,
-  BlogPostContentChildrenId = 168,
-  BlogPostContentContent = 169,
-  BlogPostContentId = 170,
-  BlogPostContentInternalContent = 171,
-  BlogPostContentInternalContentDigest = 172,
-  BlogPostContentInternalContentFilePath = 173,
-  BlogPostContentInternalDescription = 174,
-  BlogPostContentInternalFieldOwners = 175,
-  BlogPostContentInternalIgnoreType = 176,
-  BlogPostContentInternalMediaType = 177,
-  BlogPostContentInternalOwner = 178,
-  BlogPostContentInternalType = 179,
-  BlogPostContentParentChildren = 180,
-  BlogPostContentParentId = 181,
-  BlogPostContentSysType = 182,
-  BlogPostContentfulId = 183,
-  BlogPostCreated = 184,
-  BlogPostCreatedAt = 185,
-  BlogPostExcerpt = 186,
-  BlogPostId = 187,
-  BlogPostInternalContent = 188,
-  BlogPostInternalContentDigest = 189,
-  BlogPostInternalContentFilePath = 190,
-  BlogPostInternalDescription = 191,
-  BlogPostInternalFieldOwners = 192,
-  BlogPostInternalIgnoreType = 193,
-  BlogPostInternalMediaType = 194,
-  BlogPostInternalOwner = 195,
-  BlogPostInternalType = 196,
-  BlogPostNodeLocale = 197,
-  BlogPostParentChildren = 198,
-  BlogPostParentChildrenChildren = 199,
-  BlogPostParentChildrenId = 200,
-  BlogPostParentId = 201,
-  BlogPostParentInternalContent = 202,
-  BlogPostParentInternalContentDigest = 203,
-  BlogPostParentInternalContentFilePath = 204,
-  BlogPostParentInternalDescription = 205,
-  BlogPostParentInternalFieldOwners = 206,
-  BlogPostParentInternalIgnoreType = 207,
-  BlogPostParentInternalMediaType = 208,
-  BlogPostParentInternalOwner = 209,
-  BlogPostParentInternalType = 210,
-  BlogPostParentParentChildren = 211,
-  BlogPostParentParentId = 212,
-  BlogPostSlug = 213,
-  BlogPostSpaceId = 214,
-  BlogPostSysRevision = 215,
-  BlogPostSysType = 216,
-  BlogPostTags = 217,
-  BlogPostTagsBlogPost = 218,
-  BlogPostTagsBlogPostChildren = 219,
-  BlogPostTagsBlogPostChildrenContentfulBlogPostContentTextNode = 220,
-  BlogPostTagsBlogPostContentfulId = 221,
-  BlogPostTagsBlogPostCreated = 222,
-  BlogPostTagsBlogPostCreatedAt = 223,
-  BlogPostTagsBlogPostExcerpt = 224,
-  BlogPostTagsBlogPostId = 225,
-  BlogPostTagsBlogPostNodeLocale = 226,
-  BlogPostTagsBlogPostSlug = 227,
-  BlogPostTagsBlogPostSpaceId = 228,
-  BlogPostTagsBlogPostTags = 229,
-  BlogPostTagsBlogPostTitle = 230,
-  BlogPostTagsBlogPostUpdated = 231,
-  BlogPostTagsBlogPostUpdatedAt = 232,
-  BlogPostTagsChildren = 233,
-  BlogPostTagsChildrenChildren = 234,
-  BlogPostTagsChildrenId = 235,
-  BlogPostTagsContentfulId = 236,
-  BlogPostTagsCreatedAt = 237,
-  BlogPostTagsId = 238,
-  BlogPostTagsInternalContent = 239,
-  BlogPostTagsInternalContentDigest = 240,
-  BlogPostTagsInternalContentFilePath = 241,
-  BlogPostTagsInternalDescription = 242,
-  BlogPostTagsInternalFieldOwners = 243,
-  BlogPostTagsInternalIgnoreType = 244,
-  BlogPostTagsInternalMediaType = 245,
-  BlogPostTagsInternalOwner = 246,
-  BlogPostTagsInternalType = 247,
-  BlogPostTagsLevel = 248,
-  BlogPostTagsName = 249,
-  BlogPostTagsNodeLocale = 250,
-  BlogPostTagsOss = 251,
-  BlogPostTagsOssChildren = 252,
-  BlogPostTagsOssChildrenContentfulOssDetailTextNode = 253,
-  BlogPostTagsOssContentfulId = 254,
-  BlogPostTagsOssCreatedAt = 255,
-  BlogPostTagsOssHref = 256,
-  BlogPostTagsOssId = 257,
-  BlogPostTagsOssName = 258,
-  BlogPostTagsOssNodeLocale = 259,
-  BlogPostTagsOssSpaceId = 260,
-  BlogPostTagsOssStartDate = 261,
-  BlogPostTagsOssSubName = 262,
-  BlogPostTagsOssTags = 263,
-  BlogPostTagsOssUpdatedAt = 264,
-  BlogPostTagsParentChildren = 265,
-  BlogPostTagsParentId = 266,
-  BlogPostTagsProject = 267,
-  BlogPostTagsProjectChildren = 268,
-  BlogPostTagsProjectChildrenContentfulProjectDetailTextNode = 269,
-  BlogPostTagsProjectContentfulId = 270,
-  BlogPostTagsProjectCreatedAt = 271,
-  BlogPostTagsProjectEndDate = 272,
-  BlogPostTagsProjectId = 273,
-  BlogPostTagsProjectName = 274,
-  BlogPostTagsProjectNodeLocale = 275,
-  BlogPostTagsProjectSpaceId = 276,
-  BlogPostTagsProjectStartDate = 277,
-  BlogPostTagsProjectSubName = 278,
-  BlogPostTagsProjectTags = 279,
-  BlogPostTagsProjectUpdatedAt = 280,
-  BlogPostTagsSkillGrpup = 281,
-  BlogPostTagsSkillGrpupChildren = 282,
-  BlogPostTagsSkillGrpupContentfulId = 283,
-  BlogPostTagsSkillGrpupCreatedAt = 284,
-  BlogPostTagsSkillGrpupId = 285,
-  BlogPostTagsSkillGrpupName = 286,
-  BlogPostTagsSkillGrpupNodeLocale = 287,
-  BlogPostTagsSkillGrpupSkillMap = 288,
-  BlogPostTagsSkillGrpupSkills = 289,
-  BlogPostTagsSkillGrpupSpaceId = 290,
-  BlogPostTagsSkillGrpupUpdatedAt = 291,
-  BlogPostTagsSkillMap = 292,
-  BlogPostTagsSkillMapChildren = 293,
-  BlogPostTagsSkillMapContentfulId = 294,
-  BlogPostTagsSkillMapCreatedAt = 295,
-  BlogPostTagsSkillMapExpanded = 296,
-  BlogPostTagsSkillMapId = 297,
-  BlogPostTagsSkillMapName = 298,
-  BlogPostTagsSkillMapNodeLocale = 299,
-  BlogPostTagsSkillMapSkillGroups = 300,
-  BlogPostTagsSkillMapSkills = 301,
-  BlogPostTagsSkillMapSortKey = 302,
-  BlogPostTagsSkillMapSpaceId = 303,
-  BlogPostTagsSkillMapUpdatedAt = 304,
-  BlogPostTagsSpaceId = 305,
-  BlogPostTagsSysRevision = 306,
-  BlogPostTagsSysType = 307,
-  BlogPostTagsUpdatedAt = 308,
-  BlogPostThumbnailChildren = 309,
-  BlogPostThumbnailChildrenChildren = 310,
-  BlogPostThumbnailChildrenId = 311,
-  BlogPostThumbnailContentfulId = 312,
-  BlogPostThumbnailCreatedAt = 313,
-  BlogPostThumbnailDescription = 314,
-  BlogPostThumbnailFileContentType = 315,
-  BlogPostThumbnailFileFileName = 316,
-  BlogPostThumbnailFileUrl = 317,
-  BlogPostThumbnailFilename = 318,
-  BlogPostThumbnailFilesize = 319,
-  BlogPostThumbnailGatsbyImage = 320,
-  BlogPostThumbnailGatsbyImageData = 321,
-  BlogPostThumbnailHeight = 322,
-  BlogPostThumbnailId = 323,
-  BlogPostThumbnailInternalContent = 324,
-  BlogPostThumbnailInternalContentDigest = 325,
-  BlogPostThumbnailInternalContentFilePath = 326,
-  BlogPostThumbnailInternalDescription = 327,
-  BlogPostThumbnailInternalFieldOwners = 328,
-  BlogPostThumbnailInternalIgnoreType = 329,
-  BlogPostThumbnailInternalMediaType = 330,
-  BlogPostThumbnailInternalOwner = 331,
-  BlogPostThumbnailInternalType = 332,
-  BlogPostThumbnailMimeType = 333,
-  BlogPostThumbnailNodeLocale = 334,
-  BlogPostThumbnailParentChildren = 335,
-  BlogPostThumbnailParentId = 336,
-  BlogPostThumbnailPlaceholderUrl = 337,
-  BlogPostThumbnailPublicUrl = 338,
-  BlogPostThumbnailResizeHeight = 339,
-  BlogPostThumbnailResizeSrc = 340,
-  BlogPostThumbnailResizeWidth = 341,
-  BlogPostThumbnailSize = 342,
-  BlogPostThumbnailSpaceId = 343,
-  BlogPostThumbnailSysRevision = 344,
-  BlogPostThumbnailSysType = 345,
-  BlogPostThumbnailTitle = 346,
-  BlogPostThumbnailUpdatedAt = 347,
-  BlogPostThumbnailUrl = 348,
-  BlogPostThumbnailWidth = 349,
-  BlogPostTitle = 350,
-  BlogPostUpdated = 351,
-  BlogPostUpdatedAt = 352,
-  Children = 353,
-  ChildrenChildren = 354,
-  ChildrenChildrenChildren = 355,
-  ChildrenChildrenChildrenChildren = 356,
-  ChildrenChildrenChildrenId = 357,
-  ChildrenChildrenId = 358,
-  ChildrenChildrenInternalContent = 359,
-  ChildrenChildrenInternalContentDigest = 360,
-  ChildrenChildrenInternalContentFilePath = 361,
-  ChildrenChildrenInternalDescription = 362,
-  ChildrenChildrenInternalFieldOwners = 363,
-  ChildrenChildrenInternalIgnoreType = 364,
-  ChildrenChildrenInternalMediaType = 365,
-  ChildrenChildrenInternalOwner = 366,
-  ChildrenChildrenInternalType = 367,
-  ChildrenChildrenParentChildren = 368,
-  ChildrenChildrenParentId = 369,
-  ChildrenId = 370,
-  ChildrenInternalContent = 371,
-  ChildrenInternalContentDigest = 372,
-  ChildrenInternalContentFilePath = 373,
-  ChildrenInternalDescription = 374,
-  ChildrenInternalFieldOwners = 375,
-  ChildrenInternalIgnoreType = 376,
-  ChildrenInternalMediaType = 377,
-  ChildrenInternalOwner = 378,
-  ChildrenInternalType = 379,
-  ChildrenParentChildren = 380,
-  ChildrenParentChildrenChildren = 381,
-  ChildrenParentChildrenId = 382,
-  ChildrenParentId = 383,
-  ChildrenParentInternalContent = 384,
-  ChildrenParentInternalContentDigest = 385,
-  ChildrenParentInternalContentFilePath = 386,
-  ChildrenParentInternalDescription = 387,
-  ChildrenParentInternalFieldOwners = 388,
-  ChildrenParentInternalIgnoreType = 389,
-  ChildrenParentInternalMediaType = 390,
-  ChildrenParentInternalOwner = 391,
-  ChildrenParentInternalType = 392,
-  ChildrenParentParentChildren = 393,
-  ChildrenParentParentId = 394,
-  ContentfulId = 395,
-  CreatedAt = 396,
-  Id = 397,
-  InternalContent = 398,
-  InternalContentDigest = 399,
-  InternalContentFilePath = 400,
-  InternalDescription = 401,
-  InternalFieldOwners = 402,
-  InternalIgnoreType = 403,
-  InternalMediaType = 404,
-  InternalOwner = 405,
-  InternalType = 406,
-  Name = 407,
-  NodeLocale = 408,
-  ParentChildren = 409,
-  ParentChildrenChildren = 410,
-  ParentChildrenChildrenChildren = 411,
-  ParentChildrenChildrenId = 412,
-  ParentChildrenId = 413,
-  ParentChildrenInternalContent = 414,
-  ParentChildrenInternalContentDigest = 415,
-  ParentChildrenInternalContentFilePath = 416,
-  ParentChildrenInternalDescription = 417,
-  ParentChildrenInternalFieldOwners = 418,
-  ParentChildrenInternalIgnoreType = 419,
-  ParentChildrenInternalMediaType = 420,
-  ParentChildrenInternalOwner = 421,
-  ParentChildrenInternalType = 422,
-  ParentChildrenParentChildren = 423,
-  ParentChildrenParentId = 424,
-  ParentId = 425,
-  ParentInternalContent = 426,
-  ParentInternalContentDigest = 427,
-  ParentInternalContentFilePath = 428,
-  ParentInternalDescription = 429,
-  ParentInternalFieldOwners = 430,
-  ParentInternalIgnoreType = 431,
-  ParentInternalMediaType = 432,
-  ParentInternalOwner = 433,
-  ParentInternalType = 434,
-  ParentParentChildren = 435,
-  ParentParentChildrenChildren = 436,
-  ParentParentChildrenId = 437,
-  ParentParentId = 438,
-  ParentParentInternalContent = 439,
-  ParentParentInternalContentDigest = 440,
-  ParentParentInternalContentFilePath = 441,
-  ParentParentInternalDescription = 442,
-  ParentParentInternalFieldOwners = 443,
-  ParentParentInternalIgnoreType = 444,
-  ParentParentInternalMediaType = 445,
-  ParentParentInternalOwner = 446,
-  ParentParentInternalType = 447,
-  ParentParentParentChildren = 448,
-  ParentParentParentId = 449,
-  SortKey = 450,
-  SpaceId = 451,
-  SysContentTypeSysId = 452,
-  SysContentTypeSysLinkType = 453,
-  SysContentTypeSysType = 454,
-  SysRevision = 455,
-  SysType = 456,
-  UpdatedAt = 457
+  BlogPostCategoryBlogPostGatsbyPath = 8,
+  BlogPostCategoryBlogPostId = 9,
+  BlogPostCategoryBlogPostNodeLocale = 10,
+  BlogPostCategoryBlogPostSlug = 11,
+  BlogPostCategoryBlogPostSpaceId = 12,
+  BlogPostCategoryBlogPostTags = 13,
+  BlogPostCategoryBlogPostTitle = 14,
+  BlogPostCategoryBlogPostUpdated = 15,
+  BlogPostCategoryBlogPostUpdatedAt = 16,
+  BlogPostCategoryChildren = 17,
+  BlogPostCategoryChildrenChildren = 18,
+  BlogPostCategoryChildrenId = 19,
+  BlogPostCategoryContentfulId = 20,
+  BlogPostCategoryCreatedAt = 21,
+  BlogPostCategoryId = 22,
+  BlogPostCategoryInternalContent = 23,
+  BlogPostCategoryInternalContentDigest = 24,
+  BlogPostCategoryInternalContentFilePath = 25,
+  BlogPostCategoryInternalDescription = 26,
+  BlogPostCategoryInternalFieldOwners = 27,
+  BlogPostCategoryInternalIgnoreType = 28,
+  BlogPostCategoryInternalMediaType = 29,
+  BlogPostCategoryInternalOwner = 30,
+  BlogPostCategoryInternalType = 31,
+  BlogPostCategoryName = 32,
+  BlogPostCategoryNodeLocale = 33,
+  BlogPostCategoryParentChildren = 34,
+  BlogPostCategoryParentId = 35,
+  BlogPostCategorySortKey = 36,
+  BlogPostCategorySpaceId = 37,
+  BlogPostCategorySysRevision = 38,
+  BlogPostCategorySysType = 39,
+  BlogPostCategoryUpdatedAt = 40,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxBody = 41,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxChildren = 42,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxExcerpt = 43,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 44,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHeadings = 45,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHtml = 46,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxId = 47,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxMdxAst = 48,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxRawBody = 49,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxSlug = 50,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTableOfContents = 51,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTimeToRead = 52,
+  BlogPostChildContentfulBlogPostContentTextNodeChildren = 53,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 54,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxBody = 55,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxChildren = 56,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 57,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 58,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHeadings = 59,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHtml = 60,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxId = 61,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 62,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxRawBody = 63,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxSlug = 64,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 65,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 66,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenChildren = 67,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenId = 68,
+  BlogPostChildContentfulBlogPostContentTextNodeContent = 69,
+  BlogPostChildContentfulBlogPostContentTextNodeId = 70,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalContent = 71,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalContentDigest = 72,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalContentFilePath = 73,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalDescription = 74,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalFieldOwners = 75,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalIgnoreType = 76,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalMediaType = 77,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalOwner = 78,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalType = 79,
+  BlogPostChildContentfulBlogPostContentTextNodeParentChildren = 80,
+  BlogPostChildContentfulBlogPostContentTextNodeParentId = 81,
+  BlogPostChildContentfulBlogPostContentTextNodeSysType = 82,
+  BlogPostChildren = 83,
+  BlogPostChildrenContentfulBlogPostContentTextNode = 84,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxBody = 85,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxChildren = 86,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxExcerpt = 87,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 88,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHeadings = 89,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHtml = 90,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxId = 91,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxMdxAst = 92,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxRawBody = 93,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxSlug = 94,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTableOfContents = 95,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTimeToRead = 96,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildren = 97,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 98,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxBody = 99,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxChildren = 100,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 101,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 102,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadings = 103,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHtml = 104,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxId = 105,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 106,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxRawBody = 107,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxSlug = 108,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 109,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 110,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenChildren = 111,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenId = 112,
+  BlogPostChildrenContentfulBlogPostContentTextNodeContent = 113,
+  BlogPostChildrenContentfulBlogPostContentTextNodeId = 114,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContent = 115,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentDigest = 116,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentFilePath = 117,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalDescription = 118,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalFieldOwners = 119,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalIgnoreType = 120,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalMediaType = 121,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalOwner = 122,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalType = 123,
+  BlogPostChildrenContentfulBlogPostContentTextNodeParentChildren = 124,
+  BlogPostChildrenContentfulBlogPostContentTextNodeParentId = 125,
+  BlogPostChildrenContentfulBlogPostContentTextNodeSysType = 126,
+  BlogPostChildrenChildren = 127,
+  BlogPostChildrenChildrenChildren = 128,
+  BlogPostChildrenChildrenId = 129,
+  BlogPostChildrenId = 130,
+  BlogPostChildrenInternalContent = 131,
+  BlogPostChildrenInternalContentDigest = 132,
+  BlogPostChildrenInternalContentFilePath = 133,
+  BlogPostChildrenInternalDescription = 134,
+  BlogPostChildrenInternalFieldOwners = 135,
+  BlogPostChildrenInternalIgnoreType = 136,
+  BlogPostChildrenInternalMediaType = 137,
+  BlogPostChildrenInternalOwner = 138,
+  BlogPostChildrenInternalType = 139,
+  BlogPostChildrenParentChildren = 140,
+  BlogPostChildrenParentId = 141,
+  BlogPostContentChildMdxBody = 142,
+  BlogPostContentChildMdxChildren = 143,
+  BlogPostContentChildMdxExcerpt = 144,
+  BlogPostContentChildMdxFileAbsolutePath = 145,
+  BlogPostContentChildMdxHeadings = 146,
+  BlogPostContentChildMdxHtml = 147,
+  BlogPostContentChildMdxId = 148,
+  BlogPostContentChildMdxMdxAst = 149,
+  BlogPostContentChildMdxRawBody = 150,
+  BlogPostContentChildMdxSlug = 151,
+  BlogPostContentChildMdxTableOfContents = 152,
+  BlogPostContentChildMdxTimeToRead = 153,
+  BlogPostContentChildren = 154,
+  BlogPostContentChildrenMdx = 155,
+  BlogPostContentChildrenMdxBody = 156,
+  BlogPostContentChildrenMdxChildren = 157,
+  BlogPostContentChildrenMdxExcerpt = 158,
+  BlogPostContentChildrenMdxFileAbsolutePath = 159,
+  BlogPostContentChildrenMdxHeadings = 160,
+  BlogPostContentChildrenMdxHtml = 161,
+  BlogPostContentChildrenMdxId = 162,
+  BlogPostContentChildrenMdxMdxAst = 163,
+  BlogPostContentChildrenMdxRawBody = 164,
+  BlogPostContentChildrenMdxSlug = 165,
+  BlogPostContentChildrenMdxTableOfContents = 166,
+  BlogPostContentChildrenMdxTimeToRead = 167,
+  BlogPostContentChildrenChildren = 168,
+  BlogPostContentChildrenId = 169,
+  BlogPostContentContent = 170,
+  BlogPostContentId = 171,
+  BlogPostContentInternalContent = 172,
+  BlogPostContentInternalContentDigest = 173,
+  BlogPostContentInternalContentFilePath = 174,
+  BlogPostContentInternalDescription = 175,
+  BlogPostContentInternalFieldOwners = 176,
+  BlogPostContentInternalIgnoreType = 177,
+  BlogPostContentInternalMediaType = 178,
+  BlogPostContentInternalOwner = 179,
+  BlogPostContentInternalType = 180,
+  BlogPostContentParentChildren = 181,
+  BlogPostContentParentId = 182,
+  BlogPostContentSysType = 183,
+  BlogPostContentfulId = 184,
+  BlogPostCreated = 185,
+  BlogPostCreatedAt = 186,
+  BlogPostExcerpt = 187,
+  BlogPostGatsbyPath = 188,
+  BlogPostId = 189,
+  BlogPostInternalContent = 190,
+  BlogPostInternalContentDigest = 191,
+  BlogPostInternalContentFilePath = 192,
+  BlogPostInternalDescription = 193,
+  BlogPostInternalFieldOwners = 194,
+  BlogPostInternalIgnoreType = 195,
+  BlogPostInternalMediaType = 196,
+  BlogPostInternalOwner = 197,
+  BlogPostInternalType = 198,
+  BlogPostNodeLocale = 199,
+  BlogPostParentChildren = 200,
+  BlogPostParentChildrenChildren = 201,
+  BlogPostParentChildrenId = 202,
+  BlogPostParentId = 203,
+  BlogPostParentInternalContent = 204,
+  BlogPostParentInternalContentDigest = 205,
+  BlogPostParentInternalContentFilePath = 206,
+  BlogPostParentInternalDescription = 207,
+  BlogPostParentInternalFieldOwners = 208,
+  BlogPostParentInternalIgnoreType = 209,
+  BlogPostParentInternalMediaType = 210,
+  BlogPostParentInternalOwner = 211,
+  BlogPostParentInternalType = 212,
+  BlogPostParentParentChildren = 213,
+  BlogPostParentParentId = 214,
+  BlogPostSlug = 215,
+  BlogPostSpaceId = 216,
+  BlogPostSysRevision = 217,
+  BlogPostSysType = 218,
+  BlogPostTags = 219,
+  BlogPostTagsBlogPost = 220,
+  BlogPostTagsBlogPostChildren = 221,
+  BlogPostTagsBlogPostChildrenContentfulBlogPostContentTextNode = 222,
+  BlogPostTagsBlogPostContentfulId = 223,
+  BlogPostTagsBlogPostCreated = 224,
+  BlogPostTagsBlogPostCreatedAt = 225,
+  BlogPostTagsBlogPostExcerpt = 226,
+  BlogPostTagsBlogPostGatsbyPath = 227,
+  BlogPostTagsBlogPostId = 228,
+  BlogPostTagsBlogPostNodeLocale = 229,
+  BlogPostTagsBlogPostSlug = 230,
+  BlogPostTagsBlogPostSpaceId = 231,
+  BlogPostTagsBlogPostTags = 232,
+  BlogPostTagsBlogPostTitle = 233,
+  BlogPostTagsBlogPostUpdated = 234,
+  BlogPostTagsBlogPostUpdatedAt = 235,
+  BlogPostTagsChildren = 236,
+  BlogPostTagsChildrenChildren = 237,
+  BlogPostTagsChildrenId = 238,
+  BlogPostTagsContentfulId = 239,
+  BlogPostTagsCreatedAt = 240,
+  BlogPostTagsId = 241,
+  BlogPostTagsInternalContent = 242,
+  BlogPostTagsInternalContentDigest = 243,
+  BlogPostTagsInternalContentFilePath = 244,
+  BlogPostTagsInternalDescription = 245,
+  BlogPostTagsInternalFieldOwners = 246,
+  BlogPostTagsInternalIgnoreType = 247,
+  BlogPostTagsInternalMediaType = 248,
+  BlogPostTagsInternalOwner = 249,
+  BlogPostTagsInternalType = 250,
+  BlogPostTagsLevel = 251,
+  BlogPostTagsName = 252,
+  BlogPostTagsNodeLocale = 253,
+  BlogPostTagsOss = 254,
+  BlogPostTagsOssChildren = 255,
+  BlogPostTagsOssChildrenContentfulOssDetailTextNode = 256,
+  BlogPostTagsOssContentfulId = 257,
+  BlogPostTagsOssCreatedAt = 258,
+  BlogPostTagsOssHref = 259,
+  BlogPostTagsOssId = 260,
+  BlogPostTagsOssName = 261,
+  BlogPostTagsOssNodeLocale = 262,
+  BlogPostTagsOssSpaceId = 263,
+  BlogPostTagsOssStartDate = 264,
+  BlogPostTagsOssSubName = 265,
+  BlogPostTagsOssTags = 266,
+  BlogPostTagsOssUpdatedAt = 267,
+  BlogPostTagsParentChildren = 268,
+  BlogPostTagsParentId = 269,
+  BlogPostTagsProject = 270,
+  BlogPostTagsProjectChildren = 271,
+  BlogPostTagsProjectChildrenContentfulProjectDetailTextNode = 272,
+  BlogPostTagsProjectContentfulId = 273,
+  BlogPostTagsProjectCreatedAt = 274,
+  BlogPostTagsProjectEndDate = 275,
+  BlogPostTagsProjectId = 276,
+  BlogPostTagsProjectName = 277,
+  BlogPostTagsProjectNodeLocale = 278,
+  BlogPostTagsProjectSpaceId = 279,
+  BlogPostTagsProjectStartDate = 280,
+  BlogPostTagsProjectSubName = 281,
+  BlogPostTagsProjectTags = 282,
+  BlogPostTagsProjectUpdatedAt = 283,
+  BlogPostTagsSkillGrpup = 284,
+  BlogPostTagsSkillGrpupChildren = 285,
+  BlogPostTagsSkillGrpupContentfulId = 286,
+  BlogPostTagsSkillGrpupCreatedAt = 287,
+  BlogPostTagsSkillGrpupId = 288,
+  BlogPostTagsSkillGrpupName = 289,
+  BlogPostTagsSkillGrpupNodeLocale = 290,
+  BlogPostTagsSkillGrpupSkillMap = 291,
+  BlogPostTagsSkillGrpupSkills = 292,
+  BlogPostTagsSkillGrpupSpaceId = 293,
+  BlogPostTagsSkillGrpupUpdatedAt = 294,
+  BlogPostTagsSkillMap = 295,
+  BlogPostTagsSkillMapChildren = 296,
+  BlogPostTagsSkillMapContentfulId = 297,
+  BlogPostTagsSkillMapCreatedAt = 298,
+  BlogPostTagsSkillMapExpanded = 299,
+  BlogPostTagsSkillMapId = 300,
+  BlogPostTagsSkillMapName = 301,
+  BlogPostTagsSkillMapNodeLocale = 302,
+  BlogPostTagsSkillMapSkillGroups = 303,
+  BlogPostTagsSkillMapSkills = 304,
+  BlogPostTagsSkillMapSortKey = 305,
+  BlogPostTagsSkillMapSpaceId = 306,
+  BlogPostTagsSkillMapUpdatedAt = 307,
+  BlogPostTagsSpaceId = 308,
+  BlogPostTagsSysRevision = 309,
+  BlogPostTagsSysType = 310,
+  BlogPostTagsUpdatedAt = 311,
+  BlogPostThumbnailChildren = 312,
+  BlogPostThumbnailChildrenChildren = 313,
+  BlogPostThumbnailChildrenId = 314,
+  BlogPostThumbnailContentfulId = 315,
+  BlogPostThumbnailCreatedAt = 316,
+  BlogPostThumbnailDescription = 317,
+  BlogPostThumbnailFileContentType = 318,
+  BlogPostThumbnailFileFileName = 319,
+  BlogPostThumbnailFileUrl = 320,
+  BlogPostThumbnailFilename = 321,
+  BlogPostThumbnailFilesize = 322,
+  BlogPostThumbnailGatsbyImage = 323,
+  BlogPostThumbnailGatsbyImageData = 324,
+  BlogPostThumbnailHeight = 325,
+  BlogPostThumbnailId = 326,
+  BlogPostThumbnailInternalContent = 327,
+  BlogPostThumbnailInternalContentDigest = 328,
+  BlogPostThumbnailInternalContentFilePath = 329,
+  BlogPostThumbnailInternalDescription = 330,
+  BlogPostThumbnailInternalFieldOwners = 331,
+  BlogPostThumbnailInternalIgnoreType = 332,
+  BlogPostThumbnailInternalMediaType = 333,
+  BlogPostThumbnailInternalOwner = 334,
+  BlogPostThumbnailInternalType = 335,
+  BlogPostThumbnailMimeType = 336,
+  BlogPostThumbnailNodeLocale = 337,
+  BlogPostThumbnailParentChildren = 338,
+  BlogPostThumbnailParentId = 339,
+  BlogPostThumbnailPlaceholderUrl = 340,
+  BlogPostThumbnailPublicUrl = 341,
+  BlogPostThumbnailResizeHeight = 342,
+  BlogPostThumbnailResizeSrc = 343,
+  BlogPostThumbnailResizeWidth = 344,
+  BlogPostThumbnailSize = 345,
+  BlogPostThumbnailSpaceId = 346,
+  BlogPostThumbnailSysRevision = 347,
+  BlogPostThumbnailSysType = 348,
+  BlogPostThumbnailTitle = 349,
+  BlogPostThumbnailUpdatedAt = 350,
+  BlogPostThumbnailUrl = 351,
+  BlogPostThumbnailWidth = 352,
+  BlogPostTitle = 353,
+  BlogPostUpdated = 354,
+  BlogPostUpdatedAt = 355,
+  Children = 356,
+  ChildrenChildren = 357,
+  ChildrenChildrenChildren = 358,
+  ChildrenChildrenChildrenChildren = 359,
+  ChildrenChildrenChildrenId = 360,
+  ChildrenChildrenId = 361,
+  ChildrenChildrenInternalContent = 362,
+  ChildrenChildrenInternalContentDigest = 363,
+  ChildrenChildrenInternalContentFilePath = 364,
+  ChildrenChildrenInternalDescription = 365,
+  ChildrenChildrenInternalFieldOwners = 366,
+  ChildrenChildrenInternalIgnoreType = 367,
+  ChildrenChildrenInternalMediaType = 368,
+  ChildrenChildrenInternalOwner = 369,
+  ChildrenChildrenInternalType = 370,
+  ChildrenChildrenParentChildren = 371,
+  ChildrenChildrenParentId = 372,
+  ChildrenId = 373,
+  ChildrenInternalContent = 374,
+  ChildrenInternalContentDigest = 375,
+  ChildrenInternalContentFilePath = 376,
+  ChildrenInternalDescription = 377,
+  ChildrenInternalFieldOwners = 378,
+  ChildrenInternalIgnoreType = 379,
+  ChildrenInternalMediaType = 380,
+  ChildrenInternalOwner = 381,
+  ChildrenInternalType = 382,
+  ChildrenParentChildren = 383,
+  ChildrenParentChildrenChildren = 384,
+  ChildrenParentChildrenId = 385,
+  ChildrenParentId = 386,
+  ChildrenParentInternalContent = 387,
+  ChildrenParentInternalContentDigest = 388,
+  ChildrenParentInternalContentFilePath = 389,
+  ChildrenParentInternalDescription = 390,
+  ChildrenParentInternalFieldOwners = 391,
+  ChildrenParentInternalIgnoreType = 392,
+  ChildrenParentInternalMediaType = 393,
+  ChildrenParentInternalOwner = 394,
+  ChildrenParentInternalType = 395,
+  ChildrenParentParentChildren = 396,
+  ChildrenParentParentId = 397,
+  ContentfulId = 398,
+  CreatedAt = 399,
+  Id = 400,
+  InternalContent = 401,
+  InternalContentDigest = 402,
+  InternalContentFilePath = 403,
+  InternalDescription = 404,
+  InternalFieldOwners = 405,
+  InternalIgnoreType = 406,
+  InternalMediaType = 407,
+  InternalOwner = 408,
+  InternalType = 409,
+  Name = 410,
+  NodeLocale = 411,
+  ParentChildren = 412,
+  ParentChildrenChildren = 413,
+  ParentChildrenChildrenChildren = 414,
+  ParentChildrenChildrenId = 415,
+  ParentChildrenId = 416,
+  ParentChildrenInternalContent = 417,
+  ParentChildrenInternalContentDigest = 418,
+  ParentChildrenInternalContentFilePath = 419,
+  ParentChildrenInternalDescription = 420,
+  ParentChildrenInternalFieldOwners = 421,
+  ParentChildrenInternalIgnoreType = 422,
+  ParentChildrenInternalMediaType = 423,
+  ParentChildrenInternalOwner = 424,
+  ParentChildrenInternalType = 425,
+  ParentChildrenParentChildren = 426,
+  ParentChildrenParentId = 427,
+  ParentId = 428,
+  ParentInternalContent = 429,
+  ParentInternalContentDigest = 430,
+  ParentInternalContentFilePath = 431,
+  ParentInternalDescription = 432,
+  ParentInternalFieldOwners = 433,
+  ParentInternalIgnoreType = 434,
+  ParentInternalMediaType = 435,
+  ParentInternalOwner = 436,
+  ParentInternalType = 437,
+  ParentParentChildren = 438,
+  ParentParentChildrenChildren = 439,
+  ParentParentChildrenId = 440,
+  ParentParentId = 441,
+  ParentParentInternalContent = 442,
+  ParentParentInternalContentDigest = 443,
+  ParentParentInternalContentFilePath = 444,
+  ParentParentInternalDescription = 445,
+  ParentParentInternalFieldOwners = 446,
+  ParentParentInternalIgnoreType = 447,
+  ParentParentInternalMediaType = 448,
+  ParentParentInternalOwner = 449,
+  ParentParentInternalType = 450,
+  ParentParentParentChildren = 451,
+  ParentParentParentId = 452,
+  SortKey = 453,
+  SpaceId = 454,
+  SysContentTypeSysId = 455,
+  SysContentTypeSysLinkType = 456,
+  SysContentTypeSysType = 457,
+  SysRevision = 458,
+  SysType = 459,
+  UpdatedAt = 460
 }
 
 export type ContentfulCategoryFilterInput = {
-  blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulCategorySysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulCategorySysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulCategoryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulCategoryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulCategoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulCategory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulCategoryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulCategoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulCategory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -2254,60 +2266,60 @@ export type ContentfulCategoryGroupConnectionSumArgs = {
 };
 
 export type ContentfulCategorySortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulCategoryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulCategoryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulCategorySys = {
-  contentType: Maybe<ContentfulCategorySysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulCategorySysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulCategorySysContentType = {
-  sys: Maybe<ContentfulCategorySysContentTypeSys>;
+  readonly sys: Maybe<ContentfulCategorySysContentTypeSys>;
 };
 
 export type ContentfulCategorySysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulCategorySysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulCategorySysContentTypeSysFilterInput>;
 };
 
 export type ContentfulCategorySysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulCategorySysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulCategorySysFilterInput = {
-  contentType: InputMaybe<ContentfulCategorySysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulCategorySysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulContact = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  href: Maybe<Scalars['String']>;
-  icon: Maybe<ContentfulIcon>;
-  iconSvgDark: Maybe<ContentfulAsset>;
-  iconSvgLight: Maybe<ContentfulAsset>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulContactSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly href: Maybe<Scalars['String']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly iconSvgDark: Maybe<ContentfulAsset>;
+  readonly iconSvgLight: Maybe<ContentfulAsset>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulContactSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -2327,15 +2339,15 @@ export type ContentfulContactUpdatedAtArgs = {
 };
 
 export type ContentfulContactConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContactEdge>;
-  group: Array<ContentfulContactGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContact>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContactEdge>;
+  readonly group: ReadonlyArray<ContentfulContactGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContact>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -2366,9 +2378,9 @@ export type ContentfulContactConnectionSumArgs = {
 };
 
 export type ContentfulContactEdge = {
-  next: Maybe<ContentfulContact>;
-  node: ContentfulContact;
-  previous: Maybe<ContentfulContact>;
+  readonly next: Maybe<ContentfulContact>;
+  readonly node: ContentfulContact;
+  readonly previous: Maybe<ContentfulContact>;
 };
 
 export enum ContentfulContactFieldsEnum {
@@ -3113,41 +3125,41 @@ export enum ContentfulContactFieldsEnum {
 }
 
 export type ContentfulContactFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  iconSvgDark: InputMaybe<ContentfulAssetFilterInput>;
-  iconSvgLight: InputMaybe<ContentfulAssetFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulContactSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly iconSvgDark: InputMaybe<ContentfulAssetFilterInput>;
+  readonly iconSvgLight: InputMaybe<ContentfulAssetFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulContactSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulContactFilterListInput = {
-  elemMatch: InputMaybe<ContentfulContactFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulContactFilterInput>;
 };
 
 export type ContentfulContactGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContactEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulContactGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContact>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContactEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulContactGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContact>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3178,63 +3190,63 @@ export type ContentfulContactGroupConnectionSumArgs = {
 };
 
 export type ContentfulContactSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulContactFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulContactFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulContactSys = {
-  contentType: Maybe<ContentfulContactSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulContactSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContactSysContentType = {
-  sys: Maybe<ContentfulContactSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulContactSysContentTypeSys>;
 };
 
 export type ContentfulContactSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulContactSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulContactSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulContactSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContactSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulContactSysFilterInput = {
-  contentType: InputMaybe<ContentfulContactSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulContactSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulContentType = Node & {
-  children: Array<Node>;
-  description: Maybe<Scalars['String']>;
-  displayField: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulContentTypeSys>;
+  readonly children: ReadonlyArray<Node>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly displayField: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulContentTypeSys>;
 };
 
 export type ContentfulContentTypeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContentTypeEdge>;
-  group: Array<ContentfulContentTypeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContentType>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContentTypeEdge>;
+  readonly group: ReadonlyArray<ContentfulContentTypeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContentType>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3265,9 +3277,9 @@ export type ContentfulContentTypeConnectionSumArgs = {
 };
 
 export type ContentfulContentTypeEdge = {
-  next: Maybe<ContentfulContentType>;
-  node: ContentfulContentType;
-  previous: Maybe<ContentfulContentType>;
+  readonly next: Maybe<ContentfulContentType>;
+  readonly node: ContentfulContentType;
+  readonly previous: Maybe<ContentfulContentType>;
 };
 
 export enum ContentfulContentTypeFieldsEnum {
@@ -3371,28 +3383,28 @@ export enum ContentfulContentTypeFieldsEnum {
 }
 
 export type ContentfulContentTypeFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  displayField: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulContentTypeSysFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly displayField: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulContentTypeSysFilterInput>;
 };
 
 export type ContentfulContentTypeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulContentTypeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulContentTypeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulContentType>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContentTypeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulContentTypeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContentType>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3423,37 +3435,37 @@ export type ContentfulContentTypeGroupConnectionSumArgs = {
 };
 
 export type ContentfulContentTypeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulContentTypeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulContentTypeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulContentTypeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulContentTypeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulEntry = {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
 };
 
 export type ContentfulEntryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulEntryEdge>;
-  group: Array<ContentfulEntryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulEntry>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulEntryEdge>;
+  readonly group: ReadonlyArray<ContentfulEntryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulEntry>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3484,9 +3496,9 @@ export type ContentfulEntryConnectionSumArgs = {
 };
 
 export type ContentfulEntryEdge = {
-  next: Maybe<ContentfulEntry>;
-  node: ContentfulEntry;
-  previous: Maybe<ContentfulEntry>;
+  readonly next: Maybe<ContentfulEntry>;
+  readonly node: ContentfulEntry;
+  readonly previous: Maybe<ContentfulEntry>;
 };
 
 export enum ContentfulEntryFieldsEnum {
@@ -3588,26 +3600,26 @@ export enum ContentfulEntryFieldsEnum {
 }
 
 export type ContentfulEntryFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type ContentfulEntryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulEntryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulEntryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulEntry>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulEntryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulEntryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulEntry>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3638,24 +3650,24 @@ export type ContentfulEntryGroupConnectionSumArgs = {
 };
 
 export type ContentfulEntrySortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulEntryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulEntryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulHello = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  href: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulHelloSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly href: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulHelloSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -3675,15 +3687,15 @@ export type ContentfulHelloUpdatedAtArgs = {
 };
 
 export type ContentfulHelloConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHelloEdge>;
-  group: Array<ContentfulHelloGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHello>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHelloEdge>;
+  readonly group: ReadonlyArray<ContentfulHelloGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHello>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3714,9 +3726,9 @@ export type ContentfulHelloConnectionSumArgs = {
 };
 
 export type ContentfulHelloEdge = {
-  next: Maybe<ContentfulHello>;
-  node: ContentfulHello;
-  previous: Maybe<ContentfulHello>;
+  readonly next: Maybe<ContentfulHello>;
+  readonly node: ContentfulHello;
+  readonly previous: Maybe<ContentfulHello>;
 };
 
 export enum ContentfulHelloFieldsEnum {
@@ -3829,33 +3841,33 @@ export enum ContentfulHelloFieldsEnum {
 }
 
 export type ContentfulHelloFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulHelloSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulHelloSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulHelloGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHelloEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulHelloGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHello>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHelloEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulHelloGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHello>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -3886,57 +3898,57 @@ export type ContentfulHelloGroupConnectionSumArgs = {
 };
 
 export type ContentfulHelloSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulHelloFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulHelloFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulHelloSys = {
-  contentType: Maybe<ContentfulHelloSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulHelloSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHelloSysContentType = {
-  sys: Maybe<ContentfulHelloSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulHelloSysContentTypeSys>;
 };
 
 export type ContentfulHelloSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulHelloSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulHelloSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulHelloSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHelloSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulHelloSysFilterInput = {
-  contentType: InputMaybe<ContentfulHelloSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulHelloSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulHistory = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  date: Maybe<Scalars['Date']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  spaceId: Maybe<Scalars['String']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulHistorySys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulHistorySys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -3964,15 +3976,15 @@ export type ContentfulHistoryUpdatedAtArgs = {
 };
 
 export type ContentfulHistoryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHistoryEdge>;
-  group: Array<ContentfulHistoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHistory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHistoryEdge>;
+  readonly group: ReadonlyArray<ContentfulHistoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHistory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -4003,9 +4015,9 @@ export type ContentfulHistoryConnectionSumArgs = {
 };
 
 export type ContentfulHistoryEdge = {
-  next: Maybe<ContentfulHistory>;
-  node: ContentfulHistory;
-  previous: Maybe<ContentfulHistory>;
+  readonly next: Maybe<ContentfulHistory>;
+  readonly node: ContentfulHistory;
+  readonly previous: Maybe<ContentfulHistory>;
 };
 
 export enum ContentfulHistoryFieldsEnum {
@@ -4613,38 +4625,38 @@ export enum ContentfulHistoryFieldsEnum {
 }
 
 export type ContentfulHistoryFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  date: InputMaybe<DateQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulHistorySysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulHistorySysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulHistoryFilterListInput = {
-  elemMatch: InputMaybe<ContentfulHistoryFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulHistoryFilterInput>;
 };
 
 export type ContentfulHistoryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulHistoryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulHistoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulHistory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulHistoryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulHistoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulHistory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -4675,64 +4687,64 @@ export type ContentfulHistoryGroupConnectionSumArgs = {
 };
 
 export type ContentfulHistorySortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulHistoryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulHistoryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulHistorySys = {
-  contentType: Maybe<ContentfulHistorySysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulHistorySysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHistorySysContentType = {
-  sys: Maybe<ContentfulHistorySysContentTypeSys>;
+  readonly sys: Maybe<ContentfulHistorySysContentTypeSys>;
 };
 
 export type ContentfulHistorySysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulHistorySysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulHistorySysContentTypeSysFilterInput>;
 };
 
 export type ContentfulHistorySysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulHistorySysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulHistorySysFilterInput = {
-  contentType: InputMaybe<ContentfulHistorySysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulHistorySysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulIcon = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulIconSvgTextNode or null if there are no children of given type on this node */
-  childContentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
-  children: Array<Node>;
+  readonly childContentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulIconSvgTextNode */
-  childrenContentfulIconSvgTextNode: Maybe<Array<Maybe<ContentfulIconSvgTextNode>>>;
-  contact: Maybe<Array<Maybe<ContentfulContact>>>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  history: Maybe<Array<Maybe<ContentfulHistory>>>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  oss: Maybe<Array<Maybe<ContentfulOss>>>;
-  parent: Maybe<Node>;
-  project: Maybe<Array<Maybe<ContentfulProject>>>;
-  spaceId: Maybe<Scalars['String']>;
-  svg: Maybe<ContentfulIconSvgTextNode>;
-  sys: Maybe<ContentfulIconSys>;
-  updatedAt: Maybe<Scalars['Date']>;
-  what_i_can_do: Maybe<Array<Maybe<ContentfulWhatICanDo>>>;
+  readonly childrenContentfulIconSvgTextNode: Maybe<ReadonlyArray<Maybe<ContentfulIconSvgTextNode>>>;
+  readonly contact: Maybe<ReadonlyArray<Maybe<ContentfulContact>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly history: Maybe<ReadonlyArray<Maybe<ContentfulHistory>>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly oss: Maybe<ReadonlyArray<Maybe<ContentfulOss>>>;
+  readonly parent: Maybe<Node>;
+  readonly project: Maybe<ReadonlyArray<Maybe<ContentfulProject>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly svg: Maybe<ContentfulIconSvgTextNode>;
+  readonly sys: Maybe<ContentfulIconSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly what_i_can_do: Maybe<ReadonlyArray<Maybe<ContentfulWhatICanDo>>>;
 };
 
 
@@ -4752,15 +4764,15 @@ export type ContentfulIconUpdatedAtArgs = {
 };
 
 export type ContentfulIconConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconEdge>;
-  group: Array<ContentfulIconGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIcon>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconEdge>;
+  readonly group: ReadonlyArray<ContentfulIconGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIcon>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -4791,9 +4803,9 @@ export type ContentfulIconConnectionSumArgs = {
 };
 
 export type ContentfulIconEdge = {
-  next: Maybe<ContentfulIcon>;
-  node: ContentfulIcon;
-  previous: Maybe<ContentfulIcon>;
+  readonly next: Maybe<ContentfulIcon>;
+  readonly node: ContentfulIcon;
+  readonly previous: Maybe<ContentfulIcon>;
 };
 
 export enum ContentfulIconFieldsEnum {
@@ -5775,801 +5787,803 @@ export enum ContentfulIconFieldsEnum {
   OssTagsBlogPostCreated = 975,
   OssTagsBlogPostCreatedAt = 976,
   OssTagsBlogPostExcerpt = 977,
-  OssTagsBlogPostId = 978,
-  OssTagsBlogPostNodeLocale = 979,
-  OssTagsBlogPostSlug = 980,
-  OssTagsBlogPostSpaceId = 981,
-  OssTagsBlogPostTags = 982,
-  OssTagsBlogPostTitle = 983,
-  OssTagsBlogPostUpdated = 984,
-  OssTagsBlogPostUpdatedAt = 985,
-  OssTagsChildren = 986,
-  OssTagsChildrenChildren = 987,
-  OssTagsChildrenId = 988,
-  OssTagsContentfulId = 989,
-  OssTagsCreatedAt = 990,
-  OssTagsId = 991,
-  OssTagsInternalContent = 992,
-  OssTagsInternalContentDigest = 993,
-  OssTagsInternalContentFilePath = 994,
-  OssTagsInternalDescription = 995,
-  OssTagsInternalFieldOwners = 996,
-  OssTagsInternalIgnoreType = 997,
-  OssTagsInternalMediaType = 998,
-  OssTagsInternalOwner = 999,
-  OssTagsInternalType = 1000,
-  OssTagsLevel = 1001,
-  OssTagsName = 1002,
-  OssTagsNodeLocale = 1003,
-  OssTagsOss = 1004,
-  OssTagsOssChildren = 1005,
-  OssTagsOssChildrenContentfulOssDetailTextNode = 1006,
-  OssTagsOssContentfulId = 1007,
-  OssTagsOssCreatedAt = 1008,
-  OssTagsOssHref = 1009,
-  OssTagsOssId = 1010,
-  OssTagsOssName = 1011,
-  OssTagsOssNodeLocale = 1012,
-  OssTagsOssSpaceId = 1013,
-  OssTagsOssStartDate = 1014,
-  OssTagsOssSubName = 1015,
-  OssTagsOssTags = 1016,
-  OssTagsOssUpdatedAt = 1017,
-  OssTagsParentChildren = 1018,
-  OssTagsParentId = 1019,
-  OssTagsProject = 1020,
-  OssTagsProjectChildren = 1021,
-  OssTagsProjectChildrenContentfulProjectDetailTextNode = 1022,
-  OssTagsProjectContentfulId = 1023,
-  OssTagsProjectCreatedAt = 1024,
-  OssTagsProjectEndDate = 1025,
-  OssTagsProjectId = 1026,
-  OssTagsProjectName = 1027,
-  OssTagsProjectNodeLocale = 1028,
-  OssTagsProjectSpaceId = 1029,
-  OssTagsProjectStartDate = 1030,
-  OssTagsProjectSubName = 1031,
-  OssTagsProjectTags = 1032,
-  OssTagsProjectUpdatedAt = 1033,
-  OssTagsSkillGrpup = 1034,
-  OssTagsSkillGrpupChildren = 1035,
-  OssTagsSkillGrpupContentfulId = 1036,
-  OssTagsSkillGrpupCreatedAt = 1037,
-  OssTagsSkillGrpupId = 1038,
-  OssTagsSkillGrpupName = 1039,
-  OssTagsSkillGrpupNodeLocale = 1040,
-  OssTagsSkillGrpupSkillMap = 1041,
-  OssTagsSkillGrpupSkills = 1042,
-  OssTagsSkillGrpupSpaceId = 1043,
-  OssTagsSkillGrpupUpdatedAt = 1044,
-  OssTagsSkillMap = 1045,
-  OssTagsSkillMapChildren = 1046,
-  OssTagsSkillMapContentfulId = 1047,
-  OssTagsSkillMapCreatedAt = 1048,
-  OssTagsSkillMapExpanded = 1049,
-  OssTagsSkillMapId = 1050,
-  OssTagsSkillMapName = 1051,
-  OssTagsSkillMapNodeLocale = 1052,
-  OssTagsSkillMapSkillGroups = 1053,
-  OssTagsSkillMapSkills = 1054,
-  OssTagsSkillMapSortKey = 1055,
-  OssTagsSkillMapSpaceId = 1056,
-  OssTagsSkillMapUpdatedAt = 1057,
-  OssTagsSpaceId = 1058,
-  OssTagsSysRevision = 1059,
-  OssTagsSysType = 1060,
-  OssTagsUpdatedAt = 1061,
-  OssUpdatedAt = 1062,
-  ParentChildren = 1063,
-  ParentChildrenChildren = 1064,
-  ParentChildrenChildrenChildren = 1065,
-  ParentChildrenChildrenId = 1066,
-  ParentChildrenId = 1067,
-  ParentChildrenInternalContent = 1068,
-  ParentChildrenInternalContentDigest = 1069,
-  ParentChildrenInternalContentFilePath = 1070,
-  ParentChildrenInternalDescription = 1071,
-  ParentChildrenInternalFieldOwners = 1072,
-  ParentChildrenInternalIgnoreType = 1073,
-  ParentChildrenInternalMediaType = 1074,
-  ParentChildrenInternalOwner = 1075,
-  ParentChildrenInternalType = 1076,
-  ParentChildrenParentChildren = 1077,
-  ParentChildrenParentId = 1078,
-  ParentId = 1079,
-  ParentInternalContent = 1080,
-  ParentInternalContentDigest = 1081,
-  ParentInternalContentFilePath = 1082,
-  ParentInternalDescription = 1083,
-  ParentInternalFieldOwners = 1084,
-  ParentInternalIgnoreType = 1085,
-  ParentInternalMediaType = 1086,
-  ParentInternalOwner = 1087,
-  ParentInternalType = 1088,
-  ParentParentChildren = 1089,
-  ParentParentChildrenChildren = 1090,
-  ParentParentChildrenId = 1091,
-  ParentParentId = 1092,
-  ParentParentInternalContent = 1093,
-  ParentParentInternalContentDigest = 1094,
-  ParentParentInternalContentFilePath = 1095,
-  ParentParentInternalDescription = 1096,
-  ParentParentInternalFieldOwners = 1097,
-  ParentParentInternalIgnoreType = 1098,
-  ParentParentInternalMediaType = 1099,
-  ParentParentInternalOwner = 1100,
-  ParentParentInternalType = 1101,
-  ParentParentParentChildren = 1102,
-  ParentParentParentId = 1103,
-  Project = 1104,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxBody = 1105,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxChildren = 1106,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxExcerpt = 1107,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 1108,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxHeadings = 1109,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxHtml = 1110,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxId = 1111,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxMdxAst = 1112,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxRawBody = 1113,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxSlug = 1114,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxTableOfContents = 1115,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxTimeToRead = 1116,
-  ProjectChildContentfulProjectDetailTextNodeChildren = 1117,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdx = 1118,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxBody = 1119,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxChildren = 1120,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxExcerpt = 1121,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 1122,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHeadings = 1123,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHtml = 1124,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxId = 1125,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxMdxAst = 1126,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxRawBody = 1127,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxSlug = 1128,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 1129,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 1130,
-  ProjectChildContentfulProjectDetailTextNodeChildrenChildren = 1131,
-  ProjectChildContentfulProjectDetailTextNodeChildrenId = 1132,
-  ProjectChildContentfulProjectDetailTextNodeDetail = 1133,
-  ProjectChildContentfulProjectDetailTextNodeId = 1134,
-  ProjectChildContentfulProjectDetailTextNodeInternalContent = 1135,
-  ProjectChildContentfulProjectDetailTextNodeInternalContentDigest = 1136,
-  ProjectChildContentfulProjectDetailTextNodeInternalContentFilePath = 1137,
-  ProjectChildContentfulProjectDetailTextNodeInternalDescription = 1138,
-  ProjectChildContentfulProjectDetailTextNodeInternalFieldOwners = 1139,
-  ProjectChildContentfulProjectDetailTextNodeInternalIgnoreType = 1140,
-  ProjectChildContentfulProjectDetailTextNodeInternalMediaType = 1141,
-  ProjectChildContentfulProjectDetailTextNodeInternalOwner = 1142,
-  ProjectChildContentfulProjectDetailTextNodeInternalType = 1143,
-  ProjectChildContentfulProjectDetailTextNodeParentChildren = 1144,
-  ProjectChildContentfulProjectDetailTextNodeParentId = 1145,
-  ProjectChildContentfulProjectDetailTextNodeSysType = 1146,
-  ProjectChildren = 1147,
-  ProjectChildrenContentfulProjectDetailTextNode = 1148,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxBody = 1149,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxChildren = 1150,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxExcerpt = 1151,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 1152,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHeadings = 1153,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHtml = 1154,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxId = 1155,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxMdxAst = 1156,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxRawBody = 1157,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxSlug = 1158,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTableOfContents = 1159,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTimeToRead = 1160,
-  ProjectChildrenContentfulProjectDetailTextNodeChildren = 1161,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 1162,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxBody = 1163,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxChildren = 1164,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxExcerpt = 1165,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 1166,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHeadings = 1167,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHtml = 1168,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxId = 1169,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxMdxAst = 1170,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxRawBody = 1171,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxSlug = 1172,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 1173,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 1174,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenChildren = 1175,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenId = 1176,
-  ProjectChildrenContentfulProjectDetailTextNodeDetail = 1177,
-  ProjectChildrenContentfulProjectDetailTextNodeId = 1178,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalContent = 1179,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalContentDigest = 1180,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalContentFilePath = 1181,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalDescription = 1182,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalFieldOwners = 1183,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalIgnoreType = 1184,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalMediaType = 1185,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalOwner = 1186,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalType = 1187,
-  ProjectChildrenContentfulProjectDetailTextNodeParentChildren = 1188,
-  ProjectChildrenContentfulProjectDetailTextNodeParentId = 1189,
-  ProjectChildrenContentfulProjectDetailTextNodeSysType = 1190,
-  ProjectChildrenChildren = 1191,
-  ProjectChildrenChildrenChildren = 1192,
-  ProjectChildrenChildrenId = 1193,
-  ProjectChildrenId = 1194,
-  ProjectChildrenInternalContent = 1195,
-  ProjectChildrenInternalContentDigest = 1196,
-  ProjectChildrenInternalContentFilePath = 1197,
-  ProjectChildrenInternalDescription = 1198,
-  ProjectChildrenInternalFieldOwners = 1199,
-  ProjectChildrenInternalIgnoreType = 1200,
-  ProjectChildrenInternalMediaType = 1201,
-  ProjectChildrenInternalOwner = 1202,
-  ProjectChildrenInternalType = 1203,
-  ProjectChildrenParentChildren = 1204,
-  ProjectChildrenParentId = 1205,
-  ProjectContentfulId = 1206,
-  ProjectCreatedAt = 1207,
-  ProjectDetailChildMdxBody = 1208,
-  ProjectDetailChildMdxChildren = 1209,
-  ProjectDetailChildMdxExcerpt = 1210,
-  ProjectDetailChildMdxFileAbsolutePath = 1211,
-  ProjectDetailChildMdxHeadings = 1212,
-  ProjectDetailChildMdxHtml = 1213,
-  ProjectDetailChildMdxId = 1214,
-  ProjectDetailChildMdxMdxAst = 1215,
-  ProjectDetailChildMdxRawBody = 1216,
-  ProjectDetailChildMdxSlug = 1217,
-  ProjectDetailChildMdxTableOfContents = 1218,
-  ProjectDetailChildMdxTimeToRead = 1219,
-  ProjectDetailChildren = 1220,
-  ProjectDetailChildrenMdx = 1221,
-  ProjectDetailChildrenMdxBody = 1222,
-  ProjectDetailChildrenMdxChildren = 1223,
-  ProjectDetailChildrenMdxExcerpt = 1224,
-  ProjectDetailChildrenMdxFileAbsolutePath = 1225,
-  ProjectDetailChildrenMdxHeadings = 1226,
-  ProjectDetailChildrenMdxHtml = 1227,
-  ProjectDetailChildrenMdxId = 1228,
-  ProjectDetailChildrenMdxMdxAst = 1229,
-  ProjectDetailChildrenMdxRawBody = 1230,
-  ProjectDetailChildrenMdxSlug = 1231,
-  ProjectDetailChildrenMdxTableOfContents = 1232,
-  ProjectDetailChildrenMdxTimeToRead = 1233,
-  ProjectDetailChildrenChildren = 1234,
-  ProjectDetailChildrenId = 1235,
-  ProjectDetailDetail = 1236,
-  ProjectDetailId = 1237,
-  ProjectDetailInternalContent = 1238,
-  ProjectDetailInternalContentDigest = 1239,
-  ProjectDetailInternalContentFilePath = 1240,
-  ProjectDetailInternalDescription = 1241,
-  ProjectDetailInternalFieldOwners = 1242,
-  ProjectDetailInternalIgnoreType = 1243,
-  ProjectDetailInternalMediaType = 1244,
-  ProjectDetailInternalOwner = 1245,
-  ProjectDetailInternalType = 1246,
-  ProjectDetailParentChildren = 1247,
-  ProjectDetailParentId = 1248,
-  ProjectDetailSysType = 1249,
-  ProjectEndDate = 1250,
-  ProjectIconChildContentfulIconSvgTextNodeChildren = 1251,
-  ProjectIconChildContentfulIconSvgTextNodeChildrenMdx = 1252,
-  ProjectIconChildContentfulIconSvgTextNodeId = 1253,
-  ProjectIconChildContentfulIconSvgTextNodeSvg = 1254,
-  ProjectIconChildren = 1255,
-  ProjectIconChildrenContentfulIconSvgTextNode = 1256,
-  ProjectIconChildrenContentfulIconSvgTextNodeChildren = 1257,
-  ProjectIconChildrenContentfulIconSvgTextNodeChildrenMdx = 1258,
-  ProjectIconChildrenContentfulIconSvgTextNodeId = 1259,
-  ProjectIconChildrenContentfulIconSvgTextNodeSvg = 1260,
-  ProjectIconChildrenChildren = 1261,
-  ProjectIconChildrenId = 1262,
-  ProjectIconContact = 1263,
-  ProjectIconContactChildren = 1264,
-  ProjectIconContactContentfulId = 1265,
-  ProjectIconContactCreatedAt = 1266,
-  ProjectIconContactHref = 1267,
-  ProjectIconContactId = 1268,
-  ProjectIconContactName = 1269,
-  ProjectIconContactNodeLocale = 1270,
-  ProjectIconContactSortKey = 1271,
-  ProjectIconContactSpaceId = 1272,
-  ProjectIconContactSubName = 1273,
-  ProjectIconContactUpdatedAt = 1274,
-  ProjectIconContentfulId = 1275,
-  ProjectIconCreatedAt = 1276,
-  ProjectIconHistory = 1277,
-  ProjectIconHistoryChildren = 1278,
-  ProjectIconHistoryContentfulId = 1279,
-  ProjectIconHistoryCreatedAt = 1280,
-  ProjectIconHistoryDate = 1281,
-  ProjectIconHistoryId = 1282,
-  ProjectIconHistoryName = 1283,
-  ProjectIconHistoryNodeLocale = 1284,
-  ProjectIconHistorySpaceId = 1285,
-  ProjectIconHistorySubName = 1286,
-  ProjectIconHistoryUpdatedAt = 1287,
-  ProjectIconId = 1288,
-  ProjectIconInternalContent = 1289,
-  ProjectIconInternalContentDigest = 1290,
-  ProjectIconInternalContentFilePath = 1291,
-  ProjectIconInternalDescription = 1292,
-  ProjectIconInternalFieldOwners = 1293,
-  ProjectIconInternalIgnoreType = 1294,
-  ProjectIconInternalMediaType = 1295,
-  ProjectIconInternalOwner = 1296,
-  ProjectIconInternalType = 1297,
-  ProjectIconName = 1298,
-  ProjectIconNodeLocale = 1299,
-  ProjectIconOss = 1300,
-  ProjectIconOssChildren = 1301,
-  ProjectIconOssChildrenContentfulOssDetailTextNode = 1302,
-  ProjectIconOssContentfulId = 1303,
-  ProjectIconOssCreatedAt = 1304,
-  ProjectIconOssHref = 1305,
-  ProjectIconOssId = 1306,
-  ProjectIconOssName = 1307,
-  ProjectIconOssNodeLocale = 1308,
-  ProjectIconOssSpaceId = 1309,
-  ProjectIconOssStartDate = 1310,
-  ProjectIconOssSubName = 1311,
-  ProjectIconOssTags = 1312,
-  ProjectIconOssUpdatedAt = 1313,
-  ProjectIconParentChildren = 1314,
-  ProjectIconParentId = 1315,
-  ProjectIconProject = 1316,
-  ProjectIconProjectChildren = 1317,
-  ProjectIconProjectChildrenContentfulProjectDetailTextNode = 1318,
-  ProjectIconProjectContentfulId = 1319,
-  ProjectIconProjectCreatedAt = 1320,
-  ProjectIconProjectEndDate = 1321,
-  ProjectIconProjectId = 1322,
-  ProjectIconProjectName = 1323,
-  ProjectIconProjectNodeLocale = 1324,
-  ProjectIconProjectSpaceId = 1325,
-  ProjectIconProjectStartDate = 1326,
-  ProjectIconProjectSubName = 1327,
-  ProjectIconProjectTags = 1328,
-  ProjectIconProjectUpdatedAt = 1329,
-  ProjectIconSpaceId = 1330,
-  ProjectIconSvgChildren = 1331,
-  ProjectIconSvgChildrenMdx = 1332,
-  ProjectIconSvgId = 1333,
-  ProjectIconSvgSvg = 1334,
-  ProjectIconSysRevision = 1335,
-  ProjectIconSysType = 1336,
-  ProjectIconUpdatedAt = 1337,
-  ProjectIconWhatICanDo = 1338,
-  ProjectIconWhatICanDoChildren = 1339,
-  ProjectIconWhatICanDoContentfulId = 1340,
-  ProjectIconWhatICanDoCreatedAt = 1341,
-  ProjectIconWhatICanDoId = 1342,
-  ProjectIconWhatICanDoName = 1343,
-  ProjectIconWhatICanDoNodeLocale = 1344,
-  ProjectIconWhatICanDoSortKey = 1345,
-  ProjectIconWhatICanDoSpaceId = 1346,
-  ProjectIconWhatICanDoSubName = 1347,
-  ProjectIconWhatICanDoUpdatedAt = 1348,
-  ProjectId = 1349,
-  ProjectInternalContent = 1350,
-  ProjectInternalContentDigest = 1351,
-  ProjectInternalContentFilePath = 1352,
-  ProjectInternalDescription = 1353,
-  ProjectInternalFieldOwners = 1354,
-  ProjectInternalIgnoreType = 1355,
-  ProjectInternalMediaType = 1356,
-  ProjectInternalOwner = 1357,
-  ProjectInternalType = 1358,
-  ProjectName = 1359,
-  ProjectNodeLocale = 1360,
-  ProjectParentChildren = 1361,
-  ProjectParentChildrenChildren = 1362,
-  ProjectParentChildrenId = 1363,
-  ProjectParentId = 1364,
-  ProjectParentInternalContent = 1365,
-  ProjectParentInternalContentDigest = 1366,
-  ProjectParentInternalContentFilePath = 1367,
-  ProjectParentInternalDescription = 1368,
-  ProjectParentInternalFieldOwners = 1369,
-  ProjectParentInternalIgnoreType = 1370,
-  ProjectParentInternalMediaType = 1371,
-  ProjectParentInternalOwner = 1372,
-  ProjectParentInternalType = 1373,
-  ProjectParentParentChildren = 1374,
-  ProjectParentParentId = 1375,
-  ProjectSpaceId = 1376,
-  ProjectStartDate = 1377,
-  ProjectSubName = 1378,
-  ProjectSysRevision = 1379,
-  ProjectSysType = 1380,
-  ProjectTags = 1381,
-  ProjectTagsBlogPost = 1382,
-  ProjectTagsBlogPostChildren = 1383,
-  ProjectTagsBlogPostChildrenContentfulBlogPostContentTextNode = 1384,
-  ProjectTagsBlogPostContentfulId = 1385,
-  ProjectTagsBlogPostCreated = 1386,
-  ProjectTagsBlogPostCreatedAt = 1387,
-  ProjectTagsBlogPostExcerpt = 1388,
-  ProjectTagsBlogPostId = 1389,
-  ProjectTagsBlogPostNodeLocale = 1390,
-  ProjectTagsBlogPostSlug = 1391,
-  ProjectTagsBlogPostSpaceId = 1392,
-  ProjectTagsBlogPostTags = 1393,
-  ProjectTagsBlogPostTitle = 1394,
-  ProjectTagsBlogPostUpdated = 1395,
-  ProjectTagsBlogPostUpdatedAt = 1396,
-  ProjectTagsChildren = 1397,
-  ProjectTagsChildrenChildren = 1398,
-  ProjectTagsChildrenId = 1399,
-  ProjectTagsContentfulId = 1400,
-  ProjectTagsCreatedAt = 1401,
-  ProjectTagsId = 1402,
-  ProjectTagsInternalContent = 1403,
-  ProjectTagsInternalContentDigest = 1404,
-  ProjectTagsInternalContentFilePath = 1405,
-  ProjectTagsInternalDescription = 1406,
-  ProjectTagsInternalFieldOwners = 1407,
-  ProjectTagsInternalIgnoreType = 1408,
-  ProjectTagsInternalMediaType = 1409,
-  ProjectTagsInternalOwner = 1410,
-  ProjectTagsInternalType = 1411,
-  ProjectTagsLevel = 1412,
-  ProjectTagsName = 1413,
-  ProjectTagsNodeLocale = 1414,
-  ProjectTagsOss = 1415,
-  ProjectTagsOssChildren = 1416,
-  ProjectTagsOssChildrenContentfulOssDetailTextNode = 1417,
-  ProjectTagsOssContentfulId = 1418,
-  ProjectTagsOssCreatedAt = 1419,
-  ProjectTagsOssHref = 1420,
-  ProjectTagsOssId = 1421,
-  ProjectTagsOssName = 1422,
-  ProjectTagsOssNodeLocale = 1423,
-  ProjectTagsOssSpaceId = 1424,
-  ProjectTagsOssStartDate = 1425,
-  ProjectTagsOssSubName = 1426,
-  ProjectTagsOssTags = 1427,
-  ProjectTagsOssUpdatedAt = 1428,
-  ProjectTagsParentChildren = 1429,
-  ProjectTagsParentId = 1430,
-  ProjectTagsProject = 1431,
-  ProjectTagsProjectChildren = 1432,
-  ProjectTagsProjectChildrenContentfulProjectDetailTextNode = 1433,
-  ProjectTagsProjectContentfulId = 1434,
-  ProjectTagsProjectCreatedAt = 1435,
-  ProjectTagsProjectEndDate = 1436,
-  ProjectTagsProjectId = 1437,
-  ProjectTagsProjectName = 1438,
-  ProjectTagsProjectNodeLocale = 1439,
-  ProjectTagsProjectSpaceId = 1440,
-  ProjectTagsProjectStartDate = 1441,
-  ProjectTagsProjectSubName = 1442,
-  ProjectTagsProjectTags = 1443,
-  ProjectTagsProjectUpdatedAt = 1444,
-  ProjectTagsSkillGrpup = 1445,
-  ProjectTagsSkillGrpupChildren = 1446,
-  ProjectTagsSkillGrpupContentfulId = 1447,
-  ProjectTagsSkillGrpupCreatedAt = 1448,
-  ProjectTagsSkillGrpupId = 1449,
-  ProjectTagsSkillGrpupName = 1450,
-  ProjectTagsSkillGrpupNodeLocale = 1451,
-  ProjectTagsSkillGrpupSkillMap = 1452,
-  ProjectTagsSkillGrpupSkills = 1453,
-  ProjectTagsSkillGrpupSpaceId = 1454,
-  ProjectTagsSkillGrpupUpdatedAt = 1455,
-  ProjectTagsSkillMap = 1456,
-  ProjectTagsSkillMapChildren = 1457,
-  ProjectTagsSkillMapContentfulId = 1458,
-  ProjectTagsSkillMapCreatedAt = 1459,
-  ProjectTagsSkillMapExpanded = 1460,
-  ProjectTagsSkillMapId = 1461,
-  ProjectTagsSkillMapName = 1462,
-  ProjectTagsSkillMapNodeLocale = 1463,
-  ProjectTagsSkillMapSkillGroups = 1464,
-  ProjectTagsSkillMapSkills = 1465,
-  ProjectTagsSkillMapSortKey = 1466,
-  ProjectTagsSkillMapSpaceId = 1467,
-  ProjectTagsSkillMapUpdatedAt = 1468,
-  ProjectTagsSpaceId = 1469,
-  ProjectTagsSysRevision = 1470,
-  ProjectTagsSysType = 1471,
-  ProjectTagsUpdatedAt = 1472,
-  ProjectUpdatedAt = 1473,
-  SpaceId = 1474,
-  SvgChildMdxBody = 1475,
-  SvgChildMdxChildren = 1476,
-  SvgChildMdxChildrenChildren = 1477,
-  SvgChildMdxChildrenId = 1478,
-  SvgChildMdxExcerpt = 1479,
-  SvgChildMdxFileAbsolutePath = 1480,
-  SvgChildMdxFrontmatterTitle = 1481,
-  SvgChildMdxHeadings = 1482,
-  SvgChildMdxHeadingsDepth = 1483,
-  SvgChildMdxHeadingsValue = 1484,
-  SvgChildMdxHtml = 1485,
-  SvgChildMdxId = 1486,
-  SvgChildMdxInternalContent = 1487,
-  SvgChildMdxInternalContentDigest = 1488,
-  SvgChildMdxInternalContentFilePath = 1489,
-  SvgChildMdxInternalDescription = 1490,
-  SvgChildMdxInternalFieldOwners = 1491,
-  SvgChildMdxInternalIgnoreType = 1492,
-  SvgChildMdxInternalMediaType = 1493,
-  SvgChildMdxInternalOwner = 1494,
-  SvgChildMdxInternalType = 1495,
-  SvgChildMdxMdxAst = 1496,
-  SvgChildMdxParentChildren = 1497,
-  SvgChildMdxParentId = 1498,
-  SvgChildMdxRawBody = 1499,
-  SvgChildMdxSlug = 1500,
-  SvgChildMdxTableOfContents = 1501,
-  SvgChildMdxTimeToRead = 1502,
-  SvgChildMdxWordCountParagraphs = 1503,
-  SvgChildMdxWordCountSentences = 1504,
-  SvgChildMdxWordCountWords = 1505,
-  SvgChildren = 1506,
-  SvgChildrenMdx = 1507,
-  SvgChildrenMdxBody = 1508,
-  SvgChildrenMdxChildren = 1509,
-  SvgChildrenMdxChildrenChildren = 1510,
-  SvgChildrenMdxChildrenId = 1511,
-  SvgChildrenMdxExcerpt = 1512,
-  SvgChildrenMdxFileAbsolutePath = 1513,
-  SvgChildrenMdxFrontmatterTitle = 1514,
-  SvgChildrenMdxHeadings = 1515,
-  SvgChildrenMdxHeadingsDepth = 1516,
-  SvgChildrenMdxHeadingsValue = 1517,
-  SvgChildrenMdxHtml = 1518,
-  SvgChildrenMdxId = 1519,
-  SvgChildrenMdxInternalContent = 1520,
-  SvgChildrenMdxInternalContentDigest = 1521,
-  SvgChildrenMdxInternalContentFilePath = 1522,
-  SvgChildrenMdxInternalDescription = 1523,
-  SvgChildrenMdxInternalFieldOwners = 1524,
-  SvgChildrenMdxInternalIgnoreType = 1525,
-  SvgChildrenMdxInternalMediaType = 1526,
-  SvgChildrenMdxInternalOwner = 1527,
-  SvgChildrenMdxInternalType = 1528,
-  SvgChildrenMdxMdxAst = 1529,
-  SvgChildrenMdxParentChildren = 1530,
-  SvgChildrenMdxParentId = 1531,
-  SvgChildrenMdxRawBody = 1532,
-  SvgChildrenMdxSlug = 1533,
-  SvgChildrenMdxTableOfContents = 1534,
-  SvgChildrenMdxTimeToRead = 1535,
-  SvgChildrenMdxWordCountParagraphs = 1536,
-  SvgChildrenMdxWordCountSentences = 1537,
-  SvgChildrenMdxWordCountWords = 1538,
-  SvgChildrenChildren = 1539,
-  SvgChildrenChildrenChildren = 1540,
-  SvgChildrenChildrenId = 1541,
-  SvgChildrenId = 1542,
-  SvgChildrenInternalContent = 1543,
-  SvgChildrenInternalContentDigest = 1544,
-  SvgChildrenInternalContentFilePath = 1545,
-  SvgChildrenInternalDescription = 1546,
-  SvgChildrenInternalFieldOwners = 1547,
-  SvgChildrenInternalIgnoreType = 1548,
-  SvgChildrenInternalMediaType = 1549,
-  SvgChildrenInternalOwner = 1550,
-  SvgChildrenInternalType = 1551,
-  SvgChildrenParentChildren = 1552,
-  SvgChildrenParentId = 1553,
-  SvgId = 1554,
-  SvgInternalContent = 1555,
-  SvgInternalContentDigest = 1556,
-  SvgInternalContentFilePath = 1557,
-  SvgInternalDescription = 1558,
-  SvgInternalFieldOwners = 1559,
-  SvgInternalIgnoreType = 1560,
-  SvgInternalMediaType = 1561,
-  SvgInternalOwner = 1562,
-  SvgInternalType = 1563,
-  SvgParentChildren = 1564,
-  SvgParentChildrenChildren = 1565,
-  SvgParentChildrenId = 1566,
-  SvgParentId = 1567,
-  SvgParentInternalContent = 1568,
-  SvgParentInternalContentDigest = 1569,
-  SvgParentInternalContentFilePath = 1570,
-  SvgParentInternalDescription = 1571,
-  SvgParentInternalFieldOwners = 1572,
-  SvgParentInternalIgnoreType = 1573,
-  SvgParentInternalMediaType = 1574,
-  SvgParentInternalOwner = 1575,
-  SvgParentInternalType = 1576,
-  SvgParentParentChildren = 1577,
-  SvgParentParentId = 1578,
-  SvgSvg = 1579,
-  SvgSysType = 1580,
-  SysContentTypeSysId = 1581,
-  SysContentTypeSysLinkType = 1582,
-  SysContentTypeSysType = 1583,
-  SysRevision = 1584,
-  SysType = 1585,
-  UpdatedAt = 1586,
-  WhatICanDo = 1587,
-  WhatICanDoChildren = 1588,
-  WhatICanDoChildrenChildren = 1589,
-  WhatICanDoChildrenChildrenChildren = 1590,
-  WhatICanDoChildrenChildrenId = 1591,
-  WhatICanDoChildrenId = 1592,
-  WhatICanDoChildrenInternalContent = 1593,
-  WhatICanDoChildrenInternalContentDigest = 1594,
-  WhatICanDoChildrenInternalContentFilePath = 1595,
-  WhatICanDoChildrenInternalDescription = 1596,
-  WhatICanDoChildrenInternalFieldOwners = 1597,
-  WhatICanDoChildrenInternalIgnoreType = 1598,
-  WhatICanDoChildrenInternalMediaType = 1599,
-  WhatICanDoChildrenInternalOwner = 1600,
-  WhatICanDoChildrenInternalType = 1601,
-  WhatICanDoChildrenParentChildren = 1602,
-  WhatICanDoChildrenParentId = 1603,
-  WhatICanDoContentfulId = 1604,
-  WhatICanDoCreatedAt = 1605,
-  WhatICanDoIconChildContentfulIconSvgTextNodeChildren = 1606,
-  WhatICanDoIconChildContentfulIconSvgTextNodeChildrenMdx = 1607,
-  WhatICanDoIconChildContentfulIconSvgTextNodeId = 1608,
-  WhatICanDoIconChildContentfulIconSvgTextNodeSvg = 1609,
-  WhatICanDoIconChildren = 1610,
-  WhatICanDoIconChildrenContentfulIconSvgTextNode = 1611,
-  WhatICanDoIconChildrenContentfulIconSvgTextNodeChildren = 1612,
-  WhatICanDoIconChildrenContentfulIconSvgTextNodeChildrenMdx = 1613,
-  WhatICanDoIconChildrenContentfulIconSvgTextNodeId = 1614,
-  WhatICanDoIconChildrenContentfulIconSvgTextNodeSvg = 1615,
-  WhatICanDoIconChildrenChildren = 1616,
-  WhatICanDoIconChildrenId = 1617,
-  WhatICanDoIconContact = 1618,
-  WhatICanDoIconContactChildren = 1619,
-  WhatICanDoIconContactContentfulId = 1620,
-  WhatICanDoIconContactCreatedAt = 1621,
-  WhatICanDoIconContactHref = 1622,
-  WhatICanDoIconContactId = 1623,
-  WhatICanDoIconContactName = 1624,
-  WhatICanDoIconContactNodeLocale = 1625,
-  WhatICanDoIconContactSortKey = 1626,
-  WhatICanDoIconContactSpaceId = 1627,
-  WhatICanDoIconContactSubName = 1628,
-  WhatICanDoIconContactUpdatedAt = 1629,
-  WhatICanDoIconContentfulId = 1630,
-  WhatICanDoIconCreatedAt = 1631,
-  WhatICanDoIconHistory = 1632,
-  WhatICanDoIconHistoryChildren = 1633,
-  WhatICanDoIconHistoryContentfulId = 1634,
-  WhatICanDoIconHistoryCreatedAt = 1635,
-  WhatICanDoIconHistoryDate = 1636,
-  WhatICanDoIconHistoryId = 1637,
-  WhatICanDoIconHistoryName = 1638,
-  WhatICanDoIconHistoryNodeLocale = 1639,
-  WhatICanDoIconHistorySpaceId = 1640,
-  WhatICanDoIconHistorySubName = 1641,
-  WhatICanDoIconHistoryUpdatedAt = 1642,
-  WhatICanDoIconId = 1643,
-  WhatICanDoIconInternalContent = 1644,
-  WhatICanDoIconInternalContentDigest = 1645,
-  WhatICanDoIconInternalContentFilePath = 1646,
-  WhatICanDoIconInternalDescription = 1647,
-  WhatICanDoIconInternalFieldOwners = 1648,
-  WhatICanDoIconInternalIgnoreType = 1649,
-  WhatICanDoIconInternalMediaType = 1650,
-  WhatICanDoIconInternalOwner = 1651,
-  WhatICanDoIconInternalType = 1652,
-  WhatICanDoIconName = 1653,
-  WhatICanDoIconNodeLocale = 1654,
-  WhatICanDoIconOss = 1655,
-  WhatICanDoIconOssChildren = 1656,
-  WhatICanDoIconOssChildrenContentfulOssDetailTextNode = 1657,
-  WhatICanDoIconOssContentfulId = 1658,
-  WhatICanDoIconOssCreatedAt = 1659,
-  WhatICanDoIconOssHref = 1660,
-  WhatICanDoIconOssId = 1661,
-  WhatICanDoIconOssName = 1662,
-  WhatICanDoIconOssNodeLocale = 1663,
-  WhatICanDoIconOssSpaceId = 1664,
-  WhatICanDoIconOssStartDate = 1665,
-  WhatICanDoIconOssSubName = 1666,
-  WhatICanDoIconOssTags = 1667,
-  WhatICanDoIconOssUpdatedAt = 1668,
-  WhatICanDoIconParentChildren = 1669,
-  WhatICanDoIconParentId = 1670,
-  WhatICanDoIconProject = 1671,
-  WhatICanDoIconProjectChildren = 1672,
-  WhatICanDoIconProjectChildrenContentfulProjectDetailTextNode = 1673,
-  WhatICanDoIconProjectContentfulId = 1674,
-  WhatICanDoIconProjectCreatedAt = 1675,
-  WhatICanDoIconProjectEndDate = 1676,
-  WhatICanDoIconProjectId = 1677,
-  WhatICanDoIconProjectName = 1678,
-  WhatICanDoIconProjectNodeLocale = 1679,
-  WhatICanDoIconProjectSpaceId = 1680,
-  WhatICanDoIconProjectStartDate = 1681,
-  WhatICanDoIconProjectSubName = 1682,
-  WhatICanDoIconProjectTags = 1683,
-  WhatICanDoIconProjectUpdatedAt = 1684,
-  WhatICanDoIconSpaceId = 1685,
-  WhatICanDoIconSvgChildren = 1686,
-  WhatICanDoIconSvgChildrenMdx = 1687,
-  WhatICanDoIconSvgId = 1688,
-  WhatICanDoIconSvgSvg = 1689,
-  WhatICanDoIconSysRevision = 1690,
-  WhatICanDoIconSysType = 1691,
-  WhatICanDoIconUpdatedAt = 1692,
-  WhatICanDoIconWhatICanDo = 1693,
-  WhatICanDoIconWhatICanDoChildren = 1694,
-  WhatICanDoIconWhatICanDoContentfulId = 1695,
-  WhatICanDoIconWhatICanDoCreatedAt = 1696,
-  WhatICanDoIconWhatICanDoId = 1697,
-  WhatICanDoIconWhatICanDoName = 1698,
-  WhatICanDoIconWhatICanDoNodeLocale = 1699,
-  WhatICanDoIconWhatICanDoSortKey = 1700,
-  WhatICanDoIconWhatICanDoSpaceId = 1701,
-  WhatICanDoIconWhatICanDoSubName = 1702,
-  WhatICanDoIconWhatICanDoUpdatedAt = 1703,
-  WhatICanDoId = 1704,
-  WhatICanDoInternalContent = 1705,
-  WhatICanDoInternalContentDigest = 1706,
-  WhatICanDoInternalContentFilePath = 1707,
-  WhatICanDoInternalDescription = 1708,
-  WhatICanDoInternalFieldOwners = 1709,
-  WhatICanDoInternalIgnoreType = 1710,
-  WhatICanDoInternalMediaType = 1711,
-  WhatICanDoInternalOwner = 1712,
-  WhatICanDoInternalType = 1713,
-  WhatICanDoName = 1714,
-  WhatICanDoNodeLocale = 1715,
-  WhatICanDoParentChildren = 1716,
-  WhatICanDoParentChildrenChildren = 1717,
-  WhatICanDoParentChildrenId = 1718,
-  WhatICanDoParentId = 1719,
-  WhatICanDoParentInternalContent = 1720,
-  WhatICanDoParentInternalContentDigest = 1721,
-  WhatICanDoParentInternalContentFilePath = 1722,
-  WhatICanDoParentInternalDescription = 1723,
-  WhatICanDoParentInternalFieldOwners = 1724,
-  WhatICanDoParentInternalIgnoreType = 1725,
-  WhatICanDoParentInternalMediaType = 1726,
-  WhatICanDoParentInternalOwner = 1727,
-  WhatICanDoParentInternalType = 1728,
-  WhatICanDoParentParentChildren = 1729,
-  WhatICanDoParentParentId = 1730,
-  WhatICanDoSortKey = 1731,
-  WhatICanDoSpaceId = 1732,
-  WhatICanDoSubName = 1733,
-  WhatICanDoSysRevision = 1734,
-  WhatICanDoSysType = 1735,
-  WhatICanDoUpdatedAt = 1736
+  OssTagsBlogPostGatsbyPath = 978,
+  OssTagsBlogPostId = 979,
+  OssTagsBlogPostNodeLocale = 980,
+  OssTagsBlogPostSlug = 981,
+  OssTagsBlogPostSpaceId = 982,
+  OssTagsBlogPostTags = 983,
+  OssTagsBlogPostTitle = 984,
+  OssTagsBlogPostUpdated = 985,
+  OssTagsBlogPostUpdatedAt = 986,
+  OssTagsChildren = 987,
+  OssTagsChildrenChildren = 988,
+  OssTagsChildrenId = 989,
+  OssTagsContentfulId = 990,
+  OssTagsCreatedAt = 991,
+  OssTagsId = 992,
+  OssTagsInternalContent = 993,
+  OssTagsInternalContentDigest = 994,
+  OssTagsInternalContentFilePath = 995,
+  OssTagsInternalDescription = 996,
+  OssTagsInternalFieldOwners = 997,
+  OssTagsInternalIgnoreType = 998,
+  OssTagsInternalMediaType = 999,
+  OssTagsInternalOwner = 1000,
+  OssTagsInternalType = 1001,
+  OssTagsLevel = 1002,
+  OssTagsName = 1003,
+  OssTagsNodeLocale = 1004,
+  OssTagsOss = 1005,
+  OssTagsOssChildren = 1006,
+  OssTagsOssChildrenContentfulOssDetailTextNode = 1007,
+  OssTagsOssContentfulId = 1008,
+  OssTagsOssCreatedAt = 1009,
+  OssTagsOssHref = 1010,
+  OssTagsOssId = 1011,
+  OssTagsOssName = 1012,
+  OssTagsOssNodeLocale = 1013,
+  OssTagsOssSpaceId = 1014,
+  OssTagsOssStartDate = 1015,
+  OssTagsOssSubName = 1016,
+  OssTagsOssTags = 1017,
+  OssTagsOssUpdatedAt = 1018,
+  OssTagsParentChildren = 1019,
+  OssTagsParentId = 1020,
+  OssTagsProject = 1021,
+  OssTagsProjectChildren = 1022,
+  OssTagsProjectChildrenContentfulProjectDetailTextNode = 1023,
+  OssTagsProjectContentfulId = 1024,
+  OssTagsProjectCreatedAt = 1025,
+  OssTagsProjectEndDate = 1026,
+  OssTagsProjectId = 1027,
+  OssTagsProjectName = 1028,
+  OssTagsProjectNodeLocale = 1029,
+  OssTagsProjectSpaceId = 1030,
+  OssTagsProjectStartDate = 1031,
+  OssTagsProjectSubName = 1032,
+  OssTagsProjectTags = 1033,
+  OssTagsProjectUpdatedAt = 1034,
+  OssTagsSkillGrpup = 1035,
+  OssTagsSkillGrpupChildren = 1036,
+  OssTagsSkillGrpupContentfulId = 1037,
+  OssTagsSkillGrpupCreatedAt = 1038,
+  OssTagsSkillGrpupId = 1039,
+  OssTagsSkillGrpupName = 1040,
+  OssTagsSkillGrpupNodeLocale = 1041,
+  OssTagsSkillGrpupSkillMap = 1042,
+  OssTagsSkillGrpupSkills = 1043,
+  OssTagsSkillGrpupSpaceId = 1044,
+  OssTagsSkillGrpupUpdatedAt = 1045,
+  OssTagsSkillMap = 1046,
+  OssTagsSkillMapChildren = 1047,
+  OssTagsSkillMapContentfulId = 1048,
+  OssTagsSkillMapCreatedAt = 1049,
+  OssTagsSkillMapExpanded = 1050,
+  OssTagsSkillMapId = 1051,
+  OssTagsSkillMapName = 1052,
+  OssTagsSkillMapNodeLocale = 1053,
+  OssTagsSkillMapSkillGroups = 1054,
+  OssTagsSkillMapSkills = 1055,
+  OssTagsSkillMapSortKey = 1056,
+  OssTagsSkillMapSpaceId = 1057,
+  OssTagsSkillMapUpdatedAt = 1058,
+  OssTagsSpaceId = 1059,
+  OssTagsSysRevision = 1060,
+  OssTagsSysType = 1061,
+  OssTagsUpdatedAt = 1062,
+  OssUpdatedAt = 1063,
+  ParentChildren = 1064,
+  ParentChildrenChildren = 1065,
+  ParentChildrenChildrenChildren = 1066,
+  ParentChildrenChildrenId = 1067,
+  ParentChildrenId = 1068,
+  ParentChildrenInternalContent = 1069,
+  ParentChildrenInternalContentDigest = 1070,
+  ParentChildrenInternalContentFilePath = 1071,
+  ParentChildrenInternalDescription = 1072,
+  ParentChildrenInternalFieldOwners = 1073,
+  ParentChildrenInternalIgnoreType = 1074,
+  ParentChildrenInternalMediaType = 1075,
+  ParentChildrenInternalOwner = 1076,
+  ParentChildrenInternalType = 1077,
+  ParentChildrenParentChildren = 1078,
+  ParentChildrenParentId = 1079,
+  ParentId = 1080,
+  ParentInternalContent = 1081,
+  ParentInternalContentDigest = 1082,
+  ParentInternalContentFilePath = 1083,
+  ParentInternalDescription = 1084,
+  ParentInternalFieldOwners = 1085,
+  ParentInternalIgnoreType = 1086,
+  ParentInternalMediaType = 1087,
+  ParentInternalOwner = 1088,
+  ParentInternalType = 1089,
+  ParentParentChildren = 1090,
+  ParentParentChildrenChildren = 1091,
+  ParentParentChildrenId = 1092,
+  ParentParentId = 1093,
+  ParentParentInternalContent = 1094,
+  ParentParentInternalContentDigest = 1095,
+  ParentParentInternalContentFilePath = 1096,
+  ParentParentInternalDescription = 1097,
+  ParentParentInternalFieldOwners = 1098,
+  ParentParentInternalIgnoreType = 1099,
+  ParentParentInternalMediaType = 1100,
+  ParentParentInternalOwner = 1101,
+  ParentParentInternalType = 1102,
+  ParentParentParentChildren = 1103,
+  ParentParentParentId = 1104,
+  Project = 1105,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxBody = 1106,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxChildren = 1107,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxExcerpt = 1108,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 1109,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxHeadings = 1110,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxHtml = 1111,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxId = 1112,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxMdxAst = 1113,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxRawBody = 1114,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxSlug = 1115,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxTableOfContents = 1116,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxTimeToRead = 1117,
+  ProjectChildContentfulProjectDetailTextNodeChildren = 1118,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdx = 1119,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxBody = 1120,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxChildren = 1121,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxExcerpt = 1122,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 1123,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHeadings = 1124,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHtml = 1125,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxId = 1126,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxMdxAst = 1127,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxRawBody = 1128,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxSlug = 1129,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 1130,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 1131,
+  ProjectChildContentfulProjectDetailTextNodeChildrenChildren = 1132,
+  ProjectChildContentfulProjectDetailTextNodeChildrenId = 1133,
+  ProjectChildContentfulProjectDetailTextNodeDetail = 1134,
+  ProjectChildContentfulProjectDetailTextNodeId = 1135,
+  ProjectChildContentfulProjectDetailTextNodeInternalContent = 1136,
+  ProjectChildContentfulProjectDetailTextNodeInternalContentDigest = 1137,
+  ProjectChildContentfulProjectDetailTextNodeInternalContentFilePath = 1138,
+  ProjectChildContentfulProjectDetailTextNodeInternalDescription = 1139,
+  ProjectChildContentfulProjectDetailTextNodeInternalFieldOwners = 1140,
+  ProjectChildContentfulProjectDetailTextNodeInternalIgnoreType = 1141,
+  ProjectChildContentfulProjectDetailTextNodeInternalMediaType = 1142,
+  ProjectChildContentfulProjectDetailTextNodeInternalOwner = 1143,
+  ProjectChildContentfulProjectDetailTextNodeInternalType = 1144,
+  ProjectChildContentfulProjectDetailTextNodeParentChildren = 1145,
+  ProjectChildContentfulProjectDetailTextNodeParentId = 1146,
+  ProjectChildContentfulProjectDetailTextNodeSysType = 1147,
+  ProjectChildren = 1148,
+  ProjectChildrenContentfulProjectDetailTextNode = 1149,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxBody = 1150,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxChildren = 1151,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxExcerpt = 1152,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 1153,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHeadings = 1154,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHtml = 1155,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxId = 1156,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxMdxAst = 1157,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxRawBody = 1158,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxSlug = 1159,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTableOfContents = 1160,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTimeToRead = 1161,
+  ProjectChildrenContentfulProjectDetailTextNodeChildren = 1162,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 1163,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxBody = 1164,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxChildren = 1165,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxExcerpt = 1166,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 1167,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHeadings = 1168,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHtml = 1169,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxId = 1170,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxMdxAst = 1171,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxRawBody = 1172,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxSlug = 1173,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 1174,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 1175,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenChildren = 1176,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenId = 1177,
+  ProjectChildrenContentfulProjectDetailTextNodeDetail = 1178,
+  ProjectChildrenContentfulProjectDetailTextNodeId = 1179,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalContent = 1180,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalContentDigest = 1181,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalContentFilePath = 1182,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalDescription = 1183,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalFieldOwners = 1184,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalIgnoreType = 1185,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalMediaType = 1186,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalOwner = 1187,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalType = 1188,
+  ProjectChildrenContentfulProjectDetailTextNodeParentChildren = 1189,
+  ProjectChildrenContentfulProjectDetailTextNodeParentId = 1190,
+  ProjectChildrenContentfulProjectDetailTextNodeSysType = 1191,
+  ProjectChildrenChildren = 1192,
+  ProjectChildrenChildrenChildren = 1193,
+  ProjectChildrenChildrenId = 1194,
+  ProjectChildrenId = 1195,
+  ProjectChildrenInternalContent = 1196,
+  ProjectChildrenInternalContentDigest = 1197,
+  ProjectChildrenInternalContentFilePath = 1198,
+  ProjectChildrenInternalDescription = 1199,
+  ProjectChildrenInternalFieldOwners = 1200,
+  ProjectChildrenInternalIgnoreType = 1201,
+  ProjectChildrenInternalMediaType = 1202,
+  ProjectChildrenInternalOwner = 1203,
+  ProjectChildrenInternalType = 1204,
+  ProjectChildrenParentChildren = 1205,
+  ProjectChildrenParentId = 1206,
+  ProjectContentfulId = 1207,
+  ProjectCreatedAt = 1208,
+  ProjectDetailChildMdxBody = 1209,
+  ProjectDetailChildMdxChildren = 1210,
+  ProjectDetailChildMdxExcerpt = 1211,
+  ProjectDetailChildMdxFileAbsolutePath = 1212,
+  ProjectDetailChildMdxHeadings = 1213,
+  ProjectDetailChildMdxHtml = 1214,
+  ProjectDetailChildMdxId = 1215,
+  ProjectDetailChildMdxMdxAst = 1216,
+  ProjectDetailChildMdxRawBody = 1217,
+  ProjectDetailChildMdxSlug = 1218,
+  ProjectDetailChildMdxTableOfContents = 1219,
+  ProjectDetailChildMdxTimeToRead = 1220,
+  ProjectDetailChildren = 1221,
+  ProjectDetailChildrenMdx = 1222,
+  ProjectDetailChildrenMdxBody = 1223,
+  ProjectDetailChildrenMdxChildren = 1224,
+  ProjectDetailChildrenMdxExcerpt = 1225,
+  ProjectDetailChildrenMdxFileAbsolutePath = 1226,
+  ProjectDetailChildrenMdxHeadings = 1227,
+  ProjectDetailChildrenMdxHtml = 1228,
+  ProjectDetailChildrenMdxId = 1229,
+  ProjectDetailChildrenMdxMdxAst = 1230,
+  ProjectDetailChildrenMdxRawBody = 1231,
+  ProjectDetailChildrenMdxSlug = 1232,
+  ProjectDetailChildrenMdxTableOfContents = 1233,
+  ProjectDetailChildrenMdxTimeToRead = 1234,
+  ProjectDetailChildrenChildren = 1235,
+  ProjectDetailChildrenId = 1236,
+  ProjectDetailDetail = 1237,
+  ProjectDetailId = 1238,
+  ProjectDetailInternalContent = 1239,
+  ProjectDetailInternalContentDigest = 1240,
+  ProjectDetailInternalContentFilePath = 1241,
+  ProjectDetailInternalDescription = 1242,
+  ProjectDetailInternalFieldOwners = 1243,
+  ProjectDetailInternalIgnoreType = 1244,
+  ProjectDetailInternalMediaType = 1245,
+  ProjectDetailInternalOwner = 1246,
+  ProjectDetailInternalType = 1247,
+  ProjectDetailParentChildren = 1248,
+  ProjectDetailParentId = 1249,
+  ProjectDetailSysType = 1250,
+  ProjectEndDate = 1251,
+  ProjectIconChildContentfulIconSvgTextNodeChildren = 1252,
+  ProjectIconChildContentfulIconSvgTextNodeChildrenMdx = 1253,
+  ProjectIconChildContentfulIconSvgTextNodeId = 1254,
+  ProjectIconChildContentfulIconSvgTextNodeSvg = 1255,
+  ProjectIconChildren = 1256,
+  ProjectIconChildrenContentfulIconSvgTextNode = 1257,
+  ProjectIconChildrenContentfulIconSvgTextNodeChildren = 1258,
+  ProjectIconChildrenContentfulIconSvgTextNodeChildrenMdx = 1259,
+  ProjectIconChildrenContentfulIconSvgTextNodeId = 1260,
+  ProjectIconChildrenContentfulIconSvgTextNodeSvg = 1261,
+  ProjectIconChildrenChildren = 1262,
+  ProjectIconChildrenId = 1263,
+  ProjectIconContact = 1264,
+  ProjectIconContactChildren = 1265,
+  ProjectIconContactContentfulId = 1266,
+  ProjectIconContactCreatedAt = 1267,
+  ProjectIconContactHref = 1268,
+  ProjectIconContactId = 1269,
+  ProjectIconContactName = 1270,
+  ProjectIconContactNodeLocale = 1271,
+  ProjectIconContactSortKey = 1272,
+  ProjectIconContactSpaceId = 1273,
+  ProjectIconContactSubName = 1274,
+  ProjectIconContactUpdatedAt = 1275,
+  ProjectIconContentfulId = 1276,
+  ProjectIconCreatedAt = 1277,
+  ProjectIconHistory = 1278,
+  ProjectIconHistoryChildren = 1279,
+  ProjectIconHistoryContentfulId = 1280,
+  ProjectIconHistoryCreatedAt = 1281,
+  ProjectIconHistoryDate = 1282,
+  ProjectIconHistoryId = 1283,
+  ProjectIconHistoryName = 1284,
+  ProjectIconHistoryNodeLocale = 1285,
+  ProjectIconHistorySpaceId = 1286,
+  ProjectIconHistorySubName = 1287,
+  ProjectIconHistoryUpdatedAt = 1288,
+  ProjectIconId = 1289,
+  ProjectIconInternalContent = 1290,
+  ProjectIconInternalContentDigest = 1291,
+  ProjectIconInternalContentFilePath = 1292,
+  ProjectIconInternalDescription = 1293,
+  ProjectIconInternalFieldOwners = 1294,
+  ProjectIconInternalIgnoreType = 1295,
+  ProjectIconInternalMediaType = 1296,
+  ProjectIconInternalOwner = 1297,
+  ProjectIconInternalType = 1298,
+  ProjectIconName = 1299,
+  ProjectIconNodeLocale = 1300,
+  ProjectIconOss = 1301,
+  ProjectIconOssChildren = 1302,
+  ProjectIconOssChildrenContentfulOssDetailTextNode = 1303,
+  ProjectIconOssContentfulId = 1304,
+  ProjectIconOssCreatedAt = 1305,
+  ProjectIconOssHref = 1306,
+  ProjectIconOssId = 1307,
+  ProjectIconOssName = 1308,
+  ProjectIconOssNodeLocale = 1309,
+  ProjectIconOssSpaceId = 1310,
+  ProjectIconOssStartDate = 1311,
+  ProjectIconOssSubName = 1312,
+  ProjectIconOssTags = 1313,
+  ProjectIconOssUpdatedAt = 1314,
+  ProjectIconParentChildren = 1315,
+  ProjectIconParentId = 1316,
+  ProjectIconProject = 1317,
+  ProjectIconProjectChildren = 1318,
+  ProjectIconProjectChildrenContentfulProjectDetailTextNode = 1319,
+  ProjectIconProjectContentfulId = 1320,
+  ProjectIconProjectCreatedAt = 1321,
+  ProjectIconProjectEndDate = 1322,
+  ProjectIconProjectId = 1323,
+  ProjectIconProjectName = 1324,
+  ProjectIconProjectNodeLocale = 1325,
+  ProjectIconProjectSpaceId = 1326,
+  ProjectIconProjectStartDate = 1327,
+  ProjectIconProjectSubName = 1328,
+  ProjectIconProjectTags = 1329,
+  ProjectIconProjectUpdatedAt = 1330,
+  ProjectIconSpaceId = 1331,
+  ProjectIconSvgChildren = 1332,
+  ProjectIconSvgChildrenMdx = 1333,
+  ProjectIconSvgId = 1334,
+  ProjectIconSvgSvg = 1335,
+  ProjectIconSysRevision = 1336,
+  ProjectIconSysType = 1337,
+  ProjectIconUpdatedAt = 1338,
+  ProjectIconWhatICanDo = 1339,
+  ProjectIconWhatICanDoChildren = 1340,
+  ProjectIconWhatICanDoContentfulId = 1341,
+  ProjectIconWhatICanDoCreatedAt = 1342,
+  ProjectIconWhatICanDoId = 1343,
+  ProjectIconWhatICanDoName = 1344,
+  ProjectIconWhatICanDoNodeLocale = 1345,
+  ProjectIconWhatICanDoSortKey = 1346,
+  ProjectIconWhatICanDoSpaceId = 1347,
+  ProjectIconWhatICanDoSubName = 1348,
+  ProjectIconWhatICanDoUpdatedAt = 1349,
+  ProjectId = 1350,
+  ProjectInternalContent = 1351,
+  ProjectInternalContentDigest = 1352,
+  ProjectInternalContentFilePath = 1353,
+  ProjectInternalDescription = 1354,
+  ProjectInternalFieldOwners = 1355,
+  ProjectInternalIgnoreType = 1356,
+  ProjectInternalMediaType = 1357,
+  ProjectInternalOwner = 1358,
+  ProjectInternalType = 1359,
+  ProjectName = 1360,
+  ProjectNodeLocale = 1361,
+  ProjectParentChildren = 1362,
+  ProjectParentChildrenChildren = 1363,
+  ProjectParentChildrenId = 1364,
+  ProjectParentId = 1365,
+  ProjectParentInternalContent = 1366,
+  ProjectParentInternalContentDigest = 1367,
+  ProjectParentInternalContentFilePath = 1368,
+  ProjectParentInternalDescription = 1369,
+  ProjectParentInternalFieldOwners = 1370,
+  ProjectParentInternalIgnoreType = 1371,
+  ProjectParentInternalMediaType = 1372,
+  ProjectParentInternalOwner = 1373,
+  ProjectParentInternalType = 1374,
+  ProjectParentParentChildren = 1375,
+  ProjectParentParentId = 1376,
+  ProjectSpaceId = 1377,
+  ProjectStartDate = 1378,
+  ProjectSubName = 1379,
+  ProjectSysRevision = 1380,
+  ProjectSysType = 1381,
+  ProjectTags = 1382,
+  ProjectTagsBlogPost = 1383,
+  ProjectTagsBlogPostChildren = 1384,
+  ProjectTagsBlogPostChildrenContentfulBlogPostContentTextNode = 1385,
+  ProjectTagsBlogPostContentfulId = 1386,
+  ProjectTagsBlogPostCreated = 1387,
+  ProjectTagsBlogPostCreatedAt = 1388,
+  ProjectTagsBlogPostExcerpt = 1389,
+  ProjectTagsBlogPostGatsbyPath = 1390,
+  ProjectTagsBlogPostId = 1391,
+  ProjectTagsBlogPostNodeLocale = 1392,
+  ProjectTagsBlogPostSlug = 1393,
+  ProjectTagsBlogPostSpaceId = 1394,
+  ProjectTagsBlogPostTags = 1395,
+  ProjectTagsBlogPostTitle = 1396,
+  ProjectTagsBlogPostUpdated = 1397,
+  ProjectTagsBlogPostUpdatedAt = 1398,
+  ProjectTagsChildren = 1399,
+  ProjectTagsChildrenChildren = 1400,
+  ProjectTagsChildrenId = 1401,
+  ProjectTagsContentfulId = 1402,
+  ProjectTagsCreatedAt = 1403,
+  ProjectTagsId = 1404,
+  ProjectTagsInternalContent = 1405,
+  ProjectTagsInternalContentDigest = 1406,
+  ProjectTagsInternalContentFilePath = 1407,
+  ProjectTagsInternalDescription = 1408,
+  ProjectTagsInternalFieldOwners = 1409,
+  ProjectTagsInternalIgnoreType = 1410,
+  ProjectTagsInternalMediaType = 1411,
+  ProjectTagsInternalOwner = 1412,
+  ProjectTagsInternalType = 1413,
+  ProjectTagsLevel = 1414,
+  ProjectTagsName = 1415,
+  ProjectTagsNodeLocale = 1416,
+  ProjectTagsOss = 1417,
+  ProjectTagsOssChildren = 1418,
+  ProjectTagsOssChildrenContentfulOssDetailTextNode = 1419,
+  ProjectTagsOssContentfulId = 1420,
+  ProjectTagsOssCreatedAt = 1421,
+  ProjectTagsOssHref = 1422,
+  ProjectTagsOssId = 1423,
+  ProjectTagsOssName = 1424,
+  ProjectTagsOssNodeLocale = 1425,
+  ProjectTagsOssSpaceId = 1426,
+  ProjectTagsOssStartDate = 1427,
+  ProjectTagsOssSubName = 1428,
+  ProjectTagsOssTags = 1429,
+  ProjectTagsOssUpdatedAt = 1430,
+  ProjectTagsParentChildren = 1431,
+  ProjectTagsParentId = 1432,
+  ProjectTagsProject = 1433,
+  ProjectTagsProjectChildren = 1434,
+  ProjectTagsProjectChildrenContentfulProjectDetailTextNode = 1435,
+  ProjectTagsProjectContentfulId = 1436,
+  ProjectTagsProjectCreatedAt = 1437,
+  ProjectTagsProjectEndDate = 1438,
+  ProjectTagsProjectId = 1439,
+  ProjectTagsProjectName = 1440,
+  ProjectTagsProjectNodeLocale = 1441,
+  ProjectTagsProjectSpaceId = 1442,
+  ProjectTagsProjectStartDate = 1443,
+  ProjectTagsProjectSubName = 1444,
+  ProjectTagsProjectTags = 1445,
+  ProjectTagsProjectUpdatedAt = 1446,
+  ProjectTagsSkillGrpup = 1447,
+  ProjectTagsSkillGrpupChildren = 1448,
+  ProjectTagsSkillGrpupContentfulId = 1449,
+  ProjectTagsSkillGrpupCreatedAt = 1450,
+  ProjectTagsSkillGrpupId = 1451,
+  ProjectTagsSkillGrpupName = 1452,
+  ProjectTagsSkillGrpupNodeLocale = 1453,
+  ProjectTagsSkillGrpupSkillMap = 1454,
+  ProjectTagsSkillGrpupSkills = 1455,
+  ProjectTagsSkillGrpupSpaceId = 1456,
+  ProjectTagsSkillGrpupUpdatedAt = 1457,
+  ProjectTagsSkillMap = 1458,
+  ProjectTagsSkillMapChildren = 1459,
+  ProjectTagsSkillMapContentfulId = 1460,
+  ProjectTagsSkillMapCreatedAt = 1461,
+  ProjectTagsSkillMapExpanded = 1462,
+  ProjectTagsSkillMapId = 1463,
+  ProjectTagsSkillMapName = 1464,
+  ProjectTagsSkillMapNodeLocale = 1465,
+  ProjectTagsSkillMapSkillGroups = 1466,
+  ProjectTagsSkillMapSkills = 1467,
+  ProjectTagsSkillMapSortKey = 1468,
+  ProjectTagsSkillMapSpaceId = 1469,
+  ProjectTagsSkillMapUpdatedAt = 1470,
+  ProjectTagsSpaceId = 1471,
+  ProjectTagsSysRevision = 1472,
+  ProjectTagsSysType = 1473,
+  ProjectTagsUpdatedAt = 1474,
+  ProjectUpdatedAt = 1475,
+  SpaceId = 1476,
+  SvgChildMdxBody = 1477,
+  SvgChildMdxChildren = 1478,
+  SvgChildMdxChildrenChildren = 1479,
+  SvgChildMdxChildrenId = 1480,
+  SvgChildMdxExcerpt = 1481,
+  SvgChildMdxFileAbsolutePath = 1482,
+  SvgChildMdxFrontmatterTitle = 1483,
+  SvgChildMdxHeadings = 1484,
+  SvgChildMdxHeadingsDepth = 1485,
+  SvgChildMdxHeadingsValue = 1486,
+  SvgChildMdxHtml = 1487,
+  SvgChildMdxId = 1488,
+  SvgChildMdxInternalContent = 1489,
+  SvgChildMdxInternalContentDigest = 1490,
+  SvgChildMdxInternalContentFilePath = 1491,
+  SvgChildMdxInternalDescription = 1492,
+  SvgChildMdxInternalFieldOwners = 1493,
+  SvgChildMdxInternalIgnoreType = 1494,
+  SvgChildMdxInternalMediaType = 1495,
+  SvgChildMdxInternalOwner = 1496,
+  SvgChildMdxInternalType = 1497,
+  SvgChildMdxMdxAst = 1498,
+  SvgChildMdxParentChildren = 1499,
+  SvgChildMdxParentId = 1500,
+  SvgChildMdxRawBody = 1501,
+  SvgChildMdxSlug = 1502,
+  SvgChildMdxTableOfContents = 1503,
+  SvgChildMdxTimeToRead = 1504,
+  SvgChildMdxWordCountParagraphs = 1505,
+  SvgChildMdxWordCountSentences = 1506,
+  SvgChildMdxWordCountWords = 1507,
+  SvgChildren = 1508,
+  SvgChildrenMdx = 1509,
+  SvgChildrenMdxBody = 1510,
+  SvgChildrenMdxChildren = 1511,
+  SvgChildrenMdxChildrenChildren = 1512,
+  SvgChildrenMdxChildrenId = 1513,
+  SvgChildrenMdxExcerpt = 1514,
+  SvgChildrenMdxFileAbsolutePath = 1515,
+  SvgChildrenMdxFrontmatterTitle = 1516,
+  SvgChildrenMdxHeadings = 1517,
+  SvgChildrenMdxHeadingsDepth = 1518,
+  SvgChildrenMdxHeadingsValue = 1519,
+  SvgChildrenMdxHtml = 1520,
+  SvgChildrenMdxId = 1521,
+  SvgChildrenMdxInternalContent = 1522,
+  SvgChildrenMdxInternalContentDigest = 1523,
+  SvgChildrenMdxInternalContentFilePath = 1524,
+  SvgChildrenMdxInternalDescription = 1525,
+  SvgChildrenMdxInternalFieldOwners = 1526,
+  SvgChildrenMdxInternalIgnoreType = 1527,
+  SvgChildrenMdxInternalMediaType = 1528,
+  SvgChildrenMdxInternalOwner = 1529,
+  SvgChildrenMdxInternalType = 1530,
+  SvgChildrenMdxMdxAst = 1531,
+  SvgChildrenMdxParentChildren = 1532,
+  SvgChildrenMdxParentId = 1533,
+  SvgChildrenMdxRawBody = 1534,
+  SvgChildrenMdxSlug = 1535,
+  SvgChildrenMdxTableOfContents = 1536,
+  SvgChildrenMdxTimeToRead = 1537,
+  SvgChildrenMdxWordCountParagraphs = 1538,
+  SvgChildrenMdxWordCountSentences = 1539,
+  SvgChildrenMdxWordCountWords = 1540,
+  SvgChildrenChildren = 1541,
+  SvgChildrenChildrenChildren = 1542,
+  SvgChildrenChildrenId = 1543,
+  SvgChildrenId = 1544,
+  SvgChildrenInternalContent = 1545,
+  SvgChildrenInternalContentDigest = 1546,
+  SvgChildrenInternalContentFilePath = 1547,
+  SvgChildrenInternalDescription = 1548,
+  SvgChildrenInternalFieldOwners = 1549,
+  SvgChildrenInternalIgnoreType = 1550,
+  SvgChildrenInternalMediaType = 1551,
+  SvgChildrenInternalOwner = 1552,
+  SvgChildrenInternalType = 1553,
+  SvgChildrenParentChildren = 1554,
+  SvgChildrenParentId = 1555,
+  SvgId = 1556,
+  SvgInternalContent = 1557,
+  SvgInternalContentDigest = 1558,
+  SvgInternalContentFilePath = 1559,
+  SvgInternalDescription = 1560,
+  SvgInternalFieldOwners = 1561,
+  SvgInternalIgnoreType = 1562,
+  SvgInternalMediaType = 1563,
+  SvgInternalOwner = 1564,
+  SvgInternalType = 1565,
+  SvgParentChildren = 1566,
+  SvgParentChildrenChildren = 1567,
+  SvgParentChildrenId = 1568,
+  SvgParentId = 1569,
+  SvgParentInternalContent = 1570,
+  SvgParentInternalContentDigest = 1571,
+  SvgParentInternalContentFilePath = 1572,
+  SvgParentInternalDescription = 1573,
+  SvgParentInternalFieldOwners = 1574,
+  SvgParentInternalIgnoreType = 1575,
+  SvgParentInternalMediaType = 1576,
+  SvgParentInternalOwner = 1577,
+  SvgParentInternalType = 1578,
+  SvgParentParentChildren = 1579,
+  SvgParentParentId = 1580,
+  SvgSvg = 1581,
+  SvgSysType = 1582,
+  SysContentTypeSysId = 1583,
+  SysContentTypeSysLinkType = 1584,
+  SysContentTypeSysType = 1585,
+  SysRevision = 1586,
+  SysType = 1587,
+  UpdatedAt = 1588,
+  WhatICanDo = 1589,
+  WhatICanDoChildren = 1590,
+  WhatICanDoChildrenChildren = 1591,
+  WhatICanDoChildrenChildrenChildren = 1592,
+  WhatICanDoChildrenChildrenId = 1593,
+  WhatICanDoChildrenId = 1594,
+  WhatICanDoChildrenInternalContent = 1595,
+  WhatICanDoChildrenInternalContentDigest = 1596,
+  WhatICanDoChildrenInternalContentFilePath = 1597,
+  WhatICanDoChildrenInternalDescription = 1598,
+  WhatICanDoChildrenInternalFieldOwners = 1599,
+  WhatICanDoChildrenInternalIgnoreType = 1600,
+  WhatICanDoChildrenInternalMediaType = 1601,
+  WhatICanDoChildrenInternalOwner = 1602,
+  WhatICanDoChildrenInternalType = 1603,
+  WhatICanDoChildrenParentChildren = 1604,
+  WhatICanDoChildrenParentId = 1605,
+  WhatICanDoContentfulId = 1606,
+  WhatICanDoCreatedAt = 1607,
+  WhatICanDoIconChildContentfulIconSvgTextNodeChildren = 1608,
+  WhatICanDoIconChildContentfulIconSvgTextNodeChildrenMdx = 1609,
+  WhatICanDoIconChildContentfulIconSvgTextNodeId = 1610,
+  WhatICanDoIconChildContentfulIconSvgTextNodeSvg = 1611,
+  WhatICanDoIconChildren = 1612,
+  WhatICanDoIconChildrenContentfulIconSvgTextNode = 1613,
+  WhatICanDoIconChildrenContentfulIconSvgTextNodeChildren = 1614,
+  WhatICanDoIconChildrenContentfulIconSvgTextNodeChildrenMdx = 1615,
+  WhatICanDoIconChildrenContentfulIconSvgTextNodeId = 1616,
+  WhatICanDoIconChildrenContentfulIconSvgTextNodeSvg = 1617,
+  WhatICanDoIconChildrenChildren = 1618,
+  WhatICanDoIconChildrenId = 1619,
+  WhatICanDoIconContact = 1620,
+  WhatICanDoIconContactChildren = 1621,
+  WhatICanDoIconContactContentfulId = 1622,
+  WhatICanDoIconContactCreatedAt = 1623,
+  WhatICanDoIconContactHref = 1624,
+  WhatICanDoIconContactId = 1625,
+  WhatICanDoIconContactName = 1626,
+  WhatICanDoIconContactNodeLocale = 1627,
+  WhatICanDoIconContactSortKey = 1628,
+  WhatICanDoIconContactSpaceId = 1629,
+  WhatICanDoIconContactSubName = 1630,
+  WhatICanDoIconContactUpdatedAt = 1631,
+  WhatICanDoIconContentfulId = 1632,
+  WhatICanDoIconCreatedAt = 1633,
+  WhatICanDoIconHistory = 1634,
+  WhatICanDoIconHistoryChildren = 1635,
+  WhatICanDoIconHistoryContentfulId = 1636,
+  WhatICanDoIconHistoryCreatedAt = 1637,
+  WhatICanDoIconHistoryDate = 1638,
+  WhatICanDoIconHistoryId = 1639,
+  WhatICanDoIconHistoryName = 1640,
+  WhatICanDoIconHistoryNodeLocale = 1641,
+  WhatICanDoIconHistorySpaceId = 1642,
+  WhatICanDoIconHistorySubName = 1643,
+  WhatICanDoIconHistoryUpdatedAt = 1644,
+  WhatICanDoIconId = 1645,
+  WhatICanDoIconInternalContent = 1646,
+  WhatICanDoIconInternalContentDigest = 1647,
+  WhatICanDoIconInternalContentFilePath = 1648,
+  WhatICanDoIconInternalDescription = 1649,
+  WhatICanDoIconInternalFieldOwners = 1650,
+  WhatICanDoIconInternalIgnoreType = 1651,
+  WhatICanDoIconInternalMediaType = 1652,
+  WhatICanDoIconInternalOwner = 1653,
+  WhatICanDoIconInternalType = 1654,
+  WhatICanDoIconName = 1655,
+  WhatICanDoIconNodeLocale = 1656,
+  WhatICanDoIconOss = 1657,
+  WhatICanDoIconOssChildren = 1658,
+  WhatICanDoIconOssChildrenContentfulOssDetailTextNode = 1659,
+  WhatICanDoIconOssContentfulId = 1660,
+  WhatICanDoIconOssCreatedAt = 1661,
+  WhatICanDoIconOssHref = 1662,
+  WhatICanDoIconOssId = 1663,
+  WhatICanDoIconOssName = 1664,
+  WhatICanDoIconOssNodeLocale = 1665,
+  WhatICanDoIconOssSpaceId = 1666,
+  WhatICanDoIconOssStartDate = 1667,
+  WhatICanDoIconOssSubName = 1668,
+  WhatICanDoIconOssTags = 1669,
+  WhatICanDoIconOssUpdatedAt = 1670,
+  WhatICanDoIconParentChildren = 1671,
+  WhatICanDoIconParentId = 1672,
+  WhatICanDoIconProject = 1673,
+  WhatICanDoIconProjectChildren = 1674,
+  WhatICanDoIconProjectChildrenContentfulProjectDetailTextNode = 1675,
+  WhatICanDoIconProjectContentfulId = 1676,
+  WhatICanDoIconProjectCreatedAt = 1677,
+  WhatICanDoIconProjectEndDate = 1678,
+  WhatICanDoIconProjectId = 1679,
+  WhatICanDoIconProjectName = 1680,
+  WhatICanDoIconProjectNodeLocale = 1681,
+  WhatICanDoIconProjectSpaceId = 1682,
+  WhatICanDoIconProjectStartDate = 1683,
+  WhatICanDoIconProjectSubName = 1684,
+  WhatICanDoIconProjectTags = 1685,
+  WhatICanDoIconProjectUpdatedAt = 1686,
+  WhatICanDoIconSpaceId = 1687,
+  WhatICanDoIconSvgChildren = 1688,
+  WhatICanDoIconSvgChildrenMdx = 1689,
+  WhatICanDoIconSvgId = 1690,
+  WhatICanDoIconSvgSvg = 1691,
+  WhatICanDoIconSysRevision = 1692,
+  WhatICanDoIconSysType = 1693,
+  WhatICanDoIconUpdatedAt = 1694,
+  WhatICanDoIconWhatICanDo = 1695,
+  WhatICanDoIconWhatICanDoChildren = 1696,
+  WhatICanDoIconWhatICanDoContentfulId = 1697,
+  WhatICanDoIconWhatICanDoCreatedAt = 1698,
+  WhatICanDoIconWhatICanDoId = 1699,
+  WhatICanDoIconWhatICanDoName = 1700,
+  WhatICanDoIconWhatICanDoNodeLocale = 1701,
+  WhatICanDoIconWhatICanDoSortKey = 1702,
+  WhatICanDoIconWhatICanDoSpaceId = 1703,
+  WhatICanDoIconWhatICanDoSubName = 1704,
+  WhatICanDoIconWhatICanDoUpdatedAt = 1705,
+  WhatICanDoId = 1706,
+  WhatICanDoInternalContent = 1707,
+  WhatICanDoInternalContentDigest = 1708,
+  WhatICanDoInternalContentFilePath = 1709,
+  WhatICanDoInternalDescription = 1710,
+  WhatICanDoInternalFieldOwners = 1711,
+  WhatICanDoInternalIgnoreType = 1712,
+  WhatICanDoInternalMediaType = 1713,
+  WhatICanDoInternalOwner = 1714,
+  WhatICanDoInternalType = 1715,
+  WhatICanDoName = 1716,
+  WhatICanDoNodeLocale = 1717,
+  WhatICanDoParentChildren = 1718,
+  WhatICanDoParentChildrenChildren = 1719,
+  WhatICanDoParentChildrenId = 1720,
+  WhatICanDoParentId = 1721,
+  WhatICanDoParentInternalContent = 1722,
+  WhatICanDoParentInternalContentDigest = 1723,
+  WhatICanDoParentInternalContentFilePath = 1724,
+  WhatICanDoParentInternalDescription = 1725,
+  WhatICanDoParentInternalFieldOwners = 1726,
+  WhatICanDoParentInternalIgnoreType = 1727,
+  WhatICanDoParentInternalMediaType = 1728,
+  WhatICanDoParentInternalOwner = 1729,
+  WhatICanDoParentInternalType = 1730,
+  WhatICanDoParentParentChildren = 1731,
+  WhatICanDoParentParentId = 1732,
+  WhatICanDoSortKey = 1733,
+  WhatICanDoSpaceId = 1734,
+  WhatICanDoSubName = 1735,
+  WhatICanDoSysRevision = 1736,
+  WhatICanDoSysType = 1737,
+  WhatICanDoUpdatedAt = 1738
 }
 
 export type ContentfulIconFilterInput = {
-  childContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterListInput>;
-  contact: InputMaybe<ContentfulContactFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  history: InputMaybe<ContentfulHistoryFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  oss: InputMaybe<ContentfulOssFilterListInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  project: InputMaybe<ContentfulProjectFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  svg: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
-  sys: InputMaybe<ContentfulIconSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
-  what_i_can_do: InputMaybe<ContentfulWhatICanDoFilterListInput>;
+  readonly childContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulIconSvgTextNode: InputMaybe<ContentfulIconSvgTextNodeFilterListInput>;
+  readonly contact: InputMaybe<ContentfulContactFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly history: InputMaybe<ContentfulHistoryFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly oss: InputMaybe<ContentfulOssFilterListInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly project: InputMaybe<ContentfulProjectFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly svg: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulIconSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly what_i_can_do: InputMaybe<ContentfulWhatICanDoFilterListInput>;
 };
 
 export type ContentfulIconGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulIconGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIcon>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulIconGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIcon>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -6600,40 +6614,40 @@ export type ContentfulIconGroupConnectionSumArgs = {
 };
 
 export type ContentfulIconSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulIconFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulIconFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulIconSys = {
-  contentType: Maybe<ContentfulIconSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulIconSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSysContentType = {
-  sys: Maybe<ContentfulIconSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulIconSysContentTypeSys>;
 };
 
 export type ContentfulIconSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulIconSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulIconSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulIconSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulIconSysFilterInput = {
-  contentType: InputMaybe<ContentfulIconSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulIconSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export enum ContentfulImageCropFocus {
@@ -6652,27 +6666,27 @@ export enum ContentfulImageCropFocus {
 
 export type ContentfulOss = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulOssDetailTextNode or null if there are no children of given type on this node */
-  childContentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
-  children: Array<Node>;
+  readonly childContentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulOssDetailTextNode */
-  childrenContentfulOssDetailTextNode: Maybe<Array<Maybe<ContentfulOssDetailTextNode>>>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  detail: Maybe<ContentfulOssDetailTextNode>;
-  href: Maybe<Scalars['String']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  image: Maybe<ContentfulAsset>;
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  spaceId: Maybe<Scalars['String']>;
-  startDate: Maybe<Scalars['Date']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulOssSys>;
-  tags: Maybe<Array<Maybe<ContentfulTag>>>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly childrenContentfulOssDetailTextNode: Maybe<ReadonlyArray<Maybe<ContentfulOssDetailTextNode>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly detail: Maybe<ContentfulOssDetailTextNode>;
+  readonly href: Maybe<Scalars['String']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly image: Maybe<ContentfulAsset>;
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly startDate: Maybe<Scalars['Date']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulOssSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -6700,15 +6714,15 @@ export type ContentfulOssUpdatedAtArgs = {
 };
 
 export type ContentfulOssConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssEdge>;
-  group: Array<ContentfulOssGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOss>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssEdge>;
+  readonly group: ReadonlyArray<ContentfulOssGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOss>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -6739,9 +6753,9 @@ export type ContentfulOssConnectionSumArgs = {
 };
 
 export type ContentfulOssEdge = {
-  next: Maybe<ContentfulOss>;
-  node: ContentfulOss;
-  previous: Maybe<ContentfulOss>;
+  readonly next: Maybe<ContentfulOss>;
+  readonly node: ContentfulOss;
+  readonly previous: Maybe<ContentfulOss>;
 };
 
 export enum ContentfulOssFieldsEnum {
@@ -7765,415 +7779,416 @@ export enum ContentfulOssFieldsEnum {
   TagsBlogPostCreated = 1017,
   TagsBlogPostCreatedAt = 1018,
   TagsBlogPostExcerpt = 1019,
-  TagsBlogPostId = 1020,
-  TagsBlogPostInternalContent = 1021,
-  TagsBlogPostInternalContentDigest = 1022,
-  TagsBlogPostInternalContentFilePath = 1023,
-  TagsBlogPostInternalDescription = 1024,
-  TagsBlogPostInternalFieldOwners = 1025,
-  TagsBlogPostInternalIgnoreType = 1026,
-  TagsBlogPostInternalMediaType = 1027,
-  TagsBlogPostInternalOwner = 1028,
-  TagsBlogPostInternalType = 1029,
-  TagsBlogPostNodeLocale = 1030,
-  TagsBlogPostParentChildren = 1031,
-  TagsBlogPostParentId = 1032,
-  TagsBlogPostSlug = 1033,
-  TagsBlogPostSpaceId = 1034,
-  TagsBlogPostSysRevision = 1035,
-  TagsBlogPostSysType = 1036,
-  TagsBlogPostTags = 1037,
-  TagsBlogPostTagsBlogPost = 1038,
-  TagsBlogPostTagsChildren = 1039,
-  TagsBlogPostTagsContentfulId = 1040,
-  TagsBlogPostTagsCreatedAt = 1041,
-  TagsBlogPostTagsId = 1042,
-  TagsBlogPostTagsLevel = 1043,
-  TagsBlogPostTagsName = 1044,
-  TagsBlogPostTagsNodeLocale = 1045,
-  TagsBlogPostTagsOss = 1046,
-  TagsBlogPostTagsProject = 1047,
-  TagsBlogPostTagsSkillGrpup = 1048,
-  TagsBlogPostTagsSkillMap = 1049,
-  TagsBlogPostTagsSpaceId = 1050,
-  TagsBlogPostTagsUpdatedAt = 1051,
-  TagsBlogPostThumbnailChildren = 1052,
-  TagsBlogPostThumbnailContentfulId = 1053,
-  TagsBlogPostThumbnailCreatedAt = 1054,
-  TagsBlogPostThumbnailDescription = 1055,
-  TagsBlogPostThumbnailFilename = 1056,
-  TagsBlogPostThumbnailFilesize = 1057,
-  TagsBlogPostThumbnailGatsbyImage = 1058,
-  TagsBlogPostThumbnailGatsbyImageData = 1059,
-  TagsBlogPostThumbnailHeight = 1060,
-  TagsBlogPostThumbnailId = 1061,
-  TagsBlogPostThumbnailMimeType = 1062,
-  TagsBlogPostThumbnailNodeLocale = 1063,
-  TagsBlogPostThumbnailPlaceholderUrl = 1064,
-  TagsBlogPostThumbnailPublicUrl = 1065,
-  TagsBlogPostThumbnailSize = 1066,
-  TagsBlogPostThumbnailSpaceId = 1067,
-  TagsBlogPostThumbnailTitle = 1068,
-  TagsBlogPostThumbnailUpdatedAt = 1069,
-  TagsBlogPostThumbnailUrl = 1070,
-  TagsBlogPostThumbnailWidth = 1071,
-  TagsBlogPostTitle = 1072,
-  TagsBlogPostUpdated = 1073,
-  TagsBlogPostUpdatedAt = 1074,
-  TagsChildren = 1075,
-  TagsChildrenChildren = 1076,
-  TagsChildrenChildrenChildren = 1077,
-  TagsChildrenChildrenId = 1078,
-  TagsChildrenId = 1079,
-  TagsChildrenInternalContent = 1080,
-  TagsChildrenInternalContentDigest = 1081,
-  TagsChildrenInternalContentFilePath = 1082,
-  TagsChildrenInternalDescription = 1083,
-  TagsChildrenInternalFieldOwners = 1084,
-  TagsChildrenInternalIgnoreType = 1085,
-  TagsChildrenInternalMediaType = 1086,
-  TagsChildrenInternalOwner = 1087,
-  TagsChildrenInternalType = 1088,
-  TagsChildrenParentChildren = 1089,
-  TagsChildrenParentId = 1090,
-  TagsContentfulId = 1091,
-  TagsCreatedAt = 1092,
-  TagsId = 1093,
-  TagsInternalContent = 1094,
-  TagsInternalContentDigest = 1095,
-  TagsInternalContentFilePath = 1096,
-  TagsInternalDescription = 1097,
-  TagsInternalFieldOwners = 1098,
-  TagsInternalIgnoreType = 1099,
-  TagsInternalMediaType = 1100,
-  TagsInternalOwner = 1101,
-  TagsInternalType = 1102,
-  TagsLevel = 1103,
-  TagsName = 1104,
-  TagsNodeLocale = 1105,
-  TagsOss = 1106,
-  TagsOssChildContentfulOssDetailTextNodeChildren = 1107,
-  TagsOssChildContentfulOssDetailTextNodeChildrenMdx = 1108,
-  TagsOssChildContentfulOssDetailTextNodeDetail = 1109,
-  TagsOssChildContentfulOssDetailTextNodeId = 1110,
-  TagsOssChildren = 1111,
-  TagsOssChildrenContentfulOssDetailTextNode = 1112,
-  TagsOssChildrenContentfulOssDetailTextNodeChildren = 1113,
-  TagsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 1114,
-  TagsOssChildrenContentfulOssDetailTextNodeDetail = 1115,
-  TagsOssChildrenContentfulOssDetailTextNodeId = 1116,
-  TagsOssChildrenChildren = 1117,
-  TagsOssChildrenId = 1118,
-  TagsOssContentfulId = 1119,
-  TagsOssCreatedAt = 1120,
-  TagsOssDetailChildren = 1121,
-  TagsOssDetailChildrenMdx = 1122,
-  TagsOssDetailDetail = 1123,
-  TagsOssDetailId = 1124,
-  TagsOssHref = 1125,
-  TagsOssIconChildren = 1126,
-  TagsOssIconChildrenContentfulIconSvgTextNode = 1127,
-  TagsOssIconContact = 1128,
-  TagsOssIconContentfulId = 1129,
-  TagsOssIconCreatedAt = 1130,
-  TagsOssIconHistory = 1131,
-  TagsOssIconId = 1132,
-  TagsOssIconName = 1133,
-  TagsOssIconNodeLocale = 1134,
-  TagsOssIconOss = 1135,
-  TagsOssIconProject = 1136,
-  TagsOssIconSpaceId = 1137,
-  TagsOssIconUpdatedAt = 1138,
-  TagsOssIconWhatICanDo = 1139,
-  TagsOssId = 1140,
-  TagsOssImageChildren = 1141,
-  TagsOssImageContentfulId = 1142,
-  TagsOssImageCreatedAt = 1143,
-  TagsOssImageDescription = 1144,
-  TagsOssImageFilename = 1145,
-  TagsOssImageFilesize = 1146,
-  TagsOssImageGatsbyImage = 1147,
-  TagsOssImageGatsbyImageData = 1148,
-  TagsOssImageHeight = 1149,
-  TagsOssImageId = 1150,
-  TagsOssImageMimeType = 1151,
-  TagsOssImageNodeLocale = 1152,
-  TagsOssImagePlaceholderUrl = 1153,
-  TagsOssImagePublicUrl = 1154,
-  TagsOssImageSize = 1155,
-  TagsOssImageSpaceId = 1156,
-  TagsOssImageTitle = 1157,
-  TagsOssImageUpdatedAt = 1158,
-  TagsOssImageUrl = 1159,
-  TagsOssImageWidth = 1160,
-  TagsOssInternalContent = 1161,
-  TagsOssInternalContentDigest = 1162,
-  TagsOssInternalContentFilePath = 1163,
-  TagsOssInternalDescription = 1164,
-  TagsOssInternalFieldOwners = 1165,
-  TagsOssInternalIgnoreType = 1166,
-  TagsOssInternalMediaType = 1167,
-  TagsOssInternalOwner = 1168,
-  TagsOssInternalType = 1169,
-  TagsOssName = 1170,
-  TagsOssNodeLocale = 1171,
-  TagsOssParentChildren = 1172,
-  TagsOssParentId = 1173,
-  TagsOssSpaceId = 1174,
-  TagsOssStartDate = 1175,
-  TagsOssSubName = 1176,
-  TagsOssSysRevision = 1177,
-  TagsOssSysType = 1178,
-  TagsOssTags = 1179,
-  TagsOssTagsBlogPost = 1180,
-  TagsOssTagsChildren = 1181,
-  TagsOssTagsContentfulId = 1182,
-  TagsOssTagsCreatedAt = 1183,
-  TagsOssTagsId = 1184,
-  TagsOssTagsLevel = 1185,
-  TagsOssTagsName = 1186,
-  TagsOssTagsNodeLocale = 1187,
-  TagsOssTagsOss = 1188,
-  TagsOssTagsProject = 1189,
-  TagsOssTagsSkillGrpup = 1190,
-  TagsOssTagsSkillMap = 1191,
-  TagsOssTagsSpaceId = 1192,
-  TagsOssTagsUpdatedAt = 1193,
-  TagsOssUpdatedAt = 1194,
-  TagsParentChildren = 1195,
-  TagsParentChildrenChildren = 1196,
-  TagsParentChildrenId = 1197,
-  TagsParentId = 1198,
-  TagsParentInternalContent = 1199,
-  TagsParentInternalContentDigest = 1200,
-  TagsParentInternalContentFilePath = 1201,
-  TagsParentInternalDescription = 1202,
-  TagsParentInternalFieldOwners = 1203,
-  TagsParentInternalIgnoreType = 1204,
-  TagsParentInternalMediaType = 1205,
-  TagsParentInternalOwner = 1206,
-  TagsParentInternalType = 1207,
-  TagsParentParentChildren = 1208,
-  TagsParentParentId = 1209,
-  TagsProject = 1210,
-  TagsProjectChildContentfulProjectDetailTextNodeChildren = 1211,
-  TagsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 1212,
-  TagsProjectChildContentfulProjectDetailTextNodeDetail = 1213,
-  TagsProjectChildContentfulProjectDetailTextNodeId = 1214,
-  TagsProjectChildren = 1215,
-  TagsProjectChildrenContentfulProjectDetailTextNode = 1216,
-  TagsProjectChildrenContentfulProjectDetailTextNodeChildren = 1217,
-  TagsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 1218,
-  TagsProjectChildrenContentfulProjectDetailTextNodeDetail = 1219,
-  TagsProjectChildrenContentfulProjectDetailTextNodeId = 1220,
-  TagsProjectChildrenChildren = 1221,
-  TagsProjectChildrenId = 1222,
-  TagsProjectContentfulId = 1223,
-  TagsProjectCreatedAt = 1224,
-  TagsProjectDetailChildren = 1225,
-  TagsProjectDetailChildrenMdx = 1226,
-  TagsProjectDetailDetail = 1227,
-  TagsProjectDetailId = 1228,
-  TagsProjectEndDate = 1229,
-  TagsProjectIconChildren = 1230,
-  TagsProjectIconChildrenContentfulIconSvgTextNode = 1231,
-  TagsProjectIconContact = 1232,
-  TagsProjectIconContentfulId = 1233,
-  TagsProjectIconCreatedAt = 1234,
-  TagsProjectIconHistory = 1235,
-  TagsProjectIconId = 1236,
-  TagsProjectIconName = 1237,
-  TagsProjectIconNodeLocale = 1238,
-  TagsProjectIconOss = 1239,
-  TagsProjectIconProject = 1240,
-  TagsProjectIconSpaceId = 1241,
-  TagsProjectIconUpdatedAt = 1242,
-  TagsProjectIconWhatICanDo = 1243,
-  TagsProjectId = 1244,
-  TagsProjectInternalContent = 1245,
-  TagsProjectInternalContentDigest = 1246,
-  TagsProjectInternalContentFilePath = 1247,
-  TagsProjectInternalDescription = 1248,
-  TagsProjectInternalFieldOwners = 1249,
-  TagsProjectInternalIgnoreType = 1250,
-  TagsProjectInternalMediaType = 1251,
-  TagsProjectInternalOwner = 1252,
-  TagsProjectInternalType = 1253,
-  TagsProjectName = 1254,
-  TagsProjectNodeLocale = 1255,
-  TagsProjectParentChildren = 1256,
-  TagsProjectParentId = 1257,
-  TagsProjectSpaceId = 1258,
-  TagsProjectStartDate = 1259,
-  TagsProjectSubName = 1260,
-  TagsProjectSysRevision = 1261,
-  TagsProjectSysType = 1262,
-  TagsProjectTags = 1263,
-  TagsProjectTagsBlogPost = 1264,
-  TagsProjectTagsChildren = 1265,
-  TagsProjectTagsContentfulId = 1266,
-  TagsProjectTagsCreatedAt = 1267,
-  TagsProjectTagsId = 1268,
-  TagsProjectTagsLevel = 1269,
-  TagsProjectTagsName = 1270,
-  TagsProjectTagsNodeLocale = 1271,
-  TagsProjectTagsOss = 1272,
-  TagsProjectTagsProject = 1273,
-  TagsProjectTagsSkillGrpup = 1274,
-  TagsProjectTagsSkillMap = 1275,
-  TagsProjectTagsSpaceId = 1276,
-  TagsProjectTagsUpdatedAt = 1277,
-  TagsProjectUpdatedAt = 1278,
-  TagsSkillGrpup = 1279,
-  TagsSkillGrpupChildren = 1280,
-  TagsSkillGrpupChildrenChildren = 1281,
-  TagsSkillGrpupChildrenId = 1282,
-  TagsSkillGrpupContentfulId = 1283,
-  TagsSkillGrpupCreatedAt = 1284,
-  TagsSkillGrpupId = 1285,
-  TagsSkillGrpupInternalContent = 1286,
-  TagsSkillGrpupInternalContentDigest = 1287,
-  TagsSkillGrpupInternalContentFilePath = 1288,
-  TagsSkillGrpupInternalDescription = 1289,
-  TagsSkillGrpupInternalFieldOwners = 1290,
-  TagsSkillGrpupInternalIgnoreType = 1291,
-  TagsSkillGrpupInternalMediaType = 1292,
-  TagsSkillGrpupInternalOwner = 1293,
-  TagsSkillGrpupInternalType = 1294,
-  TagsSkillGrpupName = 1295,
-  TagsSkillGrpupNodeLocale = 1296,
-  TagsSkillGrpupParentChildren = 1297,
-  TagsSkillGrpupParentId = 1298,
-  TagsSkillGrpupSkillMap = 1299,
-  TagsSkillGrpupSkillMapChildren = 1300,
-  TagsSkillGrpupSkillMapContentfulId = 1301,
-  TagsSkillGrpupSkillMapCreatedAt = 1302,
-  TagsSkillGrpupSkillMapExpanded = 1303,
-  TagsSkillGrpupSkillMapId = 1304,
-  TagsSkillGrpupSkillMapName = 1305,
-  TagsSkillGrpupSkillMapNodeLocale = 1306,
-  TagsSkillGrpupSkillMapSkillGroups = 1307,
-  TagsSkillGrpupSkillMapSkills = 1308,
-  TagsSkillGrpupSkillMapSortKey = 1309,
-  TagsSkillGrpupSkillMapSpaceId = 1310,
-  TagsSkillGrpupSkillMapUpdatedAt = 1311,
-  TagsSkillGrpupSkills = 1312,
-  TagsSkillGrpupSkillsBlogPost = 1313,
-  TagsSkillGrpupSkillsChildren = 1314,
-  TagsSkillGrpupSkillsContentfulId = 1315,
-  TagsSkillGrpupSkillsCreatedAt = 1316,
-  TagsSkillGrpupSkillsId = 1317,
-  TagsSkillGrpupSkillsLevel = 1318,
-  TagsSkillGrpupSkillsName = 1319,
-  TagsSkillGrpupSkillsNodeLocale = 1320,
-  TagsSkillGrpupSkillsOss = 1321,
-  TagsSkillGrpupSkillsProject = 1322,
-  TagsSkillGrpupSkillsSkillGrpup = 1323,
-  TagsSkillGrpupSkillsSkillMap = 1324,
-  TagsSkillGrpupSkillsSpaceId = 1325,
-  TagsSkillGrpupSkillsUpdatedAt = 1326,
-  TagsSkillGrpupSpaceId = 1327,
-  TagsSkillGrpupSysRevision = 1328,
-  TagsSkillGrpupSysType = 1329,
-  TagsSkillGrpupUpdatedAt = 1330,
-  TagsSkillMap = 1331,
-  TagsSkillMapChildren = 1332,
-  TagsSkillMapChildrenChildren = 1333,
-  TagsSkillMapChildrenId = 1334,
-  TagsSkillMapContentfulId = 1335,
-  TagsSkillMapCreatedAt = 1336,
-  TagsSkillMapExpanded = 1337,
-  TagsSkillMapId = 1338,
-  TagsSkillMapInternalContent = 1339,
-  TagsSkillMapInternalContentDigest = 1340,
-  TagsSkillMapInternalContentFilePath = 1341,
-  TagsSkillMapInternalDescription = 1342,
-  TagsSkillMapInternalFieldOwners = 1343,
-  TagsSkillMapInternalIgnoreType = 1344,
-  TagsSkillMapInternalMediaType = 1345,
-  TagsSkillMapInternalOwner = 1346,
-  TagsSkillMapInternalType = 1347,
-  TagsSkillMapName = 1348,
-  TagsSkillMapNodeLocale = 1349,
-  TagsSkillMapParentChildren = 1350,
-  TagsSkillMapParentId = 1351,
-  TagsSkillMapSkillGroups = 1352,
-  TagsSkillMapSkillGroupsChildren = 1353,
-  TagsSkillMapSkillGroupsContentfulId = 1354,
-  TagsSkillMapSkillGroupsCreatedAt = 1355,
-  TagsSkillMapSkillGroupsId = 1356,
-  TagsSkillMapSkillGroupsName = 1357,
-  TagsSkillMapSkillGroupsNodeLocale = 1358,
-  TagsSkillMapSkillGroupsSkillMap = 1359,
-  TagsSkillMapSkillGroupsSkills = 1360,
-  TagsSkillMapSkillGroupsSpaceId = 1361,
-  TagsSkillMapSkillGroupsUpdatedAt = 1362,
-  TagsSkillMapSkills = 1363,
-  TagsSkillMapSkillsBlogPost = 1364,
-  TagsSkillMapSkillsChildren = 1365,
-  TagsSkillMapSkillsContentfulId = 1366,
-  TagsSkillMapSkillsCreatedAt = 1367,
-  TagsSkillMapSkillsId = 1368,
-  TagsSkillMapSkillsLevel = 1369,
-  TagsSkillMapSkillsName = 1370,
-  TagsSkillMapSkillsNodeLocale = 1371,
-  TagsSkillMapSkillsOss = 1372,
-  TagsSkillMapSkillsProject = 1373,
-  TagsSkillMapSkillsSkillGrpup = 1374,
-  TagsSkillMapSkillsSkillMap = 1375,
-  TagsSkillMapSkillsSpaceId = 1376,
-  TagsSkillMapSkillsUpdatedAt = 1377,
-  TagsSkillMapSortKey = 1378,
-  TagsSkillMapSpaceId = 1379,
-  TagsSkillMapSysRevision = 1380,
-  TagsSkillMapSysType = 1381,
-  TagsSkillMapUpdatedAt = 1382,
-  TagsSpaceId = 1383,
-  TagsSysRevision = 1384,
-  TagsSysType = 1385,
-  TagsUpdatedAt = 1386,
-  UpdatedAt = 1387
+  TagsBlogPostGatsbyPath = 1020,
+  TagsBlogPostId = 1021,
+  TagsBlogPostInternalContent = 1022,
+  TagsBlogPostInternalContentDigest = 1023,
+  TagsBlogPostInternalContentFilePath = 1024,
+  TagsBlogPostInternalDescription = 1025,
+  TagsBlogPostInternalFieldOwners = 1026,
+  TagsBlogPostInternalIgnoreType = 1027,
+  TagsBlogPostInternalMediaType = 1028,
+  TagsBlogPostInternalOwner = 1029,
+  TagsBlogPostInternalType = 1030,
+  TagsBlogPostNodeLocale = 1031,
+  TagsBlogPostParentChildren = 1032,
+  TagsBlogPostParentId = 1033,
+  TagsBlogPostSlug = 1034,
+  TagsBlogPostSpaceId = 1035,
+  TagsBlogPostSysRevision = 1036,
+  TagsBlogPostSysType = 1037,
+  TagsBlogPostTags = 1038,
+  TagsBlogPostTagsBlogPost = 1039,
+  TagsBlogPostTagsChildren = 1040,
+  TagsBlogPostTagsContentfulId = 1041,
+  TagsBlogPostTagsCreatedAt = 1042,
+  TagsBlogPostTagsId = 1043,
+  TagsBlogPostTagsLevel = 1044,
+  TagsBlogPostTagsName = 1045,
+  TagsBlogPostTagsNodeLocale = 1046,
+  TagsBlogPostTagsOss = 1047,
+  TagsBlogPostTagsProject = 1048,
+  TagsBlogPostTagsSkillGrpup = 1049,
+  TagsBlogPostTagsSkillMap = 1050,
+  TagsBlogPostTagsSpaceId = 1051,
+  TagsBlogPostTagsUpdatedAt = 1052,
+  TagsBlogPostThumbnailChildren = 1053,
+  TagsBlogPostThumbnailContentfulId = 1054,
+  TagsBlogPostThumbnailCreatedAt = 1055,
+  TagsBlogPostThumbnailDescription = 1056,
+  TagsBlogPostThumbnailFilename = 1057,
+  TagsBlogPostThumbnailFilesize = 1058,
+  TagsBlogPostThumbnailGatsbyImage = 1059,
+  TagsBlogPostThumbnailGatsbyImageData = 1060,
+  TagsBlogPostThumbnailHeight = 1061,
+  TagsBlogPostThumbnailId = 1062,
+  TagsBlogPostThumbnailMimeType = 1063,
+  TagsBlogPostThumbnailNodeLocale = 1064,
+  TagsBlogPostThumbnailPlaceholderUrl = 1065,
+  TagsBlogPostThumbnailPublicUrl = 1066,
+  TagsBlogPostThumbnailSize = 1067,
+  TagsBlogPostThumbnailSpaceId = 1068,
+  TagsBlogPostThumbnailTitle = 1069,
+  TagsBlogPostThumbnailUpdatedAt = 1070,
+  TagsBlogPostThumbnailUrl = 1071,
+  TagsBlogPostThumbnailWidth = 1072,
+  TagsBlogPostTitle = 1073,
+  TagsBlogPostUpdated = 1074,
+  TagsBlogPostUpdatedAt = 1075,
+  TagsChildren = 1076,
+  TagsChildrenChildren = 1077,
+  TagsChildrenChildrenChildren = 1078,
+  TagsChildrenChildrenId = 1079,
+  TagsChildrenId = 1080,
+  TagsChildrenInternalContent = 1081,
+  TagsChildrenInternalContentDigest = 1082,
+  TagsChildrenInternalContentFilePath = 1083,
+  TagsChildrenInternalDescription = 1084,
+  TagsChildrenInternalFieldOwners = 1085,
+  TagsChildrenInternalIgnoreType = 1086,
+  TagsChildrenInternalMediaType = 1087,
+  TagsChildrenInternalOwner = 1088,
+  TagsChildrenInternalType = 1089,
+  TagsChildrenParentChildren = 1090,
+  TagsChildrenParentId = 1091,
+  TagsContentfulId = 1092,
+  TagsCreatedAt = 1093,
+  TagsId = 1094,
+  TagsInternalContent = 1095,
+  TagsInternalContentDigest = 1096,
+  TagsInternalContentFilePath = 1097,
+  TagsInternalDescription = 1098,
+  TagsInternalFieldOwners = 1099,
+  TagsInternalIgnoreType = 1100,
+  TagsInternalMediaType = 1101,
+  TagsInternalOwner = 1102,
+  TagsInternalType = 1103,
+  TagsLevel = 1104,
+  TagsName = 1105,
+  TagsNodeLocale = 1106,
+  TagsOss = 1107,
+  TagsOssChildContentfulOssDetailTextNodeChildren = 1108,
+  TagsOssChildContentfulOssDetailTextNodeChildrenMdx = 1109,
+  TagsOssChildContentfulOssDetailTextNodeDetail = 1110,
+  TagsOssChildContentfulOssDetailTextNodeId = 1111,
+  TagsOssChildren = 1112,
+  TagsOssChildrenContentfulOssDetailTextNode = 1113,
+  TagsOssChildrenContentfulOssDetailTextNodeChildren = 1114,
+  TagsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 1115,
+  TagsOssChildrenContentfulOssDetailTextNodeDetail = 1116,
+  TagsOssChildrenContentfulOssDetailTextNodeId = 1117,
+  TagsOssChildrenChildren = 1118,
+  TagsOssChildrenId = 1119,
+  TagsOssContentfulId = 1120,
+  TagsOssCreatedAt = 1121,
+  TagsOssDetailChildren = 1122,
+  TagsOssDetailChildrenMdx = 1123,
+  TagsOssDetailDetail = 1124,
+  TagsOssDetailId = 1125,
+  TagsOssHref = 1126,
+  TagsOssIconChildren = 1127,
+  TagsOssIconChildrenContentfulIconSvgTextNode = 1128,
+  TagsOssIconContact = 1129,
+  TagsOssIconContentfulId = 1130,
+  TagsOssIconCreatedAt = 1131,
+  TagsOssIconHistory = 1132,
+  TagsOssIconId = 1133,
+  TagsOssIconName = 1134,
+  TagsOssIconNodeLocale = 1135,
+  TagsOssIconOss = 1136,
+  TagsOssIconProject = 1137,
+  TagsOssIconSpaceId = 1138,
+  TagsOssIconUpdatedAt = 1139,
+  TagsOssIconWhatICanDo = 1140,
+  TagsOssId = 1141,
+  TagsOssImageChildren = 1142,
+  TagsOssImageContentfulId = 1143,
+  TagsOssImageCreatedAt = 1144,
+  TagsOssImageDescription = 1145,
+  TagsOssImageFilename = 1146,
+  TagsOssImageFilesize = 1147,
+  TagsOssImageGatsbyImage = 1148,
+  TagsOssImageGatsbyImageData = 1149,
+  TagsOssImageHeight = 1150,
+  TagsOssImageId = 1151,
+  TagsOssImageMimeType = 1152,
+  TagsOssImageNodeLocale = 1153,
+  TagsOssImagePlaceholderUrl = 1154,
+  TagsOssImagePublicUrl = 1155,
+  TagsOssImageSize = 1156,
+  TagsOssImageSpaceId = 1157,
+  TagsOssImageTitle = 1158,
+  TagsOssImageUpdatedAt = 1159,
+  TagsOssImageUrl = 1160,
+  TagsOssImageWidth = 1161,
+  TagsOssInternalContent = 1162,
+  TagsOssInternalContentDigest = 1163,
+  TagsOssInternalContentFilePath = 1164,
+  TagsOssInternalDescription = 1165,
+  TagsOssInternalFieldOwners = 1166,
+  TagsOssInternalIgnoreType = 1167,
+  TagsOssInternalMediaType = 1168,
+  TagsOssInternalOwner = 1169,
+  TagsOssInternalType = 1170,
+  TagsOssName = 1171,
+  TagsOssNodeLocale = 1172,
+  TagsOssParentChildren = 1173,
+  TagsOssParentId = 1174,
+  TagsOssSpaceId = 1175,
+  TagsOssStartDate = 1176,
+  TagsOssSubName = 1177,
+  TagsOssSysRevision = 1178,
+  TagsOssSysType = 1179,
+  TagsOssTags = 1180,
+  TagsOssTagsBlogPost = 1181,
+  TagsOssTagsChildren = 1182,
+  TagsOssTagsContentfulId = 1183,
+  TagsOssTagsCreatedAt = 1184,
+  TagsOssTagsId = 1185,
+  TagsOssTagsLevel = 1186,
+  TagsOssTagsName = 1187,
+  TagsOssTagsNodeLocale = 1188,
+  TagsOssTagsOss = 1189,
+  TagsOssTagsProject = 1190,
+  TagsOssTagsSkillGrpup = 1191,
+  TagsOssTagsSkillMap = 1192,
+  TagsOssTagsSpaceId = 1193,
+  TagsOssTagsUpdatedAt = 1194,
+  TagsOssUpdatedAt = 1195,
+  TagsParentChildren = 1196,
+  TagsParentChildrenChildren = 1197,
+  TagsParentChildrenId = 1198,
+  TagsParentId = 1199,
+  TagsParentInternalContent = 1200,
+  TagsParentInternalContentDigest = 1201,
+  TagsParentInternalContentFilePath = 1202,
+  TagsParentInternalDescription = 1203,
+  TagsParentInternalFieldOwners = 1204,
+  TagsParentInternalIgnoreType = 1205,
+  TagsParentInternalMediaType = 1206,
+  TagsParentInternalOwner = 1207,
+  TagsParentInternalType = 1208,
+  TagsParentParentChildren = 1209,
+  TagsParentParentId = 1210,
+  TagsProject = 1211,
+  TagsProjectChildContentfulProjectDetailTextNodeChildren = 1212,
+  TagsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 1213,
+  TagsProjectChildContentfulProjectDetailTextNodeDetail = 1214,
+  TagsProjectChildContentfulProjectDetailTextNodeId = 1215,
+  TagsProjectChildren = 1216,
+  TagsProjectChildrenContentfulProjectDetailTextNode = 1217,
+  TagsProjectChildrenContentfulProjectDetailTextNodeChildren = 1218,
+  TagsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 1219,
+  TagsProjectChildrenContentfulProjectDetailTextNodeDetail = 1220,
+  TagsProjectChildrenContentfulProjectDetailTextNodeId = 1221,
+  TagsProjectChildrenChildren = 1222,
+  TagsProjectChildrenId = 1223,
+  TagsProjectContentfulId = 1224,
+  TagsProjectCreatedAt = 1225,
+  TagsProjectDetailChildren = 1226,
+  TagsProjectDetailChildrenMdx = 1227,
+  TagsProjectDetailDetail = 1228,
+  TagsProjectDetailId = 1229,
+  TagsProjectEndDate = 1230,
+  TagsProjectIconChildren = 1231,
+  TagsProjectIconChildrenContentfulIconSvgTextNode = 1232,
+  TagsProjectIconContact = 1233,
+  TagsProjectIconContentfulId = 1234,
+  TagsProjectIconCreatedAt = 1235,
+  TagsProjectIconHistory = 1236,
+  TagsProjectIconId = 1237,
+  TagsProjectIconName = 1238,
+  TagsProjectIconNodeLocale = 1239,
+  TagsProjectIconOss = 1240,
+  TagsProjectIconProject = 1241,
+  TagsProjectIconSpaceId = 1242,
+  TagsProjectIconUpdatedAt = 1243,
+  TagsProjectIconWhatICanDo = 1244,
+  TagsProjectId = 1245,
+  TagsProjectInternalContent = 1246,
+  TagsProjectInternalContentDigest = 1247,
+  TagsProjectInternalContentFilePath = 1248,
+  TagsProjectInternalDescription = 1249,
+  TagsProjectInternalFieldOwners = 1250,
+  TagsProjectInternalIgnoreType = 1251,
+  TagsProjectInternalMediaType = 1252,
+  TagsProjectInternalOwner = 1253,
+  TagsProjectInternalType = 1254,
+  TagsProjectName = 1255,
+  TagsProjectNodeLocale = 1256,
+  TagsProjectParentChildren = 1257,
+  TagsProjectParentId = 1258,
+  TagsProjectSpaceId = 1259,
+  TagsProjectStartDate = 1260,
+  TagsProjectSubName = 1261,
+  TagsProjectSysRevision = 1262,
+  TagsProjectSysType = 1263,
+  TagsProjectTags = 1264,
+  TagsProjectTagsBlogPost = 1265,
+  TagsProjectTagsChildren = 1266,
+  TagsProjectTagsContentfulId = 1267,
+  TagsProjectTagsCreatedAt = 1268,
+  TagsProjectTagsId = 1269,
+  TagsProjectTagsLevel = 1270,
+  TagsProjectTagsName = 1271,
+  TagsProjectTagsNodeLocale = 1272,
+  TagsProjectTagsOss = 1273,
+  TagsProjectTagsProject = 1274,
+  TagsProjectTagsSkillGrpup = 1275,
+  TagsProjectTagsSkillMap = 1276,
+  TagsProjectTagsSpaceId = 1277,
+  TagsProjectTagsUpdatedAt = 1278,
+  TagsProjectUpdatedAt = 1279,
+  TagsSkillGrpup = 1280,
+  TagsSkillGrpupChildren = 1281,
+  TagsSkillGrpupChildrenChildren = 1282,
+  TagsSkillGrpupChildrenId = 1283,
+  TagsSkillGrpupContentfulId = 1284,
+  TagsSkillGrpupCreatedAt = 1285,
+  TagsSkillGrpupId = 1286,
+  TagsSkillGrpupInternalContent = 1287,
+  TagsSkillGrpupInternalContentDigest = 1288,
+  TagsSkillGrpupInternalContentFilePath = 1289,
+  TagsSkillGrpupInternalDescription = 1290,
+  TagsSkillGrpupInternalFieldOwners = 1291,
+  TagsSkillGrpupInternalIgnoreType = 1292,
+  TagsSkillGrpupInternalMediaType = 1293,
+  TagsSkillGrpupInternalOwner = 1294,
+  TagsSkillGrpupInternalType = 1295,
+  TagsSkillGrpupName = 1296,
+  TagsSkillGrpupNodeLocale = 1297,
+  TagsSkillGrpupParentChildren = 1298,
+  TagsSkillGrpupParentId = 1299,
+  TagsSkillGrpupSkillMap = 1300,
+  TagsSkillGrpupSkillMapChildren = 1301,
+  TagsSkillGrpupSkillMapContentfulId = 1302,
+  TagsSkillGrpupSkillMapCreatedAt = 1303,
+  TagsSkillGrpupSkillMapExpanded = 1304,
+  TagsSkillGrpupSkillMapId = 1305,
+  TagsSkillGrpupSkillMapName = 1306,
+  TagsSkillGrpupSkillMapNodeLocale = 1307,
+  TagsSkillGrpupSkillMapSkillGroups = 1308,
+  TagsSkillGrpupSkillMapSkills = 1309,
+  TagsSkillGrpupSkillMapSortKey = 1310,
+  TagsSkillGrpupSkillMapSpaceId = 1311,
+  TagsSkillGrpupSkillMapUpdatedAt = 1312,
+  TagsSkillGrpupSkills = 1313,
+  TagsSkillGrpupSkillsBlogPost = 1314,
+  TagsSkillGrpupSkillsChildren = 1315,
+  TagsSkillGrpupSkillsContentfulId = 1316,
+  TagsSkillGrpupSkillsCreatedAt = 1317,
+  TagsSkillGrpupSkillsId = 1318,
+  TagsSkillGrpupSkillsLevel = 1319,
+  TagsSkillGrpupSkillsName = 1320,
+  TagsSkillGrpupSkillsNodeLocale = 1321,
+  TagsSkillGrpupSkillsOss = 1322,
+  TagsSkillGrpupSkillsProject = 1323,
+  TagsSkillGrpupSkillsSkillGrpup = 1324,
+  TagsSkillGrpupSkillsSkillMap = 1325,
+  TagsSkillGrpupSkillsSpaceId = 1326,
+  TagsSkillGrpupSkillsUpdatedAt = 1327,
+  TagsSkillGrpupSpaceId = 1328,
+  TagsSkillGrpupSysRevision = 1329,
+  TagsSkillGrpupSysType = 1330,
+  TagsSkillGrpupUpdatedAt = 1331,
+  TagsSkillMap = 1332,
+  TagsSkillMapChildren = 1333,
+  TagsSkillMapChildrenChildren = 1334,
+  TagsSkillMapChildrenId = 1335,
+  TagsSkillMapContentfulId = 1336,
+  TagsSkillMapCreatedAt = 1337,
+  TagsSkillMapExpanded = 1338,
+  TagsSkillMapId = 1339,
+  TagsSkillMapInternalContent = 1340,
+  TagsSkillMapInternalContentDigest = 1341,
+  TagsSkillMapInternalContentFilePath = 1342,
+  TagsSkillMapInternalDescription = 1343,
+  TagsSkillMapInternalFieldOwners = 1344,
+  TagsSkillMapInternalIgnoreType = 1345,
+  TagsSkillMapInternalMediaType = 1346,
+  TagsSkillMapInternalOwner = 1347,
+  TagsSkillMapInternalType = 1348,
+  TagsSkillMapName = 1349,
+  TagsSkillMapNodeLocale = 1350,
+  TagsSkillMapParentChildren = 1351,
+  TagsSkillMapParentId = 1352,
+  TagsSkillMapSkillGroups = 1353,
+  TagsSkillMapSkillGroupsChildren = 1354,
+  TagsSkillMapSkillGroupsContentfulId = 1355,
+  TagsSkillMapSkillGroupsCreatedAt = 1356,
+  TagsSkillMapSkillGroupsId = 1357,
+  TagsSkillMapSkillGroupsName = 1358,
+  TagsSkillMapSkillGroupsNodeLocale = 1359,
+  TagsSkillMapSkillGroupsSkillMap = 1360,
+  TagsSkillMapSkillGroupsSkills = 1361,
+  TagsSkillMapSkillGroupsSpaceId = 1362,
+  TagsSkillMapSkillGroupsUpdatedAt = 1363,
+  TagsSkillMapSkills = 1364,
+  TagsSkillMapSkillsBlogPost = 1365,
+  TagsSkillMapSkillsChildren = 1366,
+  TagsSkillMapSkillsContentfulId = 1367,
+  TagsSkillMapSkillsCreatedAt = 1368,
+  TagsSkillMapSkillsId = 1369,
+  TagsSkillMapSkillsLevel = 1370,
+  TagsSkillMapSkillsName = 1371,
+  TagsSkillMapSkillsNodeLocale = 1372,
+  TagsSkillMapSkillsOss = 1373,
+  TagsSkillMapSkillsProject = 1374,
+  TagsSkillMapSkillsSkillGrpup = 1375,
+  TagsSkillMapSkillsSkillMap = 1376,
+  TagsSkillMapSkillsSpaceId = 1377,
+  TagsSkillMapSkillsUpdatedAt = 1378,
+  TagsSkillMapSortKey = 1379,
+  TagsSkillMapSpaceId = 1380,
+  TagsSkillMapSysRevision = 1381,
+  TagsSkillMapSysType = 1382,
+  TagsSkillMapUpdatedAt = 1383,
+  TagsSpaceId = 1384,
+  TagsSysRevision = 1385,
+  TagsSysType = 1386,
+  TagsUpdatedAt = 1387,
+  UpdatedAt = 1388
 }
 
 export type ContentfulOssFilterInput = {
-  childContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  detail: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  image: InputMaybe<ContentfulAssetFilterInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  startDate: InputMaybe<DateQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulOssSysFilterInput>;
-  tags: InputMaybe<ContentfulTagFilterListInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly childContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulOssDetailTextNode: InputMaybe<ContentfulOssDetailTextNodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly detail: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly image: InputMaybe<ContentfulAssetFilterInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly startDate: InputMaybe<DateQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulOssSysFilterInput>;
+  readonly tags: InputMaybe<ContentfulTagFilterListInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulOssFilterListInput = {
-  elemMatch: InputMaybe<ContentfulOssFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulOssFilterInput>;
 };
 
 export type ContentfulOssGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulOssGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOss>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulOssGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOss>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -8204,64 +8219,64 @@ export type ContentfulOssGroupConnectionSumArgs = {
 };
 
 export type ContentfulOssSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulOssFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulOssFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulOssSys = {
-  contentType: Maybe<ContentfulOssSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulOssSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssSysContentType = {
-  sys: Maybe<ContentfulOssSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulOssSysContentTypeSys>;
 };
 
 export type ContentfulOssSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulOssSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulOssSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulOssSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulOssSysFilterInput = {
-  contentType: InputMaybe<ContentfulOssSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulOssSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProject = ContentfulEntry & ContentfulReference & Node & {
   /** Returns the first child node of type contentfulProjectDetailTextNode or null if there are no children of given type on this node */
-  childContentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
-  children: Array<Node>;
+  readonly childContentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type contentfulProjectDetailTextNode */
-  childrenContentfulProjectDetailTextNode: Maybe<Array<Maybe<ContentfulProjectDetailTextNode>>>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  detail: Maybe<ContentfulProjectDetailTextNode>;
-  endDate: Maybe<Scalars['Date']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  spaceId: Maybe<Scalars['String']>;
-  startDate: Maybe<Scalars['Date']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulProjectSys>;
-  tags: Maybe<Array<Maybe<ContentfulTag>>>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly childrenContentfulProjectDetailTextNode: Maybe<ReadonlyArray<Maybe<ContentfulProjectDetailTextNode>>>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly detail: Maybe<ContentfulProjectDetailTextNode>;
+  readonly endDate: Maybe<Scalars['Date']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly startDate: Maybe<Scalars['Date']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulProjectSys>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -8297,15 +8312,15 @@ export type ContentfulProjectUpdatedAtArgs = {
 };
 
 export type ContentfulProjectConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectEdge>;
-  group: Array<ContentfulProjectGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProject>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectEdge>;
+  readonly group: ReadonlyArray<ContentfulProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProject>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -8336,9 +8351,9 @@ export type ContentfulProjectConnectionSumArgs = {
 };
 
 export type ContentfulProjectEdge = {
-  next: Maybe<ContentfulProject>;
-  node: ContentfulProject;
-  previous: Maybe<ContentfulProject>;
+  readonly next: Maybe<ContentfulProject>;
+  readonly node: ContentfulProject;
+  readonly previous: Maybe<ContentfulProject>;
 };
 
 export enum ContentfulProjectFieldsEnum {
@@ -9294,414 +9309,415 @@ export enum ContentfulProjectFieldsEnum {
   TagsBlogPostCreated = 949,
   TagsBlogPostCreatedAt = 950,
   TagsBlogPostExcerpt = 951,
-  TagsBlogPostId = 952,
-  TagsBlogPostInternalContent = 953,
-  TagsBlogPostInternalContentDigest = 954,
-  TagsBlogPostInternalContentFilePath = 955,
-  TagsBlogPostInternalDescription = 956,
-  TagsBlogPostInternalFieldOwners = 957,
-  TagsBlogPostInternalIgnoreType = 958,
-  TagsBlogPostInternalMediaType = 959,
-  TagsBlogPostInternalOwner = 960,
-  TagsBlogPostInternalType = 961,
-  TagsBlogPostNodeLocale = 962,
-  TagsBlogPostParentChildren = 963,
-  TagsBlogPostParentId = 964,
-  TagsBlogPostSlug = 965,
-  TagsBlogPostSpaceId = 966,
-  TagsBlogPostSysRevision = 967,
-  TagsBlogPostSysType = 968,
-  TagsBlogPostTags = 969,
-  TagsBlogPostTagsBlogPost = 970,
-  TagsBlogPostTagsChildren = 971,
-  TagsBlogPostTagsContentfulId = 972,
-  TagsBlogPostTagsCreatedAt = 973,
-  TagsBlogPostTagsId = 974,
-  TagsBlogPostTagsLevel = 975,
-  TagsBlogPostTagsName = 976,
-  TagsBlogPostTagsNodeLocale = 977,
-  TagsBlogPostTagsOss = 978,
-  TagsBlogPostTagsProject = 979,
-  TagsBlogPostTagsSkillGrpup = 980,
-  TagsBlogPostTagsSkillMap = 981,
-  TagsBlogPostTagsSpaceId = 982,
-  TagsBlogPostTagsUpdatedAt = 983,
-  TagsBlogPostThumbnailChildren = 984,
-  TagsBlogPostThumbnailContentfulId = 985,
-  TagsBlogPostThumbnailCreatedAt = 986,
-  TagsBlogPostThumbnailDescription = 987,
-  TagsBlogPostThumbnailFilename = 988,
-  TagsBlogPostThumbnailFilesize = 989,
-  TagsBlogPostThumbnailGatsbyImage = 990,
-  TagsBlogPostThumbnailGatsbyImageData = 991,
-  TagsBlogPostThumbnailHeight = 992,
-  TagsBlogPostThumbnailId = 993,
-  TagsBlogPostThumbnailMimeType = 994,
-  TagsBlogPostThumbnailNodeLocale = 995,
-  TagsBlogPostThumbnailPlaceholderUrl = 996,
-  TagsBlogPostThumbnailPublicUrl = 997,
-  TagsBlogPostThumbnailSize = 998,
-  TagsBlogPostThumbnailSpaceId = 999,
-  TagsBlogPostThumbnailTitle = 1000,
-  TagsBlogPostThumbnailUpdatedAt = 1001,
-  TagsBlogPostThumbnailUrl = 1002,
-  TagsBlogPostThumbnailWidth = 1003,
-  TagsBlogPostTitle = 1004,
-  TagsBlogPostUpdated = 1005,
-  TagsBlogPostUpdatedAt = 1006,
-  TagsChildren = 1007,
-  TagsChildrenChildren = 1008,
-  TagsChildrenChildrenChildren = 1009,
-  TagsChildrenChildrenId = 1010,
-  TagsChildrenId = 1011,
-  TagsChildrenInternalContent = 1012,
-  TagsChildrenInternalContentDigest = 1013,
-  TagsChildrenInternalContentFilePath = 1014,
-  TagsChildrenInternalDescription = 1015,
-  TagsChildrenInternalFieldOwners = 1016,
-  TagsChildrenInternalIgnoreType = 1017,
-  TagsChildrenInternalMediaType = 1018,
-  TagsChildrenInternalOwner = 1019,
-  TagsChildrenInternalType = 1020,
-  TagsChildrenParentChildren = 1021,
-  TagsChildrenParentId = 1022,
-  TagsContentfulId = 1023,
-  TagsCreatedAt = 1024,
-  TagsId = 1025,
-  TagsInternalContent = 1026,
-  TagsInternalContentDigest = 1027,
-  TagsInternalContentFilePath = 1028,
-  TagsInternalDescription = 1029,
-  TagsInternalFieldOwners = 1030,
-  TagsInternalIgnoreType = 1031,
-  TagsInternalMediaType = 1032,
-  TagsInternalOwner = 1033,
-  TagsInternalType = 1034,
-  TagsLevel = 1035,
-  TagsName = 1036,
-  TagsNodeLocale = 1037,
-  TagsOss = 1038,
-  TagsOssChildContentfulOssDetailTextNodeChildren = 1039,
-  TagsOssChildContentfulOssDetailTextNodeChildrenMdx = 1040,
-  TagsOssChildContentfulOssDetailTextNodeDetail = 1041,
-  TagsOssChildContentfulOssDetailTextNodeId = 1042,
-  TagsOssChildren = 1043,
-  TagsOssChildrenContentfulOssDetailTextNode = 1044,
-  TagsOssChildrenContentfulOssDetailTextNodeChildren = 1045,
-  TagsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 1046,
-  TagsOssChildrenContentfulOssDetailTextNodeDetail = 1047,
-  TagsOssChildrenContentfulOssDetailTextNodeId = 1048,
-  TagsOssChildrenChildren = 1049,
-  TagsOssChildrenId = 1050,
-  TagsOssContentfulId = 1051,
-  TagsOssCreatedAt = 1052,
-  TagsOssDetailChildren = 1053,
-  TagsOssDetailChildrenMdx = 1054,
-  TagsOssDetailDetail = 1055,
-  TagsOssDetailId = 1056,
-  TagsOssHref = 1057,
-  TagsOssIconChildren = 1058,
-  TagsOssIconChildrenContentfulIconSvgTextNode = 1059,
-  TagsOssIconContact = 1060,
-  TagsOssIconContentfulId = 1061,
-  TagsOssIconCreatedAt = 1062,
-  TagsOssIconHistory = 1063,
-  TagsOssIconId = 1064,
-  TagsOssIconName = 1065,
-  TagsOssIconNodeLocale = 1066,
-  TagsOssIconOss = 1067,
-  TagsOssIconProject = 1068,
-  TagsOssIconSpaceId = 1069,
-  TagsOssIconUpdatedAt = 1070,
-  TagsOssIconWhatICanDo = 1071,
-  TagsOssId = 1072,
-  TagsOssImageChildren = 1073,
-  TagsOssImageContentfulId = 1074,
-  TagsOssImageCreatedAt = 1075,
-  TagsOssImageDescription = 1076,
-  TagsOssImageFilename = 1077,
-  TagsOssImageFilesize = 1078,
-  TagsOssImageGatsbyImage = 1079,
-  TagsOssImageGatsbyImageData = 1080,
-  TagsOssImageHeight = 1081,
-  TagsOssImageId = 1082,
-  TagsOssImageMimeType = 1083,
-  TagsOssImageNodeLocale = 1084,
-  TagsOssImagePlaceholderUrl = 1085,
-  TagsOssImagePublicUrl = 1086,
-  TagsOssImageSize = 1087,
-  TagsOssImageSpaceId = 1088,
-  TagsOssImageTitle = 1089,
-  TagsOssImageUpdatedAt = 1090,
-  TagsOssImageUrl = 1091,
-  TagsOssImageWidth = 1092,
-  TagsOssInternalContent = 1093,
-  TagsOssInternalContentDigest = 1094,
-  TagsOssInternalContentFilePath = 1095,
-  TagsOssInternalDescription = 1096,
-  TagsOssInternalFieldOwners = 1097,
-  TagsOssInternalIgnoreType = 1098,
-  TagsOssInternalMediaType = 1099,
-  TagsOssInternalOwner = 1100,
-  TagsOssInternalType = 1101,
-  TagsOssName = 1102,
-  TagsOssNodeLocale = 1103,
-  TagsOssParentChildren = 1104,
-  TagsOssParentId = 1105,
-  TagsOssSpaceId = 1106,
-  TagsOssStartDate = 1107,
-  TagsOssSubName = 1108,
-  TagsOssSysRevision = 1109,
-  TagsOssSysType = 1110,
-  TagsOssTags = 1111,
-  TagsOssTagsBlogPost = 1112,
-  TagsOssTagsChildren = 1113,
-  TagsOssTagsContentfulId = 1114,
-  TagsOssTagsCreatedAt = 1115,
-  TagsOssTagsId = 1116,
-  TagsOssTagsLevel = 1117,
-  TagsOssTagsName = 1118,
-  TagsOssTagsNodeLocale = 1119,
-  TagsOssTagsOss = 1120,
-  TagsOssTagsProject = 1121,
-  TagsOssTagsSkillGrpup = 1122,
-  TagsOssTagsSkillMap = 1123,
-  TagsOssTagsSpaceId = 1124,
-  TagsOssTagsUpdatedAt = 1125,
-  TagsOssUpdatedAt = 1126,
-  TagsParentChildren = 1127,
-  TagsParentChildrenChildren = 1128,
-  TagsParentChildrenId = 1129,
-  TagsParentId = 1130,
-  TagsParentInternalContent = 1131,
-  TagsParentInternalContentDigest = 1132,
-  TagsParentInternalContentFilePath = 1133,
-  TagsParentInternalDescription = 1134,
-  TagsParentInternalFieldOwners = 1135,
-  TagsParentInternalIgnoreType = 1136,
-  TagsParentInternalMediaType = 1137,
-  TagsParentInternalOwner = 1138,
-  TagsParentInternalType = 1139,
-  TagsParentParentChildren = 1140,
-  TagsParentParentId = 1141,
-  TagsProject = 1142,
-  TagsProjectChildContentfulProjectDetailTextNodeChildren = 1143,
-  TagsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 1144,
-  TagsProjectChildContentfulProjectDetailTextNodeDetail = 1145,
-  TagsProjectChildContentfulProjectDetailTextNodeId = 1146,
-  TagsProjectChildren = 1147,
-  TagsProjectChildrenContentfulProjectDetailTextNode = 1148,
-  TagsProjectChildrenContentfulProjectDetailTextNodeChildren = 1149,
-  TagsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 1150,
-  TagsProjectChildrenContentfulProjectDetailTextNodeDetail = 1151,
-  TagsProjectChildrenContentfulProjectDetailTextNodeId = 1152,
-  TagsProjectChildrenChildren = 1153,
-  TagsProjectChildrenId = 1154,
-  TagsProjectContentfulId = 1155,
-  TagsProjectCreatedAt = 1156,
-  TagsProjectDetailChildren = 1157,
-  TagsProjectDetailChildrenMdx = 1158,
-  TagsProjectDetailDetail = 1159,
-  TagsProjectDetailId = 1160,
-  TagsProjectEndDate = 1161,
-  TagsProjectIconChildren = 1162,
-  TagsProjectIconChildrenContentfulIconSvgTextNode = 1163,
-  TagsProjectIconContact = 1164,
-  TagsProjectIconContentfulId = 1165,
-  TagsProjectIconCreatedAt = 1166,
-  TagsProjectIconHistory = 1167,
-  TagsProjectIconId = 1168,
-  TagsProjectIconName = 1169,
-  TagsProjectIconNodeLocale = 1170,
-  TagsProjectIconOss = 1171,
-  TagsProjectIconProject = 1172,
-  TagsProjectIconSpaceId = 1173,
-  TagsProjectIconUpdatedAt = 1174,
-  TagsProjectIconWhatICanDo = 1175,
-  TagsProjectId = 1176,
-  TagsProjectInternalContent = 1177,
-  TagsProjectInternalContentDigest = 1178,
-  TagsProjectInternalContentFilePath = 1179,
-  TagsProjectInternalDescription = 1180,
-  TagsProjectInternalFieldOwners = 1181,
-  TagsProjectInternalIgnoreType = 1182,
-  TagsProjectInternalMediaType = 1183,
-  TagsProjectInternalOwner = 1184,
-  TagsProjectInternalType = 1185,
-  TagsProjectName = 1186,
-  TagsProjectNodeLocale = 1187,
-  TagsProjectParentChildren = 1188,
-  TagsProjectParentId = 1189,
-  TagsProjectSpaceId = 1190,
-  TagsProjectStartDate = 1191,
-  TagsProjectSubName = 1192,
-  TagsProjectSysRevision = 1193,
-  TagsProjectSysType = 1194,
-  TagsProjectTags = 1195,
-  TagsProjectTagsBlogPost = 1196,
-  TagsProjectTagsChildren = 1197,
-  TagsProjectTagsContentfulId = 1198,
-  TagsProjectTagsCreatedAt = 1199,
-  TagsProjectTagsId = 1200,
-  TagsProjectTagsLevel = 1201,
-  TagsProjectTagsName = 1202,
-  TagsProjectTagsNodeLocale = 1203,
-  TagsProjectTagsOss = 1204,
-  TagsProjectTagsProject = 1205,
-  TagsProjectTagsSkillGrpup = 1206,
-  TagsProjectTagsSkillMap = 1207,
-  TagsProjectTagsSpaceId = 1208,
-  TagsProjectTagsUpdatedAt = 1209,
-  TagsProjectUpdatedAt = 1210,
-  TagsSkillGrpup = 1211,
-  TagsSkillGrpupChildren = 1212,
-  TagsSkillGrpupChildrenChildren = 1213,
-  TagsSkillGrpupChildrenId = 1214,
-  TagsSkillGrpupContentfulId = 1215,
-  TagsSkillGrpupCreatedAt = 1216,
-  TagsSkillGrpupId = 1217,
-  TagsSkillGrpupInternalContent = 1218,
-  TagsSkillGrpupInternalContentDigest = 1219,
-  TagsSkillGrpupInternalContentFilePath = 1220,
-  TagsSkillGrpupInternalDescription = 1221,
-  TagsSkillGrpupInternalFieldOwners = 1222,
-  TagsSkillGrpupInternalIgnoreType = 1223,
-  TagsSkillGrpupInternalMediaType = 1224,
-  TagsSkillGrpupInternalOwner = 1225,
-  TagsSkillGrpupInternalType = 1226,
-  TagsSkillGrpupName = 1227,
-  TagsSkillGrpupNodeLocale = 1228,
-  TagsSkillGrpupParentChildren = 1229,
-  TagsSkillGrpupParentId = 1230,
-  TagsSkillGrpupSkillMap = 1231,
-  TagsSkillGrpupSkillMapChildren = 1232,
-  TagsSkillGrpupSkillMapContentfulId = 1233,
-  TagsSkillGrpupSkillMapCreatedAt = 1234,
-  TagsSkillGrpupSkillMapExpanded = 1235,
-  TagsSkillGrpupSkillMapId = 1236,
-  TagsSkillGrpupSkillMapName = 1237,
-  TagsSkillGrpupSkillMapNodeLocale = 1238,
-  TagsSkillGrpupSkillMapSkillGroups = 1239,
-  TagsSkillGrpupSkillMapSkills = 1240,
-  TagsSkillGrpupSkillMapSortKey = 1241,
-  TagsSkillGrpupSkillMapSpaceId = 1242,
-  TagsSkillGrpupSkillMapUpdatedAt = 1243,
-  TagsSkillGrpupSkills = 1244,
-  TagsSkillGrpupSkillsBlogPost = 1245,
-  TagsSkillGrpupSkillsChildren = 1246,
-  TagsSkillGrpupSkillsContentfulId = 1247,
-  TagsSkillGrpupSkillsCreatedAt = 1248,
-  TagsSkillGrpupSkillsId = 1249,
-  TagsSkillGrpupSkillsLevel = 1250,
-  TagsSkillGrpupSkillsName = 1251,
-  TagsSkillGrpupSkillsNodeLocale = 1252,
-  TagsSkillGrpupSkillsOss = 1253,
-  TagsSkillGrpupSkillsProject = 1254,
-  TagsSkillGrpupSkillsSkillGrpup = 1255,
-  TagsSkillGrpupSkillsSkillMap = 1256,
-  TagsSkillGrpupSkillsSpaceId = 1257,
-  TagsSkillGrpupSkillsUpdatedAt = 1258,
-  TagsSkillGrpupSpaceId = 1259,
-  TagsSkillGrpupSysRevision = 1260,
-  TagsSkillGrpupSysType = 1261,
-  TagsSkillGrpupUpdatedAt = 1262,
-  TagsSkillMap = 1263,
-  TagsSkillMapChildren = 1264,
-  TagsSkillMapChildrenChildren = 1265,
-  TagsSkillMapChildrenId = 1266,
-  TagsSkillMapContentfulId = 1267,
-  TagsSkillMapCreatedAt = 1268,
-  TagsSkillMapExpanded = 1269,
-  TagsSkillMapId = 1270,
-  TagsSkillMapInternalContent = 1271,
-  TagsSkillMapInternalContentDigest = 1272,
-  TagsSkillMapInternalContentFilePath = 1273,
-  TagsSkillMapInternalDescription = 1274,
-  TagsSkillMapInternalFieldOwners = 1275,
-  TagsSkillMapInternalIgnoreType = 1276,
-  TagsSkillMapInternalMediaType = 1277,
-  TagsSkillMapInternalOwner = 1278,
-  TagsSkillMapInternalType = 1279,
-  TagsSkillMapName = 1280,
-  TagsSkillMapNodeLocale = 1281,
-  TagsSkillMapParentChildren = 1282,
-  TagsSkillMapParentId = 1283,
-  TagsSkillMapSkillGroups = 1284,
-  TagsSkillMapSkillGroupsChildren = 1285,
-  TagsSkillMapSkillGroupsContentfulId = 1286,
-  TagsSkillMapSkillGroupsCreatedAt = 1287,
-  TagsSkillMapSkillGroupsId = 1288,
-  TagsSkillMapSkillGroupsName = 1289,
-  TagsSkillMapSkillGroupsNodeLocale = 1290,
-  TagsSkillMapSkillGroupsSkillMap = 1291,
-  TagsSkillMapSkillGroupsSkills = 1292,
-  TagsSkillMapSkillGroupsSpaceId = 1293,
-  TagsSkillMapSkillGroupsUpdatedAt = 1294,
-  TagsSkillMapSkills = 1295,
-  TagsSkillMapSkillsBlogPost = 1296,
-  TagsSkillMapSkillsChildren = 1297,
-  TagsSkillMapSkillsContentfulId = 1298,
-  TagsSkillMapSkillsCreatedAt = 1299,
-  TagsSkillMapSkillsId = 1300,
-  TagsSkillMapSkillsLevel = 1301,
-  TagsSkillMapSkillsName = 1302,
-  TagsSkillMapSkillsNodeLocale = 1303,
-  TagsSkillMapSkillsOss = 1304,
-  TagsSkillMapSkillsProject = 1305,
-  TagsSkillMapSkillsSkillGrpup = 1306,
-  TagsSkillMapSkillsSkillMap = 1307,
-  TagsSkillMapSkillsSpaceId = 1308,
-  TagsSkillMapSkillsUpdatedAt = 1309,
-  TagsSkillMapSortKey = 1310,
-  TagsSkillMapSpaceId = 1311,
-  TagsSkillMapSysRevision = 1312,
-  TagsSkillMapSysType = 1313,
-  TagsSkillMapUpdatedAt = 1314,
-  TagsSpaceId = 1315,
-  TagsSysRevision = 1316,
-  TagsSysType = 1317,
-  TagsUpdatedAt = 1318,
-  UpdatedAt = 1319
+  TagsBlogPostGatsbyPath = 952,
+  TagsBlogPostId = 953,
+  TagsBlogPostInternalContent = 954,
+  TagsBlogPostInternalContentDigest = 955,
+  TagsBlogPostInternalContentFilePath = 956,
+  TagsBlogPostInternalDescription = 957,
+  TagsBlogPostInternalFieldOwners = 958,
+  TagsBlogPostInternalIgnoreType = 959,
+  TagsBlogPostInternalMediaType = 960,
+  TagsBlogPostInternalOwner = 961,
+  TagsBlogPostInternalType = 962,
+  TagsBlogPostNodeLocale = 963,
+  TagsBlogPostParentChildren = 964,
+  TagsBlogPostParentId = 965,
+  TagsBlogPostSlug = 966,
+  TagsBlogPostSpaceId = 967,
+  TagsBlogPostSysRevision = 968,
+  TagsBlogPostSysType = 969,
+  TagsBlogPostTags = 970,
+  TagsBlogPostTagsBlogPost = 971,
+  TagsBlogPostTagsChildren = 972,
+  TagsBlogPostTagsContentfulId = 973,
+  TagsBlogPostTagsCreatedAt = 974,
+  TagsBlogPostTagsId = 975,
+  TagsBlogPostTagsLevel = 976,
+  TagsBlogPostTagsName = 977,
+  TagsBlogPostTagsNodeLocale = 978,
+  TagsBlogPostTagsOss = 979,
+  TagsBlogPostTagsProject = 980,
+  TagsBlogPostTagsSkillGrpup = 981,
+  TagsBlogPostTagsSkillMap = 982,
+  TagsBlogPostTagsSpaceId = 983,
+  TagsBlogPostTagsUpdatedAt = 984,
+  TagsBlogPostThumbnailChildren = 985,
+  TagsBlogPostThumbnailContentfulId = 986,
+  TagsBlogPostThumbnailCreatedAt = 987,
+  TagsBlogPostThumbnailDescription = 988,
+  TagsBlogPostThumbnailFilename = 989,
+  TagsBlogPostThumbnailFilesize = 990,
+  TagsBlogPostThumbnailGatsbyImage = 991,
+  TagsBlogPostThumbnailGatsbyImageData = 992,
+  TagsBlogPostThumbnailHeight = 993,
+  TagsBlogPostThumbnailId = 994,
+  TagsBlogPostThumbnailMimeType = 995,
+  TagsBlogPostThumbnailNodeLocale = 996,
+  TagsBlogPostThumbnailPlaceholderUrl = 997,
+  TagsBlogPostThumbnailPublicUrl = 998,
+  TagsBlogPostThumbnailSize = 999,
+  TagsBlogPostThumbnailSpaceId = 1000,
+  TagsBlogPostThumbnailTitle = 1001,
+  TagsBlogPostThumbnailUpdatedAt = 1002,
+  TagsBlogPostThumbnailUrl = 1003,
+  TagsBlogPostThumbnailWidth = 1004,
+  TagsBlogPostTitle = 1005,
+  TagsBlogPostUpdated = 1006,
+  TagsBlogPostUpdatedAt = 1007,
+  TagsChildren = 1008,
+  TagsChildrenChildren = 1009,
+  TagsChildrenChildrenChildren = 1010,
+  TagsChildrenChildrenId = 1011,
+  TagsChildrenId = 1012,
+  TagsChildrenInternalContent = 1013,
+  TagsChildrenInternalContentDigest = 1014,
+  TagsChildrenInternalContentFilePath = 1015,
+  TagsChildrenInternalDescription = 1016,
+  TagsChildrenInternalFieldOwners = 1017,
+  TagsChildrenInternalIgnoreType = 1018,
+  TagsChildrenInternalMediaType = 1019,
+  TagsChildrenInternalOwner = 1020,
+  TagsChildrenInternalType = 1021,
+  TagsChildrenParentChildren = 1022,
+  TagsChildrenParentId = 1023,
+  TagsContentfulId = 1024,
+  TagsCreatedAt = 1025,
+  TagsId = 1026,
+  TagsInternalContent = 1027,
+  TagsInternalContentDigest = 1028,
+  TagsInternalContentFilePath = 1029,
+  TagsInternalDescription = 1030,
+  TagsInternalFieldOwners = 1031,
+  TagsInternalIgnoreType = 1032,
+  TagsInternalMediaType = 1033,
+  TagsInternalOwner = 1034,
+  TagsInternalType = 1035,
+  TagsLevel = 1036,
+  TagsName = 1037,
+  TagsNodeLocale = 1038,
+  TagsOss = 1039,
+  TagsOssChildContentfulOssDetailTextNodeChildren = 1040,
+  TagsOssChildContentfulOssDetailTextNodeChildrenMdx = 1041,
+  TagsOssChildContentfulOssDetailTextNodeDetail = 1042,
+  TagsOssChildContentfulOssDetailTextNodeId = 1043,
+  TagsOssChildren = 1044,
+  TagsOssChildrenContentfulOssDetailTextNode = 1045,
+  TagsOssChildrenContentfulOssDetailTextNodeChildren = 1046,
+  TagsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 1047,
+  TagsOssChildrenContentfulOssDetailTextNodeDetail = 1048,
+  TagsOssChildrenContentfulOssDetailTextNodeId = 1049,
+  TagsOssChildrenChildren = 1050,
+  TagsOssChildrenId = 1051,
+  TagsOssContentfulId = 1052,
+  TagsOssCreatedAt = 1053,
+  TagsOssDetailChildren = 1054,
+  TagsOssDetailChildrenMdx = 1055,
+  TagsOssDetailDetail = 1056,
+  TagsOssDetailId = 1057,
+  TagsOssHref = 1058,
+  TagsOssIconChildren = 1059,
+  TagsOssIconChildrenContentfulIconSvgTextNode = 1060,
+  TagsOssIconContact = 1061,
+  TagsOssIconContentfulId = 1062,
+  TagsOssIconCreatedAt = 1063,
+  TagsOssIconHistory = 1064,
+  TagsOssIconId = 1065,
+  TagsOssIconName = 1066,
+  TagsOssIconNodeLocale = 1067,
+  TagsOssIconOss = 1068,
+  TagsOssIconProject = 1069,
+  TagsOssIconSpaceId = 1070,
+  TagsOssIconUpdatedAt = 1071,
+  TagsOssIconWhatICanDo = 1072,
+  TagsOssId = 1073,
+  TagsOssImageChildren = 1074,
+  TagsOssImageContentfulId = 1075,
+  TagsOssImageCreatedAt = 1076,
+  TagsOssImageDescription = 1077,
+  TagsOssImageFilename = 1078,
+  TagsOssImageFilesize = 1079,
+  TagsOssImageGatsbyImage = 1080,
+  TagsOssImageGatsbyImageData = 1081,
+  TagsOssImageHeight = 1082,
+  TagsOssImageId = 1083,
+  TagsOssImageMimeType = 1084,
+  TagsOssImageNodeLocale = 1085,
+  TagsOssImagePlaceholderUrl = 1086,
+  TagsOssImagePublicUrl = 1087,
+  TagsOssImageSize = 1088,
+  TagsOssImageSpaceId = 1089,
+  TagsOssImageTitle = 1090,
+  TagsOssImageUpdatedAt = 1091,
+  TagsOssImageUrl = 1092,
+  TagsOssImageWidth = 1093,
+  TagsOssInternalContent = 1094,
+  TagsOssInternalContentDigest = 1095,
+  TagsOssInternalContentFilePath = 1096,
+  TagsOssInternalDescription = 1097,
+  TagsOssInternalFieldOwners = 1098,
+  TagsOssInternalIgnoreType = 1099,
+  TagsOssInternalMediaType = 1100,
+  TagsOssInternalOwner = 1101,
+  TagsOssInternalType = 1102,
+  TagsOssName = 1103,
+  TagsOssNodeLocale = 1104,
+  TagsOssParentChildren = 1105,
+  TagsOssParentId = 1106,
+  TagsOssSpaceId = 1107,
+  TagsOssStartDate = 1108,
+  TagsOssSubName = 1109,
+  TagsOssSysRevision = 1110,
+  TagsOssSysType = 1111,
+  TagsOssTags = 1112,
+  TagsOssTagsBlogPost = 1113,
+  TagsOssTagsChildren = 1114,
+  TagsOssTagsContentfulId = 1115,
+  TagsOssTagsCreatedAt = 1116,
+  TagsOssTagsId = 1117,
+  TagsOssTagsLevel = 1118,
+  TagsOssTagsName = 1119,
+  TagsOssTagsNodeLocale = 1120,
+  TagsOssTagsOss = 1121,
+  TagsOssTagsProject = 1122,
+  TagsOssTagsSkillGrpup = 1123,
+  TagsOssTagsSkillMap = 1124,
+  TagsOssTagsSpaceId = 1125,
+  TagsOssTagsUpdatedAt = 1126,
+  TagsOssUpdatedAt = 1127,
+  TagsParentChildren = 1128,
+  TagsParentChildrenChildren = 1129,
+  TagsParentChildrenId = 1130,
+  TagsParentId = 1131,
+  TagsParentInternalContent = 1132,
+  TagsParentInternalContentDigest = 1133,
+  TagsParentInternalContentFilePath = 1134,
+  TagsParentInternalDescription = 1135,
+  TagsParentInternalFieldOwners = 1136,
+  TagsParentInternalIgnoreType = 1137,
+  TagsParentInternalMediaType = 1138,
+  TagsParentInternalOwner = 1139,
+  TagsParentInternalType = 1140,
+  TagsParentParentChildren = 1141,
+  TagsParentParentId = 1142,
+  TagsProject = 1143,
+  TagsProjectChildContentfulProjectDetailTextNodeChildren = 1144,
+  TagsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 1145,
+  TagsProjectChildContentfulProjectDetailTextNodeDetail = 1146,
+  TagsProjectChildContentfulProjectDetailTextNodeId = 1147,
+  TagsProjectChildren = 1148,
+  TagsProjectChildrenContentfulProjectDetailTextNode = 1149,
+  TagsProjectChildrenContentfulProjectDetailTextNodeChildren = 1150,
+  TagsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 1151,
+  TagsProjectChildrenContentfulProjectDetailTextNodeDetail = 1152,
+  TagsProjectChildrenContentfulProjectDetailTextNodeId = 1153,
+  TagsProjectChildrenChildren = 1154,
+  TagsProjectChildrenId = 1155,
+  TagsProjectContentfulId = 1156,
+  TagsProjectCreatedAt = 1157,
+  TagsProjectDetailChildren = 1158,
+  TagsProjectDetailChildrenMdx = 1159,
+  TagsProjectDetailDetail = 1160,
+  TagsProjectDetailId = 1161,
+  TagsProjectEndDate = 1162,
+  TagsProjectIconChildren = 1163,
+  TagsProjectIconChildrenContentfulIconSvgTextNode = 1164,
+  TagsProjectIconContact = 1165,
+  TagsProjectIconContentfulId = 1166,
+  TagsProjectIconCreatedAt = 1167,
+  TagsProjectIconHistory = 1168,
+  TagsProjectIconId = 1169,
+  TagsProjectIconName = 1170,
+  TagsProjectIconNodeLocale = 1171,
+  TagsProjectIconOss = 1172,
+  TagsProjectIconProject = 1173,
+  TagsProjectIconSpaceId = 1174,
+  TagsProjectIconUpdatedAt = 1175,
+  TagsProjectIconWhatICanDo = 1176,
+  TagsProjectId = 1177,
+  TagsProjectInternalContent = 1178,
+  TagsProjectInternalContentDigest = 1179,
+  TagsProjectInternalContentFilePath = 1180,
+  TagsProjectInternalDescription = 1181,
+  TagsProjectInternalFieldOwners = 1182,
+  TagsProjectInternalIgnoreType = 1183,
+  TagsProjectInternalMediaType = 1184,
+  TagsProjectInternalOwner = 1185,
+  TagsProjectInternalType = 1186,
+  TagsProjectName = 1187,
+  TagsProjectNodeLocale = 1188,
+  TagsProjectParentChildren = 1189,
+  TagsProjectParentId = 1190,
+  TagsProjectSpaceId = 1191,
+  TagsProjectStartDate = 1192,
+  TagsProjectSubName = 1193,
+  TagsProjectSysRevision = 1194,
+  TagsProjectSysType = 1195,
+  TagsProjectTags = 1196,
+  TagsProjectTagsBlogPost = 1197,
+  TagsProjectTagsChildren = 1198,
+  TagsProjectTagsContentfulId = 1199,
+  TagsProjectTagsCreatedAt = 1200,
+  TagsProjectTagsId = 1201,
+  TagsProjectTagsLevel = 1202,
+  TagsProjectTagsName = 1203,
+  TagsProjectTagsNodeLocale = 1204,
+  TagsProjectTagsOss = 1205,
+  TagsProjectTagsProject = 1206,
+  TagsProjectTagsSkillGrpup = 1207,
+  TagsProjectTagsSkillMap = 1208,
+  TagsProjectTagsSpaceId = 1209,
+  TagsProjectTagsUpdatedAt = 1210,
+  TagsProjectUpdatedAt = 1211,
+  TagsSkillGrpup = 1212,
+  TagsSkillGrpupChildren = 1213,
+  TagsSkillGrpupChildrenChildren = 1214,
+  TagsSkillGrpupChildrenId = 1215,
+  TagsSkillGrpupContentfulId = 1216,
+  TagsSkillGrpupCreatedAt = 1217,
+  TagsSkillGrpupId = 1218,
+  TagsSkillGrpupInternalContent = 1219,
+  TagsSkillGrpupInternalContentDigest = 1220,
+  TagsSkillGrpupInternalContentFilePath = 1221,
+  TagsSkillGrpupInternalDescription = 1222,
+  TagsSkillGrpupInternalFieldOwners = 1223,
+  TagsSkillGrpupInternalIgnoreType = 1224,
+  TagsSkillGrpupInternalMediaType = 1225,
+  TagsSkillGrpupInternalOwner = 1226,
+  TagsSkillGrpupInternalType = 1227,
+  TagsSkillGrpupName = 1228,
+  TagsSkillGrpupNodeLocale = 1229,
+  TagsSkillGrpupParentChildren = 1230,
+  TagsSkillGrpupParentId = 1231,
+  TagsSkillGrpupSkillMap = 1232,
+  TagsSkillGrpupSkillMapChildren = 1233,
+  TagsSkillGrpupSkillMapContentfulId = 1234,
+  TagsSkillGrpupSkillMapCreatedAt = 1235,
+  TagsSkillGrpupSkillMapExpanded = 1236,
+  TagsSkillGrpupSkillMapId = 1237,
+  TagsSkillGrpupSkillMapName = 1238,
+  TagsSkillGrpupSkillMapNodeLocale = 1239,
+  TagsSkillGrpupSkillMapSkillGroups = 1240,
+  TagsSkillGrpupSkillMapSkills = 1241,
+  TagsSkillGrpupSkillMapSortKey = 1242,
+  TagsSkillGrpupSkillMapSpaceId = 1243,
+  TagsSkillGrpupSkillMapUpdatedAt = 1244,
+  TagsSkillGrpupSkills = 1245,
+  TagsSkillGrpupSkillsBlogPost = 1246,
+  TagsSkillGrpupSkillsChildren = 1247,
+  TagsSkillGrpupSkillsContentfulId = 1248,
+  TagsSkillGrpupSkillsCreatedAt = 1249,
+  TagsSkillGrpupSkillsId = 1250,
+  TagsSkillGrpupSkillsLevel = 1251,
+  TagsSkillGrpupSkillsName = 1252,
+  TagsSkillGrpupSkillsNodeLocale = 1253,
+  TagsSkillGrpupSkillsOss = 1254,
+  TagsSkillGrpupSkillsProject = 1255,
+  TagsSkillGrpupSkillsSkillGrpup = 1256,
+  TagsSkillGrpupSkillsSkillMap = 1257,
+  TagsSkillGrpupSkillsSpaceId = 1258,
+  TagsSkillGrpupSkillsUpdatedAt = 1259,
+  TagsSkillGrpupSpaceId = 1260,
+  TagsSkillGrpupSysRevision = 1261,
+  TagsSkillGrpupSysType = 1262,
+  TagsSkillGrpupUpdatedAt = 1263,
+  TagsSkillMap = 1264,
+  TagsSkillMapChildren = 1265,
+  TagsSkillMapChildrenChildren = 1266,
+  TagsSkillMapChildrenId = 1267,
+  TagsSkillMapContentfulId = 1268,
+  TagsSkillMapCreatedAt = 1269,
+  TagsSkillMapExpanded = 1270,
+  TagsSkillMapId = 1271,
+  TagsSkillMapInternalContent = 1272,
+  TagsSkillMapInternalContentDigest = 1273,
+  TagsSkillMapInternalContentFilePath = 1274,
+  TagsSkillMapInternalDescription = 1275,
+  TagsSkillMapInternalFieldOwners = 1276,
+  TagsSkillMapInternalIgnoreType = 1277,
+  TagsSkillMapInternalMediaType = 1278,
+  TagsSkillMapInternalOwner = 1279,
+  TagsSkillMapInternalType = 1280,
+  TagsSkillMapName = 1281,
+  TagsSkillMapNodeLocale = 1282,
+  TagsSkillMapParentChildren = 1283,
+  TagsSkillMapParentId = 1284,
+  TagsSkillMapSkillGroups = 1285,
+  TagsSkillMapSkillGroupsChildren = 1286,
+  TagsSkillMapSkillGroupsContentfulId = 1287,
+  TagsSkillMapSkillGroupsCreatedAt = 1288,
+  TagsSkillMapSkillGroupsId = 1289,
+  TagsSkillMapSkillGroupsName = 1290,
+  TagsSkillMapSkillGroupsNodeLocale = 1291,
+  TagsSkillMapSkillGroupsSkillMap = 1292,
+  TagsSkillMapSkillGroupsSkills = 1293,
+  TagsSkillMapSkillGroupsSpaceId = 1294,
+  TagsSkillMapSkillGroupsUpdatedAt = 1295,
+  TagsSkillMapSkills = 1296,
+  TagsSkillMapSkillsBlogPost = 1297,
+  TagsSkillMapSkillsChildren = 1298,
+  TagsSkillMapSkillsContentfulId = 1299,
+  TagsSkillMapSkillsCreatedAt = 1300,
+  TagsSkillMapSkillsId = 1301,
+  TagsSkillMapSkillsLevel = 1302,
+  TagsSkillMapSkillsName = 1303,
+  TagsSkillMapSkillsNodeLocale = 1304,
+  TagsSkillMapSkillsOss = 1305,
+  TagsSkillMapSkillsProject = 1306,
+  TagsSkillMapSkillsSkillGrpup = 1307,
+  TagsSkillMapSkillsSkillMap = 1308,
+  TagsSkillMapSkillsSpaceId = 1309,
+  TagsSkillMapSkillsUpdatedAt = 1310,
+  TagsSkillMapSortKey = 1311,
+  TagsSkillMapSpaceId = 1312,
+  TagsSkillMapSysRevision = 1313,
+  TagsSkillMapSysType = 1314,
+  TagsSkillMapUpdatedAt = 1315,
+  TagsSpaceId = 1316,
+  TagsSysRevision = 1317,
+  TagsSysType = 1318,
+  TagsUpdatedAt = 1319,
+  UpdatedAt = 1320
 }
 
 export type ContentfulProjectFilterInput = {
-  childContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  detail: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
-  endDate: InputMaybe<DateQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  startDate: InputMaybe<DateQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulProjectSysFilterInput>;
-  tags: InputMaybe<ContentfulTagFilterListInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly childContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenContentfulProjectDetailTextNode: InputMaybe<ContentfulProjectDetailTextNodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly detail: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
+  readonly endDate: InputMaybe<DateQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly startDate: InputMaybe<DateQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulProjectSysFilterInput>;
+  readonly tags: InputMaybe<ContentfulTagFilterListInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulProjectFilterListInput = {
-  elemMatch: InputMaybe<ContentfulProjectFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulProjectFilterInput>;
 };
 
 export type ContentfulProjectGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulProjectGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProject>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProject>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -9732,56 +9748,56 @@ export type ContentfulProjectGroupConnectionSumArgs = {
 };
 
 export type ContentfulProjectSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulProjectFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulProjectFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulProjectSys = {
-  contentType: Maybe<ContentfulProjectSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulProjectSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectSysContentType = {
-  sys: Maybe<ContentfulProjectSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulProjectSysContentTypeSys>;
 };
 
 export type ContentfulProjectSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulProjectSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulProjectSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulProjectSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProjectSysFilterInput = {
-  contentType: InputMaybe<ContentfulProjectSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulProjectSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualification = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  date: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  qualification_map: Maybe<Array<Maybe<ContentfulQualificationMap>>>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulQualificationSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly date: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly qualification_map: Maybe<ReadonlyArray<Maybe<ContentfulQualificationMap>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulQualificationSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -9809,15 +9825,15 @@ export type ContentfulQualificationUpdatedAtArgs = {
 };
 
 export type ContentfulQualificationConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationEdge>;
-  group: Array<ContentfulQualificationGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualification>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationEdge>;
+  readonly group: ReadonlyArray<ContentfulQualificationGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualification>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -9848,9 +9864,9 @@ export type ContentfulQualificationConnectionSumArgs = {
 };
 
 export type ContentfulQualificationEdge = {
-  next: Maybe<ContentfulQualification>;
-  node: ContentfulQualification;
-  previous: Maybe<ContentfulQualification>;
+  readonly next: Maybe<ContentfulQualification>;
+  readonly node: ContentfulQualification;
+  readonly previous: Maybe<ContentfulQualification>;
 };
 
 export enum ContentfulQualificationFieldsEnum {
@@ -10051,37 +10067,37 @@ export enum ContentfulQualificationFieldsEnum {
 }
 
 export type ContentfulQualificationFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  date: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  qualification_map: InputMaybe<ContentfulQualificationMapFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulQualificationSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly qualification_map: InputMaybe<ContentfulQualificationMapFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulQualificationSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulQualificationFilterListInput = {
-  elemMatch: InputMaybe<ContentfulQualificationFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulQualificationFilterInput>;
 };
 
 export type ContentfulQualificationGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulQualificationGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualification>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulQualificationGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualification>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10112,20 +10128,20 @@ export type ContentfulQualificationGroupConnectionSumArgs = {
 };
 
 export type ContentfulQualificationMap = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  expanded: Maybe<Scalars['Boolean']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  qualifications: Maybe<Array<Maybe<ContentfulQualification>>>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulQualificationMapSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly expanded: Maybe<Scalars['Boolean']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly qualifications: Maybe<ReadonlyArray<Maybe<ContentfulQualification>>>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulQualificationMapSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -10145,15 +10161,15 @@ export type ContentfulQualificationMapUpdatedAtArgs = {
 };
 
 export type ContentfulQualificationMapConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationMapEdge>;
-  group: Array<ContentfulQualificationMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualificationMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationMapEdge>;
+  readonly group: ReadonlyArray<ContentfulQualificationMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualificationMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10184,9 +10200,9 @@ export type ContentfulQualificationMapConnectionSumArgs = {
 };
 
 export type ContentfulQualificationMapEdge = {
-  next: Maybe<ContentfulQualificationMap>;
-  node: ContentfulQualificationMap;
-  previous: Maybe<ContentfulQualificationMap>;
+  readonly next: Maybe<ContentfulQualificationMap>;
+  readonly node: ContentfulQualificationMap;
+  readonly previous: Maybe<ContentfulQualificationMap>;
 };
 
 export enum ContentfulQualificationMapFieldsEnum {
@@ -10387,38 +10403,38 @@ export enum ContentfulQualificationMapFieldsEnum {
 }
 
 export type ContentfulQualificationMapFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  expanded: InputMaybe<BooleanQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  qualifications: InputMaybe<ContentfulQualificationFilterListInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulQualificationMapSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly expanded: InputMaybe<BooleanQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly qualifications: InputMaybe<ContentfulQualificationFilterListInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulQualificationMapSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulQualificationMapFilterListInput = {
-  elemMatch: InputMaybe<ContentfulQualificationMapFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulQualificationMapFilterInput>;
 };
 
 export type ContentfulQualificationMapGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulQualificationMapEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulQualificationMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulQualificationMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulQualificationMapEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulQualificationMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulQualificationMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10449,98 +10465,98 @@ export type ContentfulQualificationMapGroupConnectionSumArgs = {
 };
 
 export type ContentfulQualificationMapSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulQualificationMapFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulQualificationMapFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulQualificationMapSys = {
-  contentType: Maybe<ContentfulQualificationMapSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulQualificationMapSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationMapSysContentType = {
-  sys: Maybe<ContentfulQualificationMapSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulQualificationMapSysContentTypeSys>;
 };
 
 export type ContentfulQualificationMapSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulQualificationMapSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulQualificationMapSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulQualificationMapSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationMapSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationMapSysFilterInput = {
-  contentType: InputMaybe<ContentfulQualificationMapSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulQualificationMapSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulQualificationFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulQualificationFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulQualificationSys = {
-  contentType: Maybe<ContentfulQualificationSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulQualificationSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationSysContentType = {
-  sys: Maybe<ContentfulQualificationSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulQualificationSysContentTypeSys>;
 };
 
 export type ContentfulQualificationSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulQualificationSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulQualificationSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulQualificationSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulQualificationSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulQualificationSysFilterInput = {
-  contentType: InputMaybe<ContentfulQualificationSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulQualificationSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulReference = {
-  contentful_id: Scalars['String'];
-  id: Scalars['ID'];
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
 };
 
 export type ContentfulSkillGrpup = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  skill_map: Maybe<Array<Maybe<ContentfulSkillMap>>>;
-  skills: Maybe<Array<Maybe<ContentfulTag>>>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulSkillGrpupSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly skill_map: Maybe<ReadonlyArray<Maybe<ContentfulSkillMap>>>;
+  readonly skills: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulSkillGrpupSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -10560,15 +10576,15 @@ export type ContentfulSkillGrpupUpdatedAtArgs = {
 };
 
 export type ContentfulSkillGrpupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillGrpupEdge>;
-  group: Array<ContentfulSkillGrpupGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillGrpup>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillGrpupEdge>;
+  readonly group: ReadonlyArray<ContentfulSkillGrpupGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillGrpup>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -10599,9 +10615,9 @@ export type ContentfulSkillGrpupConnectionSumArgs = {
 };
 
 export type ContentfulSkillGrpupEdge = {
-  next: Maybe<ContentfulSkillGrpup>;
-  node: ContentfulSkillGrpup;
-  previous: Maybe<ContentfulSkillGrpup>;
+  readonly next: Maybe<ContentfulSkillGrpup>;
+  readonly node: ContentfulSkillGrpup;
+  readonly previous: Maybe<ContentfulSkillGrpup>;
 };
 
 export enum ContentfulSkillGrpupFieldsEnum {
@@ -10809,535 +10825,537 @@ export enum ContentfulSkillGrpupFieldsEnum {
   SkillMapSkillsBlogPostCreated = 201,
   SkillMapSkillsBlogPostCreatedAt = 202,
   SkillMapSkillsBlogPostExcerpt = 203,
-  SkillMapSkillsBlogPostId = 204,
-  SkillMapSkillsBlogPostNodeLocale = 205,
-  SkillMapSkillsBlogPostSlug = 206,
-  SkillMapSkillsBlogPostSpaceId = 207,
-  SkillMapSkillsBlogPostTags = 208,
-  SkillMapSkillsBlogPostTitle = 209,
-  SkillMapSkillsBlogPostUpdated = 210,
-  SkillMapSkillsBlogPostUpdatedAt = 211,
-  SkillMapSkillsChildren = 212,
-  SkillMapSkillsChildrenChildren = 213,
-  SkillMapSkillsChildrenId = 214,
-  SkillMapSkillsContentfulId = 215,
-  SkillMapSkillsCreatedAt = 216,
-  SkillMapSkillsId = 217,
-  SkillMapSkillsInternalContent = 218,
-  SkillMapSkillsInternalContentDigest = 219,
-  SkillMapSkillsInternalContentFilePath = 220,
-  SkillMapSkillsInternalDescription = 221,
-  SkillMapSkillsInternalFieldOwners = 222,
-  SkillMapSkillsInternalIgnoreType = 223,
-  SkillMapSkillsInternalMediaType = 224,
-  SkillMapSkillsInternalOwner = 225,
-  SkillMapSkillsInternalType = 226,
-  SkillMapSkillsLevel = 227,
-  SkillMapSkillsName = 228,
-  SkillMapSkillsNodeLocale = 229,
-  SkillMapSkillsOss = 230,
-  SkillMapSkillsOssChildren = 231,
-  SkillMapSkillsOssChildrenContentfulOssDetailTextNode = 232,
-  SkillMapSkillsOssContentfulId = 233,
-  SkillMapSkillsOssCreatedAt = 234,
-  SkillMapSkillsOssHref = 235,
-  SkillMapSkillsOssId = 236,
-  SkillMapSkillsOssName = 237,
-  SkillMapSkillsOssNodeLocale = 238,
-  SkillMapSkillsOssSpaceId = 239,
-  SkillMapSkillsOssStartDate = 240,
-  SkillMapSkillsOssSubName = 241,
-  SkillMapSkillsOssTags = 242,
-  SkillMapSkillsOssUpdatedAt = 243,
-  SkillMapSkillsParentChildren = 244,
-  SkillMapSkillsParentId = 245,
-  SkillMapSkillsProject = 246,
-  SkillMapSkillsProjectChildren = 247,
-  SkillMapSkillsProjectChildrenContentfulProjectDetailTextNode = 248,
-  SkillMapSkillsProjectContentfulId = 249,
-  SkillMapSkillsProjectCreatedAt = 250,
-  SkillMapSkillsProjectEndDate = 251,
-  SkillMapSkillsProjectId = 252,
-  SkillMapSkillsProjectName = 253,
-  SkillMapSkillsProjectNodeLocale = 254,
-  SkillMapSkillsProjectSpaceId = 255,
-  SkillMapSkillsProjectStartDate = 256,
-  SkillMapSkillsProjectSubName = 257,
-  SkillMapSkillsProjectTags = 258,
-  SkillMapSkillsProjectUpdatedAt = 259,
-  SkillMapSkillsSkillGrpup = 260,
-  SkillMapSkillsSkillGrpupChildren = 261,
-  SkillMapSkillsSkillGrpupContentfulId = 262,
-  SkillMapSkillsSkillGrpupCreatedAt = 263,
-  SkillMapSkillsSkillGrpupId = 264,
-  SkillMapSkillsSkillGrpupName = 265,
-  SkillMapSkillsSkillGrpupNodeLocale = 266,
-  SkillMapSkillsSkillGrpupSkillMap = 267,
-  SkillMapSkillsSkillGrpupSkills = 268,
-  SkillMapSkillsSkillGrpupSpaceId = 269,
-  SkillMapSkillsSkillGrpupUpdatedAt = 270,
-  SkillMapSkillsSkillMap = 271,
-  SkillMapSkillsSkillMapChildren = 272,
-  SkillMapSkillsSkillMapContentfulId = 273,
-  SkillMapSkillsSkillMapCreatedAt = 274,
-  SkillMapSkillsSkillMapExpanded = 275,
-  SkillMapSkillsSkillMapId = 276,
-  SkillMapSkillsSkillMapName = 277,
-  SkillMapSkillsSkillMapNodeLocale = 278,
-  SkillMapSkillsSkillMapSkillGroups = 279,
-  SkillMapSkillsSkillMapSkills = 280,
-  SkillMapSkillsSkillMapSortKey = 281,
-  SkillMapSkillsSkillMapSpaceId = 282,
-  SkillMapSkillsSkillMapUpdatedAt = 283,
-  SkillMapSkillsSpaceId = 284,
-  SkillMapSkillsSysRevision = 285,
-  SkillMapSkillsSysType = 286,
-  SkillMapSkillsUpdatedAt = 287,
-  SkillMapSortKey = 288,
-  SkillMapSpaceId = 289,
-  SkillMapSysRevision = 290,
-  SkillMapSysType = 291,
-  SkillMapUpdatedAt = 292,
-  Skills = 293,
-  SkillsBlogPost = 294,
-  SkillsBlogPostCategoryBlogPost = 295,
-  SkillsBlogPostCategoryChildren = 296,
-  SkillsBlogPostCategoryContentfulId = 297,
-  SkillsBlogPostCategoryCreatedAt = 298,
-  SkillsBlogPostCategoryId = 299,
-  SkillsBlogPostCategoryName = 300,
-  SkillsBlogPostCategoryNodeLocale = 301,
-  SkillsBlogPostCategorySortKey = 302,
-  SkillsBlogPostCategorySpaceId = 303,
-  SkillsBlogPostCategoryUpdatedAt = 304,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildren = 305,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 306,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeContent = 307,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeId = 308,
-  SkillsBlogPostChildren = 309,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNode = 310,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildren = 311,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 312,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeContent = 313,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeId = 314,
-  SkillsBlogPostChildrenChildren = 315,
-  SkillsBlogPostChildrenId = 316,
-  SkillsBlogPostContentChildren = 317,
-  SkillsBlogPostContentChildrenMdx = 318,
-  SkillsBlogPostContentContent = 319,
-  SkillsBlogPostContentId = 320,
-  SkillsBlogPostContentfulId = 321,
-  SkillsBlogPostCreated = 322,
-  SkillsBlogPostCreatedAt = 323,
-  SkillsBlogPostExcerpt = 324,
-  SkillsBlogPostId = 325,
-  SkillsBlogPostInternalContent = 326,
-  SkillsBlogPostInternalContentDigest = 327,
-  SkillsBlogPostInternalContentFilePath = 328,
-  SkillsBlogPostInternalDescription = 329,
-  SkillsBlogPostInternalFieldOwners = 330,
-  SkillsBlogPostInternalIgnoreType = 331,
-  SkillsBlogPostInternalMediaType = 332,
-  SkillsBlogPostInternalOwner = 333,
-  SkillsBlogPostInternalType = 334,
-  SkillsBlogPostNodeLocale = 335,
-  SkillsBlogPostParentChildren = 336,
-  SkillsBlogPostParentId = 337,
-  SkillsBlogPostSlug = 338,
-  SkillsBlogPostSpaceId = 339,
-  SkillsBlogPostSysRevision = 340,
-  SkillsBlogPostSysType = 341,
-  SkillsBlogPostTags = 342,
-  SkillsBlogPostTagsBlogPost = 343,
-  SkillsBlogPostTagsChildren = 344,
-  SkillsBlogPostTagsContentfulId = 345,
-  SkillsBlogPostTagsCreatedAt = 346,
-  SkillsBlogPostTagsId = 347,
-  SkillsBlogPostTagsLevel = 348,
-  SkillsBlogPostTagsName = 349,
-  SkillsBlogPostTagsNodeLocale = 350,
-  SkillsBlogPostTagsOss = 351,
-  SkillsBlogPostTagsProject = 352,
-  SkillsBlogPostTagsSkillGrpup = 353,
-  SkillsBlogPostTagsSkillMap = 354,
-  SkillsBlogPostTagsSpaceId = 355,
-  SkillsBlogPostTagsUpdatedAt = 356,
-  SkillsBlogPostThumbnailChildren = 357,
-  SkillsBlogPostThumbnailContentfulId = 358,
-  SkillsBlogPostThumbnailCreatedAt = 359,
-  SkillsBlogPostThumbnailDescription = 360,
-  SkillsBlogPostThumbnailFilename = 361,
-  SkillsBlogPostThumbnailFilesize = 362,
-  SkillsBlogPostThumbnailGatsbyImage = 363,
-  SkillsBlogPostThumbnailGatsbyImageData = 364,
-  SkillsBlogPostThumbnailHeight = 365,
-  SkillsBlogPostThumbnailId = 366,
-  SkillsBlogPostThumbnailMimeType = 367,
-  SkillsBlogPostThumbnailNodeLocale = 368,
-  SkillsBlogPostThumbnailPlaceholderUrl = 369,
-  SkillsBlogPostThumbnailPublicUrl = 370,
-  SkillsBlogPostThumbnailSize = 371,
-  SkillsBlogPostThumbnailSpaceId = 372,
-  SkillsBlogPostThumbnailTitle = 373,
-  SkillsBlogPostThumbnailUpdatedAt = 374,
-  SkillsBlogPostThumbnailUrl = 375,
-  SkillsBlogPostThumbnailWidth = 376,
-  SkillsBlogPostTitle = 377,
-  SkillsBlogPostUpdated = 378,
-  SkillsBlogPostUpdatedAt = 379,
-  SkillsChildren = 380,
-  SkillsChildrenChildren = 381,
-  SkillsChildrenChildrenChildren = 382,
-  SkillsChildrenChildrenId = 383,
-  SkillsChildrenId = 384,
-  SkillsChildrenInternalContent = 385,
-  SkillsChildrenInternalContentDigest = 386,
-  SkillsChildrenInternalContentFilePath = 387,
-  SkillsChildrenInternalDescription = 388,
-  SkillsChildrenInternalFieldOwners = 389,
-  SkillsChildrenInternalIgnoreType = 390,
-  SkillsChildrenInternalMediaType = 391,
-  SkillsChildrenInternalOwner = 392,
-  SkillsChildrenInternalType = 393,
-  SkillsChildrenParentChildren = 394,
-  SkillsChildrenParentId = 395,
-  SkillsContentfulId = 396,
-  SkillsCreatedAt = 397,
-  SkillsId = 398,
-  SkillsInternalContent = 399,
-  SkillsInternalContentDigest = 400,
-  SkillsInternalContentFilePath = 401,
-  SkillsInternalDescription = 402,
-  SkillsInternalFieldOwners = 403,
-  SkillsInternalIgnoreType = 404,
-  SkillsInternalMediaType = 405,
-  SkillsInternalOwner = 406,
-  SkillsInternalType = 407,
-  SkillsLevel = 408,
-  SkillsName = 409,
-  SkillsNodeLocale = 410,
-  SkillsOss = 411,
-  SkillsOssChildContentfulOssDetailTextNodeChildren = 412,
-  SkillsOssChildContentfulOssDetailTextNodeChildrenMdx = 413,
-  SkillsOssChildContentfulOssDetailTextNodeDetail = 414,
-  SkillsOssChildContentfulOssDetailTextNodeId = 415,
-  SkillsOssChildren = 416,
-  SkillsOssChildrenContentfulOssDetailTextNode = 417,
-  SkillsOssChildrenContentfulOssDetailTextNodeChildren = 418,
-  SkillsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 419,
-  SkillsOssChildrenContentfulOssDetailTextNodeDetail = 420,
-  SkillsOssChildrenContentfulOssDetailTextNodeId = 421,
-  SkillsOssChildrenChildren = 422,
-  SkillsOssChildrenId = 423,
-  SkillsOssContentfulId = 424,
-  SkillsOssCreatedAt = 425,
-  SkillsOssDetailChildren = 426,
-  SkillsOssDetailChildrenMdx = 427,
-  SkillsOssDetailDetail = 428,
-  SkillsOssDetailId = 429,
-  SkillsOssHref = 430,
-  SkillsOssIconChildren = 431,
-  SkillsOssIconChildrenContentfulIconSvgTextNode = 432,
-  SkillsOssIconContact = 433,
-  SkillsOssIconContentfulId = 434,
-  SkillsOssIconCreatedAt = 435,
-  SkillsOssIconHistory = 436,
-  SkillsOssIconId = 437,
-  SkillsOssIconName = 438,
-  SkillsOssIconNodeLocale = 439,
-  SkillsOssIconOss = 440,
-  SkillsOssIconProject = 441,
-  SkillsOssIconSpaceId = 442,
-  SkillsOssIconUpdatedAt = 443,
-  SkillsOssIconWhatICanDo = 444,
-  SkillsOssId = 445,
-  SkillsOssImageChildren = 446,
-  SkillsOssImageContentfulId = 447,
-  SkillsOssImageCreatedAt = 448,
-  SkillsOssImageDescription = 449,
-  SkillsOssImageFilename = 450,
-  SkillsOssImageFilesize = 451,
-  SkillsOssImageGatsbyImage = 452,
-  SkillsOssImageGatsbyImageData = 453,
-  SkillsOssImageHeight = 454,
-  SkillsOssImageId = 455,
-  SkillsOssImageMimeType = 456,
-  SkillsOssImageNodeLocale = 457,
-  SkillsOssImagePlaceholderUrl = 458,
-  SkillsOssImagePublicUrl = 459,
-  SkillsOssImageSize = 460,
-  SkillsOssImageSpaceId = 461,
-  SkillsOssImageTitle = 462,
-  SkillsOssImageUpdatedAt = 463,
-  SkillsOssImageUrl = 464,
-  SkillsOssImageWidth = 465,
-  SkillsOssInternalContent = 466,
-  SkillsOssInternalContentDigest = 467,
-  SkillsOssInternalContentFilePath = 468,
-  SkillsOssInternalDescription = 469,
-  SkillsOssInternalFieldOwners = 470,
-  SkillsOssInternalIgnoreType = 471,
-  SkillsOssInternalMediaType = 472,
-  SkillsOssInternalOwner = 473,
-  SkillsOssInternalType = 474,
-  SkillsOssName = 475,
-  SkillsOssNodeLocale = 476,
-  SkillsOssParentChildren = 477,
-  SkillsOssParentId = 478,
-  SkillsOssSpaceId = 479,
-  SkillsOssStartDate = 480,
-  SkillsOssSubName = 481,
-  SkillsOssSysRevision = 482,
-  SkillsOssSysType = 483,
-  SkillsOssTags = 484,
-  SkillsOssTagsBlogPost = 485,
-  SkillsOssTagsChildren = 486,
-  SkillsOssTagsContentfulId = 487,
-  SkillsOssTagsCreatedAt = 488,
-  SkillsOssTagsId = 489,
-  SkillsOssTagsLevel = 490,
-  SkillsOssTagsName = 491,
-  SkillsOssTagsNodeLocale = 492,
-  SkillsOssTagsOss = 493,
-  SkillsOssTagsProject = 494,
-  SkillsOssTagsSkillGrpup = 495,
-  SkillsOssTagsSkillMap = 496,
-  SkillsOssTagsSpaceId = 497,
-  SkillsOssTagsUpdatedAt = 498,
-  SkillsOssUpdatedAt = 499,
-  SkillsParentChildren = 500,
-  SkillsParentChildrenChildren = 501,
-  SkillsParentChildrenId = 502,
-  SkillsParentId = 503,
-  SkillsParentInternalContent = 504,
-  SkillsParentInternalContentDigest = 505,
-  SkillsParentInternalContentFilePath = 506,
-  SkillsParentInternalDescription = 507,
-  SkillsParentInternalFieldOwners = 508,
-  SkillsParentInternalIgnoreType = 509,
-  SkillsParentInternalMediaType = 510,
-  SkillsParentInternalOwner = 511,
-  SkillsParentInternalType = 512,
-  SkillsParentParentChildren = 513,
-  SkillsParentParentId = 514,
-  SkillsProject = 515,
-  SkillsProjectChildContentfulProjectDetailTextNodeChildren = 516,
-  SkillsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 517,
-  SkillsProjectChildContentfulProjectDetailTextNodeDetail = 518,
-  SkillsProjectChildContentfulProjectDetailTextNodeId = 519,
-  SkillsProjectChildren = 520,
-  SkillsProjectChildrenContentfulProjectDetailTextNode = 521,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeChildren = 522,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 523,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeDetail = 524,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeId = 525,
-  SkillsProjectChildrenChildren = 526,
-  SkillsProjectChildrenId = 527,
-  SkillsProjectContentfulId = 528,
-  SkillsProjectCreatedAt = 529,
-  SkillsProjectDetailChildren = 530,
-  SkillsProjectDetailChildrenMdx = 531,
-  SkillsProjectDetailDetail = 532,
-  SkillsProjectDetailId = 533,
-  SkillsProjectEndDate = 534,
-  SkillsProjectIconChildren = 535,
-  SkillsProjectIconChildrenContentfulIconSvgTextNode = 536,
-  SkillsProjectIconContact = 537,
-  SkillsProjectIconContentfulId = 538,
-  SkillsProjectIconCreatedAt = 539,
-  SkillsProjectIconHistory = 540,
-  SkillsProjectIconId = 541,
-  SkillsProjectIconName = 542,
-  SkillsProjectIconNodeLocale = 543,
-  SkillsProjectIconOss = 544,
-  SkillsProjectIconProject = 545,
-  SkillsProjectIconSpaceId = 546,
-  SkillsProjectIconUpdatedAt = 547,
-  SkillsProjectIconWhatICanDo = 548,
-  SkillsProjectId = 549,
-  SkillsProjectInternalContent = 550,
-  SkillsProjectInternalContentDigest = 551,
-  SkillsProjectInternalContentFilePath = 552,
-  SkillsProjectInternalDescription = 553,
-  SkillsProjectInternalFieldOwners = 554,
-  SkillsProjectInternalIgnoreType = 555,
-  SkillsProjectInternalMediaType = 556,
-  SkillsProjectInternalOwner = 557,
-  SkillsProjectInternalType = 558,
-  SkillsProjectName = 559,
-  SkillsProjectNodeLocale = 560,
-  SkillsProjectParentChildren = 561,
-  SkillsProjectParentId = 562,
-  SkillsProjectSpaceId = 563,
-  SkillsProjectStartDate = 564,
-  SkillsProjectSubName = 565,
-  SkillsProjectSysRevision = 566,
-  SkillsProjectSysType = 567,
-  SkillsProjectTags = 568,
-  SkillsProjectTagsBlogPost = 569,
-  SkillsProjectTagsChildren = 570,
-  SkillsProjectTagsContentfulId = 571,
-  SkillsProjectTagsCreatedAt = 572,
-  SkillsProjectTagsId = 573,
-  SkillsProjectTagsLevel = 574,
-  SkillsProjectTagsName = 575,
-  SkillsProjectTagsNodeLocale = 576,
-  SkillsProjectTagsOss = 577,
-  SkillsProjectTagsProject = 578,
-  SkillsProjectTagsSkillGrpup = 579,
-  SkillsProjectTagsSkillMap = 580,
-  SkillsProjectTagsSpaceId = 581,
-  SkillsProjectTagsUpdatedAt = 582,
-  SkillsProjectUpdatedAt = 583,
-  SkillsSkillGrpup = 584,
-  SkillsSkillGrpupChildren = 585,
-  SkillsSkillGrpupChildrenChildren = 586,
-  SkillsSkillGrpupChildrenId = 587,
-  SkillsSkillGrpupContentfulId = 588,
-  SkillsSkillGrpupCreatedAt = 589,
-  SkillsSkillGrpupId = 590,
-  SkillsSkillGrpupInternalContent = 591,
-  SkillsSkillGrpupInternalContentDigest = 592,
-  SkillsSkillGrpupInternalContentFilePath = 593,
-  SkillsSkillGrpupInternalDescription = 594,
-  SkillsSkillGrpupInternalFieldOwners = 595,
-  SkillsSkillGrpupInternalIgnoreType = 596,
-  SkillsSkillGrpupInternalMediaType = 597,
-  SkillsSkillGrpupInternalOwner = 598,
-  SkillsSkillGrpupInternalType = 599,
-  SkillsSkillGrpupName = 600,
-  SkillsSkillGrpupNodeLocale = 601,
-  SkillsSkillGrpupParentChildren = 602,
-  SkillsSkillGrpupParentId = 603,
-  SkillsSkillGrpupSkillMap = 604,
-  SkillsSkillGrpupSkillMapChildren = 605,
-  SkillsSkillGrpupSkillMapContentfulId = 606,
-  SkillsSkillGrpupSkillMapCreatedAt = 607,
-  SkillsSkillGrpupSkillMapExpanded = 608,
-  SkillsSkillGrpupSkillMapId = 609,
-  SkillsSkillGrpupSkillMapName = 610,
-  SkillsSkillGrpupSkillMapNodeLocale = 611,
-  SkillsSkillGrpupSkillMapSkillGroups = 612,
-  SkillsSkillGrpupSkillMapSkills = 613,
-  SkillsSkillGrpupSkillMapSortKey = 614,
-  SkillsSkillGrpupSkillMapSpaceId = 615,
-  SkillsSkillGrpupSkillMapUpdatedAt = 616,
-  SkillsSkillGrpupSkills = 617,
-  SkillsSkillGrpupSkillsBlogPost = 618,
-  SkillsSkillGrpupSkillsChildren = 619,
-  SkillsSkillGrpupSkillsContentfulId = 620,
-  SkillsSkillGrpupSkillsCreatedAt = 621,
-  SkillsSkillGrpupSkillsId = 622,
-  SkillsSkillGrpupSkillsLevel = 623,
-  SkillsSkillGrpupSkillsName = 624,
-  SkillsSkillGrpupSkillsNodeLocale = 625,
-  SkillsSkillGrpupSkillsOss = 626,
-  SkillsSkillGrpupSkillsProject = 627,
-  SkillsSkillGrpupSkillsSkillGrpup = 628,
-  SkillsSkillGrpupSkillsSkillMap = 629,
-  SkillsSkillGrpupSkillsSpaceId = 630,
-  SkillsSkillGrpupSkillsUpdatedAt = 631,
-  SkillsSkillGrpupSpaceId = 632,
-  SkillsSkillGrpupSysRevision = 633,
-  SkillsSkillGrpupSysType = 634,
-  SkillsSkillGrpupUpdatedAt = 635,
-  SkillsSkillMap = 636,
-  SkillsSkillMapChildren = 637,
-  SkillsSkillMapChildrenChildren = 638,
-  SkillsSkillMapChildrenId = 639,
-  SkillsSkillMapContentfulId = 640,
-  SkillsSkillMapCreatedAt = 641,
-  SkillsSkillMapExpanded = 642,
-  SkillsSkillMapId = 643,
-  SkillsSkillMapInternalContent = 644,
-  SkillsSkillMapInternalContentDigest = 645,
-  SkillsSkillMapInternalContentFilePath = 646,
-  SkillsSkillMapInternalDescription = 647,
-  SkillsSkillMapInternalFieldOwners = 648,
-  SkillsSkillMapInternalIgnoreType = 649,
-  SkillsSkillMapInternalMediaType = 650,
-  SkillsSkillMapInternalOwner = 651,
-  SkillsSkillMapInternalType = 652,
-  SkillsSkillMapName = 653,
-  SkillsSkillMapNodeLocale = 654,
-  SkillsSkillMapParentChildren = 655,
-  SkillsSkillMapParentId = 656,
-  SkillsSkillMapSkillGroups = 657,
-  SkillsSkillMapSkillGroupsChildren = 658,
-  SkillsSkillMapSkillGroupsContentfulId = 659,
-  SkillsSkillMapSkillGroupsCreatedAt = 660,
-  SkillsSkillMapSkillGroupsId = 661,
-  SkillsSkillMapSkillGroupsName = 662,
-  SkillsSkillMapSkillGroupsNodeLocale = 663,
-  SkillsSkillMapSkillGroupsSkillMap = 664,
-  SkillsSkillMapSkillGroupsSkills = 665,
-  SkillsSkillMapSkillGroupsSpaceId = 666,
-  SkillsSkillMapSkillGroupsUpdatedAt = 667,
-  SkillsSkillMapSkills = 668,
-  SkillsSkillMapSkillsBlogPost = 669,
-  SkillsSkillMapSkillsChildren = 670,
-  SkillsSkillMapSkillsContentfulId = 671,
-  SkillsSkillMapSkillsCreatedAt = 672,
-  SkillsSkillMapSkillsId = 673,
-  SkillsSkillMapSkillsLevel = 674,
-  SkillsSkillMapSkillsName = 675,
-  SkillsSkillMapSkillsNodeLocale = 676,
-  SkillsSkillMapSkillsOss = 677,
-  SkillsSkillMapSkillsProject = 678,
-  SkillsSkillMapSkillsSkillGrpup = 679,
-  SkillsSkillMapSkillsSkillMap = 680,
-  SkillsSkillMapSkillsSpaceId = 681,
-  SkillsSkillMapSkillsUpdatedAt = 682,
-  SkillsSkillMapSortKey = 683,
-  SkillsSkillMapSpaceId = 684,
-  SkillsSkillMapSysRevision = 685,
-  SkillsSkillMapSysType = 686,
-  SkillsSkillMapUpdatedAt = 687,
-  SkillsSpaceId = 688,
-  SkillsSysRevision = 689,
-  SkillsSysType = 690,
-  SkillsUpdatedAt = 691,
-  SpaceId = 692,
-  SysContentTypeSysId = 693,
-  SysContentTypeSysLinkType = 694,
-  SysContentTypeSysType = 695,
-  SysRevision = 696,
-  SysType = 697,
-  UpdatedAt = 698
+  SkillMapSkillsBlogPostGatsbyPath = 204,
+  SkillMapSkillsBlogPostId = 205,
+  SkillMapSkillsBlogPostNodeLocale = 206,
+  SkillMapSkillsBlogPostSlug = 207,
+  SkillMapSkillsBlogPostSpaceId = 208,
+  SkillMapSkillsBlogPostTags = 209,
+  SkillMapSkillsBlogPostTitle = 210,
+  SkillMapSkillsBlogPostUpdated = 211,
+  SkillMapSkillsBlogPostUpdatedAt = 212,
+  SkillMapSkillsChildren = 213,
+  SkillMapSkillsChildrenChildren = 214,
+  SkillMapSkillsChildrenId = 215,
+  SkillMapSkillsContentfulId = 216,
+  SkillMapSkillsCreatedAt = 217,
+  SkillMapSkillsId = 218,
+  SkillMapSkillsInternalContent = 219,
+  SkillMapSkillsInternalContentDigest = 220,
+  SkillMapSkillsInternalContentFilePath = 221,
+  SkillMapSkillsInternalDescription = 222,
+  SkillMapSkillsInternalFieldOwners = 223,
+  SkillMapSkillsInternalIgnoreType = 224,
+  SkillMapSkillsInternalMediaType = 225,
+  SkillMapSkillsInternalOwner = 226,
+  SkillMapSkillsInternalType = 227,
+  SkillMapSkillsLevel = 228,
+  SkillMapSkillsName = 229,
+  SkillMapSkillsNodeLocale = 230,
+  SkillMapSkillsOss = 231,
+  SkillMapSkillsOssChildren = 232,
+  SkillMapSkillsOssChildrenContentfulOssDetailTextNode = 233,
+  SkillMapSkillsOssContentfulId = 234,
+  SkillMapSkillsOssCreatedAt = 235,
+  SkillMapSkillsOssHref = 236,
+  SkillMapSkillsOssId = 237,
+  SkillMapSkillsOssName = 238,
+  SkillMapSkillsOssNodeLocale = 239,
+  SkillMapSkillsOssSpaceId = 240,
+  SkillMapSkillsOssStartDate = 241,
+  SkillMapSkillsOssSubName = 242,
+  SkillMapSkillsOssTags = 243,
+  SkillMapSkillsOssUpdatedAt = 244,
+  SkillMapSkillsParentChildren = 245,
+  SkillMapSkillsParentId = 246,
+  SkillMapSkillsProject = 247,
+  SkillMapSkillsProjectChildren = 248,
+  SkillMapSkillsProjectChildrenContentfulProjectDetailTextNode = 249,
+  SkillMapSkillsProjectContentfulId = 250,
+  SkillMapSkillsProjectCreatedAt = 251,
+  SkillMapSkillsProjectEndDate = 252,
+  SkillMapSkillsProjectId = 253,
+  SkillMapSkillsProjectName = 254,
+  SkillMapSkillsProjectNodeLocale = 255,
+  SkillMapSkillsProjectSpaceId = 256,
+  SkillMapSkillsProjectStartDate = 257,
+  SkillMapSkillsProjectSubName = 258,
+  SkillMapSkillsProjectTags = 259,
+  SkillMapSkillsProjectUpdatedAt = 260,
+  SkillMapSkillsSkillGrpup = 261,
+  SkillMapSkillsSkillGrpupChildren = 262,
+  SkillMapSkillsSkillGrpupContentfulId = 263,
+  SkillMapSkillsSkillGrpupCreatedAt = 264,
+  SkillMapSkillsSkillGrpupId = 265,
+  SkillMapSkillsSkillGrpupName = 266,
+  SkillMapSkillsSkillGrpupNodeLocale = 267,
+  SkillMapSkillsSkillGrpupSkillMap = 268,
+  SkillMapSkillsSkillGrpupSkills = 269,
+  SkillMapSkillsSkillGrpupSpaceId = 270,
+  SkillMapSkillsSkillGrpupUpdatedAt = 271,
+  SkillMapSkillsSkillMap = 272,
+  SkillMapSkillsSkillMapChildren = 273,
+  SkillMapSkillsSkillMapContentfulId = 274,
+  SkillMapSkillsSkillMapCreatedAt = 275,
+  SkillMapSkillsSkillMapExpanded = 276,
+  SkillMapSkillsSkillMapId = 277,
+  SkillMapSkillsSkillMapName = 278,
+  SkillMapSkillsSkillMapNodeLocale = 279,
+  SkillMapSkillsSkillMapSkillGroups = 280,
+  SkillMapSkillsSkillMapSkills = 281,
+  SkillMapSkillsSkillMapSortKey = 282,
+  SkillMapSkillsSkillMapSpaceId = 283,
+  SkillMapSkillsSkillMapUpdatedAt = 284,
+  SkillMapSkillsSpaceId = 285,
+  SkillMapSkillsSysRevision = 286,
+  SkillMapSkillsSysType = 287,
+  SkillMapSkillsUpdatedAt = 288,
+  SkillMapSortKey = 289,
+  SkillMapSpaceId = 290,
+  SkillMapSysRevision = 291,
+  SkillMapSysType = 292,
+  SkillMapUpdatedAt = 293,
+  Skills = 294,
+  SkillsBlogPost = 295,
+  SkillsBlogPostCategoryBlogPost = 296,
+  SkillsBlogPostCategoryChildren = 297,
+  SkillsBlogPostCategoryContentfulId = 298,
+  SkillsBlogPostCategoryCreatedAt = 299,
+  SkillsBlogPostCategoryId = 300,
+  SkillsBlogPostCategoryName = 301,
+  SkillsBlogPostCategoryNodeLocale = 302,
+  SkillsBlogPostCategorySortKey = 303,
+  SkillsBlogPostCategorySpaceId = 304,
+  SkillsBlogPostCategoryUpdatedAt = 305,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildren = 306,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 307,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeContent = 308,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeId = 309,
+  SkillsBlogPostChildren = 310,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNode = 311,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildren = 312,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 313,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeContent = 314,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeId = 315,
+  SkillsBlogPostChildrenChildren = 316,
+  SkillsBlogPostChildrenId = 317,
+  SkillsBlogPostContentChildren = 318,
+  SkillsBlogPostContentChildrenMdx = 319,
+  SkillsBlogPostContentContent = 320,
+  SkillsBlogPostContentId = 321,
+  SkillsBlogPostContentfulId = 322,
+  SkillsBlogPostCreated = 323,
+  SkillsBlogPostCreatedAt = 324,
+  SkillsBlogPostExcerpt = 325,
+  SkillsBlogPostGatsbyPath = 326,
+  SkillsBlogPostId = 327,
+  SkillsBlogPostInternalContent = 328,
+  SkillsBlogPostInternalContentDigest = 329,
+  SkillsBlogPostInternalContentFilePath = 330,
+  SkillsBlogPostInternalDescription = 331,
+  SkillsBlogPostInternalFieldOwners = 332,
+  SkillsBlogPostInternalIgnoreType = 333,
+  SkillsBlogPostInternalMediaType = 334,
+  SkillsBlogPostInternalOwner = 335,
+  SkillsBlogPostInternalType = 336,
+  SkillsBlogPostNodeLocale = 337,
+  SkillsBlogPostParentChildren = 338,
+  SkillsBlogPostParentId = 339,
+  SkillsBlogPostSlug = 340,
+  SkillsBlogPostSpaceId = 341,
+  SkillsBlogPostSysRevision = 342,
+  SkillsBlogPostSysType = 343,
+  SkillsBlogPostTags = 344,
+  SkillsBlogPostTagsBlogPost = 345,
+  SkillsBlogPostTagsChildren = 346,
+  SkillsBlogPostTagsContentfulId = 347,
+  SkillsBlogPostTagsCreatedAt = 348,
+  SkillsBlogPostTagsId = 349,
+  SkillsBlogPostTagsLevel = 350,
+  SkillsBlogPostTagsName = 351,
+  SkillsBlogPostTagsNodeLocale = 352,
+  SkillsBlogPostTagsOss = 353,
+  SkillsBlogPostTagsProject = 354,
+  SkillsBlogPostTagsSkillGrpup = 355,
+  SkillsBlogPostTagsSkillMap = 356,
+  SkillsBlogPostTagsSpaceId = 357,
+  SkillsBlogPostTagsUpdatedAt = 358,
+  SkillsBlogPostThumbnailChildren = 359,
+  SkillsBlogPostThumbnailContentfulId = 360,
+  SkillsBlogPostThumbnailCreatedAt = 361,
+  SkillsBlogPostThumbnailDescription = 362,
+  SkillsBlogPostThumbnailFilename = 363,
+  SkillsBlogPostThumbnailFilesize = 364,
+  SkillsBlogPostThumbnailGatsbyImage = 365,
+  SkillsBlogPostThumbnailGatsbyImageData = 366,
+  SkillsBlogPostThumbnailHeight = 367,
+  SkillsBlogPostThumbnailId = 368,
+  SkillsBlogPostThumbnailMimeType = 369,
+  SkillsBlogPostThumbnailNodeLocale = 370,
+  SkillsBlogPostThumbnailPlaceholderUrl = 371,
+  SkillsBlogPostThumbnailPublicUrl = 372,
+  SkillsBlogPostThumbnailSize = 373,
+  SkillsBlogPostThumbnailSpaceId = 374,
+  SkillsBlogPostThumbnailTitle = 375,
+  SkillsBlogPostThumbnailUpdatedAt = 376,
+  SkillsBlogPostThumbnailUrl = 377,
+  SkillsBlogPostThumbnailWidth = 378,
+  SkillsBlogPostTitle = 379,
+  SkillsBlogPostUpdated = 380,
+  SkillsBlogPostUpdatedAt = 381,
+  SkillsChildren = 382,
+  SkillsChildrenChildren = 383,
+  SkillsChildrenChildrenChildren = 384,
+  SkillsChildrenChildrenId = 385,
+  SkillsChildrenId = 386,
+  SkillsChildrenInternalContent = 387,
+  SkillsChildrenInternalContentDigest = 388,
+  SkillsChildrenInternalContentFilePath = 389,
+  SkillsChildrenInternalDescription = 390,
+  SkillsChildrenInternalFieldOwners = 391,
+  SkillsChildrenInternalIgnoreType = 392,
+  SkillsChildrenInternalMediaType = 393,
+  SkillsChildrenInternalOwner = 394,
+  SkillsChildrenInternalType = 395,
+  SkillsChildrenParentChildren = 396,
+  SkillsChildrenParentId = 397,
+  SkillsContentfulId = 398,
+  SkillsCreatedAt = 399,
+  SkillsId = 400,
+  SkillsInternalContent = 401,
+  SkillsInternalContentDigest = 402,
+  SkillsInternalContentFilePath = 403,
+  SkillsInternalDescription = 404,
+  SkillsInternalFieldOwners = 405,
+  SkillsInternalIgnoreType = 406,
+  SkillsInternalMediaType = 407,
+  SkillsInternalOwner = 408,
+  SkillsInternalType = 409,
+  SkillsLevel = 410,
+  SkillsName = 411,
+  SkillsNodeLocale = 412,
+  SkillsOss = 413,
+  SkillsOssChildContentfulOssDetailTextNodeChildren = 414,
+  SkillsOssChildContentfulOssDetailTextNodeChildrenMdx = 415,
+  SkillsOssChildContentfulOssDetailTextNodeDetail = 416,
+  SkillsOssChildContentfulOssDetailTextNodeId = 417,
+  SkillsOssChildren = 418,
+  SkillsOssChildrenContentfulOssDetailTextNode = 419,
+  SkillsOssChildrenContentfulOssDetailTextNodeChildren = 420,
+  SkillsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 421,
+  SkillsOssChildrenContentfulOssDetailTextNodeDetail = 422,
+  SkillsOssChildrenContentfulOssDetailTextNodeId = 423,
+  SkillsOssChildrenChildren = 424,
+  SkillsOssChildrenId = 425,
+  SkillsOssContentfulId = 426,
+  SkillsOssCreatedAt = 427,
+  SkillsOssDetailChildren = 428,
+  SkillsOssDetailChildrenMdx = 429,
+  SkillsOssDetailDetail = 430,
+  SkillsOssDetailId = 431,
+  SkillsOssHref = 432,
+  SkillsOssIconChildren = 433,
+  SkillsOssIconChildrenContentfulIconSvgTextNode = 434,
+  SkillsOssIconContact = 435,
+  SkillsOssIconContentfulId = 436,
+  SkillsOssIconCreatedAt = 437,
+  SkillsOssIconHistory = 438,
+  SkillsOssIconId = 439,
+  SkillsOssIconName = 440,
+  SkillsOssIconNodeLocale = 441,
+  SkillsOssIconOss = 442,
+  SkillsOssIconProject = 443,
+  SkillsOssIconSpaceId = 444,
+  SkillsOssIconUpdatedAt = 445,
+  SkillsOssIconWhatICanDo = 446,
+  SkillsOssId = 447,
+  SkillsOssImageChildren = 448,
+  SkillsOssImageContentfulId = 449,
+  SkillsOssImageCreatedAt = 450,
+  SkillsOssImageDescription = 451,
+  SkillsOssImageFilename = 452,
+  SkillsOssImageFilesize = 453,
+  SkillsOssImageGatsbyImage = 454,
+  SkillsOssImageGatsbyImageData = 455,
+  SkillsOssImageHeight = 456,
+  SkillsOssImageId = 457,
+  SkillsOssImageMimeType = 458,
+  SkillsOssImageNodeLocale = 459,
+  SkillsOssImagePlaceholderUrl = 460,
+  SkillsOssImagePublicUrl = 461,
+  SkillsOssImageSize = 462,
+  SkillsOssImageSpaceId = 463,
+  SkillsOssImageTitle = 464,
+  SkillsOssImageUpdatedAt = 465,
+  SkillsOssImageUrl = 466,
+  SkillsOssImageWidth = 467,
+  SkillsOssInternalContent = 468,
+  SkillsOssInternalContentDigest = 469,
+  SkillsOssInternalContentFilePath = 470,
+  SkillsOssInternalDescription = 471,
+  SkillsOssInternalFieldOwners = 472,
+  SkillsOssInternalIgnoreType = 473,
+  SkillsOssInternalMediaType = 474,
+  SkillsOssInternalOwner = 475,
+  SkillsOssInternalType = 476,
+  SkillsOssName = 477,
+  SkillsOssNodeLocale = 478,
+  SkillsOssParentChildren = 479,
+  SkillsOssParentId = 480,
+  SkillsOssSpaceId = 481,
+  SkillsOssStartDate = 482,
+  SkillsOssSubName = 483,
+  SkillsOssSysRevision = 484,
+  SkillsOssSysType = 485,
+  SkillsOssTags = 486,
+  SkillsOssTagsBlogPost = 487,
+  SkillsOssTagsChildren = 488,
+  SkillsOssTagsContentfulId = 489,
+  SkillsOssTagsCreatedAt = 490,
+  SkillsOssTagsId = 491,
+  SkillsOssTagsLevel = 492,
+  SkillsOssTagsName = 493,
+  SkillsOssTagsNodeLocale = 494,
+  SkillsOssTagsOss = 495,
+  SkillsOssTagsProject = 496,
+  SkillsOssTagsSkillGrpup = 497,
+  SkillsOssTagsSkillMap = 498,
+  SkillsOssTagsSpaceId = 499,
+  SkillsOssTagsUpdatedAt = 500,
+  SkillsOssUpdatedAt = 501,
+  SkillsParentChildren = 502,
+  SkillsParentChildrenChildren = 503,
+  SkillsParentChildrenId = 504,
+  SkillsParentId = 505,
+  SkillsParentInternalContent = 506,
+  SkillsParentInternalContentDigest = 507,
+  SkillsParentInternalContentFilePath = 508,
+  SkillsParentInternalDescription = 509,
+  SkillsParentInternalFieldOwners = 510,
+  SkillsParentInternalIgnoreType = 511,
+  SkillsParentInternalMediaType = 512,
+  SkillsParentInternalOwner = 513,
+  SkillsParentInternalType = 514,
+  SkillsParentParentChildren = 515,
+  SkillsParentParentId = 516,
+  SkillsProject = 517,
+  SkillsProjectChildContentfulProjectDetailTextNodeChildren = 518,
+  SkillsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 519,
+  SkillsProjectChildContentfulProjectDetailTextNodeDetail = 520,
+  SkillsProjectChildContentfulProjectDetailTextNodeId = 521,
+  SkillsProjectChildren = 522,
+  SkillsProjectChildrenContentfulProjectDetailTextNode = 523,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeChildren = 524,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 525,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeDetail = 526,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeId = 527,
+  SkillsProjectChildrenChildren = 528,
+  SkillsProjectChildrenId = 529,
+  SkillsProjectContentfulId = 530,
+  SkillsProjectCreatedAt = 531,
+  SkillsProjectDetailChildren = 532,
+  SkillsProjectDetailChildrenMdx = 533,
+  SkillsProjectDetailDetail = 534,
+  SkillsProjectDetailId = 535,
+  SkillsProjectEndDate = 536,
+  SkillsProjectIconChildren = 537,
+  SkillsProjectIconChildrenContentfulIconSvgTextNode = 538,
+  SkillsProjectIconContact = 539,
+  SkillsProjectIconContentfulId = 540,
+  SkillsProjectIconCreatedAt = 541,
+  SkillsProjectIconHistory = 542,
+  SkillsProjectIconId = 543,
+  SkillsProjectIconName = 544,
+  SkillsProjectIconNodeLocale = 545,
+  SkillsProjectIconOss = 546,
+  SkillsProjectIconProject = 547,
+  SkillsProjectIconSpaceId = 548,
+  SkillsProjectIconUpdatedAt = 549,
+  SkillsProjectIconWhatICanDo = 550,
+  SkillsProjectId = 551,
+  SkillsProjectInternalContent = 552,
+  SkillsProjectInternalContentDigest = 553,
+  SkillsProjectInternalContentFilePath = 554,
+  SkillsProjectInternalDescription = 555,
+  SkillsProjectInternalFieldOwners = 556,
+  SkillsProjectInternalIgnoreType = 557,
+  SkillsProjectInternalMediaType = 558,
+  SkillsProjectInternalOwner = 559,
+  SkillsProjectInternalType = 560,
+  SkillsProjectName = 561,
+  SkillsProjectNodeLocale = 562,
+  SkillsProjectParentChildren = 563,
+  SkillsProjectParentId = 564,
+  SkillsProjectSpaceId = 565,
+  SkillsProjectStartDate = 566,
+  SkillsProjectSubName = 567,
+  SkillsProjectSysRevision = 568,
+  SkillsProjectSysType = 569,
+  SkillsProjectTags = 570,
+  SkillsProjectTagsBlogPost = 571,
+  SkillsProjectTagsChildren = 572,
+  SkillsProjectTagsContentfulId = 573,
+  SkillsProjectTagsCreatedAt = 574,
+  SkillsProjectTagsId = 575,
+  SkillsProjectTagsLevel = 576,
+  SkillsProjectTagsName = 577,
+  SkillsProjectTagsNodeLocale = 578,
+  SkillsProjectTagsOss = 579,
+  SkillsProjectTagsProject = 580,
+  SkillsProjectTagsSkillGrpup = 581,
+  SkillsProjectTagsSkillMap = 582,
+  SkillsProjectTagsSpaceId = 583,
+  SkillsProjectTagsUpdatedAt = 584,
+  SkillsProjectUpdatedAt = 585,
+  SkillsSkillGrpup = 586,
+  SkillsSkillGrpupChildren = 587,
+  SkillsSkillGrpupChildrenChildren = 588,
+  SkillsSkillGrpupChildrenId = 589,
+  SkillsSkillGrpupContentfulId = 590,
+  SkillsSkillGrpupCreatedAt = 591,
+  SkillsSkillGrpupId = 592,
+  SkillsSkillGrpupInternalContent = 593,
+  SkillsSkillGrpupInternalContentDigest = 594,
+  SkillsSkillGrpupInternalContentFilePath = 595,
+  SkillsSkillGrpupInternalDescription = 596,
+  SkillsSkillGrpupInternalFieldOwners = 597,
+  SkillsSkillGrpupInternalIgnoreType = 598,
+  SkillsSkillGrpupInternalMediaType = 599,
+  SkillsSkillGrpupInternalOwner = 600,
+  SkillsSkillGrpupInternalType = 601,
+  SkillsSkillGrpupName = 602,
+  SkillsSkillGrpupNodeLocale = 603,
+  SkillsSkillGrpupParentChildren = 604,
+  SkillsSkillGrpupParentId = 605,
+  SkillsSkillGrpupSkillMap = 606,
+  SkillsSkillGrpupSkillMapChildren = 607,
+  SkillsSkillGrpupSkillMapContentfulId = 608,
+  SkillsSkillGrpupSkillMapCreatedAt = 609,
+  SkillsSkillGrpupSkillMapExpanded = 610,
+  SkillsSkillGrpupSkillMapId = 611,
+  SkillsSkillGrpupSkillMapName = 612,
+  SkillsSkillGrpupSkillMapNodeLocale = 613,
+  SkillsSkillGrpupSkillMapSkillGroups = 614,
+  SkillsSkillGrpupSkillMapSkills = 615,
+  SkillsSkillGrpupSkillMapSortKey = 616,
+  SkillsSkillGrpupSkillMapSpaceId = 617,
+  SkillsSkillGrpupSkillMapUpdatedAt = 618,
+  SkillsSkillGrpupSkills = 619,
+  SkillsSkillGrpupSkillsBlogPost = 620,
+  SkillsSkillGrpupSkillsChildren = 621,
+  SkillsSkillGrpupSkillsContentfulId = 622,
+  SkillsSkillGrpupSkillsCreatedAt = 623,
+  SkillsSkillGrpupSkillsId = 624,
+  SkillsSkillGrpupSkillsLevel = 625,
+  SkillsSkillGrpupSkillsName = 626,
+  SkillsSkillGrpupSkillsNodeLocale = 627,
+  SkillsSkillGrpupSkillsOss = 628,
+  SkillsSkillGrpupSkillsProject = 629,
+  SkillsSkillGrpupSkillsSkillGrpup = 630,
+  SkillsSkillGrpupSkillsSkillMap = 631,
+  SkillsSkillGrpupSkillsSpaceId = 632,
+  SkillsSkillGrpupSkillsUpdatedAt = 633,
+  SkillsSkillGrpupSpaceId = 634,
+  SkillsSkillGrpupSysRevision = 635,
+  SkillsSkillGrpupSysType = 636,
+  SkillsSkillGrpupUpdatedAt = 637,
+  SkillsSkillMap = 638,
+  SkillsSkillMapChildren = 639,
+  SkillsSkillMapChildrenChildren = 640,
+  SkillsSkillMapChildrenId = 641,
+  SkillsSkillMapContentfulId = 642,
+  SkillsSkillMapCreatedAt = 643,
+  SkillsSkillMapExpanded = 644,
+  SkillsSkillMapId = 645,
+  SkillsSkillMapInternalContent = 646,
+  SkillsSkillMapInternalContentDigest = 647,
+  SkillsSkillMapInternalContentFilePath = 648,
+  SkillsSkillMapInternalDescription = 649,
+  SkillsSkillMapInternalFieldOwners = 650,
+  SkillsSkillMapInternalIgnoreType = 651,
+  SkillsSkillMapInternalMediaType = 652,
+  SkillsSkillMapInternalOwner = 653,
+  SkillsSkillMapInternalType = 654,
+  SkillsSkillMapName = 655,
+  SkillsSkillMapNodeLocale = 656,
+  SkillsSkillMapParentChildren = 657,
+  SkillsSkillMapParentId = 658,
+  SkillsSkillMapSkillGroups = 659,
+  SkillsSkillMapSkillGroupsChildren = 660,
+  SkillsSkillMapSkillGroupsContentfulId = 661,
+  SkillsSkillMapSkillGroupsCreatedAt = 662,
+  SkillsSkillMapSkillGroupsId = 663,
+  SkillsSkillMapSkillGroupsName = 664,
+  SkillsSkillMapSkillGroupsNodeLocale = 665,
+  SkillsSkillMapSkillGroupsSkillMap = 666,
+  SkillsSkillMapSkillGroupsSkills = 667,
+  SkillsSkillMapSkillGroupsSpaceId = 668,
+  SkillsSkillMapSkillGroupsUpdatedAt = 669,
+  SkillsSkillMapSkills = 670,
+  SkillsSkillMapSkillsBlogPost = 671,
+  SkillsSkillMapSkillsChildren = 672,
+  SkillsSkillMapSkillsContentfulId = 673,
+  SkillsSkillMapSkillsCreatedAt = 674,
+  SkillsSkillMapSkillsId = 675,
+  SkillsSkillMapSkillsLevel = 676,
+  SkillsSkillMapSkillsName = 677,
+  SkillsSkillMapSkillsNodeLocale = 678,
+  SkillsSkillMapSkillsOss = 679,
+  SkillsSkillMapSkillsProject = 680,
+  SkillsSkillMapSkillsSkillGrpup = 681,
+  SkillsSkillMapSkillsSkillMap = 682,
+  SkillsSkillMapSkillsSpaceId = 683,
+  SkillsSkillMapSkillsUpdatedAt = 684,
+  SkillsSkillMapSortKey = 685,
+  SkillsSkillMapSpaceId = 686,
+  SkillsSkillMapSysRevision = 687,
+  SkillsSkillMapSysType = 688,
+  SkillsSkillMapUpdatedAt = 689,
+  SkillsSpaceId = 690,
+  SkillsSysRevision = 691,
+  SkillsSysType = 692,
+  SkillsUpdatedAt = 693,
+  SpaceId = 694,
+  SysContentTypeSysId = 695,
+  SysContentTypeSysLinkType = 696,
+  SysContentTypeSysType = 697,
+  SysRevision = 698,
+  SysType = 699,
+  UpdatedAt = 700
 }
 
 export type ContentfulSkillGrpupFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
-  skills: InputMaybe<ContentfulTagFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulSkillGrpupSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
+  readonly skills: InputMaybe<ContentfulTagFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulSkillGrpupSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulSkillGrpupFilterListInput = {
-  elemMatch: InputMaybe<ContentfulSkillGrpupFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulSkillGrpupFilterInput>;
 };
 
 export type ContentfulSkillGrpupGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillGrpupEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulSkillGrpupGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillGrpup>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillGrpupEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulSkillGrpupGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillGrpup>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -11368,58 +11386,58 @@ export type ContentfulSkillGrpupGroupConnectionSumArgs = {
 };
 
 export type ContentfulSkillGrpupSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulSkillGrpupFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulSkillGrpupFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulSkillGrpupSys = {
-  contentType: Maybe<ContentfulSkillGrpupSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulSkillGrpupSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillGrpupSysContentType = {
-  sys: Maybe<ContentfulSkillGrpupSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulSkillGrpupSysContentTypeSys>;
 };
 
 export type ContentfulSkillGrpupSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulSkillGrpupSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulSkillGrpupSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulSkillGrpupSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillGrpupSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillGrpupSysFilterInput = {
-  contentType: InputMaybe<ContentfulSkillGrpupSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulSkillGrpupSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillMap = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  expanded: Maybe<Scalars['Boolean']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  skillGroups: Maybe<Array<Maybe<ContentfulSkillGrpup>>>;
-  skills: Maybe<Array<Maybe<ContentfulTag>>>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulSkillMapSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly expanded: Maybe<Scalars['Boolean']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly skillGroups: Maybe<ReadonlyArray<Maybe<ContentfulSkillGrpup>>>;
+  readonly skills: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulSkillMapSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -11439,15 +11457,15 @@ export type ContentfulSkillMapUpdatedAtArgs = {
 };
 
 export type ContentfulSkillMapConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillMapEdge>;
-  group: Array<ContentfulSkillMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillMapEdge>;
+  readonly group: ReadonlyArray<ContentfulSkillMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -11478,9 +11496,9 @@ export type ContentfulSkillMapConnectionSumArgs = {
 };
 
 export type ContentfulSkillMapEdge = {
-  next: Maybe<ContentfulSkillMap>;
-  node: ContentfulSkillMap;
-  previous: Maybe<ContentfulSkillMap>;
+  readonly next: Maybe<ContentfulSkillMap>;
+  readonly node: ContentfulSkillMap;
+  readonly previous: Maybe<ContentfulSkillMap>;
 };
 
 export enum ContentfulSkillMapFieldsEnum {
@@ -11688,537 +11706,539 @@ export enum ContentfulSkillMapFieldsEnum {
   SkillGroupsSkillsBlogPostCreated = 201,
   SkillGroupsSkillsBlogPostCreatedAt = 202,
   SkillGroupsSkillsBlogPostExcerpt = 203,
-  SkillGroupsSkillsBlogPostId = 204,
-  SkillGroupsSkillsBlogPostNodeLocale = 205,
-  SkillGroupsSkillsBlogPostSlug = 206,
-  SkillGroupsSkillsBlogPostSpaceId = 207,
-  SkillGroupsSkillsBlogPostTags = 208,
-  SkillGroupsSkillsBlogPostTitle = 209,
-  SkillGroupsSkillsBlogPostUpdated = 210,
-  SkillGroupsSkillsBlogPostUpdatedAt = 211,
-  SkillGroupsSkillsChildren = 212,
-  SkillGroupsSkillsChildrenChildren = 213,
-  SkillGroupsSkillsChildrenId = 214,
-  SkillGroupsSkillsContentfulId = 215,
-  SkillGroupsSkillsCreatedAt = 216,
-  SkillGroupsSkillsId = 217,
-  SkillGroupsSkillsInternalContent = 218,
-  SkillGroupsSkillsInternalContentDigest = 219,
-  SkillGroupsSkillsInternalContentFilePath = 220,
-  SkillGroupsSkillsInternalDescription = 221,
-  SkillGroupsSkillsInternalFieldOwners = 222,
-  SkillGroupsSkillsInternalIgnoreType = 223,
-  SkillGroupsSkillsInternalMediaType = 224,
-  SkillGroupsSkillsInternalOwner = 225,
-  SkillGroupsSkillsInternalType = 226,
-  SkillGroupsSkillsLevel = 227,
-  SkillGroupsSkillsName = 228,
-  SkillGroupsSkillsNodeLocale = 229,
-  SkillGroupsSkillsOss = 230,
-  SkillGroupsSkillsOssChildren = 231,
-  SkillGroupsSkillsOssChildrenContentfulOssDetailTextNode = 232,
-  SkillGroupsSkillsOssContentfulId = 233,
-  SkillGroupsSkillsOssCreatedAt = 234,
-  SkillGroupsSkillsOssHref = 235,
-  SkillGroupsSkillsOssId = 236,
-  SkillGroupsSkillsOssName = 237,
-  SkillGroupsSkillsOssNodeLocale = 238,
-  SkillGroupsSkillsOssSpaceId = 239,
-  SkillGroupsSkillsOssStartDate = 240,
-  SkillGroupsSkillsOssSubName = 241,
-  SkillGroupsSkillsOssTags = 242,
-  SkillGroupsSkillsOssUpdatedAt = 243,
-  SkillGroupsSkillsParentChildren = 244,
-  SkillGroupsSkillsParentId = 245,
-  SkillGroupsSkillsProject = 246,
-  SkillGroupsSkillsProjectChildren = 247,
-  SkillGroupsSkillsProjectChildrenContentfulProjectDetailTextNode = 248,
-  SkillGroupsSkillsProjectContentfulId = 249,
-  SkillGroupsSkillsProjectCreatedAt = 250,
-  SkillGroupsSkillsProjectEndDate = 251,
-  SkillGroupsSkillsProjectId = 252,
-  SkillGroupsSkillsProjectName = 253,
-  SkillGroupsSkillsProjectNodeLocale = 254,
-  SkillGroupsSkillsProjectSpaceId = 255,
-  SkillGroupsSkillsProjectStartDate = 256,
-  SkillGroupsSkillsProjectSubName = 257,
-  SkillGroupsSkillsProjectTags = 258,
-  SkillGroupsSkillsProjectUpdatedAt = 259,
-  SkillGroupsSkillsSkillGrpup = 260,
-  SkillGroupsSkillsSkillGrpupChildren = 261,
-  SkillGroupsSkillsSkillGrpupContentfulId = 262,
-  SkillGroupsSkillsSkillGrpupCreatedAt = 263,
-  SkillGroupsSkillsSkillGrpupId = 264,
-  SkillGroupsSkillsSkillGrpupName = 265,
-  SkillGroupsSkillsSkillGrpupNodeLocale = 266,
-  SkillGroupsSkillsSkillGrpupSkillMap = 267,
-  SkillGroupsSkillsSkillGrpupSkills = 268,
-  SkillGroupsSkillsSkillGrpupSpaceId = 269,
-  SkillGroupsSkillsSkillGrpupUpdatedAt = 270,
-  SkillGroupsSkillsSkillMap = 271,
-  SkillGroupsSkillsSkillMapChildren = 272,
-  SkillGroupsSkillsSkillMapContentfulId = 273,
-  SkillGroupsSkillsSkillMapCreatedAt = 274,
-  SkillGroupsSkillsSkillMapExpanded = 275,
-  SkillGroupsSkillsSkillMapId = 276,
-  SkillGroupsSkillsSkillMapName = 277,
-  SkillGroupsSkillsSkillMapNodeLocale = 278,
-  SkillGroupsSkillsSkillMapSkillGroups = 279,
-  SkillGroupsSkillsSkillMapSkills = 280,
-  SkillGroupsSkillsSkillMapSortKey = 281,
-  SkillGroupsSkillsSkillMapSpaceId = 282,
-  SkillGroupsSkillsSkillMapUpdatedAt = 283,
-  SkillGroupsSkillsSpaceId = 284,
-  SkillGroupsSkillsSysRevision = 285,
-  SkillGroupsSkillsSysType = 286,
-  SkillGroupsSkillsUpdatedAt = 287,
-  SkillGroupsSpaceId = 288,
-  SkillGroupsSysRevision = 289,
-  SkillGroupsSysType = 290,
-  SkillGroupsUpdatedAt = 291,
-  Skills = 292,
-  SkillsBlogPost = 293,
-  SkillsBlogPostCategoryBlogPost = 294,
-  SkillsBlogPostCategoryChildren = 295,
-  SkillsBlogPostCategoryContentfulId = 296,
-  SkillsBlogPostCategoryCreatedAt = 297,
-  SkillsBlogPostCategoryId = 298,
-  SkillsBlogPostCategoryName = 299,
-  SkillsBlogPostCategoryNodeLocale = 300,
-  SkillsBlogPostCategorySortKey = 301,
-  SkillsBlogPostCategorySpaceId = 302,
-  SkillsBlogPostCategoryUpdatedAt = 303,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildren = 304,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 305,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeContent = 306,
-  SkillsBlogPostChildContentfulBlogPostContentTextNodeId = 307,
-  SkillsBlogPostChildren = 308,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNode = 309,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildren = 310,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 311,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeContent = 312,
-  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeId = 313,
-  SkillsBlogPostChildrenChildren = 314,
-  SkillsBlogPostChildrenId = 315,
-  SkillsBlogPostContentChildren = 316,
-  SkillsBlogPostContentChildrenMdx = 317,
-  SkillsBlogPostContentContent = 318,
-  SkillsBlogPostContentId = 319,
-  SkillsBlogPostContentfulId = 320,
-  SkillsBlogPostCreated = 321,
-  SkillsBlogPostCreatedAt = 322,
-  SkillsBlogPostExcerpt = 323,
-  SkillsBlogPostId = 324,
-  SkillsBlogPostInternalContent = 325,
-  SkillsBlogPostInternalContentDigest = 326,
-  SkillsBlogPostInternalContentFilePath = 327,
-  SkillsBlogPostInternalDescription = 328,
-  SkillsBlogPostInternalFieldOwners = 329,
-  SkillsBlogPostInternalIgnoreType = 330,
-  SkillsBlogPostInternalMediaType = 331,
-  SkillsBlogPostInternalOwner = 332,
-  SkillsBlogPostInternalType = 333,
-  SkillsBlogPostNodeLocale = 334,
-  SkillsBlogPostParentChildren = 335,
-  SkillsBlogPostParentId = 336,
-  SkillsBlogPostSlug = 337,
-  SkillsBlogPostSpaceId = 338,
-  SkillsBlogPostSysRevision = 339,
-  SkillsBlogPostSysType = 340,
-  SkillsBlogPostTags = 341,
-  SkillsBlogPostTagsBlogPost = 342,
-  SkillsBlogPostTagsChildren = 343,
-  SkillsBlogPostTagsContentfulId = 344,
-  SkillsBlogPostTagsCreatedAt = 345,
-  SkillsBlogPostTagsId = 346,
-  SkillsBlogPostTagsLevel = 347,
-  SkillsBlogPostTagsName = 348,
-  SkillsBlogPostTagsNodeLocale = 349,
-  SkillsBlogPostTagsOss = 350,
-  SkillsBlogPostTagsProject = 351,
-  SkillsBlogPostTagsSkillGrpup = 352,
-  SkillsBlogPostTagsSkillMap = 353,
-  SkillsBlogPostTagsSpaceId = 354,
-  SkillsBlogPostTagsUpdatedAt = 355,
-  SkillsBlogPostThumbnailChildren = 356,
-  SkillsBlogPostThumbnailContentfulId = 357,
-  SkillsBlogPostThumbnailCreatedAt = 358,
-  SkillsBlogPostThumbnailDescription = 359,
-  SkillsBlogPostThumbnailFilename = 360,
-  SkillsBlogPostThumbnailFilesize = 361,
-  SkillsBlogPostThumbnailGatsbyImage = 362,
-  SkillsBlogPostThumbnailGatsbyImageData = 363,
-  SkillsBlogPostThumbnailHeight = 364,
-  SkillsBlogPostThumbnailId = 365,
-  SkillsBlogPostThumbnailMimeType = 366,
-  SkillsBlogPostThumbnailNodeLocale = 367,
-  SkillsBlogPostThumbnailPlaceholderUrl = 368,
-  SkillsBlogPostThumbnailPublicUrl = 369,
-  SkillsBlogPostThumbnailSize = 370,
-  SkillsBlogPostThumbnailSpaceId = 371,
-  SkillsBlogPostThumbnailTitle = 372,
-  SkillsBlogPostThumbnailUpdatedAt = 373,
-  SkillsBlogPostThumbnailUrl = 374,
-  SkillsBlogPostThumbnailWidth = 375,
-  SkillsBlogPostTitle = 376,
-  SkillsBlogPostUpdated = 377,
-  SkillsBlogPostUpdatedAt = 378,
-  SkillsChildren = 379,
-  SkillsChildrenChildren = 380,
-  SkillsChildrenChildrenChildren = 381,
-  SkillsChildrenChildrenId = 382,
-  SkillsChildrenId = 383,
-  SkillsChildrenInternalContent = 384,
-  SkillsChildrenInternalContentDigest = 385,
-  SkillsChildrenInternalContentFilePath = 386,
-  SkillsChildrenInternalDescription = 387,
-  SkillsChildrenInternalFieldOwners = 388,
-  SkillsChildrenInternalIgnoreType = 389,
-  SkillsChildrenInternalMediaType = 390,
-  SkillsChildrenInternalOwner = 391,
-  SkillsChildrenInternalType = 392,
-  SkillsChildrenParentChildren = 393,
-  SkillsChildrenParentId = 394,
-  SkillsContentfulId = 395,
-  SkillsCreatedAt = 396,
-  SkillsId = 397,
-  SkillsInternalContent = 398,
-  SkillsInternalContentDigest = 399,
-  SkillsInternalContentFilePath = 400,
-  SkillsInternalDescription = 401,
-  SkillsInternalFieldOwners = 402,
-  SkillsInternalIgnoreType = 403,
-  SkillsInternalMediaType = 404,
-  SkillsInternalOwner = 405,
-  SkillsInternalType = 406,
-  SkillsLevel = 407,
-  SkillsName = 408,
-  SkillsNodeLocale = 409,
-  SkillsOss = 410,
-  SkillsOssChildContentfulOssDetailTextNodeChildren = 411,
-  SkillsOssChildContentfulOssDetailTextNodeChildrenMdx = 412,
-  SkillsOssChildContentfulOssDetailTextNodeDetail = 413,
-  SkillsOssChildContentfulOssDetailTextNodeId = 414,
-  SkillsOssChildren = 415,
-  SkillsOssChildrenContentfulOssDetailTextNode = 416,
-  SkillsOssChildrenContentfulOssDetailTextNodeChildren = 417,
-  SkillsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 418,
-  SkillsOssChildrenContentfulOssDetailTextNodeDetail = 419,
-  SkillsOssChildrenContentfulOssDetailTextNodeId = 420,
-  SkillsOssChildrenChildren = 421,
-  SkillsOssChildrenId = 422,
-  SkillsOssContentfulId = 423,
-  SkillsOssCreatedAt = 424,
-  SkillsOssDetailChildren = 425,
-  SkillsOssDetailChildrenMdx = 426,
-  SkillsOssDetailDetail = 427,
-  SkillsOssDetailId = 428,
-  SkillsOssHref = 429,
-  SkillsOssIconChildren = 430,
-  SkillsOssIconChildrenContentfulIconSvgTextNode = 431,
-  SkillsOssIconContact = 432,
-  SkillsOssIconContentfulId = 433,
-  SkillsOssIconCreatedAt = 434,
-  SkillsOssIconHistory = 435,
-  SkillsOssIconId = 436,
-  SkillsOssIconName = 437,
-  SkillsOssIconNodeLocale = 438,
-  SkillsOssIconOss = 439,
-  SkillsOssIconProject = 440,
-  SkillsOssIconSpaceId = 441,
-  SkillsOssIconUpdatedAt = 442,
-  SkillsOssIconWhatICanDo = 443,
-  SkillsOssId = 444,
-  SkillsOssImageChildren = 445,
-  SkillsOssImageContentfulId = 446,
-  SkillsOssImageCreatedAt = 447,
-  SkillsOssImageDescription = 448,
-  SkillsOssImageFilename = 449,
-  SkillsOssImageFilesize = 450,
-  SkillsOssImageGatsbyImage = 451,
-  SkillsOssImageGatsbyImageData = 452,
-  SkillsOssImageHeight = 453,
-  SkillsOssImageId = 454,
-  SkillsOssImageMimeType = 455,
-  SkillsOssImageNodeLocale = 456,
-  SkillsOssImagePlaceholderUrl = 457,
-  SkillsOssImagePublicUrl = 458,
-  SkillsOssImageSize = 459,
-  SkillsOssImageSpaceId = 460,
-  SkillsOssImageTitle = 461,
-  SkillsOssImageUpdatedAt = 462,
-  SkillsOssImageUrl = 463,
-  SkillsOssImageWidth = 464,
-  SkillsOssInternalContent = 465,
-  SkillsOssInternalContentDigest = 466,
-  SkillsOssInternalContentFilePath = 467,
-  SkillsOssInternalDescription = 468,
-  SkillsOssInternalFieldOwners = 469,
-  SkillsOssInternalIgnoreType = 470,
-  SkillsOssInternalMediaType = 471,
-  SkillsOssInternalOwner = 472,
-  SkillsOssInternalType = 473,
-  SkillsOssName = 474,
-  SkillsOssNodeLocale = 475,
-  SkillsOssParentChildren = 476,
-  SkillsOssParentId = 477,
-  SkillsOssSpaceId = 478,
-  SkillsOssStartDate = 479,
-  SkillsOssSubName = 480,
-  SkillsOssSysRevision = 481,
-  SkillsOssSysType = 482,
-  SkillsOssTags = 483,
-  SkillsOssTagsBlogPost = 484,
-  SkillsOssTagsChildren = 485,
-  SkillsOssTagsContentfulId = 486,
-  SkillsOssTagsCreatedAt = 487,
-  SkillsOssTagsId = 488,
-  SkillsOssTagsLevel = 489,
-  SkillsOssTagsName = 490,
-  SkillsOssTagsNodeLocale = 491,
-  SkillsOssTagsOss = 492,
-  SkillsOssTagsProject = 493,
-  SkillsOssTagsSkillGrpup = 494,
-  SkillsOssTagsSkillMap = 495,
-  SkillsOssTagsSpaceId = 496,
-  SkillsOssTagsUpdatedAt = 497,
-  SkillsOssUpdatedAt = 498,
-  SkillsParentChildren = 499,
-  SkillsParentChildrenChildren = 500,
-  SkillsParentChildrenId = 501,
-  SkillsParentId = 502,
-  SkillsParentInternalContent = 503,
-  SkillsParentInternalContentDigest = 504,
-  SkillsParentInternalContentFilePath = 505,
-  SkillsParentInternalDescription = 506,
-  SkillsParentInternalFieldOwners = 507,
-  SkillsParentInternalIgnoreType = 508,
-  SkillsParentInternalMediaType = 509,
-  SkillsParentInternalOwner = 510,
-  SkillsParentInternalType = 511,
-  SkillsParentParentChildren = 512,
-  SkillsParentParentId = 513,
-  SkillsProject = 514,
-  SkillsProjectChildContentfulProjectDetailTextNodeChildren = 515,
-  SkillsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 516,
-  SkillsProjectChildContentfulProjectDetailTextNodeDetail = 517,
-  SkillsProjectChildContentfulProjectDetailTextNodeId = 518,
-  SkillsProjectChildren = 519,
-  SkillsProjectChildrenContentfulProjectDetailTextNode = 520,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeChildren = 521,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 522,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeDetail = 523,
-  SkillsProjectChildrenContentfulProjectDetailTextNodeId = 524,
-  SkillsProjectChildrenChildren = 525,
-  SkillsProjectChildrenId = 526,
-  SkillsProjectContentfulId = 527,
-  SkillsProjectCreatedAt = 528,
-  SkillsProjectDetailChildren = 529,
-  SkillsProjectDetailChildrenMdx = 530,
-  SkillsProjectDetailDetail = 531,
-  SkillsProjectDetailId = 532,
-  SkillsProjectEndDate = 533,
-  SkillsProjectIconChildren = 534,
-  SkillsProjectIconChildrenContentfulIconSvgTextNode = 535,
-  SkillsProjectIconContact = 536,
-  SkillsProjectIconContentfulId = 537,
-  SkillsProjectIconCreatedAt = 538,
-  SkillsProjectIconHistory = 539,
-  SkillsProjectIconId = 540,
-  SkillsProjectIconName = 541,
-  SkillsProjectIconNodeLocale = 542,
-  SkillsProjectIconOss = 543,
-  SkillsProjectIconProject = 544,
-  SkillsProjectIconSpaceId = 545,
-  SkillsProjectIconUpdatedAt = 546,
-  SkillsProjectIconWhatICanDo = 547,
-  SkillsProjectId = 548,
-  SkillsProjectInternalContent = 549,
-  SkillsProjectInternalContentDigest = 550,
-  SkillsProjectInternalContentFilePath = 551,
-  SkillsProjectInternalDescription = 552,
-  SkillsProjectInternalFieldOwners = 553,
-  SkillsProjectInternalIgnoreType = 554,
-  SkillsProjectInternalMediaType = 555,
-  SkillsProjectInternalOwner = 556,
-  SkillsProjectInternalType = 557,
-  SkillsProjectName = 558,
-  SkillsProjectNodeLocale = 559,
-  SkillsProjectParentChildren = 560,
-  SkillsProjectParentId = 561,
-  SkillsProjectSpaceId = 562,
-  SkillsProjectStartDate = 563,
-  SkillsProjectSubName = 564,
-  SkillsProjectSysRevision = 565,
-  SkillsProjectSysType = 566,
-  SkillsProjectTags = 567,
-  SkillsProjectTagsBlogPost = 568,
-  SkillsProjectTagsChildren = 569,
-  SkillsProjectTagsContentfulId = 570,
-  SkillsProjectTagsCreatedAt = 571,
-  SkillsProjectTagsId = 572,
-  SkillsProjectTagsLevel = 573,
-  SkillsProjectTagsName = 574,
-  SkillsProjectTagsNodeLocale = 575,
-  SkillsProjectTagsOss = 576,
-  SkillsProjectTagsProject = 577,
-  SkillsProjectTagsSkillGrpup = 578,
-  SkillsProjectTagsSkillMap = 579,
-  SkillsProjectTagsSpaceId = 580,
-  SkillsProjectTagsUpdatedAt = 581,
-  SkillsProjectUpdatedAt = 582,
-  SkillsSkillGrpup = 583,
-  SkillsSkillGrpupChildren = 584,
-  SkillsSkillGrpupChildrenChildren = 585,
-  SkillsSkillGrpupChildrenId = 586,
-  SkillsSkillGrpupContentfulId = 587,
-  SkillsSkillGrpupCreatedAt = 588,
-  SkillsSkillGrpupId = 589,
-  SkillsSkillGrpupInternalContent = 590,
-  SkillsSkillGrpupInternalContentDigest = 591,
-  SkillsSkillGrpupInternalContentFilePath = 592,
-  SkillsSkillGrpupInternalDescription = 593,
-  SkillsSkillGrpupInternalFieldOwners = 594,
-  SkillsSkillGrpupInternalIgnoreType = 595,
-  SkillsSkillGrpupInternalMediaType = 596,
-  SkillsSkillGrpupInternalOwner = 597,
-  SkillsSkillGrpupInternalType = 598,
-  SkillsSkillGrpupName = 599,
-  SkillsSkillGrpupNodeLocale = 600,
-  SkillsSkillGrpupParentChildren = 601,
-  SkillsSkillGrpupParentId = 602,
-  SkillsSkillGrpupSkillMap = 603,
-  SkillsSkillGrpupSkillMapChildren = 604,
-  SkillsSkillGrpupSkillMapContentfulId = 605,
-  SkillsSkillGrpupSkillMapCreatedAt = 606,
-  SkillsSkillGrpupSkillMapExpanded = 607,
-  SkillsSkillGrpupSkillMapId = 608,
-  SkillsSkillGrpupSkillMapName = 609,
-  SkillsSkillGrpupSkillMapNodeLocale = 610,
-  SkillsSkillGrpupSkillMapSkillGroups = 611,
-  SkillsSkillGrpupSkillMapSkills = 612,
-  SkillsSkillGrpupSkillMapSortKey = 613,
-  SkillsSkillGrpupSkillMapSpaceId = 614,
-  SkillsSkillGrpupSkillMapUpdatedAt = 615,
-  SkillsSkillGrpupSkills = 616,
-  SkillsSkillGrpupSkillsBlogPost = 617,
-  SkillsSkillGrpupSkillsChildren = 618,
-  SkillsSkillGrpupSkillsContentfulId = 619,
-  SkillsSkillGrpupSkillsCreatedAt = 620,
-  SkillsSkillGrpupSkillsId = 621,
-  SkillsSkillGrpupSkillsLevel = 622,
-  SkillsSkillGrpupSkillsName = 623,
-  SkillsSkillGrpupSkillsNodeLocale = 624,
-  SkillsSkillGrpupSkillsOss = 625,
-  SkillsSkillGrpupSkillsProject = 626,
-  SkillsSkillGrpupSkillsSkillGrpup = 627,
-  SkillsSkillGrpupSkillsSkillMap = 628,
-  SkillsSkillGrpupSkillsSpaceId = 629,
-  SkillsSkillGrpupSkillsUpdatedAt = 630,
-  SkillsSkillGrpupSpaceId = 631,
-  SkillsSkillGrpupSysRevision = 632,
-  SkillsSkillGrpupSysType = 633,
-  SkillsSkillGrpupUpdatedAt = 634,
-  SkillsSkillMap = 635,
-  SkillsSkillMapChildren = 636,
-  SkillsSkillMapChildrenChildren = 637,
-  SkillsSkillMapChildrenId = 638,
-  SkillsSkillMapContentfulId = 639,
-  SkillsSkillMapCreatedAt = 640,
-  SkillsSkillMapExpanded = 641,
-  SkillsSkillMapId = 642,
-  SkillsSkillMapInternalContent = 643,
-  SkillsSkillMapInternalContentDigest = 644,
-  SkillsSkillMapInternalContentFilePath = 645,
-  SkillsSkillMapInternalDescription = 646,
-  SkillsSkillMapInternalFieldOwners = 647,
-  SkillsSkillMapInternalIgnoreType = 648,
-  SkillsSkillMapInternalMediaType = 649,
-  SkillsSkillMapInternalOwner = 650,
-  SkillsSkillMapInternalType = 651,
-  SkillsSkillMapName = 652,
-  SkillsSkillMapNodeLocale = 653,
-  SkillsSkillMapParentChildren = 654,
-  SkillsSkillMapParentId = 655,
-  SkillsSkillMapSkillGroups = 656,
-  SkillsSkillMapSkillGroupsChildren = 657,
-  SkillsSkillMapSkillGroupsContentfulId = 658,
-  SkillsSkillMapSkillGroupsCreatedAt = 659,
-  SkillsSkillMapSkillGroupsId = 660,
-  SkillsSkillMapSkillGroupsName = 661,
-  SkillsSkillMapSkillGroupsNodeLocale = 662,
-  SkillsSkillMapSkillGroupsSkillMap = 663,
-  SkillsSkillMapSkillGroupsSkills = 664,
-  SkillsSkillMapSkillGroupsSpaceId = 665,
-  SkillsSkillMapSkillGroupsUpdatedAt = 666,
-  SkillsSkillMapSkills = 667,
-  SkillsSkillMapSkillsBlogPost = 668,
-  SkillsSkillMapSkillsChildren = 669,
-  SkillsSkillMapSkillsContentfulId = 670,
-  SkillsSkillMapSkillsCreatedAt = 671,
-  SkillsSkillMapSkillsId = 672,
-  SkillsSkillMapSkillsLevel = 673,
-  SkillsSkillMapSkillsName = 674,
-  SkillsSkillMapSkillsNodeLocale = 675,
-  SkillsSkillMapSkillsOss = 676,
-  SkillsSkillMapSkillsProject = 677,
-  SkillsSkillMapSkillsSkillGrpup = 678,
-  SkillsSkillMapSkillsSkillMap = 679,
-  SkillsSkillMapSkillsSpaceId = 680,
-  SkillsSkillMapSkillsUpdatedAt = 681,
-  SkillsSkillMapSortKey = 682,
-  SkillsSkillMapSpaceId = 683,
-  SkillsSkillMapSysRevision = 684,
-  SkillsSkillMapSysType = 685,
-  SkillsSkillMapUpdatedAt = 686,
-  SkillsSpaceId = 687,
-  SkillsSysRevision = 688,
-  SkillsSysType = 689,
-  SkillsUpdatedAt = 690,
-  SortKey = 691,
-  SpaceId = 692,
-  SysContentTypeSysId = 693,
-  SysContentTypeSysLinkType = 694,
-  SysContentTypeSysType = 695,
-  SysRevision = 696,
-  SysType = 697,
-  UpdatedAt = 698
+  SkillGroupsSkillsBlogPostGatsbyPath = 204,
+  SkillGroupsSkillsBlogPostId = 205,
+  SkillGroupsSkillsBlogPostNodeLocale = 206,
+  SkillGroupsSkillsBlogPostSlug = 207,
+  SkillGroupsSkillsBlogPostSpaceId = 208,
+  SkillGroupsSkillsBlogPostTags = 209,
+  SkillGroupsSkillsBlogPostTitle = 210,
+  SkillGroupsSkillsBlogPostUpdated = 211,
+  SkillGroupsSkillsBlogPostUpdatedAt = 212,
+  SkillGroupsSkillsChildren = 213,
+  SkillGroupsSkillsChildrenChildren = 214,
+  SkillGroupsSkillsChildrenId = 215,
+  SkillGroupsSkillsContentfulId = 216,
+  SkillGroupsSkillsCreatedAt = 217,
+  SkillGroupsSkillsId = 218,
+  SkillGroupsSkillsInternalContent = 219,
+  SkillGroupsSkillsInternalContentDigest = 220,
+  SkillGroupsSkillsInternalContentFilePath = 221,
+  SkillGroupsSkillsInternalDescription = 222,
+  SkillGroupsSkillsInternalFieldOwners = 223,
+  SkillGroupsSkillsInternalIgnoreType = 224,
+  SkillGroupsSkillsInternalMediaType = 225,
+  SkillGroupsSkillsInternalOwner = 226,
+  SkillGroupsSkillsInternalType = 227,
+  SkillGroupsSkillsLevel = 228,
+  SkillGroupsSkillsName = 229,
+  SkillGroupsSkillsNodeLocale = 230,
+  SkillGroupsSkillsOss = 231,
+  SkillGroupsSkillsOssChildren = 232,
+  SkillGroupsSkillsOssChildrenContentfulOssDetailTextNode = 233,
+  SkillGroupsSkillsOssContentfulId = 234,
+  SkillGroupsSkillsOssCreatedAt = 235,
+  SkillGroupsSkillsOssHref = 236,
+  SkillGroupsSkillsOssId = 237,
+  SkillGroupsSkillsOssName = 238,
+  SkillGroupsSkillsOssNodeLocale = 239,
+  SkillGroupsSkillsOssSpaceId = 240,
+  SkillGroupsSkillsOssStartDate = 241,
+  SkillGroupsSkillsOssSubName = 242,
+  SkillGroupsSkillsOssTags = 243,
+  SkillGroupsSkillsOssUpdatedAt = 244,
+  SkillGroupsSkillsParentChildren = 245,
+  SkillGroupsSkillsParentId = 246,
+  SkillGroupsSkillsProject = 247,
+  SkillGroupsSkillsProjectChildren = 248,
+  SkillGroupsSkillsProjectChildrenContentfulProjectDetailTextNode = 249,
+  SkillGroupsSkillsProjectContentfulId = 250,
+  SkillGroupsSkillsProjectCreatedAt = 251,
+  SkillGroupsSkillsProjectEndDate = 252,
+  SkillGroupsSkillsProjectId = 253,
+  SkillGroupsSkillsProjectName = 254,
+  SkillGroupsSkillsProjectNodeLocale = 255,
+  SkillGroupsSkillsProjectSpaceId = 256,
+  SkillGroupsSkillsProjectStartDate = 257,
+  SkillGroupsSkillsProjectSubName = 258,
+  SkillGroupsSkillsProjectTags = 259,
+  SkillGroupsSkillsProjectUpdatedAt = 260,
+  SkillGroupsSkillsSkillGrpup = 261,
+  SkillGroupsSkillsSkillGrpupChildren = 262,
+  SkillGroupsSkillsSkillGrpupContentfulId = 263,
+  SkillGroupsSkillsSkillGrpupCreatedAt = 264,
+  SkillGroupsSkillsSkillGrpupId = 265,
+  SkillGroupsSkillsSkillGrpupName = 266,
+  SkillGroupsSkillsSkillGrpupNodeLocale = 267,
+  SkillGroupsSkillsSkillGrpupSkillMap = 268,
+  SkillGroupsSkillsSkillGrpupSkills = 269,
+  SkillGroupsSkillsSkillGrpupSpaceId = 270,
+  SkillGroupsSkillsSkillGrpupUpdatedAt = 271,
+  SkillGroupsSkillsSkillMap = 272,
+  SkillGroupsSkillsSkillMapChildren = 273,
+  SkillGroupsSkillsSkillMapContentfulId = 274,
+  SkillGroupsSkillsSkillMapCreatedAt = 275,
+  SkillGroupsSkillsSkillMapExpanded = 276,
+  SkillGroupsSkillsSkillMapId = 277,
+  SkillGroupsSkillsSkillMapName = 278,
+  SkillGroupsSkillsSkillMapNodeLocale = 279,
+  SkillGroupsSkillsSkillMapSkillGroups = 280,
+  SkillGroupsSkillsSkillMapSkills = 281,
+  SkillGroupsSkillsSkillMapSortKey = 282,
+  SkillGroupsSkillsSkillMapSpaceId = 283,
+  SkillGroupsSkillsSkillMapUpdatedAt = 284,
+  SkillGroupsSkillsSpaceId = 285,
+  SkillGroupsSkillsSysRevision = 286,
+  SkillGroupsSkillsSysType = 287,
+  SkillGroupsSkillsUpdatedAt = 288,
+  SkillGroupsSpaceId = 289,
+  SkillGroupsSysRevision = 290,
+  SkillGroupsSysType = 291,
+  SkillGroupsUpdatedAt = 292,
+  Skills = 293,
+  SkillsBlogPost = 294,
+  SkillsBlogPostCategoryBlogPost = 295,
+  SkillsBlogPostCategoryChildren = 296,
+  SkillsBlogPostCategoryContentfulId = 297,
+  SkillsBlogPostCategoryCreatedAt = 298,
+  SkillsBlogPostCategoryId = 299,
+  SkillsBlogPostCategoryName = 300,
+  SkillsBlogPostCategoryNodeLocale = 301,
+  SkillsBlogPostCategorySortKey = 302,
+  SkillsBlogPostCategorySpaceId = 303,
+  SkillsBlogPostCategoryUpdatedAt = 304,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildren = 305,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 306,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeContent = 307,
+  SkillsBlogPostChildContentfulBlogPostContentTextNodeId = 308,
+  SkillsBlogPostChildren = 309,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNode = 310,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildren = 311,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 312,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeContent = 313,
+  SkillsBlogPostChildrenContentfulBlogPostContentTextNodeId = 314,
+  SkillsBlogPostChildrenChildren = 315,
+  SkillsBlogPostChildrenId = 316,
+  SkillsBlogPostContentChildren = 317,
+  SkillsBlogPostContentChildrenMdx = 318,
+  SkillsBlogPostContentContent = 319,
+  SkillsBlogPostContentId = 320,
+  SkillsBlogPostContentfulId = 321,
+  SkillsBlogPostCreated = 322,
+  SkillsBlogPostCreatedAt = 323,
+  SkillsBlogPostExcerpt = 324,
+  SkillsBlogPostGatsbyPath = 325,
+  SkillsBlogPostId = 326,
+  SkillsBlogPostInternalContent = 327,
+  SkillsBlogPostInternalContentDigest = 328,
+  SkillsBlogPostInternalContentFilePath = 329,
+  SkillsBlogPostInternalDescription = 330,
+  SkillsBlogPostInternalFieldOwners = 331,
+  SkillsBlogPostInternalIgnoreType = 332,
+  SkillsBlogPostInternalMediaType = 333,
+  SkillsBlogPostInternalOwner = 334,
+  SkillsBlogPostInternalType = 335,
+  SkillsBlogPostNodeLocale = 336,
+  SkillsBlogPostParentChildren = 337,
+  SkillsBlogPostParentId = 338,
+  SkillsBlogPostSlug = 339,
+  SkillsBlogPostSpaceId = 340,
+  SkillsBlogPostSysRevision = 341,
+  SkillsBlogPostSysType = 342,
+  SkillsBlogPostTags = 343,
+  SkillsBlogPostTagsBlogPost = 344,
+  SkillsBlogPostTagsChildren = 345,
+  SkillsBlogPostTagsContentfulId = 346,
+  SkillsBlogPostTagsCreatedAt = 347,
+  SkillsBlogPostTagsId = 348,
+  SkillsBlogPostTagsLevel = 349,
+  SkillsBlogPostTagsName = 350,
+  SkillsBlogPostTagsNodeLocale = 351,
+  SkillsBlogPostTagsOss = 352,
+  SkillsBlogPostTagsProject = 353,
+  SkillsBlogPostTagsSkillGrpup = 354,
+  SkillsBlogPostTagsSkillMap = 355,
+  SkillsBlogPostTagsSpaceId = 356,
+  SkillsBlogPostTagsUpdatedAt = 357,
+  SkillsBlogPostThumbnailChildren = 358,
+  SkillsBlogPostThumbnailContentfulId = 359,
+  SkillsBlogPostThumbnailCreatedAt = 360,
+  SkillsBlogPostThumbnailDescription = 361,
+  SkillsBlogPostThumbnailFilename = 362,
+  SkillsBlogPostThumbnailFilesize = 363,
+  SkillsBlogPostThumbnailGatsbyImage = 364,
+  SkillsBlogPostThumbnailGatsbyImageData = 365,
+  SkillsBlogPostThumbnailHeight = 366,
+  SkillsBlogPostThumbnailId = 367,
+  SkillsBlogPostThumbnailMimeType = 368,
+  SkillsBlogPostThumbnailNodeLocale = 369,
+  SkillsBlogPostThumbnailPlaceholderUrl = 370,
+  SkillsBlogPostThumbnailPublicUrl = 371,
+  SkillsBlogPostThumbnailSize = 372,
+  SkillsBlogPostThumbnailSpaceId = 373,
+  SkillsBlogPostThumbnailTitle = 374,
+  SkillsBlogPostThumbnailUpdatedAt = 375,
+  SkillsBlogPostThumbnailUrl = 376,
+  SkillsBlogPostThumbnailWidth = 377,
+  SkillsBlogPostTitle = 378,
+  SkillsBlogPostUpdated = 379,
+  SkillsBlogPostUpdatedAt = 380,
+  SkillsChildren = 381,
+  SkillsChildrenChildren = 382,
+  SkillsChildrenChildrenChildren = 383,
+  SkillsChildrenChildrenId = 384,
+  SkillsChildrenId = 385,
+  SkillsChildrenInternalContent = 386,
+  SkillsChildrenInternalContentDigest = 387,
+  SkillsChildrenInternalContentFilePath = 388,
+  SkillsChildrenInternalDescription = 389,
+  SkillsChildrenInternalFieldOwners = 390,
+  SkillsChildrenInternalIgnoreType = 391,
+  SkillsChildrenInternalMediaType = 392,
+  SkillsChildrenInternalOwner = 393,
+  SkillsChildrenInternalType = 394,
+  SkillsChildrenParentChildren = 395,
+  SkillsChildrenParentId = 396,
+  SkillsContentfulId = 397,
+  SkillsCreatedAt = 398,
+  SkillsId = 399,
+  SkillsInternalContent = 400,
+  SkillsInternalContentDigest = 401,
+  SkillsInternalContentFilePath = 402,
+  SkillsInternalDescription = 403,
+  SkillsInternalFieldOwners = 404,
+  SkillsInternalIgnoreType = 405,
+  SkillsInternalMediaType = 406,
+  SkillsInternalOwner = 407,
+  SkillsInternalType = 408,
+  SkillsLevel = 409,
+  SkillsName = 410,
+  SkillsNodeLocale = 411,
+  SkillsOss = 412,
+  SkillsOssChildContentfulOssDetailTextNodeChildren = 413,
+  SkillsOssChildContentfulOssDetailTextNodeChildrenMdx = 414,
+  SkillsOssChildContentfulOssDetailTextNodeDetail = 415,
+  SkillsOssChildContentfulOssDetailTextNodeId = 416,
+  SkillsOssChildren = 417,
+  SkillsOssChildrenContentfulOssDetailTextNode = 418,
+  SkillsOssChildrenContentfulOssDetailTextNodeChildren = 419,
+  SkillsOssChildrenContentfulOssDetailTextNodeChildrenMdx = 420,
+  SkillsOssChildrenContentfulOssDetailTextNodeDetail = 421,
+  SkillsOssChildrenContentfulOssDetailTextNodeId = 422,
+  SkillsOssChildrenChildren = 423,
+  SkillsOssChildrenId = 424,
+  SkillsOssContentfulId = 425,
+  SkillsOssCreatedAt = 426,
+  SkillsOssDetailChildren = 427,
+  SkillsOssDetailChildrenMdx = 428,
+  SkillsOssDetailDetail = 429,
+  SkillsOssDetailId = 430,
+  SkillsOssHref = 431,
+  SkillsOssIconChildren = 432,
+  SkillsOssIconChildrenContentfulIconSvgTextNode = 433,
+  SkillsOssIconContact = 434,
+  SkillsOssIconContentfulId = 435,
+  SkillsOssIconCreatedAt = 436,
+  SkillsOssIconHistory = 437,
+  SkillsOssIconId = 438,
+  SkillsOssIconName = 439,
+  SkillsOssIconNodeLocale = 440,
+  SkillsOssIconOss = 441,
+  SkillsOssIconProject = 442,
+  SkillsOssIconSpaceId = 443,
+  SkillsOssIconUpdatedAt = 444,
+  SkillsOssIconWhatICanDo = 445,
+  SkillsOssId = 446,
+  SkillsOssImageChildren = 447,
+  SkillsOssImageContentfulId = 448,
+  SkillsOssImageCreatedAt = 449,
+  SkillsOssImageDescription = 450,
+  SkillsOssImageFilename = 451,
+  SkillsOssImageFilesize = 452,
+  SkillsOssImageGatsbyImage = 453,
+  SkillsOssImageGatsbyImageData = 454,
+  SkillsOssImageHeight = 455,
+  SkillsOssImageId = 456,
+  SkillsOssImageMimeType = 457,
+  SkillsOssImageNodeLocale = 458,
+  SkillsOssImagePlaceholderUrl = 459,
+  SkillsOssImagePublicUrl = 460,
+  SkillsOssImageSize = 461,
+  SkillsOssImageSpaceId = 462,
+  SkillsOssImageTitle = 463,
+  SkillsOssImageUpdatedAt = 464,
+  SkillsOssImageUrl = 465,
+  SkillsOssImageWidth = 466,
+  SkillsOssInternalContent = 467,
+  SkillsOssInternalContentDigest = 468,
+  SkillsOssInternalContentFilePath = 469,
+  SkillsOssInternalDescription = 470,
+  SkillsOssInternalFieldOwners = 471,
+  SkillsOssInternalIgnoreType = 472,
+  SkillsOssInternalMediaType = 473,
+  SkillsOssInternalOwner = 474,
+  SkillsOssInternalType = 475,
+  SkillsOssName = 476,
+  SkillsOssNodeLocale = 477,
+  SkillsOssParentChildren = 478,
+  SkillsOssParentId = 479,
+  SkillsOssSpaceId = 480,
+  SkillsOssStartDate = 481,
+  SkillsOssSubName = 482,
+  SkillsOssSysRevision = 483,
+  SkillsOssSysType = 484,
+  SkillsOssTags = 485,
+  SkillsOssTagsBlogPost = 486,
+  SkillsOssTagsChildren = 487,
+  SkillsOssTagsContentfulId = 488,
+  SkillsOssTagsCreatedAt = 489,
+  SkillsOssTagsId = 490,
+  SkillsOssTagsLevel = 491,
+  SkillsOssTagsName = 492,
+  SkillsOssTagsNodeLocale = 493,
+  SkillsOssTagsOss = 494,
+  SkillsOssTagsProject = 495,
+  SkillsOssTagsSkillGrpup = 496,
+  SkillsOssTagsSkillMap = 497,
+  SkillsOssTagsSpaceId = 498,
+  SkillsOssTagsUpdatedAt = 499,
+  SkillsOssUpdatedAt = 500,
+  SkillsParentChildren = 501,
+  SkillsParentChildrenChildren = 502,
+  SkillsParentChildrenId = 503,
+  SkillsParentId = 504,
+  SkillsParentInternalContent = 505,
+  SkillsParentInternalContentDigest = 506,
+  SkillsParentInternalContentFilePath = 507,
+  SkillsParentInternalDescription = 508,
+  SkillsParentInternalFieldOwners = 509,
+  SkillsParentInternalIgnoreType = 510,
+  SkillsParentInternalMediaType = 511,
+  SkillsParentInternalOwner = 512,
+  SkillsParentInternalType = 513,
+  SkillsParentParentChildren = 514,
+  SkillsParentParentId = 515,
+  SkillsProject = 516,
+  SkillsProjectChildContentfulProjectDetailTextNodeChildren = 517,
+  SkillsProjectChildContentfulProjectDetailTextNodeChildrenMdx = 518,
+  SkillsProjectChildContentfulProjectDetailTextNodeDetail = 519,
+  SkillsProjectChildContentfulProjectDetailTextNodeId = 520,
+  SkillsProjectChildren = 521,
+  SkillsProjectChildrenContentfulProjectDetailTextNode = 522,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeChildren = 523,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 524,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeDetail = 525,
+  SkillsProjectChildrenContentfulProjectDetailTextNodeId = 526,
+  SkillsProjectChildrenChildren = 527,
+  SkillsProjectChildrenId = 528,
+  SkillsProjectContentfulId = 529,
+  SkillsProjectCreatedAt = 530,
+  SkillsProjectDetailChildren = 531,
+  SkillsProjectDetailChildrenMdx = 532,
+  SkillsProjectDetailDetail = 533,
+  SkillsProjectDetailId = 534,
+  SkillsProjectEndDate = 535,
+  SkillsProjectIconChildren = 536,
+  SkillsProjectIconChildrenContentfulIconSvgTextNode = 537,
+  SkillsProjectIconContact = 538,
+  SkillsProjectIconContentfulId = 539,
+  SkillsProjectIconCreatedAt = 540,
+  SkillsProjectIconHistory = 541,
+  SkillsProjectIconId = 542,
+  SkillsProjectIconName = 543,
+  SkillsProjectIconNodeLocale = 544,
+  SkillsProjectIconOss = 545,
+  SkillsProjectIconProject = 546,
+  SkillsProjectIconSpaceId = 547,
+  SkillsProjectIconUpdatedAt = 548,
+  SkillsProjectIconWhatICanDo = 549,
+  SkillsProjectId = 550,
+  SkillsProjectInternalContent = 551,
+  SkillsProjectInternalContentDigest = 552,
+  SkillsProjectInternalContentFilePath = 553,
+  SkillsProjectInternalDescription = 554,
+  SkillsProjectInternalFieldOwners = 555,
+  SkillsProjectInternalIgnoreType = 556,
+  SkillsProjectInternalMediaType = 557,
+  SkillsProjectInternalOwner = 558,
+  SkillsProjectInternalType = 559,
+  SkillsProjectName = 560,
+  SkillsProjectNodeLocale = 561,
+  SkillsProjectParentChildren = 562,
+  SkillsProjectParentId = 563,
+  SkillsProjectSpaceId = 564,
+  SkillsProjectStartDate = 565,
+  SkillsProjectSubName = 566,
+  SkillsProjectSysRevision = 567,
+  SkillsProjectSysType = 568,
+  SkillsProjectTags = 569,
+  SkillsProjectTagsBlogPost = 570,
+  SkillsProjectTagsChildren = 571,
+  SkillsProjectTagsContentfulId = 572,
+  SkillsProjectTagsCreatedAt = 573,
+  SkillsProjectTagsId = 574,
+  SkillsProjectTagsLevel = 575,
+  SkillsProjectTagsName = 576,
+  SkillsProjectTagsNodeLocale = 577,
+  SkillsProjectTagsOss = 578,
+  SkillsProjectTagsProject = 579,
+  SkillsProjectTagsSkillGrpup = 580,
+  SkillsProjectTagsSkillMap = 581,
+  SkillsProjectTagsSpaceId = 582,
+  SkillsProjectTagsUpdatedAt = 583,
+  SkillsProjectUpdatedAt = 584,
+  SkillsSkillGrpup = 585,
+  SkillsSkillGrpupChildren = 586,
+  SkillsSkillGrpupChildrenChildren = 587,
+  SkillsSkillGrpupChildrenId = 588,
+  SkillsSkillGrpupContentfulId = 589,
+  SkillsSkillGrpupCreatedAt = 590,
+  SkillsSkillGrpupId = 591,
+  SkillsSkillGrpupInternalContent = 592,
+  SkillsSkillGrpupInternalContentDigest = 593,
+  SkillsSkillGrpupInternalContentFilePath = 594,
+  SkillsSkillGrpupInternalDescription = 595,
+  SkillsSkillGrpupInternalFieldOwners = 596,
+  SkillsSkillGrpupInternalIgnoreType = 597,
+  SkillsSkillGrpupInternalMediaType = 598,
+  SkillsSkillGrpupInternalOwner = 599,
+  SkillsSkillGrpupInternalType = 600,
+  SkillsSkillGrpupName = 601,
+  SkillsSkillGrpupNodeLocale = 602,
+  SkillsSkillGrpupParentChildren = 603,
+  SkillsSkillGrpupParentId = 604,
+  SkillsSkillGrpupSkillMap = 605,
+  SkillsSkillGrpupSkillMapChildren = 606,
+  SkillsSkillGrpupSkillMapContentfulId = 607,
+  SkillsSkillGrpupSkillMapCreatedAt = 608,
+  SkillsSkillGrpupSkillMapExpanded = 609,
+  SkillsSkillGrpupSkillMapId = 610,
+  SkillsSkillGrpupSkillMapName = 611,
+  SkillsSkillGrpupSkillMapNodeLocale = 612,
+  SkillsSkillGrpupSkillMapSkillGroups = 613,
+  SkillsSkillGrpupSkillMapSkills = 614,
+  SkillsSkillGrpupSkillMapSortKey = 615,
+  SkillsSkillGrpupSkillMapSpaceId = 616,
+  SkillsSkillGrpupSkillMapUpdatedAt = 617,
+  SkillsSkillGrpupSkills = 618,
+  SkillsSkillGrpupSkillsBlogPost = 619,
+  SkillsSkillGrpupSkillsChildren = 620,
+  SkillsSkillGrpupSkillsContentfulId = 621,
+  SkillsSkillGrpupSkillsCreatedAt = 622,
+  SkillsSkillGrpupSkillsId = 623,
+  SkillsSkillGrpupSkillsLevel = 624,
+  SkillsSkillGrpupSkillsName = 625,
+  SkillsSkillGrpupSkillsNodeLocale = 626,
+  SkillsSkillGrpupSkillsOss = 627,
+  SkillsSkillGrpupSkillsProject = 628,
+  SkillsSkillGrpupSkillsSkillGrpup = 629,
+  SkillsSkillGrpupSkillsSkillMap = 630,
+  SkillsSkillGrpupSkillsSpaceId = 631,
+  SkillsSkillGrpupSkillsUpdatedAt = 632,
+  SkillsSkillGrpupSpaceId = 633,
+  SkillsSkillGrpupSysRevision = 634,
+  SkillsSkillGrpupSysType = 635,
+  SkillsSkillGrpupUpdatedAt = 636,
+  SkillsSkillMap = 637,
+  SkillsSkillMapChildren = 638,
+  SkillsSkillMapChildrenChildren = 639,
+  SkillsSkillMapChildrenId = 640,
+  SkillsSkillMapContentfulId = 641,
+  SkillsSkillMapCreatedAt = 642,
+  SkillsSkillMapExpanded = 643,
+  SkillsSkillMapId = 644,
+  SkillsSkillMapInternalContent = 645,
+  SkillsSkillMapInternalContentDigest = 646,
+  SkillsSkillMapInternalContentFilePath = 647,
+  SkillsSkillMapInternalDescription = 648,
+  SkillsSkillMapInternalFieldOwners = 649,
+  SkillsSkillMapInternalIgnoreType = 650,
+  SkillsSkillMapInternalMediaType = 651,
+  SkillsSkillMapInternalOwner = 652,
+  SkillsSkillMapInternalType = 653,
+  SkillsSkillMapName = 654,
+  SkillsSkillMapNodeLocale = 655,
+  SkillsSkillMapParentChildren = 656,
+  SkillsSkillMapParentId = 657,
+  SkillsSkillMapSkillGroups = 658,
+  SkillsSkillMapSkillGroupsChildren = 659,
+  SkillsSkillMapSkillGroupsContentfulId = 660,
+  SkillsSkillMapSkillGroupsCreatedAt = 661,
+  SkillsSkillMapSkillGroupsId = 662,
+  SkillsSkillMapSkillGroupsName = 663,
+  SkillsSkillMapSkillGroupsNodeLocale = 664,
+  SkillsSkillMapSkillGroupsSkillMap = 665,
+  SkillsSkillMapSkillGroupsSkills = 666,
+  SkillsSkillMapSkillGroupsSpaceId = 667,
+  SkillsSkillMapSkillGroupsUpdatedAt = 668,
+  SkillsSkillMapSkills = 669,
+  SkillsSkillMapSkillsBlogPost = 670,
+  SkillsSkillMapSkillsChildren = 671,
+  SkillsSkillMapSkillsContentfulId = 672,
+  SkillsSkillMapSkillsCreatedAt = 673,
+  SkillsSkillMapSkillsId = 674,
+  SkillsSkillMapSkillsLevel = 675,
+  SkillsSkillMapSkillsName = 676,
+  SkillsSkillMapSkillsNodeLocale = 677,
+  SkillsSkillMapSkillsOss = 678,
+  SkillsSkillMapSkillsProject = 679,
+  SkillsSkillMapSkillsSkillGrpup = 680,
+  SkillsSkillMapSkillsSkillMap = 681,
+  SkillsSkillMapSkillsSpaceId = 682,
+  SkillsSkillMapSkillsUpdatedAt = 683,
+  SkillsSkillMapSortKey = 684,
+  SkillsSkillMapSpaceId = 685,
+  SkillsSkillMapSysRevision = 686,
+  SkillsSkillMapSysType = 687,
+  SkillsSkillMapUpdatedAt = 688,
+  SkillsSpaceId = 689,
+  SkillsSysRevision = 690,
+  SkillsSysType = 691,
+  SkillsUpdatedAt = 692,
+  SortKey = 693,
+  SpaceId = 694,
+  SysContentTypeSysId = 695,
+  SysContentTypeSysLinkType = 696,
+  SysContentTypeSysType = 697,
+  SysRevision = 698,
+  SysType = 699,
+  UpdatedAt = 700
 }
 
 export type ContentfulSkillMapFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  expanded: InputMaybe<BooleanQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  skillGroups: InputMaybe<ContentfulSkillGrpupFilterListInput>;
-  skills: InputMaybe<ContentfulTagFilterListInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulSkillMapSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly expanded: InputMaybe<BooleanQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly skillGroups: InputMaybe<ContentfulSkillGrpupFilterListInput>;
+  readonly skills: InputMaybe<ContentfulTagFilterListInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulSkillMapSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulSkillMapFilterListInput = {
-  elemMatch: InputMaybe<ContentfulSkillMapFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulSkillMapFilterInput>;
 };
 
 export type ContentfulSkillMapGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulSkillMapEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulSkillMapGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulSkillMap>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulSkillMapEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulSkillMapGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulSkillMap>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -12249,60 +12269,60 @@ export type ContentfulSkillMapGroupConnectionSumArgs = {
 };
 
 export type ContentfulSkillMapSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulSkillMapFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulSkillMapFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulSkillMapSys = {
-  contentType: Maybe<ContentfulSkillMapSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulSkillMapSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillMapSysContentType = {
-  sys: Maybe<ContentfulSkillMapSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulSkillMapSysContentTypeSys>;
 };
 
 export type ContentfulSkillMapSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulSkillMapSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulSkillMapSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulSkillMapSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulSkillMapSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulSkillMapSysFilterInput = {
-  contentType: InputMaybe<ContentfulSkillMapSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulSkillMapSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulTag = ContentfulEntry & ContentfulReference & Node & {
-  blog_post: Maybe<Array<Maybe<ContentfulBlogPost>>>;
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  level: Maybe<Scalars['Int']>;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  oss: Maybe<Array<Maybe<ContentfulOss>>>;
-  parent: Maybe<Node>;
-  project: Maybe<Array<Maybe<ContentfulProject>>>;
-  skill_grpup: Maybe<Array<Maybe<ContentfulSkillGrpup>>>;
-  skill_map: Maybe<Array<Maybe<ContentfulSkillMap>>>;
-  spaceId: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulTagSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly blog_post: Maybe<ReadonlyArray<Maybe<ContentfulBlogPost>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly level: Maybe<Scalars['Int']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly oss: Maybe<ReadonlyArray<Maybe<ContentfulOss>>>;
+  readonly parent: Maybe<Node>;
+  readonly project: Maybe<ReadonlyArray<Maybe<ContentfulProject>>>;
+  readonly skill_grpup: Maybe<ReadonlyArray<Maybe<ContentfulSkillGrpup>>>;
+  readonly skill_map: Maybe<ReadonlyArray<Maybe<ContentfulSkillMap>>>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulTagSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -12322,15 +12342,15 @@ export type ContentfulTagUpdatedAtArgs = {
 };
 
 export type ContentfulTagConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulTagEdge>;
-  group: Array<ContentfulTagGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulTag>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulTagEdge>;
+  readonly group: ReadonlyArray<ContentfulTagGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulTag>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -12361,9 +12381,9 @@ export type ContentfulTagConnectionSumArgs = {
 };
 
 export type ContentfulTagEdge = {
-  next: Maybe<ContentfulTag>;
-  node: ContentfulTag;
-  previous: Maybe<ContentfulTag>;
+  readonly next: Maybe<ContentfulTag>;
+  readonly node: ContentfulTag;
+  readonly previous: Maybe<ContentfulTag>;
 };
 
 export enum ContentfulTagFieldsEnum {
@@ -12375,1665 +12395,1672 @@ export enum ContentfulTagFieldsEnum {
   BlogPostCategoryBlogPostCreated = 5,
   BlogPostCategoryBlogPostCreatedAt = 6,
   BlogPostCategoryBlogPostExcerpt = 7,
-  BlogPostCategoryBlogPostId = 8,
-  BlogPostCategoryBlogPostNodeLocale = 9,
-  BlogPostCategoryBlogPostSlug = 10,
-  BlogPostCategoryBlogPostSpaceId = 11,
-  BlogPostCategoryBlogPostTags = 12,
-  BlogPostCategoryBlogPostTitle = 13,
-  BlogPostCategoryBlogPostUpdated = 14,
-  BlogPostCategoryBlogPostUpdatedAt = 15,
-  BlogPostCategoryChildren = 16,
-  BlogPostCategoryChildrenChildren = 17,
-  BlogPostCategoryChildrenId = 18,
-  BlogPostCategoryContentfulId = 19,
-  BlogPostCategoryCreatedAt = 20,
-  BlogPostCategoryId = 21,
-  BlogPostCategoryInternalContent = 22,
-  BlogPostCategoryInternalContentDigest = 23,
-  BlogPostCategoryInternalContentFilePath = 24,
-  BlogPostCategoryInternalDescription = 25,
-  BlogPostCategoryInternalFieldOwners = 26,
-  BlogPostCategoryInternalIgnoreType = 27,
-  BlogPostCategoryInternalMediaType = 28,
-  BlogPostCategoryInternalOwner = 29,
-  BlogPostCategoryInternalType = 30,
-  BlogPostCategoryName = 31,
-  BlogPostCategoryNodeLocale = 32,
-  BlogPostCategoryParentChildren = 33,
-  BlogPostCategoryParentId = 34,
-  BlogPostCategorySortKey = 35,
-  BlogPostCategorySpaceId = 36,
-  BlogPostCategorySysRevision = 37,
-  BlogPostCategorySysType = 38,
-  BlogPostCategoryUpdatedAt = 39,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxBody = 40,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxChildren = 41,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxExcerpt = 42,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 43,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHeadings = 44,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHtml = 45,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxId = 46,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxMdxAst = 47,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxRawBody = 48,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxSlug = 49,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTableOfContents = 50,
-  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTimeToRead = 51,
-  BlogPostChildContentfulBlogPostContentTextNodeChildren = 52,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 53,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxBody = 54,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxChildren = 55,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 56,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 57,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHeadings = 58,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHtml = 59,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxId = 60,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 61,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxRawBody = 62,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxSlug = 63,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 64,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 65,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenChildren = 66,
-  BlogPostChildContentfulBlogPostContentTextNodeChildrenId = 67,
-  BlogPostChildContentfulBlogPostContentTextNodeContent = 68,
-  BlogPostChildContentfulBlogPostContentTextNodeId = 69,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalContent = 70,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalContentDigest = 71,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalContentFilePath = 72,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalDescription = 73,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalFieldOwners = 74,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalIgnoreType = 75,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalMediaType = 76,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalOwner = 77,
-  BlogPostChildContentfulBlogPostContentTextNodeInternalType = 78,
-  BlogPostChildContentfulBlogPostContentTextNodeParentChildren = 79,
-  BlogPostChildContentfulBlogPostContentTextNodeParentId = 80,
-  BlogPostChildContentfulBlogPostContentTextNodeSysType = 81,
-  BlogPostChildren = 82,
-  BlogPostChildrenContentfulBlogPostContentTextNode = 83,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxBody = 84,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxChildren = 85,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxExcerpt = 86,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 87,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHeadings = 88,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHtml = 89,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxId = 90,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxMdxAst = 91,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxRawBody = 92,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxSlug = 93,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTableOfContents = 94,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTimeToRead = 95,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildren = 96,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 97,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxBody = 98,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxChildren = 99,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 100,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 101,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadings = 102,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHtml = 103,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxId = 104,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 105,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxRawBody = 106,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxSlug = 107,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 108,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 109,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenChildren = 110,
-  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenId = 111,
-  BlogPostChildrenContentfulBlogPostContentTextNodeContent = 112,
-  BlogPostChildrenContentfulBlogPostContentTextNodeId = 113,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContent = 114,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentDigest = 115,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentFilePath = 116,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalDescription = 117,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalFieldOwners = 118,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalIgnoreType = 119,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalMediaType = 120,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalOwner = 121,
-  BlogPostChildrenContentfulBlogPostContentTextNodeInternalType = 122,
-  BlogPostChildrenContentfulBlogPostContentTextNodeParentChildren = 123,
-  BlogPostChildrenContentfulBlogPostContentTextNodeParentId = 124,
-  BlogPostChildrenContentfulBlogPostContentTextNodeSysType = 125,
-  BlogPostChildrenChildren = 126,
-  BlogPostChildrenChildrenChildren = 127,
-  BlogPostChildrenChildrenId = 128,
-  BlogPostChildrenId = 129,
-  BlogPostChildrenInternalContent = 130,
-  BlogPostChildrenInternalContentDigest = 131,
-  BlogPostChildrenInternalContentFilePath = 132,
-  BlogPostChildrenInternalDescription = 133,
-  BlogPostChildrenInternalFieldOwners = 134,
-  BlogPostChildrenInternalIgnoreType = 135,
-  BlogPostChildrenInternalMediaType = 136,
-  BlogPostChildrenInternalOwner = 137,
-  BlogPostChildrenInternalType = 138,
-  BlogPostChildrenParentChildren = 139,
-  BlogPostChildrenParentId = 140,
-  BlogPostContentChildMdxBody = 141,
-  BlogPostContentChildMdxChildren = 142,
-  BlogPostContentChildMdxExcerpt = 143,
-  BlogPostContentChildMdxFileAbsolutePath = 144,
-  BlogPostContentChildMdxHeadings = 145,
-  BlogPostContentChildMdxHtml = 146,
-  BlogPostContentChildMdxId = 147,
-  BlogPostContentChildMdxMdxAst = 148,
-  BlogPostContentChildMdxRawBody = 149,
-  BlogPostContentChildMdxSlug = 150,
-  BlogPostContentChildMdxTableOfContents = 151,
-  BlogPostContentChildMdxTimeToRead = 152,
-  BlogPostContentChildren = 153,
-  BlogPostContentChildrenMdx = 154,
-  BlogPostContentChildrenMdxBody = 155,
-  BlogPostContentChildrenMdxChildren = 156,
-  BlogPostContentChildrenMdxExcerpt = 157,
-  BlogPostContentChildrenMdxFileAbsolutePath = 158,
-  BlogPostContentChildrenMdxHeadings = 159,
-  BlogPostContentChildrenMdxHtml = 160,
-  BlogPostContentChildrenMdxId = 161,
-  BlogPostContentChildrenMdxMdxAst = 162,
-  BlogPostContentChildrenMdxRawBody = 163,
-  BlogPostContentChildrenMdxSlug = 164,
-  BlogPostContentChildrenMdxTableOfContents = 165,
-  BlogPostContentChildrenMdxTimeToRead = 166,
-  BlogPostContentChildrenChildren = 167,
-  BlogPostContentChildrenId = 168,
-  BlogPostContentContent = 169,
-  BlogPostContentId = 170,
-  BlogPostContentInternalContent = 171,
-  BlogPostContentInternalContentDigest = 172,
-  BlogPostContentInternalContentFilePath = 173,
-  BlogPostContentInternalDescription = 174,
-  BlogPostContentInternalFieldOwners = 175,
-  BlogPostContentInternalIgnoreType = 176,
-  BlogPostContentInternalMediaType = 177,
-  BlogPostContentInternalOwner = 178,
-  BlogPostContentInternalType = 179,
-  BlogPostContentParentChildren = 180,
-  BlogPostContentParentId = 181,
-  BlogPostContentSysType = 182,
-  BlogPostContentfulId = 183,
-  BlogPostCreated = 184,
-  BlogPostCreatedAt = 185,
-  BlogPostExcerpt = 186,
-  BlogPostId = 187,
-  BlogPostInternalContent = 188,
-  BlogPostInternalContentDigest = 189,
-  BlogPostInternalContentFilePath = 190,
-  BlogPostInternalDescription = 191,
-  BlogPostInternalFieldOwners = 192,
-  BlogPostInternalIgnoreType = 193,
-  BlogPostInternalMediaType = 194,
-  BlogPostInternalOwner = 195,
-  BlogPostInternalType = 196,
-  BlogPostNodeLocale = 197,
-  BlogPostParentChildren = 198,
-  BlogPostParentChildrenChildren = 199,
-  BlogPostParentChildrenId = 200,
-  BlogPostParentId = 201,
-  BlogPostParentInternalContent = 202,
-  BlogPostParentInternalContentDigest = 203,
-  BlogPostParentInternalContentFilePath = 204,
-  BlogPostParentInternalDescription = 205,
-  BlogPostParentInternalFieldOwners = 206,
-  BlogPostParentInternalIgnoreType = 207,
-  BlogPostParentInternalMediaType = 208,
-  BlogPostParentInternalOwner = 209,
-  BlogPostParentInternalType = 210,
-  BlogPostParentParentChildren = 211,
-  BlogPostParentParentId = 212,
-  BlogPostSlug = 213,
-  BlogPostSpaceId = 214,
-  BlogPostSysRevision = 215,
-  BlogPostSysType = 216,
-  BlogPostTags = 217,
-  BlogPostTagsBlogPost = 218,
-  BlogPostTagsBlogPostChildren = 219,
-  BlogPostTagsBlogPostChildrenContentfulBlogPostContentTextNode = 220,
-  BlogPostTagsBlogPostContentfulId = 221,
-  BlogPostTagsBlogPostCreated = 222,
-  BlogPostTagsBlogPostCreatedAt = 223,
-  BlogPostTagsBlogPostExcerpt = 224,
-  BlogPostTagsBlogPostId = 225,
-  BlogPostTagsBlogPostNodeLocale = 226,
-  BlogPostTagsBlogPostSlug = 227,
-  BlogPostTagsBlogPostSpaceId = 228,
-  BlogPostTagsBlogPostTags = 229,
-  BlogPostTagsBlogPostTitle = 230,
-  BlogPostTagsBlogPostUpdated = 231,
-  BlogPostTagsBlogPostUpdatedAt = 232,
-  BlogPostTagsChildren = 233,
-  BlogPostTagsChildrenChildren = 234,
-  BlogPostTagsChildrenId = 235,
-  BlogPostTagsContentfulId = 236,
-  BlogPostTagsCreatedAt = 237,
-  BlogPostTagsId = 238,
-  BlogPostTagsInternalContent = 239,
-  BlogPostTagsInternalContentDigest = 240,
-  BlogPostTagsInternalContentFilePath = 241,
-  BlogPostTagsInternalDescription = 242,
-  BlogPostTagsInternalFieldOwners = 243,
-  BlogPostTagsInternalIgnoreType = 244,
-  BlogPostTagsInternalMediaType = 245,
-  BlogPostTagsInternalOwner = 246,
-  BlogPostTagsInternalType = 247,
-  BlogPostTagsLevel = 248,
-  BlogPostTagsName = 249,
-  BlogPostTagsNodeLocale = 250,
-  BlogPostTagsOss = 251,
-  BlogPostTagsOssChildren = 252,
-  BlogPostTagsOssChildrenContentfulOssDetailTextNode = 253,
-  BlogPostTagsOssContentfulId = 254,
-  BlogPostTagsOssCreatedAt = 255,
-  BlogPostTagsOssHref = 256,
-  BlogPostTagsOssId = 257,
-  BlogPostTagsOssName = 258,
-  BlogPostTagsOssNodeLocale = 259,
-  BlogPostTagsOssSpaceId = 260,
-  BlogPostTagsOssStartDate = 261,
-  BlogPostTagsOssSubName = 262,
-  BlogPostTagsOssTags = 263,
-  BlogPostTagsOssUpdatedAt = 264,
-  BlogPostTagsParentChildren = 265,
-  BlogPostTagsParentId = 266,
-  BlogPostTagsProject = 267,
-  BlogPostTagsProjectChildren = 268,
-  BlogPostTagsProjectChildrenContentfulProjectDetailTextNode = 269,
-  BlogPostTagsProjectContentfulId = 270,
-  BlogPostTagsProjectCreatedAt = 271,
-  BlogPostTagsProjectEndDate = 272,
-  BlogPostTagsProjectId = 273,
-  BlogPostTagsProjectName = 274,
-  BlogPostTagsProjectNodeLocale = 275,
-  BlogPostTagsProjectSpaceId = 276,
-  BlogPostTagsProjectStartDate = 277,
-  BlogPostTagsProjectSubName = 278,
-  BlogPostTagsProjectTags = 279,
-  BlogPostTagsProjectUpdatedAt = 280,
-  BlogPostTagsSkillGrpup = 281,
-  BlogPostTagsSkillGrpupChildren = 282,
-  BlogPostTagsSkillGrpupContentfulId = 283,
-  BlogPostTagsSkillGrpupCreatedAt = 284,
-  BlogPostTagsSkillGrpupId = 285,
-  BlogPostTagsSkillGrpupName = 286,
-  BlogPostTagsSkillGrpupNodeLocale = 287,
-  BlogPostTagsSkillGrpupSkillMap = 288,
-  BlogPostTagsSkillGrpupSkills = 289,
-  BlogPostTagsSkillGrpupSpaceId = 290,
-  BlogPostTagsSkillGrpupUpdatedAt = 291,
-  BlogPostTagsSkillMap = 292,
-  BlogPostTagsSkillMapChildren = 293,
-  BlogPostTagsSkillMapContentfulId = 294,
-  BlogPostTagsSkillMapCreatedAt = 295,
-  BlogPostTagsSkillMapExpanded = 296,
-  BlogPostTagsSkillMapId = 297,
-  BlogPostTagsSkillMapName = 298,
-  BlogPostTagsSkillMapNodeLocale = 299,
-  BlogPostTagsSkillMapSkillGroups = 300,
-  BlogPostTagsSkillMapSkills = 301,
-  BlogPostTagsSkillMapSortKey = 302,
-  BlogPostTagsSkillMapSpaceId = 303,
-  BlogPostTagsSkillMapUpdatedAt = 304,
-  BlogPostTagsSpaceId = 305,
-  BlogPostTagsSysRevision = 306,
-  BlogPostTagsSysType = 307,
-  BlogPostTagsUpdatedAt = 308,
-  BlogPostThumbnailChildren = 309,
-  BlogPostThumbnailChildrenChildren = 310,
-  BlogPostThumbnailChildrenId = 311,
-  BlogPostThumbnailContentfulId = 312,
-  BlogPostThumbnailCreatedAt = 313,
-  BlogPostThumbnailDescription = 314,
-  BlogPostThumbnailFileContentType = 315,
-  BlogPostThumbnailFileFileName = 316,
-  BlogPostThumbnailFileUrl = 317,
-  BlogPostThumbnailFilename = 318,
-  BlogPostThumbnailFilesize = 319,
-  BlogPostThumbnailGatsbyImage = 320,
-  BlogPostThumbnailGatsbyImageData = 321,
-  BlogPostThumbnailHeight = 322,
-  BlogPostThumbnailId = 323,
-  BlogPostThumbnailInternalContent = 324,
-  BlogPostThumbnailInternalContentDigest = 325,
-  BlogPostThumbnailInternalContentFilePath = 326,
-  BlogPostThumbnailInternalDescription = 327,
-  BlogPostThumbnailInternalFieldOwners = 328,
-  BlogPostThumbnailInternalIgnoreType = 329,
-  BlogPostThumbnailInternalMediaType = 330,
-  BlogPostThumbnailInternalOwner = 331,
-  BlogPostThumbnailInternalType = 332,
-  BlogPostThumbnailMimeType = 333,
-  BlogPostThumbnailNodeLocale = 334,
-  BlogPostThumbnailParentChildren = 335,
-  BlogPostThumbnailParentId = 336,
-  BlogPostThumbnailPlaceholderUrl = 337,
-  BlogPostThumbnailPublicUrl = 338,
-  BlogPostThumbnailResizeHeight = 339,
-  BlogPostThumbnailResizeSrc = 340,
-  BlogPostThumbnailResizeWidth = 341,
-  BlogPostThumbnailSize = 342,
-  BlogPostThumbnailSpaceId = 343,
-  BlogPostThumbnailSysRevision = 344,
-  BlogPostThumbnailSysType = 345,
-  BlogPostThumbnailTitle = 346,
-  BlogPostThumbnailUpdatedAt = 347,
-  BlogPostThumbnailUrl = 348,
-  BlogPostThumbnailWidth = 349,
-  BlogPostTitle = 350,
-  BlogPostUpdated = 351,
-  BlogPostUpdatedAt = 352,
-  Children = 353,
-  ChildrenChildren = 354,
-  ChildrenChildrenChildren = 355,
-  ChildrenChildrenChildrenChildren = 356,
-  ChildrenChildrenChildrenId = 357,
-  ChildrenChildrenId = 358,
-  ChildrenChildrenInternalContent = 359,
-  ChildrenChildrenInternalContentDigest = 360,
-  ChildrenChildrenInternalContentFilePath = 361,
-  ChildrenChildrenInternalDescription = 362,
-  ChildrenChildrenInternalFieldOwners = 363,
-  ChildrenChildrenInternalIgnoreType = 364,
-  ChildrenChildrenInternalMediaType = 365,
-  ChildrenChildrenInternalOwner = 366,
-  ChildrenChildrenInternalType = 367,
-  ChildrenChildrenParentChildren = 368,
-  ChildrenChildrenParentId = 369,
-  ChildrenId = 370,
-  ChildrenInternalContent = 371,
-  ChildrenInternalContentDigest = 372,
-  ChildrenInternalContentFilePath = 373,
-  ChildrenInternalDescription = 374,
-  ChildrenInternalFieldOwners = 375,
-  ChildrenInternalIgnoreType = 376,
-  ChildrenInternalMediaType = 377,
-  ChildrenInternalOwner = 378,
-  ChildrenInternalType = 379,
-  ChildrenParentChildren = 380,
-  ChildrenParentChildrenChildren = 381,
-  ChildrenParentChildrenId = 382,
-  ChildrenParentId = 383,
-  ChildrenParentInternalContent = 384,
-  ChildrenParentInternalContentDigest = 385,
-  ChildrenParentInternalContentFilePath = 386,
-  ChildrenParentInternalDescription = 387,
-  ChildrenParentInternalFieldOwners = 388,
-  ChildrenParentInternalIgnoreType = 389,
-  ChildrenParentInternalMediaType = 390,
-  ChildrenParentInternalOwner = 391,
-  ChildrenParentInternalType = 392,
-  ChildrenParentParentChildren = 393,
-  ChildrenParentParentId = 394,
-  ContentfulId = 395,
-  CreatedAt = 396,
-  Id = 397,
-  InternalContent = 398,
-  InternalContentDigest = 399,
-  InternalContentFilePath = 400,
-  InternalDescription = 401,
-  InternalFieldOwners = 402,
-  InternalIgnoreType = 403,
-  InternalMediaType = 404,
-  InternalOwner = 405,
-  InternalType = 406,
-  Level = 407,
-  Name = 408,
-  NodeLocale = 409,
-  Oss = 410,
-  OssChildContentfulOssDetailTextNodeChildMdxBody = 411,
-  OssChildContentfulOssDetailTextNodeChildMdxChildren = 412,
-  OssChildContentfulOssDetailTextNodeChildMdxExcerpt = 413,
-  OssChildContentfulOssDetailTextNodeChildMdxFileAbsolutePath = 414,
-  OssChildContentfulOssDetailTextNodeChildMdxHeadings = 415,
-  OssChildContentfulOssDetailTextNodeChildMdxHtml = 416,
-  OssChildContentfulOssDetailTextNodeChildMdxId = 417,
-  OssChildContentfulOssDetailTextNodeChildMdxMdxAst = 418,
-  OssChildContentfulOssDetailTextNodeChildMdxRawBody = 419,
-  OssChildContentfulOssDetailTextNodeChildMdxSlug = 420,
-  OssChildContentfulOssDetailTextNodeChildMdxTableOfContents = 421,
-  OssChildContentfulOssDetailTextNodeChildMdxTimeToRead = 422,
-  OssChildContentfulOssDetailTextNodeChildren = 423,
-  OssChildContentfulOssDetailTextNodeChildrenMdx = 424,
-  OssChildContentfulOssDetailTextNodeChildrenMdxBody = 425,
-  OssChildContentfulOssDetailTextNodeChildrenMdxChildren = 426,
-  OssChildContentfulOssDetailTextNodeChildrenMdxExcerpt = 427,
-  OssChildContentfulOssDetailTextNodeChildrenMdxFileAbsolutePath = 428,
-  OssChildContentfulOssDetailTextNodeChildrenMdxHeadings = 429,
-  OssChildContentfulOssDetailTextNodeChildrenMdxHtml = 430,
-  OssChildContentfulOssDetailTextNodeChildrenMdxId = 431,
-  OssChildContentfulOssDetailTextNodeChildrenMdxMdxAst = 432,
-  OssChildContentfulOssDetailTextNodeChildrenMdxRawBody = 433,
-  OssChildContentfulOssDetailTextNodeChildrenMdxSlug = 434,
-  OssChildContentfulOssDetailTextNodeChildrenMdxTableOfContents = 435,
-  OssChildContentfulOssDetailTextNodeChildrenMdxTimeToRead = 436,
-  OssChildContentfulOssDetailTextNodeChildrenChildren = 437,
-  OssChildContentfulOssDetailTextNodeChildrenId = 438,
-  OssChildContentfulOssDetailTextNodeDetail = 439,
-  OssChildContentfulOssDetailTextNodeId = 440,
-  OssChildContentfulOssDetailTextNodeInternalContent = 441,
-  OssChildContentfulOssDetailTextNodeInternalContentDigest = 442,
-  OssChildContentfulOssDetailTextNodeInternalContentFilePath = 443,
-  OssChildContentfulOssDetailTextNodeInternalDescription = 444,
-  OssChildContentfulOssDetailTextNodeInternalFieldOwners = 445,
-  OssChildContentfulOssDetailTextNodeInternalIgnoreType = 446,
-  OssChildContentfulOssDetailTextNodeInternalMediaType = 447,
-  OssChildContentfulOssDetailTextNodeInternalOwner = 448,
-  OssChildContentfulOssDetailTextNodeInternalType = 449,
-  OssChildContentfulOssDetailTextNodeParentChildren = 450,
-  OssChildContentfulOssDetailTextNodeParentId = 451,
-  OssChildContentfulOssDetailTextNodeSysType = 452,
-  OssChildren = 453,
-  OssChildrenContentfulOssDetailTextNode = 454,
-  OssChildrenContentfulOssDetailTextNodeChildMdxBody = 455,
-  OssChildrenContentfulOssDetailTextNodeChildMdxChildren = 456,
-  OssChildrenContentfulOssDetailTextNodeChildMdxExcerpt = 457,
-  OssChildrenContentfulOssDetailTextNodeChildMdxFileAbsolutePath = 458,
-  OssChildrenContentfulOssDetailTextNodeChildMdxHeadings = 459,
-  OssChildrenContentfulOssDetailTextNodeChildMdxHtml = 460,
-  OssChildrenContentfulOssDetailTextNodeChildMdxId = 461,
-  OssChildrenContentfulOssDetailTextNodeChildMdxMdxAst = 462,
-  OssChildrenContentfulOssDetailTextNodeChildMdxRawBody = 463,
-  OssChildrenContentfulOssDetailTextNodeChildMdxSlug = 464,
-  OssChildrenContentfulOssDetailTextNodeChildMdxTableOfContents = 465,
-  OssChildrenContentfulOssDetailTextNodeChildMdxTimeToRead = 466,
-  OssChildrenContentfulOssDetailTextNodeChildren = 467,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdx = 468,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxBody = 469,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxChildren = 470,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxExcerpt = 471,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxFileAbsolutePath = 472,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxHeadings = 473,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxHtml = 474,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxId = 475,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxMdxAst = 476,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxRawBody = 477,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxSlug = 478,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxTableOfContents = 479,
-  OssChildrenContentfulOssDetailTextNodeChildrenMdxTimeToRead = 480,
-  OssChildrenContentfulOssDetailTextNodeChildrenChildren = 481,
-  OssChildrenContentfulOssDetailTextNodeChildrenId = 482,
-  OssChildrenContentfulOssDetailTextNodeDetail = 483,
-  OssChildrenContentfulOssDetailTextNodeId = 484,
-  OssChildrenContentfulOssDetailTextNodeInternalContent = 485,
-  OssChildrenContentfulOssDetailTextNodeInternalContentDigest = 486,
-  OssChildrenContentfulOssDetailTextNodeInternalContentFilePath = 487,
-  OssChildrenContentfulOssDetailTextNodeInternalDescription = 488,
-  OssChildrenContentfulOssDetailTextNodeInternalFieldOwners = 489,
-  OssChildrenContentfulOssDetailTextNodeInternalIgnoreType = 490,
-  OssChildrenContentfulOssDetailTextNodeInternalMediaType = 491,
-  OssChildrenContentfulOssDetailTextNodeInternalOwner = 492,
-  OssChildrenContentfulOssDetailTextNodeInternalType = 493,
-  OssChildrenContentfulOssDetailTextNodeParentChildren = 494,
-  OssChildrenContentfulOssDetailTextNodeParentId = 495,
-  OssChildrenContentfulOssDetailTextNodeSysType = 496,
-  OssChildrenChildren = 497,
-  OssChildrenChildrenChildren = 498,
-  OssChildrenChildrenId = 499,
-  OssChildrenId = 500,
-  OssChildrenInternalContent = 501,
-  OssChildrenInternalContentDigest = 502,
-  OssChildrenInternalContentFilePath = 503,
-  OssChildrenInternalDescription = 504,
-  OssChildrenInternalFieldOwners = 505,
-  OssChildrenInternalIgnoreType = 506,
-  OssChildrenInternalMediaType = 507,
-  OssChildrenInternalOwner = 508,
-  OssChildrenInternalType = 509,
-  OssChildrenParentChildren = 510,
-  OssChildrenParentId = 511,
-  OssContentfulId = 512,
-  OssCreatedAt = 513,
-  OssDetailChildMdxBody = 514,
-  OssDetailChildMdxChildren = 515,
-  OssDetailChildMdxExcerpt = 516,
-  OssDetailChildMdxFileAbsolutePath = 517,
-  OssDetailChildMdxHeadings = 518,
-  OssDetailChildMdxHtml = 519,
-  OssDetailChildMdxId = 520,
-  OssDetailChildMdxMdxAst = 521,
-  OssDetailChildMdxRawBody = 522,
-  OssDetailChildMdxSlug = 523,
-  OssDetailChildMdxTableOfContents = 524,
-  OssDetailChildMdxTimeToRead = 525,
-  OssDetailChildren = 526,
-  OssDetailChildrenMdx = 527,
-  OssDetailChildrenMdxBody = 528,
-  OssDetailChildrenMdxChildren = 529,
-  OssDetailChildrenMdxExcerpt = 530,
-  OssDetailChildrenMdxFileAbsolutePath = 531,
-  OssDetailChildrenMdxHeadings = 532,
-  OssDetailChildrenMdxHtml = 533,
-  OssDetailChildrenMdxId = 534,
-  OssDetailChildrenMdxMdxAst = 535,
-  OssDetailChildrenMdxRawBody = 536,
-  OssDetailChildrenMdxSlug = 537,
-  OssDetailChildrenMdxTableOfContents = 538,
-  OssDetailChildrenMdxTimeToRead = 539,
-  OssDetailChildrenChildren = 540,
-  OssDetailChildrenId = 541,
-  OssDetailDetail = 542,
-  OssDetailId = 543,
-  OssDetailInternalContent = 544,
-  OssDetailInternalContentDigest = 545,
-  OssDetailInternalContentFilePath = 546,
-  OssDetailInternalDescription = 547,
-  OssDetailInternalFieldOwners = 548,
-  OssDetailInternalIgnoreType = 549,
-  OssDetailInternalMediaType = 550,
-  OssDetailInternalOwner = 551,
-  OssDetailInternalType = 552,
-  OssDetailParentChildren = 553,
-  OssDetailParentId = 554,
-  OssDetailSysType = 555,
-  OssHref = 556,
-  OssIconChildContentfulIconSvgTextNodeChildren = 557,
-  OssIconChildContentfulIconSvgTextNodeChildrenMdx = 558,
-  OssIconChildContentfulIconSvgTextNodeId = 559,
-  OssIconChildContentfulIconSvgTextNodeSvg = 560,
-  OssIconChildren = 561,
-  OssIconChildrenContentfulIconSvgTextNode = 562,
-  OssIconChildrenContentfulIconSvgTextNodeChildren = 563,
-  OssIconChildrenContentfulIconSvgTextNodeChildrenMdx = 564,
-  OssIconChildrenContentfulIconSvgTextNodeId = 565,
-  OssIconChildrenContentfulIconSvgTextNodeSvg = 566,
-  OssIconChildrenChildren = 567,
-  OssIconChildrenId = 568,
-  OssIconContact = 569,
-  OssIconContactChildren = 570,
-  OssIconContactContentfulId = 571,
-  OssIconContactCreatedAt = 572,
-  OssIconContactHref = 573,
-  OssIconContactId = 574,
-  OssIconContactName = 575,
-  OssIconContactNodeLocale = 576,
-  OssIconContactSortKey = 577,
-  OssIconContactSpaceId = 578,
-  OssIconContactSubName = 579,
-  OssIconContactUpdatedAt = 580,
-  OssIconContentfulId = 581,
-  OssIconCreatedAt = 582,
-  OssIconHistory = 583,
-  OssIconHistoryChildren = 584,
-  OssIconHistoryContentfulId = 585,
-  OssIconHistoryCreatedAt = 586,
-  OssIconHistoryDate = 587,
-  OssIconHistoryId = 588,
-  OssIconHistoryName = 589,
-  OssIconHistoryNodeLocale = 590,
-  OssIconHistorySpaceId = 591,
-  OssIconHistorySubName = 592,
-  OssIconHistoryUpdatedAt = 593,
-  OssIconId = 594,
-  OssIconInternalContent = 595,
-  OssIconInternalContentDigest = 596,
-  OssIconInternalContentFilePath = 597,
-  OssIconInternalDescription = 598,
-  OssIconInternalFieldOwners = 599,
-  OssIconInternalIgnoreType = 600,
-  OssIconInternalMediaType = 601,
-  OssIconInternalOwner = 602,
-  OssIconInternalType = 603,
-  OssIconName = 604,
-  OssIconNodeLocale = 605,
-  OssIconOss = 606,
-  OssIconOssChildren = 607,
-  OssIconOssChildrenContentfulOssDetailTextNode = 608,
-  OssIconOssContentfulId = 609,
-  OssIconOssCreatedAt = 610,
-  OssIconOssHref = 611,
-  OssIconOssId = 612,
-  OssIconOssName = 613,
-  OssIconOssNodeLocale = 614,
-  OssIconOssSpaceId = 615,
-  OssIconOssStartDate = 616,
-  OssIconOssSubName = 617,
-  OssIconOssTags = 618,
-  OssIconOssUpdatedAt = 619,
-  OssIconParentChildren = 620,
-  OssIconParentId = 621,
-  OssIconProject = 622,
-  OssIconProjectChildren = 623,
-  OssIconProjectChildrenContentfulProjectDetailTextNode = 624,
-  OssIconProjectContentfulId = 625,
-  OssIconProjectCreatedAt = 626,
-  OssIconProjectEndDate = 627,
-  OssIconProjectId = 628,
-  OssIconProjectName = 629,
-  OssIconProjectNodeLocale = 630,
-  OssIconProjectSpaceId = 631,
-  OssIconProjectStartDate = 632,
-  OssIconProjectSubName = 633,
-  OssIconProjectTags = 634,
-  OssIconProjectUpdatedAt = 635,
-  OssIconSpaceId = 636,
-  OssIconSvgChildren = 637,
-  OssIconSvgChildrenMdx = 638,
-  OssIconSvgId = 639,
-  OssIconSvgSvg = 640,
-  OssIconSysRevision = 641,
-  OssIconSysType = 642,
-  OssIconUpdatedAt = 643,
-  OssIconWhatICanDo = 644,
-  OssIconWhatICanDoChildren = 645,
-  OssIconWhatICanDoContentfulId = 646,
-  OssIconWhatICanDoCreatedAt = 647,
-  OssIconWhatICanDoId = 648,
-  OssIconWhatICanDoName = 649,
-  OssIconWhatICanDoNodeLocale = 650,
-  OssIconWhatICanDoSortKey = 651,
-  OssIconWhatICanDoSpaceId = 652,
-  OssIconWhatICanDoSubName = 653,
-  OssIconWhatICanDoUpdatedAt = 654,
-  OssId = 655,
-  OssImageChildren = 656,
-  OssImageChildrenChildren = 657,
-  OssImageChildrenId = 658,
-  OssImageContentfulId = 659,
-  OssImageCreatedAt = 660,
-  OssImageDescription = 661,
-  OssImageFileContentType = 662,
-  OssImageFileFileName = 663,
-  OssImageFileUrl = 664,
-  OssImageFilename = 665,
-  OssImageFilesize = 666,
-  OssImageGatsbyImage = 667,
-  OssImageGatsbyImageData = 668,
-  OssImageHeight = 669,
-  OssImageId = 670,
-  OssImageInternalContent = 671,
-  OssImageInternalContentDigest = 672,
-  OssImageInternalContentFilePath = 673,
-  OssImageInternalDescription = 674,
-  OssImageInternalFieldOwners = 675,
-  OssImageInternalIgnoreType = 676,
-  OssImageInternalMediaType = 677,
-  OssImageInternalOwner = 678,
-  OssImageInternalType = 679,
-  OssImageMimeType = 680,
-  OssImageNodeLocale = 681,
-  OssImageParentChildren = 682,
-  OssImageParentId = 683,
-  OssImagePlaceholderUrl = 684,
-  OssImagePublicUrl = 685,
-  OssImageResizeHeight = 686,
-  OssImageResizeSrc = 687,
-  OssImageResizeWidth = 688,
-  OssImageSize = 689,
-  OssImageSpaceId = 690,
-  OssImageSysRevision = 691,
-  OssImageSysType = 692,
-  OssImageTitle = 693,
-  OssImageUpdatedAt = 694,
-  OssImageUrl = 695,
-  OssImageWidth = 696,
-  OssInternalContent = 697,
-  OssInternalContentDigest = 698,
-  OssInternalContentFilePath = 699,
-  OssInternalDescription = 700,
-  OssInternalFieldOwners = 701,
-  OssInternalIgnoreType = 702,
-  OssInternalMediaType = 703,
-  OssInternalOwner = 704,
-  OssInternalType = 705,
-  OssName = 706,
-  OssNodeLocale = 707,
-  OssParentChildren = 708,
-  OssParentChildrenChildren = 709,
-  OssParentChildrenId = 710,
-  OssParentId = 711,
-  OssParentInternalContent = 712,
-  OssParentInternalContentDigest = 713,
-  OssParentInternalContentFilePath = 714,
-  OssParentInternalDescription = 715,
-  OssParentInternalFieldOwners = 716,
-  OssParentInternalIgnoreType = 717,
-  OssParentInternalMediaType = 718,
-  OssParentInternalOwner = 719,
-  OssParentInternalType = 720,
-  OssParentParentChildren = 721,
-  OssParentParentId = 722,
-  OssSpaceId = 723,
-  OssStartDate = 724,
-  OssSubName = 725,
-  OssSysRevision = 726,
-  OssSysType = 727,
-  OssTags = 728,
-  OssTagsBlogPost = 729,
-  OssTagsBlogPostChildren = 730,
-  OssTagsBlogPostChildrenContentfulBlogPostContentTextNode = 731,
-  OssTagsBlogPostContentfulId = 732,
-  OssTagsBlogPostCreated = 733,
-  OssTagsBlogPostCreatedAt = 734,
-  OssTagsBlogPostExcerpt = 735,
-  OssTagsBlogPostId = 736,
-  OssTagsBlogPostNodeLocale = 737,
-  OssTagsBlogPostSlug = 738,
-  OssTagsBlogPostSpaceId = 739,
-  OssTagsBlogPostTags = 740,
-  OssTagsBlogPostTitle = 741,
-  OssTagsBlogPostUpdated = 742,
-  OssTagsBlogPostUpdatedAt = 743,
-  OssTagsChildren = 744,
-  OssTagsChildrenChildren = 745,
-  OssTagsChildrenId = 746,
-  OssTagsContentfulId = 747,
-  OssTagsCreatedAt = 748,
-  OssTagsId = 749,
-  OssTagsInternalContent = 750,
-  OssTagsInternalContentDigest = 751,
-  OssTagsInternalContentFilePath = 752,
-  OssTagsInternalDescription = 753,
-  OssTagsInternalFieldOwners = 754,
-  OssTagsInternalIgnoreType = 755,
-  OssTagsInternalMediaType = 756,
-  OssTagsInternalOwner = 757,
-  OssTagsInternalType = 758,
-  OssTagsLevel = 759,
-  OssTagsName = 760,
-  OssTagsNodeLocale = 761,
-  OssTagsOss = 762,
-  OssTagsOssChildren = 763,
-  OssTagsOssChildrenContentfulOssDetailTextNode = 764,
-  OssTagsOssContentfulId = 765,
-  OssTagsOssCreatedAt = 766,
-  OssTagsOssHref = 767,
-  OssTagsOssId = 768,
-  OssTagsOssName = 769,
-  OssTagsOssNodeLocale = 770,
-  OssTagsOssSpaceId = 771,
-  OssTagsOssStartDate = 772,
-  OssTagsOssSubName = 773,
-  OssTagsOssTags = 774,
-  OssTagsOssUpdatedAt = 775,
-  OssTagsParentChildren = 776,
-  OssTagsParentId = 777,
-  OssTagsProject = 778,
-  OssTagsProjectChildren = 779,
-  OssTagsProjectChildrenContentfulProjectDetailTextNode = 780,
-  OssTagsProjectContentfulId = 781,
-  OssTagsProjectCreatedAt = 782,
-  OssTagsProjectEndDate = 783,
-  OssTagsProjectId = 784,
-  OssTagsProjectName = 785,
-  OssTagsProjectNodeLocale = 786,
-  OssTagsProjectSpaceId = 787,
-  OssTagsProjectStartDate = 788,
-  OssTagsProjectSubName = 789,
-  OssTagsProjectTags = 790,
-  OssTagsProjectUpdatedAt = 791,
-  OssTagsSkillGrpup = 792,
-  OssTagsSkillGrpupChildren = 793,
-  OssTagsSkillGrpupContentfulId = 794,
-  OssTagsSkillGrpupCreatedAt = 795,
-  OssTagsSkillGrpupId = 796,
-  OssTagsSkillGrpupName = 797,
-  OssTagsSkillGrpupNodeLocale = 798,
-  OssTagsSkillGrpupSkillMap = 799,
-  OssTagsSkillGrpupSkills = 800,
-  OssTagsSkillGrpupSpaceId = 801,
-  OssTagsSkillGrpupUpdatedAt = 802,
-  OssTagsSkillMap = 803,
-  OssTagsSkillMapChildren = 804,
-  OssTagsSkillMapContentfulId = 805,
-  OssTagsSkillMapCreatedAt = 806,
-  OssTagsSkillMapExpanded = 807,
-  OssTagsSkillMapId = 808,
-  OssTagsSkillMapName = 809,
-  OssTagsSkillMapNodeLocale = 810,
-  OssTagsSkillMapSkillGroups = 811,
-  OssTagsSkillMapSkills = 812,
-  OssTagsSkillMapSortKey = 813,
-  OssTagsSkillMapSpaceId = 814,
-  OssTagsSkillMapUpdatedAt = 815,
-  OssTagsSpaceId = 816,
-  OssTagsSysRevision = 817,
-  OssTagsSysType = 818,
-  OssTagsUpdatedAt = 819,
-  OssUpdatedAt = 820,
-  ParentChildren = 821,
-  ParentChildrenChildren = 822,
-  ParentChildrenChildrenChildren = 823,
-  ParentChildrenChildrenId = 824,
-  ParentChildrenId = 825,
-  ParentChildrenInternalContent = 826,
-  ParentChildrenInternalContentDigest = 827,
-  ParentChildrenInternalContentFilePath = 828,
-  ParentChildrenInternalDescription = 829,
-  ParentChildrenInternalFieldOwners = 830,
-  ParentChildrenInternalIgnoreType = 831,
-  ParentChildrenInternalMediaType = 832,
-  ParentChildrenInternalOwner = 833,
-  ParentChildrenInternalType = 834,
-  ParentChildrenParentChildren = 835,
-  ParentChildrenParentId = 836,
-  ParentId = 837,
-  ParentInternalContent = 838,
-  ParentInternalContentDigest = 839,
-  ParentInternalContentFilePath = 840,
-  ParentInternalDescription = 841,
-  ParentInternalFieldOwners = 842,
-  ParentInternalIgnoreType = 843,
-  ParentInternalMediaType = 844,
-  ParentInternalOwner = 845,
-  ParentInternalType = 846,
-  ParentParentChildren = 847,
-  ParentParentChildrenChildren = 848,
-  ParentParentChildrenId = 849,
-  ParentParentId = 850,
-  ParentParentInternalContent = 851,
-  ParentParentInternalContentDigest = 852,
-  ParentParentInternalContentFilePath = 853,
-  ParentParentInternalDescription = 854,
-  ParentParentInternalFieldOwners = 855,
-  ParentParentInternalIgnoreType = 856,
-  ParentParentInternalMediaType = 857,
-  ParentParentInternalOwner = 858,
-  ParentParentInternalType = 859,
-  ParentParentParentChildren = 860,
-  ParentParentParentId = 861,
-  Project = 862,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxBody = 863,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxChildren = 864,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxExcerpt = 865,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 866,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxHeadings = 867,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxHtml = 868,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxId = 869,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxMdxAst = 870,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxRawBody = 871,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxSlug = 872,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxTableOfContents = 873,
-  ProjectChildContentfulProjectDetailTextNodeChildMdxTimeToRead = 874,
-  ProjectChildContentfulProjectDetailTextNodeChildren = 875,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdx = 876,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxBody = 877,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxChildren = 878,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxExcerpt = 879,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 880,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHeadings = 881,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHtml = 882,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxId = 883,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxMdxAst = 884,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxRawBody = 885,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxSlug = 886,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 887,
-  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 888,
-  ProjectChildContentfulProjectDetailTextNodeChildrenChildren = 889,
-  ProjectChildContentfulProjectDetailTextNodeChildrenId = 890,
-  ProjectChildContentfulProjectDetailTextNodeDetail = 891,
-  ProjectChildContentfulProjectDetailTextNodeId = 892,
-  ProjectChildContentfulProjectDetailTextNodeInternalContent = 893,
-  ProjectChildContentfulProjectDetailTextNodeInternalContentDigest = 894,
-  ProjectChildContentfulProjectDetailTextNodeInternalContentFilePath = 895,
-  ProjectChildContentfulProjectDetailTextNodeInternalDescription = 896,
-  ProjectChildContentfulProjectDetailTextNodeInternalFieldOwners = 897,
-  ProjectChildContentfulProjectDetailTextNodeInternalIgnoreType = 898,
-  ProjectChildContentfulProjectDetailTextNodeInternalMediaType = 899,
-  ProjectChildContentfulProjectDetailTextNodeInternalOwner = 900,
-  ProjectChildContentfulProjectDetailTextNodeInternalType = 901,
-  ProjectChildContentfulProjectDetailTextNodeParentChildren = 902,
-  ProjectChildContentfulProjectDetailTextNodeParentId = 903,
-  ProjectChildContentfulProjectDetailTextNodeSysType = 904,
-  ProjectChildren = 905,
-  ProjectChildrenContentfulProjectDetailTextNode = 906,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxBody = 907,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxChildren = 908,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxExcerpt = 909,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 910,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHeadings = 911,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHtml = 912,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxId = 913,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxMdxAst = 914,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxRawBody = 915,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxSlug = 916,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTableOfContents = 917,
-  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTimeToRead = 918,
-  ProjectChildrenContentfulProjectDetailTextNodeChildren = 919,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 920,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxBody = 921,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxChildren = 922,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxExcerpt = 923,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 924,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHeadings = 925,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHtml = 926,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxId = 927,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxMdxAst = 928,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxRawBody = 929,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxSlug = 930,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 931,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 932,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenChildren = 933,
-  ProjectChildrenContentfulProjectDetailTextNodeChildrenId = 934,
-  ProjectChildrenContentfulProjectDetailTextNodeDetail = 935,
-  ProjectChildrenContentfulProjectDetailTextNodeId = 936,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalContent = 937,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalContentDigest = 938,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalContentFilePath = 939,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalDescription = 940,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalFieldOwners = 941,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalIgnoreType = 942,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalMediaType = 943,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalOwner = 944,
-  ProjectChildrenContentfulProjectDetailTextNodeInternalType = 945,
-  ProjectChildrenContentfulProjectDetailTextNodeParentChildren = 946,
-  ProjectChildrenContentfulProjectDetailTextNodeParentId = 947,
-  ProjectChildrenContentfulProjectDetailTextNodeSysType = 948,
-  ProjectChildrenChildren = 949,
-  ProjectChildrenChildrenChildren = 950,
-  ProjectChildrenChildrenId = 951,
-  ProjectChildrenId = 952,
-  ProjectChildrenInternalContent = 953,
-  ProjectChildrenInternalContentDigest = 954,
-  ProjectChildrenInternalContentFilePath = 955,
-  ProjectChildrenInternalDescription = 956,
-  ProjectChildrenInternalFieldOwners = 957,
-  ProjectChildrenInternalIgnoreType = 958,
-  ProjectChildrenInternalMediaType = 959,
-  ProjectChildrenInternalOwner = 960,
-  ProjectChildrenInternalType = 961,
-  ProjectChildrenParentChildren = 962,
-  ProjectChildrenParentId = 963,
-  ProjectContentfulId = 964,
-  ProjectCreatedAt = 965,
-  ProjectDetailChildMdxBody = 966,
-  ProjectDetailChildMdxChildren = 967,
-  ProjectDetailChildMdxExcerpt = 968,
-  ProjectDetailChildMdxFileAbsolutePath = 969,
-  ProjectDetailChildMdxHeadings = 970,
-  ProjectDetailChildMdxHtml = 971,
-  ProjectDetailChildMdxId = 972,
-  ProjectDetailChildMdxMdxAst = 973,
-  ProjectDetailChildMdxRawBody = 974,
-  ProjectDetailChildMdxSlug = 975,
-  ProjectDetailChildMdxTableOfContents = 976,
-  ProjectDetailChildMdxTimeToRead = 977,
-  ProjectDetailChildren = 978,
-  ProjectDetailChildrenMdx = 979,
-  ProjectDetailChildrenMdxBody = 980,
-  ProjectDetailChildrenMdxChildren = 981,
-  ProjectDetailChildrenMdxExcerpt = 982,
-  ProjectDetailChildrenMdxFileAbsolutePath = 983,
-  ProjectDetailChildrenMdxHeadings = 984,
-  ProjectDetailChildrenMdxHtml = 985,
-  ProjectDetailChildrenMdxId = 986,
-  ProjectDetailChildrenMdxMdxAst = 987,
-  ProjectDetailChildrenMdxRawBody = 988,
-  ProjectDetailChildrenMdxSlug = 989,
-  ProjectDetailChildrenMdxTableOfContents = 990,
-  ProjectDetailChildrenMdxTimeToRead = 991,
-  ProjectDetailChildrenChildren = 992,
-  ProjectDetailChildrenId = 993,
-  ProjectDetailDetail = 994,
-  ProjectDetailId = 995,
-  ProjectDetailInternalContent = 996,
-  ProjectDetailInternalContentDigest = 997,
-  ProjectDetailInternalContentFilePath = 998,
-  ProjectDetailInternalDescription = 999,
-  ProjectDetailInternalFieldOwners = 1000,
-  ProjectDetailInternalIgnoreType = 1001,
-  ProjectDetailInternalMediaType = 1002,
-  ProjectDetailInternalOwner = 1003,
-  ProjectDetailInternalType = 1004,
-  ProjectDetailParentChildren = 1005,
-  ProjectDetailParentId = 1006,
-  ProjectDetailSysType = 1007,
-  ProjectEndDate = 1008,
-  ProjectIconChildContentfulIconSvgTextNodeChildren = 1009,
-  ProjectIconChildContentfulIconSvgTextNodeChildrenMdx = 1010,
-  ProjectIconChildContentfulIconSvgTextNodeId = 1011,
-  ProjectIconChildContentfulIconSvgTextNodeSvg = 1012,
-  ProjectIconChildren = 1013,
-  ProjectIconChildrenContentfulIconSvgTextNode = 1014,
-  ProjectIconChildrenContentfulIconSvgTextNodeChildren = 1015,
-  ProjectIconChildrenContentfulIconSvgTextNodeChildrenMdx = 1016,
-  ProjectIconChildrenContentfulIconSvgTextNodeId = 1017,
-  ProjectIconChildrenContentfulIconSvgTextNodeSvg = 1018,
-  ProjectIconChildrenChildren = 1019,
-  ProjectIconChildrenId = 1020,
-  ProjectIconContact = 1021,
-  ProjectIconContactChildren = 1022,
-  ProjectIconContactContentfulId = 1023,
-  ProjectIconContactCreatedAt = 1024,
-  ProjectIconContactHref = 1025,
-  ProjectIconContactId = 1026,
-  ProjectIconContactName = 1027,
-  ProjectIconContactNodeLocale = 1028,
-  ProjectIconContactSortKey = 1029,
-  ProjectIconContactSpaceId = 1030,
-  ProjectIconContactSubName = 1031,
-  ProjectIconContactUpdatedAt = 1032,
-  ProjectIconContentfulId = 1033,
-  ProjectIconCreatedAt = 1034,
-  ProjectIconHistory = 1035,
-  ProjectIconHistoryChildren = 1036,
-  ProjectIconHistoryContentfulId = 1037,
-  ProjectIconHistoryCreatedAt = 1038,
-  ProjectIconHistoryDate = 1039,
-  ProjectIconHistoryId = 1040,
-  ProjectIconHistoryName = 1041,
-  ProjectIconHistoryNodeLocale = 1042,
-  ProjectIconHistorySpaceId = 1043,
-  ProjectIconHistorySubName = 1044,
-  ProjectIconHistoryUpdatedAt = 1045,
-  ProjectIconId = 1046,
-  ProjectIconInternalContent = 1047,
-  ProjectIconInternalContentDigest = 1048,
-  ProjectIconInternalContentFilePath = 1049,
-  ProjectIconInternalDescription = 1050,
-  ProjectIconInternalFieldOwners = 1051,
-  ProjectIconInternalIgnoreType = 1052,
-  ProjectIconInternalMediaType = 1053,
-  ProjectIconInternalOwner = 1054,
-  ProjectIconInternalType = 1055,
-  ProjectIconName = 1056,
-  ProjectIconNodeLocale = 1057,
-  ProjectIconOss = 1058,
-  ProjectIconOssChildren = 1059,
-  ProjectIconOssChildrenContentfulOssDetailTextNode = 1060,
-  ProjectIconOssContentfulId = 1061,
-  ProjectIconOssCreatedAt = 1062,
-  ProjectIconOssHref = 1063,
-  ProjectIconOssId = 1064,
-  ProjectIconOssName = 1065,
-  ProjectIconOssNodeLocale = 1066,
-  ProjectIconOssSpaceId = 1067,
-  ProjectIconOssStartDate = 1068,
-  ProjectIconOssSubName = 1069,
-  ProjectIconOssTags = 1070,
-  ProjectIconOssUpdatedAt = 1071,
-  ProjectIconParentChildren = 1072,
-  ProjectIconParentId = 1073,
-  ProjectIconProject = 1074,
-  ProjectIconProjectChildren = 1075,
-  ProjectIconProjectChildrenContentfulProjectDetailTextNode = 1076,
-  ProjectIconProjectContentfulId = 1077,
-  ProjectIconProjectCreatedAt = 1078,
-  ProjectIconProjectEndDate = 1079,
-  ProjectIconProjectId = 1080,
-  ProjectIconProjectName = 1081,
-  ProjectIconProjectNodeLocale = 1082,
-  ProjectIconProjectSpaceId = 1083,
-  ProjectIconProjectStartDate = 1084,
-  ProjectIconProjectSubName = 1085,
-  ProjectIconProjectTags = 1086,
-  ProjectIconProjectUpdatedAt = 1087,
-  ProjectIconSpaceId = 1088,
-  ProjectIconSvgChildren = 1089,
-  ProjectIconSvgChildrenMdx = 1090,
-  ProjectIconSvgId = 1091,
-  ProjectIconSvgSvg = 1092,
-  ProjectIconSysRevision = 1093,
-  ProjectIconSysType = 1094,
-  ProjectIconUpdatedAt = 1095,
-  ProjectIconWhatICanDo = 1096,
-  ProjectIconWhatICanDoChildren = 1097,
-  ProjectIconWhatICanDoContentfulId = 1098,
-  ProjectIconWhatICanDoCreatedAt = 1099,
-  ProjectIconWhatICanDoId = 1100,
-  ProjectIconWhatICanDoName = 1101,
-  ProjectIconWhatICanDoNodeLocale = 1102,
-  ProjectIconWhatICanDoSortKey = 1103,
-  ProjectIconWhatICanDoSpaceId = 1104,
-  ProjectIconWhatICanDoSubName = 1105,
-  ProjectIconWhatICanDoUpdatedAt = 1106,
-  ProjectId = 1107,
-  ProjectInternalContent = 1108,
-  ProjectInternalContentDigest = 1109,
-  ProjectInternalContentFilePath = 1110,
-  ProjectInternalDescription = 1111,
-  ProjectInternalFieldOwners = 1112,
-  ProjectInternalIgnoreType = 1113,
-  ProjectInternalMediaType = 1114,
-  ProjectInternalOwner = 1115,
-  ProjectInternalType = 1116,
-  ProjectName = 1117,
-  ProjectNodeLocale = 1118,
-  ProjectParentChildren = 1119,
-  ProjectParentChildrenChildren = 1120,
-  ProjectParentChildrenId = 1121,
-  ProjectParentId = 1122,
-  ProjectParentInternalContent = 1123,
-  ProjectParentInternalContentDigest = 1124,
-  ProjectParentInternalContentFilePath = 1125,
-  ProjectParentInternalDescription = 1126,
-  ProjectParentInternalFieldOwners = 1127,
-  ProjectParentInternalIgnoreType = 1128,
-  ProjectParentInternalMediaType = 1129,
-  ProjectParentInternalOwner = 1130,
-  ProjectParentInternalType = 1131,
-  ProjectParentParentChildren = 1132,
-  ProjectParentParentId = 1133,
-  ProjectSpaceId = 1134,
-  ProjectStartDate = 1135,
-  ProjectSubName = 1136,
-  ProjectSysRevision = 1137,
-  ProjectSysType = 1138,
-  ProjectTags = 1139,
-  ProjectTagsBlogPost = 1140,
-  ProjectTagsBlogPostChildren = 1141,
-  ProjectTagsBlogPostChildrenContentfulBlogPostContentTextNode = 1142,
-  ProjectTagsBlogPostContentfulId = 1143,
-  ProjectTagsBlogPostCreated = 1144,
-  ProjectTagsBlogPostCreatedAt = 1145,
-  ProjectTagsBlogPostExcerpt = 1146,
-  ProjectTagsBlogPostId = 1147,
-  ProjectTagsBlogPostNodeLocale = 1148,
-  ProjectTagsBlogPostSlug = 1149,
-  ProjectTagsBlogPostSpaceId = 1150,
-  ProjectTagsBlogPostTags = 1151,
-  ProjectTagsBlogPostTitle = 1152,
-  ProjectTagsBlogPostUpdated = 1153,
-  ProjectTagsBlogPostUpdatedAt = 1154,
-  ProjectTagsChildren = 1155,
-  ProjectTagsChildrenChildren = 1156,
-  ProjectTagsChildrenId = 1157,
-  ProjectTagsContentfulId = 1158,
-  ProjectTagsCreatedAt = 1159,
-  ProjectTagsId = 1160,
-  ProjectTagsInternalContent = 1161,
-  ProjectTagsInternalContentDigest = 1162,
-  ProjectTagsInternalContentFilePath = 1163,
-  ProjectTagsInternalDescription = 1164,
-  ProjectTagsInternalFieldOwners = 1165,
-  ProjectTagsInternalIgnoreType = 1166,
-  ProjectTagsInternalMediaType = 1167,
-  ProjectTagsInternalOwner = 1168,
-  ProjectTagsInternalType = 1169,
-  ProjectTagsLevel = 1170,
-  ProjectTagsName = 1171,
-  ProjectTagsNodeLocale = 1172,
-  ProjectTagsOss = 1173,
-  ProjectTagsOssChildren = 1174,
-  ProjectTagsOssChildrenContentfulOssDetailTextNode = 1175,
-  ProjectTagsOssContentfulId = 1176,
-  ProjectTagsOssCreatedAt = 1177,
-  ProjectTagsOssHref = 1178,
-  ProjectTagsOssId = 1179,
-  ProjectTagsOssName = 1180,
-  ProjectTagsOssNodeLocale = 1181,
-  ProjectTagsOssSpaceId = 1182,
-  ProjectTagsOssStartDate = 1183,
-  ProjectTagsOssSubName = 1184,
-  ProjectTagsOssTags = 1185,
-  ProjectTagsOssUpdatedAt = 1186,
-  ProjectTagsParentChildren = 1187,
-  ProjectTagsParentId = 1188,
-  ProjectTagsProject = 1189,
-  ProjectTagsProjectChildren = 1190,
-  ProjectTagsProjectChildrenContentfulProjectDetailTextNode = 1191,
-  ProjectTagsProjectContentfulId = 1192,
-  ProjectTagsProjectCreatedAt = 1193,
-  ProjectTagsProjectEndDate = 1194,
-  ProjectTagsProjectId = 1195,
-  ProjectTagsProjectName = 1196,
-  ProjectTagsProjectNodeLocale = 1197,
-  ProjectTagsProjectSpaceId = 1198,
-  ProjectTagsProjectStartDate = 1199,
-  ProjectTagsProjectSubName = 1200,
-  ProjectTagsProjectTags = 1201,
-  ProjectTagsProjectUpdatedAt = 1202,
-  ProjectTagsSkillGrpup = 1203,
-  ProjectTagsSkillGrpupChildren = 1204,
-  ProjectTagsSkillGrpupContentfulId = 1205,
-  ProjectTagsSkillGrpupCreatedAt = 1206,
-  ProjectTagsSkillGrpupId = 1207,
-  ProjectTagsSkillGrpupName = 1208,
-  ProjectTagsSkillGrpupNodeLocale = 1209,
-  ProjectTagsSkillGrpupSkillMap = 1210,
-  ProjectTagsSkillGrpupSkills = 1211,
-  ProjectTagsSkillGrpupSpaceId = 1212,
-  ProjectTagsSkillGrpupUpdatedAt = 1213,
-  ProjectTagsSkillMap = 1214,
-  ProjectTagsSkillMapChildren = 1215,
-  ProjectTagsSkillMapContentfulId = 1216,
-  ProjectTagsSkillMapCreatedAt = 1217,
-  ProjectTagsSkillMapExpanded = 1218,
-  ProjectTagsSkillMapId = 1219,
-  ProjectTagsSkillMapName = 1220,
-  ProjectTagsSkillMapNodeLocale = 1221,
-  ProjectTagsSkillMapSkillGroups = 1222,
-  ProjectTagsSkillMapSkills = 1223,
-  ProjectTagsSkillMapSortKey = 1224,
-  ProjectTagsSkillMapSpaceId = 1225,
-  ProjectTagsSkillMapUpdatedAt = 1226,
-  ProjectTagsSpaceId = 1227,
-  ProjectTagsSysRevision = 1228,
-  ProjectTagsSysType = 1229,
-  ProjectTagsUpdatedAt = 1230,
-  ProjectUpdatedAt = 1231,
-  SkillGrpup = 1232,
-  SkillGrpupChildren = 1233,
-  SkillGrpupChildrenChildren = 1234,
-  SkillGrpupChildrenChildrenChildren = 1235,
-  SkillGrpupChildrenChildrenId = 1236,
-  SkillGrpupChildrenId = 1237,
-  SkillGrpupChildrenInternalContent = 1238,
-  SkillGrpupChildrenInternalContentDigest = 1239,
-  SkillGrpupChildrenInternalContentFilePath = 1240,
-  SkillGrpupChildrenInternalDescription = 1241,
-  SkillGrpupChildrenInternalFieldOwners = 1242,
-  SkillGrpupChildrenInternalIgnoreType = 1243,
-  SkillGrpupChildrenInternalMediaType = 1244,
-  SkillGrpupChildrenInternalOwner = 1245,
-  SkillGrpupChildrenInternalType = 1246,
-  SkillGrpupChildrenParentChildren = 1247,
-  SkillGrpupChildrenParentId = 1248,
-  SkillGrpupContentfulId = 1249,
-  SkillGrpupCreatedAt = 1250,
-  SkillGrpupId = 1251,
-  SkillGrpupInternalContent = 1252,
-  SkillGrpupInternalContentDigest = 1253,
-  SkillGrpupInternalContentFilePath = 1254,
-  SkillGrpupInternalDescription = 1255,
-  SkillGrpupInternalFieldOwners = 1256,
-  SkillGrpupInternalIgnoreType = 1257,
-  SkillGrpupInternalMediaType = 1258,
-  SkillGrpupInternalOwner = 1259,
-  SkillGrpupInternalType = 1260,
-  SkillGrpupName = 1261,
-  SkillGrpupNodeLocale = 1262,
-  SkillGrpupParentChildren = 1263,
-  SkillGrpupParentChildrenChildren = 1264,
-  SkillGrpupParentChildrenId = 1265,
-  SkillGrpupParentId = 1266,
-  SkillGrpupParentInternalContent = 1267,
-  SkillGrpupParentInternalContentDigest = 1268,
-  SkillGrpupParentInternalContentFilePath = 1269,
-  SkillGrpupParentInternalDescription = 1270,
-  SkillGrpupParentInternalFieldOwners = 1271,
-  SkillGrpupParentInternalIgnoreType = 1272,
-  SkillGrpupParentInternalMediaType = 1273,
-  SkillGrpupParentInternalOwner = 1274,
-  SkillGrpupParentInternalType = 1275,
-  SkillGrpupParentParentChildren = 1276,
-  SkillGrpupParentParentId = 1277,
-  SkillGrpupSkillMap = 1278,
-  SkillGrpupSkillMapChildren = 1279,
-  SkillGrpupSkillMapChildrenChildren = 1280,
-  SkillGrpupSkillMapChildrenId = 1281,
-  SkillGrpupSkillMapContentfulId = 1282,
-  SkillGrpupSkillMapCreatedAt = 1283,
-  SkillGrpupSkillMapExpanded = 1284,
-  SkillGrpupSkillMapId = 1285,
-  SkillGrpupSkillMapInternalContent = 1286,
-  SkillGrpupSkillMapInternalContentDigest = 1287,
-  SkillGrpupSkillMapInternalContentFilePath = 1288,
-  SkillGrpupSkillMapInternalDescription = 1289,
-  SkillGrpupSkillMapInternalFieldOwners = 1290,
-  SkillGrpupSkillMapInternalIgnoreType = 1291,
-  SkillGrpupSkillMapInternalMediaType = 1292,
-  SkillGrpupSkillMapInternalOwner = 1293,
-  SkillGrpupSkillMapInternalType = 1294,
-  SkillGrpupSkillMapName = 1295,
-  SkillGrpupSkillMapNodeLocale = 1296,
-  SkillGrpupSkillMapParentChildren = 1297,
-  SkillGrpupSkillMapParentId = 1298,
-  SkillGrpupSkillMapSkillGroups = 1299,
-  SkillGrpupSkillMapSkillGroupsChildren = 1300,
-  SkillGrpupSkillMapSkillGroupsContentfulId = 1301,
-  SkillGrpupSkillMapSkillGroupsCreatedAt = 1302,
-  SkillGrpupSkillMapSkillGroupsId = 1303,
-  SkillGrpupSkillMapSkillGroupsName = 1304,
-  SkillGrpupSkillMapSkillGroupsNodeLocale = 1305,
-  SkillGrpupSkillMapSkillGroupsSkillMap = 1306,
-  SkillGrpupSkillMapSkillGroupsSkills = 1307,
-  SkillGrpupSkillMapSkillGroupsSpaceId = 1308,
-  SkillGrpupSkillMapSkillGroupsUpdatedAt = 1309,
-  SkillGrpupSkillMapSkills = 1310,
-  SkillGrpupSkillMapSkillsBlogPost = 1311,
-  SkillGrpupSkillMapSkillsChildren = 1312,
-  SkillGrpupSkillMapSkillsContentfulId = 1313,
-  SkillGrpupSkillMapSkillsCreatedAt = 1314,
-  SkillGrpupSkillMapSkillsId = 1315,
-  SkillGrpupSkillMapSkillsLevel = 1316,
-  SkillGrpupSkillMapSkillsName = 1317,
-  SkillGrpupSkillMapSkillsNodeLocale = 1318,
-  SkillGrpupSkillMapSkillsOss = 1319,
-  SkillGrpupSkillMapSkillsProject = 1320,
-  SkillGrpupSkillMapSkillsSkillGrpup = 1321,
-  SkillGrpupSkillMapSkillsSkillMap = 1322,
-  SkillGrpupSkillMapSkillsSpaceId = 1323,
-  SkillGrpupSkillMapSkillsUpdatedAt = 1324,
-  SkillGrpupSkillMapSortKey = 1325,
-  SkillGrpupSkillMapSpaceId = 1326,
-  SkillGrpupSkillMapSysRevision = 1327,
-  SkillGrpupSkillMapSysType = 1328,
-  SkillGrpupSkillMapUpdatedAt = 1329,
-  SkillGrpupSkills = 1330,
-  SkillGrpupSkillsBlogPost = 1331,
-  SkillGrpupSkillsBlogPostChildren = 1332,
-  SkillGrpupSkillsBlogPostChildrenContentfulBlogPostContentTextNode = 1333,
-  SkillGrpupSkillsBlogPostContentfulId = 1334,
-  SkillGrpupSkillsBlogPostCreated = 1335,
-  SkillGrpupSkillsBlogPostCreatedAt = 1336,
-  SkillGrpupSkillsBlogPostExcerpt = 1337,
-  SkillGrpupSkillsBlogPostId = 1338,
-  SkillGrpupSkillsBlogPostNodeLocale = 1339,
-  SkillGrpupSkillsBlogPostSlug = 1340,
-  SkillGrpupSkillsBlogPostSpaceId = 1341,
-  SkillGrpupSkillsBlogPostTags = 1342,
-  SkillGrpupSkillsBlogPostTitle = 1343,
-  SkillGrpupSkillsBlogPostUpdated = 1344,
-  SkillGrpupSkillsBlogPostUpdatedAt = 1345,
-  SkillGrpupSkillsChildren = 1346,
-  SkillGrpupSkillsChildrenChildren = 1347,
-  SkillGrpupSkillsChildrenId = 1348,
-  SkillGrpupSkillsContentfulId = 1349,
-  SkillGrpupSkillsCreatedAt = 1350,
-  SkillGrpupSkillsId = 1351,
-  SkillGrpupSkillsInternalContent = 1352,
-  SkillGrpupSkillsInternalContentDigest = 1353,
-  SkillGrpupSkillsInternalContentFilePath = 1354,
-  SkillGrpupSkillsInternalDescription = 1355,
-  SkillGrpupSkillsInternalFieldOwners = 1356,
-  SkillGrpupSkillsInternalIgnoreType = 1357,
-  SkillGrpupSkillsInternalMediaType = 1358,
-  SkillGrpupSkillsInternalOwner = 1359,
-  SkillGrpupSkillsInternalType = 1360,
-  SkillGrpupSkillsLevel = 1361,
-  SkillGrpupSkillsName = 1362,
-  SkillGrpupSkillsNodeLocale = 1363,
-  SkillGrpupSkillsOss = 1364,
-  SkillGrpupSkillsOssChildren = 1365,
-  SkillGrpupSkillsOssChildrenContentfulOssDetailTextNode = 1366,
-  SkillGrpupSkillsOssContentfulId = 1367,
-  SkillGrpupSkillsOssCreatedAt = 1368,
-  SkillGrpupSkillsOssHref = 1369,
-  SkillGrpupSkillsOssId = 1370,
-  SkillGrpupSkillsOssName = 1371,
-  SkillGrpupSkillsOssNodeLocale = 1372,
-  SkillGrpupSkillsOssSpaceId = 1373,
-  SkillGrpupSkillsOssStartDate = 1374,
-  SkillGrpupSkillsOssSubName = 1375,
-  SkillGrpupSkillsOssTags = 1376,
-  SkillGrpupSkillsOssUpdatedAt = 1377,
-  SkillGrpupSkillsParentChildren = 1378,
-  SkillGrpupSkillsParentId = 1379,
-  SkillGrpupSkillsProject = 1380,
-  SkillGrpupSkillsProjectChildren = 1381,
-  SkillGrpupSkillsProjectChildrenContentfulProjectDetailTextNode = 1382,
-  SkillGrpupSkillsProjectContentfulId = 1383,
-  SkillGrpupSkillsProjectCreatedAt = 1384,
-  SkillGrpupSkillsProjectEndDate = 1385,
-  SkillGrpupSkillsProjectId = 1386,
-  SkillGrpupSkillsProjectName = 1387,
-  SkillGrpupSkillsProjectNodeLocale = 1388,
-  SkillGrpupSkillsProjectSpaceId = 1389,
-  SkillGrpupSkillsProjectStartDate = 1390,
-  SkillGrpupSkillsProjectSubName = 1391,
-  SkillGrpupSkillsProjectTags = 1392,
-  SkillGrpupSkillsProjectUpdatedAt = 1393,
-  SkillGrpupSkillsSkillGrpup = 1394,
-  SkillGrpupSkillsSkillGrpupChildren = 1395,
-  SkillGrpupSkillsSkillGrpupContentfulId = 1396,
-  SkillGrpupSkillsSkillGrpupCreatedAt = 1397,
-  SkillGrpupSkillsSkillGrpupId = 1398,
-  SkillGrpupSkillsSkillGrpupName = 1399,
-  SkillGrpupSkillsSkillGrpupNodeLocale = 1400,
-  SkillGrpupSkillsSkillGrpupSkillMap = 1401,
-  SkillGrpupSkillsSkillGrpupSkills = 1402,
-  SkillGrpupSkillsSkillGrpupSpaceId = 1403,
-  SkillGrpupSkillsSkillGrpupUpdatedAt = 1404,
-  SkillGrpupSkillsSkillMap = 1405,
-  SkillGrpupSkillsSkillMapChildren = 1406,
-  SkillGrpupSkillsSkillMapContentfulId = 1407,
-  SkillGrpupSkillsSkillMapCreatedAt = 1408,
-  SkillGrpupSkillsSkillMapExpanded = 1409,
-  SkillGrpupSkillsSkillMapId = 1410,
-  SkillGrpupSkillsSkillMapName = 1411,
-  SkillGrpupSkillsSkillMapNodeLocale = 1412,
-  SkillGrpupSkillsSkillMapSkillGroups = 1413,
-  SkillGrpupSkillsSkillMapSkills = 1414,
-  SkillGrpupSkillsSkillMapSortKey = 1415,
-  SkillGrpupSkillsSkillMapSpaceId = 1416,
-  SkillGrpupSkillsSkillMapUpdatedAt = 1417,
-  SkillGrpupSkillsSpaceId = 1418,
-  SkillGrpupSkillsSysRevision = 1419,
-  SkillGrpupSkillsSysType = 1420,
-  SkillGrpupSkillsUpdatedAt = 1421,
-  SkillGrpupSpaceId = 1422,
-  SkillGrpupSysRevision = 1423,
-  SkillGrpupSysType = 1424,
-  SkillGrpupUpdatedAt = 1425,
-  SkillMap = 1426,
-  SkillMapChildren = 1427,
-  SkillMapChildrenChildren = 1428,
-  SkillMapChildrenChildrenChildren = 1429,
-  SkillMapChildrenChildrenId = 1430,
-  SkillMapChildrenId = 1431,
-  SkillMapChildrenInternalContent = 1432,
-  SkillMapChildrenInternalContentDigest = 1433,
-  SkillMapChildrenInternalContentFilePath = 1434,
-  SkillMapChildrenInternalDescription = 1435,
-  SkillMapChildrenInternalFieldOwners = 1436,
-  SkillMapChildrenInternalIgnoreType = 1437,
-  SkillMapChildrenInternalMediaType = 1438,
-  SkillMapChildrenInternalOwner = 1439,
-  SkillMapChildrenInternalType = 1440,
-  SkillMapChildrenParentChildren = 1441,
-  SkillMapChildrenParentId = 1442,
-  SkillMapContentfulId = 1443,
-  SkillMapCreatedAt = 1444,
-  SkillMapExpanded = 1445,
-  SkillMapId = 1446,
-  SkillMapInternalContent = 1447,
-  SkillMapInternalContentDigest = 1448,
-  SkillMapInternalContentFilePath = 1449,
-  SkillMapInternalDescription = 1450,
-  SkillMapInternalFieldOwners = 1451,
-  SkillMapInternalIgnoreType = 1452,
-  SkillMapInternalMediaType = 1453,
-  SkillMapInternalOwner = 1454,
-  SkillMapInternalType = 1455,
-  SkillMapName = 1456,
-  SkillMapNodeLocale = 1457,
-  SkillMapParentChildren = 1458,
-  SkillMapParentChildrenChildren = 1459,
-  SkillMapParentChildrenId = 1460,
-  SkillMapParentId = 1461,
-  SkillMapParentInternalContent = 1462,
-  SkillMapParentInternalContentDigest = 1463,
-  SkillMapParentInternalContentFilePath = 1464,
-  SkillMapParentInternalDescription = 1465,
-  SkillMapParentInternalFieldOwners = 1466,
-  SkillMapParentInternalIgnoreType = 1467,
-  SkillMapParentInternalMediaType = 1468,
-  SkillMapParentInternalOwner = 1469,
-  SkillMapParentInternalType = 1470,
-  SkillMapParentParentChildren = 1471,
-  SkillMapParentParentId = 1472,
-  SkillMapSkillGroups = 1473,
-  SkillMapSkillGroupsChildren = 1474,
-  SkillMapSkillGroupsChildrenChildren = 1475,
-  SkillMapSkillGroupsChildrenId = 1476,
-  SkillMapSkillGroupsContentfulId = 1477,
-  SkillMapSkillGroupsCreatedAt = 1478,
-  SkillMapSkillGroupsId = 1479,
-  SkillMapSkillGroupsInternalContent = 1480,
-  SkillMapSkillGroupsInternalContentDigest = 1481,
-  SkillMapSkillGroupsInternalContentFilePath = 1482,
-  SkillMapSkillGroupsInternalDescription = 1483,
-  SkillMapSkillGroupsInternalFieldOwners = 1484,
-  SkillMapSkillGroupsInternalIgnoreType = 1485,
-  SkillMapSkillGroupsInternalMediaType = 1486,
-  SkillMapSkillGroupsInternalOwner = 1487,
-  SkillMapSkillGroupsInternalType = 1488,
-  SkillMapSkillGroupsName = 1489,
-  SkillMapSkillGroupsNodeLocale = 1490,
-  SkillMapSkillGroupsParentChildren = 1491,
-  SkillMapSkillGroupsParentId = 1492,
-  SkillMapSkillGroupsSkillMap = 1493,
-  SkillMapSkillGroupsSkillMapChildren = 1494,
-  SkillMapSkillGroupsSkillMapContentfulId = 1495,
-  SkillMapSkillGroupsSkillMapCreatedAt = 1496,
-  SkillMapSkillGroupsSkillMapExpanded = 1497,
-  SkillMapSkillGroupsSkillMapId = 1498,
-  SkillMapSkillGroupsSkillMapName = 1499,
-  SkillMapSkillGroupsSkillMapNodeLocale = 1500,
-  SkillMapSkillGroupsSkillMapSkillGroups = 1501,
-  SkillMapSkillGroupsSkillMapSkills = 1502,
-  SkillMapSkillGroupsSkillMapSortKey = 1503,
-  SkillMapSkillGroupsSkillMapSpaceId = 1504,
-  SkillMapSkillGroupsSkillMapUpdatedAt = 1505,
-  SkillMapSkillGroupsSkills = 1506,
-  SkillMapSkillGroupsSkillsBlogPost = 1507,
-  SkillMapSkillGroupsSkillsChildren = 1508,
-  SkillMapSkillGroupsSkillsContentfulId = 1509,
-  SkillMapSkillGroupsSkillsCreatedAt = 1510,
-  SkillMapSkillGroupsSkillsId = 1511,
-  SkillMapSkillGroupsSkillsLevel = 1512,
-  SkillMapSkillGroupsSkillsName = 1513,
-  SkillMapSkillGroupsSkillsNodeLocale = 1514,
-  SkillMapSkillGroupsSkillsOss = 1515,
-  SkillMapSkillGroupsSkillsProject = 1516,
-  SkillMapSkillGroupsSkillsSkillGrpup = 1517,
-  SkillMapSkillGroupsSkillsSkillMap = 1518,
-  SkillMapSkillGroupsSkillsSpaceId = 1519,
-  SkillMapSkillGroupsSkillsUpdatedAt = 1520,
-  SkillMapSkillGroupsSpaceId = 1521,
-  SkillMapSkillGroupsSysRevision = 1522,
-  SkillMapSkillGroupsSysType = 1523,
-  SkillMapSkillGroupsUpdatedAt = 1524,
-  SkillMapSkills = 1525,
-  SkillMapSkillsBlogPost = 1526,
-  SkillMapSkillsBlogPostChildren = 1527,
-  SkillMapSkillsBlogPostChildrenContentfulBlogPostContentTextNode = 1528,
-  SkillMapSkillsBlogPostContentfulId = 1529,
-  SkillMapSkillsBlogPostCreated = 1530,
-  SkillMapSkillsBlogPostCreatedAt = 1531,
-  SkillMapSkillsBlogPostExcerpt = 1532,
-  SkillMapSkillsBlogPostId = 1533,
-  SkillMapSkillsBlogPostNodeLocale = 1534,
-  SkillMapSkillsBlogPostSlug = 1535,
-  SkillMapSkillsBlogPostSpaceId = 1536,
-  SkillMapSkillsBlogPostTags = 1537,
-  SkillMapSkillsBlogPostTitle = 1538,
-  SkillMapSkillsBlogPostUpdated = 1539,
-  SkillMapSkillsBlogPostUpdatedAt = 1540,
-  SkillMapSkillsChildren = 1541,
-  SkillMapSkillsChildrenChildren = 1542,
-  SkillMapSkillsChildrenId = 1543,
-  SkillMapSkillsContentfulId = 1544,
-  SkillMapSkillsCreatedAt = 1545,
-  SkillMapSkillsId = 1546,
-  SkillMapSkillsInternalContent = 1547,
-  SkillMapSkillsInternalContentDigest = 1548,
-  SkillMapSkillsInternalContentFilePath = 1549,
-  SkillMapSkillsInternalDescription = 1550,
-  SkillMapSkillsInternalFieldOwners = 1551,
-  SkillMapSkillsInternalIgnoreType = 1552,
-  SkillMapSkillsInternalMediaType = 1553,
-  SkillMapSkillsInternalOwner = 1554,
-  SkillMapSkillsInternalType = 1555,
-  SkillMapSkillsLevel = 1556,
-  SkillMapSkillsName = 1557,
-  SkillMapSkillsNodeLocale = 1558,
-  SkillMapSkillsOss = 1559,
-  SkillMapSkillsOssChildren = 1560,
-  SkillMapSkillsOssChildrenContentfulOssDetailTextNode = 1561,
-  SkillMapSkillsOssContentfulId = 1562,
-  SkillMapSkillsOssCreatedAt = 1563,
-  SkillMapSkillsOssHref = 1564,
-  SkillMapSkillsOssId = 1565,
-  SkillMapSkillsOssName = 1566,
-  SkillMapSkillsOssNodeLocale = 1567,
-  SkillMapSkillsOssSpaceId = 1568,
-  SkillMapSkillsOssStartDate = 1569,
-  SkillMapSkillsOssSubName = 1570,
-  SkillMapSkillsOssTags = 1571,
-  SkillMapSkillsOssUpdatedAt = 1572,
-  SkillMapSkillsParentChildren = 1573,
-  SkillMapSkillsParentId = 1574,
-  SkillMapSkillsProject = 1575,
-  SkillMapSkillsProjectChildren = 1576,
-  SkillMapSkillsProjectChildrenContentfulProjectDetailTextNode = 1577,
-  SkillMapSkillsProjectContentfulId = 1578,
-  SkillMapSkillsProjectCreatedAt = 1579,
-  SkillMapSkillsProjectEndDate = 1580,
-  SkillMapSkillsProjectId = 1581,
-  SkillMapSkillsProjectName = 1582,
-  SkillMapSkillsProjectNodeLocale = 1583,
-  SkillMapSkillsProjectSpaceId = 1584,
-  SkillMapSkillsProjectStartDate = 1585,
-  SkillMapSkillsProjectSubName = 1586,
-  SkillMapSkillsProjectTags = 1587,
-  SkillMapSkillsProjectUpdatedAt = 1588,
-  SkillMapSkillsSkillGrpup = 1589,
-  SkillMapSkillsSkillGrpupChildren = 1590,
-  SkillMapSkillsSkillGrpupContentfulId = 1591,
-  SkillMapSkillsSkillGrpupCreatedAt = 1592,
-  SkillMapSkillsSkillGrpupId = 1593,
-  SkillMapSkillsSkillGrpupName = 1594,
-  SkillMapSkillsSkillGrpupNodeLocale = 1595,
-  SkillMapSkillsSkillGrpupSkillMap = 1596,
-  SkillMapSkillsSkillGrpupSkills = 1597,
-  SkillMapSkillsSkillGrpupSpaceId = 1598,
-  SkillMapSkillsSkillGrpupUpdatedAt = 1599,
-  SkillMapSkillsSkillMap = 1600,
-  SkillMapSkillsSkillMapChildren = 1601,
-  SkillMapSkillsSkillMapContentfulId = 1602,
-  SkillMapSkillsSkillMapCreatedAt = 1603,
-  SkillMapSkillsSkillMapExpanded = 1604,
-  SkillMapSkillsSkillMapId = 1605,
-  SkillMapSkillsSkillMapName = 1606,
-  SkillMapSkillsSkillMapNodeLocale = 1607,
-  SkillMapSkillsSkillMapSkillGroups = 1608,
-  SkillMapSkillsSkillMapSkills = 1609,
-  SkillMapSkillsSkillMapSortKey = 1610,
-  SkillMapSkillsSkillMapSpaceId = 1611,
-  SkillMapSkillsSkillMapUpdatedAt = 1612,
-  SkillMapSkillsSpaceId = 1613,
-  SkillMapSkillsSysRevision = 1614,
-  SkillMapSkillsSysType = 1615,
-  SkillMapSkillsUpdatedAt = 1616,
-  SkillMapSortKey = 1617,
-  SkillMapSpaceId = 1618,
-  SkillMapSysRevision = 1619,
-  SkillMapSysType = 1620,
-  SkillMapUpdatedAt = 1621,
-  SpaceId = 1622,
-  SysContentTypeSysId = 1623,
-  SysContentTypeSysLinkType = 1624,
-  SysContentTypeSysType = 1625,
-  SysRevision = 1626,
-  SysType = 1627,
-  UpdatedAt = 1628
+  BlogPostCategoryBlogPostGatsbyPath = 8,
+  BlogPostCategoryBlogPostId = 9,
+  BlogPostCategoryBlogPostNodeLocale = 10,
+  BlogPostCategoryBlogPostSlug = 11,
+  BlogPostCategoryBlogPostSpaceId = 12,
+  BlogPostCategoryBlogPostTags = 13,
+  BlogPostCategoryBlogPostTitle = 14,
+  BlogPostCategoryBlogPostUpdated = 15,
+  BlogPostCategoryBlogPostUpdatedAt = 16,
+  BlogPostCategoryChildren = 17,
+  BlogPostCategoryChildrenChildren = 18,
+  BlogPostCategoryChildrenId = 19,
+  BlogPostCategoryContentfulId = 20,
+  BlogPostCategoryCreatedAt = 21,
+  BlogPostCategoryId = 22,
+  BlogPostCategoryInternalContent = 23,
+  BlogPostCategoryInternalContentDigest = 24,
+  BlogPostCategoryInternalContentFilePath = 25,
+  BlogPostCategoryInternalDescription = 26,
+  BlogPostCategoryInternalFieldOwners = 27,
+  BlogPostCategoryInternalIgnoreType = 28,
+  BlogPostCategoryInternalMediaType = 29,
+  BlogPostCategoryInternalOwner = 30,
+  BlogPostCategoryInternalType = 31,
+  BlogPostCategoryName = 32,
+  BlogPostCategoryNodeLocale = 33,
+  BlogPostCategoryParentChildren = 34,
+  BlogPostCategoryParentId = 35,
+  BlogPostCategorySortKey = 36,
+  BlogPostCategorySpaceId = 37,
+  BlogPostCategorySysRevision = 38,
+  BlogPostCategorySysType = 39,
+  BlogPostCategoryUpdatedAt = 40,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxBody = 41,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxChildren = 42,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxExcerpt = 43,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 44,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHeadings = 45,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxHtml = 46,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxId = 47,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxMdxAst = 48,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxRawBody = 49,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxSlug = 50,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTableOfContents = 51,
+  BlogPostChildContentfulBlogPostContentTextNodeChildMdxTimeToRead = 52,
+  BlogPostChildContentfulBlogPostContentTextNodeChildren = 53,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdx = 54,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxBody = 55,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxChildren = 56,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 57,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 58,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHeadings = 59,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxHtml = 60,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxId = 61,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 62,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxRawBody = 63,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxSlug = 64,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 65,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 66,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenChildren = 67,
+  BlogPostChildContentfulBlogPostContentTextNodeChildrenId = 68,
+  BlogPostChildContentfulBlogPostContentTextNodeContent = 69,
+  BlogPostChildContentfulBlogPostContentTextNodeId = 70,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalContent = 71,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalContentDigest = 72,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalContentFilePath = 73,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalDescription = 74,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalFieldOwners = 75,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalIgnoreType = 76,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalMediaType = 77,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalOwner = 78,
+  BlogPostChildContentfulBlogPostContentTextNodeInternalType = 79,
+  BlogPostChildContentfulBlogPostContentTextNodeParentChildren = 80,
+  BlogPostChildContentfulBlogPostContentTextNodeParentId = 81,
+  BlogPostChildContentfulBlogPostContentTextNodeSysType = 82,
+  BlogPostChildren = 83,
+  BlogPostChildrenContentfulBlogPostContentTextNode = 84,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxBody = 85,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxChildren = 86,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxExcerpt = 87,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxFileAbsolutePath = 88,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHeadings = 89,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxHtml = 90,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxId = 91,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxMdxAst = 92,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxRawBody = 93,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxSlug = 94,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTableOfContents = 95,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildMdxTimeToRead = 96,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildren = 97,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdx = 98,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxBody = 99,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxChildren = 100,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxExcerpt = 101,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxFileAbsolutePath = 102,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHeadings = 103,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxHtml = 104,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxId = 105,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxMdxAst = 106,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxRawBody = 107,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxSlug = 108,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTableOfContents = 109,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenMdxTimeToRead = 110,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenChildren = 111,
+  BlogPostChildrenContentfulBlogPostContentTextNodeChildrenId = 112,
+  BlogPostChildrenContentfulBlogPostContentTextNodeContent = 113,
+  BlogPostChildrenContentfulBlogPostContentTextNodeId = 114,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContent = 115,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentDigest = 116,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalContentFilePath = 117,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalDescription = 118,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalFieldOwners = 119,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalIgnoreType = 120,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalMediaType = 121,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalOwner = 122,
+  BlogPostChildrenContentfulBlogPostContentTextNodeInternalType = 123,
+  BlogPostChildrenContentfulBlogPostContentTextNodeParentChildren = 124,
+  BlogPostChildrenContentfulBlogPostContentTextNodeParentId = 125,
+  BlogPostChildrenContentfulBlogPostContentTextNodeSysType = 126,
+  BlogPostChildrenChildren = 127,
+  BlogPostChildrenChildrenChildren = 128,
+  BlogPostChildrenChildrenId = 129,
+  BlogPostChildrenId = 130,
+  BlogPostChildrenInternalContent = 131,
+  BlogPostChildrenInternalContentDigest = 132,
+  BlogPostChildrenInternalContentFilePath = 133,
+  BlogPostChildrenInternalDescription = 134,
+  BlogPostChildrenInternalFieldOwners = 135,
+  BlogPostChildrenInternalIgnoreType = 136,
+  BlogPostChildrenInternalMediaType = 137,
+  BlogPostChildrenInternalOwner = 138,
+  BlogPostChildrenInternalType = 139,
+  BlogPostChildrenParentChildren = 140,
+  BlogPostChildrenParentId = 141,
+  BlogPostContentChildMdxBody = 142,
+  BlogPostContentChildMdxChildren = 143,
+  BlogPostContentChildMdxExcerpt = 144,
+  BlogPostContentChildMdxFileAbsolutePath = 145,
+  BlogPostContentChildMdxHeadings = 146,
+  BlogPostContentChildMdxHtml = 147,
+  BlogPostContentChildMdxId = 148,
+  BlogPostContentChildMdxMdxAst = 149,
+  BlogPostContentChildMdxRawBody = 150,
+  BlogPostContentChildMdxSlug = 151,
+  BlogPostContentChildMdxTableOfContents = 152,
+  BlogPostContentChildMdxTimeToRead = 153,
+  BlogPostContentChildren = 154,
+  BlogPostContentChildrenMdx = 155,
+  BlogPostContentChildrenMdxBody = 156,
+  BlogPostContentChildrenMdxChildren = 157,
+  BlogPostContentChildrenMdxExcerpt = 158,
+  BlogPostContentChildrenMdxFileAbsolutePath = 159,
+  BlogPostContentChildrenMdxHeadings = 160,
+  BlogPostContentChildrenMdxHtml = 161,
+  BlogPostContentChildrenMdxId = 162,
+  BlogPostContentChildrenMdxMdxAst = 163,
+  BlogPostContentChildrenMdxRawBody = 164,
+  BlogPostContentChildrenMdxSlug = 165,
+  BlogPostContentChildrenMdxTableOfContents = 166,
+  BlogPostContentChildrenMdxTimeToRead = 167,
+  BlogPostContentChildrenChildren = 168,
+  BlogPostContentChildrenId = 169,
+  BlogPostContentContent = 170,
+  BlogPostContentId = 171,
+  BlogPostContentInternalContent = 172,
+  BlogPostContentInternalContentDigest = 173,
+  BlogPostContentInternalContentFilePath = 174,
+  BlogPostContentInternalDescription = 175,
+  BlogPostContentInternalFieldOwners = 176,
+  BlogPostContentInternalIgnoreType = 177,
+  BlogPostContentInternalMediaType = 178,
+  BlogPostContentInternalOwner = 179,
+  BlogPostContentInternalType = 180,
+  BlogPostContentParentChildren = 181,
+  BlogPostContentParentId = 182,
+  BlogPostContentSysType = 183,
+  BlogPostContentfulId = 184,
+  BlogPostCreated = 185,
+  BlogPostCreatedAt = 186,
+  BlogPostExcerpt = 187,
+  BlogPostGatsbyPath = 188,
+  BlogPostId = 189,
+  BlogPostInternalContent = 190,
+  BlogPostInternalContentDigest = 191,
+  BlogPostInternalContentFilePath = 192,
+  BlogPostInternalDescription = 193,
+  BlogPostInternalFieldOwners = 194,
+  BlogPostInternalIgnoreType = 195,
+  BlogPostInternalMediaType = 196,
+  BlogPostInternalOwner = 197,
+  BlogPostInternalType = 198,
+  BlogPostNodeLocale = 199,
+  BlogPostParentChildren = 200,
+  BlogPostParentChildrenChildren = 201,
+  BlogPostParentChildrenId = 202,
+  BlogPostParentId = 203,
+  BlogPostParentInternalContent = 204,
+  BlogPostParentInternalContentDigest = 205,
+  BlogPostParentInternalContentFilePath = 206,
+  BlogPostParentInternalDescription = 207,
+  BlogPostParentInternalFieldOwners = 208,
+  BlogPostParentInternalIgnoreType = 209,
+  BlogPostParentInternalMediaType = 210,
+  BlogPostParentInternalOwner = 211,
+  BlogPostParentInternalType = 212,
+  BlogPostParentParentChildren = 213,
+  BlogPostParentParentId = 214,
+  BlogPostSlug = 215,
+  BlogPostSpaceId = 216,
+  BlogPostSysRevision = 217,
+  BlogPostSysType = 218,
+  BlogPostTags = 219,
+  BlogPostTagsBlogPost = 220,
+  BlogPostTagsBlogPostChildren = 221,
+  BlogPostTagsBlogPostChildrenContentfulBlogPostContentTextNode = 222,
+  BlogPostTagsBlogPostContentfulId = 223,
+  BlogPostTagsBlogPostCreated = 224,
+  BlogPostTagsBlogPostCreatedAt = 225,
+  BlogPostTagsBlogPostExcerpt = 226,
+  BlogPostTagsBlogPostGatsbyPath = 227,
+  BlogPostTagsBlogPostId = 228,
+  BlogPostTagsBlogPostNodeLocale = 229,
+  BlogPostTagsBlogPostSlug = 230,
+  BlogPostTagsBlogPostSpaceId = 231,
+  BlogPostTagsBlogPostTags = 232,
+  BlogPostTagsBlogPostTitle = 233,
+  BlogPostTagsBlogPostUpdated = 234,
+  BlogPostTagsBlogPostUpdatedAt = 235,
+  BlogPostTagsChildren = 236,
+  BlogPostTagsChildrenChildren = 237,
+  BlogPostTagsChildrenId = 238,
+  BlogPostTagsContentfulId = 239,
+  BlogPostTagsCreatedAt = 240,
+  BlogPostTagsId = 241,
+  BlogPostTagsInternalContent = 242,
+  BlogPostTagsInternalContentDigest = 243,
+  BlogPostTagsInternalContentFilePath = 244,
+  BlogPostTagsInternalDescription = 245,
+  BlogPostTagsInternalFieldOwners = 246,
+  BlogPostTagsInternalIgnoreType = 247,
+  BlogPostTagsInternalMediaType = 248,
+  BlogPostTagsInternalOwner = 249,
+  BlogPostTagsInternalType = 250,
+  BlogPostTagsLevel = 251,
+  BlogPostTagsName = 252,
+  BlogPostTagsNodeLocale = 253,
+  BlogPostTagsOss = 254,
+  BlogPostTagsOssChildren = 255,
+  BlogPostTagsOssChildrenContentfulOssDetailTextNode = 256,
+  BlogPostTagsOssContentfulId = 257,
+  BlogPostTagsOssCreatedAt = 258,
+  BlogPostTagsOssHref = 259,
+  BlogPostTagsOssId = 260,
+  BlogPostTagsOssName = 261,
+  BlogPostTagsOssNodeLocale = 262,
+  BlogPostTagsOssSpaceId = 263,
+  BlogPostTagsOssStartDate = 264,
+  BlogPostTagsOssSubName = 265,
+  BlogPostTagsOssTags = 266,
+  BlogPostTagsOssUpdatedAt = 267,
+  BlogPostTagsParentChildren = 268,
+  BlogPostTagsParentId = 269,
+  BlogPostTagsProject = 270,
+  BlogPostTagsProjectChildren = 271,
+  BlogPostTagsProjectChildrenContentfulProjectDetailTextNode = 272,
+  BlogPostTagsProjectContentfulId = 273,
+  BlogPostTagsProjectCreatedAt = 274,
+  BlogPostTagsProjectEndDate = 275,
+  BlogPostTagsProjectId = 276,
+  BlogPostTagsProjectName = 277,
+  BlogPostTagsProjectNodeLocale = 278,
+  BlogPostTagsProjectSpaceId = 279,
+  BlogPostTagsProjectStartDate = 280,
+  BlogPostTagsProjectSubName = 281,
+  BlogPostTagsProjectTags = 282,
+  BlogPostTagsProjectUpdatedAt = 283,
+  BlogPostTagsSkillGrpup = 284,
+  BlogPostTagsSkillGrpupChildren = 285,
+  BlogPostTagsSkillGrpupContentfulId = 286,
+  BlogPostTagsSkillGrpupCreatedAt = 287,
+  BlogPostTagsSkillGrpupId = 288,
+  BlogPostTagsSkillGrpupName = 289,
+  BlogPostTagsSkillGrpupNodeLocale = 290,
+  BlogPostTagsSkillGrpupSkillMap = 291,
+  BlogPostTagsSkillGrpupSkills = 292,
+  BlogPostTagsSkillGrpupSpaceId = 293,
+  BlogPostTagsSkillGrpupUpdatedAt = 294,
+  BlogPostTagsSkillMap = 295,
+  BlogPostTagsSkillMapChildren = 296,
+  BlogPostTagsSkillMapContentfulId = 297,
+  BlogPostTagsSkillMapCreatedAt = 298,
+  BlogPostTagsSkillMapExpanded = 299,
+  BlogPostTagsSkillMapId = 300,
+  BlogPostTagsSkillMapName = 301,
+  BlogPostTagsSkillMapNodeLocale = 302,
+  BlogPostTagsSkillMapSkillGroups = 303,
+  BlogPostTagsSkillMapSkills = 304,
+  BlogPostTagsSkillMapSortKey = 305,
+  BlogPostTagsSkillMapSpaceId = 306,
+  BlogPostTagsSkillMapUpdatedAt = 307,
+  BlogPostTagsSpaceId = 308,
+  BlogPostTagsSysRevision = 309,
+  BlogPostTagsSysType = 310,
+  BlogPostTagsUpdatedAt = 311,
+  BlogPostThumbnailChildren = 312,
+  BlogPostThumbnailChildrenChildren = 313,
+  BlogPostThumbnailChildrenId = 314,
+  BlogPostThumbnailContentfulId = 315,
+  BlogPostThumbnailCreatedAt = 316,
+  BlogPostThumbnailDescription = 317,
+  BlogPostThumbnailFileContentType = 318,
+  BlogPostThumbnailFileFileName = 319,
+  BlogPostThumbnailFileUrl = 320,
+  BlogPostThumbnailFilename = 321,
+  BlogPostThumbnailFilesize = 322,
+  BlogPostThumbnailGatsbyImage = 323,
+  BlogPostThumbnailGatsbyImageData = 324,
+  BlogPostThumbnailHeight = 325,
+  BlogPostThumbnailId = 326,
+  BlogPostThumbnailInternalContent = 327,
+  BlogPostThumbnailInternalContentDigest = 328,
+  BlogPostThumbnailInternalContentFilePath = 329,
+  BlogPostThumbnailInternalDescription = 330,
+  BlogPostThumbnailInternalFieldOwners = 331,
+  BlogPostThumbnailInternalIgnoreType = 332,
+  BlogPostThumbnailInternalMediaType = 333,
+  BlogPostThumbnailInternalOwner = 334,
+  BlogPostThumbnailInternalType = 335,
+  BlogPostThumbnailMimeType = 336,
+  BlogPostThumbnailNodeLocale = 337,
+  BlogPostThumbnailParentChildren = 338,
+  BlogPostThumbnailParentId = 339,
+  BlogPostThumbnailPlaceholderUrl = 340,
+  BlogPostThumbnailPublicUrl = 341,
+  BlogPostThumbnailResizeHeight = 342,
+  BlogPostThumbnailResizeSrc = 343,
+  BlogPostThumbnailResizeWidth = 344,
+  BlogPostThumbnailSize = 345,
+  BlogPostThumbnailSpaceId = 346,
+  BlogPostThumbnailSysRevision = 347,
+  BlogPostThumbnailSysType = 348,
+  BlogPostThumbnailTitle = 349,
+  BlogPostThumbnailUpdatedAt = 350,
+  BlogPostThumbnailUrl = 351,
+  BlogPostThumbnailWidth = 352,
+  BlogPostTitle = 353,
+  BlogPostUpdated = 354,
+  BlogPostUpdatedAt = 355,
+  Children = 356,
+  ChildrenChildren = 357,
+  ChildrenChildrenChildren = 358,
+  ChildrenChildrenChildrenChildren = 359,
+  ChildrenChildrenChildrenId = 360,
+  ChildrenChildrenId = 361,
+  ChildrenChildrenInternalContent = 362,
+  ChildrenChildrenInternalContentDigest = 363,
+  ChildrenChildrenInternalContentFilePath = 364,
+  ChildrenChildrenInternalDescription = 365,
+  ChildrenChildrenInternalFieldOwners = 366,
+  ChildrenChildrenInternalIgnoreType = 367,
+  ChildrenChildrenInternalMediaType = 368,
+  ChildrenChildrenInternalOwner = 369,
+  ChildrenChildrenInternalType = 370,
+  ChildrenChildrenParentChildren = 371,
+  ChildrenChildrenParentId = 372,
+  ChildrenId = 373,
+  ChildrenInternalContent = 374,
+  ChildrenInternalContentDigest = 375,
+  ChildrenInternalContentFilePath = 376,
+  ChildrenInternalDescription = 377,
+  ChildrenInternalFieldOwners = 378,
+  ChildrenInternalIgnoreType = 379,
+  ChildrenInternalMediaType = 380,
+  ChildrenInternalOwner = 381,
+  ChildrenInternalType = 382,
+  ChildrenParentChildren = 383,
+  ChildrenParentChildrenChildren = 384,
+  ChildrenParentChildrenId = 385,
+  ChildrenParentId = 386,
+  ChildrenParentInternalContent = 387,
+  ChildrenParentInternalContentDigest = 388,
+  ChildrenParentInternalContentFilePath = 389,
+  ChildrenParentInternalDescription = 390,
+  ChildrenParentInternalFieldOwners = 391,
+  ChildrenParentInternalIgnoreType = 392,
+  ChildrenParentInternalMediaType = 393,
+  ChildrenParentInternalOwner = 394,
+  ChildrenParentInternalType = 395,
+  ChildrenParentParentChildren = 396,
+  ChildrenParentParentId = 397,
+  ContentfulId = 398,
+  CreatedAt = 399,
+  Id = 400,
+  InternalContent = 401,
+  InternalContentDigest = 402,
+  InternalContentFilePath = 403,
+  InternalDescription = 404,
+  InternalFieldOwners = 405,
+  InternalIgnoreType = 406,
+  InternalMediaType = 407,
+  InternalOwner = 408,
+  InternalType = 409,
+  Level = 410,
+  Name = 411,
+  NodeLocale = 412,
+  Oss = 413,
+  OssChildContentfulOssDetailTextNodeChildMdxBody = 414,
+  OssChildContentfulOssDetailTextNodeChildMdxChildren = 415,
+  OssChildContentfulOssDetailTextNodeChildMdxExcerpt = 416,
+  OssChildContentfulOssDetailTextNodeChildMdxFileAbsolutePath = 417,
+  OssChildContentfulOssDetailTextNodeChildMdxHeadings = 418,
+  OssChildContentfulOssDetailTextNodeChildMdxHtml = 419,
+  OssChildContentfulOssDetailTextNodeChildMdxId = 420,
+  OssChildContentfulOssDetailTextNodeChildMdxMdxAst = 421,
+  OssChildContentfulOssDetailTextNodeChildMdxRawBody = 422,
+  OssChildContentfulOssDetailTextNodeChildMdxSlug = 423,
+  OssChildContentfulOssDetailTextNodeChildMdxTableOfContents = 424,
+  OssChildContentfulOssDetailTextNodeChildMdxTimeToRead = 425,
+  OssChildContentfulOssDetailTextNodeChildren = 426,
+  OssChildContentfulOssDetailTextNodeChildrenMdx = 427,
+  OssChildContentfulOssDetailTextNodeChildrenMdxBody = 428,
+  OssChildContentfulOssDetailTextNodeChildrenMdxChildren = 429,
+  OssChildContentfulOssDetailTextNodeChildrenMdxExcerpt = 430,
+  OssChildContentfulOssDetailTextNodeChildrenMdxFileAbsolutePath = 431,
+  OssChildContentfulOssDetailTextNodeChildrenMdxHeadings = 432,
+  OssChildContentfulOssDetailTextNodeChildrenMdxHtml = 433,
+  OssChildContentfulOssDetailTextNodeChildrenMdxId = 434,
+  OssChildContentfulOssDetailTextNodeChildrenMdxMdxAst = 435,
+  OssChildContentfulOssDetailTextNodeChildrenMdxRawBody = 436,
+  OssChildContentfulOssDetailTextNodeChildrenMdxSlug = 437,
+  OssChildContentfulOssDetailTextNodeChildrenMdxTableOfContents = 438,
+  OssChildContentfulOssDetailTextNodeChildrenMdxTimeToRead = 439,
+  OssChildContentfulOssDetailTextNodeChildrenChildren = 440,
+  OssChildContentfulOssDetailTextNodeChildrenId = 441,
+  OssChildContentfulOssDetailTextNodeDetail = 442,
+  OssChildContentfulOssDetailTextNodeId = 443,
+  OssChildContentfulOssDetailTextNodeInternalContent = 444,
+  OssChildContentfulOssDetailTextNodeInternalContentDigest = 445,
+  OssChildContentfulOssDetailTextNodeInternalContentFilePath = 446,
+  OssChildContentfulOssDetailTextNodeInternalDescription = 447,
+  OssChildContentfulOssDetailTextNodeInternalFieldOwners = 448,
+  OssChildContentfulOssDetailTextNodeInternalIgnoreType = 449,
+  OssChildContentfulOssDetailTextNodeInternalMediaType = 450,
+  OssChildContentfulOssDetailTextNodeInternalOwner = 451,
+  OssChildContentfulOssDetailTextNodeInternalType = 452,
+  OssChildContentfulOssDetailTextNodeParentChildren = 453,
+  OssChildContentfulOssDetailTextNodeParentId = 454,
+  OssChildContentfulOssDetailTextNodeSysType = 455,
+  OssChildren = 456,
+  OssChildrenContentfulOssDetailTextNode = 457,
+  OssChildrenContentfulOssDetailTextNodeChildMdxBody = 458,
+  OssChildrenContentfulOssDetailTextNodeChildMdxChildren = 459,
+  OssChildrenContentfulOssDetailTextNodeChildMdxExcerpt = 460,
+  OssChildrenContentfulOssDetailTextNodeChildMdxFileAbsolutePath = 461,
+  OssChildrenContentfulOssDetailTextNodeChildMdxHeadings = 462,
+  OssChildrenContentfulOssDetailTextNodeChildMdxHtml = 463,
+  OssChildrenContentfulOssDetailTextNodeChildMdxId = 464,
+  OssChildrenContentfulOssDetailTextNodeChildMdxMdxAst = 465,
+  OssChildrenContentfulOssDetailTextNodeChildMdxRawBody = 466,
+  OssChildrenContentfulOssDetailTextNodeChildMdxSlug = 467,
+  OssChildrenContentfulOssDetailTextNodeChildMdxTableOfContents = 468,
+  OssChildrenContentfulOssDetailTextNodeChildMdxTimeToRead = 469,
+  OssChildrenContentfulOssDetailTextNodeChildren = 470,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdx = 471,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxBody = 472,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxChildren = 473,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxExcerpt = 474,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxFileAbsolutePath = 475,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxHeadings = 476,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxHtml = 477,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxId = 478,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxMdxAst = 479,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxRawBody = 480,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxSlug = 481,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxTableOfContents = 482,
+  OssChildrenContentfulOssDetailTextNodeChildrenMdxTimeToRead = 483,
+  OssChildrenContentfulOssDetailTextNodeChildrenChildren = 484,
+  OssChildrenContentfulOssDetailTextNodeChildrenId = 485,
+  OssChildrenContentfulOssDetailTextNodeDetail = 486,
+  OssChildrenContentfulOssDetailTextNodeId = 487,
+  OssChildrenContentfulOssDetailTextNodeInternalContent = 488,
+  OssChildrenContentfulOssDetailTextNodeInternalContentDigest = 489,
+  OssChildrenContentfulOssDetailTextNodeInternalContentFilePath = 490,
+  OssChildrenContentfulOssDetailTextNodeInternalDescription = 491,
+  OssChildrenContentfulOssDetailTextNodeInternalFieldOwners = 492,
+  OssChildrenContentfulOssDetailTextNodeInternalIgnoreType = 493,
+  OssChildrenContentfulOssDetailTextNodeInternalMediaType = 494,
+  OssChildrenContentfulOssDetailTextNodeInternalOwner = 495,
+  OssChildrenContentfulOssDetailTextNodeInternalType = 496,
+  OssChildrenContentfulOssDetailTextNodeParentChildren = 497,
+  OssChildrenContentfulOssDetailTextNodeParentId = 498,
+  OssChildrenContentfulOssDetailTextNodeSysType = 499,
+  OssChildrenChildren = 500,
+  OssChildrenChildrenChildren = 501,
+  OssChildrenChildrenId = 502,
+  OssChildrenId = 503,
+  OssChildrenInternalContent = 504,
+  OssChildrenInternalContentDigest = 505,
+  OssChildrenInternalContentFilePath = 506,
+  OssChildrenInternalDescription = 507,
+  OssChildrenInternalFieldOwners = 508,
+  OssChildrenInternalIgnoreType = 509,
+  OssChildrenInternalMediaType = 510,
+  OssChildrenInternalOwner = 511,
+  OssChildrenInternalType = 512,
+  OssChildrenParentChildren = 513,
+  OssChildrenParentId = 514,
+  OssContentfulId = 515,
+  OssCreatedAt = 516,
+  OssDetailChildMdxBody = 517,
+  OssDetailChildMdxChildren = 518,
+  OssDetailChildMdxExcerpt = 519,
+  OssDetailChildMdxFileAbsolutePath = 520,
+  OssDetailChildMdxHeadings = 521,
+  OssDetailChildMdxHtml = 522,
+  OssDetailChildMdxId = 523,
+  OssDetailChildMdxMdxAst = 524,
+  OssDetailChildMdxRawBody = 525,
+  OssDetailChildMdxSlug = 526,
+  OssDetailChildMdxTableOfContents = 527,
+  OssDetailChildMdxTimeToRead = 528,
+  OssDetailChildren = 529,
+  OssDetailChildrenMdx = 530,
+  OssDetailChildrenMdxBody = 531,
+  OssDetailChildrenMdxChildren = 532,
+  OssDetailChildrenMdxExcerpt = 533,
+  OssDetailChildrenMdxFileAbsolutePath = 534,
+  OssDetailChildrenMdxHeadings = 535,
+  OssDetailChildrenMdxHtml = 536,
+  OssDetailChildrenMdxId = 537,
+  OssDetailChildrenMdxMdxAst = 538,
+  OssDetailChildrenMdxRawBody = 539,
+  OssDetailChildrenMdxSlug = 540,
+  OssDetailChildrenMdxTableOfContents = 541,
+  OssDetailChildrenMdxTimeToRead = 542,
+  OssDetailChildrenChildren = 543,
+  OssDetailChildrenId = 544,
+  OssDetailDetail = 545,
+  OssDetailId = 546,
+  OssDetailInternalContent = 547,
+  OssDetailInternalContentDigest = 548,
+  OssDetailInternalContentFilePath = 549,
+  OssDetailInternalDescription = 550,
+  OssDetailInternalFieldOwners = 551,
+  OssDetailInternalIgnoreType = 552,
+  OssDetailInternalMediaType = 553,
+  OssDetailInternalOwner = 554,
+  OssDetailInternalType = 555,
+  OssDetailParentChildren = 556,
+  OssDetailParentId = 557,
+  OssDetailSysType = 558,
+  OssHref = 559,
+  OssIconChildContentfulIconSvgTextNodeChildren = 560,
+  OssIconChildContentfulIconSvgTextNodeChildrenMdx = 561,
+  OssIconChildContentfulIconSvgTextNodeId = 562,
+  OssIconChildContentfulIconSvgTextNodeSvg = 563,
+  OssIconChildren = 564,
+  OssIconChildrenContentfulIconSvgTextNode = 565,
+  OssIconChildrenContentfulIconSvgTextNodeChildren = 566,
+  OssIconChildrenContentfulIconSvgTextNodeChildrenMdx = 567,
+  OssIconChildrenContentfulIconSvgTextNodeId = 568,
+  OssIconChildrenContentfulIconSvgTextNodeSvg = 569,
+  OssIconChildrenChildren = 570,
+  OssIconChildrenId = 571,
+  OssIconContact = 572,
+  OssIconContactChildren = 573,
+  OssIconContactContentfulId = 574,
+  OssIconContactCreatedAt = 575,
+  OssIconContactHref = 576,
+  OssIconContactId = 577,
+  OssIconContactName = 578,
+  OssIconContactNodeLocale = 579,
+  OssIconContactSortKey = 580,
+  OssIconContactSpaceId = 581,
+  OssIconContactSubName = 582,
+  OssIconContactUpdatedAt = 583,
+  OssIconContentfulId = 584,
+  OssIconCreatedAt = 585,
+  OssIconHistory = 586,
+  OssIconHistoryChildren = 587,
+  OssIconHistoryContentfulId = 588,
+  OssIconHistoryCreatedAt = 589,
+  OssIconHistoryDate = 590,
+  OssIconHistoryId = 591,
+  OssIconHistoryName = 592,
+  OssIconHistoryNodeLocale = 593,
+  OssIconHistorySpaceId = 594,
+  OssIconHistorySubName = 595,
+  OssIconHistoryUpdatedAt = 596,
+  OssIconId = 597,
+  OssIconInternalContent = 598,
+  OssIconInternalContentDigest = 599,
+  OssIconInternalContentFilePath = 600,
+  OssIconInternalDescription = 601,
+  OssIconInternalFieldOwners = 602,
+  OssIconInternalIgnoreType = 603,
+  OssIconInternalMediaType = 604,
+  OssIconInternalOwner = 605,
+  OssIconInternalType = 606,
+  OssIconName = 607,
+  OssIconNodeLocale = 608,
+  OssIconOss = 609,
+  OssIconOssChildren = 610,
+  OssIconOssChildrenContentfulOssDetailTextNode = 611,
+  OssIconOssContentfulId = 612,
+  OssIconOssCreatedAt = 613,
+  OssIconOssHref = 614,
+  OssIconOssId = 615,
+  OssIconOssName = 616,
+  OssIconOssNodeLocale = 617,
+  OssIconOssSpaceId = 618,
+  OssIconOssStartDate = 619,
+  OssIconOssSubName = 620,
+  OssIconOssTags = 621,
+  OssIconOssUpdatedAt = 622,
+  OssIconParentChildren = 623,
+  OssIconParentId = 624,
+  OssIconProject = 625,
+  OssIconProjectChildren = 626,
+  OssIconProjectChildrenContentfulProjectDetailTextNode = 627,
+  OssIconProjectContentfulId = 628,
+  OssIconProjectCreatedAt = 629,
+  OssIconProjectEndDate = 630,
+  OssIconProjectId = 631,
+  OssIconProjectName = 632,
+  OssIconProjectNodeLocale = 633,
+  OssIconProjectSpaceId = 634,
+  OssIconProjectStartDate = 635,
+  OssIconProjectSubName = 636,
+  OssIconProjectTags = 637,
+  OssIconProjectUpdatedAt = 638,
+  OssIconSpaceId = 639,
+  OssIconSvgChildren = 640,
+  OssIconSvgChildrenMdx = 641,
+  OssIconSvgId = 642,
+  OssIconSvgSvg = 643,
+  OssIconSysRevision = 644,
+  OssIconSysType = 645,
+  OssIconUpdatedAt = 646,
+  OssIconWhatICanDo = 647,
+  OssIconWhatICanDoChildren = 648,
+  OssIconWhatICanDoContentfulId = 649,
+  OssIconWhatICanDoCreatedAt = 650,
+  OssIconWhatICanDoId = 651,
+  OssIconWhatICanDoName = 652,
+  OssIconWhatICanDoNodeLocale = 653,
+  OssIconWhatICanDoSortKey = 654,
+  OssIconWhatICanDoSpaceId = 655,
+  OssIconWhatICanDoSubName = 656,
+  OssIconWhatICanDoUpdatedAt = 657,
+  OssId = 658,
+  OssImageChildren = 659,
+  OssImageChildrenChildren = 660,
+  OssImageChildrenId = 661,
+  OssImageContentfulId = 662,
+  OssImageCreatedAt = 663,
+  OssImageDescription = 664,
+  OssImageFileContentType = 665,
+  OssImageFileFileName = 666,
+  OssImageFileUrl = 667,
+  OssImageFilename = 668,
+  OssImageFilesize = 669,
+  OssImageGatsbyImage = 670,
+  OssImageGatsbyImageData = 671,
+  OssImageHeight = 672,
+  OssImageId = 673,
+  OssImageInternalContent = 674,
+  OssImageInternalContentDigest = 675,
+  OssImageInternalContentFilePath = 676,
+  OssImageInternalDescription = 677,
+  OssImageInternalFieldOwners = 678,
+  OssImageInternalIgnoreType = 679,
+  OssImageInternalMediaType = 680,
+  OssImageInternalOwner = 681,
+  OssImageInternalType = 682,
+  OssImageMimeType = 683,
+  OssImageNodeLocale = 684,
+  OssImageParentChildren = 685,
+  OssImageParentId = 686,
+  OssImagePlaceholderUrl = 687,
+  OssImagePublicUrl = 688,
+  OssImageResizeHeight = 689,
+  OssImageResizeSrc = 690,
+  OssImageResizeWidth = 691,
+  OssImageSize = 692,
+  OssImageSpaceId = 693,
+  OssImageSysRevision = 694,
+  OssImageSysType = 695,
+  OssImageTitle = 696,
+  OssImageUpdatedAt = 697,
+  OssImageUrl = 698,
+  OssImageWidth = 699,
+  OssInternalContent = 700,
+  OssInternalContentDigest = 701,
+  OssInternalContentFilePath = 702,
+  OssInternalDescription = 703,
+  OssInternalFieldOwners = 704,
+  OssInternalIgnoreType = 705,
+  OssInternalMediaType = 706,
+  OssInternalOwner = 707,
+  OssInternalType = 708,
+  OssName = 709,
+  OssNodeLocale = 710,
+  OssParentChildren = 711,
+  OssParentChildrenChildren = 712,
+  OssParentChildrenId = 713,
+  OssParentId = 714,
+  OssParentInternalContent = 715,
+  OssParentInternalContentDigest = 716,
+  OssParentInternalContentFilePath = 717,
+  OssParentInternalDescription = 718,
+  OssParentInternalFieldOwners = 719,
+  OssParentInternalIgnoreType = 720,
+  OssParentInternalMediaType = 721,
+  OssParentInternalOwner = 722,
+  OssParentInternalType = 723,
+  OssParentParentChildren = 724,
+  OssParentParentId = 725,
+  OssSpaceId = 726,
+  OssStartDate = 727,
+  OssSubName = 728,
+  OssSysRevision = 729,
+  OssSysType = 730,
+  OssTags = 731,
+  OssTagsBlogPost = 732,
+  OssTagsBlogPostChildren = 733,
+  OssTagsBlogPostChildrenContentfulBlogPostContentTextNode = 734,
+  OssTagsBlogPostContentfulId = 735,
+  OssTagsBlogPostCreated = 736,
+  OssTagsBlogPostCreatedAt = 737,
+  OssTagsBlogPostExcerpt = 738,
+  OssTagsBlogPostGatsbyPath = 739,
+  OssTagsBlogPostId = 740,
+  OssTagsBlogPostNodeLocale = 741,
+  OssTagsBlogPostSlug = 742,
+  OssTagsBlogPostSpaceId = 743,
+  OssTagsBlogPostTags = 744,
+  OssTagsBlogPostTitle = 745,
+  OssTagsBlogPostUpdated = 746,
+  OssTagsBlogPostUpdatedAt = 747,
+  OssTagsChildren = 748,
+  OssTagsChildrenChildren = 749,
+  OssTagsChildrenId = 750,
+  OssTagsContentfulId = 751,
+  OssTagsCreatedAt = 752,
+  OssTagsId = 753,
+  OssTagsInternalContent = 754,
+  OssTagsInternalContentDigest = 755,
+  OssTagsInternalContentFilePath = 756,
+  OssTagsInternalDescription = 757,
+  OssTagsInternalFieldOwners = 758,
+  OssTagsInternalIgnoreType = 759,
+  OssTagsInternalMediaType = 760,
+  OssTagsInternalOwner = 761,
+  OssTagsInternalType = 762,
+  OssTagsLevel = 763,
+  OssTagsName = 764,
+  OssTagsNodeLocale = 765,
+  OssTagsOss = 766,
+  OssTagsOssChildren = 767,
+  OssTagsOssChildrenContentfulOssDetailTextNode = 768,
+  OssTagsOssContentfulId = 769,
+  OssTagsOssCreatedAt = 770,
+  OssTagsOssHref = 771,
+  OssTagsOssId = 772,
+  OssTagsOssName = 773,
+  OssTagsOssNodeLocale = 774,
+  OssTagsOssSpaceId = 775,
+  OssTagsOssStartDate = 776,
+  OssTagsOssSubName = 777,
+  OssTagsOssTags = 778,
+  OssTagsOssUpdatedAt = 779,
+  OssTagsParentChildren = 780,
+  OssTagsParentId = 781,
+  OssTagsProject = 782,
+  OssTagsProjectChildren = 783,
+  OssTagsProjectChildrenContentfulProjectDetailTextNode = 784,
+  OssTagsProjectContentfulId = 785,
+  OssTagsProjectCreatedAt = 786,
+  OssTagsProjectEndDate = 787,
+  OssTagsProjectId = 788,
+  OssTagsProjectName = 789,
+  OssTagsProjectNodeLocale = 790,
+  OssTagsProjectSpaceId = 791,
+  OssTagsProjectStartDate = 792,
+  OssTagsProjectSubName = 793,
+  OssTagsProjectTags = 794,
+  OssTagsProjectUpdatedAt = 795,
+  OssTagsSkillGrpup = 796,
+  OssTagsSkillGrpupChildren = 797,
+  OssTagsSkillGrpupContentfulId = 798,
+  OssTagsSkillGrpupCreatedAt = 799,
+  OssTagsSkillGrpupId = 800,
+  OssTagsSkillGrpupName = 801,
+  OssTagsSkillGrpupNodeLocale = 802,
+  OssTagsSkillGrpupSkillMap = 803,
+  OssTagsSkillGrpupSkills = 804,
+  OssTagsSkillGrpupSpaceId = 805,
+  OssTagsSkillGrpupUpdatedAt = 806,
+  OssTagsSkillMap = 807,
+  OssTagsSkillMapChildren = 808,
+  OssTagsSkillMapContentfulId = 809,
+  OssTagsSkillMapCreatedAt = 810,
+  OssTagsSkillMapExpanded = 811,
+  OssTagsSkillMapId = 812,
+  OssTagsSkillMapName = 813,
+  OssTagsSkillMapNodeLocale = 814,
+  OssTagsSkillMapSkillGroups = 815,
+  OssTagsSkillMapSkills = 816,
+  OssTagsSkillMapSortKey = 817,
+  OssTagsSkillMapSpaceId = 818,
+  OssTagsSkillMapUpdatedAt = 819,
+  OssTagsSpaceId = 820,
+  OssTagsSysRevision = 821,
+  OssTagsSysType = 822,
+  OssTagsUpdatedAt = 823,
+  OssUpdatedAt = 824,
+  ParentChildren = 825,
+  ParentChildrenChildren = 826,
+  ParentChildrenChildrenChildren = 827,
+  ParentChildrenChildrenId = 828,
+  ParentChildrenId = 829,
+  ParentChildrenInternalContent = 830,
+  ParentChildrenInternalContentDigest = 831,
+  ParentChildrenInternalContentFilePath = 832,
+  ParentChildrenInternalDescription = 833,
+  ParentChildrenInternalFieldOwners = 834,
+  ParentChildrenInternalIgnoreType = 835,
+  ParentChildrenInternalMediaType = 836,
+  ParentChildrenInternalOwner = 837,
+  ParentChildrenInternalType = 838,
+  ParentChildrenParentChildren = 839,
+  ParentChildrenParentId = 840,
+  ParentId = 841,
+  ParentInternalContent = 842,
+  ParentInternalContentDigest = 843,
+  ParentInternalContentFilePath = 844,
+  ParentInternalDescription = 845,
+  ParentInternalFieldOwners = 846,
+  ParentInternalIgnoreType = 847,
+  ParentInternalMediaType = 848,
+  ParentInternalOwner = 849,
+  ParentInternalType = 850,
+  ParentParentChildren = 851,
+  ParentParentChildrenChildren = 852,
+  ParentParentChildrenId = 853,
+  ParentParentId = 854,
+  ParentParentInternalContent = 855,
+  ParentParentInternalContentDigest = 856,
+  ParentParentInternalContentFilePath = 857,
+  ParentParentInternalDescription = 858,
+  ParentParentInternalFieldOwners = 859,
+  ParentParentInternalIgnoreType = 860,
+  ParentParentInternalMediaType = 861,
+  ParentParentInternalOwner = 862,
+  ParentParentInternalType = 863,
+  ParentParentParentChildren = 864,
+  ParentParentParentId = 865,
+  Project = 866,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxBody = 867,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxChildren = 868,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxExcerpt = 869,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 870,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxHeadings = 871,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxHtml = 872,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxId = 873,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxMdxAst = 874,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxRawBody = 875,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxSlug = 876,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxTableOfContents = 877,
+  ProjectChildContentfulProjectDetailTextNodeChildMdxTimeToRead = 878,
+  ProjectChildContentfulProjectDetailTextNodeChildren = 879,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdx = 880,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxBody = 881,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxChildren = 882,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxExcerpt = 883,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 884,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHeadings = 885,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxHtml = 886,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxId = 887,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxMdxAst = 888,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxRawBody = 889,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxSlug = 890,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 891,
+  ProjectChildContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 892,
+  ProjectChildContentfulProjectDetailTextNodeChildrenChildren = 893,
+  ProjectChildContentfulProjectDetailTextNodeChildrenId = 894,
+  ProjectChildContentfulProjectDetailTextNodeDetail = 895,
+  ProjectChildContentfulProjectDetailTextNodeId = 896,
+  ProjectChildContentfulProjectDetailTextNodeInternalContent = 897,
+  ProjectChildContentfulProjectDetailTextNodeInternalContentDigest = 898,
+  ProjectChildContentfulProjectDetailTextNodeInternalContentFilePath = 899,
+  ProjectChildContentfulProjectDetailTextNodeInternalDescription = 900,
+  ProjectChildContentfulProjectDetailTextNodeInternalFieldOwners = 901,
+  ProjectChildContentfulProjectDetailTextNodeInternalIgnoreType = 902,
+  ProjectChildContentfulProjectDetailTextNodeInternalMediaType = 903,
+  ProjectChildContentfulProjectDetailTextNodeInternalOwner = 904,
+  ProjectChildContentfulProjectDetailTextNodeInternalType = 905,
+  ProjectChildContentfulProjectDetailTextNodeParentChildren = 906,
+  ProjectChildContentfulProjectDetailTextNodeParentId = 907,
+  ProjectChildContentfulProjectDetailTextNodeSysType = 908,
+  ProjectChildren = 909,
+  ProjectChildrenContentfulProjectDetailTextNode = 910,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxBody = 911,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxChildren = 912,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxExcerpt = 913,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxFileAbsolutePath = 914,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHeadings = 915,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxHtml = 916,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxId = 917,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxMdxAst = 918,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxRawBody = 919,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxSlug = 920,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTableOfContents = 921,
+  ProjectChildrenContentfulProjectDetailTextNodeChildMdxTimeToRead = 922,
+  ProjectChildrenContentfulProjectDetailTextNodeChildren = 923,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdx = 924,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxBody = 925,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxChildren = 926,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxExcerpt = 927,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxFileAbsolutePath = 928,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHeadings = 929,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxHtml = 930,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxId = 931,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxMdxAst = 932,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxRawBody = 933,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxSlug = 934,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTableOfContents = 935,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenMdxTimeToRead = 936,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenChildren = 937,
+  ProjectChildrenContentfulProjectDetailTextNodeChildrenId = 938,
+  ProjectChildrenContentfulProjectDetailTextNodeDetail = 939,
+  ProjectChildrenContentfulProjectDetailTextNodeId = 940,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalContent = 941,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalContentDigest = 942,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalContentFilePath = 943,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalDescription = 944,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalFieldOwners = 945,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalIgnoreType = 946,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalMediaType = 947,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalOwner = 948,
+  ProjectChildrenContentfulProjectDetailTextNodeInternalType = 949,
+  ProjectChildrenContentfulProjectDetailTextNodeParentChildren = 950,
+  ProjectChildrenContentfulProjectDetailTextNodeParentId = 951,
+  ProjectChildrenContentfulProjectDetailTextNodeSysType = 952,
+  ProjectChildrenChildren = 953,
+  ProjectChildrenChildrenChildren = 954,
+  ProjectChildrenChildrenId = 955,
+  ProjectChildrenId = 956,
+  ProjectChildrenInternalContent = 957,
+  ProjectChildrenInternalContentDigest = 958,
+  ProjectChildrenInternalContentFilePath = 959,
+  ProjectChildrenInternalDescription = 960,
+  ProjectChildrenInternalFieldOwners = 961,
+  ProjectChildrenInternalIgnoreType = 962,
+  ProjectChildrenInternalMediaType = 963,
+  ProjectChildrenInternalOwner = 964,
+  ProjectChildrenInternalType = 965,
+  ProjectChildrenParentChildren = 966,
+  ProjectChildrenParentId = 967,
+  ProjectContentfulId = 968,
+  ProjectCreatedAt = 969,
+  ProjectDetailChildMdxBody = 970,
+  ProjectDetailChildMdxChildren = 971,
+  ProjectDetailChildMdxExcerpt = 972,
+  ProjectDetailChildMdxFileAbsolutePath = 973,
+  ProjectDetailChildMdxHeadings = 974,
+  ProjectDetailChildMdxHtml = 975,
+  ProjectDetailChildMdxId = 976,
+  ProjectDetailChildMdxMdxAst = 977,
+  ProjectDetailChildMdxRawBody = 978,
+  ProjectDetailChildMdxSlug = 979,
+  ProjectDetailChildMdxTableOfContents = 980,
+  ProjectDetailChildMdxTimeToRead = 981,
+  ProjectDetailChildren = 982,
+  ProjectDetailChildrenMdx = 983,
+  ProjectDetailChildrenMdxBody = 984,
+  ProjectDetailChildrenMdxChildren = 985,
+  ProjectDetailChildrenMdxExcerpt = 986,
+  ProjectDetailChildrenMdxFileAbsolutePath = 987,
+  ProjectDetailChildrenMdxHeadings = 988,
+  ProjectDetailChildrenMdxHtml = 989,
+  ProjectDetailChildrenMdxId = 990,
+  ProjectDetailChildrenMdxMdxAst = 991,
+  ProjectDetailChildrenMdxRawBody = 992,
+  ProjectDetailChildrenMdxSlug = 993,
+  ProjectDetailChildrenMdxTableOfContents = 994,
+  ProjectDetailChildrenMdxTimeToRead = 995,
+  ProjectDetailChildrenChildren = 996,
+  ProjectDetailChildrenId = 997,
+  ProjectDetailDetail = 998,
+  ProjectDetailId = 999,
+  ProjectDetailInternalContent = 1000,
+  ProjectDetailInternalContentDigest = 1001,
+  ProjectDetailInternalContentFilePath = 1002,
+  ProjectDetailInternalDescription = 1003,
+  ProjectDetailInternalFieldOwners = 1004,
+  ProjectDetailInternalIgnoreType = 1005,
+  ProjectDetailInternalMediaType = 1006,
+  ProjectDetailInternalOwner = 1007,
+  ProjectDetailInternalType = 1008,
+  ProjectDetailParentChildren = 1009,
+  ProjectDetailParentId = 1010,
+  ProjectDetailSysType = 1011,
+  ProjectEndDate = 1012,
+  ProjectIconChildContentfulIconSvgTextNodeChildren = 1013,
+  ProjectIconChildContentfulIconSvgTextNodeChildrenMdx = 1014,
+  ProjectIconChildContentfulIconSvgTextNodeId = 1015,
+  ProjectIconChildContentfulIconSvgTextNodeSvg = 1016,
+  ProjectIconChildren = 1017,
+  ProjectIconChildrenContentfulIconSvgTextNode = 1018,
+  ProjectIconChildrenContentfulIconSvgTextNodeChildren = 1019,
+  ProjectIconChildrenContentfulIconSvgTextNodeChildrenMdx = 1020,
+  ProjectIconChildrenContentfulIconSvgTextNodeId = 1021,
+  ProjectIconChildrenContentfulIconSvgTextNodeSvg = 1022,
+  ProjectIconChildrenChildren = 1023,
+  ProjectIconChildrenId = 1024,
+  ProjectIconContact = 1025,
+  ProjectIconContactChildren = 1026,
+  ProjectIconContactContentfulId = 1027,
+  ProjectIconContactCreatedAt = 1028,
+  ProjectIconContactHref = 1029,
+  ProjectIconContactId = 1030,
+  ProjectIconContactName = 1031,
+  ProjectIconContactNodeLocale = 1032,
+  ProjectIconContactSortKey = 1033,
+  ProjectIconContactSpaceId = 1034,
+  ProjectIconContactSubName = 1035,
+  ProjectIconContactUpdatedAt = 1036,
+  ProjectIconContentfulId = 1037,
+  ProjectIconCreatedAt = 1038,
+  ProjectIconHistory = 1039,
+  ProjectIconHistoryChildren = 1040,
+  ProjectIconHistoryContentfulId = 1041,
+  ProjectIconHistoryCreatedAt = 1042,
+  ProjectIconHistoryDate = 1043,
+  ProjectIconHistoryId = 1044,
+  ProjectIconHistoryName = 1045,
+  ProjectIconHistoryNodeLocale = 1046,
+  ProjectIconHistorySpaceId = 1047,
+  ProjectIconHistorySubName = 1048,
+  ProjectIconHistoryUpdatedAt = 1049,
+  ProjectIconId = 1050,
+  ProjectIconInternalContent = 1051,
+  ProjectIconInternalContentDigest = 1052,
+  ProjectIconInternalContentFilePath = 1053,
+  ProjectIconInternalDescription = 1054,
+  ProjectIconInternalFieldOwners = 1055,
+  ProjectIconInternalIgnoreType = 1056,
+  ProjectIconInternalMediaType = 1057,
+  ProjectIconInternalOwner = 1058,
+  ProjectIconInternalType = 1059,
+  ProjectIconName = 1060,
+  ProjectIconNodeLocale = 1061,
+  ProjectIconOss = 1062,
+  ProjectIconOssChildren = 1063,
+  ProjectIconOssChildrenContentfulOssDetailTextNode = 1064,
+  ProjectIconOssContentfulId = 1065,
+  ProjectIconOssCreatedAt = 1066,
+  ProjectIconOssHref = 1067,
+  ProjectIconOssId = 1068,
+  ProjectIconOssName = 1069,
+  ProjectIconOssNodeLocale = 1070,
+  ProjectIconOssSpaceId = 1071,
+  ProjectIconOssStartDate = 1072,
+  ProjectIconOssSubName = 1073,
+  ProjectIconOssTags = 1074,
+  ProjectIconOssUpdatedAt = 1075,
+  ProjectIconParentChildren = 1076,
+  ProjectIconParentId = 1077,
+  ProjectIconProject = 1078,
+  ProjectIconProjectChildren = 1079,
+  ProjectIconProjectChildrenContentfulProjectDetailTextNode = 1080,
+  ProjectIconProjectContentfulId = 1081,
+  ProjectIconProjectCreatedAt = 1082,
+  ProjectIconProjectEndDate = 1083,
+  ProjectIconProjectId = 1084,
+  ProjectIconProjectName = 1085,
+  ProjectIconProjectNodeLocale = 1086,
+  ProjectIconProjectSpaceId = 1087,
+  ProjectIconProjectStartDate = 1088,
+  ProjectIconProjectSubName = 1089,
+  ProjectIconProjectTags = 1090,
+  ProjectIconProjectUpdatedAt = 1091,
+  ProjectIconSpaceId = 1092,
+  ProjectIconSvgChildren = 1093,
+  ProjectIconSvgChildrenMdx = 1094,
+  ProjectIconSvgId = 1095,
+  ProjectIconSvgSvg = 1096,
+  ProjectIconSysRevision = 1097,
+  ProjectIconSysType = 1098,
+  ProjectIconUpdatedAt = 1099,
+  ProjectIconWhatICanDo = 1100,
+  ProjectIconWhatICanDoChildren = 1101,
+  ProjectIconWhatICanDoContentfulId = 1102,
+  ProjectIconWhatICanDoCreatedAt = 1103,
+  ProjectIconWhatICanDoId = 1104,
+  ProjectIconWhatICanDoName = 1105,
+  ProjectIconWhatICanDoNodeLocale = 1106,
+  ProjectIconWhatICanDoSortKey = 1107,
+  ProjectIconWhatICanDoSpaceId = 1108,
+  ProjectIconWhatICanDoSubName = 1109,
+  ProjectIconWhatICanDoUpdatedAt = 1110,
+  ProjectId = 1111,
+  ProjectInternalContent = 1112,
+  ProjectInternalContentDigest = 1113,
+  ProjectInternalContentFilePath = 1114,
+  ProjectInternalDescription = 1115,
+  ProjectInternalFieldOwners = 1116,
+  ProjectInternalIgnoreType = 1117,
+  ProjectInternalMediaType = 1118,
+  ProjectInternalOwner = 1119,
+  ProjectInternalType = 1120,
+  ProjectName = 1121,
+  ProjectNodeLocale = 1122,
+  ProjectParentChildren = 1123,
+  ProjectParentChildrenChildren = 1124,
+  ProjectParentChildrenId = 1125,
+  ProjectParentId = 1126,
+  ProjectParentInternalContent = 1127,
+  ProjectParentInternalContentDigest = 1128,
+  ProjectParentInternalContentFilePath = 1129,
+  ProjectParentInternalDescription = 1130,
+  ProjectParentInternalFieldOwners = 1131,
+  ProjectParentInternalIgnoreType = 1132,
+  ProjectParentInternalMediaType = 1133,
+  ProjectParentInternalOwner = 1134,
+  ProjectParentInternalType = 1135,
+  ProjectParentParentChildren = 1136,
+  ProjectParentParentId = 1137,
+  ProjectSpaceId = 1138,
+  ProjectStartDate = 1139,
+  ProjectSubName = 1140,
+  ProjectSysRevision = 1141,
+  ProjectSysType = 1142,
+  ProjectTags = 1143,
+  ProjectTagsBlogPost = 1144,
+  ProjectTagsBlogPostChildren = 1145,
+  ProjectTagsBlogPostChildrenContentfulBlogPostContentTextNode = 1146,
+  ProjectTagsBlogPostContentfulId = 1147,
+  ProjectTagsBlogPostCreated = 1148,
+  ProjectTagsBlogPostCreatedAt = 1149,
+  ProjectTagsBlogPostExcerpt = 1150,
+  ProjectTagsBlogPostGatsbyPath = 1151,
+  ProjectTagsBlogPostId = 1152,
+  ProjectTagsBlogPostNodeLocale = 1153,
+  ProjectTagsBlogPostSlug = 1154,
+  ProjectTagsBlogPostSpaceId = 1155,
+  ProjectTagsBlogPostTags = 1156,
+  ProjectTagsBlogPostTitle = 1157,
+  ProjectTagsBlogPostUpdated = 1158,
+  ProjectTagsBlogPostUpdatedAt = 1159,
+  ProjectTagsChildren = 1160,
+  ProjectTagsChildrenChildren = 1161,
+  ProjectTagsChildrenId = 1162,
+  ProjectTagsContentfulId = 1163,
+  ProjectTagsCreatedAt = 1164,
+  ProjectTagsId = 1165,
+  ProjectTagsInternalContent = 1166,
+  ProjectTagsInternalContentDigest = 1167,
+  ProjectTagsInternalContentFilePath = 1168,
+  ProjectTagsInternalDescription = 1169,
+  ProjectTagsInternalFieldOwners = 1170,
+  ProjectTagsInternalIgnoreType = 1171,
+  ProjectTagsInternalMediaType = 1172,
+  ProjectTagsInternalOwner = 1173,
+  ProjectTagsInternalType = 1174,
+  ProjectTagsLevel = 1175,
+  ProjectTagsName = 1176,
+  ProjectTagsNodeLocale = 1177,
+  ProjectTagsOss = 1178,
+  ProjectTagsOssChildren = 1179,
+  ProjectTagsOssChildrenContentfulOssDetailTextNode = 1180,
+  ProjectTagsOssContentfulId = 1181,
+  ProjectTagsOssCreatedAt = 1182,
+  ProjectTagsOssHref = 1183,
+  ProjectTagsOssId = 1184,
+  ProjectTagsOssName = 1185,
+  ProjectTagsOssNodeLocale = 1186,
+  ProjectTagsOssSpaceId = 1187,
+  ProjectTagsOssStartDate = 1188,
+  ProjectTagsOssSubName = 1189,
+  ProjectTagsOssTags = 1190,
+  ProjectTagsOssUpdatedAt = 1191,
+  ProjectTagsParentChildren = 1192,
+  ProjectTagsParentId = 1193,
+  ProjectTagsProject = 1194,
+  ProjectTagsProjectChildren = 1195,
+  ProjectTagsProjectChildrenContentfulProjectDetailTextNode = 1196,
+  ProjectTagsProjectContentfulId = 1197,
+  ProjectTagsProjectCreatedAt = 1198,
+  ProjectTagsProjectEndDate = 1199,
+  ProjectTagsProjectId = 1200,
+  ProjectTagsProjectName = 1201,
+  ProjectTagsProjectNodeLocale = 1202,
+  ProjectTagsProjectSpaceId = 1203,
+  ProjectTagsProjectStartDate = 1204,
+  ProjectTagsProjectSubName = 1205,
+  ProjectTagsProjectTags = 1206,
+  ProjectTagsProjectUpdatedAt = 1207,
+  ProjectTagsSkillGrpup = 1208,
+  ProjectTagsSkillGrpupChildren = 1209,
+  ProjectTagsSkillGrpupContentfulId = 1210,
+  ProjectTagsSkillGrpupCreatedAt = 1211,
+  ProjectTagsSkillGrpupId = 1212,
+  ProjectTagsSkillGrpupName = 1213,
+  ProjectTagsSkillGrpupNodeLocale = 1214,
+  ProjectTagsSkillGrpupSkillMap = 1215,
+  ProjectTagsSkillGrpupSkills = 1216,
+  ProjectTagsSkillGrpupSpaceId = 1217,
+  ProjectTagsSkillGrpupUpdatedAt = 1218,
+  ProjectTagsSkillMap = 1219,
+  ProjectTagsSkillMapChildren = 1220,
+  ProjectTagsSkillMapContentfulId = 1221,
+  ProjectTagsSkillMapCreatedAt = 1222,
+  ProjectTagsSkillMapExpanded = 1223,
+  ProjectTagsSkillMapId = 1224,
+  ProjectTagsSkillMapName = 1225,
+  ProjectTagsSkillMapNodeLocale = 1226,
+  ProjectTagsSkillMapSkillGroups = 1227,
+  ProjectTagsSkillMapSkills = 1228,
+  ProjectTagsSkillMapSortKey = 1229,
+  ProjectTagsSkillMapSpaceId = 1230,
+  ProjectTagsSkillMapUpdatedAt = 1231,
+  ProjectTagsSpaceId = 1232,
+  ProjectTagsSysRevision = 1233,
+  ProjectTagsSysType = 1234,
+  ProjectTagsUpdatedAt = 1235,
+  ProjectUpdatedAt = 1236,
+  SkillGrpup = 1237,
+  SkillGrpupChildren = 1238,
+  SkillGrpupChildrenChildren = 1239,
+  SkillGrpupChildrenChildrenChildren = 1240,
+  SkillGrpupChildrenChildrenId = 1241,
+  SkillGrpupChildrenId = 1242,
+  SkillGrpupChildrenInternalContent = 1243,
+  SkillGrpupChildrenInternalContentDigest = 1244,
+  SkillGrpupChildrenInternalContentFilePath = 1245,
+  SkillGrpupChildrenInternalDescription = 1246,
+  SkillGrpupChildrenInternalFieldOwners = 1247,
+  SkillGrpupChildrenInternalIgnoreType = 1248,
+  SkillGrpupChildrenInternalMediaType = 1249,
+  SkillGrpupChildrenInternalOwner = 1250,
+  SkillGrpupChildrenInternalType = 1251,
+  SkillGrpupChildrenParentChildren = 1252,
+  SkillGrpupChildrenParentId = 1253,
+  SkillGrpupContentfulId = 1254,
+  SkillGrpupCreatedAt = 1255,
+  SkillGrpupId = 1256,
+  SkillGrpupInternalContent = 1257,
+  SkillGrpupInternalContentDigest = 1258,
+  SkillGrpupInternalContentFilePath = 1259,
+  SkillGrpupInternalDescription = 1260,
+  SkillGrpupInternalFieldOwners = 1261,
+  SkillGrpupInternalIgnoreType = 1262,
+  SkillGrpupInternalMediaType = 1263,
+  SkillGrpupInternalOwner = 1264,
+  SkillGrpupInternalType = 1265,
+  SkillGrpupName = 1266,
+  SkillGrpupNodeLocale = 1267,
+  SkillGrpupParentChildren = 1268,
+  SkillGrpupParentChildrenChildren = 1269,
+  SkillGrpupParentChildrenId = 1270,
+  SkillGrpupParentId = 1271,
+  SkillGrpupParentInternalContent = 1272,
+  SkillGrpupParentInternalContentDigest = 1273,
+  SkillGrpupParentInternalContentFilePath = 1274,
+  SkillGrpupParentInternalDescription = 1275,
+  SkillGrpupParentInternalFieldOwners = 1276,
+  SkillGrpupParentInternalIgnoreType = 1277,
+  SkillGrpupParentInternalMediaType = 1278,
+  SkillGrpupParentInternalOwner = 1279,
+  SkillGrpupParentInternalType = 1280,
+  SkillGrpupParentParentChildren = 1281,
+  SkillGrpupParentParentId = 1282,
+  SkillGrpupSkillMap = 1283,
+  SkillGrpupSkillMapChildren = 1284,
+  SkillGrpupSkillMapChildrenChildren = 1285,
+  SkillGrpupSkillMapChildrenId = 1286,
+  SkillGrpupSkillMapContentfulId = 1287,
+  SkillGrpupSkillMapCreatedAt = 1288,
+  SkillGrpupSkillMapExpanded = 1289,
+  SkillGrpupSkillMapId = 1290,
+  SkillGrpupSkillMapInternalContent = 1291,
+  SkillGrpupSkillMapInternalContentDigest = 1292,
+  SkillGrpupSkillMapInternalContentFilePath = 1293,
+  SkillGrpupSkillMapInternalDescription = 1294,
+  SkillGrpupSkillMapInternalFieldOwners = 1295,
+  SkillGrpupSkillMapInternalIgnoreType = 1296,
+  SkillGrpupSkillMapInternalMediaType = 1297,
+  SkillGrpupSkillMapInternalOwner = 1298,
+  SkillGrpupSkillMapInternalType = 1299,
+  SkillGrpupSkillMapName = 1300,
+  SkillGrpupSkillMapNodeLocale = 1301,
+  SkillGrpupSkillMapParentChildren = 1302,
+  SkillGrpupSkillMapParentId = 1303,
+  SkillGrpupSkillMapSkillGroups = 1304,
+  SkillGrpupSkillMapSkillGroupsChildren = 1305,
+  SkillGrpupSkillMapSkillGroupsContentfulId = 1306,
+  SkillGrpupSkillMapSkillGroupsCreatedAt = 1307,
+  SkillGrpupSkillMapSkillGroupsId = 1308,
+  SkillGrpupSkillMapSkillGroupsName = 1309,
+  SkillGrpupSkillMapSkillGroupsNodeLocale = 1310,
+  SkillGrpupSkillMapSkillGroupsSkillMap = 1311,
+  SkillGrpupSkillMapSkillGroupsSkills = 1312,
+  SkillGrpupSkillMapSkillGroupsSpaceId = 1313,
+  SkillGrpupSkillMapSkillGroupsUpdatedAt = 1314,
+  SkillGrpupSkillMapSkills = 1315,
+  SkillGrpupSkillMapSkillsBlogPost = 1316,
+  SkillGrpupSkillMapSkillsChildren = 1317,
+  SkillGrpupSkillMapSkillsContentfulId = 1318,
+  SkillGrpupSkillMapSkillsCreatedAt = 1319,
+  SkillGrpupSkillMapSkillsId = 1320,
+  SkillGrpupSkillMapSkillsLevel = 1321,
+  SkillGrpupSkillMapSkillsName = 1322,
+  SkillGrpupSkillMapSkillsNodeLocale = 1323,
+  SkillGrpupSkillMapSkillsOss = 1324,
+  SkillGrpupSkillMapSkillsProject = 1325,
+  SkillGrpupSkillMapSkillsSkillGrpup = 1326,
+  SkillGrpupSkillMapSkillsSkillMap = 1327,
+  SkillGrpupSkillMapSkillsSpaceId = 1328,
+  SkillGrpupSkillMapSkillsUpdatedAt = 1329,
+  SkillGrpupSkillMapSortKey = 1330,
+  SkillGrpupSkillMapSpaceId = 1331,
+  SkillGrpupSkillMapSysRevision = 1332,
+  SkillGrpupSkillMapSysType = 1333,
+  SkillGrpupSkillMapUpdatedAt = 1334,
+  SkillGrpupSkills = 1335,
+  SkillGrpupSkillsBlogPost = 1336,
+  SkillGrpupSkillsBlogPostChildren = 1337,
+  SkillGrpupSkillsBlogPostChildrenContentfulBlogPostContentTextNode = 1338,
+  SkillGrpupSkillsBlogPostContentfulId = 1339,
+  SkillGrpupSkillsBlogPostCreated = 1340,
+  SkillGrpupSkillsBlogPostCreatedAt = 1341,
+  SkillGrpupSkillsBlogPostExcerpt = 1342,
+  SkillGrpupSkillsBlogPostGatsbyPath = 1343,
+  SkillGrpupSkillsBlogPostId = 1344,
+  SkillGrpupSkillsBlogPostNodeLocale = 1345,
+  SkillGrpupSkillsBlogPostSlug = 1346,
+  SkillGrpupSkillsBlogPostSpaceId = 1347,
+  SkillGrpupSkillsBlogPostTags = 1348,
+  SkillGrpupSkillsBlogPostTitle = 1349,
+  SkillGrpupSkillsBlogPostUpdated = 1350,
+  SkillGrpupSkillsBlogPostUpdatedAt = 1351,
+  SkillGrpupSkillsChildren = 1352,
+  SkillGrpupSkillsChildrenChildren = 1353,
+  SkillGrpupSkillsChildrenId = 1354,
+  SkillGrpupSkillsContentfulId = 1355,
+  SkillGrpupSkillsCreatedAt = 1356,
+  SkillGrpupSkillsId = 1357,
+  SkillGrpupSkillsInternalContent = 1358,
+  SkillGrpupSkillsInternalContentDigest = 1359,
+  SkillGrpupSkillsInternalContentFilePath = 1360,
+  SkillGrpupSkillsInternalDescription = 1361,
+  SkillGrpupSkillsInternalFieldOwners = 1362,
+  SkillGrpupSkillsInternalIgnoreType = 1363,
+  SkillGrpupSkillsInternalMediaType = 1364,
+  SkillGrpupSkillsInternalOwner = 1365,
+  SkillGrpupSkillsInternalType = 1366,
+  SkillGrpupSkillsLevel = 1367,
+  SkillGrpupSkillsName = 1368,
+  SkillGrpupSkillsNodeLocale = 1369,
+  SkillGrpupSkillsOss = 1370,
+  SkillGrpupSkillsOssChildren = 1371,
+  SkillGrpupSkillsOssChildrenContentfulOssDetailTextNode = 1372,
+  SkillGrpupSkillsOssContentfulId = 1373,
+  SkillGrpupSkillsOssCreatedAt = 1374,
+  SkillGrpupSkillsOssHref = 1375,
+  SkillGrpupSkillsOssId = 1376,
+  SkillGrpupSkillsOssName = 1377,
+  SkillGrpupSkillsOssNodeLocale = 1378,
+  SkillGrpupSkillsOssSpaceId = 1379,
+  SkillGrpupSkillsOssStartDate = 1380,
+  SkillGrpupSkillsOssSubName = 1381,
+  SkillGrpupSkillsOssTags = 1382,
+  SkillGrpupSkillsOssUpdatedAt = 1383,
+  SkillGrpupSkillsParentChildren = 1384,
+  SkillGrpupSkillsParentId = 1385,
+  SkillGrpupSkillsProject = 1386,
+  SkillGrpupSkillsProjectChildren = 1387,
+  SkillGrpupSkillsProjectChildrenContentfulProjectDetailTextNode = 1388,
+  SkillGrpupSkillsProjectContentfulId = 1389,
+  SkillGrpupSkillsProjectCreatedAt = 1390,
+  SkillGrpupSkillsProjectEndDate = 1391,
+  SkillGrpupSkillsProjectId = 1392,
+  SkillGrpupSkillsProjectName = 1393,
+  SkillGrpupSkillsProjectNodeLocale = 1394,
+  SkillGrpupSkillsProjectSpaceId = 1395,
+  SkillGrpupSkillsProjectStartDate = 1396,
+  SkillGrpupSkillsProjectSubName = 1397,
+  SkillGrpupSkillsProjectTags = 1398,
+  SkillGrpupSkillsProjectUpdatedAt = 1399,
+  SkillGrpupSkillsSkillGrpup = 1400,
+  SkillGrpupSkillsSkillGrpupChildren = 1401,
+  SkillGrpupSkillsSkillGrpupContentfulId = 1402,
+  SkillGrpupSkillsSkillGrpupCreatedAt = 1403,
+  SkillGrpupSkillsSkillGrpupId = 1404,
+  SkillGrpupSkillsSkillGrpupName = 1405,
+  SkillGrpupSkillsSkillGrpupNodeLocale = 1406,
+  SkillGrpupSkillsSkillGrpupSkillMap = 1407,
+  SkillGrpupSkillsSkillGrpupSkills = 1408,
+  SkillGrpupSkillsSkillGrpupSpaceId = 1409,
+  SkillGrpupSkillsSkillGrpupUpdatedAt = 1410,
+  SkillGrpupSkillsSkillMap = 1411,
+  SkillGrpupSkillsSkillMapChildren = 1412,
+  SkillGrpupSkillsSkillMapContentfulId = 1413,
+  SkillGrpupSkillsSkillMapCreatedAt = 1414,
+  SkillGrpupSkillsSkillMapExpanded = 1415,
+  SkillGrpupSkillsSkillMapId = 1416,
+  SkillGrpupSkillsSkillMapName = 1417,
+  SkillGrpupSkillsSkillMapNodeLocale = 1418,
+  SkillGrpupSkillsSkillMapSkillGroups = 1419,
+  SkillGrpupSkillsSkillMapSkills = 1420,
+  SkillGrpupSkillsSkillMapSortKey = 1421,
+  SkillGrpupSkillsSkillMapSpaceId = 1422,
+  SkillGrpupSkillsSkillMapUpdatedAt = 1423,
+  SkillGrpupSkillsSpaceId = 1424,
+  SkillGrpupSkillsSysRevision = 1425,
+  SkillGrpupSkillsSysType = 1426,
+  SkillGrpupSkillsUpdatedAt = 1427,
+  SkillGrpupSpaceId = 1428,
+  SkillGrpupSysRevision = 1429,
+  SkillGrpupSysType = 1430,
+  SkillGrpupUpdatedAt = 1431,
+  SkillMap = 1432,
+  SkillMapChildren = 1433,
+  SkillMapChildrenChildren = 1434,
+  SkillMapChildrenChildrenChildren = 1435,
+  SkillMapChildrenChildrenId = 1436,
+  SkillMapChildrenId = 1437,
+  SkillMapChildrenInternalContent = 1438,
+  SkillMapChildrenInternalContentDigest = 1439,
+  SkillMapChildrenInternalContentFilePath = 1440,
+  SkillMapChildrenInternalDescription = 1441,
+  SkillMapChildrenInternalFieldOwners = 1442,
+  SkillMapChildrenInternalIgnoreType = 1443,
+  SkillMapChildrenInternalMediaType = 1444,
+  SkillMapChildrenInternalOwner = 1445,
+  SkillMapChildrenInternalType = 1446,
+  SkillMapChildrenParentChildren = 1447,
+  SkillMapChildrenParentId = 1448,
+  SkillMapContentfulId = 1449,
+  SkillMapCreatedAt = 1450,
+  SkillMapExpanded = 1451,
+  SkillMapId = 1452,
+  SkillMapInternalContent = 1453,
+  SkillMapInternalContentDigest = 1454,
+  SkillMapInternalContentFilePath = 1455,
+  SkillMapInternalDescription = 1456,
+  SkillMapInternalFieldOwners = 1457,
+  SkillMapInternalIgnoreType = 1458,
+  SkillMapInternalMediaType = 1459,
+  SkillMapInternalOwner = 1460,
+  SkillMapInternalType = 1461,
+  SkillMapName = 1462,
+  SkillMapNodeLocale = 1463,
+  SkillMapParentChildren = 1464,
+  SkillMapParentChildrenChildren = 1465,
+  SkillMapParentChildrenId = 1466,
+  SkillMapParentId = 1467,
+  SkillMapParentInternalContent = 1468,
+  SkillMapParentInternalContentDigest = 1469,
+  SkillMapParentInternalContentFilePath = 1470,
+  SkillMapParentInternalDescription = 1471,
+  SkillMapParentInternalFieldOwners = 1472,
+  SkillMapParentInternalIgnoreType = 1473,
+  SkillMapParentInternalMediaType = 1474,
+  SkillMapParentInternalOwner = 1475,
+  SkillMapParentInternalType = 1476,
+  SkillMapParentParentChildren = 1477,
+  SkillMapParentParentId = 1478,
+  SkillMapSkillGroups = 1479,
+  SkillMapSkillGroupsChildren = 1480,
+  SkillMapSkillGroupsChildrenChildren = 1481,
+  SkillMapSkillGroupsChildrenId = 1482,
+  SkillMapSkillGroupsContentfulId = 1483,
+  SkillMapSkillGroupsCreatedAt = 1484,
+  SkillMapSkillGroupsId = 1485,
+  SkillMapSkillGroupsInternalContent = 1486,
+  SkillMapSkillGroupsInternalContentDigest = 1487,
+  SkillMapSkillGroupsInternalContentFilePath = 1488,
+  SkillMapSkillGroupsInternalDescription = 1489,
+  SkillMapSkillGroupsInternalFieldOwners = 1490,
+  SkillMapSkillGroupsInternalIgnoreType = 1491,
+  SkillMapSkillGroupsInternalMediaType = 1492,
+  SkillMapSkillGroupsInternalOwner = 1493,
+  SkillMapSkillGroupsInternalType = 1494,
+  SkillMapSkillGroupsName = 1495,
+  SkillMapSkillGroupsNodeLocale = 1496,
+  SkillMapSkillGroupsParentChildren = 1497,
+  SkillMapSkillGroupsParentId = 1498,
+  SkillMapSkillGroupsSkillMap = 1499,
+  SkillMapSkillGroupsSkillMapChildren = 1500,
+  SkillMapSkillGroupsSkillMapContentfulId = 1501,
+  SkillMapSkillGroupsSkillMapCreatedAt = 1502,
+  SkillMapSkillGroupsSkillMapExpanded = 1503,
+  SkillMapSkillGroupsSkillMapId = 1504,
+  SkillMapSkillGroupsSkillMapName = 1505,
+  SkillMapSkillGroupsSkillMapNodeLocale = 1506,
+  SkillMapSkillGroupsSkillMapSkillGroups = 1507,
+  SkillMapSkillGroupsSkillMapSkills = 1508,
+  SkillMapSkillGroupsSkillMapSortKey = 1509,
+  SkillMapSkillGroupsSkillMapSpaceId = 1510,
+  SkillMapSkillGroupsSkillMapUpdatedAt = 1511,
+  SkillMapSkillGroupsSkills = 1512,
+  SkillMapSkillGroupsSkillsBlogPost = 1513,
+  SkillMapSkillGroupsSkillsChildren = 1514,
+  SkillMapSkillGroupsSkillsContentfulId = 1515,
+  SkillMapSkillGroupsSkillsCreatedAt = 1516,
+  SkillMapSkillGroupsSkillsId = 1517,
+  SkillMapSkillGroupsSkillsLevel = 1518,
+  SkillMapSkillGroupsSkillsName = 1519,
+  SkillMapSkillGroupsSkillsNodeLocale = 1520,
+  SkillMapSkillGroupsSkillsOss = 1521,
+  SkillMapSkillGroupsSkillsProject = 1522,
+  SkillMapSkillGroupsSkillsSkillGrpup = 1523,
+  SkillMapSkillGroupsSkillsSkillMap = 1524,
+  SkillMapSkillGroupsSkillsSpaceId = 1525,
+  SkillMapSkillGroupsSkillsUpdatedAt = 1526,
+  SkillMapSkillGroupsSpaceId = 1527,
+  SkillMapSkillGroupsSysRevision = 1528,
+  SkillMapSkillGroupsSysType = 1529,
+  SkillMapSkillGroupsUpdatedAt = 1530,
+  SkillMapSkills = 1531,
+  SkillMapSkillsBlogPost = 1532,
+  SkillMapSkillsBlogPostChildren = 1533,
+  SkillMapSkillsBlogPostChildrenContentfulBlogPostContentTextNode = 1534,
+  SkillMapSkillsBlogPostContentfulId = 1535,
+  SkillMapSkillsBlogPostCreated = 1536,
+  SkillMapSkillsBlogPostCreatedAt = 1537,
+  SkillMapSkillsBlogPostExcerpt = 1538,
+  SkillMapSkillsBlogPostGatsbyPath = 1539,
+  SkillMapSkillsBlogPostId = 1540,
+  SkillMapSkillsBlogPostNodeLocale = 1541,
+  SkillMapSkillsBlogPostSlug = 1542,
+  SkillMapSkillsBlogPostSpaceId = 1543,
+  SkillMapSkillsBlogPostTags = 1544,
+  SkillMapSkillsBlogPostTitle = 1545,
+  SkillMapSkillsBlogPostUpdated = 1546,
+  SkillMapSkillsBlogPostUpdatedAt = 1547,
+  SkillMapSkillsChildren = 1548,
+  SkillMapSkillsChildrenChildren = 1549,
+  SkillMapSkillsChildrenId = 1550,
+  SkillMapSkillsContentfulId = 1551,
+  SkillMapSkillsCreatedAt = 1552,
+  SkillMapSkillsId = 1553,
+  SkillMapSkillsInternalContent = 1554,
+  SkillMapSkillsInternalContentDigest = 1555,
+  SkillMapSkillsInternalContentFilePath = 1556,
+  SkillMapSkillsInternalDescription = 1557,
+  SkillMapSkillsInternalFieldOwners = 1558,
+  SkillMapSkillsInternalIgnoreType = 1559,
+  SkillMapSkillsInternalMediaType = 1560,
+  SkillMapSkillsInternalOwner = 1561,
+  SkillMapSkillsInternalType = 1562,
+  SkillMapSkillsLevel = 1563,
+  SkillMapSkillsName = 1564,
+  SkillMapSkillsNodeLocale = 1565,
+  SkillMapSkillsOss = 1566,
+  SkillMapSkillsOssChildren = 1567,
+  SkillMapSkillsOssChildrenContentfulOssDetailTextNode = 1568,
+  SkillMapSkillsOssContentfulId = 1569,
+  SkillMapSkillsOssCreatedAt = 1570,
+  SkillMapSkillsOssHref = 1571,
+  SkillMapSkillsOssId = 1572,
+  SkillMapSkillsOssName = 1573,
+  SkillMapSkillsOssNodeLocale = 1574,
+  SkillMapSkillsOssSpaceId = 1575,
+  SkillMapSkillsOssStartDate = 1576,
+  SkillMapSkillsOssSubName = 1577,
+  SkillMapSkillsOssTags = 1578,
+  SkillMapSkillsOssUpdatedAt = 1579,
+  SkillMapSkillsParentChildren = 1580,
+  SkillMapSkillsParentId = 1581,
+  SkillMapSkillsProject = 1582,
+  SkillMapSkillsProjectChildren = 1583,
+  SkillMapSkillsProjectChildrenContentfulProjectDetailTextNode = 1584,
+  SkillMapSkillsProjectContentfulId = 1585,
+  SkillMapSkillsProjectCreatedAt = 1586,
+  SkillMapSkillsProjectEndDate = 1587,
+  SkillMapSkillsProjectId = 1588,
+  SkillMapSkillsProjectName = 1589,
+  SkillMapSkillsProjectNodeLocale = 1590,
+  SkillMapSkillsProjectSpaceId = 1591,
+  SkillMapSkillsProjectStartDate = 1592,
+  SkillMapSkillsProjectSubName = 1593,
+  SkillMapSkillsProjectTags = 1594,
+  SkillMapSkillsProjectUpdatedAt = 1595,
+  SkillMapSkillsSkillGrpup = 1596,
+  SkillMapSkillsSkillGrpupChildren = 1597,
+  SkillMapSkillsSkillGrpupContentfulId = 1598,
+  SkillMapSkillsSkillGrpupCreatedAt = 1599,
+  SkillMapSkillsSkillGrpupId = 1600,
+  SkillMapSkillsSkillGrpupName = 1601,
+  SkillMapSkillsSkillGrpupNodeLocale = 1602,
+  SkillMapSkillsSkillGrpupSkillMap = 1603,
+  SkillMapSkillsSkillGrpupSkills = 1604,
+  SkillMapSkillsSkillGrpupSpaceId = 1605,
+  SkillMapSkillsSkillGrpupUpdatedAt = 1606,
+  SkillMapSkillsSkillMap = 1607,
+  SkillMapSkillsSkillMapChildren = 1608,
+  SkillMapSkillsSkillMapContentfulId = 1609,
+  SkillMapSkillsSkillMapCreatedAt = 1610,
+  SkillMapSkillsSkillMapExpanded = 1611,
+  SkillMapSkillsSkillMapId = 1612,
+  SkillMapSkillsSkillMapName = 1613,
+  SkillMapSkillsSkillMapNodeLocale = 1614,
+  SkillMapSkillsSkillMapSkillGroups = 1615,
+  SkillMapSkillsSkillMapSkills = 1616,
+  SkillMapSkillsSkillMapSortKey = 1617,
+  SkillMapSkillsSkillMapSpaceId = 1618,
+  SkillMapSkillsSkillMapUpdatedAt = 1619,
+  SkillMapSkillsSpaceId = 1620,
+  SkillMapSkillsSysRevision = 1621,
+  SkillMapSkillsSysType = 1622,
+  SkillMapSkillsUpdatedAt = 1623,
+  SkillMapSortKey = 1624,
+  SkillMapSpaceId = 1625,
+  SkillMapSysRevision = 1626,
+  SkillMapSysType = 1627,
+  SkillMapUpdatedAt = 1628,
+  SpaceId = 1629,
+  SysContentTypeSysId = 1630,
+  SysContentTypeSysLinkType = 1631,
+  SysContentTypeSysType = 1632,
+  SysRevision = 1633,
+  SysType = 1634,
+  UpdatedAt = 1635
 }
 
 export type ContentfulTagFilterInput = {
-  blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  level: InputMaybe<IntQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  oss: InputMaybe<ContentfulOssFilterListInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  project: InputMaybe<ContentfulProjectFilterListInput>;
-  skill_grpup: InputMaybe<ContentfulSkillGrpupFilterListInput>;
-  skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulTagSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly blog_post: InputMaybe<ContentfulBlogPostFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly level: InputMaybe<IntQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly oss: InputMaybe<ContentfulOssFilterListInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly project: InputMaybe<ContentfulProjectFilterListInput>;
+  readonly skill_grpup: InputMaybe<ContentfulSkillGrpupFilterListInput>;
+  readonly skill_map: InputMaybe<ContentfulSkillMapFilterListInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulTagSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulTagFilterListInput = {
-  elemMatch: InputMaybe<ContentfulTagFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulTagFilterInput>;
 };
 
 export type ContentfulTagGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulTagEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulTagGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulTag>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulTagEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulTagGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulTag>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -14064,57 +14091,57 @@ export type ContentfulTagGroupConnectionSumArgs = {
 };
 
 export type ContentfulTagSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulTagFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulTagFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulTagSys = {
-  contentType: Maybe<ContentfulTagSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulTagSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulTagSysContentType = {
-  sys: Maybe<ContentfulTagSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulTagSysContentTypeSys>;
 };
 
 export type ContentfulTagSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulTagSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulTagSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulTagSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulTagSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulTagSysFilterInput = {
-  contentType: InputMaybe<ContentfulTagSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulTagSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulWhatICanDo = ContentfulEntry & ContentfulReference & Node & {
-  children: Array<Node>;
-  contentful_id: Scalars['String'];
-  createdAt: Maybe<Scalars['Date']>;
-  icon: Maybe<ContentfulIcon>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  node_locale: Scalars['String'];
-  parent: Maybe<Node>;
-  sortKey: Maybe<Scalars['Int']>;
-  spaceId: Maybe<Scalars['String']>;
-  subName: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulWhatICanDoSys>;
-  updatedAt: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly icon: Maybe<ContentfulIcon>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly subName: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulWhatICanDoSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
 };
 
 
@@ -14134,15 +14161,15 @@ export type ContentfulWhatICanDoUpdatedAtArgs = {
 };
 
 export type ContentfulWhatICanDoConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulWhatICanDoEdge>;
-  group: Array<ContentfulWhatICanDoGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulWhatICanDo>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulWhatICanDoEdge>;
+  readonly group: ReadonlyArray<ContentfulWhatICanDoGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulWhatICanDo>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -14173,9 +14200,9 @@ export type ContentfulWhatICanDoConnectionSumArgs = {
 };
 
 export type ContentfulWhatICanDoEdge = {
-  next: Maybe<ContentfulWhatICanDo>;
-  node: ContentfulWhatICanDo;
-  previous: Maybe<ContentfulWhatICanDo>;
+  readonly next: Maybe<ContentfulWhatICanDo>;
+  readonly node: ContentfulWhatICanDo;
+  readonly previous: Maybe<ContentfulWhatICanDo>;
 };
 
 export enum ContentfulWhatICanDoFieldsEnum {
@@ -14783,38 +14810,38 @@ export enum ContentfulWhatICanDoFieldsEnum {
 }
 
 export type ContentfulWhatICanDoFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  createdAt: InputMaybe<DateQueryOperatorInput>;
-  icon: InputMaybe<ContentfulIconFilterInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
-  spaceId: InputMaybe<StringQueryOperatorInput>;
-  subName: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulWhatICanDoSysFilterInput>;
-  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly icon: InputMaybe<ContentfulIconFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly subName: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulWhatICanDoSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type ContentfulWhatICanDoFilterListInput = {
-  elemMatch: InputMaybe<ContentfulWhatICanDoFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulWhatICanDoFilterInput>;
 };
 
 export type ContentfulWhatICanDoGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulWhatICanDoEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulWhatICanDoGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulWhatICanDo>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulWhatICanDoEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulWhatICanDoGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulWhatICanDo>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -14845,91 +14872,91 @@ export type ContentfulWhatICanDoGroupConnectionSumArgs = {
 };
 
 export type ContentfulWhatICanDoSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulWhatICanDoFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulWhatICanDoFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulWhatICanDoSys = {
-  contentType: Maybe<ContentfulWhatICanDoSysContentType>;
-  revision: Maybe<Scalars['Int']>;
-  type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulWhatICanDoSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulWhatICanDoSysContentType = {
-  sys: Maybe<ContentfulWhatICanDoSysContentTypeSys>;
+  readonly sys: Maybe<ContentfulWhatICanDoSysContentTypeSys>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeFilterInput = {
-  sys: InputMaybe<ContentfulWhatICanDoSysContentTypeSysFilterInput>;
+  readonly sys: InputMaybe<ContentfulWhatICanDoSysContentTypeSysFilterInput>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeSys = {
-  id: Maybe<Scalars['String']>;
-  linkType: Maybe<Scalars['String']>;
-  type: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulWhatICanDoSysContentTypeSysFilterInput = {
-  id: InputMaybe<StringQueryOperatorInput>;
-  linkType: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulWhatICanDoSysFilterInput = {
-  contentType: InputMaybe<ContentfulWhatICanDoSysContentTypeFilterInput>;
-  revision: InputMaybe<IntQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly contentType: InputMaybe<ContentfulWhatICanDoSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type DateQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Date']>;
-  gt: InputMaybe<Scalars['Date']>;
-  gte: InputMaybe<Scalars['Date']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
-  lt: InputMaybe<Scalars['Date']>;
-  lte: InputMaybe<Scalars['Date']>;
-  ne: InputMaybe<Scalars['Date']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Date']>>>;
+  readonly eq: InputMaybe<Scalars['Date']>;
+  readonly gt: InputMaybe<Scalars['Date']>;
+  readonly gte: InputMaybe<Scalars['Date']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']>>>;
+  readonly lt: InputMaybe<Scalars['Date']>;
+  readonly lte: InputMaybe<Scalars['Date']>;
+  readonly ne: InputMaybe<Scalars['Date']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Date']>>>;
 };
 
 export type Directory = Node & {
-  absolutePath: Scalars['String'];
-  accessTime: Scalars['Date'];
-  atime: Scalars['Date'];
-  atimeMs: Scalars['Float'];
-  base: Scalars['String'];
-  birthTime: Scalars['Date'];
+  readonly absolutePath: Scalars['String'];
+  readonly accessTime: Scalars['Date'];
+  readonly atime: Scalars['Date'];
+  readonly atimeMs: Scalars['Float'];
+  readonly base: Scalars['String'];
+  readonly birthTime: Scalars['Date'];
   /** @deprecated Use `birthTime` instead */
-  birthtime: Maybe<Scalars['Date']>;
+  readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs: Maybe<Scalars['Float']>;
-  changeTime: Scalars['Date'];
-  children: Array<Node>;
-  ctime: Scalars['Date'];
-  ctimeMs: Scalars['Float'];
-  dev: Scalars['Int'];
-  dir: Scalars['String'];
-  ext: Scalars['String'];
-  extension: Scalars['String'];
-  gid: Scalars['Int'];
-  id: Scalars['ID'];
-  ino: Scalars['Float'];
-  internal: Internal;
-  mode: Scalars['Int'];
-  modifiedTime: Scalars['Date'];
-  mtime: Scalars['Date'];
-  mtimeMs: Scalars['Float'];
-  name: Scalars['String'];
-  nlink: Scalars['Int'];
-  parent: Maybe<Node>;
-  prettySize: Scalars['String'];
-  rdev: Scalars['Int'];
-  relativeDirectory: Scalars['String'];
-  relativePath: Scalars['String'];
-  root: Scalars['String'];
-  size: Scalars['Int'];
-  sourceInstanceName: Scalars['String'];
-  uid: Scalars['Int'];
+  readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly changeTime: Scalars['Date'];
+  readonly children: ReadonlyArray<Node>;
+  readonly ctime: Scalars['Date'];
+  readonly ctimeMs: Scalars['Float'];
+  readonly dev: Scalars['Int'];
+  readonly dir: Scalars['String'];
+  readonly ext: Scalars['String'];
+  readonly extension: Scalars['String'];
+  readonly gid: Scalars['Int'];
+  readonly id: Scalars['ID'];
+  readonly ino: Scalars['Float'];
+  readonly internal: Internal;
+  readonly mode: Scalars['Int'];
+  readonly modifiedTime: Scalars['Date'];
+  readonly mtime: Scalars['Date'];
+  readonly mtimeMs: Scalars['Float'];
+  readonly name: Scalars['String'];
+  readonly nlink: Scalars['Int'];
+  readonly parent: Maybe<Node>;
+  readonly prettySize: Scalars['String'];
+  readonly rdev: Scalars['Int'];
+  readonly relativeDirectory: Scalars['String'];
+  readonly relativePath: Scalars['String'];
+  readonly root: Scalars['String'];
+  readonly size: Scalars['Int'];
+  readonly sourceInstanceName: Scalars['String'];
+  readonly uid: Scalars['Int'];
 };
 
 
@@ -14989,15 +15016,15 @@ export type DirectoryMtimeArgs = {
 };
 
 export type DirectoryConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<DirectoryEdge>;
-  group: Array<DirectoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Directory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<DirectoryEdge>;
+  readonly group: ReadonlyArray<DirectoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Directory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15028,9 +15055,9 @@ export type DirectoryConnectionSumArgs = {
 };
 
 export type DirectoryEdge = {
-  next: Maybe<Directory>;
-  node: Directory;
-  previous: Maybe<Directory>;
+  readonly next: Maybe<Directory>;
+  readonly node: Directory;
+  readonly previous: Maybe<Directory>;
 };
 
 export enum DirectoryFieldsEnum {
@@ -15161,55 +15188,55 @@ export enum DirectoryFieldsEnum {
 }
 
 export type DirectoryFilterInput = {
-  absolutePath: InputMaybe<StringQueryOperatorInput>;
-  accessTime: InputMaybe<DateQueryOperatorInput>;
-  atime: InputMaybe<DateQueryOperatorInput>;
-  atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  base: InputMaybe<StringQueryOperatorInput>;
-  birthTime: InputMaybe<DateQueryOperatorInput>;
-  birthtime: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  changeTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  ctime: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  dev: InputMaybe<IntQueryOperatorInput>;
-  dir: InputMaybe<StringQueryOperatorInput>;
-  ext: InputMaybe<StringQueryOperatorInput>;
-  extension: InputMaybe<StringQueryOperatorInput>;
-  gid: InputMaybe<IntQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  ino: InputMaybe<FloatQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mode: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  mtime: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nlink: InputMaybe<IntQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  prettySize: InputMaybe<StringQueryOperatorInput>;
-  rdev: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  relativePath: InputMaybe<StringQueryOperatorInput>;
-  root: InputMaybe<StringQueryOperatorInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<IntQueryOperatorInput>;
+  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
+  readonly atime: InputMaybe<DateQueryOperatorInput>;
+  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly base: InputMaybe<StringQueryOperatorInput>;
+  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly ctime: InputMaybe<DateQueryOperatorInput>;
+  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly dev: InputMaybe<IntQueryOperatorInput>;
+  readonly dir: InputMaybe<StringQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly extension: InputMaybe<StringQueryOperatorInput>;
+  readonly gid: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ino: InputMaybe<FloatQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mode: InputMaybe<IntQueryOperatorInput>;
+  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nlink: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly rdev: InputMaybe<IntQueryOperatorInput>;
+  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
+  readonly root: InputMaybe<StringQueryOperatorInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type DirectoryGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<DirectoryEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<DirectoryGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Directory>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<DirectoryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<DirectoryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Directory>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15240,67 +15267,66 @@ export type DirectoryGroupConnectionSumArgs = {
 };
 
 export type DirectorySortInput = {
-  fields: InputMaybe<Array<InputMaybe<DirectoryFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<DirectoryFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type DuotoneGradient = {
-  highlight: Scalars['String'];
-  opacity: InputMaybe<Scalars['Int']>;
-  shadow: Scalars['String'];
+  readonly highlight: Scalars['String'];
+  readonly opacity: InputMaybe<Scalars['Int']>;
+  readonly shadow: Scalars['String'];
 };
 
 export type File = Node & {
-  absolutePath: Scalars['String'];
-  accessTime: Scalars['Date'];
-  atime: Scalars['Date'];
-  atimeMs: Scalars['Float'];
-  base: Scalars['String'];
-  birthTime: Scalars['Date'];
+  readonly absolutePath: Scalars['String'];
+  readonly accessTime: Scalars['Date'];
+  readonly atime: Scalars['Date'];
+  readonly atimeMs: Scalars['Float'];
+  readonly base: Scalars['String'];
+  readonly birthTime: Scalars['Date'];
   /** @deprecated Use `birthTime` instead */
-  birthtime: Maybe<Scalars['Date']>;
+  readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
-  birthtimeMs: Maybe<Scalars['Float']>;
-  blksize: Maybe<Scalars['Int']>;
-  blocks: Maybe<Scalars['Int']>;
-  changeTime: Scalars['Date'];
+  readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly blksize: Maybe<Scalars['Int']>;
+  readonly blocks: Maybe<Scalars['Int']>;
+  readonly changeTime: Scalars['Date'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
-  childImageSharp: Maybe<ImageSharp>;
+  readonly childImageSharp: Maybe<ImageSharp>;
   /** Returns the first child node of type Locale or null if there are no children of given type on this node */
-  childLocale: Maybe<Locale>;
-  children: Array<Node>;
+  readonly childLocale: Maybe<Locale>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
-  childrenImageSharp: Maybe<Array<Maybe<ImageSharp>>>;
+  readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
   /** Returns all children nodes filtered by type Locale */
-  childrenLocale: Maybe<Array<Maybe<Locale>>>;
-  ctime: Scalars['Date'];
-  ctimeMs: Scalars['Float'];
-  dev: Scalars['Int'];
-  dir: Scalars['String'];
-  ext: Scalars['String'];
-  extension: Scalars['String'];
-  gid: Scalars['Int'];
-  id: Scalars['ID'];
-  ino: Scalars['Float'];
-  internal: Internal;
-  mode: Scalars['Int'];
-  modifiedTime: Scalars['Date'];
-  mtime: Scalars['Date'];
-  mtimeMs: Scalars['Float'];
-  name: Scalars['String'];
-  nlink: Scalars['Int'];
-  parent: Maybe<Node>;
-  prettySize: Scalars['String'];
+  readonly childrenLocale: Maybe<ReadonlyArray<Maybe<Locale>>>;
+  readonly ctime: Scalars['Date'];
+  readonly ctimeMs: Scalars['Float'];
+  readonly dev: Scalars['Int'];
+  readonly dir: Scalars['String'];
+  readonly ext: Scalars['String'];
+  readonly extension: Scalars['String'];
+  readonly gid: Scalars['Int'];
+  readonly id: Scalars['ID'];
+  readonly ino: Scalars['Float'];
+  readonly internal: Internal;
+  readonly mode: Scalars['Int'];
+  readonly modifiedTime: Scalars['Date'];
+  readonly mtime: Scalars['Date'];
+  readonly mtimeMs: Scalars['Float'];
+  readonly name: Scalars['String'];
+  readonly nlink: Scalars['Int'];
+  readonly parent: Maybe<Node>;
+  readonly prettySize: Scalars['String'];
   /** Copy file to static directory and return public url to it */
-  publicURL: Maybe<Scalars['String']>;
-  rdev: Scalars['Int'];
-  relativeDirectory: Scalars['String'];
-  relativePath: Scalars['String'];
-  root: Scalars['String'];
-  size: Scalars['Int'];
-  sourceInstanceName: Scalars['String'];
-  svg: Maybe<InlineSvg>;
-  uid: Scalars['Int'];
+  readonly publicURL: Maybe<Scalars['String']>;
+  readonly rdev: Scalars['Int'];
+  readonly relativeDirectory: Scalars['String'];
+  readonly relativePath: Scalars['String'];
+  readonly root: Scalars['String'];
+  readonly size: Scalars['Int'];
+  readonly sourceInstanceName: Scalars['String'];
+  readonly uid: Scalars['Int'];
 };
 
 
@@ -15360,15 +15386,15 @@ export type FileMtimeArgs = {
 };
 
 export type FileConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<FileEdge>;
-  group: Array<FileGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<File>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<FileEdge>;
+  readonly group: ReadonlyArray<FileGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<File>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15399,9 +15425,9 @@ export type FileConnectionSumArgs = {
 };
 
 export type FileEdge = {
-  next: Maybe<File>;
-  node: File;
-  previous: Maybe<File>;
+  readonly next: Maybe<File>;
+  readonly node: File;
+  readonly previous: Maybe<File>;
 };
 
 export enum FileFieldsEnum {
@@ -15773,62 +15799,62 @@ export enum FileFieldsEnum {
 }
 
 export type FileFilterInput = {
-  absolutePath: InputMaybe<StringQueryOperatorInput>;
-  accessTime: InputMaybe<DateQueryOperatorInput>;
-  atime: InputMaybe<DateQueryOperatorInput>;
-  atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  base: InputMaybe<StringQueryOperatorInput>;
-  birthTime: InputMaybe<DateQueryOperatorInput>;
-  birthtime: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  blksize: InputMaybe<IntQueryOperatorInput>;
-  blocks: InputMaybe<IntQueryOperatorInput>;
-  changeTime: InputMaybe<DateQueryOperatorInput>;
-  childImageSharp: InputMaybe<ImageSharpFilterInput>;
-  childLocale: InputMaybe<LocaleFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
-  childrenLocale: InputMaybe<LocaleFilterListInput>;
-  ctime: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  dev: InputMaybe<IntQueryOperatorInput>;
-  dir: InputMaybe<StringQueryOperatorInput>;
-  ext: InputMaybe<StringQueryOperatorInput>;
-  extension: InputMaybe<StringQueryOperatorInput>;
-  gid: InputMaybe<IntQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  ino: InputMaybe<FloatQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mode: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  mtime: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nlink: InputMaybe<IntQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  prettySize: InputMaybe<StringQueryOperatorInput>;
-  publicURL: InputMaybe<StringQueryOperatorInput>;
-  rdev: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  relativePath: InputMaybe<StringQueryOperatorInput>;
-  root: InputMaybe<StringQueryOperatorInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<IntQueryOperatorInput>;
+  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
+  readonly atime: InputMaybe<DateQueryOperatorInput>;
+  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly base: InputMaybe<StringQueryOperatorInput>;
+  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly blksize: InputMaybe<IntQueryOperatorInput>;
+  readonly blocks: InputMaybe<IntQueryOperatorInput>;
+  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  readonly childLocale: InputMaybe<LocaleFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  readonly childrenLocale: InputMaybe<LocaleFilterListInput>;
+  readonly ctime: InputMaybe<DateQueryOperatorInput>;
+  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly dev: InputMaybe<IntQueryOperatorInput>;
+  readonly dir: InputMaybe<StringQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly extension: InputMaybe<StringQueryOperatorInput>;
+  readonly gid: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ino: InputMaybe<FloatQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mode: InputMaybe<IntQueryOperatorInput>;
+  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nlink: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly publicURL: InputMaybe<StringQueryOperatorInput>;
+  readonly rdev: InputMaybe<IntQueryOperatorInput>;
+  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
+  readonly root: InputMaybe<StringQueryOperatorInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type FileGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<FileEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<FileGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<File>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<FileEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<FileGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<File>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -15859,26 +15885,26 @@ export type FileGroupConnectionSumArgs = {
 };
 
 export type FileSortInput = {
-  fields: InputMaybe<Array<InputMaybe<FileFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<FileFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type FloatQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Float']>;
-  gt: InputMaybe<Scalars['Float']>;
-  gte: InputMaybe<Scalars['Float']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
-  lt: InputMaybe<Scalars['Float']>;
-  lte: InputMaybe<Scalars['Float']>;
-  ne: InputMaybe<Scalars['Float']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  readonly eq: InputMaybe<Scalars['Float']>;
+  readonly gt: InputMaybe<Scalars['Float']>;
+  readonly gte: InputMaybe<Scalars['Float']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  readonly lt: InputMaybe<Scalars['Float']>;
+  readonly lte: InputMaybe<Scalars['Float']>;
+  readonly ne: InputMaybe<Scalars['Float']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
 };
 
 export type GatsbyImageDataQueryOperatorInput = {
-  eq: InputMaybe<Scalars['GatsbyImageData']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
-  ne: InputMaybe<Scalars['GatsbyImageData']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['GatsbyImageData']>>>;
+  readonly eq: InputMaybe<Scalars['GatsbyImageData']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
+  readonly ne: InputMaybe<Scalars['GatsbyImageData']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']>>>;
 };
 
 export enum GatsbyImageFormat {
@@ -15971,15 +15997,15 @@ export enum ImageResizingBehavior {
 }
 
 export type ImageSharp = Node & {
-  children: Array<Node>;
-  fixed: Maybe<ImageSharpFixed>;
-  fluid: Maybe<ImageSharpFluid>;
-  gatsbyImageData: Scalars['GatsbyImageData'];
-  id: Scalars['ID'];
-  internal: Internal;
-  original: Maybe<ImageSharpOriginal>;
-  parent: Maybe<Node>;
-  resize: Maybe<ImageSharpResize>;
+  readonly children: ReadonlyArray<Node>;
+  readonly fixed: Maybe<ImageSharpFixed>;
+  readonly fluid: Maybe<ImageSharpFluid>;
+  readonly gatsbyImageData: Scalars['GatsbyImageData'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly original: Maybe<ImageSharpOriginal>;
+  readonly parent: Maybe<Node>;
+  readonly resize: Maybe<ImageSharpResize>;
 };
 
 
@@ -16022,7 +16048,7 @@ export type ImageSharpFluidArgs = {
   quality: InputMaybe<Scalars['Int']>;
   rotate?: InputMaybe<Scalars['Int']>;
   sizes?: InputMaybe<Scalars['String']>;
-  srcSetBreakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  srcSetBreakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
   toFormat?: InputMaybe<ImageFormat>;
   toFormatBase64?: InputMaybe<ImageFormat>;
   traceSVG: InputMaybe<Potrace>;
@@ -16036,12 +16062,12 @@ export type ImageSharpGatsbyImageDataArgs = {
   avifOptions: InputMaybe<AvifOptions>;
   backgroundColor: InputMaybe<Scalars['String']>;
   blurredOptions: InputMaybe<BlurredOptions>;
-  breakpoints: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  formats: InputMaybe<Array<InputMaybe<ImageFormat>>>;
+  breakpoints: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  formats: InputMaybe<ReadonlyArray<InputMaybe<ImageFormat>>>;
   height: InputMaybe<Scalars['Int']>;
   jpgOptions: InputMaybe<JpgOptions>;
   layout?: InputMaybe<ImageLayout>;
-  outputPixelDensities: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder: InputMaybe<ImagePlaceholder>;
   pngOptions: InputMaybe<PngOptions>;
   quality: InputMaybe<Scalars['Int']>;
@@ -16076,15 +16102,15 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ImageSharpEdge>;
-  group: Array<ImageSharpGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ImageSharp>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ImageSharpEdge>;
+  readonly group: ReadonlyArray<ImageSharpGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ImageSharp>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16115,9 +16141,9 @@ export type ImageSharpConnectionSumArgs = {
 };
 
 export type ImageSharpEdge = {
-  next: Maybe<ImageSharp>;
-  node: ImageSharp;
-  previous: Maybe<ImageSharp>;
+  readonly next: Maybe<ImageSharp>;
+  readonly node: ImageSharp;
+  readonly previous: Maybe<ImageSharp>;
 };
 
 export enum ImageSharpFieldsEnum {
@@ -16249,89 +16275,89 @@ export enum ImageSharpFieldsEnum {
 }
 
 export type ImageSharpFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  fixed: InputMaybe<ImageSharpFixedFilterInput>;
-  fluid: InputMaybe<ImageSharpFluidFilterInput>;
-  gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  original: InputMaybe<ImageSharpOriginalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  resize: InputMaybe<ImageSharpResizeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly fixed: InputMaybe<ImageSharpFixedFilterInput>;
+  readonly fluid: InputMaybe<ImageSharpFluidFilterInput>;
+  readonly gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly original: InputMaybe<ImageSharpOriginalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly resize: InputMaybe<ImageSharpResizeFilterInput>;
 };
 
 export type ImageSharpFilterListInput = {
-  elemMatch: InputMaybe<ImageSharpFilterInput>;
+  readonly elemMatch: InputMaybe<ImageSharpFilterInput>;
 };
 
 export type ImageSharpFixed = {
-  aspectRatio: Maybe<Scalars['Float']>;
-  base64: Maybe<Scalars['String']>;
-  height: Scalars['Float'];
-  originalName: Maybe<Scalars['String']>;
-  src: Scalars['String'];
-  srcSet: Scalars['String'];
-  srcSetWebp: Maybe<Scalars['String']>;
-  srcWebp: Maybe<Scalars['String']>;
-  tracedSVG: Maybe<Scalars['String']>;
-  width: Scalars['Float'];
+  readonly aspectRatio: Maybe<Scalars['Float']>;
+  readonly base64: Maybe<Scalars['String']>;
+  readonly height: Scalars['Float'];
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly src: Scalars['String'];
+  readonly srcSet: Scalars['String'];
+  readonly srcSetWebp: Maybe<Scalars['String']>;
+  readonly srcWebp: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly width: Scalars['Float'];
 };
 
 export type ImageSharpFixedFilterInput = {
-  aspectRatio: InputMaybe<FloatQueryOperatorInput>;
-  base64: InputMaybe<StringQueryOperatorInput>;
-  height: InputMaybe<FloatQueryOperatorInput>;
-  originalName: InputMaybe<StringQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  srcSet: InputMaybe<StringQueryOperatorInput>;
-  srcSetWebp: InputMaybe<StringQueryOperatorInput>;
-  srcWebp: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<FloatQueryOperatorInput>;
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly base64: InputMaybe<StringQueryOperatorInput>;
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSet: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<FloatQueryOperatorInput>;
 };
 
 export type ImageSharpFluid = {
-  aspectRatio: Scalars['Float'];
-  base64: Maybe<Scalars['String']>;
-  originalImg: Maybe<Scalars['String']>;
-  originalName: Maybe<Scalars['String']>;
-  presentationHeight: Scalars['Int'];
-  presentationWidth: Scalars['Int'];
-  sizes: Scalars['String'];
-  src: Scalars['String'];
-  srcSet: Scalars['String'];
-  srcSetWebp: Maybe<Scalars['String']>;
-  srcWebp: Maybe<Scalars['String']>;
-  tracedSVG: Maybe<Scalars['String']>;
+  readonly aspectRatio: Scalars['Float'];
+  readonly base64: Maybe<Scalars['String']>;
+  readonly originalImg: Maybe<Scalars['String']>;
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly presentationHeight: Scalars['Int'];
+  readonly presentationWidth: Scalars['Int'];
+  readonly sizes: Scalars['String'];
+  readonly src: Scalars['String'];
+  readonly srcSet: Scalars['String'];
+  readonly srcSetWebp: Maybe<Scalars['String']>;
+  readonly srcWebp: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
 };
 
 export type ImageSharpFluidFilterInput = {
-  aspectRatio: InputMaybe<FloatQueryOperatorInput>;
-  base64: InputMaybe<StringQueryOperatorInput>;
-  originalImg: InputMaybe<StringQueryOperatorInput>;
-  originalName: InputMaybe<StringQueryOperatorInput>;
-  presentationHeight: InputMaybe<IntQueryOperatorInput>;
-  presentationWidth: InputMaybe<IntQueryOperatorInput>;
-  sizes: InputMaybe<StringQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  srcSet: InputMaybe<StringQueryOperatorInput>;
-  srcSetWebp: InputMaybe<StringQueryOperatorInput>;
-  srcWebp: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly base64: InputMaybe<StringQueryOperatorInput>;
+  readonly originalImg: InputMaybe<StringQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly presentationHeight: InputMaybe<IntQueryOperatorInput>;
+  readonly presentationWidth: InputMaybe<IntQueryOperatorInput>;
+  readonly sizes: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSet: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ImageSharpGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ImageSharpEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ImageSharpGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ImageSharp>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ImageSharpEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ImageSharpGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ImageSharp>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16362,118 +16388,110 @@ export type ImageSharpGroupConnectionSumArgs = {
 };
 
 export type ImageSharpOriginal = {
-  height: Maybe<Scalars['Float']>;
-  src: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Float']>;
+  readonly height: Maybe<Scalars['Float']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Float']>;
 };
 
 export type ImageSharpOriginalFilterInput = {
-  height: InputMaybe<FloatQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<FloatQueryOperatorInput>;
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<FloatQueryOperatorInput>;
 };
 
 export type ImageSharpResize = {
-  aspectRatio: Maybe<Scalars['Float']>;
-  height: Maybe<Scalars['Int']>;
-  originalName: Maybe<Scalars['String']>;
-  src: Maybe<Scalars['String']>;
-  tracedSVG: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Int']>;
+  readonly aspectRatio: Maybe<Scalars['Float']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly originalName: Maybe<Scalars['String']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly tracedSVG: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 export type ImageSharpResizeFilterInput = {
-  aspectRatio: InputMaybe<FloatQueryOperatorInput>;
-  height: InputMaybe<IntQueryOperatorInput>;
-  originalName: InputMaybe<StringQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  tracedSVG: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type ImageSharpSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ImageSharpFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
-};
-
-export type InlineSvg = {
-  absolutePath: Maybe<Scalars['String']>;
-  content: Maybe<Scalars['String']>;
-  dataURI: Maybe<Scalars['String']>;
-  originalContent: Maybe<Scalars['String']>;
-  relativePath: Maybe<Scalars['String']>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type IntQueryOperatorInput = {
-  eq: InputMaybe<Scalars['Int']>;
-  gt: InputMaybe<Scalars['Int']>;
-  gte: InputMaybe<Scalars['Int']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  lt: InputMaybe<Scalars['Int']>;
-  lte: InputMaybe<Scalars['Int']>;
-  ne: InputMaybe<Scalars['Int']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
+  readonly eq: InputMaybe<Scalars['Int']>;
+  readonly gt: InputMaybe<Scalars['Int']>;
+  readonly gte: InputMaybe<Scalars['Int']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  readonly lt: InputMaybe<Scalars['Int']>;
+  readonly lte: InputMaybe<Scalars['Int']>;
+  readonly ne: InputMaybe<Scalars['Int']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
 };
 
 export type Internal = {
-  content: Maybe<Scalars['String']>;
-  contentDigest: Scalars['String'];
-  contentFilePath: Maybe<Scalars['String']>;
-  description: Maybe<Scalars['String']>;
-  fieldOwners: Maybe<Array<Maybe<Scalars['String']>>>;
-  ignoreType: Maybe<Scalars['Boolean']>;
-  mediaType: Maybe<Scalars['String']>;
-  owner: Scalars['String'];
-  type: Scalars['String'];
+  readonly content: Maybe<Scalars['String']>;
+  readonly contentDigest: Scalars['String'];
+  readonly contentFilePath: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly fieldOwners: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly ignoreType: Maybe<Scalars['Boolean']>;
+  readonly mediaType: Maybe<Scalars['String']>;
+  readonly owner: Scalars['String'];
+  readonly type: Scalars['String'];
 };
 
 export type InternalFilterInput = {
-  content: InputMaybe<StringQueryOperatorInput>;
-  contentDigest: InputMaybe<StringQueryOperatorInput>;
-  contentFilePath: InputMaybe<StringQueryOperatorInput>;
-  description: InputMaybe<StringQueryOperatorInput>;
-  fieldOwners: InputMaybe<StringQueryOperatorInput>;
-  ignoreType: InputMaybe<BooleanQueryOperatorInput>;
-  mediaType: InputMaybe<StringQueryOperatorInput>;
-  owner: InputMaybe<StringQueryOperatorInput>;
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly contentDigest: InputMaybe<StringQueryOperatorInput>;
+  readonly contentFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly fieldOwners: InputMaybe<StringQueryOperatorInput>;
+  readonly ignoreType: InputMaybe<BooleanQueryOperatorInput>;
+  readonly mediaType: InputMaybe<StringQueryOperatorInput>;
+  readonly owner: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type JpgOptions = {
-  progressive: InputMaybe<Scalars['Boolean']>;
-  quality: InputMaybe<Scalars['Int']>;
+  readonly progressive: InputMaybe<Scalars['Boolean']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
 };
 
 export type JsonQueryOperatorInput = {
-  eq: InputMaybe<Scalars['JSON']>;
-  glob: InputMaybe<Scalars['JSON']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  ne: InputMaybe<Scalars['JSON']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['JSON']>>>;
-  regex: InputMaybe<Scalars['JSON']>;
+  readonly eq: InputMaybe<Scalars['JSON']>;
+  readonly glob: InputMaybe<Scalars['JSON']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']>>>;
+  readonly ne: InputMaybe<Scalars['JSON']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['JSON']>>>;
+  readonly regex: InputMaybe<Scalars['JSON']>;
 };
 
 export type Locale = Node & {
-  children: Array<Node>;
-  data: Maybe<Scalars['String']>;
-  fileAbsolutePath: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  language: Maybe<Scalars['String']>;
-  ns: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly data: Maybe<Scalars['String']>;
+  readonly fileAbsolutePath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly language: Maybe<Scalars['String']>;
+  readonly ns: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
 };
 
 export type LocaleConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<LocaleEdge>;
-  group: Array<LocaleGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Locale>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<LocaleEdge>;
+  readonly group: ReadonlyArray<LocaleGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Locale>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16504,9 +16522,9 @@ export type LocaleConnectionSumArgs = {
 };
 
 export type LocaleEdge = {
-  next: Maybe<Locale>;
-  node: Locale;
-  previous: Maybe<Locale>;
+  readonly next: Maybe<Locale>;
+  readonly node: Locale;
+  readonly previous: Maybe<Locale>;
 };
 
 export enum LocaleFieldsEnum {
@@ -16610,32 +16628,32 @@ export enum LocaleFieldsEnum {
 }
 
 export type LocaleFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  data: InputMaybe<StringQueryOperatorInput>;
-  fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  language: InputMaybe<StringQueryOperatorInput>;
-  ns: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly data: InputMaybe<StringQueryOperatorInput>;
+  readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly language: InputMaybe<StringQueryOperatorInput>;
+  readonly ns: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type LocaleFilterListInput = {
-  elemMatch: InputMaybe<LocaleFilterInput>;
+  readonly elemMatch: InputMaybe<LocaleFilterInput>;
 };
 
 export type LocaleGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<LocaleEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<LocaleGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Locale>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<LocaleEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<LocaleGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Locale>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16666,27 +16684,27 @@ export type LocaleGroupConnectionSumArgs = {
 };
 
 export type LocaleSortInput = {
-  fields: InputMaybe<Array<InputMaybe<LocaleFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<LocaleFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type Mdx = Node & {
-  body: Scalars['String'];
-  children: Array<Node>;
-  excerpt: Scalars['String'];
-  fileAbsolutePath: Scalars['String'];
-  frontmatter: Maybe<MdxFrontmatter>;
-  headings: Maybe<Array<Maybe<MdxHeadingMdx>>>;
-  html: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  mdxAST: Maybe<Scalars['JSON']>;
-  parent: Maybe<Node>;
-  rawBody: Scalars['String'];
-  slug: Maybe<Scalars['String']>;
-  tableOfContents: Maybe<Scalars['JSON']>;
-  timeToRead: Maybe<Scalars['Int']>;
-  wordCount: Maybe<MdxWordCount>;
+  readonly body: Scalars['String'];
+  readonly children: ReadonlyArray<Node>;
+  readonly excerpt: Scalars['String'];
+  readonly fileAbsolutePath: Scalars['String'];
+  readonly frontmatter: Maybe<MdxFrontmatter>;
+  readonly headings: Maybe<ReadonlyArray<Maybe<MdxHeadingMdx>>>;
+  readonly html: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly mdxAST: Maybe<Scalars['JSON']>;
+  readonly parent: Maybe<Node>;
+  readonly rawBody: Scalars['String'];
+  readonly slug: Maybe<Scalars['String']>;
+  readonly tableOfContents: Maybe<Scalars['JSON']>;
+  readonly timeToRead: Maybe<Scalars['Int']>;
+  readonly wordCount: Maybe<MdxWordCount>;
 };
 
 
@@ -16706,15 +16724,15 @@ export type MdxTableOfContentsArgs = {
 };
 
 export type MdxConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<MdxEdge>;
-  group: Array<MdxGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Mdx>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<MdxEdge>;
+  readonly group: ReadonlyArray<MdxGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Mdx>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16745,9 +16763,9 @@ export type MdxConnectionSumArgs = {
 };
 
 export type MdxEdge = {
-  next: Maybe<Mdx>;
-  node: Mdx;
-  previous: Maybe<Mdx>;
+  readonly next: Maybe<Mdx>;
+  readonly node: Mdx;
+  readonly previous: Maybe<Mdx>;
 };
 
 export enum MdxFieldsEnum {
@@ -16863,48 +16881,48 @@ export enum MdxFieldsEnum {
 }
 
 export type MdxFilterInput = {
-  body: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  excerpt: InputMaybe<StringQueryOperatorInput>;
-  fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  headings: InputMaybe<MdxHeadingMdxFilterListInput>;
-  html: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mdxAST: InputMaybe<JsonQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  rawBody: InputMaybe<StringQueryOperatorInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
-  tableOfContents: InputMaybe<JsonQueryOperatorInput>;
-  timeToRead: InputMaybe<IntQueryOperatorInput>;
-  wordCount: InputMaybe<MdxWordCountFilterInput>;
+  readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
+  readonly headings: InputMaybe<MdxHeadingMdxFilterListInput>;
+  readonly html: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mdxAST: InputMaybe<JsonQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly rawBody: InputMaybe<StringQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tableOfContents: InputMaybe<JsonQueryOperatorInput>;
+  readonly timeToRead: InputMaybe<IntQueryOperatorInput>;
+  readonly wordCount: InputMaybe<MdxWordCountFilterInput>;
 };
 
 export type MdxFilterListInput = {
-  elemMatch: InputMaybe<MdxFilterInput>;
+  readonly elemMatch: InputMaybe<MdxFilterInput>;
 };
 
 export type MdxFrontmatter = {
-  title: Scalars['String'];
+  readonly title: Scalars['String'];
 };
 
 export type MdxFrontmatterFilterInput = {
-  title: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type MdxGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<MdxEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<MdxGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Mdx>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<MdxEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<MdxGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Mdx>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -16935,80 +16953,80 @@ export type MdxGroupConnectionSumArgs = {
 };
 
 export type MdxHeadingMdx = {
-  depth: Maybe<Scalars['Int']>;
-  value: Maybe<Scalars['String']>;
+  readonly depth: Maybe<Scalars['Int']>;
+  readonly value: Maybe<Scalars['String']>;
 };
 
 export type MdxHeadingMdxFilterInput = {
-  depth: InputMaybe<IntQueryOperatorInput>;
-  value: InputMaybe<StringQueryOperatorInput>;
+  readonly depth: InputMaybe<IntQueryOperatorInput>;
+  readonly value: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type MdxHeadingMdxFilterListInput = {
-  elemMatch: InputMaybe<MdxHeadingMdxFilterInput>;
+  readonly elemMatch: InputMaybe<MdxHeadingMdxFilterInput>;
 };
 
 export type MdxSortInput = {
-  fields: InputMaybe<Array<InputMaybe<MdxFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<MdxFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type MdxWordCount = {
-  paragraphs: Maybe<Scalars['Int']>;
-  sentences: Maybe<Scalars['Int']>;
-  words: Maybe<Scalars['Int']>;
+  readonly paragraphs: Maybe<Scalars['Int']>;
+  readonly sentences: Maybe<Scalars['Int']>;
+  readonly words: Maybe<Scalars['Int']>;
 };
 
 export type MdxWordCountFilterInput = {
-  paragraphs: InputMaybe<IntQueryOperatorInput>;
-  sentences: InputMaybe<IntQueryOperatorInput>;
-  words: InputMaybe<IntQueryOperatorInput>;
+  readonly paragraphs: InputMaybe<IntQueryOperatorInput>;
+  readonly sentences: InputMaybe<IntQueryOperatorInput>;
+  readonly words: InputMaybe<IntQueryOperatorInput>;
 };
 
 /** Node Interface */
 export type Node = {
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
 };
 
 export type NodeFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type NodeFilterListInput = {
-  elemMatch: InputMaybe<NodeFilterInput>;
+  readonly elemMatch: InputMaybe<NodeFilterInput>;
 };
 
 export type PngOptions = {
-  compressionSpeed: InputMaybe<Scalars['Int']>;
-  quality: InputMaybe<Scalars['Int']>;
+  readonly compressionSpeed: InputMaybe<Scalars['Int']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
 };
 
 export type PageInfo = {
-  currentPage: Scalars['Int'];
-  hasNextPage: Scalars['Boolean'];
-  hasPreviousPage: Scalars['Boolean'];
-  itemCount: Scalars['Int'];
-  pageCount: Scalars['Int'];
-  perPage: Maybe<Scalars['Int']>;
-  totalCount: Scalars['Int'];
+  readonly currentPage: Scalars['Int'];
+  readonly hasNextPage: Scalars['Boolean'];
+  readonly hasPreviousPage: Scalars['Boolean'];
+  readonly itemCount: Scalars['Int'];
+  readonly pageCount: Scalars['Int'];
+  readonly perPage: Maybe<Scalars['Int']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 export type Potrace = {
-  alphaMax: InputMaybe<Scalars['Float']>;
-  background: InputMaybe<Scalars['String']>;
-  blackOnWhite: InputMaybe<Scalars['Boolean']>;
-  color: InputMaybe<Scalars['String']>;
-  optCurve: InputMaybe<Scalars['Boolean']>;
-  optTolerance: InputMaybe<Scalars['Float']>;
-  threshold: InputMaybe<Scalars['Int']>;
-  turdSize: InputMaybe<Scalars['Float']>;
-  turnPolicy: InputMaybe<PotraceTurnPolicy>;
+  readonly alphaMax: InputMaybe<Scalars['Float']>;
+  readonly background: InputMaybe<Scalars['String']>;
+  readonly blackOnWhite: InputMaybe<Scalars['Boolean']>;
+  readonly color: InputMaybe<Scalars['String']>;
+  readonly optCurve: InputMaybe<Scalars['Boolean']>;
+  readonly optTolerance: InputMaybe<Scalars['Float']>;
+  readonly threshold: InputMaybe<Scalars['Int']>;
+  readonly turdSize: InputMaybe<Scalars['Float']>;
+  readonly turnPolicy: InputMaybe<PotraceTurnPolicy>;
 };
 
 export enum PotraceTurnPolicy {
@@ -17021,68 +17039,68 @@ export enum PotraceTurnPolicy {
 }
 
 export type Query = {
-  allContentfulAsset: ContentfulAssetConnection;
-  allContentfulBlogPost: ContentfulBlogPostConnection;
-  allContentfulBlogPostContentTextNode: ContentfulBlogPostContentTextNodeConnection;
-  allContentfulCategory: ContentfulCategoryConnection;
-  allContentfulContact: ContentfulContactConnection;
-  allContentfulContentType: ContentfulContentTypeConnection;
-  allContentfulEntry: ContentfulEntryConnection;
-  allContentfulHello: ContentfulHelloConnection;
-  allContentfulHistory: ContentfulHistoryConnection;
-  allContentfulIcon: ContentfulIconConnection;
-  allContentfulIconSvgTextNode: ContentfulIconSvgTextNodeConnection;
-  allContentfulOss: ContentfulOssConnection;
-  allContentfulOssDetailTextNode: ContentfulOssDetailTextNodeConnection;
-  allContentfulProject: ContentfulProjectConnection;
-  allContentfulProjectDetailTextNode: ContentfulProjectDetailTextNodeConnection;
-  allContentfulQualification: ContentfulQualificationConnection;
-  allContentfulQualificationMap: ContentfulQualificationMapConnection;
-  allContentfulSkillGrpup: ContentfulSkillGrpupConnection;
-  allContentfulSkillMap: ContentfulSkillMapConnection;
-  allContentfulTag: ContentfulTagConnection;
-  allContentfulWhatICanDo: ContentfulWhatICanDoConnection;
-  allDirectory: DirectoryConnection;
-  allFile: FileConnection;
-  allImageSharp: ImageSharpConnection;
-  allLocale: LocaleConnection;
-  allMdx: MdxConnection;
-  allSite: SiteConnection;
-  allSiteBuildMetadata: SiteBuildMetadataConnection;
-  allSiteFunction: SiteFunctionConnection;
-  allSitePage: SitePageConnection;
-  allSitePlugin: SitePluginConnection;
-  contentfulAsset: Maybe<ContentfulAsset>;
-  contentfulBlogPost: Maybe<ContentfulBlogPost>;
-  contentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
-  contentfulCategory: Maybe<ContentfulCategory>;
-  contentfulContact: Maybe<ContentfulContact>;
-  contentfulContentType: Maybe<ContentfulContentType>;
-  contentfulEntry: Maybe<ContentfulEntry>;
-  contentfulHello: Maybe<ContentfulHello>;
-  contentfulHistory: Maybe<ContentfulHistory>;
-  contentfulIcon: Maybe<ContentfulIcon>;
-  contentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
-  contentfulOss: Maybe<ContentfulOss>;
-  contentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
-  contentfulProject: Maybe<ContentfulProject>;
-  contentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
-  contentfulQualification: Maybe<ContentfulQualification>;
-  contentfulQualificationMap: Maybe<ContentfulQualificationMap>;
-  contentfulSkillGrpup: Maybe<ContentfulSkillGrpup>;
-  contentfulSkillMap: Maybe<ContentfulSkillMap>;
-  contentfulTag: Maybe<ContentfulTag>;
-  contentfulWhatICanDo: Maybe<ContentfulWhatICanDo>;
-  directory: Maybe<Directory>;
-  file: Maybe<File>;
-  imageSharp: Maybe<ImageSharp>;
-  locale: Maybe<Locale>;
-  mdx: Maybe<Mdx>;
-  site: Maybe<Site>;
-  siteBuildMetadata: Maybe<SiteBuildMetadata>;
-  siteFunction: Maybe<SiteFunction>;
-  sitePage: Maybe<SitePage>;
-  sitePlugin: Maybe<SitePlugin>;
+  readonly allContentfulAsset: ContentfulAssetConnection;
+  readonly allContentfulBlogPost: ContentfulBlogPostConnection;
+  readonly allContentfulBlogPostContentTextNode: ContentfulBlogPostContentTextNodeConnection;
+  readonly allContentfulCategory: ContentfulCategoryConnection;
+  readonly allContentfulContact: ContentfulContactConnection;
+  readonly allContentfulContentType: ContentfulContentTypeConnection;
+  readonly allContentfulEntry: ContentfulEntryConnection;
+  readonly allContentfulHello: ContentfulHelloConnection;
+  readonly allContentfulHistory: ContentfulHistoryConnection;
+  readonly allContentfulIcon: ContentfulIconConnection;
+  readonly allContentfulIconSvgTextNode: ContentfulIconSvgTextNodeConnection;
+  readonly allContentfulOss: ContentfulOssConnection;
+  readonly allContentfulOssDetailTextNode: ContentfulOssDetailTextNodeConnection;
+  readonly allContentfulProject: ContentfulProjectConnection;
+  readonly allContentfulProjectDetailTextNode: ContentfulProjectDetailTextNodeConnection;
+  readonly allContentfulQualification: ContentfulQualificationConnection;
+  readonly allContentfulQualificationMap: ContentfulQualificationMapConnection;
+  readonly allContentfulSkillGrpup: ContentfulSkillGrpupConnection;
+  readonly allContentfulSkillMap: ContentfulSkillMapConnection;
+  readonly allContentfulTag: ContentfulTagConnection;
+  readonly allContentfulWhatICanDo: ContentfulWhatICanDoConnection;
+  readonly allDirectory: DirectoryConnection;
+  readonly allFile: FileConnection;
+  readonly allImageSharp: ImageSharpConnection;
+  readonly allLocale: LocaleConnection;
+  readonly allMdx: MdxConnection;
+  readonly allSite: SiteConnection;
+  readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
+  readonly allSiteFunction: SiteFunctionConnection;
+  readonly allSitePage: SitePageConnection;
+  readonly allSitePlugin: SitePluginConnection;
+  readonly contentfulAsset: Maybe<ContentfulAsset>;
+  readonly contentfulBlogPost: Maybe<ContentfulBlogPost>;
+  readonly contentfulBlogPostContentTextNode: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly contentfulCategory: Maybe<ContentfulCategory>;
+  readonly contentfulContact: Maybe<ContentfulContact>;
+  readonly contentfulContentType: Maybe<ContentfulContentType>;
+  readonly contentfulEntry: Maybe<ContentfulEntry>;
+  readonly contentfulHello: Maybe<ContentfulHello>;
+  readonly contentfulHistory: Maybe<ContentfulHistory>;
+  readonly contentfulIcon: Maybe<ContentfulIcon>;
+  readonly contentfulIconSvgTextNode: Maybe<ContentfulIconSvgTextNode>;
+  readonly contentfulOss: Maybe<ContentfulOss>;
+  readonly contentfulOssDetailTextNode: Maybe<ContentfulOssDetailTextNode>;
+  readonly contentfulProject: Maybe<ContentfulProject>;
+  readonly contentfulProjectDetailTextNode: Maybe<ContentfulProjectDetailTextNode>;
+  readonly contentfulQualification: Maybe<ContentfulQualification>;
+  readonly contentfulQualificationMap: Maybe<ContentfulQualificationMap>;
+  readonly contentfulSkillGrpup: Maybe<ContentfulSkillGrpup>;
+  readonly contentfulSkillMap: Maybe<ContentfulSkillMap>;
+  readonly contentfulTag: Maybe<ContentfulTag>;
+  readonly contentfulWhatICanDo: Maybe<ContentfulWhatICanDo>;
+  readonly directory: Maybe<Directory>;
+  readonly file: Maybe<File>;
+  readonly imageSharp: Maybe<ImageSharp>;
+  readonly locale: Maybe<Locale>;
+  readonly mdx: Maybe<Mdx>;
+  readonly site: Maybe<Site>;
+  readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
+  readonly siteFunction: Maybe<SiteFunction>;
+  readonly sitePage: Maybe<SitePage>;
+  readonly sitePlugin: Maybe<SitePlugin>;
 };
 
 
@@ -17373,6 +17391,7 @@ export type QueryContentfulBlogPostArgs = {
   created: InputMaybe<DateQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
+  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
@@ -17916,16 +17935,16 @@ export type QuerySitePluginArgs = {
 
 /** Remote Interface */
 export type RemoteFile = {
-  filename: Scalars['String'];
-  filesize: Maybe<Scalars['Int']>;
+  readonly filename: Scalars['String'];
+  readonly filesize: Maybe<Scalars['Int']>;
   /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
-  gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
-  height: Maybe<Scalars['Int']>;
-  id: Scalars['ID'];
-  mimeType: Scalars['String'];
-  publicUrl: Scalars['String'];
-  resize: Maybe<RemoteFileResize>;
-  width: Maybe<Scalars['Int']>;
+  readonly gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly mimeType: Scalars['String'];
+  readonly publicUrl: Scalars['String'];
+  readonly resize: Maybe<RemoteFileResize>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 
@@ -17933,13 +17952,13 @@ export type RemoteFile = {
 export type RemoteFileGatsbyImageArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
   backgroundColor: InputMaybe<Scalars['String']>;
-  breakpoints?: InputMaybe<Array<InputMaybe<Scalars['Int']>>>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  breakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
-  formats?: InputMaybe<Array<RemoteFileFormat>>;
+  formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
   height: InputMaybe<Scalars['Int']>;
   layout?: InputMaybe<RemoteFileLayout>;
-  outputPixelDensities?: InputMaybe<Array<InputMaybe<Scalars['Float']>>>;
+  outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
   placeholder?: InputMaybe<RemoteFilePlaceholder>;
   quality?: InputMaybe<Scalars['Int']>;
   sizes: InputMaybe<Scalars['String']>;
@@ -17950,7 +17969,7 @@ export type RemoteFileGatsbyImageArgs = {
 /** Remote Interface */
 export type RemoteFileResizeArgs = {
   aspectRatio: InputMaybe<Scalars['Float']>;
-  cropFocus: InputMaybe<Array<InputMaybe<RemoteFileCropFocus>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
   fit?: InputMaybe<RemoteFileFit>;
   format?: InputMaybe<RemoteFileFormat>;
   height: InputMaybe<Scalars['Int']>;
@@ -17998,32 +18017,32 @@ export enum RemoteFilePlaceholder {
 }
 
 export type RemoteFileResize = {
-  height: Maybe<Scalars['Int']>;
-  src: Maybe<Scalars['String']>;
-  width: Maybe<Scalars['Int']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 export type RemoteFileResizeFilterInput = {
-  height: InputMaybe<IntQueryOperatorInput>;
-  src: InputMaybe<StringQueryOperatorInput>;
-  width: InputMaybe<IntQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type Site = Node & {
-  buildTime: Maybe<Scalars['Date']>;
-  children: Array<Node>;
-  graphqlTypegen: Maybe<Scalars['Boolean']>;
-  host: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  jsxImportSource: Maybe<Scalars['String']>;
-  jsxRuntime: Maybe<Scalars['String']>;
-  parent: Maybe<Node>;
-  pathPrefix: Maybe<Scalars['String']>;
-  polyfill: Maybe<Scalars['Boolean']>;
-  port: Maybe<Scalars['Int']>;
-  siteMetadata: Maybe<SiteSiteMetadata>;
-  trailingSlash: Maybe<Scalars['String']>;
+  readonly buildTime: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly graphqlTypegen: Maybe<Scalars['Boolean']>;
+  readonly host: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly jsxImportSource: Maybe<Scalars['String']>;
+  readonly jsxRuntime: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly pathPrefix: Maybe<Scalars['String']>;
+  readonly polyfill: Maybe<Scalars['Boolean']>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly siteMetadata: Maybe<SiteSiteMetadata>;
+  readonly trailingSlash: Maybe<Scalars['String']>;
 };
 
 
@@ -18035,11 +18054,11 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteBuildMetadata = Node & {
-  buildTime: Maybe<Scalars['Date']>;
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
+  readonly buildTime: Maybe<Scalars['Date']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
 };
 
 
@@ -18051,15 +18070,15 @@ export type SiteBuildMetadataBuildTimeArgs = {
 };
 
 export type SiteBuildMetadataConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteBuildMetadataEdge>;
-  group: Array<SiteBuildMetadataGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteBuildMetadata>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteBuildMetadataEdge>;
+  readonly group: ReadonlyArray<SiteBuildMetadataGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteBuildMetadata>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18090,9 +18109,9 @@ export type SiteBuildMetadataConnectionSumArgs = {
 };
 
 export type SiteBuildMetadataEdge = {
-  next: Maybe<SiteBuildMetadata>;
-  node: SiteBuildMetadata;
-  previous: Maybe<SiteBuildMetadata>;
+  readonly next: Maybe<SiteBuildMetadata>;
+  readonly node: SiteBuildMetadata;
+  readonly previous: Maybe<SiteBuildMetadata>;
 };
 
 export enum SiteBuildMetadataFieldsEnum {
@@ -18193,25 +18212,25 @@ export enum SiteBuildMetadataFieldsEnum {
 }
 
 export type SiteBuildMetadataFilterInput = {
-  buildTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
+  readonly buildTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
 };
 
 export type SiteBuildMetadataGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteBuildMetadataEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SiteBuildMetadataGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteBuildMetadata>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteBuildMetadataEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SiteBuildMetadataGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteBuildMetadata>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18242,20 +18261,20 @@ export type SiteBuildMetadataGroupConnectionSumArgs = {
 };
 
 export type SiteBuildMetadataSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SiteConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteEdge>;
-  group: Array<SiteGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Site>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteEdge>;
+  readonly group: ReadonlyArray<SiteGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Site>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18286,9 +18305,9 @@ export type SiteConnectionSumArgs = {
 };
 
 export type SiteEdge = {
-  next: Maybe<Site>;
-  node: Site;
-  previous: Maybe<Site>;
+  readonly next: Maybe<Site>;
+  readonly node: Site;
+  readonly previous: Maybe<Site>;
 };
 
 export enum SiteFieldsEnum {
@@ -18400,46 +18419,46 @@ export enum SiteFieldsEnum {
 }
 
 export type SiteFilterInput = {
-  buildTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  graphqlTypegen: InputMaybe<BooleanQueryOperatorInput>;
-  host: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  jsxImportSource: InputMaybe<StringQueryOperatorInput>;
-  jsxRuntime: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  pathPrefix: InputMaybe<StringQueryOperatorInput>;
-  polyfill: InputMaybe<BooleanQueryOperatorInput>;
-  port: InputMaybe<IntQueryOperatorInput>;
-  siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
-  trailingSlash: InputMaybe<StringQueryOperatorInput>;
+  readonly buildTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly graphqlTypegen: InputMaybe<BooleanQueryOperatorInput>;
+  readonly host: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly jsxImportSource: InputMaybe<StringQueryOperatorInput>;
+  readonly jsxRuntime: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pathPrefix: InputMaybe<StringQueryOperatorInput>;
+  readonly polyfill: InputMaybe<BooleanQueryOperatorInput>;
+  readonly port: InputMaybe<IntQueryOperatorInput>;
+  readonly siteMetadata: InputMaybe<SiteSiteMetadataFilterInput>;
+  readonly trailingSlash: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteFunction = Node & {
-  absoluteCompiledFilePath: Scalars['String'];
-  children: Array<Node>;
-  functionRoute: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  matchPath: Maybe<Scalars['String']>;
-  originalAbsoluteFilePath: Scalars['String'];
-  originalRelativeFilePath: Scalars['String'];
-  parent: Maybe<Node>;
-  pluginName: Scalars['String'];
-  relativeCompiledFilePath: Scalars['String'];
+  readonly absoluteCompiledFilePath: Scalars['String'];
+  readonly children: ReadonlyArray<Node>;
+  readonly functionRoute: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly matchPath: Maybe<Scalars['String']>;
+  readonly originalAbsoluteFilePath: Scalars['String'];
+  readonly originalRelativeFilePath: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly pluginName: Scalars['String'];
+  readonly relativeCompiledFilePath: Scalars['String'];
 };
 
 export type SiteFunctionConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteFunctionEdge>;
-  group: Array<SiteFunctionGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteFunction>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteFunctionEdge>;
+  readonly group: ReadonlyArray<SiteFunctionGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteFunction>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18470,9 +18489,9 @@ export type SiteFunctionConnectionSumArgs = {
 };
 
 export type SiteFunctionEdge = {
-  next: Maybe<SiteFunction>;
-  node: SiteFunction;
-  previous: Maybe<SiteFunction>;
+  readonly next: Maybe<SiteFunction>;
+  readonly node: SiteFunction;
+  readonly previous: Maybe<SiteFunction>;
 };
 
 export enum SiteFunctionFieldsEnum {
@@ -18579,31 +18598,31 @@ export enum SiteFunctionFieldsEnum {
 }
 
 export type SiteFunctionFilterInput = {
-  absoluteCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  functionRoute: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  matchPath: InputMaybe<StringQueryOperatorInput>;
-  originalAbsoluteFilePath: InputMaybe<StringQueryOperatorInput>;
-  originalRelativeFilePath: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  pluginName: InputMaybe<StringQueryOperatorInput>;
-  relativeCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly absoluteCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly functionRoute: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly matchPath: InputMaybe<StringQueryOperatorInput>;
+  readonly originalAbsoluteFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly originalRelativeFilePath: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pluginName: InputMaybe<StringQueryOperatorInput>;
+  readonly relativeCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteFunctionGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteFunctionEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SiteFunctionGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SiteFunction>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteFunctionEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SiteFunctionGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SiteFunction>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18634,22 +18653,22 @@ export type SiteFunctionGroupConnectionSumArgs = {
 };
 
 export type SiteFunctionSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SiteFunctionFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFunctionFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SiteGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SiteEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SiteGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<Site>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SiteEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SiteGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<Site>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18680,29 +18699,29 @@ export type SiteGroupConnectionSumArgs = {
 };
 
 export type SitePage = Node & {
-  children: Array<Node>;
-  component: Scalars['String'];
-  componentChunkName: Scalars['String'];
-  id: Scalars['ID'];
-  internal: Internal;
-  internalComponentName: Scalars['String'];
-  matchPath: Maybe<Scalars['String']>;
-  pageContext: Maybe<Scalars['JSON']>;
-  parent: Maybe<Node>;
-  path: Scalars['String'];
-  pluginCreator: Maybe<SitePlugin>;
+  readonly children: ReadonlyArray<Node>;
+  readonly component: Scalars['String'];
+  readonly componentChunkName: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly internalComponentName: Scalars['String'];
+  readonly matchPath: Maybe<Scalars['String']>;
+  readonly pageContext: Maybe<Scalars['JSON']>;
+  readonly parent: Maybe<Node>;
+  readonly path: Scalars['String'];
+  readonly pluginCreator: Maybe<SitePlugin>;
 };
 
 export type SitePageConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePageEdge>;
-  group: Array<SitePageGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePage>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePageEdge>;
+  readonly group: ReadonlyArray<SitePageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18733,9 +18752,9 @@ export type SitePageConnectionSumArgs = {
 };
 
 export type SitePageEdge = {
-  next: Maybe<SitePage>;
-  node: SitePage;
-  previous: Maybe<SitePage>;
+  readonly next: Maybe<SitePage>;
+  readonly node: SitePage;
+  readonly previous: Maybe<SitePage>;
 };
 
 export enum SitePageFieldsEnum {
@@ -18891,31 +18910,31 @@ export enum SitePageFieldsEnum {
 }
 
 export type SitePageFilterInput = {
-  children: InputMaybe<NodeFilterListInput>;
-  component: InputMaybe<StringQueryOperatorInput>;
-  componentChunkName: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  internalComponentName: InputMaybe<StringQueryOperatorInput>;
-  matchPath: InputMaybe<StringQueryOperatorInput>;
-  pageContext: InputMaybe<JsonQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  path: InputMaybe<StringQueryOperatorInput>;
-  pluginCreator: InputMaybe<SitePluginFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly component: InputMaybe<StringQueryOperatorInput>;
+  readonly componentChunkName: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly internalComponentName: InputMaybe<StringQueryOperatorInput>;
+  readonly matchPath: InputMaybe<StringQueryOperatorInput>;
+  readonly pageContext: InputMaybe<JsonQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly path: InputMaybe<StringQueryOperatorInput>;
+  readonly pluginCreator: InputMaybe<SitePluginFilterInput>;
 };
 
 export type SitePageGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePageEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SitePageGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePage>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePageEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SitePageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -18946,36 +18965,36 @@ export type SitePageGroupConnectionSumArgs = {
 };
 
 export type SitePageSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SitePageFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePageFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SitePlugin = Node & {
-  browserAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
-  children: Array<Node>;
-  id: Scalars['ID'];
-  internal: Internal;
-  name: Maybe<Scalars['String']>;
-  nodeAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
-  packageJson: Maybe<Scalars['JSON']>;
-  parent: Maybe<Node>;
-  pluginFilepath: Maybe<Scalars['String']>;
-  pluginOptions: Maybe<Scalars['JSON']>;
-  resolve: Maybe<Scalars['String']>;
-  ssrAPIs: Maybe<Array<Maybe<Scalars['String']>>>;
-  version: Maybe<Scalars['String']>;
+  readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly nodeAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly packageJson: Maybe<Scalars['JSON']>;
+  readonly parent: Maybe<Node>;
+  readonly pluginFilepath: Maybe<Scalars['String']>;
+  readonly pluginOptions: Maybe<Scalars['JSON']>;
+  readonly resolve: Maybe<Scalars['String']>;
+  readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly version: Maybe<Scalars['String']>;
 };
 
 export type SitePluginConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePluginEdge>;
-  group: Array<SitePluginGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePlugin>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePluginEdge>;
+  readonly group: ReadonlyArray<SitePluginGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePlugin>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19006,9 +19025,9 @@ export type SitePluginConnectionSumArgs = {
 };
 
 export type SitePluginEdge = {
-  next: Maybe<SitePlugin>;
-  node: SitePlugin;
-  previous: Maybe<SitePlugin>;
+  readonly next: Maybe<SitePlugin>;
+  readonly node: SitePlugin;
+  readonly previous: Maybe<SitePlugin>;
 };
 
 export enum SitePluginFieldsEnum {
@@ -19117,33 +19136,33 @@ export enum SitePluginFieldsEnum {
 }
 
 export type SitePluginFilterInput = {
-  browserAPIs: InputMaybe<StringQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nodeAPIs: InputMaybe<StringQueryOperatorInput>;
-  packageJson: InputMaybe<JsonQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  pluginFilepath: InputMaybe<StringQueryOperatorInput>;
-  pluginOptions: InputMaybe<JsonQueryOperatorInput>;
-  resolve: InputMaybe<StringQueryOperatorInput>;
-  ssrAPIs: InputMaybe<StringQueryOperatorInput>;
-  version: InputMaybe<StringQueryOperatorInput>;
+  readonly browserAPIs: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nodeAPIs: InputMaybe<StringQueryOperatorInput>;
+  readonly packageJson: InputMaybe<JsonQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly pluginFilepath: InputMaybe<StringQueryOperatorInput>;
+  readonly pluginOptions: InputMaybe<JsonQueryOperatorInput>;
+  readonly resolve: InputMaybe<StringQueryOperatorInput>;
+  readonly ssrAPIs: InputMaybe<StringQueryOperatorInput>;
+  readonly version: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<SitePluginEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<SitePluginGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<SitePlugin>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<SitePluginEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<SitePluginGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<SitePlugin>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19174,25 +19193,25 @@ export type SitePluginGroupConnectionSumArgs = {
 };
 
 export type SitePluginSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SitePluginFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePluginFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type SiteSiteMetadata = {
-  description: Maybe<Scalars['String']>;
-  siteUrl: Maybe<Scalars['String']>;
-  title: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly siteUrl: Maybe<Scalars['String']>;
+  readonly title: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataFilterInput = {
-  description: InputMaybe<StringQueryOperatorInput>;
-  siteUrl: InputMaybe<StringQueryOperatorInput>;
-  title: InputMaybe<StringQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly siteUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
-  fields: InputMaybe<Array<InputMaybe<SiteFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export enum SortOrderEnum {
@@ -19201,50 +19220,50 @@ export enum SortOrderEnum {
 }
 
 export type StringQueryOperatorInput = {
-  eq: InputMaybe<Scalars['String']>;
-  glob: InputMaybe<Scalars['String']>;
-  in: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  ne: InputMaybe<Scalars['String']>;
-  nin: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
-  regex: InputMaybe<Scalars['String']>;
+  readonly eq: InputMaybe<Scalars['String']>;
+  readonly glob: InputMaybe<Scalars['String']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  readonly ne: InputMaybe<Scalars['String']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['String']>>>;
+  readonly regex: InputMaybe<Scalars['String']>;
 };
 
 export type TransformOptions = {
-  cropFocus: InputMaybe<ImageCropFocus>;
-  duotone: InputMaybe<DuotoneGradient>;
-  fit: InputMaybe<ImageFit>;
-  grayscale: InputMaybe<Scalars['Boolean']>;
-  rotate: InputMaybe<Scalars['Int']>;
-  trim: InputMaybe<Scalars['Float']>;
+  readonly cropFocus: InputMaybe<ImageCropFocus>;
+  readonly duotone: InputMaybe<DuotoneGradient>;
+  readonly fit: InputMaybe<ImageFit>;
+  readonly grayscale: InputMaybe<Scalars['Boolean']>;
+  readonly rotate: InputMaybe<Scalars['Int']>;
+  readonly trim: InputMaybe<Scalars['Float']>;
 };
 
 export type WebPOptions = {
-  quality: InputMaybe<Scalars['Int']>;
+  readonly quality: InputMaybe<Scalars['Int']>;
 };
 
 export type ContentfulBlogPostContentTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  content: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulBlogPostContentTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly content: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulBlogPostContentTextNodeSys>;
 };
 
 export type ContentfulBlogPostContentTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostContentTextNodeEdge>;
-  group: Array<ContentfulBlogPostContentTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPostContentTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostContentTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulBlogPostContentTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPostContentTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19275,9 +19294,9 @@ export type ContentfulBlogPostContentTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostContentTextNodeEdge = {
-  next: Maybe<ContentfulBlogPostContentTextNode>;
-  node: ContentfulBlogPostContentTextNode;
-  previous: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly next: Maybe<ContentfulBlogPostContentTextNode>;
+  readonly node: ContentfulBlogPostContentTextNode;
+  readonly previous: Maybe<ContentfulBlogPostContentTextNode>;
 };
 
 export enum ContentfulBlogPostContentTextNodeFieldsEnum {
@@ -19494,32 +19513,32 @@ export enum ContentfulBlogPostContentTextNodeFieldsEnum {
 }
 
 export type ContentfulBlogPostContentTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  content: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulBlogPostContentTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly content: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulBlogPostContentTextNodeSysFilterInput>;
 };
 
 export type ContentfulBlogPostContentTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulBlogPostContentTextNodeFilterInput>;
 };
 
 export type ContentfulBlogPostContentTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulBlogPostContentTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulBlogPostContentTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulBlogPostContentTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulBlogPostContentTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulBlogPostContentTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulBlogPostContentTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19550,41 +19569,41 @@ export type ContentfulBlogPostContentTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostContentTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulBlogPostContentTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulBlogPostContentTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulBlogPostContentTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulBlogPostContentTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulIconSvgTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  svg: Maybe<Scalars['String']>;
-  sys: Maybe<ContentfulIconSvgTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly svg: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulIconSvgTextNodeSys>;
 };
 
 export type ContentfulIconSvgTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconSvgTextNodeEdge>;
-  group: Array<ContentfulIconSvgTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIconSvgTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconSvgTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulIconSvgTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIconSvgTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19615,9 +19634,9 @@ export type ContentfulIconSvgTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulIconSvgTextNodeEdge = {
-  next: Maybe<ContentfulIconSvgTextNode>;
-  node: ContentfulIconSvgTextNode;
-  previous: Maybe<ContentfulIconSvgTextNode>;
+  readonly next: Maybe<ContentfulIconSvgTextNode>;
+  readonly node: ContentfulIconSvgTextNode;
+  readonly previous: Maybe<ContentfulIconSvgTextNode>;
 };
 
 export enum ContentfulIconSvgTextNodeFieldsEnum {
@@ -19834,32 +19853,32 @@ export enum ContentfulIconSvgTextNodeFieldsEnum {
 }
 
 export type ContentfulIconSvgTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  svg: InputMaybe<StringQueryOperatorInput>;
-  sys: InputMaybe<ContentfulIconSvgTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly svg: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulIconSvgTextNodeSysFilterInput>;
 };
 
 export type ContentfulIconSvgTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulIconSvgTextNodeFilterInput>;
 };
 
 export type ContentfulIconSvgTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulIconSvgTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulIconSvgTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulIconSvgTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulIconSvgTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulIconSvgTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulIconSvgTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19890,41 +19909,41 @@ export type ContentfulIconSvgTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulIconSvgTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulIconSvgTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulIconSvgTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulIconSvgTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulIconSvgTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulOssDetailTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  detail: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulOssDetailTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly detail: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulOssDetailTextNodeSys>;
 };
 
 export type ContentfulOssDetailTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssDetailTextNodeEdge>;
-  group: Array<ContentfulOssDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOssDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssDetailTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulOssDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOssDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -19955,9 +19974,9 @@ export type ContentfulOssDetailTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulOssDetailTextNodeEdge = {
-  next: Maybe<ContentfulOssDetailTextNode>;
-  node: ContentfulOssDetailTextNode;
-  previous: Maybe<ContentfulOssDetailTextNode>;
+  readonly next: Maybe<ContentfulOssDetailTextNode>;
+  readonly node: ContentfulOssDetailTextNode;
+  readonly previous: Maybe<ContentfulOssDetailTextNode>;
 };
 
 export enum ContentfulOssDetailTextNodeFieldsEnum {
@@ -20174,32 +20193,32 @@ export enum ContentfulOssDetailTextNodeFieldsEnum {
 }
 
 export type ContentfulOssDetailTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  detail: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulOssDetailTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly detail: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulOssDetailTextNodeSysFilterInput>;
 };
 
 export type ContentfulOssDetailTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulOssDetailTextNodeFilterInput>;
 };
 
 export type ContentfulOssDetailTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulOssDetailTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulOssDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulOssDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulOssDetailTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulOssDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulOssDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -20230,41 +20249,41 @@ export type ContentfulOssDetailTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulOssDetailTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulOssDetailTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulOssDetailTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulOssDetailTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulOssDetailTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ContentfulProjectDetailTextNode = Node & {
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  childMdx: Maybe<Mdx>;
-  children: Array<Node>;
+  readonly childMdx: Maybe<Mdx>;
+  readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type Mdx */
-  childrenMdx: Maybe<Array<Maybe<Mdx>>>;
-  detail: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  internal: Internal;
-  parent: Maybe<Node>;
-  sys: Maybe<ContentfulProjectDetailTextNodeSys>;
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
+  readonly detail: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulProjectDetailTextNodeSys>;
 };
 
 export type ContentfulProjectDetailTextNodeConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectDetailTextNodeEdge>;
-  group: Array<ContentfulProjectDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProjectDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectDetailTextNodeEdge>;
+  readonly group: ReadonlyArray<ContentfulProjectDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProjectDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -20295,9 +20314,9 @@ export type ContentfulProjectDetailTextNodeConnectionSumArgs = {
 };
 
 export type ContentfulProjectDetailTextNodeEdge = {
-  next: Maybe<ContentfulProjectDetailTextNode>;
-  node: ContentfulProjectDetailTextNode;
-  previous: Maybe<ContentfulProjectDetailTextNode>;
+  readonly next: Maybe<ContentfulProjectDetailTextNode>;
+  readonly node: ContentfulProjectDetailTextNode;
+  readonly previous: Maybe<ContentfulProjectDetailTextNode>;
 };
 
 export enum ContentfulProjectDetailTextNodeFieldsEnum {
@@ -20514,32 +20533,32 @@ export enum ContentfulProjectDetailTextNodeFieldsEnum {
 }
 
 export type ContentfulProjectDetailTextNodeFilterInput = {
-  childMdx: InputMaybe<MdxFilterInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
-  detail: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  sys: InputMaybe<ContentfulProjectDetailTextNodeSysFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
+  readonly detail: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulProjectDetailTextNodeSysFilterInput>;
 };
 
 export type ContentfulProjectDetailTextNodeFilterListInput = {
-  elemMatch: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
+  readonly elemMatch: InputMaybe<ContentfulProjectDetailTextNodeFilterInput>;
 };
 
 export type ContentfulProjectDetailTextNodeGroupConnection = {
-  distinct: Array<Scalars['String']>;
-  edges: Array<ContentfulProjectDetailTextNodeEdge>;
-  field: Scalars['String'];
-  fieldValue: Maybe<Scalars['String']>;
-  group: Array<ContentfulProjectDetailTextNodeGroupConnection>;
-  max: Maybe<Scalars['Float']>;
-  min: Maybe<Scalars['Float']>;
-  nodes: Array<ContentfulProjectDetailTextNode>;
-  pageInfo: PageInfo;
-  sum: Maybe<Scalars['Float']>;
-  totalCount: Scalars['Int'];
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProjectDetailTextNodeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulProjectDetailTextNodeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProjectDetailTextNode>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
 };
 
 
@@ -20570,123 +20589,219 @@ export type ContentfulProjectDetailTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulProjectDetailTextNodeSortInput = {
-  fields: InputMaybe<Array<InputMaybe<ContentfulProjectDetailTextNodeFieldsEnum>>>;
-  order: InputMaybe<Array<InputMaybe<SortOrderEnum>>>;
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulProjectDetailTextNodeFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 export type ContentfulProjectDetailTextNodeSys = {
-  type: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
 };
 
 export type ContentfulProjectDetailTextNodeSysFilterInput = {
-  type: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BlogPostsQuery = { allContentfulBlogPost: { edges: Array<{ node: Pick<ContentfulBlogPost, 'id' | 'slug'> }> } };
+export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
 
-export type SearchDataQueryVariables = Exact<{ [key: string]: never; }>;
+export type BlogPostDetailFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> };
 
+export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
 
-export type SearchDataQuery = { allContentfulBlogPost: { nodes: Array<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
+export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
+
+export type PortfolioCertificationCardFragment = (
+  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+);
+
+export type PortfolioCertificationDetailFragment = Pick<ContentfulQualification, 'name' | 'date'>;
+
+export type PortfolioCertificationListFragment = (
+  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+);
+
+export type PortfolioHelloContentFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+
+export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
+
+export type PortfolioHistoryCardFragment = (
+  Pick<ContentfulHistory, 'date' | 'name' | 'subName'>
+  & { readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioHistoryListFragment = (
+  Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
+  & { readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioOssCardFragment = (
+  Pick<ContentfulOss, 'name' | 'startDate' | 'href'>
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioOssListFragment = (
+  Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioProjectCardFragment = (
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioProjectDetailFragment = (
+  Pick<ContentfulProject, 'subName'>
+  & { readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioProjectListFragment = (
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+);
+
+export type PortfolioSkillCardFragment = (
+  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
+    Pick<ContentfulSkillGrpup, 'id' | 'name'>
+    & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  )>>> }
+);
+
+export type PortfolioSkillGroupDetailFragment = (
+  Pick<ContentfulSkillGrpup, 'name'>
+  & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+);
+
+export type PortfolioSkillListFragment = (
+  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
+    Pick<ContentfulSkillGrpup, 'id' | 'name'>
+    & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+  )>>> }
+);
+
+export type PortfolioWhatICanDoCardFragment = (
+  Pick<ContentfulWhatICanDo, 'name' | 'subName'>
+  & { readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type PortfolioWhatICanDoListFragment = (
+  Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
+  & { readonly icon: Maybe<(
+    Pick<ContentfulIcon, 'name'>
+    & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+  )> }
+);
+
+export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
+
+export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BuildTimeDataQuery = { site: Maybe<Pick<Site, 'buildTime'>> };
+export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
+
+export type UseUrlFragment = Pick<Locale, 'ns' | 'data' | 'language'>;
 
 export type NotFoundPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type NotFoundPageQuery = { locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )> };
+export type NotFoundPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type BlogPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type BlogPageQuery = { posts: { group: Array<{ edges: Array<{ node: (
-          Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
-          & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-          & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, category: Maybe<Pick<ContentfulCategory, 'name'>>, thumbnail: Maybe<Pick<ContentfulAsset, 'title' | 'gatsbyImageData'>> }
-        ) }> }> }, postsLite: { edges: Array<{ node: (
-        Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>
-        & { thumbnail: Maybe<{ file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )> };
+export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'updated' | 'excerpt'>
+      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
+    )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
 }>;
 
 
-export type IndexPageQuery = { links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, whatICanDos: { edges: Array<{ node: (
-        Pick<ContentfulWhatICanDo, 'id' | 'node_locale' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, projects: { edges: Array<{ node: (
-        Pick<ContentfulProject, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )>, detail: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-      ) }> }, histories: { edges: Array<{ node: (
-        Pick<ContentfulHistory, 'id' | 'node_locale' | 'date' | 'name' | 'subName'>
-        & { icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, osses: { edges: Array<{ node: (
-        Pick<ContentfulOss, 'id' | 'node_locale' | 'name' | 'subName' | 'startDate' | 'href'>
-        & { tags: Maybe<Array<Maybe<Pick<ContentfulTag, 'name'>>>>, icon: Maybe<(
-          Pick<ContentfulIcon, 'name'>
-          & { svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-        )> }
-      ) }> }, skills: { edges: Array<{ node: (
-        Pick<ContentfulSkillMap, 'id' | 'name' | 'node_locale' | 'expanded'>
-        & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>>, skillGroups: Maybe<Array<Maybe<(
-          Pick<ContentfulSkillGrpup, 'id' | 'name'>
-          & { skills: Maybe<Array<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-        )>>> }
-      ) }> }, certification: { edges: Array<{ node: (
-        Pick<ContentfulQualificationMap, 'id' | 'node_locale' | 'name' | 'expanded'>
-        & { qualifications: Maybe<Array<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
-      ) }> }, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )> };
+export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly whatICanDos: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulWhatICanDo, 'id' | 'name' | 'subName'>
+      & { readonly icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, readonly projects: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+      & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+    )> }, readonly histories: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
+      & { readonly icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, readonly osses: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOss, 'id' | 'name' | 'startDate' | 'href'>
+      & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
+        Pick<ContentfulIcon, 'name'>
+        & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
+      )> }
+    )> }, readonly skills: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+      & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
+        Pick<ContentfulSkillGrpup, 'id' | 'name'>
+        & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
+      )>>> }
+    )> }, readonly certification: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+      & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date'>>>> }
+    )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
-export type BlogPostQueryVariables = Exact<{
+export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];
   language: Scalars['String'];
 }>;
 
 
-export type BlogPostQuery = { post: Maybe<(
-    Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>
-    & { createdDate: ContentfulBlogPost['created'], updatedDate: ContentfulBlogPost['updated'] }
-    & { content: Maybe<{ childMdx: Maybe<Pick<Mdx, 'body'>> }>, category: Maybe<Pick<ContentfulCategory, 'name'>>, tags: Maybe<Array<Maybe<(
+export type BlogPostPageQuery = { readonly post: Maybe<(
+    Pick<ContentfulBlogPost, 'title' | 'excerpt' | 'created' | 'updated'>
+    & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
       Pick<ContentfulTag, 'name'>
-      & { blog_post: Maybe<Array<Maybe<(
+      & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(
         Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
         & { createdDateTime: ContentfulBlogPost['created'] }
       )>>> }
-    )>>>, thumbnail: Maybe<(
+    )>>>, readonly thumbnail: Maybe<(
       Pick<ContentfulAsset, 'title'>
-      & { file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    )> }
-  )>, links: { edges: Array<{ node: Pick<ContentfulHello, 'id' | 'node_locale' | 'name' | 'href'> }> }, icon: Maybe<(
-    Pick<ContentfulAsset, 'title'>
-    & { svg: Maybe<Pick<InlineSvg, 'content'>> }
-  )>, locales: { edges: Array<{ node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      & { readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
+    )>, readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };

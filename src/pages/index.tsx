@@ -7,32 +7,107 @@ import {
   IconButton,
 } from "@mui/material";
 import { graphql } from "gatsby";
-import { GatsbySeo, LogoJsonLd } from "gatsby-plugin-next-seo";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
-import {
-  HelloGroup,
-  OSSList,
-  CertificationList,
-  HistoryList,
-  ProjectList,
-  SkillList,
-  WhatICanDoList,
-} from "src/components";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
-import type { PageProps } from "gatsby";
+import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 
-import { useSiteMetadata } from "@/hooks/useSiteMetadata";
-import { WrapPageElement } from "@/layouts/WrapPageElement";
-import { Head } from "@/templates/Head";
+import siteMetaData from "@/constants/siteMetaData";
+import { CertificationList } from "@/features/PortfolioCertification";
+import { HelloContent } from "@/features/PortfolioHello";
+import { HistoryList } from "@/features/PortfolioHistory";
+import { OssList } from "@/features/PortfolioOss";
+import { ProjectList } from "@/features/PortfolioProject";
+import { SkillList } from "@/features/PortfolioSkill";
+import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
+import { Head as HeadTemplate } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({
   marginTop: theme.spacing(5),
   marginBottom: theme.spacing(5),
 }));
+
+export const query = graphql`
+  query IndexPage($language: String!) {
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        ...PortfolioHelloContent
+      }
+    }
+    whatICanDos: allContentfulWhatICanDo(
+      sort: { fields: sortKey, order: ASC }
+    ) {
+      nodes {
+        ...PortfolioWhatICanDoList
+      }
+    }
+    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
+      nodes {
+        ...PortfolioProjectList
+      }
+    }
+    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
+      nodes {
+        ...PortfolioHistoryList
+      }
+    }
+    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
+      nodes {
+        ...PortfolioOssList
+      }
+    }
+    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        ...PortfolioSkillList
+      }
+    }
+    # 資格一覧を取得する
+    certification: allContentfulQualificationMap(
+      sort: { fields: sortKey, order: ASC }
+    ) {
+      nodes {
+        ...PortfolioCertificationList
+      }
+    }
+    # gatsby-plugin-react-i18next
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ...UseUrl
+        }
+      }
+    }
+  }
+`;
+
+export const Head: HeadFC = ({ location }) => {
+  return (
+    <>
+      <HeadTemplate
+        location={location}
+        title={siteMetaData.title}
+        description={siteMetaData.description}
+        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        imageAlt={siteMetaData.title}
+        type="profile"
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            url: siteMetaData.siteUrl,
+            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+          }),
+        }}
+      />
+    </>
+  );
+};
 
 interface SectionProps {
   title: string;
@@ -96,224 +171,36 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 };
 
 const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const siteMetadata = useSiteMetadata();
   const { t } = useI18next();
 
-  const icon = data.icon.svg.content;
-  const iconAlt = data.icon.title;
-
   return (
-    <WrapPageElement icon={icon} iconAlt={iconAlt} isHome>
-      <GatsbySeo
-        title={siteMetadata.title}
-        description={siteMetadata.description}
-        openGraph={{
-          type: "profile",
-          title: siteMetadata.title,
-          description: siteMetadata.description,
-          images: [
-            {
-              url: siteMetadata.image,
-              alt: siteMetadata.title,
-            },
-          ],
-        }}
-      />
-      <LogoJsonLd
-        url={siteMetadata.siteUrl}
-        logo={`${siteMetadata.siteUrl}${siteMetadata.image}`}
-        defer
-      />
+    <>
       <PaddingContainer maxWidth="lg">
-        <HelloGroup links={data.links.edges} icon={icon} />
+        <HelloContent links={data.links.nodes} />
       </PaddingContainer>
       <Section title={t("home.what-i-can-dos-title")}>
-        <WhatICanDoList whatICanDos={data.whatICanDos.edges} />
+        <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </Section>
       <Section title={t("home.projects-title")}>
-        <ProjectList projects={data.projects.edges} />
+        <ProjectList projects={data.projects.nodes} />
       </Section>
       <Section title={t("home.histories-title")}>
-        <HistoryList histories={data.histories.edges} />
+        <HistoryList histories={data.histories.nodes} />
       </Section>
       <Section title={t("home.osses-title")} help={t("home.osses-help")}>
-        <OSSList osses={data.osses.edges} />
+        <OssList osses={data.osses.nodes} />
       </Section>
       <Section title={t("home.skills-title")} help={t("home.skills-help")}>
-        <SkillList skills={data.skills.edges} />
+        <SkillList skills={data.skills.nodes} />
       </Section>
       <Section
         title={t("home.qualifications-title")}
         help={t("home.qualifications-help")}
       >
-        <CertificationList certification={data.certification.edges} />
+        <CertificationList certifications={data.certification.nodes} />
       </Section>
-    </WrapPageElement>
+    </>
   );
 };
 
 export default Home;
-
-export const query = graphql`
-  query IndexPage($language: String!) {
-    # 自己紹介部分リンク先を取得する
-    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          href
-        }
-      }
-    }
-    # お手伝いできること一覧を取得する
-    whatICanDos: allContentfulWhatICanDo(
-      sort: { fields: sortKey, order: ASC }
-    ) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          subName
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-        }
-      }
-    }
-    # プロジェクト一覧を取得する
-    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          tags {
-            name
-          }
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-          subName
-          detail {
-            childMdx {
-              body
-            }
-          }
-          startDate(formatString: "YYYY")
-        }
-      }
-    }
-    # 経歴一覧を取得する
-    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          date(formatString: "yyyy")
-          name
-          subName
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-        }
-      }
-    }
-    # OSS一覧を取得する
-    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          tags {
-            name
-          }
-          icon {
-            name
-            svg {
-              svg
-            }
-          }
-          subName
-          startDate(formatString: "yyyy/MM")
-          href
-        }
-      }
-    }
-    # スキル一覧を取得する
-    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
-      edges {
-        node {
-          id
-          name
-          node_locale
-          expanded
-          skills {
-            id
-            level
-            name
-          }
-          skillGroups {
-            id
-            name
-            skills {
-              id
-              level
-              name
-            }
-          }
-        }
-      }
-    }
-    # 資格一覧を取得する
-    certification: allContentfulQualificationMap(
-      sort: { fields: sortKey, order: ASC }
-    ) {
-      edges {
-        node {
-          id
-          node_locale
-          name
-          expanded
-          qualifications {
-            id
-            name
-            date(formatString: "yyyy/MM")
-          }
-        }
-      }
-    }
-    # 原稿を取得する
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
-    # Bicstoneアイコンを取得する
-    # "5qVePilXXNs2WxxIcvndga"は、contentful assetsのアイコンのID
-    icon: contentfulAsset(contentful_id: { eq: "5qVePilXXNs2WxxIcvndga" }) {
-      title
-      svg {
-        content
-      }
-    }
-  }
-`;
-
-export { Head };

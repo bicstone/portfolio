@@ -16,3 +16,4 @@ extensions:
       avoidOptionals: true
       preResolveTypes: false
       maybeValue: T
+      immutableTypes: true

@@ -2,19 +2,15 @@
   "blog": {
     "ad-label": "広告",
     "author-title": "著者について",
-    "caption": "システム移行に併せ、情報が古かったり不正確な記事は削除しました。",
+    "caption": "2016年3月30日に開設した、多趣味な自分が気になったことをなんでもまとめているブログです。システム移行に併せ、情報が古かったり不正確な記事は削除しました。",
     "related-title": "関連記事",
     "title": "まっしろブログ"
-  },
-  "cookie-alert": {
-    "close": "閉じる",
-    "description": "詳しくは <1>プライバシーポリシー</1> をご覧ください。",
-    "title": "当ウェブサイトはCookieを使用しています。"
   },
   "footer": {
     "copyright": "© {{year}} Oishi Takanori"
   },
   "header": {
+    "avatar": "ニコニコした Oishi Takanori の似顔絵",
     "back-to-home": "ホームに移動",
     "changeLanguage-title": "言語切替",
     "github-title": "GitHub",
@@ -73,6 +69,7 @@
       "title": "esc"
     },
     "hint": "まっしろブログを検索",
-    "title": "検索"
+    "title": "検索",
+    "error": "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。"
   }
 }

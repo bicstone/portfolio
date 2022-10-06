@@ -16,7 +16,7 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   setPreBodyComponents([
     <Fragment key="init-color-scheme-script">
       {getInitColorSchemeScript({
-        enableSystem: true,
+        defaultMode: "system",
       })}
     </Fragment>,
   ]);

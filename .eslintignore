@@ -2,3 +2,4 @@
 .yarn
 public
 src/generated
+static
