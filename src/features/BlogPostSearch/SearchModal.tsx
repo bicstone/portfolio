@@ -129,7 +129,11 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         {isDefined(result) &&
           result.map((post) => (
             <ListItem key={post.refIndex} role="option">
-              <ListItemButton component={RouterLink} to={`/${post.item.slug}`}>
+              <ListItemButton
+                component={RouterLink}
+                to={`/${post.item.slug}`}
+                onClick={onClose}
+              >
                 <ListItemText primary={post.item.title} />
               </ListItemButton>
             </ListItem>

@@ -3,7 +3,7 @@ import {
   Update as UpdateIcon,
 } from "@mui/icons-material";
 import { Card, Container, NoSsr, Typography } from "@mui/material";
-import { graphql, withPrefix } from "gatsby";
+import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 
@@ -65,7 +65,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
   const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const post = data.post;
   const title = `${post.title} - ${siteMetaData.title}`;
-  const canonical = `${siteMetaData.siteUrl}${withPrefix(location.pathname)}`;
+  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
 
   return (
     <>
@@ -106,7 +106,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
               name: siteMetaData.title,
               logo: {
                 "@type": "ImageObject",
-                url: `${siteMetaData.siteUrl}${withPrefix(siteMetaData.image)}`,
+                url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
               },
             },
             description: post.excerpt,
@@ -125,7 +125,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 1,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${withPrefix("/")}`,
+                  "@id": `${siteMetaData.siteUrl}${"/"}`,
                   name: siteMetaData.title,
                   "@type": "Thing",
                 },
@@ -134,7 +134,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 2,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${withPrefix("/blog")}`,
+                  "@id": `${siteMetaData.siteUrl}${"/blog"}`,
                   name: BLOG_TITLE,
                   "@type": "Thing",
                 },

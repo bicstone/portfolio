@@ -6,7 +6,7 @@ import {
   Tooltip,
   IconButton,
 } from "@mui/material";
-import { graphql, withPrefix } from "gatsby";
+import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
@@ -90,7 +90,7 @@ export const Head: HeadFC = ({ location }) => {
         location={location}
         title={siteMetaData.title}
         description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${withPrefix(siteMetaData.image)}`}
+        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
         imageAlt={siteMetaData.title}
         type="profile"
       />

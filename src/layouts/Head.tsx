@@ -1,5 +1,3 @@
-import { withPrefix } from "gatsby";
-
 import type { HeadProps } from "gatsby";
 
 import siteMetaData from "@/constants/siteMetaData";
@@ -19,7 +17,7 @@ export const Head = (props: {
   const { location, title, description, image, imageAlt, type } = props;
 
   const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
-  const canonical = `${siteMetaData.siteUrl}${withPrefix(location.pathname)}`;
+  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
 
   return (
     <>
