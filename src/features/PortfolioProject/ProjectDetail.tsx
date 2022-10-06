@@ -1,7 +1,6 @@
 import { MDXProvider } from "@mdx-js/react";
 import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import type { PortfolioProjectDetailFragment } from "@/generated/graphqlTypes";
 
@@ -33,9 +32,7 @@ export const ProjectDetail = (props: {
       </Typography>
       <Typography component="div" variant="body2">
         <MDXProvider components={mdxComponents}>
-          <MDXRenderer components={mdxComponents}>
-            {project.detail.childMdx.body}
-          </MDXRenderer>
+          {project.detail.childMdx.body}
         </MDXProvider>
       </Typography>
     </>

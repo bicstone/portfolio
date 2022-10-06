@@ -1,6 +1,5 @@
 import { MDXProvider } from "@mdx-js/react";
 import { graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import type { BlogPostDetailFragment } from "@/generated/graphqlTypes";
 
@@ -23,9 +22,7 @@ export const BlogPostDetail = (props: {
 
   return (
     <MDXProvider components={mdxComponents}>
-      <MDXRenderer components={mdxComponents}>
-        {post.content.childMdx.body}
-      </MDXRenderer>
+      {post.content.childMdx.body}
     </MDXProvider>
   );
 };

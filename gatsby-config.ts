@@ -8,7 +8,6 @@ import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
 
-const isDevelopment = process.env.NODE_ENV === "development";
 const isCI = process.env.CI !== undefined;
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
@@ -63,18 +62,6 @@ const config: GatsbyConfig = {
               icon: "<anchor />",
             },
           },
-          ...(isDevelopment
-            ? []
-            : [
-                {
-                  resolve: `gatsby-remark-images-contentful`,
-                  options: {
-                    maxWidth: 600,
-                    showCaptions: true,
-                    withWebp: true,
-                  },
-                },
-              ]),
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
