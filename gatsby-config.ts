@@ -55,8 +55,15 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          { resolve: `gatsby-remark-responsive-iframe` },
           {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              isIconAfterHeader: true,
+              icon: "<anchor />",
+            },
+          },
+          {
+            // should be placed after `gatsby-remark-autolink-headers`
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,
@@ -66,13 +73,7 @@ const config: GatsbyConfig = {
               },
             },
           },
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              isIconAfterHeader: true,
-              icon: "<anchor />",
-            },
-          },
+          { resolve: `gatsby-remark-responsive-iframe` },
         ],
       },
     },
