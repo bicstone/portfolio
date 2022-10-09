@@ -177,7 +177,7 @@ package.json の browserslist を参照
 
 ## ライセンス
 
-- content ディレクトリは [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+- content ディレクトリは [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 - static ディレクトリは [ライセンスなし](https://choosealicense.com/no-permission/)
 - その他は MIT License
 
