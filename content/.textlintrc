@@ -2,6 +2,9 @@
   "rules": {
     "preset-ja-spacing": true,
     "editorconfig": true,
-    "preset-ja-technical-writing": true
+    "preset-ja-technical-writing": true,
+    "ja-space-between-half-and-full-width": {
+      "space": "always"
+    }
   }
 }
