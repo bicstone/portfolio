@@ -54,6 +54,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        extensions: [`.md`],
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-autolink-headers`,
@@ -73,7 +74,6 @@ const config: GatsbyConfig = {
               },
             },
           },
-          { resolve: `gatsby-remark-responsive-iframe` },
         ],
       },
     },
@@ -117,6 +117,13 @@ const config: GatsbyConfig = {
       options: {
         name: `locales`,
         path: path.resolve("src", "locales"),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "blog"),
+        name: `blog`,
       },
     },
     {

@@ -104,10 +104,6 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 ```shell
 yarn develop
-(...or)
-yarn dev
-(...or)
-yarn start
 ```
 
 ### プロダクションビルド
@@ -145,8 +141,6 @@ yarn lint:fix
 
 ```shell
 yarn typecheck
-(...or)
-yarn tc
 ```
 
 ### 翻訳 JSON を更新

@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "preset-ja-spacing": true,
+    "editorconfig": true,
+    "preset-ja-technical-writing": true
+  }
+}
