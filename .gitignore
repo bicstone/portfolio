@@ -177,3 +177,6 @@ Temporary Items
 
 # vanilla scripts
 static/vanilla
+
+# text lint
+.textlintcache

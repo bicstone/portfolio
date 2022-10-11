@@ -9,8 +9,11 @@
     "develop": "gatsby develop --port 10014",
     "serve": "gatsby serve --port 20014",
     "clean": "gatsby clean",
-    "lint": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
-    "lint:fix": "yarn lint --fix",
+    "lint": "yarn lint:src && yarn lint:md && yarn lint:text",
+    "lint:fix": "yarn lint:src --fix && lint:md --fix && yarn lint:text --fix",
+    "lint:src": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
+    "lint:md": "cd content && yarn lint:md",
+    "lint:text": "cd content && yarn lint:text",
     "format": "prettier --cache --ignore-path .eslintignore --write .",
     "extract": "esbuild i18next-extract.babel.config.ts --outfile=babel.config.js --bundle --platform=node && babel -o .tmp.js src/**/*.{js,jsx,ts,tsx} && rimraf babel.config.js .tmp.js",
     "t": "yarn extract",
@@ -103,11 +106,7 @@
     "last 3 iOS major versions"
   ],
   "packageManager": "yarn@3.2.4",
-  "volta": {
-    "node": "16.17.1",
-    "yarn": "1.22.19"
-  },
   "workspaces": [
-    "content/*"
+    "content"
   ]
 }
