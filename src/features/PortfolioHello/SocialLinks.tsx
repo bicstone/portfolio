@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { graphql, Link } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { SocialLinksFragment } from "@/generated/graphqlTypes";
 
@@ -17,7 +17,7 @@ export const SocialLinks = (props: {
 }): JSX.Element => {
   const { links } = props;
 
-  const { t } = useTranslation();
+  const { t } = useI18next();
 
   return (
     <>

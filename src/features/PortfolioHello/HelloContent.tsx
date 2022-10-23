@@ -1,6 +1,6 @@
 import { Typography, Grid, Card, CardHeader } from "@mui/material";
 import { graphql } from "gatsby";
-import { useTranslation } from "gatsby-plugin-react-i18next";
+import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
 import { FukkiretaAnimationSvgIcon } from "./FukkiretaAnimationSvgIcon";
@@ -21,7 +21,7 @@ export const HelloContent = (props: {
 }): JSX.Element => {
   const { links } = props;
 
-  const { t } = useTranslation();
+  const { t } = useI18next();
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   return (
