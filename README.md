@@ -146,17 +146,13 @@ yarn typecheck
 ### 翻訳 JSON を更新
 
 ```shell
-yarn extract
-(...or)
-yarn t
+yarn i18n
 ```
 
 ### GraphQL の型情報を取り込む
 
 ```shell
-yarn graphql-codegen
-(...or)
-yarn g
+yarn graphql
 ```
 
 ### amazon s3 への deploy

@@ -13,9 +13,8 @@
     "lint:fix": "yarn lint:src --fix",
     "lint:src": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
     "format": "prettier --cache --ignore-path .eslintignore --write .",
-    "extract": "esbuild i18next-extract.babel.config.ts --outfile=babel.config.js --bundle --platform=node && babel -o .tmp.js src/**/*.{js,jsx,ts,tsx} && rimraf babel.config.js .tmp.js",
-    "t": "yarn extract",
-    "g": "graphql-codegen",
+    "i18n": "esbuild i18next-extract.babel.config.ts --outfile=babel.config.js --bundle --platform=node && babel -o .tmp.js src/**/*.{js,jsx,ts,tsx} && rimraf babel.config.js .tmp.js",
+    "graphql": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
     "deploy": "gatsby-plugin-s3 deploy",
     "prepare": "husky install"
