@@ -103,8 +103,5 @@
     "last 3 ChromeAndroid major versions",
     "last 3 iOS major versions"
   ],
-  "packageManager": "yarn@3.2.4",
-  "workspaces": [
-    "content"
-  ]
+  "packageManager": "yarn@3.2.4"
 }
