@@ -175,5 +175,5 @@ Temporary Items
 # Local History for Visual Studio Code
 .history/
 
-# vanilla scripts
-static/vanilla
+# text lint
+.textlintcache
