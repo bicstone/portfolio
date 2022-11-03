@@ -56,14 +56,16 @@ export const HistoryList = (props: {
       <Typography component="div" align="right" paragraph>
         <BulkExpandButton expanded={isAllExpanded} onClick={toggleBulkExpand} />
       </Typography>
-      {histories.map((history) => (
-        <HistoryCard
-          key={history.id}
-          history={history}
-          expanded={expandedIds.includes(history.id)}
-          onChange={toggleExpand}
-        />
-      ))}
+      <div>
+        {histories.map((history) => (
+          <HistoryCard
+            key={history.id}
+            history={history}
+            expanded={expandedIds.includes(history.id)}
+            onChange={toggleExpand}
+          />
+        ))}
+      </div>
     </>
   );
 };

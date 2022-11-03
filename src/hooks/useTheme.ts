@@ -47,6 +47,9 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
           },
         },
       },
+      shape: {
+        borderRadius: 8, // defaultTheme.spacing(1)
+      },
       components: {
         MuiButton: {
           styleOverrides: {
@@ -80,6 +83,13 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         MuiLink: {
           defaultProps: {
             color: "inherit",
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            rounded: {
+              borderRadius: defaultTheme.spacing(1.5),
+            },
           },
         },
       },

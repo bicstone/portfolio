@@ -8,4 +8,12 @@ export const StyledAccordion = styled(Accordion)(({ theme }) => ({
   "&:before": {
     display: "none",
   },
+  "&:first-of-type": {
+    borderTopLeftRadius: theme.spacing(1.5),
+    borderTopRightRadius: theme.spacing(1.5),
+  },
+  "&:last-of-type": {
+    borderBottomLeftRadius: theme.spacing(1.5),
+    borderBottomRightRadius: theme.spacing(1.5),
+  },
 }));

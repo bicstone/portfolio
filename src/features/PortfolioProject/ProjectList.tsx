@@ -56,14 +56,16 @@ export const ProjectList = (props: {
       <Typography component="div" align="right" paragraph>
         <BulkExpandButton expanded={isAllExpanded} onClick={toggleBulkExpand} />
       </Typography>
-      {projects.map((project) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          expanded={expandedIds.includes(project.id)}
-          onChange={toggleExpand}
-        />
-      ))}
+      <div>
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            expanded={expandedIds.includes(project.id)}
+            onChange={toggleExpand}
+          />
+        ))}
+      </div>
     </>
   );
 };
