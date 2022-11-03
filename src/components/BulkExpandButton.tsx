@@ -5,7 +5,7 @@ import {
 import { Button } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
-export const PortfolioProjectBulkExpandButton = (props: {
+export const BulkExpandButton = (props: {
   expanded: boolean;
   onClick: () => void;
 }): JSX.Element => {
@@ -26,11 +26,11 @@ export const PortfolioProjectBulkExpandButton = (props: {
       size="small"
       endIcon={expanded ? <UnfoldLessIcon /> : <UnfoldMoreIcon />}
       onClick={onClick}
-      aria-label={t("home.projects.all-expand.hint")}
+      aria-label={t("bulk-expand-button.hint")}
     >
       {expanded
-        ? t("home.projects.label.all-less")
-        : t("home.projects.label.all-more")}
+        ? t("bulk-expand-button.label.all-less")
+        : t("bulk-expand-button.label.all-more")}
     </Button>
   );
 };

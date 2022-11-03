@@ -23,12 +23,7 @@ export const WrapRootElement = ({
 
   return (
     <EmotionThemeProvider theme={theme}>
-      <CssVarsProvider
-        defaultMode="system"
-        enableColorScheme
-        disableTransitionOnChange
-        theme={theme}
-      >
+      <CssVarsProvider defaultMode="system" theme={theme}>
         <Global
           styles={{
             body: {
@@ -43,7 +38,7 @@ export const WrapRootElement = ({
             },
           }}
         />
-        <CssBaseline />
+        <CssBaseline enableColorScheme />
         {children}
       </CssVarsProvider>
     </EmotionThemeProvider>

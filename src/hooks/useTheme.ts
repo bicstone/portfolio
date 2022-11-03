@@ -47,6 +47,9 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
           },
         },
       },
+      shape: {
+        borderRadius: 8, // defaultTheme.spacing(1)
+      },
       components: {
         MuiButton: {
           styleOverrides: {
@@ -80,6 +83,33 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         MuiLink: {
           defaultProps: {
             color: "inherit",
+          },
+        },
+        MuiPaper: {
+          styleOverrides: {
+            rounded: {
+              borderRadius: defaultTheme.spacing(1.5),
+            },
+          },
+        },
+        MuiAccordion: {
+          styleOverrides: {
+            rounded: {
+              "&:before": {
+                display: "none",
+              },
+              "&:not(:last-of-type)": {
+                borderBottom: `1px solid ${defaultTheme.palette.divider}`,
+              },
+              "&:first-of-type": {
+                borderTopLeftRadius: defaultTheme.spacing(1.5),
+                borderTopRightRadius: defaultTheme.spacing(1.5),
+              },
+              "&:last-of-type": {
+                borderBottomLeftRadius: defaultTheme.spacing(1.5),
+                borderBottomRightRadius: defaultTheme.spacing(1.5),
+              },
+            },
           },
         },
       },
