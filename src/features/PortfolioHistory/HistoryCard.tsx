@@ -1,5 +1,6 @@
 import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import {
+  Accordion,
   AccordionDetails,
   AccordionSummary,
   CardHeader,
@@ -11,7 +12,6 @@ import { useMemo } from "react";
 
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
-import { StyledAccordion } from "@/components/StyledAccordion";
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
@@ -44,7 +44,7 @@ export const HistoryCard = (props: {
   }, [history.date]);
 
   return (
-    <StyledAccordion
+    <Accordion
       expanded={expanded}
       disableGutters
       onChange={() => onChange(history.id)}
@@ -81,6 +81,6 @@ export const HistoryCard = (props: {
           {history.subName}
         </Typography>
       </AccordionDetails>
-    </StyledAccordion>
+    </Accordion>
   );
 };

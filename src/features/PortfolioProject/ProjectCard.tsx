@@ -5,6 +5,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Chip,
+  Accordion,
 } from "@mui/material";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
@@ -13,7 +14,6 @@ import { ProjectDetail } from "./ProjectDetail";
 
 import type { PortfolioProjectCardFragment } from "@/generated/graphqlTypes";
 
-import { StyledAccordion } from "@/components/StyledAccordion";
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
@@ -47,7 +47,7 @@ export const ProjectCard = (props: {
   }, [project.startDate]);
 
   return (
-    <StyledAccordion
+    <Accordion
       expanded={expanded}
       disableGutters
       onChange={() => onChange(project.id)}
@@ -99,6 +99,6 @@ export const ProjectCard = (props: {
       <AccordionDetails>
         <ProjectDetail project={project} />
       </AccordionDetails>
-    </StyledAccordion>
+    </Accordion>
   );
 };

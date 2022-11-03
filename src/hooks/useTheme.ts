@@ -92,6 +92,26 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
             },
           },
         },
+        MuiAccordion: {
+          styleOverrides: {
+            rounded: {
+              "&:before": {
+                display: "none",
+              },
+              "&:not(:last-of-type)": {
+                borderBottom: `1px solid ${defaultTheme.palette.divider}`,
+              },
+              "&:first-of-type": {
+                borderTopLeftRadius: defaultTheme.spacing(1.5),
+                borderTopRightRadius: defaultTheme.spacing(1.5),
+              },
+              "&:last-of-type": {
+                borderBottomLeftRadius: defaultTheme.spacing(1.5),
+                borderBottomRightRadius: defaultTheme.spacing(1.5),
+              },
+            },
+          },
+        },
       },
     });
   }, [defaultTheme]);
