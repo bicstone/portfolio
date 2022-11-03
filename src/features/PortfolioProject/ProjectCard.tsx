@@ -2,7 +2,6 @@ import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import {
   CardHeader,
   Typography,
-  Accordion,
   AccordionDetails,
   AccordionSummary,
   Chip,
@@ -14,6 +13,7 @@ import { ProjectDetail } from "./ProjectDetail";
 
 import type { PortfolioProjectCardFragment } from "@/generated/graphqlTypes";
 
+import { StyledAccordion } from "@/components/StyledAccordion";
 import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
@@ -47,7 +47,11 @@ export const ProjectCard = (props: {
   }, [project.startDate]);
 
   return (
-    <Accordion expanded={expanded} onChange={() => onChange(project.id)}>
+    <StyledAccordion
+      expanded={expanded}
+      disableGutters
+      onChange={() => onChange(project.id)}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={`${project.id}-content`}
@@ -82,6 +86,9 @@ export const ProjectCard = (props: {
                   key={tag.name}
                   label={tag.name}
                   role="listitem"
+                  css={(theme) => ({
+                    color: theme.vars.palette.text.secondary,
+                  })}
                 />
               ))}
             </Typography>
@@ -92,6 +99,6 @@ export const ProjectCard = (props: {
       <AccordionDetails>
         <ProjectDetail project={project} />
       </AccordionDetails>
-    </Accordion>
+    </StyledAccordion>
   );
 };

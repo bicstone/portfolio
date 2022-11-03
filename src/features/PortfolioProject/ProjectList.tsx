@@ -2,11 +2,15 @@ import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
 import { useCallback, useMemo, useReducer } from "react";
 
-import { AccordionExpendReducer, initialState } from "./AccordionExpendReducer";
-import { PortfolioProjectBulkExpandButton } from "./BulkExpandButton";
 import { ProjectCard } from "./ProjectCard";
 
 import type { PortfolioProjectListFragment } from "@/generated/graphqlTypes";
+
+import { BulkExpandButton } from "@/components/BulkExpandButton";
+import {
+  AccordionExpendReducer,
+  initialState,
+} from "@/reducers/AccordionExpendReducer";
 
 export const query = graphql`
   fragment PortfolioProjectList on ContentfulProject {
@@ -50,10 +54,7 @@ export const ProjectList = (props: {
   return (
     <>
       <Typography component="div" align="right" paragraph>
-        <PortfolioProjectBulkExpandButton
-          expanded={isAllExpanded}
-          onClick={toggleBulkExpand}
-        />
+        <BulkExpandButton expanded={isAllExpanded} onClick={toggleBulkExpand} />
       </Typography>
       {projects.map((project) => (
         <ProjectCard
