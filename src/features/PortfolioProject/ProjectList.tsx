@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
-import { useCallback, useReducer } from "react";
+import { useCallback, useMemo, useReducer } from "react";
 
 import { AccordionExpendReducer, initialState } from "./AccordionExpendReducer";
 import { PortfolioProjectBulkExpandButton } from "./BulkExpandButton";
@@ -20,14 +20,28 @@ export const ProjectList = (props: {
 }): JSX.Element => {
   const { projects } = props;
 
-  const [expanded, dispatchExpanded] = useReducer(
+  const [expandedIds, dispatchExpanded] = useReducer(
     AccordionExpendReducer,
     initialState
   );
 
+  const allIds = useMemo(
+    () => projects.map((project) => project.id),
+    [projects]
+  );
+
+  const isAllExpanded = useMemo(
+    () => expandedIds.length === allIds.length,
+    [allIds.length, expandedIds.length]
+  );
+
   const toggleBulkExpand = useCallback(() => {
-    dispatchExpanded({ type: "TOGGLE_BULK_EXPAND" });
-  }, []);
+    if (isAllExpanded) {
+      dispatchExpanded({ type: "ALL_COLLAPSE" });
+    } else {
+      dispatchExpanded({ type: "ALL_EXPAND", ids: allIds });
+    }
+  }, [allIds, isAllExpanded]);
 
   const toggleExpand = useCallback((id: string): void => {
     dispatchExpanded({ type: "TOGGLE_EXPAND", id });
@@ -37,7 +51,7 @@ export const ProjectList = (props: {
     <>
       <Typography component="div" align="right" paragraph>
         <PortfolioProjectBulkExpandButton
-          expanded={Boolean(expanded)}
+          expanded={isAllExpanded}
           onClick={toggleBulkExpand}
         />
       </Typography>
@@ -45,7 +59,7 @@ export const ProjectList = (props: {
         <ProjectCard
           key={project.id}
           project={project}
-          expanded={expanded === project.id || expanded === true}
+          expanded={expandedIds.includes(project.id)}
           onChange={toggleExpand}
         />
       ))}
