@@ -27,7 +27,6 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
         "@/hooks": path.resolve("src/hooks"),
         "@/utils": path.resolve("src/utils"),
         "@/layouts": path.resolve("src/layouts"),
-        "@/reducers": path.resolve("src/reducers"),
       },
     },
   });

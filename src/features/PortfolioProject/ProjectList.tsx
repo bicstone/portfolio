@@ -1,16 +1,13 @@
 import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
-import { useCallback, useMemo, useReducer } from "react";
+import { useMemo } from "react";
 
 import { ProjectCard } from "./ProjectCard";
 
 import type { PortfolioProjectListFragment } from "@/generated/graphqlTypes";
 
 import { BulkExpandButton } from "@/components/BulkExpandButton";
-import {
-  AccordionExpendReducer,
-  initialState,
-} from "@/reducers/AccordionExpendReducer";
+import { useAccordionExpend } from "@/hooks/useAccordionExpend";
 
 export const query = graphql`
   fragment PortfolioProjectList on ContentfulProject {
@@ -24,32 +21,13 @@ export const ProjectList = (props: {
 }): JSX.Element => {
   const { projects } = props;
 
-  const [expandedIds, dispatchExpanded] = useReducer(
-    AccordionExpendReducer,
-    initialState
-  );
-
   const allIds = useMemo(
     () => projects.map((project) => project.id),
     [projects]
   );
 
-  const isAllExpanded = useMemo(
-    () => expandedIds.length === allIds.length,
-    [allIds.length, expandedIds.length]
-  );
-
-  const toggleBulkExpand = useCallback(() => {
-    if (isAllExpanded) {
-      dispatchExpanded({ type: "ALL_COLLAPSE" });
-    } else {
-      dispatchExpanded({ type: "ALL_EXPAND", ids: allIds });
-    }
-  }, [allIds, isAllExpanded]);
-
-  const toggleExpand = useCallback((id: string): void => {
-    dispatchExpanded({ type: "TOGGLE_EXPAND", id });
-  }, []);
+  const { expandedIds, isAllExpanded, toggleBulkExpand, toggleExpand } =
+    useAccordionExpend(allIds);
 
   return (
     <>
