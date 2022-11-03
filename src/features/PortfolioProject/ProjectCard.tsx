@@ -2,10 +2,10 @@ import { ExpandMore as ExpandMoreIcon } from "@mui/icons-material";
 import {
   CardHeader,
   Typography,
-  Accordion,
   AccordionDetails,
   AccordionSummary,
   Chip,
+  Accordion,
 } from "@mui/material";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
@@ -47,7 +47,11 @@ export const ProjectCard = (props: {
   }, [project.startDate]);
 
   return (
-    <Accordion expanded={expanded} onChange={() => onChange(project.id)}>
+    <Accordion
+      expanded={expanded}
+      disableGutters
+      onChange={() => onChange(project.id)}
+    >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls={`${project.id}-content`}
@@ -82,6 +86,9 @@ export const ProjectCard = (props: {
                   key={tag.name}
                   label={tag.name}
                   role="listitem"
+                  css={(theme) => ({
+                    color: theme.vars.palette.text.secondary,
+                  })}
                 />
               ))}
             </Typography>
