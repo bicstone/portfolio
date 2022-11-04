@@ -63,7 +63,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 ### テスト
 
 - 当リポジトリでは、テストを一切作成していません。
-- 私が書くテストを参照されたい方は、下記のリポジトリを参照頂ければ幸いです。
+- 下記のリポジトリで私が書くテストを参照できます。
   - [bicstone/backlog-notify](https://github.com/bicstone/backlog-notify) (jest)
   - [bicstone/gatsby-plugin-fix-fouc](https://github.com/bicstone/gatsby-plugin-fix-fouc) (jest, cypress)
 
