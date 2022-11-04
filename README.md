@@ -61,6 +61,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - ポートフォリオは最新のコンテンツを維持し続けることが最も重要であるため、更新作業を省力化することが最も重要だと考えました。バックエンドはヘッドレス CMS である Contentful で管理しています。
 
 ### テスト
+
 - 当リポジトリでは、テストを一切作成していません。
 - 私が書くテストを参照されたい方は、下記のリポジトリを参照頂ければ幸いです。
   - [bicstone/backlog-notify](https://github.com/bicstone/backlog-notify) (jest)
