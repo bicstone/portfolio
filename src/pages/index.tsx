@@ -32,46 +32,42 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage($language: String!) {
-    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+    links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioHelloContent
       }
     }
-    whatICanDos: allContentfulWhatICanDo(
-      sort: { fields: sortKey, order: ASC }
-    ) {
+    whatICanDos: allContentfulWhatICanDo(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioWhatICanDoList
       }
     }
-    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
+    projects: allContentfulProject(sort: { startDate: DESC }) {
       nodes {
         ...PortfolioProjectList
       }
     }
-    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
+    histories: allContentfulHistory(sort: { date: DESC }) {
       nodes {
         ...PortfolioHistoryList
       }
     }
-    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
+    osses: allContentfulOss(sort: { startDate: DESC }) {
       nodes {
         ...PortfolioOssList
       }
     }
-    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
+    skills: allContentfulSkillMap(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioSkillList
       }
     }
-    # 資格一覧を取得する
-    certification: allContentfulQualificationMap(
-      sort: { fields: sortKey, order: ASC }
-    ) {
+    certification: allContentfulQualificationMap(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioCertificationList
       }
     }
+
     # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
