@@ -35,7 +35,7 @@
     "fuse.js": "6.6.2",
     "gatsby": "5.0.0",
     "gatsby-plugin-emotion": "8.0.0",
-    "gatsby-plugin-fix-fouc": "0.1.4",
+    "gatsby-plugin-fix-fouc": "0.2.0",
     "gatsby-plugin-google-tagmanager": "5.0.0",
     "gatsby-plugin-image": "3.0.0",
     "gatsby-plugin-layout": "4.0.0",

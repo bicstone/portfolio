@@ -5869,7 +5869,7 @@ __metadata:
     fuse.js: 6.6.2
     gatsby: 5.0.0
     gatsby-plugin-emotion: 8.0.0
-    gatsby-plugin-fix-fouc: 0.1.4
+    gatsby-plugin-fix-fouc: 0.2.0
     gatsby-plugin-google-tagmanager: 5.0.0
     gatsby-plugin-image: 3.0.0
     gatsby-plugin-layout: 4.0.0
@@ -10147,14 +10147,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-fix-fouc@npm:0.1.4":
-  version: 0.1.4
-  resolution: "gatsby-plugin-fix-fouc@npm:0.1.4"
+"gatsby-plugin-fix-fouc@npm:0.2.0":
+  version: 0.2.0
+  resolution: "gatsby-plugin-fix-fouc@npm:0.2.0"
   dependencies:
     camel-case: ^4
   peerDependencies:
-    gatsby: ^3 || ^4
-  checksum: 7558e94bfebbb362b42402183081597cf5dcf0bf507fa3e2f5397218a1bc25720702255fe88b1dc12c704fd9d458cbdc2f96ed90c566af2d779e5ce3596e1a24
+    gatsby: ^3 || ^4 || ^5
+  checksum: c453fd117584d2c29ffedcae6176a8d02ec37c0c0f76526c892b67985aa6411b98b0af9f02e5afe8e77d4ab9f06b501b637695abcb97ae204eeec66d389bbb25
   languageName: node
   linkType: hard
 
