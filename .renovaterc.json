@@ -14,17 +14,7 @@
     },
     {
       "enabled": false,
-      "matchPackagePrefixes": ["gatsby"],
-      "matchUpdateTypes": ["major"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePrefixes": ["babel-preset-gatsby"],
-      "matchUpdateTypes": ["major"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePatterns": ["gatsby-*"],
+      "matchPackagePrefixes": ["gatsby-plugin-mdx"],
       "matchUpdateTypes": ["major"]
     }
   ],
