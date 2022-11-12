@@ -1,12 +1,13 @@
 import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
-import { useCallback, useReducer } from "react";
+import { useMemo } from "react";
 
-import { AccordionExpendReducer, initialState } from "./AccordionExpendReducer";
-import { PortfolioProjectBulkExpandButton } from "./BulkExpandButton";
 import { ProjectCard } from "./ProjectCard";
 
 import type { PortfolioProjectListFragment } from "@/generated/graphqlTypes";
+
+import { BulkExpandButton } from "@/components/BulkExpandButton";
+import { useAccordionExpend } from "@/hooks/useAccordionExpend";
 
 export const query = graphql`
   fragment PortfolioProjectList on ContentfulProject {
@@ -20,35 +21,29 @@ export const ProjectList = (props: {
 }): JSX.Element => {
   const { projects } = props;
 
-  const [expanded, dispatchExpanded] = useReducer(
-    AccordionExpendReducer,
-    initialState
+  const allIds = useMemo(
+    () => projects.map((project) => project.id),
+    [projects]
   );
 
-  const toggleBulkExpand = useCallback(() => {
-    dispatchExpanded({ type: "TOGGLE_BULK_EXPAND" });
-  }, []);
-
-  const toggleExpand = useCallback((id: string): void => {
-    dispatchExpanded({ type: "TOGGLE_EXPAND", id });
-  }, []);
+  const { expandedIds, isAllExpanded, toggleBulkExpand, toggleExpand } =
+    useAccordionExpend(allIds);
 
   return (
     <>
       <Typography component="div" align="right" paragraph>
-        <PortfolioProjectBulkExpandButton
-          expanded={Boolean(expanded)}
-          onClick={toggleBulkExpand}
-        />
+        <BulkExpandButton expanded={isAllExpanded} onClick={toggleBulkExpand} />
       </Typography>
-      {projects.map((project) => (
-        <ProjectCard
-          key={project.id}
-          project={project}
-          expanded={expanded === project.id || expanded === true}
-          onChange={toggleExpand}
-        />
-      ))}
+      <div>
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.id}
+            project={project}
+            expanded={expandedIds.includes(project.id)}
+            onChange={toggleExpand}
+          />
+        ))}
+      </div>
     </>
   );
 };

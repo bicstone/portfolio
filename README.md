@@ -60,6 +60,13 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - Sentry を用いてエラー管理を行っています。
 - ポートフォリオは最新のコンテンツを維持し続けることが最も重要であるため、更新作業を省力化することが最も重要だと考えました。バックエンドはヘッドレス CMS である Contentful で管理しています。
 
+### テスト
+
+- 当リポジトリでは、テストを一切作成していません。
+- 下記のリポジトリで私が書くテストを参照できます。
+  - [bicstone/backlog-notify](https://github.com/bicstone/backlog-notify) (jest)
+  - [bicstone/gatsby-plugin-fix-fouc](https://github.com/bicstone/gatsby-plugin-fix-fouc) (jest, cypress)
+
 ## 使用技術
 
 ### 言語 / FW
