@@ -36,7 +36,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
     const result = await graphql<OnCreatePagesStatefullyQuery>(`
       query OnCreatePagesStatefully {
-        allContentfulBlogPost(sort: { fields: created, order: DESC }) {
+        allContentfulBlogPost(sort: { created: DESC }) {
           nodes {
             # see BLOG_POST_SEARCH_FIELDS
             title

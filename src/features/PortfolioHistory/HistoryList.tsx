@@ -1,9 +1,13 @@
-import { Card } from "@mui/material";
+import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
+import { useMemo } from "react";
 
-import { HistoryCardContent } from "./HistoryCardContent";
+import { HistoryCard } from "./HistoryCard";
 
 import type { PortfolioHistoryListFragment } from "@/generated/graphqlTypes";
+
+import { BulkExpandButton } from "@/components/BulkExpandButton";
+import { useAccordionExpend } from "@/hooks/useAccordionExpend";
 
 export const query = graphql`
   fragment PortfolioHistoryList on ContentfulHistory {
@@ -17,11 +21,29 @@ export const HistoryList = (props: {
 }): JSX.Element => {
   const { histories } = props;
 
+  const allIds = useMemo(
+    () => histories.map((history) => history.id),
+    [histories]
+  );
+
+  const { expandedIds, isAllExpanded, toggleBulkExpand, toggleExpand } =
+    useAccordionExpend(allIds);
+
   return (
-    <Card>
-      {histories.map((history) => (
-        <HistoryCardContent key={history.id} history={history} />
-      ))}
-    </Card>
+    <>
+      <Typography component="div" align="right" paragraph>
+        <BulkExpandButton expanded={isAllExpanded} onClick={toggleBulkExpand} />
+      </Typography>
+      <div>
+        {histories.map((history) => (
+          <HistoryCard
+            key={history.id}
+            history={history}
+            expanded={expandedIds.includes(history.id)}
+            onChange={toggleExpand}
+          />
+        ))}
+      </div>
+    </>
   );
 };

@@ -26,6 +26,7 @@ export const ProjectDetail = (props: {
   return (
     <>
       <Typography
+        component="div"
         variant="subtitle1"
         css={(theme) => ({ margin: theme.spacing(2) })}
       >

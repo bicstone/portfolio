@@ -18520,7 +18520,7 @@ export type PortfolioHelloContentFragment = Pick<ContentfulHello, 'id' | 'href' 
 export type SocialLinksFragment = Pick<ContentfulHello, 'id' | 'href' | 'name'>;
 
 export type PortfolioHistoryCardFragment = (
-  Pick<ContentfulHistory, 'date' | 'name' | 'subName'>
+  Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
   & { readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
     & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
