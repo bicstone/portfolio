@@ -1,4 +1,4 @@
-import SearchIcon from "@mui/icons-material/Search";
+import SearchIcon from "@mui/icons-material/SearchRounded";
 import { Button, Dialog, useMediaQuery } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useCallback } from "react";

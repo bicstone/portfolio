@@ -1,6 +1,6 @@
 import {
-  AccessTime as AccessTimeIcon,
-  Update as UpdateIcon,
+  AccessTimeRounded as AccessTimeIcon,
+  UpdateRounded as UpdateIcon,
 } from "@mui/icons-material";
 import { Card, Container, NoSsr, Typography } from "@mui/material";
 import { graphql } from "gatsby";
@@ -244,8 +244,9 @@ export const BlogPostPage = ({
 
       <Card
         css={(theme) => ({
-          margin: theme.spacing(2, 0),
-          padding: theme.spacing(2, 0),
+          margin: theme.spacing(3, 0),
+          padding: theme.spacing(3, 0),
+          borderRadius: theme.spacing(2),
         })}
       >
         <BlogPostDetail post={post} />

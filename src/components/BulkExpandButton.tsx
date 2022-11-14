@@ -1,6 +1,6 @@
 import {
-  UnfoldMore as UnfoldMoreIcon,
-  UnfoldLess as UnfoldLessIcon,
+  UnfoldMoreRounded as UnfoldMoreIcon,
+  UnfoldLessRounded as UnfoldLessIcon,
 } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";

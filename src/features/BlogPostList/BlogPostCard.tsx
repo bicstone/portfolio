@@ -1,6 +1,6 @@
 import {
-  Update as UpdateIcon,
-  AccessTime as AccessTimeIcon,
+  UpdateRounded as UpdateIcon,
+  AccessTimeRounded as AccessTimeIcon,
 } from "@mui/icons-material";
 import {
   Typography,
