@@ -1,4 +1,4 @@
-import { NavigateNext as NavigateNextIcon } from "@mui/icons-material";
+import { NavigateNextRounded as NavigateNextIcon } from "@mui/icons-material";
 import { Breadcrumbs as MuiBreadcrumbs, Typography, Link } from "@mui/material";
 import { useLocation } from "@reach/router";
 import { Link as RouterLink, withPrefix } from "gatsby";

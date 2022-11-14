@@ -54,7 +54,9 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         MuiButton: {
           styleOverrides: {
             root: {
+              borderRadius: "50px",
               textTransform: "none",
+              fontWeight: "bold",
             },
           },
         },

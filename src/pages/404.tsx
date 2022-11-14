@@ -1,4 +1,4 @@
-import { SelfImprovement as SelfImprovementIcon } from "@mui/icons-material";
+import { SelfImprovementRounded as SelfImprovementIcon } from "@mui/icons-material";
 import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
