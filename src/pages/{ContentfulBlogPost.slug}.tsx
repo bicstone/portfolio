@@ -244,8 +244,8 @@ export const BlogPostPage = ({
 
       <Card
         css={(theme) => ({
-          margin: theme.spacing(2, 0),
-          padding: theme.spacing(2, 0),
+          margin: theme.spacing(3, 0),
+          padding: theme.spacing(3, 0),
           borderRadius: theme.spacing(2),
         })}
       >
