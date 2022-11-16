@@ -9,7 +9,6 @@ import type { GatsbyConfig } from "gatsby";
 dotenv.config({ path: `.env` });
 
 const isDevelopment = process.env.NODE_ENV === "development";
-const isCI = process.env.CI !== undefined;
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
@@ -123,7 +122,7 @@ const config: GatsbyConfig = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: (locale: { code: string }) => locale.code === "ja",
-        pageLimit: isCI ? 50 : 100,
+        pageLimit: 50,
       },
     },
     {

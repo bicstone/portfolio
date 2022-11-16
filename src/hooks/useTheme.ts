@@ -7,6 +7,8 @@ import { useMemo } from "react";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
+import { FONT_FAMILY } from "@/components/markdown/constants";
+
 export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
   const defaultTheme = useMemo(() => createTheme(), []);
   const theme = useMemo(() => {
@@ -47,6 +49,9 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
           },
         },
       },
+      typography: {
+        fontFamily: FONT_FAMILY,
+      },
       shape: {
         borderRadius: 8, // defaultTheme.spacing(1)
       },
@@ -57,6 +62,9 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
               borderRadius: "50px",
               textTransform: "none",
               fontWeight: "bold",
+            },
+            sizeSmall: {
+              padding: defaultTheme.spacing(0.5, 1.5),
             },
           },
         },
