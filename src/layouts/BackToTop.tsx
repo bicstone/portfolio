@@ -43,9 +43,20 @@ export const BackToTop = (): JSX.Element => {
             bottom: theme.spacing(3),
             right: theme.spacing(3),
             zIndex: theme.zIndex.tooltip,
+            border: `1px solid ${
+              theme.palette.mode === "dark"
+                ? theme.vars.palette.common.white
+                : theme.vars.palette.divider
+            }`,
             borderRadius: theme.spacing(2),
-            color: theme.vars.palette.text.secondary,
+            color:
+              theme.palette.mode === "dark"
+                ? theme.vars.palette.text.primary
+                : theme.vars.palette.text.secondary,
             backgroundColor: theme.vars.palette.background.paper,
+            "&:hover": {
+              backgroundColor: theme.vars.palette.background.paper,
+            },
           })}
         >
           <KeyboardArrowUpIcon color="inherit" fontSize="medium" />
