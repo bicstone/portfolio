@@ -27,13 +27,6 @@ export const query = graphql`
         ...BlogPostList
       }
     }
-    categoryList: allContentfulCategory(sort: { sortKey: DESC }) {
-      nodes {
-        id
-        name
-      }
-    }
-
     # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
