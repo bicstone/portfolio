@@ -37,6 +37,9 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
         css={(theme) => ({
           backgroundColor: theme.vars.palette.background.default,
           marginRight: theme.spacing(0.5),
+          "&:hover": {
+            backgroundColor: theme.vars.palette.background.default,
+          },
         })}
         variant="outlined"
         color="inherit"

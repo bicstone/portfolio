@@ -63,7 +63,7 @@
   "search": {
     "button": {
       "hint": "検索フォームを開く",
-      "title": "検索"
+      "title": "検索 (/)"
     },
     "close": {
       "hint": "検索フォームを閉じる",
