@@ -36,6 +36,13 @@ const config: GatsbyConfig = {
       resolve: "gatsby-plugin-emotion",
     },
     {
+      resolve: `gatsby-plugin-fix-fouc`,
+      options: {
+        attributeName: "is-loading",
+        timeout: 0,
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GTM_ID,

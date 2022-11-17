@@ -1,7 +1,4 @@
-import {
-  UpdateRounded as UpdateIcon,
-  AccessTimeRounded as AccessTimeIcon,
-} from "@mui/icons-material";
+import { AccessTimeRounded as AccessTimeIcon } from "@mui/icons-material";
 import {
   Typography,
   CardActionArea,
@@ -23,7 +20,6 @@ export const query = graphql`
     title
     slug
     created
-    updated
     excerpt
   }
 `;
@@ -40,14 +36,10 @@ export const BlogPostCard = (props: {
     () => formatDateTime(post.created, "yyyy/MM/dd"),
     [post.created]
   );
-  const updatedDate = useMemo(
-    () => formatDateTime(post.updated, "yyyy/MM/dd"),
-    [post.updated]
-  );
 
   return (
-    <article css={(theme) => ({ margin: theme.spacing(1, 0) })}>
-      <Card>
+    <article css={(theme) => ({ margin: theme.spacing(1) })}>
+      <Card elevation={2}>
         <CardActionArea
           component={RouterLink}
           to={`/${post.slug}`}
@@ -86,24 +78,6 @@ export const BlogPostCard = (props: {
                 justifyContent: "flex-end",
               }}
             >
-              {isDefined(post.updated) && (
-                <>
-                  <UpdateIcon
-                    fontSize="inherit"
-                    css={(theme) => ({
-                      marginRight: theme.spacing(0.5),
-                    })}
-                  />
-                  <time
-                    dateTime={post.updated}
-                    css={(theme) => ({
-                      marginRight: theme.spacing(1),
-                    })}
-                  >
-                    {updatedDate}
-                  </time>
-                </>
-              )}
               {isDefined(post.created) && (
                 <>
                   <AccessTimeIcon

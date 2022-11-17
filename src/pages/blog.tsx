@@ -1,9 +1,21 @@
-import { Container, Typography } from "@mui/material";
+import styled from "@emotion/styled";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import {
+  Container,
+  Tab,
+  Typography,
+  tabClasses,
+  tabsClasses,
+  tabScrollButtonClasses,
+  Card,
+} from "@mui/material";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
+import { useCallback, useState } from "react";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
+import type { SyntheticEvent } from "react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
@@ -24,7 +36,21 @@ export const query = graphql`
             url
           }
         }
+        category {
+          id
+        }
         ...BlogPostList
+      }
+    }
+    categoryList: allContentfulCategory(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        id
+        name
+      }
+    }
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        ...PortfolioHelloContent
       }
     }
     # gatsby-plugin-react-i18next
@@ -140,34 +166,112 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
   );
 };
 
+const StyledTabList = styled(TabList)(({ theme }) => ({
+  margin: theme.spacing(1),
+  minHeight: 0,
+  [`& .${tabsClasses.flexContainer}`]: {
+    gap: theme.spacing(1),
+  },
+  [`& .${tabsClasses.indicator}`]: {
+    display: "none",
+  },
+  [`& .${tabScrollButtonClasses.root}`]: {
+    borderRadius: theme.spacing(5),
+  },
+  // "&&&"" is override MUI styles
+  [`&&& .${tabScrollButtonClasses.disabled}`]: {
+    opacity: 1,
+    color: theme.vars.palette.text.disabled,
+  },
+}));
+
+const StyledTab = styled(Tab)(({ theme }) => ({
+  background: theme.vars.palette.background.paper,
+  border: `1px solid ${theme.vars.palette.divider}`,
+  borderRadius: theme.spacing(1.5),
+  color: theme.vars.palette.text.primary,
+  fontWeight: "bold",
+  margin: 0,
+  minHeight: 0,
+  minWidth: theme.spacing(8),
+  padding: theme.spacing(1, 2),
+  textTransform: "none",
+  [`&.${tabClasses.selected}`]: {
+    background: theme.vars.palette.secondary.main,
+    color: theme.vars.palette.secondary.contrastText,
+  },
+}));
+
+const StyledTabPanel = styled(TabPanel)(({ theme }) => ({
+  flexGrow: 1,
+  padding: 0,
+  marginBottom: theme.spacing(1),
+}));
+
 const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
+  const categoryList = data.categoryList.nodes;
   const { t } = useI18next();
 
+  const [value, setValue] = useState("all");
+
+  const handleChange = (_: SyntheticEvent, newValue: string): void => {
+    setValue(newValue);
+  };
+
+  const filteredBlogPostList = useCallback(
+    (id: string) => blogPostList.filter((post) => post.category.id === id),
+    [blogPostList]
+  );
+
   return (
-    <Container maxWidth="md">
+    <Container
+      maxWidth="md"
+      css={{ display: "flex", flexDirection: "column", height: "100%" }}
+    >
       <Breadcrumbs
         title={t("blog.title")}
-        css={(theme) => ({ margin: theme.spacing(2, 0) })}
+        css={(theme) => ({ margin: theme.spacing(1, 0) })}
       />
 
-      <Typography component="h1" variant="h5" align="center" paragraph>
+      <Typography component="h1" variant="h4" align="center">
         {t("blog.title")}
       </Typography>
 
-      <Typography>{t("blog.caption")}</Typography>
-
-      <div css={(theme) => ({ margin: theme.spacing(3, 0) })}>
-        <BlogPostList blogPostList={blogPostList} />
-      </div>
-
-      <Breadcrumbs
-        title={t("blog.title")}
+      <Card
         css={(theme) => ({
-          marginTop: theme.spacing(2),
-          marginBottom: theme.spacing(2),
+          margin: theme.spacing(2, -3),
+          padding: theme.spacing(2),
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: "column",
         })}
-      />
+      >
+        <TabContext value={value}>
+          <StyledTabList
+            onChange={handleChange}
+            textColor="secondary"
+            variant="scrollable"
+            allowScrollButtonsMobile
+          >
+            <StyledTab value="all" label="All" />
+            {categoryList.map(({ id, name }) => (
+              <StyledTab key={id} label={name} value={id} />
+            ))}
+          </StyledTabList>
+          <StyledTabPanel value="all">
+            <BlogPostList blogPostList={blogPostList} />
+          </StyledTabPanel>
+          {categoryList.map(({ id }) => {
+            const filteredList = filteredBlogPostList(id);
+            return (
+              <StyledTabPanel key={id} value={id}>
+                <BlogPostList blogPostList={filteredList} />
+              </StyledTabPanel>
+            );
+          })}
+        </TabContext>
+      </Card>
     </Container>
   );
 };

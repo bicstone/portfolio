@@ -20743,8 +20743,8 @@ export type BlogPageQueryVariables = Exact<{
 
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'updated' | 'excerpt'>
-      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }> }
-    )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
+    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'name'>> }, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
