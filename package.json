@@ -7,18 +7,14 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop --port 10014",
-    "dev": "yarn develop",
-    "start": "yarn develop",
     "serve": "gatsby serve --port 20014",
     "clean": "gatsby clean",
     "lint": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --cache --ignore-path .eslintignore --write .",
-    "extract": "esbuild i18next-extract.babel.config.ts --outfile=babel.config.js --bundle --platform=node && babel -o .tmp.js src/**/*.{js,jsx,ts,tsx} && rimraf babel.config.js .tmp.js",
-    "t": "yarn extract",
-    "g": "graphql-codegen",
+    "i18n": "esbuild i18next-extract.babel.config.ts --outfile=babel.config.js --bundle --platform=node && babel -o .tmp.js src/**/*.{js,jsx,ts,tsx} && rimraf babel.config.js .tmp.js",
+    "graphql": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
-    "tc": "yarn typecheck",
     "deploy": "gatsby-plugin-s3 deploy",
     "prepare": "husky install"
   },
@@ -101,17 +97,13 @@
     "url": "https://github.com/bicstone/portfolio/issues"
   },
   "browserslist": [
-    "last 2 Chrome major versions",
-    "last 2 Firefox major versions",
-    "last 2 Safari major versions",
-    "last 2 Edge major versions",
-    "last 2 Android major versions",
-    "last 2 ChromeAndroid major versions",
-    "last 2 iOS major versions"
+    "last 3 Chrome major versions",
+    "last 3 Firefox major versions",
+    "last 3 Safari major versions",
+    "last 3 Edge major versions",
+    "last 3 Android major versions",
+    "last 3 ChromeAndroid major versions",
+    "last 3 iOS major versions"
   ],
-  "packageManager": "yarn@3.2.4",
-  "volta": {
-    "node": "18.12.1",
-    "yarn": "1.22.19"
-  }
+  "packageManager": "yarn@3.2.4"
 }

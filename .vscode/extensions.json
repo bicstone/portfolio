@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "GraphQL.vscode-graphql",
+    "esbenp.prettier-vscode",
+    "EditorConfig.EditorConfig"
+  ]
+}
