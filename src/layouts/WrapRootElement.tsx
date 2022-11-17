@@ -40,6 +40,7 @@ export const WrapRootElement = ({
             },
             "& .gatsby-resp-image-background-image": {
               // TODO: gatsby-remark-images-contentful plugin
+              border: `1px solid ${theme.vars.palette.divider}`,
               borderRadius: theme.spacing(2),
             },
           })}
