@@ -6,6 +6,7 @@ import BackgroundImage from "./background.svg";
 
 import type { ReactNode } from "react";
 
+import { FONT_FAMILY } from "@/components/markdown/constants";
 import { useTheme } from "@/hooks/useTheme";
 
 interface WrapRootElementProps {
@@ -25,7 +26,7 @@ export const WrapRootElement = ({
     <EmotionThemeProvider theme={theme}>
       <CssVarsProvider defaultMode="system" theme={theme}>
         <Global
-          styles={{
+          styles={(theme) => ({
             body: {
               backgroundImage: `url(${BackgroundImage})`,
               backgroundRepeat: "repeat",
@@ -33,10 +34,16 @@ export const WrapRootElement = ({
               cursor: "default",
               display: "flex",
               flexDirection: "column",
+              fontFamily: FONT_FAMILY,
               minHeight: "100vh",
               overflowWrap: "break-word",
             },
-          }}
+            "& .gatsby-resp-image-background-image": {
+              // TODO: gatsby-remark-images-contentful plugin
+              border: `1px solid ${theme.vars.palette.divider}`,
+              borderRadius: theme.spacing(2),
+            },
+          })}
         />
         <CssBaseline enableColorScheme />
         {children}

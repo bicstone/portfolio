@@ -1,4 +1,4 @@
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutlineRounded";
 import {
   Container,
   Typography,
@@ -64,7 +64,6 @@ export const query = graphql`
         ...PortfolioSkillList
       }
     }
-    # 資格一覧を取得する
     certification: allContentfulQualificationMap(
       sort: { fields: sortKey, order: ASC }
     ) {

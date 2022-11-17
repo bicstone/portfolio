@@ -27,7 +27,6 @@ export const query = graphql`
         ...BlogPostList
       }
     }
-
     # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

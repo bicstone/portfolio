@@ -4,7 +4,8 @@
   "packageRules": [
     {
       "groupName": "dependencies",
-      "matchPackagePatterns": ["*"]
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"]
     },
     {
       "enabled": false,
@@ -13,7 +14,17 @@
     },
     {
       "enabled": false,
-      "matchPackagePrefixes": ["gatsby-plugin-mdx"],
+      "matchPackagePrefixes": ["gatsby"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "enabled": false,
+      "matchPackagePrefixes": ["babel-preset-gatsby"],
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "enabled": false,
+      "matchPackagePatterns": ["gatsby-*"],
       "matchUpdateTypes": ["major"]
     }
   ],

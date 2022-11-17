@@ -60,6 +60,13 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - Sentry を用いてエラー管理を行っています。
 - ポートフォリオは最新のコンテンツを維持し続けることが最も重要であるため、更新作業を省力化することが最も重要だと考えました。バックエンドはヘッドレス CMS である Contentful で管理しています。
 
+### テスト
+
+- 当リポジトリでは、テストを一切作成していません。
+- 下記のリポジトリで私が書くテストを参照できます。
+  - [bicstone/backlog-notify](https://github.com/bicstone/backlog-notify) (jest)
+  - [bicstone/gatsby-plugin-fix-fouc](https://github.com/bicstone/gatsby-plugin-fix-fouc) (jest, cypress)
+
 ## 使用技術
 
 ### 言語 / FW
@@ -96,6 +103,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - Google Tag Manager
 - Google Analytics
 - Google AdSense
+- Sentry
 
 ## タスクランナー
 
@@ -103,10 +111,6 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 
 ```shell
 yarn develop
-(...or)
-yarn dev
-(...or)
-yarn start
 ```
 
 ### プロダクションビルド
@@ -144,24 +148,18 @@ yarn lint:fix
 
 ```shell
 yarn typecheck
-(...or)
-yarn tc
 ```
 
 ### 翻訳 JSON を更新
 
 ```shell
-yarn extract
-(...or)
-yarn t
+yarn i18n
 ```
 
 ### GraphQL の型情報を取り込む
 
 ```shell
-yarn graphql-codegen
-(...or)
-yarn g
+yarn graphql
 ```
 
 ### amazon s3 への deploy
@@ -178,6 +176,6 @@ package.json の browserslist を参照
 
 MIT License
 
-Git Submodule で参照しているプライベートリポジトリは [No license](https://choosealicense.com/no-permission/) です。
+Git Submodule で参照しているプライベートリポジトリは [ライセンスなし(未公開)](https://choosealicense.com/no-permission/) です。
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)

@@ -7,6 +7,8 @@ import { useMemo } from "react";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
+import { FONT_FAMILY } from "@/components/markdown/constants";
+
 export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
   const defaultTheme = useMemo(() => createTheme(), []);
   const theme = useMemo(() => {
@@ -26,6 +28,8 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
             Avatar: {
               defaultBg: green[300],
             },
+            // rgba(0, 0, 0, 0.12)
+            divider: "#e0e0e0",
           },
         },
         dark: {
@@ -44,8 +48,13 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
             Avatar: {
               defaultBg: green[200],
             },
+            // rgba(255, 255, 255, 0.12)
+            divider: "#1f1f1f",
           },
         },
+      },
+      typography: {
+        fontFamily: FONT_FAMILY,
       },
       shape: {
         borderRadius: 8, // defaultTheme.spacing(1)
@@ -54,7 +63,12 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         MuiButton: {
           styleOverrides: {
             root: {
+              borderRadius: "50px",
               textTransform: "none",
+              fontWeight: "bold",
+            },
+            sizeSmall: {
+              padding: defaultTheme.spacing(0.5, 1.5),
             },
           },
         },
