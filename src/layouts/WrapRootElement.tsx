@@ -41,7 +41,6 @@ export const WrapRootElement = ({
             "& .gatsby-resp-image-background-image": {
               // TODO: gatsby-remark-images-contentful plugin
               borderRadius: theme.spacing(2),
-              border: `1px solid ${theme.vars.palette.divider}`,
             },
           })}
         />
