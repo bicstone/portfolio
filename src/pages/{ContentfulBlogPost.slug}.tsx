@@ -45,7 +45,7 @@ export const query = graphql`
       }
       ...BlogPostDetail
     }
-    links: allContentfulHello(sort: { sortKey: ASC }) {
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
       nodes {
         ...PortfolioHelloContent
       }

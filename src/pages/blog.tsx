@@ -13,7 +13,9 @@ import { Head as HeadTemplate } from "@/layouts/Head";
 
 export const query = graphql`
   query BlogPage($language: String!) {
-    blogPostList: allContentfulBlogPost(sort: { created: DESC }) {
+    blogPostList: allContentfulBlogPost(
+      sort: { fields: created, order: DESC }
+    ) {
       nodes {
         title
         created
