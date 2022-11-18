@@ -243,7 +243,7 @@ const BlogPage = ({
     >
       <Breadcrumbs
         title={t("blog.title")}
-        css={(theme) => ({ marginBottom: theme.spacing(1) })}
+        css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
       <Typography component="h1" variant="h4" align="center" paragraph>
