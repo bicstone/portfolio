@@ -1,26 +1,17 @@
 import { AccessTimeRounded as AccessTimeIcon } from "@mui/icons-material";
-import {
-  Typography,
-  CardActionArea,
-  Card,
-  Collapse,
-  useMediaQuery,
-} from "@mui/material";
+import { Typography, CardActionArea, Card } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useMemo } from "react";
 
 import type { BlogPostCardFragment } from "@/generated/graphqlTypes";
 
-import { useTheme } from "@/hooks/useTheme";
 import { formatDateTime } from "@/utils/format";
-import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   fragment BlogPostCard on ContentfulBlogPost {
     title
     slug
     created
-    excerpt
   }
 `;
 
@@ -29,16 +20,14 @@ export const BlogPostCard = (props: {
 }): JSX.Element => {
   const { post } = props;
 
-  const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("md"));
-
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
     [post.created]
   );
 
   return (
-    <article css={(theme) => ({ margin: theme.spacing(1) })}>
+    // use padding because virtuoso does not support margin.
+    <article css={(theme) => ({ padding: theme.spacing(0.5, 0) })}>
       <Card elevation={2}>
         <CardActionArea
           component={RouterLink}
@@ -60,14 +49,6 @@ export const BlogPostCard = (props: {
               overflowWrap: "break-word",
             })}
           >
-            <Typography component="h3" variant="h6">
-              {post.title}
-            </Typography>
-            <Collapse in={!mobile}>
-              <Typography variant="body2" color="text.secondary" paragraph>
-                {post.excerpt}
-              </Typography>
-            </Collapse>
             <Typography
               variant="caption"
               color="textSecondary"
@@ -75,20 +56,18 @@ export const BlogPostCard = (props: {
               css={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "flex-end",
               }}
             >
-              {isDefined(post.created) && (
-                <>
-                  <AccessTimeIcon
-                    fontSize="inherit"
-                    css={(theme) => ({
-                      marginRight: theme.spacing(0.5),
-                    })}
-                  />
-                  <time dateTime={post.created}>{createdDate}</time>
-                </>
-              )}
+              <AccessTimeIcon
+                fontSize="inherit"
+                css={(theme) => ({
+                  marginRight: theme.spacing(0.5),
+                })}
+              />
+              <time dateTime={post.created}>{createdDate}</time>
+            </Typography>
+            <Typography component="h3" variant="h6">
+              {post.title}
             </Typography>
           </div>
         </CardActionArea>

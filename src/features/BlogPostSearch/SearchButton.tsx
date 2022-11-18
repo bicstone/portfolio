@@ -35,7 +35,7 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
     setIsOpen(false);
   }, [setIsOpen]);
 
-  useHotkeys("ctrl+k,/", (event) => {
+  useHotkeys("ctrl+k,command+k,/", (event) => {
     event.preventDefault();
     handleOpen();
   });
@@ -54,7 +54,7 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
           },
         })}
         variant="outlined"
-        color="inherit"
+        color="secondary"
         size="small"
         title={t("search.button.hint")}
         onClick={handleOpen}

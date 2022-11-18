@@ -19,6 +19,7 @@ export const BlogPostList = (props: {
 
   return (
     <Virtuoso
+      useWindowScroll
       data={blogPostList}
       itemContent={(_index, post) => <BlogPostCard key={post.id} post={post} />}
       style={{ height: "100%" }}

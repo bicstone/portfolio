@@ -20608,9 +20608,15 @@ export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { r
 
 export type BlogPostDetailFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> };
 
-export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
+export type BlogPostCardFragment = (
+  Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>> }
+);
 
-export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'updated' | 'excerpt'>;
+export type BlogPostListFragment = (
+  Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created'>
+  & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>> }
+);
 
 export type PortfolioCertificationCardFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
@@ -20742,9 +20748,9 @@ export type BlogPageQueryVariables = Exact<{
 
 
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'updated' | 'excerpt'>
-      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
-    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'name'>> }, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug'>
+      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, readonly category: Maybe<Pick<ContentfulCategory, 'id'>>, readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>> }
+    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
