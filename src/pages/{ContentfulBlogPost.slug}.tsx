@@ -64,7 +64,7 @@ export const query = graphql`
 export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
   const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const post = data.post;
-  const title = `${post.title} - ${siteMetaData.title}`;
+  const title = `${post.title} - ${BLOG_TITLE}`;
   const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
 
   return (
