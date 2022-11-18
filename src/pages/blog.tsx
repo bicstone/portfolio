@@ -44,6 +44,7 @@ export const query = graphql`
     categoryList: allContentfulCategory(sort: { fields: sortKey, order: ASC }) {
       nodes {
         id
+        slug
         name
       }
     }
@@ -202,17 +203,32 @@ const StyledTabPanel = styled(TabPanel)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
+const QUERY_KEY = "category";
 const ALL_VALUE = "All";
 
-const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
+const BlogPage = ({
+  data,
+  location,
+}: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
   const categoryList = data.categoryList.nodes;
+  const query = new URLSearchParams(location.search).get(QUERY_KEY) as string;
+  const initValue = categoryList
+    .map((category) => category.slug)
+    .includes(query)
+    ? query
+    : ALL_VALUE;
+
   const { t } = useI18next();
 
-  const [value, setValue] = useState(ALL_VALUE);
+  const [value, setValue] = useState(initValue);
 
-  const handleChange = (_: SyntheticEvent, newValue: string): void => {
-    setValue(newValue);
+  const handleChange = (_: SyntheticEvent, value: string): void => {
+    setValue(value);
+
+    const url = new URL(location.href);
+    url.searchParams.set(QUERY_KEY, value);
+    window.history.pushState({}, "", url);
   };
 
   const filteredBlogPostList = useCallback(
@@ -242,17 +258,17 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
           allowScrollButtonsMobile
         >
           <StyledTab value={ALL_VALUE} label={ALL_VALUE} />
-          {categoryList.map(({ id, name }) => (
-            <StyledTab key={id} label={name} value={id} />
+          {categoryList.map(({ slug, name }) => (
+            <StyledTab key={slug} label={name} value={slug} />
           ))}
         </StyledTabList>
         <StyledTabPanel value={ALL_VALUE}>
           <BlogPostList blogPostList={blogPostList} />
         </StyledTabPanel>
-        {categoryList.map(({ id }) => {
+        {categoryList.map(({ id, slug }) => {
           const filteredList = filteredBlogPostList(id);
           return (
-            <StyledTabPanel key={id} value={id}>
+            <StyledTabPanel key={slug} value={slug}>
               <BlogPostList blogPostList={filteredList} />
             </StyledTabPanel>
           );
