@@ -13,6 +13,7 @@ import { useTheme } from "@/hooks/useTheme";
 
 const ShortcutKey = styled("div")(({ theme }) => ({
   fontFamily: CONSOLE_FONT_FAMILY,
+  fontWeight: "bold",
   lineHeight: 1,
   color: theme.vars.palette.text.secondary,
   "&&&": {
@@ -59,7 +60,7 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
         title={t("search.button.hint")}
         onClick={handleOpen}
         startIcon={isExpanded ? <SearchIcon /> : undefined}
-        endIcon={isExpanded ? <ShortcutKey>Ctrl+K</ShortcutKey> : undefined}
+        endIcon={isExpanded ? <ShortcutKey>/</ShortcutKey> : undefined}
       >
         {isExpanded ? t("search.button.title") : <SearchIcon />}
       </Button>
