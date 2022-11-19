@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo } from "react";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
@@ -22,6 +22,7 @@ import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { Head as HeadTemplate } from "@/layouts/Head";
+import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPage($language: String!) {
@@ -204,8 +205,7 @@ const StyledTabPanel = styled(TabPanel)(({ theme }) => ({
   marginBottom: theme.spacing(1),
 }));
 
-const QUERY_KEY = "category";
-const ALL_VALUE = "All";
+const ALL_VALUE = "all";
 
 const BlogPage = ({
   data,
@@ -213,23 +213,22 @@ const BlogPage = ({
 }: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
   const categoryList = data.categoryList.nodes;
-  const query = new URLSearchParams(location.search).get(QUERY_KEY) as string;
-  const initValue = categoryList
-    .map((category) => category.slug)
-    .includes(query)
-    ? query
-    : ALL_VALUE;
+
+  const hash = useMemo(() => location.hash.slice(1), [location.hash]);
+  const value = useMemo(
+    () =>
+      categoryList.map((category) => category.slug).includes(hash)
+        ? hash
+        : ALL_VALUE,
+    [categoryList, hash]
+  );
 
   const { t } = useI18next();
 
-  const [value, setValue] = useState(initValue);
-
   const handleChange = (_: SyntheticEvent, value: string): void => {
-    setValue(value);
-
-    const url = new URL(location.href);
-    url.searchParams.set(QUERY_KEY, value);
-    window.history.pushState({}, "", url);
+    if (isDefined(window)) {
+      window.location.hash = `#${value}`;
+    }
   };
 
   const filteredBlogPostList = useCallback(
@@ -261,7 +260,7 @@ const BlogPage = ({
           variant="scrollable"
           allowScrollButtonsMobile
         >
-          <StyledTab value={ALL_VALUE} label={ALL_VALUE} />
+          <StyledTab value={ALL_VALUE} label="All" />
           {categoryList.map(({ slug, name }) => (
             <StyledTab key={slug} label={name} value={slug} />
           ))}
