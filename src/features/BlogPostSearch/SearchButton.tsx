@@ -15,7 +15,6 @@ const ShortcutKey = styled("div")(({ theme }) => ({
   fontFamily: CONSOLE_FONT_FAMILY,
   fontWeight: "bold",
   lineHeight: 1,
-  color: theme.vars.palette.text.secondary,
   "&&&": {
     // "&&&" for override endIcon styles
     fontSize: theme.typography.caption.fontSize,
