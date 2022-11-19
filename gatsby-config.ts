@@ -8,7 +8,7 @@ import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
 
-const isCI = process.env.CI !== undefined;
+const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
@@ -34,6 +34,13 @@ const config: GatsbyConfig = {
     },
     {
       resolve: "gatsby-plugin-emotion",
+    },
+    {
+      resolve: `gatsby-plugin-fix-fouc`,
+      options: {
+        attributeName: "is-loading",
+        timeout: 0,
+      },
     },
     {
       resolve: "gatsby-plugin-google-tagmanager",
@@ -109,7 +116,6 @@ const config: GatsbyConfig = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         localeFilter: (locale: { code: string }) => locale.code === "ja",
-        pageLimit: isCI ? 50 : 100,
       },
     },
     {

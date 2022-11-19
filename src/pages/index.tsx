@@ -1,4 +1,4 @@
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutlineRounded";
 import {
   Container,
   Typography,
@@ -32,42 +32,45 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage($language: String!) {
-    links: allContentfulHello(sort: { sortKey: ASC }) {
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
       nodes {
         ...PortfolioHelloContent
       }
     }
-    whatICanDos: allContentfulWhatICanDo(sort: { sortKey: ASC }) {
+    whatICanDos: allContentfulWhatICanDo(
+      sort: { fields: sortKey, order: ASC }
+    ) {
       nodes {
         ...PortfolioWhatICanDoList
       }
     }
-    projects: allContentfulProject(sort: { startDate: DESC }) {
+    projects: allContentfulProject(sort: { fields: startDate, order: DESC }) {
       nodes {
         ...PortfolioProjectList
       }
     }
-    histories: allContentfulHistory(sort: { date: DESC }) {
+    histories: allContentfulHistory(sort: { fields: date, order: DESC }) {
       nodes {
         ...PortfolioHistoryList
       }
     }
-    osses: allContentfulOss(sort: { startDate: DESC }) {
+    osses: allContentfulOss(sort: { fields: startDate, order: DESC }) {
       nodes {
         ...PortfolioOssList
       }
     }
-    skills: allContentfulSkillMap(sort: { sortKey: ASC }) {
+    skills: allContentfulSkillMap(sort: { fields: sortKey, order: ASC }) {
       nodes {
         ...PortfolioSkillList
       }
     }
-    certification: allContentfulQualificationMap(sort: { sortKey: ASC }) {
+    certification: allContentfulQualificationMap(
+      sort: { fields: sortKey, order: ASC }
+    ) {
       nodes {
         ...PortfolioCertificationList
       }
     }
-
     # gatsby-plugin-react-i18next
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {

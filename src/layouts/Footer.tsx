@@ -2,6 +2,8 @@ import { Typography, Link } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
+import { BackToTop } from "./BackToTop";
+
 /**
  * Footer Layout
  */
@@ -30,6 +32,7 @@ export const Footer = (): JSX.Element => {
       <Typography variant="body2" color="textSecondary" align="center">
         {t("footer.copyright", { year: nowDate.getFullYear() })}
       </Typography>
+      <BackToTop />
     </footer>
   );
 };

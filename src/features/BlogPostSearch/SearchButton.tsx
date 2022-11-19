@@ -1,4 +1,5 @@
-import SearchIcon from "@mui/icons-material/Search";
+import styled from "@emotion/styled";
+import SearchIcon from "@mui/icons-material/SearchRounded";
 import { Button, Dialog, useMediaQuery } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useCallback } from "react";
@@ -7,7 +8,18 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 import { SearchModal } from "./SearchModal";
 
+import { CONSOLE_FONT_FAMILY } from "@/components/markdown/constants";
 import { useTheme } from "@/hooks/useTheme";
+
+const ShortcutKey = styled("div")(({ theme }) => ({
+  fontFamily: CONSOLE_FONT_FAMILY,
+  fontWeight: "bold",
+  lineHeight: 1,
+  "&&&": {
+    // "&&&" for override endIcon styles
+    fontSize: theme.typography.caption.fontSize,
+  },
+}));
 
 export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
   const { isExpanded } = props;
@@ -23,7 +35,7 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
     setIsOpen(false);
   }, [setIsOpen]);
 
-  useHotkeys("ctrl+k,/", (event) => {
+  useHotkeys("ctrl+k,command+k,/", (event) => {
     event.preventDefault();
     handleOpen();
   });
@@ -37,13 +49,17 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
         css={(theme) => ({
           backgroundColor: theme.vars.palette.background.default,
           marginRight: theme.spacing(0.5),
+          "&:hover": {
+            backgroundColor: theme.vars.palette.background.default,
+          },
         })}
         variant="outlined"
-        color="inherit"
+        color="secondary"
         size="small"
         title={t("search.button.hint")}
         onClick={handleOpen}
         startIcon={isExpanded ? <SearchIcon /> : undefined}
+        endIcon={isExpanded ? <ShortcutKey>/</ShortcutKey> : undefined}
       >
         {isExpanded ? t("search.button.title") : <SearchIcon />}
       </Button>

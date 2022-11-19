@@ -1,4 +1,4 @@
-import { SelfImprovement as SelfImprovementIcon } from "@mui/icons-material";
+import { SelfImprovementRounded as SelfImprovementIcon } from "@mui/icons-material";
 import { Typography, Container, Button } from "@mui/material";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -39,8 +39,12 @@ const NotFound = (): JSX.Element => {
         <Typography variant="body1">{t("not-found.description")}</Typography>
       </div>
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
-        {/* ホームに戻る */}
-        <Button component={RouterLink} variant="contained" to="/" size="large">
+        <Button
+          component={RouterLink}
+          variant="contained"
+          to="/"
+          color="secondary"
+        >
           {t("not-found.back-to-home")}
         </Button>
       </div>

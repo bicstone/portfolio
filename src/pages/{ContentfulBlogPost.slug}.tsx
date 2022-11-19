@@ -1,6 +1,6 @@
 import {
-  AccessTime as AccessTimeIcon,
-  Update as UpdateIcon,
+  AccessTimeRounded as AccessTimeIcon,
+  UpdateRounded as UpdateIcon,
 } from "@mui/icons-material";
 import { Card, Container, NoSsr, Typography } from "@mui/material";
 import { graphql } from "gatsby";
@@ -45,7 +45,7 @@ export const query = graphql`
       }
       ...BlogPostDetail
     }
-    links: allContentfulHello(sort: { sortKey: ASC }) {
+    links: allContentfulHello(sort: { fields: sortKey, order: ASC }) {
       nodes {
         ...PortfolioHelloContent
       }
@@ -64,7 +64,7 @@ export const query = graphql`
 export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
   const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const post = data.post;
-  const title = `${post.title} - ${siteMetaData.title}`;
+  const title = `${post.title} - ${BLOG_TITLE}`;
   const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
 
   return (
@@ -244,8 +244,9 @@ export const BlogPostPage = ({
 
       <Card
         css={(theme) => ({
-          margin: theme.spacing(2, 0),
-          padding: theme.spacing(2, 0),
+          margin: theme.spacing(3, 0),
+          padding: theme.spacing(3, 0),
+          borderRadius: theme.spacing(2),
         })}
       >
         <BlogPostDetail post={post} />
