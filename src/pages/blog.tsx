@@ -1,3 +1,4 @@
+import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import {
@@ -241,6 +242,9 @@ const BlogPage = ({
       maxWidth="md"
       css={{ display: "flex", flexDirection: "column", height: "100%" }}
     >
+      {/* Always display scrollbar-Y to prevent flash */}
+      <Global styles={{ body: { overflowY: "scroll" } }} />
+
       <Breadcrumbs
         title={t("blog.title")}
         css={(theme) => ({ marginBottom: theme.spacing(2) })}
