@@ -1,4 +1,4 @@
-import { Link as LinkIcon } from "@mui/icons-material";
+import { LinkRounded as LinkIcon } from "@mui/icons-material";
 import { Card, CardActionArea, CardHeader, Typography } from "@mui/material";
 import { captureException } from "@sentry/gatsby";
 
@@ -35,9 +35,11 @@ export const LinkCard = (
           subheader={
             <Typography
               variant="caption"
+              color="text.secondary"
               css={{ display: "flex", alignItems: "center", width: "100%" }}
             >
               <LinkIcon
+                color="inherit"
                 css={(theme) => ({
                   marginRight: theme.spacing(0.5),
                   flexShrink: 0,

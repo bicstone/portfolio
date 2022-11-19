@@ -11,6 +11,7 @@ import { AnchorIcon } from "./AnchorIcon";
 import { AnchorLink } from "./AnchorLink";
 import { Blockquote } from "./Blockquote";
 import { Heading } from "./Heading";
+import { Image } from "./Image";
 import { InlineCode } from "./InlineCode";
 import { LinkCard } from "./LinkCard";
 import { Paragraph } from "./Paragraph";
@@ -51,4 +52,5 @@ export const mdxComponents: MDXProviderComponentsProp = {
   anchor: (props) => <AnchorIcon {...props} />,
   link: (props) => <LinkCard {...props} />,
   video: (props) => <Video controls {...props} />,
+  img: (props) => <Image {...props} />,
 };

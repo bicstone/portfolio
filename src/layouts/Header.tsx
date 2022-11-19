@@ -38,6 +38,7 @@ export const Header = (): JSX.Element => {
   const theme = useTheme();
   const isExpanded = useMediaQuery(theme.breakpoints.up("sm"));
   const isHome = location.pathname === withPrefix("/");
+  const isBlogHome = location.pathname === withPrefix("/blog");
 
   return (
     <AppBar
@@ -99,11 +100,16 @@ export const Header = (): JSX.Element => {
         <div css={{ flexGrow: 1 }} />
         <NoSsr>
           <nav>
-            {isHome ? (
+            {isBlogHome ? (
+              <SearchButton isExpanded={isExpanded} />
+            ) : (
               <Button
                 css={(theme) => ({
                   backgroundColor: theme.vars.palette.background.default,
                   marginRight: theme.spacing(0.5),
+                  "&:hover": {
+                    backgroundColor: theme.vars.palette.background.default,
+                  },
                 })}
                 variant="outlined"
                 color="inherit"
@@ -115,14 +121,15 @@ export const Header = (): JSX.Element => {
               >
                 {isExpanded ? t("blog.title") : <StickyNote2Icon />}
               </Button>
-            ) : (
-              <SearchButton isExpanded={isExpanded} />
             )}
             {isExpanded && (
               <Button
                 css={(theme) => ({
                   backgroundColor: theme.vars.palette.background.default,
                   marginRight: theme.spacing(0.5),
+                  "&:hover": {
+                    backgroundColor: theme.vars.palette.background.default,
+                  },
                 })}
                 variant="outlined"
                 color="inherit"
