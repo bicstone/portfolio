@@ -79,6 +79,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - MDX
 - Prism.js
 - i18next
+- React Virtuoso
 
 ### ツール
 

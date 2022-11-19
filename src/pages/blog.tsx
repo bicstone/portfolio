@@ -1,15 +1,28 @@
-import { Container, Typography } from "@mui/material";
+import { Global } from "@emotion/react";
+import styled from "@emotion/styled";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import {
+  Container,
+  Tab,
+  Typography,
+  tabClasses,
+  tabsClasses,
+  tabScrollButtonClasses,
+} from "@mui/material";
 import { graphql } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
+import { useCallback, useMemo } from "react";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
+import type { SyntheticEvent } from "react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { Head as HeadTemplate } from "@/layouts/Head";
+import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPage($language: String!) {
@@ -24,7 +37,17 @@ export const query = graphql`
             url
           }
         }
+        category {
+          id
+        }
         ...BlogPostList
+      }
+    }
+    categoryList: allContentfulCategory(sort: { fields: sortKey, order: ASC }) {
+      nodes {
+        id
+        slug
+        name
       }
     }
     # gatsby-plugin-react-i18next
@@ -140,33 +163,124 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
   );
 };
 
-const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
+const StyledTabList = styled(TabList)(({ theme }) => ({
+  margin: theme.spacing(1, 0),
+  minHeight: 0,
+  [`& .${tabsClasses.flexContainer}`]: {
+    gap: theme.spacing(0.5),
+  },
+  [`& .${tabsClasses.indicator}`]: {
+    display: "none",
+  },
+  [`& .${tabScrollButtonClasses.root}`]: {
+    borderRadius: theme.spacing(5),
+  },
+  // "&&&"" is override MUI styles
+  [`&&& .${tabScrollButtonClasses.disabled}`]: {
+    opacity: 1,
+    color: theme.vars.palette.text.disabled,
+  },
+}));
+
+const StyledTab = styled(Tab)(({ theme }) => ({
+  background: theme.vars.palette.background.paper,
+  border: `1px solid ${theme.vars.palette.divider}`,
+  borderRadius: theme.spacing(1.5),
+  color: theme.vars.palette.text.primary,
+  fontWeight: "bold",
+  margin: 0,
+  minHeight: 0,
+  minWidth: theme.spacing(8),
+  padding: theme.spacing(1, 2),
+  textTransform: "none",
+  [`&.${tabClasses.selected}`]: {
+    background: theme.vars.palette.secondary.main,
+    color: theme.vars.palette.secondary.contrastText,
+  },
+}));
+
+const StyledTabPanel = styled(TabPanel)(({ theme }) => ({
+  flexGrow: 1,
+  padding: 0,
+  marginBottom: theme.spacing(1),
+}));
+
+const ALL_VALUE = "all";
+
+const BlogPage = ({
+  data,
+  location,
+}: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
+  const categoryList = data.categoryList.nodes;
+
   const { t } = useI18next();
 
+  const hash = useMemo(() => location.hash.slice(1), [location.hash]);
+  const value = useMemo(
+    () =>
+      categoryList.map((category) => category.slug).includes(hash)
+        ? hash
+        : ALL_VALUE,
+    [categoryList, hash]
+  );
+
+  const handleChange = useCallback((_: SyntheticEvent, value: string) => {
+    if (isDefined(window)) {
+      window.location.hash = `#${value}`;
+    }
+  }, []);
+
+  const filteredBlogPostList = useCallback(
+    (id: string) => blogPostList.filter((post) => post.category.id === id),
+    [blogPostList]
+  );
+
   return (
-    <Container maxWidth="md">
+    <Container
+      maxWidth="md"
+      css={{ display: "flex", flexDirection: "column", height: "100%" }}
+    >
+      {/* Always display scrollbar-Y to prevent flash */}
+      <Global styles={{ body: { overflowY: "scroll" } }} />
+
       <Breadcrumbs
         title={t("blog.title")}
-        css={(theme) => ({ margin: theme.spacing(2, 0) })}
+        css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
-      <Typography component="h1" variant="h5" align="center" paragraph>
+      <Typography component="h1" variant="h4" align="center" paragraph>
         {t("blog.title")}
       </Typography>
 
-      <Typography>{t("blog.caption")}</Typography>
-
-      <div css={(theme) => ({ margin: theme.spacing(3, 0) })}>
-        <BlogPostList blogPostList={blogPostList} />
-      </div>
+      <TabContext value={value}>
+        <StyledTabList
+          onChange={handleChange}
+          textColor="secondary"
+          variant="scrollable"
+          allowScrollButtonsMobile
+        >
+          <StyledTab value={ALL_VALUE} label="All" />
+          {categoryList.map(({ slug, name }) => (
+            <StyledTab key={slug} label={name} value={slug} />
+          ))}
+        </StyledTabList>
+        <StyledTabPanel value={ALL_VALUE}>
+          <BlogPostList blogPostList={blogPostList} />
+        </StyledTabPanel>
+        {categoryList.map(({ id, slug }) => {
+          const filteredList = filteredBlogPostList(id);
+          return (
+            <StyledTabPanel key={slug} value={slug}>
+              <BlogPostList blogPostList={filteredList} />
+            </StyledTabPanel>
+          );
+        })}
+      </TabContext>
 
       <Breadcrumbs
         title={t("blog.title")}
-        css={(theme) => ({
-          marginTop: theme.spacing(2),
-          marginBottom: theme.spacing(2),
-        })}
+        css={(theme) => ({ margin: theme.spacing(2, 0) })}
       />
     </Container>
   );

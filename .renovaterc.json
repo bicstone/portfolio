@@ -8,6 +8,11 @@
       "matchUpdateTypes": ["minor", "patch"]
     },
     {
+      "groupName": "dependencies",
+      "matchPackagePrefixes": ["@mui/lab"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
+    },
+    {
       "enabled": false,
       "matchPackagePrefixes": ["@mdx-js"],
       "matchUpdateTypes": ["major"]
@@ -19,12 +24,12 @@
     },
     {
       "enabled": false,
-      "matchPackagePrefixes": ["babel-preset-gatsby"],
+      "matchPackagePatterns": ["gatsby-*"],
       "matchUpdateTypes": ["major"]
     },
     {
       "enabled": false,
-      "matchPackagePatterns": ["gatsby-*"],
+      "matchPackagePrefixes": ["babel-preset-gatsby"],
       "matchUpdateTypes": ["major"]
     }
   ],

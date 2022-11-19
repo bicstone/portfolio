@@ -25,7 +25,7 @@ export const SocialLinks = (props: {
       <Button
         component={Link}
         to="/blog"
-        variant="outlined"
+        variant="contained"
         color="secondary"
         size="small"
         startIcon={<StickyNote2Icon />}
