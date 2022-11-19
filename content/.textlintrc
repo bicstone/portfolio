@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "preset-ja-spacing": true,
+    "editorconfig": {
+      "charset": false
+    },
+    "preset-ja-technical-writing": true,
+    "ja-spacing/ja-space-between-half-and-full-width": {
+      "space": "always",
+      "exceptPunctuation": false
+    },
+    "ja-technical-writing/no-exclamation-question-mark": false,
+    "ja-technical-writing/sentence-length": false
+  }
+}
