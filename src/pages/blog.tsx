@@ -214,6 +214,8 @@ const BlogPage = ({
   const blogPostList = data.blogPostList.nodes;
   const categoryList = data.categoryList.nodes;
 
+  const { t } = useI18next();
+
   const hash = useMemo(() => location.hash.slice(1), [location.hash]);
   const value = useMemo(
     () =>
@@ -223,13 +225,11 @@ const BlogPage = ({
     [categoryList, hash]
   );
 
-  const { t } = useI18next();
-
-  const handleChange = (_: SyntheticEvent, value: string): void => {
+  const handleChange = useCallback((_: SyntheticEvent, value: string) => {
     if (isDefined(window)) {
       window.location.hash = `#${value}`;
     }
-  };
+  }, []);
 
   const filteredBlogPostList = useCallback(
     (id: string) => blogPostList.filter((post) => post.category.id === id),
