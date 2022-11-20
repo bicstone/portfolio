@@ -52,7 +52,7 @@
     "gatsby-source-filesystem": "4.24.0",
     "gatsby-transformer-sharp": "4.24.0",
     "html-react-parser": "3.0.4",
-    "i18next": "22.0.5",
+    "i18next": "22.0.6",
     "mdx-embed": "1.1.2",
     "prismjs": "1.29.0",
     "react": "18.2.0",
@@ -79,14 +79,14 @@
     "babel-preset-gatsby": "2.24.0",
     "dotenv": "16.0.3",
     "esbuild": "0.15.14",
-    "eslint": "8.27.0",
+    "eslint": "8.28.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-config-standard-with-typescript": "23.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsx-a11y": "6.6.1",
     "eslint-plugin-n": "15.5.1",
     "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-react": "7.31.10",
+    "eslint-plugin-react": "7.31.11",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-regexp": "1.10.0",
     "husky": "8.0.2",
@@ -110,7 +110,7 @@
     "last 3 ChromeAndroid major versions",
     "last 3 iOS major versions"
   ],
-  "packageManager": "yarn@3.2.4",
+  "packageManager": "yarn@3.3.0",
   "workspaces": [
     "content"
   ]
