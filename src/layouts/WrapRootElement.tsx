@@ -27,20 +27,34 @@ export const WrapRootElement = ({
       <CssVarsProvider defaultMode="system" theme={theme}>
         <Global
           styles={(theme) => ({
+            html: {
+              height: "100%",
+            },
             body: {
+              height: "100%",
               backgroundImage: `url(${BackgroundImage})`,
               backgroundRepeat: "repeat",
               backgroundSize: "400px 400px",
               cursor: "default",
-              display: "flex",
-              flexDirection: "column",
               fontFamily: FONT_FAMILY,
-              minHeight: "100vh",
               overflowWrap: "break-word",
             },
-            "& .gatsby-resp-image-background-image": {
+            "#___gatsby": {
+              height: "100%",
+            },
+            "#gatsby-focus-wrapper": {
+              height: "100%",
+            },
+            ".gatsby-resp-image-background-image": {
               // TODO: gatsby-remark-images-contentful plugin
-              border: `1px solid ${theme.vars.palette.divider}`,
+              // Disable transparency to affected by the image.
+              border: `1px solid ${
+                theme.palette.mode === "dark"
+                  ? // rgba(255, 255, 255, 0.12)
+                    "#1f1f1f"
+                  : // rgba(0, 0, 0, 0.12)
+                    "#e0e0e0"
+              }`,
               borderRadius: theme.spacing(2),
             },
           })}

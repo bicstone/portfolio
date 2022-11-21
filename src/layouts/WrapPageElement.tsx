@@ -13,13 +13,22 @@ export const WrapPageElement = (props: {
   const { children } = props;
 
   return (
-    <>
+    <div
+      css={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Header />
-      <main role="main" css={(theme) => ({ marginTop: theme.spacing(8) })}>
+      <main
+        role="main"
+        css={(theme) => ({ marginTop: theme.spacing(8), flexGrow: 1 })}
+      >
         {children}
       </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

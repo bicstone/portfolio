@@ -13,8 +13,8 @@ import { useTheme } from "@/hooks/useTheme";
 
 const ShortcutKey = styled("div")(({ theme }) => ({
   fontFamily: CONSOLE_FONT_FAMILY,
+  fontWeight: "bold",
   lineHeight: 1,
-  color: theme.vars.palette.text.secondary,
   "&&&": {
     // "&&&" for override endIcon styles
     fontSize: theme.typography.caption.fontSize,
@@ -35,7 +35,7 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
     setIsOpen(false);
   }, [setIsOpen]);
 
-  useHotkeys("ctrl+k,/", (event) => {
+  useHotkeys("ctrl+k,command+k,/", (event) => {
     event.preventDefault();
     handleOpen();
   });
@@ -54,12 +54,12 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
           },
         })}
         variant="outlined"
-        color="inherit"
+        color="secondary"
         size="small"
         title={t("search.button.hint")}
         onClick={handleOpen}
         startIcon={isExpanded ? <SearchIcon /> : undefined}
-        endIcon={isExpanded ? <ShortcutKey>Ctrl+K</ShortcutKey> : undefined}
+        endIcon={isExpanded ? <ShortcutKey>/</ShortcutKey> : undefined}
       >
         {isExpanded ? t("search.button.title") : <SearchIcon />}
       </Button>

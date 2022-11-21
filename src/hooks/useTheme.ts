@@ -20,7 +20,7 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
               main: green[300],
             },
             secondary: {
-              main: pink.A700,
+              main: pink.A400,
             },
             text: {
               secondary: "rgba(0, 0, 0, 0.65)",
@@ -28,8 +28,6 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
             Avatar: {
               defaultBg: green[300],
             },
-            // rgba(0, 0, 0, 0.12)
-            divider: "#e0e0e0",
           },
         },
         dark: {
@@ -48,8 +46,6 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
             Avatar: {
               defaultBg: green[200],
             },
-            // rgba(255, 255, 255, 0.12)
-            divider: "#1f1f1f",
           },
         },
       },

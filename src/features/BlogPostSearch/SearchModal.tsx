@@ -82,11 +82,10 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         {t("search.title")}
         <Button
           css={(theme) => ({
-            border: `1px solid ${theme.vars.palette.divider}`,
             padding: theme.spacing(0, 1.5),
             minWidth: 0,
           })}
-          color="inherit"
+          color="secondary"
           variant="outlined"
           title={t("search.close.hint")}
           onClick={onClose}
@@ -102,6 +101,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         placeholder={t("search.hint")}
         value={inputValueSync}
         margin="dense"
+        color="secondary"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">

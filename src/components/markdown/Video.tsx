@@ -9,5 +9,5 @@ export const Video = styled("video")(({ theme }) => ({
   marginRight: "auto",
   borderRadius: theme.spacing(2),
   border: `1px solid ${theme.vars.palette.divider}`,
-  padding: theme.spacing(1),
+  padding: theme.spacing(2),
 }));
