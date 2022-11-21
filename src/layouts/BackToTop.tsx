@@ -40,7 +40,8 @@ export const BackToTop = (): JSX.Element => {
           onClick={handleClick}
           css={(theme) => ({
             position: "fixed",
-            bottom: `calc(${theme.spacing(3)}+env(safe-area-inset-bottom,0px))`,
+            bottom: theme.spacing(3),
+            marginBottom: `env(safe-area-inset-bottom, 0px)`,
             right: theme.spacing(3),
             zIndex: theme.zIndex.tooltip,
             border: `1px solid ${
