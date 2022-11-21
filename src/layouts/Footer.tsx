@@ -16,7 +16,7 @@ export const Footer = (): JSX.Element => {
         marginTop: "auto",
         padding: theme.spacing(3),
         borderTop: `1px solid ${theme.vars.palette.divider}`,
-        paddingBottom: `env(safe-area-inset-bottom, ${theme.spacing(3)})`,
+        marginBottom: `env(safe-area-inset-bottom, 0px)`,
       })}
       role="contentinfo"
     >
