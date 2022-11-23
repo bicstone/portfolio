@@ -13,8 +13,7 @@ import {
   Button,
   IconButton,
   useColorScheme,
-  useMediaQuery,
-  NoSsr,
+  buttonClasses,
 } from "@mui/material";
 import { useLocation } from "@reach/router";
 import { Link as RouterLink, withPrefix } from "gatsby";
@@ -22,7 +21,6 @@ import { useI18next } from "gatsby-plugin-react-i18next";
 
 import siteMetaData from "@/constants/siteMetaData";
 import { SearchButton } from "@/features/BlogPostSearch";
-import { useTheme } from "@/hooks/useTheme";
 
 /**
  * Header Layout
@@ -35,8 +33,6 @@ export const Header = (): JSX.Element => {
     disableHysteresis: true,
     threshold: 0,
   });
-  const theme = useTheme();
-  const isExpanded = useMediaQuery(theme.breakpoints.up("sm"));
   const isHome = location.pathname === withPrefix("/");
   const isBlogHome = location.pathname === withPrefix("/blog");
 
@@ -98,63 +94,86 @@ export const Header = (): JSX.Element => {
           </Link>
         )}
         <div css={{ flexGrow: 1 }} />
-        <NoSsr>
-          <nav>
-            {isBlogHome ? (
-              <SearchButton isExpanded={isExpanded} />
-            ) : (
-              <Button
-                css={(theme) => ({
+        <nav>
+          {isBlogHome ? (
+            <SearchButton />
+          ) : (
+            <Button
+              css={(theme) => ({
+                backgroundColor: theme.vars.palette.background.default,
+                marginRight: theme.spacing(0.5),
+                "&:hover": {
                   backgroundColor: theme.vars.palette.background.default,
-                  marginRight: theme.spacing(0.5),
-                  "&:hover": {
-                    backgroundColor: theme.vars.palette.background.default,
+                },
+                [theme.breakpoints.down("sm")]: {
+                  [`& .${buttonClasses.startIcon}`]: {
+                    display: "none",
                   },
-                })}
-                variant="outlined"
-                color="inherit"
-                size="small"
-                component={RouterLink}
-                to="/blog"
-                title={t("blog.title")}
-                startIcon={isExpanded ? <StickyNote2Icon /> : undefined}
-              >
-                {isExpanded ? t("blog.title") : <StickyNote2Icon />}
-              </Button>
-            )}
-            {isExpanded && (
-              <Button
-                css={(theme) => ({
-                  backgroundColor: theme.vars.palette.background.default,
-                  marginRight: theme.spacing(0.5),
-                  "&:hover": {
-                    backgroundColor: theme.vars.palette.background.default,
-                  },
-                })}
-                variant="outlined"
-                color="inherit"
-                size="small"
-                href={`https://github.com/${siteMetaData.github}`}
-                title={t("header.github-title")}
-                startIcon={<GitHubIcon />}
-                rel="external noreferrer noopener nofollow"
-                target="_blank"
-              >
-                {t("header.github-title")}
-              </Button>
-            )}
-            <IconButton
+                },
+              })}
+              variant="outlined"
+              color="inherit"
               size="small"
-              onClick={() =>
-                setPaletteMode(paletteMode === "light" ? "dark" : "light")
-              }
-              css={(theme) => ({ margin: theme.spacing(0, 1) })}
-              title={t("header.toggleDarkTheme-title")}
+              component={RouterLink}
+              to="/blog"
+              title={t("blog.title")}
+              startIcon={<StickyNote2Icon />}
             >
-              {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
-            </IconButton>
-          </nav>
-        </NoSsr>
+              <>
+                <span
+                  css={(theme) => ({
+                    display: "inline",
+                    [theme.breakpoints.down("sm")]: {
+                      display: "none",
+                    },
+                  })}
+                >
+                  {t("blog.title")}
+                </span>
+                <StickyNote2Icon
+                  css={(theme) => ({
+                    display: "none",
+                    [theme.breakpoints.down("sm")]: {
+                      display: "inline-block",
+                    },
+                  })}
+                />
+              </>
+            </Button>
+          )}
+          <Button
+            css={(theme) => ({
+              backgroundColor: theme.vars.palette.background.default,
+              marginRight: theme.spacing(0.5),
+              "&:hover": {
+                backgroundColor: theme.vars.palette.background.default,
+              },
+              [theme.breakpoints.down("sm")]: {
+                display: "none",
+              },
+            })}
+            variant="outlined"
+            color="inherit"
+            size="small"
+            href={`https://github.com/${siteMetaData.github}`}
+            title={t("header.github-title")}
+            startIcon={<GitHubIcon />}
+            rel="external noreferrer noopener nofollow"
+            target="_blank"
+          >
+            {t("header.github-title")}
+          </Button>
+          <IconButton
+            size="small"
+            onClick={() =>
+              setPaletteMode(paletteMode === "light" ? "dark" : "light")
+            }
+            css={(theme) => ({ margin: theme.spacing(0, 1) })}
+            title={t("header.toggleDarkTheme-title")}
+          >
+            {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
+          </IconButton>
+        </nav>
       </Toolbar>
     </AppBar>
   );

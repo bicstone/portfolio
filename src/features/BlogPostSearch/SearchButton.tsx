@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/SearchRounded";
-import { Button, Dialog, useMediaQuery } from "@mui/material";
+import { Button, buttonClasses, Dialog, useMediaQuery } from "@mui/material";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
@@ -21,9 +21,7 @@ const ShortcutKey = styled("div")(({ theme }) => ({
   },
 }));
 
-export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
-  const { isExpanded } = props;
-
+export const SearchButton = (): JSX.Element => {
   const { t } = useI18next();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,16 +50,43 @@ export const SearchButton = (props: { isExpanded: boolean }): JSX.Element => {
           "&:hover": {
             backgroundColor: theme.vars.palette.background.default,
           },
+          [theme.breakpoints.down("sm")]: {
+            [`& .${buttonClasses.startIcon}`]: {
+              display: "none",
+            },
+            [`& .${buttonClasses.endIcon}`]: {
+              display: "none",
+            },
+          },
         })}
         variant="outlined"
         color="secondary"
         size="small"
         title={t("search.button.hint")}
         onClick={handleOpen}
-        startIcon={isExpanded ? <SearchIcon /> : undefined}
-        endIcon={isExpanded ? <ShortcutKey>/</ShortcutKey> : undefined}
+        startIcon={<SearchIcon />}
+        endIcon={<ShortcutKey>/</ShortcutKey>}
       >
-        {isExpanded ? t("search.button.title") : <SearchIcon />}
+        <>
+          <span
+            css={(theme) => ({
+              display: "inline",
+              [theme.breakpoints.down("sm")]: {
+                display: "none",
+              },
+            })}
+          >
+            {t("search.button.title")}
+          </span>
+          <SearchIcon
+            css={(theme) => ({
+              display: "none",
+              [theme.breakpoints.down("sm")]: {
+                display: "inline-block",
+              },
+            })}
+          />
+        </>
       </Button>
       {isOpen &&
         createPortal(
