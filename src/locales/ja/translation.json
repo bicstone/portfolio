@@ -12,8 +12,14 @@
       "all-more": "すべて展開する"
     }
   },
+  "certification": {
+    "detail": {
+      "title": "発行機関による認証情報を表示する"
+    }
+  },
   "footer": {
-    "copyright": "© {{year}} Oishi Takanori"
+    "copyright": "© {{year}} Oishi Takanori",
+    "proper-attribution": "Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc. Any unauthorized use is strictly prohibited."
   },
   "header": {
     "avatar": "ニコニコした Oishi Takanori の似顔絵",
@@ -25,7 +31,7 @@
     "toggleDarkTheme-title": "ダークモード切替"
   },
   "hello": {
-    "description": "Oishi Takanori と申します。 Webエンジニア / セキュリティスペシャリスト / 機械エンジニア です。  プロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
+    "description": "Oishi Takanori と申します。 Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 機械エンジニア です。  プロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
     "icon": {
       "fukkireta": "ニコニコした Oishi Takanori の似顔絵がニコニコ動画で流行した「吹っ切れた」を真似しているアニメーション。クリックするとアニメーションを停止します。",
       "normal": "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。"
