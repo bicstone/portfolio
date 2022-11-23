@@ -30,6 +30,15 @@ export const Footer = (): JSX.Element => {
           {t("privacy.title")}
         </Link>
       </Typography>
+      <Typography
+        component="p"
+        variant="caption"
+        color="textSecondary"
+        align="center"
+        gutterBottom
+      >
+        {t("footer.proper-attribution")}
+      </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
         {t("footer.copyright", { year: nowDate.getFullYear() })}
       </Typography>

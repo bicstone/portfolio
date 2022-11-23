@@ -12,11 +12,17 @@
       "all-more": "すべて展開する"
     }
   },
+  "certification": {
+    "detail": {
+      "title": "発行機関による認証情報を表示する"
+    }
+  },
   "footer": {
-    "copyright": "© {{year}} Oishi Takanori"
+    "copyright": "© {{year}} Oishi Takanori",
+    "proper-attribution": "Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc. Any unauthorized use is strictly prohibited."
   },
   "header": {
-    "avatar": "ニコニコした Oishi Takanori の似顔絵",
+    "avatar": "ニコニコした 大石貴則 の似顔絵",
     "back-to-home": "ホームに移動",
     "changeLanguage-title": "言語切替",
     "github-title": "GitHub",
@@ -25,10 +31,10 @@
     "toggleDarkTheme-title": "ダークモード切替"
   },
   "hello": {
-    "description": "Oishi Takanori と申します。 Webエンジニア / セキュリティスペシャリスト / 機械エンジニア です。  プロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
+    "description": "大石貴則と申します。 Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
     "icon": {
-      "fukkireta": "ニコニコした Oishi Takanori の似顔絵がニコニコ動画で流行した「吹っ切れた」を真似しているアニメーション。クリックするとアニメーションを停止します。",
-      "normal": "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。"
+      "fukkireta": "ニコニコした 大石貴則 の似顔絵がニコニコ動画で流行した「吹っ切れた」を真似しているアニメーション。クリックするとアニメーションを停止します。",
+      "normal": "ニコニコした 大石貴則 の似顔絵。クリックするとアニメーションを開始します。"
     },
     "title": "@bicstone"
   },

@@ -26,9 +26,7 @@ import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPage($language: String!) {
-    blogPostList: allContentfulBlogPost(
-      sort: { fields: created, order: DESC }
-    ) {
+    blogPostList: allContentfulBlogPost(sort: { created: DESC }) {
       nodes {
         title
         created
@@ -43,7 +41,7 @@ export const query = graphql`
         ...BlogPostList
       }
     }
-    categoryList: allContentfulCategory(sort: { fields: sortKey, order: ASC }) {
+    categoryList: allContentfulCategory(sort: { sortKey: ASC }) {
       nodes {
         id
         slug
