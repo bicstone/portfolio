@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
 import { WhatICanDoCard } from "./WhatICanDoCard";
@@ -18,10 +17,22 @@ export const WhatICanDoList = (props: {
   const { whatICanDos } = props;
 
   return (
-    <Grid container spacing={2} alignItems="center">
+    <div
+      css={(theme) => ({
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: theme.spacing(2),
+        [theme.breakpoints.only("xs")]: {
+          gridTemplateColumns: "repeat(1, 1fr)",
+        },
+        [theme.breakpoints.only("sm")]: {
+          gridTemplateColumns: "repeat(2, 1fr)",
+        },
+      })}
+    >
       {whatICanDos.map((whatICanDo) => (
         <WhatICanDoCard key={whatICanDo.id} whatICanDo={whatICanDo} />
       ))}
-    </Grid>
+    </div>
   );
 };

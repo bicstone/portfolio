@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import { graphql } from "gatsby";
 
 import { OssCard } from "./OssCard";
@@ -18,15 +17,22 @@ export const OssList = (props: {
   const { osses } = props;
 
   return (
-    <Grid
-      container
-      spacing={2}
-      justifyContent="flex-start"
-      alignItems="flex-start"
+    <div
+      css={(theme) => ({
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gap: theme.spacing(2),
+        [theme.breakpoints.only("xs")]: {
+          gridTemplateColumns: "repeat(1, 1fr)",
+        },
+        [theme.breakpoints.only("sm")]: {
+          gridTemplateColumns: "repeat(2, 1fr)",
+        },
+      })}
     >
       {osses.map((oss) => (
         <OssCard key={oss.id} oss={oss} />
       ))}
-    </Grid>
+    </div>
   );
 };
