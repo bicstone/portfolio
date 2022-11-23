@@ -1,5 +1,5 @@
 import { Typography, Grid, Card, CardHeader } from "@mui/material";
-import { graphql } from "gatsby";
+import { graphql, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
@@ -26,7 +26,22 @@ export const HelloContent = (props: {
 
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
-      <Grid item xs={12} sm={3} md={2} css={{ textAlign: "center" }}>
+      <Grid
+        item
+        xs={12}
+        sm={3}
+        md={2}
+        css={(theme) => ({
+          alignSelf: "stretch",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          [theme.breakpoints.up("sm")]: {
+            flexDirection: "column",
+            alignItems: "center",
+          },
+        })}
+      >
         <FukkiretaAnimationSvgIcon
           activeAnimation={activeAnimation}
           width={100}
@@ -38,7 +53,33 @@ export const HelloContent = (props: {
             activeAnimation ? t("hello.icon.fukkireta") : t("hello.icon.normal")
           }
           onClick={() => setActiveAnimation(!activeAnimation)}
+          css={(theme) => ({
+            margin: theme.spacing(0, 2),
+          })}
         />
+        <div css={{ flexGrow: 1 }} />
+        <div
+          css={(theme) => ({
+            display: "flex",
+            gap: theme.spacing(1),
+            lineHeight: 1,
+          })}
+        >
+          <img
+            src={withPrefix("/csm-seal.png")}
+            alt="scm"
+            width={64}
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            src={withPrefix("/riss-seal.png")}
+            alt="riss"
+            width={64}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
         <Card>
