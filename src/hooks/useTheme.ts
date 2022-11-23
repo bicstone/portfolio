@@ -20,7 +20,7 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
               main: green[300],
             },
             secondary: {
-              main: pink.A400,
+              main: pink.A700,
             },
             text: {
               secondary: "rgba(0, 0, 0, 0.65)",

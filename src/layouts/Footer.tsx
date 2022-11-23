@@ -16,6 +16,7 @@ export const Footer = (): JSX.Element => {
         marginTop: "auto",
         padding: theme.spacing(3),
         borderTop: `1px solid ${theme.vars.palette.divider}`,
+        marginBottom: `env(safe-area-inset-bottom, 0px)`,
       })}
       role="contentinfo"
     >
@@ -28,6 +29,15 @@ export const Footer = (): JSX.Element => {
         <Link component={RouterLink} color="inherit" to="/privacy">
           {t("privacy.title")}
         </Link>
+      </Typography>
+      <Typography
+        component="p"
+        variant="caption"
+        color="textSecondary"
+        align="center"
+        gutterBottom
+      >
+        {t("footer.proper-attribution")}
       </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
         {t("footer.copyright", { year: nowDate.getFullYear() })}
