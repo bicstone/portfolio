@@ -1,5 +1,4 @@
 import {
-  Grid,
   CardHeader,
   Card,
   CardActionArea,
@@ -41,46 +40,40 @@ export const OssCard = (props: {
   }, [oss.startDate]);
 
   return (
-    <Grid item xs={12} sm={6} md={4} component="section">
-      <Card>
-        <CardActionArea
-          title={oss.name}
-          href={oss.href}
-          rel="external noreferrer noopener"
-          target="_blank"
-        >
-          <CardHeader
-            avatar={<SvgAvatar name={oss.icon.name} svg={oss.icon.svg.svg} />}
-            title={
-              <>
-                <Typography
-                  variant="body2"
-                  component="div"
-                  color="textSecondary"
-                >
-                  {startYear}～
-                </Typography>
-                <Typography component="h2" variant="h6">
-                  {oss.name}
-                </Typography>
-              </>
-            }
-            subheader={
+    <Card component="section">
+      <CardActionArea
+        title={oss.name}
+        href={oss.href}
+        rel="external noreferrer noopener"
+        target="_blank"
+      >
+        <CardHeader
+          avatar={<SvgAvatar name={oss.icon.name} svg={oss.icon.svg.svg} />}
+          title={
+            <>
               <Typography variant="body2" component="div" color="textSecondary">
-                {oss.tags.map((tag) => (
-                  <Chip
-                    variant="outlined"
-                    size="small"
-                    key={tag.name}
-                    label={tag.name}
-                  />
-                ))}
+                {startYear}～
               </Typography>
-            }
-            disableTypography
-          />
-        </CardActionArea>
-      </Card>
-    </Grid>
+              <Typography component="h2" variant="h6">
+                {oss.name}
+              </Typography>
+            </>
+          }
+          subheader={
+            <Typography variant="body2" component="div" color="textSecondary">
+              {oss.tags.map((tag) => (
+                <Chip
+                  variant="outlined"
+                  size="small"
+                  key={tag.name}
+                  label={tag.name}
+                />
+              ))}
+            </Typography>
+          }
+          disableTypography
+        />
+      </CardActionArea>
+    </Card>
   );
 };
