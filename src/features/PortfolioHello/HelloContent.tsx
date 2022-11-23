@@ -1,5 +1,5 @@
 import { Typography, Grid, Card, CardHeader } from "@mui/material";
-import { graphql } from "gatsby";
+import { graphql, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
@@ -66,14 +66,14 @@ export const HelloContent = (props: {
           })}
         >
           <img
-            src="/csm-seal.png"
+            src={withPrefix("/csm-seal.png")}
             alt="scm"
             width={64}
             loading="lazy"
             decoding="async"
           />
           <img
-            src="/riss-seal.png"
+            src={withPrefix("/riss-seal.png")}
             alt="riss"
             width={64}
             loading="lazy"
