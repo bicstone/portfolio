@@ -173,9 +173,9 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <PaddingContainer maxWidth="lg">
         <HelloContent links={data.links.nodes} />
       </PaddingContainer>
-      <Section title={t("home.what-i-can-dos-title")}>
+      <PaddingContainer maxWidth="lg">
         <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
-      </Section>
+      </PaddingContainer>
       <Section title={t("home.projects-title")}>
         <ProjectList projects={data.projects.nodes} />
       </Section>

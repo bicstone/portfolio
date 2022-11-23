@@ -1,4 +1,4 @@
-import { Grid, CardHeader, Card } from "@mui/material";
+import { CardHeader, Card } from "@mui/material";
 import { graphql } from "gatsby";
 
 import type { PortfolioWhatICanDoCardFragment } from "@/generated/graphqlTypes";
@@ -24,24 +24,22 @@ export const WhatICanDoCard = (props: {
   const { whatICanDo } = props;
 
   return (
-    <Grid component="section" item xs={12} sm={6} md={4}>
-      <Card>
-        <CardHeader
-          avatar={
-            <SvgAvatar
-              name={whatICanDo.icon.name}
-              svg={whatICanDo.icon.svg.svg}
-            />
-          }
-          title={whatICanDo.name}
-          titleTypographyProps={{ component: "h2", variant: "h6" }}
-          subheader={whatICanDo.subName}
-          subheaderTypographyProps={{
-            variant: "body2",
-            color: "text.secondary",
-          }}
-        />
-      </Card>
-    </Grid>
+    <Card component="section">
+      <CardHeader
+        avatar={
+          <SvgAvatar
+            name={whatICanDo.icon.name}
+            svg={whatICanDo.icon.svg.svg}
+          />
+        }
+        title={whatICanDo.name}
+        titleTypographyProps={{ component: "h2", variant: "h6" }}
+        subheader={whatICanDo.subName}
+        subheaderTypographyProps={{
+          variant: "body2",
+          color: "text.secondary",
+        }}
+      />
+    </Card>
   );
 };
