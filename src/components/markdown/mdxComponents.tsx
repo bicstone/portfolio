@@ -28,12 +28,12 @@ const notImplemented = (name: string): null => {
 
 export const mdxComponents: MDXProviderComponentsProp = {
   p: (props) => <Paragraph {...props} />,
-  h1: notImplemented,
+  h1: () => notImplemented("h1"),
   h2: (props) => <Heading variant="h5" component="h2" {...props} />,
-  h3: (props) => <Heading variant="h6" component="h3" {...props} />,
-  h4: (props) => <Heading variant="h6" component="h4" {...props} />,
-  h5: notImplemented,
-  h6: notImplemented,
+  h3: (props) => <Heading variant="subtitle1" component="h3" {...props} />,
+  h4: (props) => <Heading variant="subtitle2" component="h4" {...props} />,
+  h5: () => notImplemented("h5"),
+  h6: () => notImplemented("h6"),
   blockquote: (props) => <Blockquote {...props} />,
   table: (props) => <Table {...props} />,
   thead: (props) => <TableHead {...props} />,
