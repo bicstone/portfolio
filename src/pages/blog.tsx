@@ -30,11 +30,6 @@ export const query = graphql`
       nodes {
         title
         created
-        thumbnail {
-          file {
-            url
-          }
-        }
         category {
           id
         }
@@ -60,10 +55,8 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
-  const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const blogPostList = data.blogPostList.nodes;
-  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
-  const title = `${BLOG_TITLE} - ${siteMetaData.title}`;
+  const title = `${siteMetaData.blogTitle} - ${siteMetaData.title}`;
   const buildTime = useBuildTime();
 
   return (
@@ -72,7 +65,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        image={`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`}
         imageAlt={title}
         type="blog"
       />
@@ -84,7 +77,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "Blog",
             headline: title,
-            image: [`${siteMetaData.siteUrl}${siteMetaData.image}`],
+            image: [`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`],
             datePublished: buildTime,
             dateModified: buildTime,
             description: siteMetaData.description,
@@ -105,7 +98,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
               ...blogPostList.map((post) => ({
                 "@type": "BlogPosting",
                 headline: post.title,
-                image: post.thumbnail.file.url,
+                image: `${siteMetaData.siteUrl}${siteMetaData.imageOgp}`,
                 datePublished: post.created,
                 author: {
                   "@type": "Person",
@@ -137,8 +130,8 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 2,
                 item: {
-                  "@id": canonical,
-                  name: BLOG_TITLE,
+                  "@id": `${siteMetaData.siteUrl}${location.pathname}`,
+                  name: siteMetaData.blogTitle,
                   "@type": "Thing",
                 },
               },

@@ -17,13 +17,13 @@ import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
 import { Head as HeadTemplate } from "@/layouts/Head";
-import { convertImageUrl } from "@/utils/convert";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPostPage($id: String!, $language: String!) {
     post: contentfulBlogPost(id: { eq: $id }) {
+      slug
       title
       excerpt
       created
@@ -37,12 +37,6 @@ export const query = graphql`
           ...RelatedBlogPostList
           createdDateTime: created(formatString: "X")
         }
-      }
-      thumbnail {
-        file {
-          url
-        }
-        title
       }
       ...BlogPostDetail
     }
@@ -63,10 +57,8 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
-  const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const post = data.post;
-  const title = `${post.title} - ${BLOG_TITLE}`;
-  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
+  const title = `${post.title} - ${siteMetaData.blogTitle}`;
 
   return (
     <>
@@ -74,8 +66,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={post.excerpt}
-        image={post.thumbnail.file.url}
-        imageAlt={post.thumbnail.title}
+        image={`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`}
+        imageAlt={siteMetaData.blogTitle}
         type="article"
       />
       <meta property="article:published_time" content={post.created} />
@@ -93,7 +85,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [convertImageUrl(post.thumbnail.file.url)],
+            image: [`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`],
             datePublished: post.created,
             dateModified: post.updated,
             dateCreated: post.created,
@@ -136,7 +128,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 position: 2,
                 item: {
                   "@id": `${siteMetaData.siteUrl}${"/blog"}`,
-                  name: BLOG_TITLE,
+                  name: siteMetaData.blogTitle,
                   "@type": "Thing",
                 },
               },
@@ -144,7 +136,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 3,
                 item: {
-                  "@id": canonical,
+                  "@id": `${siteMetaData.siteUrl}/${post.slug}`,
                   name: post.title,
                   "@type": "Thing",
                 },
