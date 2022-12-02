@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import siteMetaData from "./src/constants/siteMetaData";
 
+import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
@@ -11,6 +12,17 @@ dotenv.config({ path: `.env` });
 const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
+
+interface GatsbyPluginFeedQuery {
+  readonly allContentfulBlogPost: {
+    readonly nodes: ReadonlyArray<
+      Pick<
+        ContentfulBlogPost,
+        "id" | "title" | "slug" | "excerpt" | "updatedAt"
+      >
+    >;
+  };
+}
 
 const config: GatsbyConfig = {
   trailingSlash,
@@ -105,6 +117,45 @@ const config: GatsbyConfig = {
         languages: siteMetaData.languages,
         defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            serialize: ({
+              query: { allContentfulBlogPost },
+            }: {
+              query: GatsbyPluginFeedQuery;
+            }) => {
+              return allContentfulBlogPost.nodes.map((node) => {
+                return {
+                  title: node.title,
+                  description: node.excerpt,
+                  date: node.updatedAt,
+                  url: `${siteMetaData.siteUrl}/${node.slug}`,
+                  guid: node.id,
+                };
+              });
+            },
+            query: `#graphql
+              {
+                allContentfulBlogPost(sort: { created: DESC }) {
+                  nodes {
+                    id
+                    title
+                    slug
+                    excerpt
+                    updatedAt
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: siteMetaData.title,
+          },
+        ],
       },
     },
     {
