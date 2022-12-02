@@ -5,8 +5,6 @@ import catchy from "catchy-image";
 const fontFamily = "BIZUDPGothic";
 const rootDir = path.resolve(__dirname, "..", "..", "..");
 
-export const getFileName = (slug: string): string => `${slug}.png`;
-
 export interface CreateOgpImageProps {
   title: string;
   slug: string;
@@ -19,7 +17,7 @@ export const createOgpImage = async ({
   const options = {
     output: {
       directory: path.resolve(rootDir, "static", "ogp"),
-      fileName: getFileName(slug),
+      fileName: `${slug}.png`,
     },
     image: {
       width: 1200,

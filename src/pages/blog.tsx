@@ -22,7 +22,6 @@ import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { Head as HeadTemplate } from "@/layouts/Head";
-import { getFileName } from "@/utils/createOgpImage";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
@@ -99,7 +98,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
               ...blogPostList.map((post) => ({
                 "@type": "BlogPosting",
                 headline: post.title,
-                image: `${siteMetaData.siteUrl}/ogp/${getFileName(post.slug)}`,
+                image: `${siteMetaData.siteUrl}/ogp/${post.slug}.png`,
                 datePublished: post.created,
                 author: {
                   "@type": "Person",
