@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 
 import siteMetaData from "./src/constants/siteMetaData";
 
+import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
@@ -11,6 +12,17 @@ dotenv.config({ path: `.env` });
 const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
+
+interface GatsbyPluginFeedQuery {
+  readonly allContentfulBlogPost: {
+    readonly nodes: ReadonlyArray<
+      Pick<
+        ContentfulBlogPost,
+        "title" | "slug" | "excerpt" | "created" | "updated"
+      >
+    >;
+  };
+}
 
 const config: GatsbyConfig = {
   trailingSlash,
@@ -105,6 +117,46 @@ const config: GatsbyConfig = {
         languages: siteMetaData.languages,
         defaultLanguage: siteMetaData.defaultLanguage,
         trailingSlash,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            serialize: ({
+              query: { allContentfulBlogPost },
+            }: {
+              query: GatsbyPluginFeedQuery;
+            }) => {
+              return allContentfulBlogPost.nodes.map((node) => {
+                return {
+                  guid: `${siteMetaData.siteUrl}/${node.slug}`,
+                  title: node.title,
+                  url: `${siteMetaData.siteUrl}/${node.slug}`,
+                  description: node.excerpt,
+                  date: node.created,
+                };
+              });
+            },
+            query: `#graphql
+              {
+                allContentfulBlogPost(sort: { created: DESC }) {
+                  nodes {
+                    title
+                    slug
+                    excerpt
+                    created
+                    updated
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            link: `${siteMetaData.siteUrl}/rss.xml`,
+            title: siteMetaData.blogTitle,
+          },
+        ],
       },
     },
     {
