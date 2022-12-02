@@ -65,7 +65,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        image={`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`}
         imageAlt={title}
         type="blog"
       />
