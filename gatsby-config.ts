@@ -18,7 +18,7 @@ interface GatsbyPluginFeedQuery {
     readonly nodes: ReadonlyArray<
       Pick<
         ContentfulBlogPost,
-        "id" | "title" | "slug" | "excerpt" | "updatedAt"
+        "id" | "title" | "slug" | "excerpt" | "createdAt" | "updatedAt"
       >
     >;
   };
@@ -131,11 +131,11 @@ const config: GatsbyConfig = {
             }) => {
               return allContentfulBlogPost.nodes.map((node) => {
                 return {
-                  title: node.title,
-                  description: node.excerpt,
-                  date: node.updatedAt,
-                  url: `${siteMetaData.siteUrl}/${node.slug}`,
                   guid: node.id,
+                  title: node.title,
+                  url: `${siteMetaData.siteUrl}/${node.slug}`,
+                  description: node.excerpt,
+                  date: node.updatedAt ?? node.createdAt,
                 };
               });
             },
@@ -147,13 +147,15 @@ const config: GatsbyConfig = {
                     title
                     slug
                     excerpt
+                    createdAt
                     updatedAt
                   }
                 }
               }
             `,
             output: "/rss.xml",
-            title: siteMetaData.title,
+            link: `${siteMetaData.siteUrl}/rss.xml`,
+            title: siteMetaData.blogTitle,
           },
         ],
       },
