@@ -77,7 +77,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "Blog",
             headline: title,
-            image: [`${siteMetaData.siteUrl}${siteMetaData.image}`],
+            image: [`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`],
             datePublished: buildTime,
             dateModified: buildTime,
             description: siteMetaData.description,
