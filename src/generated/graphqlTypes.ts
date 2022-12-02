@@ -406,7 +406,6 @@ export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & 
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulBlogPostSys>;
   readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
-  readonly thumbnail: Maybe<ContentfulAsset>;
   readonly title: Maybe<Scalars['String']>;
   readonly updated: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -513,7 +512,6 @@ export type ContentfulBlogPostFieldSelector = {
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulBlogPostSysFieldSelector>;
   readonly tags: InputMaybe<ContentfulTagFieldSelector>;
-  readonly thumbnail: InputMaybe<ContentfulAssetFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly updated: InputMaybe<FieldSelectorEnum>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
@@ -538,7 +536,6 @@ export type ContentfulBlogPostFilterInput = {
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
   readonly tags: InputMaybe<ContentfulTagFilterListInput>;
-  readonly thumbnail: InputMaybe<ContentfulAssetFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly updated: InputMaybe<DateQueryOperatorInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -608,7 +605,6 @@ export type ContentfulBlogPostSortInput = {
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulBlogPostSysSortInput>;
   readonly tags: InputMaybe<ContentfulTagSortInput>;
-  readonly thumbnail: InputMaybe<ContentfulAssetSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly updated: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
@@ -6229,7 +6225,6 @@ export type QueryContentfulBlogPostArgs = {
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
   tags: InputMaybe<ContentfulTagFilterListInput>;
-  thumbnail: InputMaybe<ContentfulAssetFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   updated: InputMaybe<DateQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
