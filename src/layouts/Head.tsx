@@ -1,6 +1,7 @@
 import type { HeadProps } from "gatsby";
 
 import siteMetaData from "@/constants/siteMetaData";
+import { convertImageUrl } from "@/utils/convert";
 
 /**
  * Head export
@@ -113,13 +114,16 @@ export const Head = (props: {
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={convertImageUrl(image)} />
       <meta property="og:image:alt" content={imageAlt} />
       <meta property="og:url" content={canonical} />
       <meta property="og:site_name" content={siteMetaData.title} />
       <meta property="og:locale" content={siteMetaData.defaultLanguage} />
       <meta property="og:type" content={type} />
 
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={convertImageUrl(image)} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@bicstone_me" />
       <meta name="twitter:creator" content="@bicstone_me" />

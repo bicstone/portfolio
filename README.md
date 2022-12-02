@@ -74,7 +74,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - TypeScript (strict モード)
 - React.js
 - Gatsby.js (プラグインを活用し高速に構築ができるため選定)
-- Material-UI (一覧性の高いダッシュボード風のデザインにするため選定)
+- MUI material (一覧性の高いダッシュボード風のデザインにするため選定)
 - Emotion
 - MDX
 - Prism.js
