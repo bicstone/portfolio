@@ -17,6 +17,7 @@ import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
 import { Head as HeadTemplate } from "@/layouts/Head";
+import { convertImageUrl } from "@/utils/convert";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
@@ -92,7 +93,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [post.thumbnail.file.url],
+            image: [convertImageUrl(post.thumbnail.file.url)],
             datePublished: post.created,
             dateModified: post.updated,
             dateCreated: post.created,

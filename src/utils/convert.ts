@@ -19,3 +19,14 @@ export const convertHiraganaToKatakana = (src: string): string => {
     return String.fromCharCode(chr);
   });
 };
+
+/**
+ * TEMP: Contetnful の // 始まり URL を https:// に変換する
+ * Twitter で読み込みに失敗するため。
+ * Contentful の使用をやめるタイミングで削除
+ */
+
+export const convertImageUrl = (src: string): string => {
+  const parser = new URL(src);
+  return `https://${parser.host}${parser.pathname}`;
+};
