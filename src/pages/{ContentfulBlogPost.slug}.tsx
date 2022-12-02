@@ -17,6 +17,7 @@ import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
 import { Head as HeadTemplate } from "@/layouts/Head";
+import { getFileName } from "@/utils/createOgpImage";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
@@ -66,7 +67,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={post.excerpt}
-        image={`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`}
+        image={`${siteMetaData.siteUrl}/ogp/${getFileName(post.slug)}`}
         imageAlt={siteMetaData.blogTitle}
         type="article"
       />
@@ -85,7 +86,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`],
+            image: [`${siteMetaData.siteUrl}/ogp/${getFileName(post.slug)}`],
             datePublished: post.created,
             dateModified: post.updated,
             dateCreated: post.created,
