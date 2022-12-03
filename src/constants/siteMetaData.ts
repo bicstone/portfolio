@@ -9,7 +9,6 @@ export default {
   image: "/android-chrome-512x512.png",
   image192: "/android-chrome-192x192.png",
   imageAvatar: "/avatar.svg",
-  imageOgp: "/masshiro-icon.png",
   twitter: "@bicstone_me",
   github: "bicstone",
   firstName: "Takanori",
