@@ -65,7 +65,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`}
+        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
         imageAlt={title}
         type="blog"
       />
@@ -77,7 +77,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "Blog",
             headline: title,
-            image: [`${siteMetaData.siteUrl}${siteMetaData.imageOgp}`],
+            image: [`${siteMetaData.siteUrl}${siteMetaData.image}`],
             datePublished: buildTime,
             dateModified: buildTime,
             description: siteMetaData.description,
@@ -98,7 +98,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
               ...blogPostList.map((post) => ({
                 "@type": "BlogPosting",
                 headline: post.title,
-                image: `${siteMetaData.siteUrl}${siteMetaData.imageOgp}`,
+                image: `${siteMetaData.siteUrl}/ogp/${post.slug}.png`,
                 datePublished: post.created,
                 author: {
                   "@type": "Person",
