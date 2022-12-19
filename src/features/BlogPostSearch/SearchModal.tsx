@@ -86,7 +86,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
             minWidth: 0,
           })}
           color="secondary"
-          variant="outlined"
+          variant="contained"
           title={t("search.close.hint")}
           onClick={onClose}
         >

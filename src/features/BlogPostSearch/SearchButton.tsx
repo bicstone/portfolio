@@ -45,10 +45,10 @@ export const SearchButton = (): JSX.Element => {
     <>
       <Button
         css={(theme) => ({
-          backgroundColor: theme.vars.palette.background.default,
+          backgroundColor: theme.vars.palette.secondary.main,
           marginRight: theme.spacing(0.5),
           "&:hover": {
-            backgroundColor: theme.vars.palette.background.default,
+            backgroundColor: theme.vars.palette.secondary.main,
           },
           [theme.breakpoints.down("sm")]: {
             [`& .${buttonClasses.startIcon}`]: {
@@ -59,7 +59,7 @@ export const SearchButton = (): JSX.Element => {
             },
           },
         })}
-        variant="outlined"
+        variant="contained"
         color="secondary"
         size="small"
         title={t("search.button.hint")}
