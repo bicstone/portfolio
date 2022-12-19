@@ -42,8 +42,7 @@ export const CertificationDetail = (props: {
     <ListItem>
       <ListItemButton
         href={certification.url}
-        rel="external noreferrer noopener nofollow"
-        target="_blank"
+        rel="external noreferrer noopener"
         title={t("certification.detail.title")}
         disableGutters
       >

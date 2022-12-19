@@ -1,4 +1,3 @@
-import { StickyNote2Rounded as StickyNote2Icon } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { graphql, Link } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
@@ -28,7 +27,6 @@ export const SocialLinks = (props: {
         variant="contained"
         color="secondary"
         size="small"
-        startIcon={<StickyNote2Icon />}
         css={(theme) => ({
           marginTop: theme.spacing(1),
           marginRight: theme.spacing(1),
@@ -45,7 +43,6 @@ export const SocialLinks = (props: {
           color="secondary"
           size="small"
           rel="external noreferrer noopener"
-          target="_blank"
           css={(theme) => ({
             marginTop: theme.spacing(1),
             marginRight: theme.spacing(1),

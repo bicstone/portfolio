@@ -8,19 +8,16 @@ import {
   Typography,
 } from "@mui/material";
 import { graphql } from "gatsby";
+import { useCallback, useState } from "react";
 
 import { SkillGroupDetail } from "./SkillGroupDetail";
 
 import type { PortfolioSkillCardFragment } from "@/generated/graphqlTypes";
-import type { Breakpoint } from "@mui/material";
-
-import { useCollapseResponsive } from "@/hooks/useCollapseResponsive";
 
 export const query = graphql`
   fragment PortfolioSkillCard on ContentfulSkillMap {
     id
     name
-    expanded
     skillGroups {
       id
       ...PortfolioSkillGroupDetail
@@ -28,22 +25,21 @@ export const query = graphql`
   }
 `;
 
-const defaultExpandedBreakpoints: Breakpoint[] = ["xl", "lg", "md"];
-
 export const SkillCard = (props: {
   skill: PortfolioSkillCardFragment;
 }): JSX.Element => {
   const { skill } = props;
 
-  const [expanded, setExpanded] = useCollapseResponsive({
-    defaultExpanded: skill.expanded,
-    defaultExpandedBreakpoints,
-  });
+  const [expanded, setExpanded] = useState(true);
+
+  const toggleExpanded = useCallback(() => {
+    setExpanded((prevExpanded) => !prevExpanded);
+  }, []);
 
   return (
     <Grid item xs={12} sm={6} md={4} key={skill.id}>
       <Card component="section">
-        <Accordion expanded={expanded} onChange={setExpanded}>
+        <Accordion expanded={expanded} onChange={toggleExpanded}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`${skill.id}-content`}
