@@ -60,7 +60,7 @@ export const Header = (): JSX.Element => {
               <Link
                 component={RouterLink}
                 to="/"
-                title={t("header.back-to-home")}
+                title={t("header.go-to-portfolio")}
               >
                 {t("header.title-home")}
               </Link>
