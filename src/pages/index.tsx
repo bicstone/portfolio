@@ -150,7 +150,7 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
             >
               <IconButton
                 size="small"
-                color="primary"
+                color="secondary"
                 css={{ cursor: "help" }}
                 onClick={toggleTooltip}
               >

@@ -45,7 +45,7 @@ export const OssCard = (props: {
         title={oss.name}
         href={oss.href}
         rel="external noreferrer noopener"
-        target="_blank"
+        css={{ height: "100%" }}
       >
         <CardHeader
           avatar={<SvgAvatar name={oss.icon.name} svg={oss.icon.svg.svg} />}

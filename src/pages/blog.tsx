@@ -20,6 +20,7 @@ import type { SyntheticEvent } from "react";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import siteMetaData from "@/constants/siteMetaData";
 import { BlogPostList } from "@/features/BlogPostList";
+import { HelloContent } from "@/features/PortfolioHello";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { Head as HeadTemplate } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
@@ -41,6 +42,11 @@ export const query = graphql`
         id
         slug
         name
+      }
+    }
+    links: allContentfulHello(sort: { sortKey: ASC }) {
+      nodes {
+        ...PortfolioHelloContent
       }
     }
     # gatsby-plugin-react-i18next
@@ -240,9 +246,20 @@ const BlogPage = ({
         css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
-      <Typography component="h1" variant="h4" align="center" paragraph>
+      <Typography component="h1" variant="h4" align="center">
         {t("blog.title")}
       </Typography>
+
+      <aside css={(theme) => ({ marginBottom: theme.spacing(2) })}>
+        <section
+          css={(theme) => ({
+            marginTop: theme.spacing(2),
+            marginBottom: theme.spacing(2),
+          })}
+        >
+          <HelloContent links={data.links.nodes} />
+        </section>
+      </aside>
 
       <TabContext value={value}>
         <StyledTabList

@@ -8260,14 +8260,14 @@ export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | '
 export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created'>;
 
 export type PortfolioCertificationCardFragment = (
-  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulQualificationMap, 'id' | 'name'>
   & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
 );
 
 export type PortfolioCertificationDetailFragment = Pick<ContentfulQualification, 'name' | 'date' | 'endDate' | 'url'>;
 
 export type PortfolioCertificationListFragment = (
-  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulQualificationMap, 'id' | 'name'>
   & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
 );
 
@@ -8329,7 +8329,7 @@ export type PortfolioProjectListFragment = (
 );
 
 export type PortfolioSkillCardFragment = (
-  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulSkillMap, 'id' | 'name'>
   & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
     Pick<ContentfulSkillGrpup, 'id' | 'name'>
     & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
@@ -8342,7 +8342,7 @@ export type PortfolioSkillGroupDetailFragment = (
 );
 
 export type PortfolioSkillListFragment = (
-  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulSkillMap, 'id' | 'name'>
   & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
     Pick<ContentfulSkillGrpup, 'id' | 'name'>
     & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
@@ -8391,7 +8391,7 @@ export type BlogPageQueryVariables = Exact<{
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug'>
       & { readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
-    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> }, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 
 export type IndexPageQueryVariables = Exact<{
   language: Scalars['String'];
@@ -8423,13 +8423,13 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
     )> }, readonly skills: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+      Pick<ContentfulSkillMap, 'id' | 'name'>
       & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
         Pick<ContentfulSkillGrpup, 'id' | 'name'>
         & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
       )>>> }
     )> }, readonly certification: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+      Pick<ContentfulQualificationMap, 'id' | 'name'>
       & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
     )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
 

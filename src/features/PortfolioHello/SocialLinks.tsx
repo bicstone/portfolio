@@ -1,6 +1,6 @@
-import { StickyNote2Rounded as StickyNote2Icon } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { graphql, Link } from "gatsby";
+import { useLocation } from "@reach/router";
+import { graphql, Link, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { SocialLinksFragment } from "@/generated/graphqlTypes";
@@ -19,23 +19,40 @@ export const SocialLinks = (props: {
   const { links } = props;
 
   const { t } = useI18next();
+  const location = useLocation();
+  const isHome = location.pathname === withPrefix("/");
 
   return (
     <>
-      <Button
-        component={Link}
-        to="/blog"
-        variant="contained"
-        color="secondary"
-        size="small"
-        startIcon={<StickyNote2Icon />}
-        css={(theme) => ({
-          marginTop: theme.spacing(1),
-          marginRight: theme.spacing(1),
-        })}
-      >
-        {t("blog.title")}
-      </Button>
+      {isHome ? (
+        <Button
+          component={Link}
+          to="/blog"
+          variant="contained"
+          color="secondary"
+          size="small"
+          css={(theme) => ({
+            marginTop: theme.spacing(1),
+            marginRight: theme.spacing(1),
+          })}
+        >
+          {t("blog.title")}
+        </Button>
+      ) : (
+        <Button
+          component={Link}
+          to="/"
+          variant="contained"
+          color="secondary"
+          size="small"
+          css={(theme) => ({
+            marginTop: theme.spacing(1),
+            marginRight: theme.spacing(1),
+          })}
+        >
+          {t("hello.go-to-portfolio")}
+        </Button>
+      )}
 
       {links.map((link) => (
         <Button
@@ -45,7 +62,6 @@ export const SocialLinks = (props: {
           color="secondary"
           size="small"
           rel="external noreferrer noopener"
-          target="_blank"
           css={(theme) => ({
             marginTop: theme.spacing(1),
             marginRight: theme.spacing(1),

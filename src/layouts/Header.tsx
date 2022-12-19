@@ -60,7 +60,7 @@ export const Header = (): JSX.Element => {
               <Link
                 component={RouterLink}
                 to="/"
-                title={t("header.back-to-home")}
+                title={t("header.go-to-portfolio")}
               >
                 {t("header.title-home")}
               </Link>
@@ -158,8 +158,7 @@ export const Header = (): JSX.Element => {
             href={`https://github.com/${siteMetaData.github}`}
             title={t("header.github-title")}
             startIcon={<GitHubIcon />}
-            rel="external noreferrer noopener nofollow"
-            target="_blank"
+            rel="external noreferrer noopener"
           >
             {t("header.github-title")}
           </Button>
