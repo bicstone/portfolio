@@ -48,7 +48,7 @@ export const SearchButton = (): JSX.Element => {
           backgroundColor: theme.vars.palette.secondary.main,
           marginRight: theme.spacing(0.5),
           "&:hover": {
-          backgroundColor: theme.vars.palette.secondary.main,
+            backgroundColor: theme.vars.palette.secondary.main,
           },
           [theme.breakpoints.down("sm")]: {
             [`& .${buttonClasses.startIcon}`]: {
