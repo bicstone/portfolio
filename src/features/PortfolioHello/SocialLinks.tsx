@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { useLocation } from "@reach/router";
 import { graphql, Link, withPrefix } from "gatsby";
 import { useI18next } from "gatsby-plugin-react-i18next";
 
@@ -18,6 +19,7 @@ export const SocialLinks = (props: {
   const { links } = props;
 
   const { t } = useI18next();
+  const location = useLocation();
   const isHome = location.pathname === withPrefix("/");
 
   return (
