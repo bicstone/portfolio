@@ -25,7 +25,7 @@ import { Head as HeadTemplate } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPage($language: String!) {
+  query BlogPage {
     blogPostList: allContentfulBlogPost(sort: { created: DESC }) {
       nodes {
         title

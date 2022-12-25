@@ -21,7 +21,7 @@ import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPostPage($id: String!, $language: String!) {
+  query BlogPostPage($id: String!) {
     post: contentfulBlogPost(id: { eq: $id }) {
       slug
       title

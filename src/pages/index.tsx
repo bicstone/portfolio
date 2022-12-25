@@ -31,7 +31,7 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 }));
 
 export const query = graphql`
-  query IndexPage($language: String!) {
+  query IndexPage {
     links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioHelloContent
