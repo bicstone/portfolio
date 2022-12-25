@@ -175,13 +175,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `locales`,
-        path: path.resolve("src", "locales"),
-      },
-    },
-    {
       resolve: `gatsby-transformer-sharp`,
     },
   ],
