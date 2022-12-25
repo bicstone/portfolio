@@ -1,9 +1,10 @@
 import { Button } from "@mui/material";
 import { useLocation } from "@reach/router";
 import { graphql, Link, withPrefix } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 
 import type { SocialLinksFragment } from "@/generated/graphqlTypes";
+
+import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const query = graphql`
   fragment SocialLinks on ContentfulHello {
@@ -18,7 +19,6 @@ export const SocialLinks = (props: {
 }): JSX.Element => {
   const { links } = props;
 
-  const { t } = useI18next();
   const location = useLocation();
   const isHome = location.pathname === withPrefix("/");
 
@@ -36,7 +36,7 @@ export const SocialLinks = (props: {
             marginRight: theme.spacing(1),
           })}
         >
-          {t("blog.title")}
+          {TRANSLATION.blog.title}
         </Button>
       ) : (
         <Button
@@ -50,7 +50,7 @@ export const SocialLinks = (props: {
             marginRight: theme.spacing(1),
           })}
         >
-          {t("hello.go-to-portfolio")}
+          {TRANSLATION.hello.goToPortfolio}
         </Button>
       )}
 

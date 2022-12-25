@@ -26,11 +26,6 @@
       "enabled": false,
       "matchPackagePatterns": ["gatsby-*"],
       "matchUpdateTypes": ["major"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePrefixes": ["babel-preset-gatsby"],
-      "matchUpdateTypes": ["major"]
     }
   ],
   "reviewers": ["bicstone"],

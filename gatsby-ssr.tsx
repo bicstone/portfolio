@@ -1,7 +1,7 @@
 import { getInitColorSchemeScript } from "@mui/material/styles";
 import { Fragment } from "react";
 
-import siteMetaData from "./src/constants/siteMetaData";
+import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
 import type { GatsbySSR } from "gatsby";
 
@@ -11,7 +11,7 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   setHtmlAttributes,
   setPreBodyComponents,
 }) => {
-  setHtmlAttributes({ lang: siteMetaData.defaultLanguage });
+  setHtmlAttributes({ lang: SITE_METADATA.defaultLanguage });
 
   setPreBodyComponents([
     <Fragment key="init-color-scheme-script">

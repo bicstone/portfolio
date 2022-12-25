@@ -17,16 +17,15 @@ import {
 } from "@mui/material";
 import { useLocation } from "@reach/router";
 import { Link as RouterLink, withPrefix } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { SearchButton } from "@/features/BlogPostSearch";
 
 /**
  * Header Layout
  */
 export const Header = (): JSX.Element => {
-  const { t } = useI18next();
   const location = useLocation();
   const { mode: paletteMode, setMode: setPaletteMode } = useColorScheme();
   const scrollTrigger = useScrollTrigger({
@@ -60,14 +59,18 @@ export const Header = (): JSX.Element => {
               <Link
                 component={RouterLink}
                 to="/"
-                title={t("header.go-to-portfolio")}
+                title={TRANSLATION.header.goToPortfolio}
               >
-                {t("header.title-home")}
+                {TRANSLATION.header.titleHome}
               </Link>
             </Typography>
           </div>
         ) : (
-          <Link component={RouterLink} to="/" title={t("header.back-to-home")}>
+          <Link
+            component={RouterLink}
+            to="/"
+            title={TRANSLATION.header.goToPortfolio}
+          >
             <div
               css={(theme) => ({
                 display: "flex",
@@ -78,8 +81,8 @@ export const Header = (): JSX.Element => {
               <img
                 width={20}
                 height={20}
-                src={`${siteMetaData.siteUrl}${siteMetaData.imageAvatar}`}
-                alt={t("header.avatar")}
+                src={`${SITE_METADATA.siteUrl}${SITE_METADATA.imageAvatar}`}
+                alt={TRANSLATION.header.avatar}
                 loading="eager"
                 decoding="async"
                 css={(theme) => ({
@@ -88,7 +91,7 @@ export const Header = (): JSX.Element => {
                 })}
               />
               <Typography color="textPrimary" variant="h6" component="span">
-                {t("header.title-home")}
+                {TRANSLATION.header.titleHome}
               </Typography>
             </div>
           </Link>
@@ -116,7 +119,7 @@ export const Header = (): JSX.Element => {
               size="small"
               component={RouterLink}
               to="/blog"
-              title={t("blog.title")}
+              title={TRANSLATION.blog.title}
               startIcon={<StickyNote2Icon />}
             >
               <>
@@ -128,7 +131,7 @@ export const Header = (): JSX.Element => {
                     },
                   })}
                 >
-                  {t("blog.title")}
+                  {TRANSLATION.blog.title}
                 </span>
                 <StickyNote2Icon
                   css={(theme) => ({
@@ -155,12 +158,12 @@ export const Header = (): JSX.Element => {
             variant="outlined"
             color="inherit"
             size="small"
-            href={`https://github.com/${siteMetaData.github}`}
-            title={t("header.github-title")}
+            href={`https://github.com/${SITE_METADATA.github}`}
+            title={TRANSLATION.header.githubTitle}
             startIcon={<GitHubIcon />}
             rel="external noreferrer noopener"
           >
-            {t("header.github-title")}
+            {TRANSLATION.header.githubTitle}
           </Button>
           <IconButton
             size="small"
@@ -168,7 +171,7 @@ export const Header = (): JSX.Element => {
               setPaletteMode(paletteMode === "light" ? "dark" : "light")
             }
             css={(theme) => ({ margin: theme.spacing(0, 1) })}
-            title={t("header.toggleDarkTheme-title")}
+            title={TRANSLATION.header.toggleDarkThemeTitle}
           >
             {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
           </IconButton>

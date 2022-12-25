@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/SearchRounded";
 import { Button, buttonClasses, Dialog, useMediaQuery } from "@mui/material";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useHotkeys } from "react-hotkeys-hook";
@@ -9,6 +8,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { SearchModal } from "./SearchModal";
 
 import { CONSOLE_FONT_FAMILY } from "@/components/markdown/constants";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { useTheme } from "@/hooks/useTheme";
 
 const ShortcutKey = styled("div")(({ theme }) => ({
@@ -22,7 +22,6 @@ const ShortcutKey = styled("div")(({ theme }) => ({
 }));
 
 export const SearchButton = (): JSX.Element => {
-  const { t } = useI18next();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = useCallback(() => {
@@ -62,7 +61,7 @@ export const SearchButton = (): JSX.Element => {
         variant="contained"
         color="secondary"
         size="small"
-        title={t("search.button.hint")}
+        title={TRANSLATION.search.button.hint}
         onClick={handleOpen}
         startIcon={<SearchIcon />}
         endIcon={<ShortcutKey>/</ShortcutKey>}
@@ -76,7 +75,7 @@ export const SearchButton = (): JSX.Element => {
               },
             })}
           >
-            {t("search.button.title")}
+            {TRANSLATION.search.button.title}
           </span>
           <SearchIcon
             css={(theme) => ({
