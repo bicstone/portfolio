@@ -2,7 +2,7 @@ import path from "path";
 
 import dotenv from "dotenv";
 
-import siteMetaData from "./src/constants/siteMetaData";
+import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
 import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
@@ -29,9 +29,9 @@ const config: GatsbyConfig = {
   pathPrefix,
 
   siteMetadata: {
-    title: siteMetaData.title,
-    siteUrl: siteMetaData.siteUrl,
-    description: siteMetaData.description,
+    title: SITE_METADATA.title,
+    siteUrl: SITE_METADATA.siteUrl,
+    description: SITE_METADATA.description,
   },
 
   jsxRuntime: "automatic",
@@ -110,16 +110,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-i18next",
-      options: {
-        siteUrl: siteMetaData.siteUrl,
-        localeJsonSourceName: `locales`,
-        languages: siteMetaData.languages,
-        defaultLanguage: siteMetaData.defaultLanguage,
-        trailingSlash,
-      },
-    },
-    {
       resolve: `gatsby-plugin-feed`,
       options: {
         feeds: [
@@ -131,9 +121,9 @@ const config: GatsbyConfig = {
             }) => {
               return allContentfulBlogPost.nodes.map((node) => {
                 return {
-                  guid: `${siteMetaData.siteUrl}/${node.slug}`,
+                  guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
                   title: node.title,
-                  url: `${siteMetaData.siteUrl}/${node.slug}`,
+                  url: `${SITE_METADATA.siteUrl}/${node.slug}`,
                   description: node.excerpt,
                   date: node.created,
                 };
@@ -153,8 +143,8 @@ const config: GatsbyConfig = {
               }
             `,
             output: "/rss.xml",
-            link: `${siteMetaData.siteUrl}/rss.xml`,
-            title: siteMetaData.blogTitle,
+            link: `${SITE_METADATA.siteUrl}/rss.xml`,
+            title: SITE_METADATA.blogTitle,
           },
         ],
       },
@@ -165,7 +155,7 @@ const config: GatsbyConfig = {
         bucketName: process.env.AWS_S3_BUCKET_NAME,
         region: process.env.AWS_REGION,
         protocol: "https",
-        hostname: new URL(siteMetaData.siteUrl).hostname,
+        hostname: new URL(SITE_METADATA.siteUrl).hostname,
         acl: null,
       },
     },

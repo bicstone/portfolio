@@ -1,4 +1,4 @@
-export default {
+export const SITE_METADATA = {
   title: "Oishi Takanori Portfolio",
   blogTitle: "まっしろブログ",
   shortTitle: "bicstone",
@@ -14,8 +14,7 @@ export default {
   firstName: "Takanori",
   lastName: "Oishi",
   gender: "male",
-  languages: ["ja"],
   defaultLanguage: "ja",
   tileColor: "#81c784",
   maskColor: "#2d1e1e",
-} as const;
+} as const satisfies Record<string, string>;

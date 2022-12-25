@@ -8,9 +8,9 @@ import path from "path";
 
 import { createCanvas, registerFont, Image } from "canvas";
 
-import siteMetaData from "../../constants/siteMetaData";
-
 import { calculateTextPositionIntoRectangle } from "./calculateTextPositionIntoRectangle";
+
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 
 const IMAGE_WIDTH = 1200;
 const IMAGE_HEIGHT = 630;
@@ -57,7 +57,7 @@ const STYLES = {
 const ICON_FILE = path.resolve(STATIC_DIR, "android-chrome-512x512.png");
 const BACKGROUND_IMAGE_FILE = path.resolve(__dirname, "background.png");
 
-const AUTHOR_TEXT = `${siteMetaData.lastName} ${siteMetaData.firstName} (@${siteMetaData.author})`;
+const AUTHOR_TEXT = `${SITE_METADATA.lastName} ${SITE_METADATA.firstName} (@${SITE_METADATA.author})`;
 
 interface GenerateImageOptions {
   fileName: string;
