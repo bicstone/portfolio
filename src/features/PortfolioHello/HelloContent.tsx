@@ -1,6 +1,5 @@
 import { Typography, Grid, Card, CardHeader } from "@mui/material";
 import { graphql, withPrefix } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
 import { FukkiretaAnimationSvgIcon } from "./FukkiretaAnimationSvgIcon";
@@ -8,7 +7,8 @@ import { SocialLinks } from "./SocialLinks";
 
 import type { PortfolioHelloContentFragment } from "@/generated/graphqlTypes";
 
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const query = graphql`
   fragment PortfolioHelloContent on ContentfulHello {
@@ -21,7 +21,6 @@ export const HelloContent = (props: {
 }): JSX.Element => {
   const { links } = props;
 
-  const { t } = useI18next();
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   return (
@@ -46,11 +45,13 @@ export const HelloContent = (props: {
           activeAnimation={activeAnimation}
           width={100}
           height={100}
-          src={`${siteMetaData.siteUrl}${siteMetaData.imageAvatar}`}
+          src={`${SITE_METADATA.siteUrl}${SITE_METADATA.imageAvatar}`}
           loading="eager"
           decoding="async"
           alt={
-            activeAnimation ? t("hello.icon.fukkireta") : t("hello.icon.normal")
+            activeAnimation
+              ? TRANSLATION.hello.icon.fukkireta
+              : TRANSLATION.hello.icon.normal
           }
           onClick={() => setActiveAnimation(!activeAnimation)}
           css={(theme) => ({
@@ -87,13 +88,13 @@ export const HelloContent = (props: {
             disableTypography
             title={
               <Typography component="p" variant="h6" gutterBottom>
-                {t("hello.title")}
+                {TRANSLATION.hello.title}
               </Typography>
             }
             subheader={
               <>
                 <Typography variant="body1" gutterBottom>
-                  {t("hello.description")}
+                  {TRANSLATION.hello.description}
                 </Typography>
                 <SocialLinks links={links} />
               </>

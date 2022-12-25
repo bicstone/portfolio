@@ -1,6 +1,6 @@
 import type { HeadProps } from "gatsby";
 
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 
 /**
  * Head export
@@ -17,7 +17,7 @@ export const Head = (props: {
   const { location, title, description, image, imageAlt, type } = props;
 
   const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
-  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
+  const canonical = `${SITE_METADATA.siteUrl}${location.pathname}`;
 
   return (
     <>
@@ -26,7 +26,7 @@ export const Head = (props: {
       <link
         rel="alternate"
         href={canonical}
-        hrefLang={siteMetaData.defaultLanguage}
+        hrefLang={SITE_METADATA.defaultLanguage}
       />
       <link rel="alternate" href={canonical} hrefLang="x-default" />
 
@@ -55,35 +55,35 @@ export const Head = (props: {
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href={`${siteMetaData.siteUrl}/apple-touch-icon.png`}
+        href={`${SITE_METADATA.siteUrl}/apple-touch-icon.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`${siteMetaData.siteUrl}/favicon-32x32.png`}
+        href={`${SITE_METADATA.siteUrl}/favicon-32x32.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={`${siteMetaData.siteUrl}/favicon-16x16.png`}
+        href={`${SITE_METADATA.siteUrl}/favicon-16x16.png`}
       />
       <link
         rel="manifest"
-        href={`${siteMetaData.siteUrl}/manifest.webmanifest`}
+        href={`${SITE_METADATA.siteUrl}/manifest.webmanifest`}
       />
       <link
         rel="mask-icon"
-        href={`${siteMetaData.siteUrl}/safari-pinned-tab.svg`}
-        color={siteMetaData.maskColor}
+        href={`${SITE_METADATA.siteUrl}/safari-pinned-tab.svg`}
+        color={SITE_METADATA.maskColor}
       />
       <meta
         name="apple-mobile-web-app-title"
-        content={siteMetaData.shortTitle}
+        content={SITE_METADATA.shortTitle}
       />
-      <meta name="application-name" content={siteMetaData.shortTitle} />
-      <meta name="msapplication-TileColor" content={siteMetaData.tileColor} />
+      <meta name="application-name" content={SITE_METADATA.shortTitle} />
+      <meta name="msapplication-TileColor" content={SITE_METADATA.tileColor} />
 
       {/* others */}
       <meta
@@ -116,8 +116,8 @@ export const Head = (props: {
       <meta property="og:image" content={image} />
       <meta property="og:image:alt" content={imageAlt} />
       <meta property="og:url" content={canonical} />
-      <meta property="og:site_name" content={siteMetaData.title} />
-      <meta property="og:locale" content={siteMetaData.defaultLanguage} />
+      <meta property="og:site_name" content={SITE_METADATA.title} />
+      <meta property="og:locale" content={SITE_METADATA.defaultLanguage} />
       <meta property="og:type" content={type} />
 
       <meta name="twitter:title" content={title} />

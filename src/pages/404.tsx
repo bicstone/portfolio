@@ -1,28 +1,13 @@
 import { SelfImprovementRounded as SelfImprovementIcon } from "@mui/icons-material";
 import { Typography, Container, Button } from "@mui/material";
-import { graphql, Link as RouterLink } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import { Link as RouterLink } from "gatsby";
 
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { Head } from "@/layouts/Head";
-
-export const query = graphql`
-  query NotFoundPage($language: String!) {
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
-  }
-`;
 
 export { Head };
 
 const NotFound = (): JSX.Element => {
-  const { t } = useI18next();
-
   return (
     <Container maxWidth="md">
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
@@ -34,9 +19,11 @@ const NotFound = (): JSX.Element => {
           })}
         />
         <Typography variant="h4" component="h1" paragraph>
-          {t("not-found.title")}
+          {TRANSLATION.notFound.title}
         </Typography>
-        <Typography variant="body1">{t("not-found.description")}</Typography>
+        <Typography variant="body1">
+          {TRANSLATION.notFound.description}
+        </Typography>
       </div>
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
         <Button
@@ -45,7 +32,7 @@ const NotFound = (): JSX.Element => {
           to="/"
           color="secondary"
         >
-          {t("not-found.back-to-home")}
+          {TRANSLATION.notFound.backToHome}
         </Button>
       </div>
     </Container>

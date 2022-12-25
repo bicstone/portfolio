@@ -10,7 +10,7 @@ import {
 import type { BLOG_POST_SEARCH_FIELDS } from "./constants";
 import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
 
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { isDefined } from "@/utils/typeguard";
 
 export type BlogPost = Pick<
@@ -40,10 +40,10 @@ export const useSearch = (props: {
 
   useEffect(() => {
     const fetchBlogPostList = fetch(
-      `${siteMetaData.siteUrl}/${BLOG_POST_LIST_JSON_FILENAME}`
+      `${SITE_METADATA.siteUrl}/${BLOG_POST_LIST_JSON_FILENAME}`
     ).then(async (response) => await response.json());
     const fetchBlogPostListIndex = fetch(
-      `${siteMetaData.siteUrl}/${BLOG_POST_LIST_INDEX_JSON_FILENAME}`
+      `${SITE_METADATA.siteUrl}/${BLOG_POST_LIST_INDEX_JSON_FILENAME}`
     ).then(async (response) => await response.json());
 
     Promise.all([fetchBlogPostList, fetchBlogPostListIndex])

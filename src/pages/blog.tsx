@@ -10,7 +10,6 @@ import {
   tabScrollButtonClasses,
 } from "@mui/material";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useCallback, useMemo } from "react";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
@@ -18,15 +17,15 @@ import type { PageProps, HeadFC } from "gatsby";
 import type { SyntheticEvent } from "react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostList } from "@/features/BlogPostList";
-import { HelloContent } from "@/features/PortfolioHello";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { Head as HeadTemplate } from "@/layouts/Head";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPage($language: String!) {
+  query BlogPage {
     blogPostList: allContentfulBlogPost(sort: { created: DESC }) {
       nodes {
         title
@@ -44,25 +43,12 @@ export const query = graphql`
         name
       }
     }
-    links: allContentfulHello(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioHelloContent
-      }
-    }
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
   }
 `;
 
 export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
   const blogPostList = data.blogPostList.nodes;
-  const title = `${siteMetaData.blogTitle} - ${siteMetaData.title}`;
+  const title = `${SITE_METADATA.blogTitle} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
   return (
@@ -70,8 +56,8 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
       <HeadTemplate
         location={location}
         title={title}
-        description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
+        description={SITE_METADATA.description}
+        image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
         imageAlt={title}
         type="blog"
       />
@@ -83,33 +69,33 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "Blog",
             headline: title,
-            image: [`${siteMetaData.siteUrl}${siteMetaData.image}`],
+            image: [`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`],
             datePublished: buildTime,
             dateModified: buildTime,
-            description: siteMetaData.description,
+            description: SITE_METADATA.description,
             author: {
               "@type": "Person",
-              name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
-              url: siteMetaData.siteUrl,
+              name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
+              url: SITE_METADATA.siteUrl,
             },
             publisher: {
               "@type": "Organization",
-              name: siteMetaData.title,
+              name: SITE_METADATA.title,
               logo: {
                 "@type": "ImageObject",
-                url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
               },
             },
             blogPost: [
               ...blogPostList.map((post) => ({
                 "@type": "BlogPosting",
                 headline: post.title,
-                image: `${siteMetaData.siteUrl}/ogp/${post.slug}.png`,
+                image: `${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`,
                 datePublished: post.created,
                 author: {
                   "@type": "Person",
-                  name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
-                  url: siteMetaData.siteUrl,
+                  name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
+                  url: SITE_METADATA.siteUrl,
                 },
               })),
             ],
@@ -127,8 +113,8 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 1,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${"/"}`,
-                  name: siteMetaData.title,
+                  "@id": `${SITE_METADATA.siteUrl}${"/"}`,
+                  name: SITE_METADATA.title,
                   "@type": "Thing",
                 },
               },
@@ -136,8 +122,8 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 2,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${location.pathname}`,
-                  name: siteMetaData.blogTitle,
+                  "@id": `${SITE_METADATA.siteUrl}${location.pathname}`,
+                  name: SITE_METADATA.blogTitle,
                   "@type": "Thing",
                 },
               },
@@ -151,8 +137,8 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            url: siteMetaData.siteUrl,
-            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+            url: SITE_METADATA.siteUrl,
+            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
           }),
         }}
       />
@@ -211,8 +197,6 @@ const BlogPage = ({
   const blogPostList = data.blogPostList.nodes;
   const categoryList = data.categoryList.nodes;
 
-  const { t } = useI18next();
-
   const hash = useMemo(() => location.hash.slice(1), [location.hash]);
   const value = useMemo(
     () =>
@@ -242,24 +226,13 @@ const BlogPage = ({
       <Global styles={{ body: { overflowY: "scroll" } }} />
 
       <Breadcrumbs
-        title={t("blog.title")}
+        title={TRANSLATION.blog.title}
         css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
       <Typography component="h1" variant="h4" align="center">
-        {t("blog.title")}
+        {TRANSLATION.blog.title}
       </Typography>
-
-      <aside css={(theme) => ({ marginBottom: theme.spacing(2) })}>
-        <section
-          css={(theme) => ({
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-          })}
-        >
-          <HelloContent links={data.links.nodes} />
-        </section>
-      </aside>
 
       <TabContext value={value}>
         <StyledTabList
@@ -287,7 +260,7 @@ const BlogPage = ({
       </TabContext>
 
       <Breadcrumbs
-        title={t("blog.title")}
+        title={TRANSLATION.blog.title}
         css={(theme) => ({ margin: theme.spacing(2, 0) })}
       />
     </Container>

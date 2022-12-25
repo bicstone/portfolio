@@ -13,7 +13,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { Link as RouterLink } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState, useMemo, useTransition, useId } from "react";
 
 import { useSearch } from "./useSearch";
@@ -21,6 +20,7 @@ import { useSearch } from "./useSearch";
 import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
 
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { useTheme } from "@/hooks/useTheme";
 import {
   convertHiraganaToKatakana,
@@ -31,7 +31,6 @@ import { isDefined } from "@/utils/typeguard";
 export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
   const { onClose } = props;
 
-  const { t } = useI18next();
   const [filtering, startTransition] = useTransition();
   const [inputValue, setInputValue] = useState("");
   const [inputValueSync, setInputValueSync] = useState("");
@@ -79,7 +78,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
       }}
     >
       <DialogTitle css={{ display: "flex", justifyContent: "space-between" }}>
-        {t("search.title")}
+        {TRANSLATION.search.title}
         <Button
           css={(theme) => ({
             padding: theme.spacing(0, 1.5),
@@ -87,10 +86,10 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
           })}
           color="secondary"
           variant="contained"
-          title={t("search.close.hint")}
+          title={TRANSLATION.search.close.hint}
           onClick={onClose}
         >
-          {t("search.close.title")}
+          {TRANSLATION.search.close.title}
         </Button>
       </DialogTitle>
       <TextField
@@ -98,7 +97,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         autoFocus
         fullWidth
         type="search"
-        placeholder={t("search.hint")}
+        placeholder={TRANSLATION.search.hint}
         value={inputValueSync}
         margin="dense"
         color="secondary"
@@ -112,7 +111,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         inputProps={{
           autoComplete: "off",
           "aria-controls": listId,
-          enterKeyHint: t("search.title"),
+          enterKeyHint: TRANSLATION.search.title,
         }}
         onChange={handleChange}
         css={(theme) => ({ padding: theme.spacing(0, 3) })}
@@ -125,7 +124,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         css={{ overflowY: "auto" }}
         aria-busy={fetching || filtering}
       >
-        {error && <Alert severity="error">{t("search.error")}</Alert>}
+        {error && <Alert severity="error">{TRANSLATION.search.error}</Alert>}
         {isDefined(result) &&
           result.map((post) => (
             <ListItem key={post.refIndex} role="option">

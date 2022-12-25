@@ -4,7 +4,6 @@ import {
 } from "@mui/icons-material";
 import { Card, Container, NoSsr, Typography } from "@mui/material";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 
 import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
@@ -12,7 +11,8 @@ import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InarticleAd } from "@/components/InarticleAd";
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
@@ -21,7 +21,7 @@ import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPostPage($id: String!, $language: String!) {
+  query BlogPostPage($id: String!) {
     post: contentfulBlogPost(id: { eq: $id }) {
       slug
       title
@@ -45,20 +45,12 @@ export const query = graphql`
         ...PortfolioHelloContent
       }
     }
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
   }
 `;
 
 export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
   const post = data.post;
-  const title = `${post.title} - ${siteMetaData.blogTitle}`;
+  const title = `${post.title} - ${SITE_METADATA.blogTitle}`;
 
   return (
     <>
@@ -66,13 +58,13 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={post.excerpt}
-        image={`${siteMetaData.siteUrl}/ogp/${post.slug}.png`}
-        imageAlt={siteMetaData.blogTitle}
+        image={`${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`}
+        imageAlt={SITE_METADATA.blogTitle}
         type="article"
       />
       <meta property="article:published_time" content={post.created} />
       <meta property="article:modified_time" content={post.updated} />
-      <meta property="article:author" content={siteMetaData.siteUrl} />
+      <meta property="article:author" content={SITE_METADATA.siteUrl} />
       <meta property="article:section" content={post.category.name} />
       {post.tags.map((tag) => (
         <meta key={tag.name} property="article:tag" content={tag.name} />
@@ -85,21 +77,21 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [`${siteMetaData.siteUrl}/ogp/${post.slug}.png`],
+            image: [`${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`],
             datePublished: post.created,
             dateModified: post.updated,
             dateCreated: post.created,
             author: {
               "@type": "Person",
-              name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
-              url: siteMetaData.siteUrl,
+              name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
+              url: SITE_METADATA.siteUrl,
             },
             publisher: {
               "@type": "Organization",
-              name: siteMetaData.title,
+              name: SITE_METADATA.title,
               logo: {
                 "@type": "ImageObject",
-                url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
               },
             },
             description: post.excerpt,
@@ -118,8 +110,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 1,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${"/"}`,
-                  name: siteMetaData.title,
+                  "@id": `${SITE_METADATA.siteUrl}${"/"}`,
+                  name: SITE_METADATA.title,
                   "@type": "Thing",
                 },
               },
@@ -127,8 +119,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 2,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${"/blog"}`,
-                  name: siteMetaData.blogTitle,
+                  "@id": `${SITE_METADATA.siteUrl}${"/blog"}`,
+                  name: SITE_METADATA.blogTitle,
                   "@type": "Thing",
                 },
               },
@@ -136,7 +128,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 3,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}/${post.slug}`,
+                  "@id": `${SITE_METADATA.siteUrl}/${post.slug}`,
                   name: post.title,
                   "@type": "Thing",
                 },
@@ -151,8 +143,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            url: siteMetaData.siteUrl,
-            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+            url: SITE_METADATA.siteUrl,
+            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
           }),
         }}
       />
@@ -163,8 +155,6 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
 export const BlogPostPage = ({
   data,
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
-  const { t } = useI18next();
-
   const post = data.post;
 
   const relatedPosts = useMemo(() => {
@@ -247,7 +237,7 @@ export const BlogPostPage = ({
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
         <Typography variant="h5" component="h2">
-          {t("blog.author-title")}
+          {TRANSLATION.blog.authorTitle}
         </Typography>
 
         <section
@@ -265,7 +255,7 @@ export const BlogPostPage = ({
           <NoSsr defer>
             <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
               <Typography variant="h5" component="h2" paragraph>
-                {t("blog.ad-label")}
+                {TRANSLATION.blog.adLabel}
               </Typography>
               <InarticleAd
                 pubId={process.env.GATSBY_ADSENSE_PUB_ID}
@@ -277,7 +267,7 @@ export const BlogPostPage = ({
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
         <Typography variant="h5" component="h2" paragraph>
-          {t("blog.related-title")}
+          {TRANSLATION.blog.relatedTitle}
         </Typography>
         <RelatedBlogPostList posts={relatedPosts} />
       </aside>
