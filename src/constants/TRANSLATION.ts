@@ -23,7 +23,7 @@ export const TRANSLATION = {
       "Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc. Any unauthorized use is strictly prohibited.",
   },
   header: {
-    avatar: "ニコニコした 大石貴則 の似顔絵",
+    avatar: "ニコニコした Oishi Takanori の似顔絵",
     goToPortfolio: "ポートフォリオに移動",
     changeLanguageTitle: "言語切替",
     githubTitle: "GitHub",
@@ -33,15 +33,15 @@ export const TRANSLATION = {
   },
   hello: {
     description:
-      "大石貴則と申します。 Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
+      "Oishi Takanori と申します。 Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
     goToPortfolio: "ポートフォリオ",
     icon: {
       fukkireta:
-        "ニコニコした 大石貴則 の似顔絵がニコニコ動画で流行した「吹っ切れた」を真似しているアニメーション。クリックするとアニメーションを停止します。",
+        "ニコニコした Oishi Takanori の似顔絵がニコニコ動画で流行した「吹っ切れた」を真似しているアニメーション。クリックするとアニメーションを停止します。",
       normal:
-        "ニコニコした 大石貴則 の似顔絵。クリックするとアニメーションを開始します。",
+        "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
-    title: "@bicstone",
+    title: "ビックストーン大石 (@bicstone)",
   },
   histories: {
     date: "年",
