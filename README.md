@@ -148,12 +148,6 @@ yarn lint:fix
 yarn typecheck
 ```
 
-### 翻訳 JSON を更新
-
-```shell
-yarn i18n
-```
-
 ### GraphQL の型情報を取り込む
 
 ```shell
