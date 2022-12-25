@@ -152,7 +152,9 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
   );
 };
 
-export const BlogPostPage = ({ data }: PageProps<BlogPostPageQuery>): JSX.Element => {
+export const BlogPostPage = ({
+  data,
+}: PageProps<BlogPostPageQuery>): JSX.Element => {
   const post = data.post;
 
   const relatedPosts = useMemo(() => {
