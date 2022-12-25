@@ -7,14 +7,14 @@ import {
   IconButton,
 } from "@mui/material";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useState } from "react";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 
-import siteMetaData from "@/constants/siteMetaData";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { CertificationList } from "@/features/PortfolioCertification";
 import { HelloContent } from "@/features/PortfolioHello";
 import { HistoryList } from "@/features/PortfolioHistory";
@@ -31,7 +31,7 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 }));
 
 export const query = graphql`
-  query IndexPage($language: String!) {
+  query IndexPage {
     links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioHelloContent
@@ -67,14 +67,6 @@ export const query = graphql`
         ...PortfolioCertificationList
       }
     }
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
   }
 `;
 
@@ -83,10 +75,10 @@ export const Head: HeadFC = ({ location }) => {
     <>
       <HeadTemplate
         location={location}
-        title={siteMetaData.title}
-        description={siteMetaData.description}
-        image={`${siteMetaData.siteUrl}${siteMetaData.image}`}
-        imageAlt={siteMetaData.title}
+        title={SITE_METADATA.title}
+        description={SITE_METADATA.description}
+        image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
+        imageAlt={SITE_METADATA.title}
         type="profile"
       />
       <script
@@ -95,8 +87,8 @@ export const Head: HeadFC = ({ location }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            url: siteMetaData.siteUrl,
-            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+            url: SITE_METADATA.siteUrl,
+            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
           }),
         }}
       />
@@ -166,8 +158,6 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 };
 
 const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const { t } = useI18next();
-
   return (
     <>
       <PaddingContainer maxWidth="lg">
@@ -176,21 +166,27 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <PaddingContainer maxWidth="lg">
         <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </PaddingContainer>
-      <Section title={t("home.projects-title")}>
+      <Section title={TRANSLATION.home.projectsTitle}>
         <ProjectList projects={data.projects.nodes} />
       </Section>
-      <Section title={t("home.histories-title")}>
+      <Section title={TRANSLATION.home.historiesTitle}>
         <HistoryList histories={data.histories.nodes} />
       </Section>
-      <Section title={t("home.osses-title")} help={t("home.osses-help")}>
+      <Section
+        title={TRANSLATION.home.ossesTitle}
+        help={TRANSLATION.home.ossesHelp}
+      >
         <OssList osses={data.osses.nodes} />
       </Section>
-      <Section title={t("home.skills-title")} help={t("home.skills-help")}>
+      <Section
+        title={TRANSLATION.home.skillsTitle}
+        help={TRANSLATION.home.skillsHelp}
+      >
         <SkillList skills={data.skills.nodes} />
       </Section>
       <Section
-        title={t("home.qualifications-title")}
-        help={t("home.qualifications-help")}
+        title={TRANSLATION.home.qualificationsTitle}
+        help={TRANSLATION.home.qualificationsHelp}
       >
         <CertificationList certifications={data.certification.nodes} />
       </Section>

@@ -218,7 +218,7 @@
         "id": "whatICanDo",
         "type": "ContentType",
         "createdAt": "2020-11-14T17:12:14.005Z",
-        "updatedAt": "2020-12-05T16:57:54.130Z",
+        "updatedAt": "2022-11-22T15:57:06.965Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -226,8 +226,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 21,
-        "publishedAt": "2020-12-05T16:57:54.130Z",
+        "publishedVersion": 25,
+        "publishedAt": "2022-11-22T15:57:06.965Z",
         "firstPublishedAt": "2020-11-14T17:12:14.543Z",
         "createdBy": {
           "sys": {
@@ -243,8 +243,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 11,
-        "version": 22,
+        "publishedCounter": 13,
+        "version": 26,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -313,6 +313,17 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Entry"
+        },
+        {
+          "id": "logo",
+          "name": "logo",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": true,
+          "linkType": "Asset"
         }
       ]
     },
@@ -328,7 +339,7 @@
         "id": "qualification",
         "type": "ContentType",
         "createdAt": "2020-11-15T08:47:25.771Z",
-        "updatedAt": "2020-12-05T14:15:48.755Z",
+        "updatedAt": "2022-11-22T08:30:19.617Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -336,8 +347,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 15,
-        "publishedAt": "2020-12-05T14:15:48.755Z",
+        "publishedVersion": 17,
+        "publishedAt": "2022-11-22T08:30:19.617Z",
         "firstPublishedAt": "2020-11-15T08:47:26.297Z",
         "createdBy": {
           "sys": {
@@ -353,8 +364,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 8,
-        "version": 16,
+        "publishedCounter": 9,
+        "version": 18,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -387,6 +398,26 @@
           "type": "Date",
           "localized": false,
           "required": true,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "endDate",
+          "name": "endDate",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "url",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
           "validations": [],
           "disabled": false,
           "omitted": false
@@ -1333,7 +1364,7 @@
         "id": "blogPost",
         "type": "ContentType",
         "createdAt": "2021-12-31T07:20:23.437Z",
-        "updatedAt": "2022-04-10T02:47:49.092Z",
+        "updatedAt": "2022-12-04T05:27:59.877Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1341,8 +1372,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 41,
-        "publishedAt": "2022-04-10T02:47:49.092Z",
+        "publishedVersion": 45,
+        "publishedAt": "2022-12-04T05:27:59.877Z",
         "firstPublishedAt": "2021-12-31T07:20:23.909Z",
         "createdBy": {
           "sys": {
@@ -1358,8 +1389,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 21,
-        "version": 42,
+        "publishedCounter": 23,
+        "version": 46,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1477,21 +1508,6 @@
             ],
             "linkType": "Entry"
           }
-        },
-        {
-          "id": "thumbnail",
-          "name": "thumbnail",
-          "type": "Link",
-          "localized": false,
-          "required": true,
-          "validations": [
-            {
-              "linkMimetypeGroup": ["image"]
-            }
-          ],
-          "disabled": false,
-          "omitted": false,
-          "linkType": "Asset"
         }
       ]
     },
@@ -1507,7 +1523,7 @@
         "id": "category",
         "type": "ContentType",
         "createdAt": "2022-04-10T00:44:33.918Z",
-        "updatedAt": "2022-04-10T03:01:03.969Z",
+        "updatedAt": "2022-11-18T13:26:47.905Z",
         "environment": {
           "sys": {
             "id": "master",
@@ -1515,8 +1531,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 3,
-        "publishedAt": "2022-04-10T03:01:03.969Z",
+        "publishedVersion": 5,
+        "publishedAt": "2022-11-18T13:26:47.905Z",
         "firstPublishedAt": "2022-04-10T00:44:34.300Z",
         "createdBy": {
           "sys": {
@@ -1532,8 +1548,8 @@
             "id": "2QdmDOaQBj8QsabbJPF3Es"
           }
         },
-        "publishedCounter": 2,
-        "version": 4,
+        "publishedCounter": 3,
+        "version": 6,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -1570,6 +1586,20 @@
         {
           "id": "name",
           "name": "name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "slug",
+          "name": "slug",
           "type": "Symbol",
           "localized": false,
           "required": true,
@@ -1891,7 +1921,7 @@
             "linkType": "Space"
           }
         },
-        "version": 32,
+        "version": 36,
         "createdAt": "2020-11-14T17:12:14.692Z",
         "createdBy": {
           "sys": {
@@ -1900,7 +1930,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-02-20T05:37:42.185Z",
+        "updatedAt": "2022-11-22T15:57:07.730Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -1979,6 +2009,11 @@
           },
           "widgetId": "entryCardEditor",
           "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "logo",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -1993,7 +2028,7 @@
             "linkType": "Space"
           }
         },
-        "version": 27,
+        "version": 29,
         "createdAt": "2020-11-15T08:47:26.396Z",
         "createdBy": {
           "sys": {
@@ -2002,7 +2037,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-02-20T05:37:48.674Z",
+        "updatedAt": "2022-11-22T08:30:20.966Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -2060,7 +2095,6 @@
       "controls": [
         {
           "fieldId": "name",
-          "settings": {},
           "widgetId": "singleLine",
           "widgetNamespace": "builtin"
         },
@@ -2071,6 +2105,20 @@
             "format": "dateonly"
           },
           "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "endDate",
+          "settings": {
+            "ampm": "24",
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "widgetId": "urlEditor",
           "widgetNamespace": "builtin"
         }
       ]
@@ -2819,7 +2867,7 @@
             "linkType": "Space"
           }
         },
-        "version": 42,
+        "version": 46,
         "createdAt": "2021-12-31T07:20:24.015Z",
         "createdBy": {
           "sys": {
@@ -2828,7 +2876,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-04-10T02:47:49.724Z",
+        "updatedAt": "2022-12-04T05:28:00.683Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -2900,11 +2948,6 @@
           },
           "widgetId": "entryLinksEditor",
           "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "thumbnail",
-          "widgetId": "assetLinkEditor",
-          "widgetNamespace": "builtin"
         }
       ]
     },
@@ -2919,7 +2962,7 @@
             "linkType": "Space"
           }
         },
-        "version": 4,
+        "version": 6,
         "createdAt": "2022-04-10T00:44:34.410Z",
         "createdBy": {
           "sys": {
@@ -2928,7 +2971,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2022-04-10T03:01:04.603Z",
+        "updatedAt": "2022-11-18T13:26:48.629Z",
         "updatedBy": {
           "sys": {
             "id": "2QdmDOaQBj8QsabbJPF3Es",
@@ -2960,6 +3003,14 @@
         {
           "fieldId": "name",
           "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "slug",
+          "settings": {
+            "trackingFieldId": "name"
+          },
+          "widgetId": "slugEditor",
           "widgetNamespace": "builtin"
         }
       ]

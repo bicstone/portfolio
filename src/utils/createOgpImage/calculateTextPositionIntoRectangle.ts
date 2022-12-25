@@ -7,6 +7,8 @@
 
 import { isDefined } from "../typeguard";
 
+import type { CanvasRenderingContext2D } from "canvas";
+
 export const calculateTextPositionIntoRectangle = ({
   ctx,
   text,

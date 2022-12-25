@@ -7,12 +7,12 @@ import {
   Typography,
 } from "@mui/material";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
@@ -37,8 +37,6 @@ export const HistoryCard = (props: {
 }): JSX.Element => {
   const { history, expanded, onChange } = props;
 
-  const { t } = useI18next();
-
   const year = useMemo(() => {
     return formatDateTime(history.date, "yyyy");
   }, [history.date]);
@@ -62,7 +60,7 @@ export const HistoryCard = (props: {
           title={
             <>
               <Typography variant="body2" component="div" color="textSecondary">
-                {t("histories.date", { date: year })}
+                {`${year} ${TRANSLATION.histories.date}`}
               </Typography>
               <Typography component="h2" variant="h6">
                 {history.name}
