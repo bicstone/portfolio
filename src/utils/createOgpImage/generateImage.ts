@@ -8,9 +8,9 @@ import path from "path";
 
 import { createCanvas, registerFont, Image } from "canvas";
 
-import { calculateTextPositionIntoRectangle } from "./calculateTextPositionIntoRectangle";
+import { SITE_METADATA } from "../../constants/SITE_METADATA";
 
-import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { calculateTextPositionIntoRectangle } from "./calculateTextPositionIntoRectangle";
 
 const IMAGE_WIDTH = 1200;
 const IMAGE_HEIGHT = 630;
