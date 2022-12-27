@@ -3,7 +3,6 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import { captureException } from "@sentry/gatsby";
 
 import { AnchorIcon } from "./AnchorIcon";
 import { AnchorLink } from "./AnchorLink";
@@ -19,8 +18,11 @@ import { Video } from "./Video";
 
 import type { MDXProviderComponentsProp } from "@mdx-js/react";
 
+import { isDefined } from "@/utils/typeguard";
+
 const notImplemented = (name: string): null => {
-  captureException(new Error(`Not implemented: ${name}`));
+  isDefined(window.Sentry) &&
+    window.Sentry.captureException(new Error(`Not implemented: ${name}`));
   return null;
 };
 
