@@ -1,5 +1,5 @@
 import { MDXProvider } from "@mdx-js/react";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 

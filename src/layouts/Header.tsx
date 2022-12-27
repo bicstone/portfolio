@@ -1,20 +1,15 @@
-import {
-  LightMode as LightModeIcon,
-  DarkMode as DarkModeIcon,
-  GitHub as GitHubIcon,
-  StickyNote2 as StickyNote2Icon,
-} from "@mui/icons-material";
-import {
-  Toolbar,
-  AppBar,
-  Typography,
-  useScrollTrigger,
-  Link,
-  Button,
-  IconButton,
-  useColorScheme,
-  buttonClasses,
-} from "@mui/material";
+import DarkModeIcon from "@mui/icons-material/DarkModeRounded";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LightModeIcon from "@mui/icons-material/LightModeRounded";
+import StickyNote2Icon from "@mui/icons-material/StickyNote2Rounded";
+import AppBar from "@mui/material/AppBar";
+import Button, { buttonClasses } from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Link from "@mui/material/Link";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { useColorScheme } from "@mui/material/styles/CssVarsProvider";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useLocation } from "@reach/router";
 import { Link as RouterLink, withPrefix } from "gatsby";
 

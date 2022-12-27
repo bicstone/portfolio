@@ -1,5 +1,8 @@
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUpRounded";
-import { Tooltip, Fade, Fab, useScrollTrigger } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import Fade from "@mui/material/Fade";
+import Tooltip from "@mui/material/Tooltip";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useCallback, useState } from "react";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";

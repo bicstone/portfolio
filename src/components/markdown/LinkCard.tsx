@@ -1,5 +1,8 @@
-import { LinkRounded as LinkIcon } from "@mui/icons-material";
-import { Card, CardActionArea, CardHeader, Typography } from "@mui/material";
+import LinkIcon from "@mui/icons-material/LinkRounded";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardHeader from "@mui/material/CardHeader";
+import Typography from "@mui/material/Typography";
 import { captureException } from "@sentry/gatsby";
 
 import type { AnchorHTMLAttributes } from "react";

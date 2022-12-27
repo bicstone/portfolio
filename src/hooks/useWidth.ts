@@ -1,4 +1,4 @@
-import { useMediaQuery } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import type { Breakpoint, Theme } from "@mui/material/styles";
 

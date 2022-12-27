@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import { TableContainer, Table as MuiTable } from "@mui/material";
+import MuiTable from "@mui/material/Table";
+import TableContainer from "@mui/material/TableContainer";
 
 import type { HTMLAttributes } from "react";
 

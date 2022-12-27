@@ -1,5 +1,7 @@
-import { SelfImprovementRounded as SelfImprovementIcon } from "@mui/icons-material";
-import { Typography, Container, Button } from "@mui/material";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovementRounded";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "gatsby";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";

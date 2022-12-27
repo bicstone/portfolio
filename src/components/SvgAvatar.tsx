@@ -1,4 +1,5 @@
-import { Avatar, SvgIcon } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import SvgIcon from "@mui/material/SvgIcon";
 import parse from "html-react-parser";
 import { memo } from "react";
 

@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/SearchRounded";
-import { Button, buttonClasses, Dialog, useMediaQuery } from "@mui/material";
+import Button, { buttonClasses } from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { useHotkeys } from "react-hotkeys-hook";

@@ -1,14 +1,13 @@
 import { Global } from "@emotion/react";
 import styled from "@emotion/styled";
-import { TabContext, TabList, TabPanel } from "@mui/lab";
-import {
-  Container,
-  Tab,
-  Typography,
-  tabClasses,
-  tabsClasses,
-  tabScrollButtonClasses,
-} from "@mui/material";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+import Container from "@mui/material/Container";
+import Tab, { tabClasses } from "@mui/material/Tab";
+import { tabScrollButtonClasses } from "@mui/material/TabScrollButton";
+import { tabsClasses } from "@mui/material/Tabs";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 import { useCallback, useMemo } from "react";
 

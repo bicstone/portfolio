@@ -1,10 +1,8 @@
-import {
-  Divider,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from "@mui/material";
+import Divider from "@mui/material/Divider";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 import { captureException } from "@sentry/gatsby";
 
 import { AnchorIcon } from "./AnchorIcon";

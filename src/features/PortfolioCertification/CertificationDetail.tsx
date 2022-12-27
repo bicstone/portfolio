@@ -1,4 +1,6 @@
-import { ListItem, ListItemButton, ListItemText } from "@mui/material";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
 

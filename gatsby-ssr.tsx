@@ -1,4 +1,4 @@
-import { getInitColorSchemeScript } from "@mui/material/styles";
+import { getInitColorSchemeScript } from "@mui/material/styles/CssVarsProvider";
 import { Fragment } from "react";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";

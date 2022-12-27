@@ -1,4 +1,4 @@
-import type { Theme as MuiTheme } from "@mui/material";
+import type { Theme as MuiTheme } from "@mui/material/styles";
 
 // mui
 import type {} from "@mui/material/themeCssVarsAugmentation";

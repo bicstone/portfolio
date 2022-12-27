@@ -1,6 +1,6 @@
 import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
-import { CssBaseline } from "@mui/material";
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles/CssVarsProvider";
 
 import BackgroundImage from "./background.svg";
 
