@@ -1,4 +1,5 @@
-import { Typography, Chip } from "@mui/material";
+import Chip from "@mui/material/Chip";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 
 import type { PortfolioSkillGroupDetailFragment } from "@/generated/graphqlTypes";

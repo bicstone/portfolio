@@ -1,9 +1,11 @@
-import { NavigateNextRounded as NavigateNextIcon } from "@mui/icons-material";
-import { Breadcrumbs as MuiBreadcrumbs, Typography, Link } from "@mui/material";
+import NavigateNextIcon from "@mui/icons-material/NavigateNextRounded";
+import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import { useLocation } from "@reach/router";
 import { Link as RouterLink, withPrefix } from "gatsby";
 
-import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material";
+import type { BreadcrumbsProps as MuiBreadcrumbsProps } from "@mui/material/Breadcrumbs";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";

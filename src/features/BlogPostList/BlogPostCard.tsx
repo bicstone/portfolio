@@ -1,5 +1,7 @@
-import { AccessTimeRounded as AccessTimeIcon } from "@mui/icons-material";
-import { Typography, CardActionArea, Card } from "@mui/material";
+import AccessTimeIcon from "@mui/icons-material/AccessTimeRounded";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import Typography from "@mui/material/Typography";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useMemo } from "react";
 

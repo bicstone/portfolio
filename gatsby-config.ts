@@ -1,5 +1,3 @@
-import path from "path";
-
 import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
@@ -39,12 +37,6 @@ const config: GatsbyConfig = {
 
   plugins: [
     {
-      resolve: "@sentry/gatsby",
-      options: {
-        dsn: process.env.SENTRY_DSN,
-      },
-    },
-    {
       resolve: "gatsby-plugin-emotion",
     },
     {
@@ -63,12 +55,6 @@ const config: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-image`,
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: path.resolve("src", "layouts", "WrapPageElement.tsx"),
-      },
     },
     {
       resolve: `gatsby-plugin-mdx`,

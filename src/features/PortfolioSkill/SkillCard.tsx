@@ -1,12 +1,10 @@
-import { ExpandMoreRounded as ExpandMoreIcon } from "@mui/icons-material";
-import {
-  Grid,
-  Card,
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Typography,
-} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMoreRounded";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 import { useCallback, useState } from "react";
 
