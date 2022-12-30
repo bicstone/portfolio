@@ -1,5 +1,3 @@
-import { Script } from "gatsby";
-
 import type { ReactNode } from "react";
 
 import { Footer } from "@/layouts/Footer";
@@ -30,12 +28,6 @@ export const WrapPageElement = (props: {
         {children}
       </main>
       <Footer />
-      <Script
-        src="https://js.sentry-cdn.com/5d824bb42be0445f834cc7b59a6d2cf2.min.js"
-        crossOrigin="anonymous"
-        strategy="idle"
-        async
-      />
     </div>
   );
 };
