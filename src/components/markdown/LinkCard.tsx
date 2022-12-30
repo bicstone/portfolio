@@ -1,6 +1,8 @@
-import { LinkRounded as LinkIcon } from "@mui/icons-material";
-import { Card, CardActionArea, CardHeader, Typography } from "@mui/material";
-import { captureException } from "@sentry/gatsby";
+import LinkIcon from "@mui/icons-material/LinkRounded";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardHeader from "@mui/material/CardHeader";
+import Typography from "@mui/material/Typography";
 
 import type { AnchorHTMLAttributes } from "react";
 
@@ -12,7 +14,10 @@ export const LinkCard = (
   const { title, href } = props;
 
   if (!isDefined(title) || !isDefined(href)) {
-    captureException(new Error(`LinkCard must provide both title and href`));
+    isDefined(window.Sentry) &&
+      window.Sentry.captureException(
+        new Error(`LinkCard must provide both title and href`)
+      );
   }
 
   return (

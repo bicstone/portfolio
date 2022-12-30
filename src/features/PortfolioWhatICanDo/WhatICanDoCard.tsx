@@ -1,4 +1,5 @@
-import { CardHeader, Card } from "@mui/material";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
 import { graphql } from "gatsby";
 
 import type { PortfolioWhatICanDoCardFragment } from "@/generated/graphqlTypes";

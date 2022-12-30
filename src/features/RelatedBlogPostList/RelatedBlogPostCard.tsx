@@ -1,10 +1,8 @@
-import {
-  Typography,
-  CardActionArea,
-  Card,
-  Grid,
-  CardHeader,
-} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardHeader from "@mui/material/CardHeader";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 import { graphql, Link as RouterLink } from "gatsby";
 
 import type { RelatedBlogPostCardFragment } from "@/generated/graphqlTypes";

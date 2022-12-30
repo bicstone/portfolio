@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 export const Heading = styled(Typography)(({ theme }) => ({
   display: "block",

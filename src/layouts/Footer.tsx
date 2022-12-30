@@ -1,4 +1,5 @@
-import { Typography, Link } from "@mui/material";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "gatsby";
 
 import { BackToTop } from "./BackToTop";

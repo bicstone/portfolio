@@ -1,4 +1,3 @@
-import { captureException } from "@sentry/gatsby";
 import Fuse from "fuse.js";
 import { useEffect, useState } from "react";
 
@@ -52,7 +51,7 @@ export const useSearch = (props: {
         setBlogPostListIndex(Fuse.parseIndex(blogPostListIndex));
       })
       .catch((error) => {
-        captureException(error);
+        isDefined(window.Sentry) && window.Sentry.captureException(error);
         setError(true);
       })
       .finally(() => {

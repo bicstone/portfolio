@@ -1,8 +1,9 @@
-import {
-  AccessTimeRounded as AccessTimeIcon,
-  UpdateRounded as UpdateIcon,
-} from "@mui/icons-material";
-import { Card, Container, NoSsr, Typography } from "@mui/material";
+import AccessTimeIcon from "@mui/icons-material/AccessTimeRounded";
+import UpdateIcon from "@mui/icons-material/UpdateRounded";
+import Card from "@mui/material/Card";
+import Container from "@mui/material/Container";
+import NoSsr from "@mui/material/NoSsr";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
 

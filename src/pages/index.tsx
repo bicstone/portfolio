@@ -1,11 +1,9 @@
 import HelpOutlineIcon from "@mui/icons-material/HelpOutlineRounded";
-import {
-  Container,
-  Typography,
-  styled,
-  Tooltip,
-  IconButton,
-} from "@mui/material";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import styled from "@mui/material/styles/styled";
 import { graphql } from "gatsby";
 import { useState } from "react";
 

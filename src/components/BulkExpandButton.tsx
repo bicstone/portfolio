@@ -1,8 +1,6 @@
-import {
-  UnfoldMoreRounded as UnfoldMoreIcon,
-  UnfoldLessRounded as UnfoldLessIcon,
-} from "@mui/icons-material";
-import { Button } from "@mui/material";
+import UnfoldLessIcon from "@mui/icons-material/UnfoldLessRounded";
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMoreRounded";
+import Button from "@mui/material/Button";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
