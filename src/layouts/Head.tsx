@@ -29,20 +29,15 @@ export const Head = (props: {
         hrefLang={SITE_METADATA.defaultLanguage}
       />
       <link rel="alternate" href={canonical} hrefLang="x-default" />
-
       {/* contentful */}
       <link rel="dns-prefetch" href="https://images.ctfassets.net" />
       <link rel="dns-prefetch" href="https://videos.ctfassets.net" />
-
       {/* sentry */}
-      <link rel="dns-prefetch" href="https://browser.sentry-cdn.com" />
-      <link rel="dns-prefetch" href="https://o1173829.ingest.sentry.io" />
-
+      <link rel="dns-prefetch" href="https://js.sentry-cdn.com" />
       {/* analytics */}
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       <link rel="dns-prefetch" href="https://ssl.google-analytics.com" />
-
       {/* adsense */}
       <link rel="dns-prefetch" href="https://adservice.google.co.jp" />
       <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
@@ -50,7 +45,6 @@ export const Head = (props: {
       <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
       <link rel="dns-prefetch" href="https://partner.googleadservices.com" />
       <link rel="dns-prefetch" href="https://www.google.com" />
-
       {/* favicons, thanks to https://realfavicongenerator.net/ */}
       <link
         rel="apple-touch-icon"
@@ -84,7 +78,6 @@ export const Head = (props: {
       />
       <meta name="application-name" content={SITE_METADATA.shortTitle} />
       <meta name="msapplication-TileColor" content={SITE_METADATA.tileColor} />
-
       {/* others */}
       <meta
         name="viewport"
@@ -94,11 +87,9 @@ export const Head = (props: {
         name="format-detection"
         content="email=no, telephone=no, address=no"
       />
-
       {/* SEO */}
       <title>{title}</title>
       <meta name="description" content={description} />
-
       {isAllPagesToNoIndex ? (
         <>
           <meta name="robots" content="noindex,follow" />
@@ -110,7 +101,6 @@ export const Head = (props: {
           <meta name="googlebot" content="index,follow" />
         </>
       )}
-
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
@@ -119,14 +109,12 @@ export const Head = (props: {
       <meta property="og:site_name" content={SITE_METADATA.title} />
       <meta property="og:locale" content={SITE_METADATA.defaultLanguage} />
       <meta property="og:type" content={type} />
-
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@bicstone_me" />
       <meta name="twitter:creator" content="@bicstone_me" />
-
       {
         /* local dev server CSP */
         process.env.NODE_ENV === "development" && (
