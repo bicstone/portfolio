@@ -31,7 +31,7 @@ export const TRANSLATION = {
   },
   hello: {
     description:
-      "Oishi Takanori と申します。 Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
+      "Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
     goToPortfolio: "ポートフォリオ",
     icon: {
       fukkireta:
@@ -39,7 +39,7 @@ export const TRANSLATION = {
       normal:
         "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
-    title: "ビックストーン大石 (@bicstone)",
+    title: "Oishi Takanori (@bicstone)",
   },
   histories: {
     date: "年",

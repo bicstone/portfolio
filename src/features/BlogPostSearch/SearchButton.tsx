@@ -114,6 +114,7 @@ export const SearchButton = (): JSX.Element => {
                     color: theme.vars.palette.common.white,
                     zIndex: theme.zIndex.modal,
                   })}
+                  aria-busy
                   onClick={handleClose}
                 >
                   <CircularProgress color="inherit" />
