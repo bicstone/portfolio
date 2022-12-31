@@ -55,6 +55,8 @@ export const WrapRootElement = ({
               height: "100%",
             },
             "#gatsby-focus-wrapper": {
+              display: "flex",
+              flexDirection: "column",
               height: "100%",
             },
             ".gatsby-resp-image-background-image": {

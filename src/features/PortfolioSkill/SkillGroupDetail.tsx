@@ -31,8 +31,7 @@ export const SkillGroupDetail = (props: {
           justifyContent: "flex-start",
           flexWrap: "wrap",
           listStyle: "none",
-          margin: 0,
-          marginBottom: theme.spacing(2),
+          margin: theme.spacing(0, 0, 2, 1),
           padding: 0,
         })}
       >

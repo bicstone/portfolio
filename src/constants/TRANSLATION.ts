@@ -61,7 +61,8 @@ export const TRANSLATION = {
     skillsTitle: "スキル",
   },
   notFound: {
-    backToHome: "ホームに移動",
+    backToHome: "ポートフォリオに移動",
+    backToBlog: "ブログ記事一覧に移動",
     description: "ページが見つかりませんでした。",
     title: "Not Found",
   },
@@ -80,6 +81,7 @@ export const TRANSLATION = {
       hint: "検索フォームを閉じる",
       title: "esc",
     },
+    loading: "読み込み中",
     error:
       "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
     hint: "まっしろブログを検索",

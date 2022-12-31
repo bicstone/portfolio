@@ -17,7 +17,7 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
-import { Head as HeadTemplate } from "@/layouts/Head";
+import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 

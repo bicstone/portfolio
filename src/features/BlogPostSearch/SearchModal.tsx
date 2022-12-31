@@ -8,10 +8,12 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
+import Skeleton from "@mui/material/Skeleton";
 import TextField from "@mui/material/TextField";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Link as RouterLink } from "gatsby";
 import { useState, useMemo, useTransition, useId } from "react";
+import { Virtuoso } from "react-virtuoso";
 
 import { useSearch } from "./useSearch";
 
@@ -75,7 +77,13 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         flexDirection: "column",
       }}
     >
-      <DialogTitle css={{ display: "flex", justifyContent: "space-between" }}>
+      <DialogTitle
+        css={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexShrink: 0,
+        }}
+      >
         {TRANSLATION.search.title}
         <Button
           css={(theme) => ({
@@ -112,30 +120,57 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
           enterKeyHint: TRANSLATION.search.title,
         }}
         onChange={handleChange}
-        css={(theme) => ({ padding: theme.spacing(0, 3) })}
+        css={(theme) => ({ padding: theme.spacing(0, 3), flexShrink: 0 })}
       />
-      <Divider css={(theme) => ({ margin: theme.spacing(2, -3, 0, -3) })} />
+      <Divider
+        css={(theme) => ({
+          margin: theme.spacing(2, -3, 0, -3),
+          flexShrink: 0,
+        })}
+      />
       <List
         role="listbox"
         id={listId}
         dense
-        css={{ overflowY: "auto" }}
+        css={{ overflowY: "auto", flexGrow: 1 }}
         aria-busy={fetching || filtering}
       >
         {error && <Alert severity="error">{TRANSLATION.search.error}</Alert>}
-        {isDefined(result) &&
-          result.map((post) => (
-            <ListItem key={post.refIndex} role="option">
-              <ListItemButton
-                component={RouterLink}
-                to={`/${post.item.slug}`}
-                onClick={onClose}
-              >
-                <ListItemText primary={post.item.title} />
+        {isDefined(result) && !fetching ? (
+          <Virtuoso
+            data={result}
+            itemContent={(_index, post) => (
+              <ListItem key={post.refIndex} role="option">
+                <ListItemButton
+                  component={RouterLink}
+                  to={`/${post.item.slug}`}
+                  onClick={onClose}
+                >
+                  <ListItemText primary={post.item.title} />
+                </ListItemButton>
+              </ListItem>
+            )}
+            style={{ height: "100%" }}
+          />
+        ) : (
+          [...Array(5)].map((_, index) => (
+            <ListItem key={index} role="option">
+              <ListItemButton disabled>
+                <Skeleton
+                  sx={(theme) => ({
+                    margin: theme.spacing(0.5, 0),
+                    width: "100%",
+                    ...theme.typography.body2,
+                  })}
+                />
               </ListItemButton>
             </ListItem>
-          ))}
+          ))
+        )}
       </List>
     </div>
   );
 };
+
+// for React.lazy
+export default SearchModal;

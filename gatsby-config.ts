@@ -59,40 +59,40 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              isIconAfterHeader: true,
-              icon: "<anchor />",
-            },
-          },
-          ...(isDevelopment
-            ? []
-            : [
-                {
-                  resolve: `gatsby-remark-images-contentful`,
-                  options: {
-                    maxWidth: 600,
-                    showCaptions: true,
-                    withWebp: true,
-                  },
-                },
-              ]),
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              noInlineHighlight: true,
-              aliases: {
-                sh: "bash",
-                bat: "batch",
-              },
-            },
-          },
-          {
-            resolve: `gatsby-plugin-mdx-embed`,
-          },
-        ],
+        // gatsbyRemarkPlugins: [
+        //   {
+        //     resolve: `gatsby-remark-autolink-headers`,
+        //     options: {
+        //       isIconAfterHeader: true,
+        //       icon: "<anchor />",
+        //     },
+        //   },
+        //   ...(isDevelopment
+        //     ? []
+        //     : [
+        //         {
+        //           resolve: `gatsby-remark-images-contentful`,
+        //           options: {
+        //             maxWidth: 600,
+        //             showCaptions: true,
+        //             withWebp: true,
+        //           },
+        //         },
+        //       ]),
+        //   {
+        //     resolve: `gatsby-remark-prismjs`,
+        //     options: {
+        //       noInlineHighlight: true,
+        //       aliases: {
+        //         sh: "bash",
+        //         bat: "batch",
+        //       },
+        //     },
+        //   },
+        //   {
+        //     resolve: `gatsby-plugin-mdx-embed`,
+        //   },
+        // ],
       },
     },
     {

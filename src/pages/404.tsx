@@ -4,10 +4,18 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "gatsby";
 
-import { TRANSLATION } from "@/constants/TRANSLATION";
-import { Head } from "@/layouts/Head";
+import type { HeadFC } from "gatsby";
 
-export { Head };
+import { TRANSLATION } from "@/constants/TRANSLATION";
+
+export const Head: HeadFC = () => {
+  return (
+    <>
+      <meta name="robots" content="noindex,follow" />
+      <meta name="googlebot" content="noindex,follow" />
+    </>
+  );
+};
 
 const NotFound = (): JSX.Element => {
   return (
@@ -15,6 +23,7 @@ const NotFound = (): JSX.Element => {
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
         {/* 見つかりませんでした */}
         <SelfImprovementIcon
+          color="primary"
           css={(theme) => ({
             width: theme.spacing(20),
             height: theme.spacing(20),
@@ -33,8 +42,17 @@ const NotFound = (): JSX.Element => {
           variant="contained"
           to="/"
           color="secondary"
+          css={(theme) => ({ marginRight: theme.spacing(2) })}
         >
           {TRANSLATION.notFound.backToHome}
+        </Button>
+        <Button
+          component={RouterLink}
+          variant="contained"
+          to="/blog"
+          color="secondary"
+        >
+          {TRANSLATION.notFound.backToBlog}
         </Button>
       </div>
     </Container>

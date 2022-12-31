@@ -20,7 +20,7 @@ import { OssList } from "@/features/PortfolioOss";
 import { ProjectList } from "@/features/PortfolioProject";
 import { SkillList } from "@/features/PortfolioSkill";
 import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
-import { Head as HeadTemplate } from "@/layouts/Head";
+import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
 
 const PaddingContainer = styled(Container)(({ theme }) => ({

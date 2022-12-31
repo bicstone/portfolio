@@ -1,12 +1,9 @@
-import ExpandMoreIcon from "@mui/icons-material/ExpandMoreRounded";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useCallback, useState } from "react";
 
 import { CertificationDetail } from "./CertificationDetail";
 
@@ -28,35 +25,28 @@ export const CertificationCard = (props: {
 }): JSX.Element => {
   const { certification } = props;
 
-  const [expanded, setExpanded] = useState(true);
-
-  const toggleExpanded = useCallback(() => {
-    setExpanded((prevExpanded) => !prevExpanded);
-  }, []);
-
   return (
     <Grid item xs={12} sm={6} md={4} component="section">
-      <Accordion expanded={expanded} onChange={toggleExpanded}>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls={`${certification.id}-content`}
-          id={`${certification.id}-header`}
-        >
-          <Typography component="h2" variant="h6">
-            {certification.name}
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <List dense>
-            {certification.qualifications.map((certification) => (
-              <CertificationDetail
-                key={certification.id}
-                certification={certification}
-              />
-            ))}
-          </List>
-        </AccordionDetails>
-      </Accordion>
+      <Card>
+        <CardHeader
+          title={
+            <Typography component="h2" variant="h6">
+              {certification.name}
+            </Typography>
+          }
+          subheader={
+            <List dense>
+              {certification.qualifications.map((certification) => (
+                <CertificationDetail
+                  key={certification.id}
+                  certification={certification}
+                />
+              ))}
+            </List>
+          }
+          disableTypography
+        />
+      </Card>
     </Grid>
   );
 };
