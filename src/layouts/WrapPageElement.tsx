@@ -13,13 +13,7 @@ export const WrapPageElement = (props: {
   const { children } = props;
 
   return (
-    <div
-      css={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
+    <>
       <Header />
       <main
         role="main"
@@ -28,9 +22,6 @@ export const WrapPageElement = (props: {
         {children}
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
-
-// for gatsby-plugin-layout
-export default WrapPageElement;
