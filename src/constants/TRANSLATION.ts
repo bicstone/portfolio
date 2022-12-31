@@ -19,8 +19,6 @@ export const TRANSLATION = {
   },
   footer: {
     copyright: "Oishi Takanori",
-    properAttribution:
-      "Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc. Any unauthorized use is strictly prohibited.",
   },
   header: {
     avatar: "ニコニコした Oishi Takanori の似顔絵",
