@@ -2,7 +2,10 @@ export const TRANSLATION = {
   blog: {
     adLabel: "広告",
     authorTitle: "著者について",
+    introductionTitle: "はじめに",
     relatedTitle: "関連記事",
+    shareTitle: "シェア",
+    tableOfContentsTitle: "目次",
     title: "まっしろブログ",
   },
   bulkExpandButton: {
@@ -84,6 +87,32 @@ export const TRANSLATION = {
       "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
     hint: "まっしろブログを検索",
     title: "検索",
+  },
+  share: {
+    twitter: {
+      name: "Twitter",
+      title: "Twitter で共有する (新しい window で開きます)",
+    },
+    facebook: {
+      name: "Facebook",
+      title: "Facebook で共有する (新しい window で開きます)",
+    },
+    hatenaBookmark: {
+      name: "はてブ",
+      title: "はてなブックマークを追加 (新しい window で開きます)",
+    },
+    pocket: {
+      name: "Pocket",
+      title: "Pocket に追加  (新しい window で開きます)",
+    },
+    linkedin: {
+      name: "LinkedIn",
+      title: "Linkedin で共有する  (新しい window で開きます)",
+    },
+    line: {
+      name: "LINE",
+      title: "LINE で共有する  (新しい window で開きます)",
+    },
   },
 } as const satisfies Record<
   string,
