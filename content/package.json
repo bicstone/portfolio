@@ -15,9 +15,9 @@
   "license": "CC-BY-NC-ND-4.0",
   "homepage": "https://github.com/bicstone/portfolio#readme",
   "devDependencies": {
-    "markdownlint": "0.26.2",
-    "markdownlint-cli2": "0.5.1",
-    "textlint": "12.2.4",
+    "markdownlint": "0.27.0",
+    "markdownlint-cli2": "0.6.0",
+    "textlint": "12.3.1",
     "textlint-rule-editorconfig": "1.0.3",
     "textlint-rule-preset-ja-spacing": "2.2.0",
     "textlint-rule-preset-ja-technical-writing": "7.0.0"
