@@ -56,7 +56,7 @@ export const ShareButtons = (props: {
 
   const lineHref = `https://timeline.line.me/social-plugin/share?url=${encodeUri}`;
 
-  const pocketHref = `https://getpocket.com/edit?url=${props.url}`;
+  const pocketHref = `https://getpocket.com/edit?url=${encodeUri}`;
 
   return (
     <Grid container spacing={2} paddingX={2}>
