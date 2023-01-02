@@ -1,41 +1,9 @@
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 
-import type { ReactNode } from "react";
+import { ShareButton } from "./ShareButton";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-
-const ShareButton = (props: {
-  href: string;
-  title: string;
-  color: string;
-  children: ReactNode;
-}): JSX.Element => {
-  const { href, title, color, children } = props;
-
-  return (
-    <Grid item xs={6} sm={4} md={2}>
-      <Button
-        variant="outlined"
-        color="inherit"
-        href={href}
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-        aria-label={title}
-        title={title}
-        size="large"
-        css={(theme) => ({
-          color,
-          borderRadius: theme.spacing(1),
-          width: "100%",
-        })}
-      >
-        {children}
-      </Button>
-    </Grid>
-  );
-};
 
 export const ShareButtons = (props: {
   title: string;
@@ -63,42 +31,42 @@ export const ShareButtons = (props: {
       <ShareButton
         href={twitterHref}
         title={TRANSLATION.share.twitter.title}
-        color="#1aa1f2"
+        color={TRANSLATION.share.twitter.color}
       >
         {TRANSLATION.share.twitter.name}
       </ShareButton>
       <ShareButton
         href={faceBookHref}
         title={TRANSLATION.share.facebook.title}
-        color="#3b5897"
+        color={TRANSLATION.share.facebook.color}
       >
         {TRANSLATION.share.facebook.name}
       </ShareButton>
       <ShareButton
         href={hatenaBookmarkHref}
         title={TRANSLATION.share.hatenaBookmark.title}
-        color="#2e6dbe"
+        color={TRANSLATION.share.hatenaBookmark.color}
       >
         {TRANSLATION.share.hatenaBookmark.name}
       </ShareButton>
       <ShareButton
         href={linkedinHref}
         title={TRANSLATION.share.linkedin.title}
-        color="#0077b5"
+        color={TRANSLATION.share.linkedin.color}
       >
         {TRANSLATION.share.linkedin.name}
       </ShareButton>
       <ShareButton
         href={lineHref}
         title={TRANSLATION.share.line.title}
-        color="#00c400"
+        color={TRANSLATION.share.line.color}
       >
         {TRANSLATION.share.line.name}
       </ShareButton>
       <ShareButton
         href={pocketHref}
         title={TRANSLATION.share.pocket.title}
-        color="#f03f56"
+        color={TRANSLATION.share.pocket.color}
       >
         {TRANSLATION.share.pocket.name}
       </ShareButton>
