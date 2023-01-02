@@ -25,8 +25,9 @@ interface TableOfContentItem {
 export const BlogPostTableOfContent = (props: {
   post: BlogPostTableOfContentFragment;
 }): JSX.Element => {
-  const items = props.post.content.childMdx.tableOfContents
-    .items as TableOfContentItem[];
+  const items = props.post.content.childMdx.tableOfContents.items as
+    | TableOfContentItem[]
+    | undefined;
 
   return (
     <nav role="navigation" aria-label={TRANSLATION.blog.tableOfContentsTitle}>
@@ -37,7 +38,7 @@ export const BlogPostTableOfContent = (props: {
         >
           {TRANSLATION.blog.introductionTitle}
         </TimelineItem>
-        {items.map((item, index) => (
+        {items?.map((item, index) => (
           <TimelineItem
             key={index}
             href={item.url}

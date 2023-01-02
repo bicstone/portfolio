@@ -163,8 +163,6 @@ export const BlogPostPage = ({
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const post = data.post;
 
-  console.info(post);
-
   const relatedPosts = useMemo(() => {
     const posts = post.tags.flatMap((tag) => tag.blog_post);
     const filteredPosts = Array.from(
