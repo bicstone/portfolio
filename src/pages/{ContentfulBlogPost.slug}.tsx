@@ -12,9 +12,12 @@ import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InarticleAd } from "@/components/InarticleAd";
+import { ShareButtons } from "@/components/ShareButtons";
+import { Heading } from "@/components/markdown/Heading";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
+import { BlogPostTableOfContent } from "@/features/BlogPostTableOfContent";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -40,6 +43,7 @@ export const query = graphql`
         }
       }
       ...BlogPostDetail
+      ...BlogPostTableOfContent
     }
     links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
@@ -155,6 +159,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
 
 export const BlogPostPage = ({
   data,
+  location,
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const post = data.post;
 
@@ -186,45 +191,53 @@ export const BlogPostPage = ({
         })}
       />
 
-      <Typography variant="h4" component="h1">
-        {post.title}
-      </Typography>
-
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        component="div"
-        css={(theme) => ({
+      <div
+        css={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "flex-end",
-          marginTop: theme.spacing(1),
-        })}
+        }}
       >
-        {isDefined(post.updated) && (
-          <>
-            <UpdateIcon
-              fontSize="inherit"
-              css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-            />
-            <time
-              dateTime={post.updated}
-              css={(theme) => ({ marginRight: theme.spacing(1) })}
-            >
-              {updatedDate}
-            </time>
-          </>
-        )}
-        {isDefined(post.created) && (
-          <>
-            <AccessTimeIcon
-              fontSize="inherit"
-              css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-            />
-            <time dateTime={post.created}>{createdDate}</time>
-          </>
-        )}
-      </Typography>
+        <Typography variant="h4" component="h1">
+          {post.title}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="div"
+          css={(theme) => ({
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            marginTop: theme.spacing(1),
+          })}
+        >
+          {isDefined(post.updated) && (
+            <>
+              <UpdateIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time
+                dateTime={post.updated}
+                css={(theme) => ({ marginRight: theme.spacing(1) })}
+              >
+                {updatedDate}
+              </time>
+            </>
+          )}
+          {isDefined(post.created) && (
+            <>
+              <AccessTimeIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time dateTime={post.created}>{createdDate}</time>
+            </>
+          )}
+        </Typography>
+      </div>
 
       <Card
         css={(theme) => ({
@@ -233,11 +246,45 @@ export const BlogPostPage = ({
           borderRadius: theme.spacing(2),
         })}
       >
+        <Heading
+          variant="h5"
+          component="h2"
+          css={(theme) => ({
+            padding: theme.spacing(2),
+            "&::before": {
+              top: theme.spacing(2),
+              bottom: theme.spacing(2),
+            },
+          })}
+        >
+          {TRANSLATION.blog.tableOfContentsTitle}
+        </Heading>
+        <BlogPostTableOfContent post={post} />
+
+        <Heading
+          variant="h5"
+          component="h2"
+          id={TRANSLATION.blog.introductionTitle}
+        >
+          {TRANSLATION.blog.introductionTitle}
+        </Heading>
         <BlogPostDetail post={post} />
+
+        <Heading variant="h5" component="h2">
+          {TRANSLATION.blog.shareTitle}
+        </Heading>
+        <ShareButtons
+          title={`${post.title} - ${SITE_METADATA.blogTitle}`}
+          url={`${SITE_METADATA.siteUrl}${location.pathname}`}
+        />
       </Card>
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-        <Typography variant="h5" component="h2">
+        <Typography
+          variant="h5"
+          component="h2"
+          id={TRANSLATION.blog.authorTitle}
+        >
           {TRANSLATION.blog.authorTitle}
         </Typography>
 
@@ -267,7 +314,12 @@ export const BlogPostPage = ({
         )}
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-        <Typography variant="h5" component="h2" paragraph>
+        <Typography
+          variant="h5"
+          component="h2"
+          paragraph
+          id={TRANSLATION.blog.relatedTitle}
+        >
           {TRANSLATION.blog.relatedTitle}
         </Typography>
         <RelatedBlogPostList posts={relatedPosts} />

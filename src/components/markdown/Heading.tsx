@@ -20,4 +20,4 @@ export const Heading = styled(Typography)(({ theme }) => ({
     backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
   },
-}));
+})) as typeof Typography;

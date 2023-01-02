@@ -2,7 +2,10 @@ export const TRANSLATION = {
   blog: {
     adLabel: "広告",
     authorTitle: "著者について",
+    introductionTitle: "はじめに",
     relatedTitle: "関連記事",
+    shareTitle: "シェア",
+    tableOfContentsTitle: "目次",
     title: "まっしろブログ",
   },
   bulkExpandButton: {
@@ -84,6 +87,38 @@ export const TRANSLATION = {
       "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
     hint: "まっしろブログを検索",
     title: "検索",
+  },
+  share: {
+    twitter: {
+      color: "#1aa1f2",
+      name: "Twitter",
+      title: "Twitter で共有する (新しい window で開きます)",
+    },
+    facebook: {
+      color: "#3b5897",
+      name: "Facebook",
+      title: "Facebook で共有する (新しい window で開きます)",
+    },
+    hatenaBookmark: {
+      color: "#2e6dbe",
+      name: "はてブ",
+      title: "はてなブックマークを追加 (新しい window で開きます)",
+    },
+    pocket: {
+      color: "#f03f56",
+      name: "Pocket",
+      title: "Pocket に追加  (新しい window で開きます)",
+    },
+    linkedin: {
+      color: "#0077b5",
+      name: "LinkedIn",
+      title: "Linkedin で共有する  (新しい window で開きます)",
+    },
+    line: {
+      color: "#00c400",
+      name: "LINE",
+      title: "LINE で共有する  (新しい window で開きます)",
+    },
   },
 } as const satisfies Record<
   string,
