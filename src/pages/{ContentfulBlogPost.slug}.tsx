@@ -19,7 +19,6 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
 import { BlogPostTableOfContent } from "@/features/BlogPostTableOfContent";
 import { HelloContent } from "@/features/PortfolioHello";
-import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
@@ -38,7 +37,8 @@ export const query = graphql`
       tags {
         name
         blog_post {
-          ...RelatedBlogPostList
+          # SEOの問題があるため、一時的に削除
+          # ...RelatedBlogPostList
           createdDateTime: created(formatString: "X")
         }
       }
@@ -163,14 +163,15 @@ export const BlogPostPage = ({
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const post = data.post;
 
-  const relatedPosts = useMemo(() => {
-    const posts = post.tags.flatMap((tag) => tag.blog_post);
-    const filteredPosts = Array.from(
-      new Map(posts.map((post) => [post.id, post])).values()
-    );
-    filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
-    return filteredPosts;
-  }, [post.tags]);
+  // SEOの問題があるため、一時的に削除
+  // const relatedPosts = useMemo(() => {
+  //   const posts = post.tags.flatMap((tag) => tag.blog_post);
+  //   const filteredPosts = Array.from(
+  //     new Map(posts.map((post) => [post.id, post])).values()
+  //   );
+  //   filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
+  //   return filteredPosts;
+  // }, [post.tags]);
 
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
@@ -313,6 +314,8 @@ export const BlogPostPage = ({
           </NoSsr>
         )}
 
+      {/*
+      SEOの問題があるため、一時的に削除
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
         <Typography
           variant="h5"
@@ -324,6 +327,7 @@ export const BlogPostPage = ({
         </Typography>
         <RelatedBlogPostList posts={relatedPosts} />
       </aside>
+      */}
 
       <Breadcrumbs
         title={post.title}
