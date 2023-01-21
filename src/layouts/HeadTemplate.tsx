@@ -6,7 +6,7 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
  * Head export
  * see https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = (props: {
+export const HeadTemplate = (props: {
   location: HeadProps["location"];
   title: string;
   description: string;

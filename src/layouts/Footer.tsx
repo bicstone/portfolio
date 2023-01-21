@@ -31,15 +31,6 @@ export const Footer = (): JSX.Element => {
           {TRANSLATION.privacy.title}
         </Link>
       </Typography>
-      <Typography
-        component="p"
-        variant="caption"
-        color="textSecondary"
-        align="center"
-        gutterBottom
-      >
-        {TRANSLATION.footer.properAttribution}
-      </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
         {`© ${nowDate.getFullYear()} ${TRANSLATION.footer.copyright}`}
       </Typography>

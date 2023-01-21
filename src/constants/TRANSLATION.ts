@@ -2,7 +2,10 @@ export const TRANSLATION = {
   blog: {
     adLabel: "広告",
     authorTitle: "著者について",
+    introductionTitle: "はじめに",
     relatedTitle: "関連記事",
+    shareTitle: "シェア",
+    tableOfContentsTitle: "目次",
     title: "まっしろブログ",
   },
   bulkExpandButton: {
@@ -19,8 +22,6 @@ export const TRANSLATION = {
   },
   footer: {
     copyright: "Oishi Takanori",
-    properAttribution:
-      "Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc. Any unauthorized use is strictly prohibited.",
   },
   header: {
     avatar: "ニコニコした Oishi Takanori の似顔絵",
@@ -33,7 +34,7 @@ export const TRANSLATION = {
   },
   hello: {
     description:
-      "Oishi Takanori と申します。 Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
+      "Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。 好きなネジはイモネジです。",
     goToPortfolio: "ポートフォリオ",
     icon: {
       fukkireta:
@@ -41,7 +42,7 @@ export const TRANSLATION = {
       normal:
         "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
-    title: "ビックストーン大石 (@bicstone)",
+    title: "Oishi Takanori (@bicstone)",
   },
   histories: {
     date: "年",
@@ -61,7 +62,8 @@ export const TRANSLATION = {
     skillsTitle: "スキル",
   },
   notFound: {
-    backToHome: "ホームに移動",
+    backToHome: "ポートフォリオに移動",
+    backToBlog: "ブログ記事一覧に移動",
     description: "ページが見つかりませんでした。",
     title: "Not Found",
   },
@@ -80,10 +82,43 @@ export const TRANSLATION = {
       hint: "検索フォームを閉じる",
       title: "esc",
     },
+    loading: "読み込み中",
     error:
       "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
     hint: "まっしろブログを検索",
     title: "検索",
+  },
+  share: {
+    twitter: {
+      color: "#1aa1f2",
+      name: "Twitter",
+      title: "Twitter で共有する (新しい window で開きます)",
+    },
+    facebook: {
+      color: "#3b5897",
+      name: "Facebook",
+      title: "Facebook で共有する (新しい window で開きます)",
+    },
+    hatenaBookmark: {
+      color: "#2e6dbe",
+      name: "はてブ",
+      title: "はてなブックマークを追加 (新しい window で開きます)",
+    },
+    pocket: {
+      color: "#f03f56",
+      name: "Pocket",
+      title: "Pocket に追加  (新しい window で開きます)",
+    },
+    linkedin: {
+      color: "#0077b5",
+      name: "LinkedIn",
+      title: "Linkedin で共有する  (新しい window で開きます)",
+    },
+    line: {
+      color: "#00c400",
+      name: "LINE",
+      title: "LINE で共有する  (新しい window で開きます)",
+    },
   },
 } as const satisfies Record<
   string,

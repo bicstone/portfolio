@@ -20,7 +20,7 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
-import { Head as HeadTemplate } from "@/layouts/Head";
+import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`

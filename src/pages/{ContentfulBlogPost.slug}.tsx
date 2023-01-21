@@ -12,12 +12,14 @@ import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InarticleAd } from "@/components/InarticleAd";
+import { ShareButtons } from "@/components/ShareButtons";
+import { Heading } from "@/components/markdown/Heading";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
+import { BlogPostTableOfContent } from "@/features/BlogPostTableOfContent";
 import { HelloContent } from "@/features/PortfolioHello";
-import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
-import { Head as HeadTemplate } from "@/layouts/Head";
+import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
@@ -35,11 +37,13 @@ export const query = graphql`
       tags {
         name
         blog_post {
-          ...RelatedBlogPostList
+          # SEOの問題があるため、一時的に削除
+          # ...RelatedBlogPostList
           createdDateTime: created(formatString: "X")
         }
       }
       ...BlogPostDetail
+      ...BlogPostTableOfContent
     }
     links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
@@ -155,17 +159,19 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
 
 export const BlogPostPage = ({
   data,
+  location,
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const post = data.post;
 
-  const relatedPosts = useMemo(() => {
-    const posts = post.tags.flatMap((tag) => tag.blog_post);
-    const filteredPosts = Array.from(
-      new Map(posts.map((post) => [post.id, post])).values()
-    );
-    filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
-    return filteredPosts;
-  }, [post.tags]);
+  // SEOの問題があるため、一時的に削除
+  // const relatedPosts = useMemo(() => {
+  //   const posts = post.tags.flatMap((tag) => tag.blog_post);
+  //   const filteredPosts = Array.from(
+  //     new Map(posts.map((post) => [post.id, post])).values()
+  //   );
+  //   filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
+  //   return filteredPosts;
+  // }, [post.tags]);
 
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
@@ -186,45 +192,53 @@ export const BlogPostPage = ({
         })}
       />
 
-      <Typography variant="h4" component="h1">
-        {post.title}
-      </Typography>
-
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        component="div"
-        css={(theme) => ({
+      <div
+        css={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "flex-end",
-          marginTop: theme.spacing(1),
-        })}
+        }}
       >
-        {isDefined(post.updated) && (
-          <>
-            <UpdateIcon
-              fontSize="inherit"
-              css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-            />
-            <time
-              dateTime={post.updated}
-              css={(theme) => ({ marginRight: theme.spacing(1) })}
-            >
-              {updatedDate}
-            </time>
-          </>
-        )}
-        {isDefined(post.created) && (
-          <>
-            <AccessTimeIcon
-              fontSize="inherit"
-              css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-            />
-            <time dateTime={post.created}>{createdDate}</time>
-          </>
-        )}
-      </Typography>
+        <Typography variant="h4" component="h1">
+          {post.title}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="div"
+          css={(theme) => ({
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            marginTop: theme.spacing(1),
+          })}
+        >
+          {isDefined(post.updated) && (
+            <>
+              <UpdateIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time
+                dateTime={post.updated}
+                css={(theme) => ({ marginRight: theme.spacing(1) })}
+              >
+                {updatedDate}
+              </time>
+            </>
+          )}
+          {isDefined(post.created) && (
+            <>
+              <AccessTimeIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time dateTime={post.created}>{createdDate}</time>
+            </>
+          )}
+        </Typography>
+      </div>
 
       <Card
         css={(theme) => ({
@@ -233,11 +247,45 @@ export const BlogPostPage = ({
           borderRadius: theme.spacing(2),
         })}
       >
+        <Heading
+          variant="h5"
+          component="h2"
+          css={(theme) => ({
+            padding: theme.spacing(2),
+            "&::before": {
+              top: theme.spacing(2),
+              bottom: theme.spacing(2),
+            },
+          })}
+        >
+          {TRANSLATION.blog.tableOfContentsTitle}
+        </Heading>
+        <BlogPostTableOfContent post={post} />
+
+        <Heading
+          variant="h5"
+          component="h2"
+          id={TRANSLATION.blog.introductionTitle}
+        >
+          {TRANSLATION.blog.introductionTitle}
+        </Heading>
         <BlogPostDetail post={post} />
+
+        <Heading variant="h5" component="h2">
+          {TRANSLATION.blog.shareTitle}
+        </Heading>
+        <ShareButtons
+          title={`${post.title} - ${SITE_METADATA.blogTitle}`}
+          url={`${SITE_METADATA.siteUrl}${location.pathname}`}
+        />
       </Card>
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-        <Typography variant="h5" component="h2">
+        <Typography
+          variant="h5"
+          component="h2"
+          id={TRANSLATION.blog.authorTitle}
+        >
           {TRANSLATION.blog.authorTitle}
         </Typography>
 
@@ -266,12 +314,20 @@ export const BlogPostPage = ({
           </NoSsr>
         )}
 
+      {/*
+      SEOの問題があるため、一時的に削除
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-        <Typography variant="h5" component="h2" paragraph>
+        <Typography
+          variant="h5"
+          component="h2"
+          paragraph
+          id={TRANSLATION.blog.relatedTitle}
+        >
           {TRANSLATION.blog.relatedTitle}
         </Typography>
         <RelatedBlogPostList posts={relatedPosts} />
       </aside>
+      */}
 
       <Breadcrumbs
         title={post.title}
