@@ -37,6 +37,7 @@ export const query = graphql`
       tags {
         name
         blog_post {
+          # SEOの問題があるため、一時的に削除
           # ...RelatedBlogPostList
           createdDateTime: created(formatString: "X")
         }
