@@ -45,7 +45,9 @@ export const HistoryCard = memo(
       <Accordion
         expanded={expanded}
         disableGutters
-        onChange={() => onChange(history.id)}
+        onChange={() => {
+          onChange(history.id);
+        }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

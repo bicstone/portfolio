@@ -34,7 +34,9 @@ export const useCollapseResponsive = (props: {
     setPreviousWidth(width);
   }, [defaultExpandedBreakpoints, expanded, previousWidth, width]);
 
-  const handleChange = (): void => setExpanded(!expanded);
+  const handleChange = (): void => {
+    setExpanded(!expanded);
+  };
 
   return [expanded, handleChange] as const;
 };
