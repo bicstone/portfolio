@@ -50,7 +50,9 @@ export const ProjectCard = memo(
       <Accordion
         expanded={expanded}
         disableGutters
-        onChange={() => onChange(project.id)}
+        onChange={() => {
+          onChange(project.id);
+        }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

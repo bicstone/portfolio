@@ -41,7 +41,9 @@ export const HelloContent = (props: {
               ? TRANSLATION.hello.icon.fukkireta
               : TRANSLATION.hello.icon.normal
           }
-          onClick={() => setActiveAnimation(!activeAnimation)}
+          onClick={() => {
+            setActiveAnimation(!activeAnimation);
+          }}
           css={(theme) => ({
             margin: theme.spacing(0, 2),
           })}
