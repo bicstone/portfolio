@@ -50,10 +50,14 @@ export const TRANSLATION = {
   home: {
     contactsTitle: "お問い合わせ",
     historiesTitle: "経歴",
+    historiesHelp:
+      "各項目をクリックすると詳細を閲覧できます。「すべてを展開する」ボタンをクリックすると全項目が展開されます。",
     ossesHelp:
       "使用している OSS へのコントリビュートの他、微力ながら一部コミッターとしての活動をしています。",
     ossesTitle: "OSS",
     projectsTitle: "プロジェクト",
+    projectsHelp:
+      "詳細は表示しておりませんが、お問い合わせ頂ければお送りいたします。",
     qualificationsHelp:
       "取得した資格の一覧です。情報系の学問を修得していないため、資格取得を通して勉強をしています。",
     qualificationsTitle: "資格",

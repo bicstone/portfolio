@@ -164,23 +164,29 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <PaddingContainer maxWidth="lg">
         <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </PaddingContainer>
-      <Section title={TRANSLATION.home.projectsTitle}>
+      <Section
+        title={TRANSLATION.home.projectsTitle}
+        help={TRANSLATION.home.projectsHelp}
+      >
         <ProjectList projects={data.projects.nodes} />
       </Section>
-      <Section title={TRANSLATION.home.historiesTitle}>
-        <HistoryList histories={data.histories.nodes} />
-      </Section>
       <Section
-        title={TRANSLATION.home.ossesTitle}
-        help={TRANSLATION.home.ossesHelp}
+        title={TRANSLATION.home.historiesTitle}
+        help={TRANSLATION.home.historiesHelp}
       >
-        <OssList osses={data.osses.nodes} />
+        <HistoryList histories={data.histories.nodes} />
       </Section>
       <Section
         title={TRANSLATION.home.skillsTitle}
         help={TRANSLATION.home.skillsHelp}
       >
         <SkillList skills={data.skills.nodes} />
+      </Section>
+      <Section
+        title={TRANSLATION.home.ossesTitle}
+        help={TRANSLATION.home.ossesHelp}
+      >
+        <OssList osses={data.osses.nodes} />
       </Section>
       <Section
         title={TRANSLATION.home.qualificationsTitle}

@@ -162,9 +162,9 @@ export const Header = (): JSX.Element => {
           </Button>
           <IconButton
             size="small"
-            onClick={() =>
-              setPaletteMode(paletteMode === "light" ? "dark" : "light")
-            }
+            onClick={() => {
+              setPaletteMode(paletteMode === "light" ? "dark" : "light");
+            }}
             css={(theme) => ({ margin: theme.spacing(0, 1) })}
             title={TRANSLATION.header.toggleDarkThemeTitle}
           >
