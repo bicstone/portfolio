@@ -164,10 +164,16 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <PaddingContainer maxWidth="lg">
         <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
       </PaddingContainer>
-      <Section title={TRANSLATION.home.projectsTitle}>
+      <Section
+        title={TRANSLATION.home.projectsTitle}
+        help={TRANSLATION.home.projectsHelp}
+      >
         <ProjectList projects={data.projects.nodes} />
       </Section>
-      <Section title={TRANSLATION.home.historiesTitle}>
+      <Section
+        title={TRANSLATION.home.historiesTitle}
+        help={TRANSLATION.home.historiesHelp}
+      >
         <HistoryList histories={data.histories.nodes} />
       </Section>
       <Section
