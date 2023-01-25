@@ -177,16 +177,16 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <HistoryList histories={data.histories.nodes} />
       </Section>
       <Section
-        title={TRANSLATION.home.ossesTitle}
-        help={TRANSLATION.home.ossesHelp}
-      >
-        <OssList osses={data.osses.nodes} />
-      </Section>
-      <Section
         title={TRANSLATION.home.skillsTitle}
         help={TRANSLATION.home.skillsHelp}
       >
         <SkillList skills={data.skills.nodes} />
+      </Section>
+      <Section
+        title={TRANSLATION.home.ossesTitle}
+        help={TRANSLATION.home.ossesHelp}
+      >
+        <OssList osses={data.osses.nodes} />
       </Section>
       <Section
         title={TRANSLATION.home.qualificationsTitle}
