@@ -5,7 +5,7 @@
       "charset": false
     },
     "preset-ja-technical-writing": true,
-    "ja-spacing/ja-space-between-half-and-full-width": {
+    "ja-space-between-half-and-full-width": {
       "space": "always",
       "exceptPunctuation": false
     },
