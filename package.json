@@ -26,16 +26,16 @@
     "@mdx-js/mdx": "1.6.22",
     "@mdx-js/react": "1.6.22",
     "@mui/icons-material": "5.11.0",
-    "@mui/lab": "5.0.0-alpha.117",
-    "@mui/material": "5.11.6",
-    "@sentry/browser": "7.34.0",
+    "@mui/lab": "5.0.0-alpha.118",
+    "@mui/material": "5.11.7",
+    "@sentry/browser": "7.36.0",
     "date-fns": "2.29.3",
     "date-fns-tz": "2.0.0",
     "fuse.js": "6.6.2",
     "gatsby": "5.5.0",
     "gatsby-plugin-emotion": "8.5.0",
     "gatsby-plugin-feed": "5.5.0",
-    "gatsby-plugin-fix-fouc": "1.0.1",
+    "gatsby-plugin-fix-fouc": "1.0.2",
     "gatsby-plugin-google-tagmanager": "5.5.0",
     "gatsby-plugin-image": "3.5.0",
     "gatsby-plugin-mdx": "3.20.0",
@@ -55,20 +55,20 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-error-boundary": "3.1.4",
-    "react-hotkeys-hook": "4.3.3",
-    "react-virtuoso": "4.0.6"
+    "react-hotkeys-hook": "4.3.4",
+    "react-virtuoso": "4.0.9"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.16.4",
+    "@graphql-codegen/cli": "2.16.5",
     "@graphql-codegen/introspection": "2.2.3",
-    "@graphql-codegen/typescript": "2.8.7",
-    "@graphql-codegen/typescript-operations": "2.5.12",
+    "@graphql-codegen/typescript": "2.8.8",
+    "@graphql-codegen/typescript-operations": "2.5.13",
     "@types/mdx-js__react": "1.5.5",
-    "@types/node": "18.11.18",
+    "@types/node": "18.11.19",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@typescript-eslint/eslint-plugin": "5.49.0",
-    "@typescript-eslint/parser": "5.49.0",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
     "canvas": "2.11.0",
     "dotenv": "16.0.3",
     "eslint": "8.33.0",
@@ -78,12 +78,12 @@
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-n": "15.6.1",
     "eslint-plugin-promise": "6.1.1",
-    "eslint-plugin-react": "7.32.1",
+    "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-regexp": "1.12.0",
     "husky": "8.0.3",
     "prettier": "2.8.3",
-    "typescript": "4.9.4"
+    "typescript": "4.9.5"
   },
   "repository": {
     "type": "git",
@@ -101,7 +101,7 @@
     "last 3 ChromeAndroid major versions",
     "last 3 iOS major versions"
   ],
-  "packageManager": "yarn@3.3.1",
+  "packageManager": "yarn@3.4.1",
   "workspaces": [
     "content"
   ]
