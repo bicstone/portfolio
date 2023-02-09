@@ -14,7 +14,7 @@ import { isDefined } from "@/utils/typeguard";
 
 export type BlogPost = Pick<
   ContentfulBlogPost,
-  typeof BLOG_POST_SEARCH_FIELDS[number]
+  (typeof BLOG_POST_SEARCH_FIELDS)[number]
 >;
 
 /**
