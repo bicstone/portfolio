@@ -8126,24 +8126,19 @@ export type PortfolioOssListFragment = (
 );
 
 export type PortfolioProjectCardFragment = (
-  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate'>
   & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
     & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-  )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-);
-
-export type PortfolioProjectDetailFragment = (
-  Pick<ContentfulProject, 'subName'>
-  & { readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+  )> }
 );
 
 export type PortfolioProjectListFragment = (
-  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate'>
   & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
     & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-  )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+  )> }
 );
 
 export type PortfolioSkillCardFragment = (
@@ -8210,11 +8205,11 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
     )> }, readonly projects: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+      Pick<ContentfulProject, 'id' | 'name' | 'startDate'>
       & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
         Pick<ContentfulIcon, 'name'>
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-      )>, readonly detail: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+      )> }
     )> }, readonly histories: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
       & { readonly icon: Maybe<(
@@ -8245,6 +8240,7 @@ export type BlogPostPageQueryVariables = Exact<{
 
 export type BlogPostPageQuery = { readonly post: Maybe<(
     Pick<ContentfulBlogPost, 'slug' | 'title' | 'excerpt' | 'created' | 'updated'>
+    & { createdDateTime: ContentfulBlogPost['created'] }
     & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
       Pick<ContentfulTag, 'name'>
       & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(

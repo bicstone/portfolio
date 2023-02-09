@@ -31,6 +31,7 @@ export const query = graphql`
       title
       excerpt
       created
+      createdDateTime: created(formatString: "X")
       updated
       category {
         name
@@ -162,16 +163,28 @@ export const BlogPostPage = ({
   location,
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
   const post = data.post;
-
   const relatedPosts = useMemo(() => {
     const posts = post.tags.flatMap((tag) => tag.blog_post);
     const filteredPosts = Array.from(
       new Map(posts.map((post) => [post.id, post])).values()
     ).filter((post) => post.slug !== data.post.slug);
     filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
+
+    // Pick up to 18 articles in the following order.
     // 18 is divisible by 1, 2, or 3.
-    return filteredPosts.slice(0, 18);
-  }, [data.post.slug, post.tags]);
+    //
+    // 1. Latest 10 articles.
+    // 2. Older articles than this.
+
+    const newerPosts = filteredPosts
+      .filter((post) => post.createdDateTime >= data.post.createdDateTime)
+      .slice(0, 10);
+    const olderPosts = filteredPosts
+      .filter((post) => post.createdDateTime < data.post.createdDateTime)
+      .slice(0, 18 - newerPosts.length);
+
+    return [...newerPosts, ...olderPosts];
+  }, [data.post.createdDateTime, data.post.slug, post.tags]);
 
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
