@@ -5,7 +5,7 @@ import Container from "@mui/material/Container";
 import NoSsr from "@mui/material/NoSsr";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useMemo } from "react";
+import { useLayoutEffect, useMemo } from "react";
 
 import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
@@ -28,6 +28,7 @@ export const query = graphql`
   query BlogPostPage($id: String!) {
     post: contentfulBlogPost(id: { eq: $id }) {
       slug
+      redirect
       title
       excerpt
       created
@@ -194,6 +195,12 @@ export const BlogPostPage = ({
     () => formatDateTime(post.updated, "yyyy/MM/dd"),
     [post.updated]
   );
+
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined" && isDefined(post.redirect)) {
+      window.location.href = post.redirect;
+    }
+  }, [post.redirect]);
 
   return (
     <Container maxWidth="md">

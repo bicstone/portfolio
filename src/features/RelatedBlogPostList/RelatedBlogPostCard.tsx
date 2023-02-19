@@ -1,9 +1,12 @@
 import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
+import CardActionArea, {
+  type CardActionAreaProps,
+} from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { graphql, Link as RouterLink } from "gatsby";
+import { useMemo } from "react";
 
 import type { RelatedBlogPostCardFragment } from "@/generated/graphqlTypes";
 
@@ -13,6 +16,7 @@ export const query = graphql`
   fragment RelatedBlogPostCard on ContentfulBlogPost {
     title
     slug
+    redirect
   }
 `;
 
@@ -21,14 +25,25 @@ export const RelatedBlogPostCard = (props: {
 }): JSX.Element => {
   const { post } = props;
 
+  const linkProps: CardActionAreaProps = useMemo(() => {
+    if (isDefined(post.redirect)) {
+      return {
+        LinkComponent: "a" as const,
+        href: post.redirect,
+        rel: "external noreferrer noopener",
+      };
+    } else {
+      return {
+        component: RouterLink,
+        to: `/${post.slug}`,
+      };
+    }
+  }, [post.redirect, post.slug]);
+
   return (
     <Grid item component="article" xs={12} sm={6} md={4}>
       <Card>
-        <CardActionArea
-          component={RouterLink}
-          to={`/${post.slug}`}
-          title={post.title}
-        >
+        <CardActionArea {...linkProps} title={post.title}>
           <CardHeader
             title={
               <Typography

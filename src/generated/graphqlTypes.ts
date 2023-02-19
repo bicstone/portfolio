@@ -402,6 +402,7 @@ export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & 
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
+  readonly redirect: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulBlogPostSys>;
@@ -508,6 +509,7 @@ export type ContentfulBlogPostFieldSelector = {
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly redirect: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulBlogPostSysFieldSelector>;
@@ -532,6 +534,7 @@ export type ContentfulBlogPostFilterInput = {
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly redirect: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
@@ -601,6 +604,7 @@ export type ContentfulBlogPostSortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
+  readonly redirect: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulBlogPostSysSortInput>;
@@ -6054,6 +6058,7 @@ export type QueryContentfulBlogPostArgs = {
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+  redirect: InputMaybe<StringQueryOperatorInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
@@ -8071,9 +8076,9 @@ export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { r
 
 export type BlogPostDetailFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> };
 
-export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>;
+export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'redirect'>;
 
-export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created'>;
+export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'redirect'>;
 
 export type BlogPostTableOfContentFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'tableOfContents'>> }> };
 
@@ -8178,9 +8183,9 @@ export type PortfolioWhatICanDoListFragment = (
   )> }
 );
 
-export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
+export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'redirect'>;
 
-export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
+export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>;
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8191,7 +8196,7 @@ export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug'>
+      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'redirect'>
       & { readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
     )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> } };
 
@@ -8239,12 +8244,12 @@ export type BlogPostPageQueryVariables = Exact<{
 
 
 export type BlogPostPageQuery = { readonly post: Maybe<(
-    Pick<ContentfulBlogPost, 'slug' | 'title' | 'excerpt' | 'created' | 'updated'>
+    Pick<ContentfulBlogPost, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated'>
     & { createdDateTime: ContentfulBlogPost['created'] }
     & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
       Pick<ContentfulTag, 'name'>
       & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(
-        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
+        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>
         & { createdDateTime: ContentfulBlogPost['created'] }
       )>>> }
     )>>>, readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body' | 'tableOfContents'>> }> }

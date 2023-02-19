@@ -1,6 +1,8 @@
 import AccessTimeIcon from "@mui/icons-material/AccessTimeRounded";
 import Card from "@mui/material/Card";
-import CardActionArea from "@mui/material/CardActionArea";
+import CardActionArea, {
+  type CardActionAreaProps,
+} from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 import { graphql, Link as RouterLink } from "gatsby";
 import { useMemo } from "react";
@@ -8,12 +10,14 @@ import { useMemo } from "react";
 import type { BlogPostCardFragment } from "@/generated/graphqlTypes";
 
 import { formatDateTime } from "@/utils/format";
+import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   fragment BlogPostCard on ContentfulBlogPost {
     title
     slug
     created
+    redirect
   }
 `;
 
@@ -27,13 +31,27 @@ export const BlogPostCard = (props: {
     [post.created]
   );
 
+  const linkProps: CardActionAreaProps = useMemo(() => {
+    if (isDefined(post.redirect)) {
+      return {
+        LinkComponent: "a" as const,
+        href: post.redirect,
+        rel: "external noreferrer noopener",
+      };
+    } else {
+      return {
+        component: RouterLink,
+        to: `/${post.slug}`,
+      };
+    }
+  }, [post.redirect, post.slug]);
+
   return (
     // use padding because virtuoso does not support margin.
     <article css={(theme) => ({ padding: theme.spacing(0.5, 0) })}>
       <Card elevation={2}>
         <CardActionArea
-          component={RouterLink}
-          to={`/${post.slug}`}
+          {...linkProps}
           title={post.title}
           css={{
             display: "flex",
