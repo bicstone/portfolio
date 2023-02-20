@@ -28,7 +28,7 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - run: yarn clear
+      - run: yarn clean
 
       - run: yarn build
         env:
