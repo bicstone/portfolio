@@ -174,6 +174,4 @@ package.json の browserslist を参照
 
 ## Contributing
 
-- content ディレクトリ内については、権利が複雑になるのを防ぐため Pull Request は受け付けておりません。
-- static ディレクトリで参照しているリポジトリは非公開です。
-- その他はいつでも歓迎いたします。
+- content, static ディレクトリで参照しているリポジトリは非公開です。それぞれ、 content-sample, static-sample ディレクトリを参考にしてください。
