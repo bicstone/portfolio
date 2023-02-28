@@ -1,14 +1,15 @@
-import { Typography, Link } from "@mui/material";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 
 import { BackToTop } from "./BackToTop";
+
+import { TRANSLATION } from "@/constants/TRANSLATION";
 
 /**
  * Footer Layout
  */
 export const Footer = (): JSX.Element => {
-  const { t } = useI18next();
   const nowDate = new Date();
   return (
     <footer
@@ -27,20 +28,11 @@ export const Footer = (): JSX.Element => {
         paragraph
       >
         <Link component={RouterLink} color="inherit" to="/privacy">
-          {t("privacy.title")}
+          {TRANSLATION.privacy.title}
         </Link>
       </Typography>
-      <Typography
-        component="p"
-        variant="caption"
-        color="textSecondary"
-        align="center"
-        gutterBottom
-      >
-        {t("footer.proper-attribution")}
-      </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
-        {t("footer.copyright", { year: nowDate.getFullYear() })}
+        {`© ${nowDate.getFullYear()} ${TRANSLATION.footer.copyright}`}
       </Typography>
       <BackToTop />
     </footer>

@@ -1,9 +1,9 @@
 {
-  "assignees": ["bicstone"],
-  "extends": ["config:base"],
+  "extends": ["github>bicstone/renovate-config"],
   "packageRules": [
     {
       "groupName": "dependencies",
+      "matchDepTypes": ["dependencies"],
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"]
     },
@@ -19,21 +19,8 @@
     },
     {
       "enabled": false,
-      "matchPackagePrefixes": ["gatsby"],
-      "matchUpdateTypes": ["major"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePatterns": ["gatsby-*"],
-      "matchUpdateTypes": ["major"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePrefixes": ["babel-preset-gatsby"],
+      "matchPackagePrefixes": ["gatsby-plugin-mdx"],
       "matchUpdateTypes": ["major"]
     }
-  ],
-  "reviewers": ["bicstone"],
-  "schedule": ["before 6am on Sunday"],
-  "timezone": "Asia/Tokyo"
+  ]
 }

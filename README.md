@@ -30,7 +30,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - インフラには、Amazon CloudFront + Amazon S3 を用いており、ユーザーの最寄りデータセンターから転送されるため通信が安定します。
 - Cache-Control HTTP ヘッダーを適切に設定しており、2 回目以降に余分なダウンロードを防止したり、逆に古いコンテンツが表示されることを防ぎます。
 - サードパーティスクリプトは遅延読み込みを行っています。(将来的には Partytown を採用予定)
-- Lighthouse のベンチマークでスコア 100/100 を達成しています。
+- Lighthouse を使用しレビューを受けています。
 
 ### セキュリティ
 
@@ -38,9 +38,8 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - DNSSEC を構成しており、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクが軽減されます。
 - セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
-- Mozilla Observatory のベンチマークでスコア 105/100 を達成しています。
-- DeepSource, SonarCloud を使用し、静的セキュリティレビューを受けています。
-- 二要素認証を用いたアカウント保護を行っています。 GitHub 上で承認を行わないと deploy できないようにしています。
+- Mozilla Observatory, DeepSource, SonarCloud を使用し、レビューを受けています。
+- 使用ツールは二要素認証を用いたアカウント保護を行っています。 GitHub 上で承認を行わないと deploy できないようにしています。
 - Renovate を用いて依存関係を定期的にアップデートしています。
 
 ### アクセシビリティ
@@ -50,7 +49,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - キーボードのみで操作できるように設計しています。
 - テキストブラウザや音声ブラウザで使用できるよう、セマンティクスなマークアップで実装しています。
 - 代替テキストや、必要に応じて WAI-ARIA を設定しています。
-- axe 及び Lighthouse で静的アクセシビリティレビューを受けています。
+- axe 及び Lighthouse でレビューを受けています。
 
 ### DevOps
 
@@ -74,18 +73,16 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - TypeScript (strict モード)
 - React.js
 - Gatsby.js (プラグインを活用し高速に構築ができるため選定)
-- Material-UI (一覧性の高いダッシュボード風のデザインにするため選定)
+- MUI material (一覧性の高いダッシュボード風のデザインにするため選定)
 - Emotion
 - MDX
 - Prism.js
-- i18next
 - React Virtuoso
 
 ### ツール
 
 - Webpack
 - Babel
-- esbuild
 - ESLint
 - prettier (フォーマットを自動化することで省力化)
 - graphql-code-generator (型を自動生成することで省力化)
@@ -151,12 +148,6 @@ yarn lint:fix
 yarn typecheck
 ```
 
-### 翻訳 JSON を更新
-
-```shell
-yarn i18n
-```
-
 ### GraphQL の型情報を取り込む
 
 ```shell
@@ -175,8 +166,8 @@ package.json の browserslist を参照
 
 ## ライセンス
 
-- content ディレクトリは [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-- static ディレクトリは [ライセンスなし(未公開)](https://choosealicense.com/no-permission/)
+- ディレクトリ内に LICENSE ファイルがある場合、そのライセンスに従います。
+- Git Submodule で参照しているプライベートリポジトリは [ライセンスなし(未公開)](https://choosealicense.com/no-permission/) です。
 - その他は MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)

@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
-import { TableContainer, Table as MuiTable } from "@mui/material";
+import MuiTable from "@mui/material/Table";
+import TableContainer from "@mui/material/TableContainer";
 
 import type { HTMLAttributes } from "react";
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
-  margin: theme.spacing(1, 0),
+  margin: theme.spacing(2, 0),
 }));
 
 export const Table = ({

@@ -8,6 +8,7 @@ import {
   BLOG_POST_LIST_JSON_FILENAME,
   BLOG_POST_SEARCH_FIELDS,
 } from "./src/features/BlogPostSearch/constants";
+import { createOgpImage } from "./src/utils/createOgpImage";
 import { isDefined } from "./src/utils/typeguard";
 
 import type { OnCreatePagesStatefullyQuery } from "./src/generated/graphqlTypes";
@@ -59,18 +60,28 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     const dir = path.resolve(process.cwd(), "static");
 
-    await Promise.all([
-      fs.writeFile(
-        path.resolve(dir, BLOG_POST_LIST_JSON_FILENAME),
-        JSON.stringify(blogPostList)
-      ),
-      fs.writeFile(
-        path.resolve(dir, BLOG_POST_LIST_INDEX_JSON_FILENAME),
-        JSON.stringify(blogPostListIndex)
-      ),
-    ]);
+    // MEMO: Writing files in parallel can speed up the process,
+    // but will cause non-reproducible errors, so write in series.
+    await fs.writeFile(
+      path.resolve(dir, BLOG_POST_LIST_JSON_FILENAME),
+      JSON.stringify(blogPostList)
+    );
+    await fs.writeFile(
+      path.resolve(dir, BLOG_POST_LIST_INDEX_JSON_FILENAME),
+      JSON.stringify(blogPostListIndex)
+    );
 
     reporter.success(
       `onCreatePagesStatefully: Created ${blogPostList.length} blog posts index`
+    );
+
+    // MEMO: Writing files in parallel can speed up the process,
+    // but will cause non-reproducible errors, so write in series.
+    for (const blogPost of blogPostList) {
+      await createOgpImage({ title: blogPost.title, slug: blogPost.slug });
+    }
+
+    reporter.success(
+      `onCreatePagesStatefully: Created ${blogPostList.length} blog ogp images`
     );
   };

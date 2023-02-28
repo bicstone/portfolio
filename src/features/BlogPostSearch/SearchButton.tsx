@@ -1,15 +1,21 @@
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/SearchRounded";
-import { Button, buttonClasses, Dialog, useMediaQuery } from "@mui/material";
-import { useI18next } from "gatsby-plugin-react-i18next";
-import { useState, useCallback } from "react";
+import Alert from "@mui/material/Alert";
+import Backdrop from "@mui/material/Backdrop";
+import Button, { buttonClasses } from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
+import Dialog from "@mui/material/Dialog";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useState, useCallback, Suspense, lazy } from "react";
 import { createPortal } from "react-dom";
+import { ErrorBoundary } from "react-error-boundary";
 import { useHotkeys } from "react-hotkeys-hook";
 
-import { SearchModal } from "./SearchModal";
-
 import { CONSOLE_FONT_FAMILY } from "@/components/markdown/constants";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { useTheme } from "@/hooks/useTheme";
+
+const SearchModal = lazy(async () => await import("./SearchModal"));
 
 const ShortcutKey = styled("div")(({ theme }) => ({
   fontFamily: CONSOLE_FONT_FAMILY,
@@ -22,7 +28,6 @@ const ShortcutKey = styled("div")(({ theme }) => ({
 }));
 
 export const SearchButton = (): JSX.Element => {
-  const { t } = useI18next();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = useCallback(() => {
@@ -45,10 +50,10 @@ export const SearchButton = (): JSX.Element => {
     <>
       <Button
         css={(theme) => ({
-          backgroundColor: theme.vars.palette.background.default,
+          backgroundColor: theme.vars.palette.secondary.main,
           marginRight: theme.spacing(0.5),
           "&:hover": {
-            backgroundColor: theme.vars.palette.background.default,
+            backgroundColor: theme.vars.palette.secondary.main,
           },
           [theme.breakpoints.down("sm")]: {
             [`& .${buttonClasses.startIcon}`]: {
@@ -59,10 +64,10 @@ export const SearchButton = (): JSX.Element => {
             },
           },
         })}
-        variant="outlined"
+        variant="contained"
         color="secondary"
         size="small"
-        title={t("search.button.hint")}
+        title={TRANSLATION.search.button.hint}
         onClick={handleOpen}
         startIcon={<SearchIcon />}
         endIcon={<ShortcutKey>/</ShortcutKey>}
@@ -76,7 +81,7 @@ export const SearchButton = (): JSX.Element => {
               },
             })}
           >
-            {t("search.button.title")}
+            {TRANSLATION.search.button.title}
           </span>
           <SearchIcon
             css={(theme) => ({
@@ -90,9 +95,37 @@ export const SearchButton = (): JSX.Element => {
       </Button>
       {isOpen &&
         createPortal(
-          <Dialog onClose={handleClose} open={isOpen} fullScreen={mobile}>
-            <SearchModal onClose={handleClose} />
-          </Dialog>,
+          <ErrorBoundary
+            fallback={
+              <Backdrop
+                open
+                css={(theme) => ({ zIndex: theme.zIndex.modal })}
+                onClick={handleClose}
+              >
+                <Alert severity="error">{TRANSLATION.search.error}</Alert>
+              </Backdrop>
+            }
+          >
+            <Suspense
+              fallback={
+                <Backdrop
+                  open
+                  css={(theme) => ({
+                    color: theme.vars.palette.common.white,
+                    zIndex: theme.zIndex.modal,
+                  })}
+                  aria-busy
+                  onClick={handleClose}
+                >
+                  <CircularProgress color="inherit" />
+                </Backdrop>
+              }
+            >
+              <Dialog open onClose={handleClose} fullScreen={mobile}>
+                <SearchModal onClose={handleClose} />
+              </Dialog>
+            </Suspense>
+          </ErrorBoundary>,
           document.body
         )}
     </>

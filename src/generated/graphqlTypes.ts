@@ -402,11 +402,11 @@ export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & 
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
+  readonly redirect: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulBlogPostSys>;
   readonly tags: Maybe<ReadonlyArray<Maybe<ContentfulTag>>>;
-  readonly thumbnail: Maybe<ContentfulAsset>;
   readonly title: Maybe<Scalars['String']>;
   readonly updated: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -509,11 +509,11 @@ export type ContentfulBlogPostFieldSelector = {
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly redirect: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulBlogPostSysFieldSelector>;
   readonly tags: InputMaybe<ContentfulTagFieldSelector>;
-  readonly thumbnail: InputMaybe<ContentfulAssetFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly updated: InputMaybe<FieldSelectorEnum>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
@@ -534,11 +534,11 @@ export type ContentfulBlogPostFilterInput = {
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly redirect: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
   readonly tags: InputMaybe<ContentfulTagFilterListInput>;
-  readonly thumbnail: InputMaybe<ContentfulAssetFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly updated: InputMaybe<DateQueryOperatorInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -604,11 +604,11 @@ export type ContentfulBlogPostSortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
+  readonly redirect: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulBlogPostSysSortInput>;
   readonly tags: InputMaybe<ContentfulTagSortInput>;
-  readonly thumbnail: InputMaybe<ContentfulAssetSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly updated: InputMaybe<SortOrderEnum>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
@@ -4522,15 +4522,11 @@ export type File = Node & {
   readonly changeTime: Scalars['Date'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   readonly childImageSharp: Maybe<ImageSharp>;
-  /** Returns the first child node of type Locale or null if there are no children of given type on this node */
-  readonly childLocale: Maybe<Locale>;
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
   readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
   readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
-  /** Returns all children nodes filtered by type Locale */
-  readonly childrenLocale: Maybe<ReadonlyArray<Maybe<Locale>>>;
   /** Returns all children nodes filtered by type Mdx */
   readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly ctime: Scalars['Date'];
@@ -4676,11 +4672,9 @@ export type FileFieldSelector = {
   readonly blocks: InputMaybe<FieldSelectorEnum>;
   readonly changeTime: InputMaybe<FieldSelectorEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
-  readonly childLocale: InputMaybe<LocaleFieldSelector>;
   readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
-  readonly childrenLocale: InputMaybe<LocaleFieldSelector>;
   readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly ctime: InputMaybe<FieldSelectorEnum>;
   readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
@@ -4723,11 +4717,9 @@ export type FileFilterInput = {
   readonly blocks: InputMaybe<IntQueryOperatorInput>;
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
-  readonly childLocale: InputMaybe<LocaleFilterInput>;
   readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
-  readonly childrenLocale: InputMaybe<LocaleFilterListInput>;
   readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
   readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
@@ -4811,11 +4803,9 @@ export type FileSortInput = {
   readonly blocks: InputMaybe<SortOrderEnum>;
   readonly changeTime: InputMaybe<SortOrderEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
-  readonly childLocale: InputMaybe<LocaleSortInput>;
   readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
-  readonly childrenLocale: InputMaybe<LocaleSortInput>;
   readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly ctime: InputMaybe<SortOrderEnum>;
   readonly ctimeMs: InputMaybe<SortOrderEnum>;
@@ -5419,140 +5409,6 @@ export type JsonQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['JSON']>;
 };
 
-export type Locale = Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly data: Maybe<Scalars['String']>;
-  readonly fileAbsolutePath: Maybe<Scalars['String']>;
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly language: Maybe<Scalars['String']>;
-  readonly ns: Maybe<Scalars['String']>;
-  readonly parent: Maybe<Node>;
-};
-
-export type LocaleConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<LocaleEdge>;
-  readonly group: ReadonlyArray<LocaleGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Locale>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-export type LocaleConnectionDistinctArgs = {
-  field: LocaleFieldSelector;
-};
-
-
-export type LocaleConnectionGroupArgs = {
-  field: LocaleFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-export type LocaleConnectionMaxArgs = {
-  field: LocaleFieldSelector;
-};
-
-
-export type LocaleConnectionMinArgs = {
-  field: LocaleFieldSelector;
-};
-
-
-export type LocaleConnectionSumArgs = {
-  field: LocaleFieldSelector;
-};
-
-export type LocaleEdge = {
-  readonly next: Maybe<Locale>;
-  readonly node: Locale;
-  readonly previous: Maybe<Locale>;
-};
-
-export type LocaleFieldSelector = {
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly data: InputMaybe<FieldSelectorEnum>;
-  readonly fileAbsolutePath: InputMaybe<FieldSelectorEnum>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly language: InputMaybe<FieldSelectorEnum>;
-  readonly ns: InputMaybe<FieldSelectorEnum>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-};
-
-export type LocaleFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly data: InputMaybe<StringQueryOperatorInput>;
-  readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly language: InputMaybe<StringQueryOperatorInput>;
-  readonly ns: InputMaybe<StringQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-};
-
-export type LocaleFilterListInput = {
-  readonly elemMatch: InputMaybe<LocaleFilterInput>;
-};
-
-export type LocaleGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<LocaleEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<LocaleGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<Locale>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-export type LocaleGroupConnectionDistinctArgs = {
-  field: LocaleFieldSelector;
-};
-
-
-export type LocaleGroupConnectionGroupArgs = {
-  field: LocaleFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-export type LocaleGroupConnectionMaxArgs = {
-  field: LocaleFieldSelector;
-};
-
-
-export type LocaleGroupConnectionMinArgs = {
-  field: LocaleFieldSelector;
-};
-
-
-export type LocaleGroupConnectionSumArgs = {
-  field: LocaleFieldSelector;
-};
-
-export type LocaleSortInput = {
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly data: InputMaybe<SortOrderEnum>;
-  readonly fileAbsolutePath: InputMaybe<SortOrderEnum>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly language: InputMaybe<SortOrderEnum>;
-  readonly ns: InputMaybe<SortOrderEnum>;
-  readonly parent: InputMaybe<NodeSortInput>;
-};
-
 export type Mdx = Node & {
   readonly body: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
@@ -5787,7 +5643,6 @@ export type Query = {
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
-  readonly allLocale: LocaleConnection;
   readonly allMdx: MdxConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
@@ -5818,7 +5673,6 @@ export type Query = {
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
-  readonly locale: Maybe<Locale>;
   readonly mdx: Maybe<Mdx>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
@@ -6020,14 +5874,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryAllLocaleArgs = {
-  filter: InputMaybe<LocaleFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<LocaleSortInput>>>;
-};
-
-
 export type QueryAllMdxArgs = {
   filter: InputMaybe<MdxFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
@@ -6120,11 +5966,11 @@ export type QueryContentfulBlogPostArgs = {
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
+  redirect: InputMaybe<StringQueryOperatorInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulBlogPostSysFilterInput>;
   tags: InputMaybe<ContentfulTagFilterListInput>;
-  thumbnail: InputMaybe<ContentfulAssetFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   updated: InputMaybe<DateQueryOperatorInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -6501,11 +6347,9 @@ export type QueryFileArgs = {
   blocks: InputMaybe<IntQueryOperatorInput>;
   changeTime: InputMaybe<DateQueryOperatorInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
-  childLocale: InputMaybe<LocaleFilterInput>;
   childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
-  childrenLocale: InputMaybe<LocaleFilterListInput>;
   childrenMdx: InputMaybe<MdxFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
   ctimeMs: InputMaybe<FloatQueryOperatorInput>;
@@ -6546,18 +6390,6 @@ export type QueryImageSharpArgs = {
   original: InputMaybe<ImageSharpOriginalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   resize: InputMaybe<ImageSharpResizeFilterInput>;
-};
-
-
-export type QueryLocaleArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  data: InputMaybe<StringQueryOperatorInput>;
-  fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  language: InputMaybe<StringQueryOperatorInput>;
-  ns: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
 };
 
 
@@ -8100,19 +7932,19 @@ export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { r
 
 export type BlogPostDetailFragment = { readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> };
 
-export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created'>;
+export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'redirect'>;
 
-export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created'>;
+export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'redirect'>;
 
 export type PortfolioCertificationCardFragment = (
-  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulQualificationMap, 'id' | 'name'>
   & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
 );
 
 export type PortfolioCertificationDetailFragment = Pick<ContentfulQualification, 'name' | 'date' | 'endDate' | 'url'>;
 
 export type PortfolioCertificationListFragment = (
-  Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulQualificationMap, 'id' | 'name'>
   & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
 );
 
@@ -8153,28 +7985,23 @@ export type PortfolioOssListFragment = (
 );
 
 export type PortfolioProjectCardFragment = (
-  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate'>
   & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
     & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-  )>, readonly detail: Maybe<Pick<ContentfulProjectDetailTextNode, 'detail'>> }
-);
-
-export type PortfolioProjectDetailFragment = (
-  Pick<ContentfulProject, 'subName'>
-  & { readonly detail: Maybe<Pick<ContentfulProjectDetailTextNode, 'detail'>> }
+  )> }
 );
 
 export type PortfolioProjectListFragment = (
-  Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+  Pick<ContentfulProject, 'id' | 'name' | 'startDate'>
   & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
     Pick<ContentfulIcon, 'name'>
     & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-  )>, readonly detail: Maybe<Pick<ContentfulProjectDetailTextNode, 'detail'>> }
+  )> }
 );
 
 export type PortfolioSkillCardFragment = (
-  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulSkillMap, 'id' | 'name'>
   & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
     Pick<ContentfulSkillGrpup, 'id' | 'name'>
     & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
@@ -8187,7 +8014,7 @@ export type PortfolioSkillGroupDetailFragment = (
 );
 
 export type PortfolioSkillListFragment = (
-  Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+  Pick<ContentfulSkillMap, 'id' | 'name'>
   & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
     Pick<ContentfulSkillGrpup, 'id' | 'name'>
     & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
@@ -8210,37 +8037,24 @@ export type PortfolioWhatICanDoListFragment = (
   )> }
 );
 
-export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug'>;
+export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'redirect'>;
 
-export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>;
+export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>;
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
-export type UseUrlFragment = Pick<Locale, 'ns' | 'data' | 'language'>;
-
-export type NotFoundPageQueryVariables = Exact<{
-  language: Scalars['String'];
-}>;
-
-
-export type NotFoundPageQuery = { readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
-
-export type BlogPageQueryVariables = Exact<{
-  language: Scalars['String'];
-}>;
+export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug'>
-      & { readonly thumbnail: Maybe<{ readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }>, readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
-    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'redirect'>
+      & { readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
+    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> } };
 
-export type IndexPageQueryVariables = Exact<{
-  language: Scalars['String'];
-}>;
+export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly whatICanDos: { readonly nodes: ReadonlyArray<(
@@ -8250,11 +8064,11 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
     )> }, readonly projects: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulProject, 'id' | 'name' | 'startDate' | 'subName'>
+      Pick<ContentfulProject, 'id' | 'name' | 'startDate'>
       & { readonly tags: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'name'>>>>, readonly icon: Maybe<(
         Pick<ContentfulIcon, 'name'>
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
-      )>, readonly detail: Maybe<Pick<ContentfulProjectDetailTextNode, 'detail'>> }
+      )> }
     )> }, readonly histories: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulHistory, 'id' | 'date' | 'name' | 'subName'>
       & { readonly icon: Maybe<(
@@ -8268,32 +8082,29 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
     )> }, readonly skills: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulSkillMap, 'id' | 'name' | 'expanded'>
+      Pick<ContentfulSkillMap, 'id' | 'name'>
       & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
         Pick<ContentfulSkillGrpup, 'id' | 'name'>
         & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
       )>>> }
     )> }, readonly certification: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulQualificationMap, 'id' | 'name' | 'expanded'>
+      Pick<ContentfulQualificationMap, 'id' | 'name'>
       & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
-    )> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+    )> } };
 
 export type BlogPostPageQueryVariables = Exact<{
   id: Scalars['String'];
-  language: Scalars['String'];
 }>;
 
 
 export type BlogPostPageQuery = { readonly post: Maybe<(
-    Pick<ContentfulBlogPost, 'title' | 'excerpt' | 'created' | 'updated'>
+    Pick<ContentfulBlogPost, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated'>
+    & { createdDateTime: ContentfulBlogPost['created'] }
     & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
       Pick<ContentfulTag, 'name'>
       & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(
-        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug'>
+        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>
         & { createdDateTime: ContentfulBlogPost['created'] }
       )>>> }
-    )>>>, readonly thumbnail: Maybe<(
-      Pick<ContentfulAsset, 'title'>
-      & { readonly file: Maybe<Pick<ContentfulAssetFile, 'url'>> }
-    )>, readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> }
-  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly locales: { readonly edges: ReadonlyArray<{ readonly node: Pick<Locale, 'ns' | 'data' | 'language'> }> } };
+    )>>>, readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> }
+  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> } };

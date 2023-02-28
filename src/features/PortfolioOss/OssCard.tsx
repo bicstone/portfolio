@@ -1,10 +1,8 @@
-import {
-  CardHeader,
-  Card,
-  CardActionArea,
-  Chip,
-  Typography,
-} from "@mui/material";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardHeader from "@mui/material/CardHeader";
+import Chip from "@mui/material/Chip";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
 
@@ -45,7 +43,7 @@ export const OssCard = (props: {
         title={oss.name}
         href={oss.href}
         rel="external noreferrer noopener"
-        target="_blank"
+        css={{ height: "100%" }}
       >
         <CardHeader
           avatar={<SvgAvatar name={oss.icon.name} svg={oss.icon.svg.svg} />}

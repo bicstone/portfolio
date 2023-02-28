@@ -1,8 +1,7 @@
-import { green, pink } from "@mui/material/colors";
-import {
-  createTheme,
-  experimental_extendTheme as createExtendTheme,
-} from "@mui/material/styles";
+import green from "@mui/material/colors/green";
+import pink from "@mui/material/colors/pink";
+import createTheme from "@mui/material/styles/createTheme";
+import createExtendTheme from "@mui/material/styles/experimental_extendTheme";
 import { useMemo } from "react";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";

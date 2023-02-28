@@ -2,35 +2,42 @@ import path from "path";
 
 import dotenv from "dotenv";
 
-import siteMetaData from "./src/constants/siteMetaData";
+import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
+import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
 
+const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
+
+interface GatsbyPluginFeedQuery {
+  readonly allContentfulBlogPost: {
+    readonly nodes: ReadonlyArray<
+      Pick<
+        ContentfulBlogPost,
+        "title" | "slug" | "excerpt" | "created" | "updated"
+      >
+    >;
+  };
+}
 
 const config: GatsbyConfig = {
   trailingSlash,
   pathPrefix,
 
   siteMetadata: {
-    title: siteMetaData.title,
-    siteUrl: siteMetaData.siteUrl,
-    description: siteMetaData.description,
+    title: SITE_METADATA.title,
+    siteUrl: SITE_METADATA.siteUrl,
+    description: SITE_METADATA.description,
   },
 
   jsxRuntime: "automatic",
   jsxImportSource: "@emotion/react",
 
   plugins: [
-    {
-      resolve: "@sentry/gatsby",
-      options: {
-        dsn: process.env.SENTRY_DSN,
-      },
-    },
     {
       resolve: "gatsby-plugin-emotion",
     },
@@ -50,12 +57,6 @@ const config: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-image`,
-    },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: path.resolve("src", "layouts", "WrapPageElement.tsx"),
-      },
     },
     {
       resolve: `gatsby-plugin-mdx`,
@@ -84,13 +85,43 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-i18next",
+      resolve: `gatsby-plugin-feed`,
       options: {
-        siteUrl: siteMetaData.siteUrl,
-        localeJsonSourceName: `locales`,
-        languages: siteMetaData.languages,
-        defaultLanguage: siteMetaData.defaultLanguage,
-        trailingSlash,
+        feeds: [
+          {
+            serialize: ({
+              query: { allContentfulBlogPost },
+            }: {
+              query: GatsbyPluginFeedQuery;
+            }) => {
+              return allContentfulBlogPost.nodes.map((node) => {
+                return {
+                  guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
+                  title: node.title,
+                  url: `${SITE_METADATA.siteUrl}/${node.slug}`,
+                  description: node.excerpt,
+                  date: node.created,
+                };
+              });
+            },
+            query: `#graphql
+              {
+                allContentfulBlogPost(sort: { created: DESC }) {
+                  nodes {
+                    title
+                    slug
+                    excerpt
+                    created
+                    updated
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            link: `${SITE_METADATA.siteUrl}/rss.xml`,
+            title: SITE_METADATA.blogTitle,
+          },
+        ],
       },
     },
     {
@@ -99,7 +130,7 @@ const config: GatsbyConfig = {
         bucketName: process.env.AWS_S3_BUCKET_NAME,
         region: process.env.AWS_REGION,
         protocol: "https",
-        hostname: new URL(siteMetaData.siteUrl).hostname,
+        hostname: new URL(SITE_METADATA.siteUrl).hostname,
         acl: null,
       },
     },
@@ -114,14 +145,8 @@ const config: GatsbyConfig = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: isDevelopment ? "preview.contentful.com" : "cdn.contentful.com",
         localeFilter: (locale: { code: string }) => locale.code === "ja",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `locales`,
-        path: path.resolve("src", "locales"),
       },
     },
     {

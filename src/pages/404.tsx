@@ -1,42 +1,40 @@
-import { SelfImprovementRounded as SelfImprovementIcon } from "@mui/icons-material";
-import { Typography, Container, Button } from "@mui/material";
-import { graphql, Link as RouterLink } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import SelfImprovementIcon from "@mui/icons-material/SelfImprovementRounded";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import { Link as RouterLink } from "gatsby";
 
-import { Head } from "@/layouts/Head";
+import type { HeadFC } from "gatsby";
 
-export const query = graphql`
-  query NotFoundPage($language: String!) {
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
-  }
-`;
+import { TRANSLATION } from "@/constants/TRANSLATION";
 
-export { Head };
+export const Head: HeadFC = () => {
+  return (
+    <>
+      <meta name="robots" content="noindex,follow" />
+      <meta name="googlebot" content="noindex,follow" />
+    </>
+  );
+};
 
 const NotFound = (): JSX.Element => {
-  const { t } = useI18next();
-
   return (
     <Container maxWidth="md">
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
         {/* 見つかりませんでした */}
         <SelfImprovementIcon
+          color="primary"
           css={(theme) => ({
             width: theme.spacing(20),
             height: theme.spacing(20),
           })}
         />
         <Typography variant="h4" component="h1" paragraph>
-          {t("not-found.title")}
+          {TRANSLATION.notFound.title}
         </Typography>
-        <Typography variant="body1">{t("not-found.description")}</Typography>
+        <Typography variant="body1">
+          {TRANSLATION.notFound.description}
+        </Typography>
       </div>
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
         <Button
@@ -44,8 +42,17 @@ const NotFound = (): JSX.Element => {
           variant="contained"
           to="/"
           color="secondary"
+          css={(theme) => ({ marginRight: theme.spacing(2) })}
         >
-          {t("not-found.back-to-home")}
+          {TRANSLATION.notFound.backToHome}
+        </Button>
+        <Button
+          component={RouterLink}
+          variant="contained"
+          to="/blog"
+          color="secondary"
+        >
+          {TRANSLATION.notFound.backToBlog}
         </Button>
       </div>
     </Container>

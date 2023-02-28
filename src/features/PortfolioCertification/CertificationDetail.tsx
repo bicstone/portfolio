@@ -1,10 +1,12 @@
-import { ListItem, ListItemButton, ListItemText } from "@mui/material";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
 import { useMemo } from "react";
 
 import type { PortfolioCertificationDetailFragment } from "@/generated/graphqlTypes";
 
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
@@ -20,7 +22,6 @@ export const query = graphql`
 export const CertificationDetail = (props: {
   certification: PortfolioCertificationDetailFragment;
 }): JSX.Element => {
-  const { t } = useI18next();
   const { certification } = props;
 
   const date = useMemo(() => {
@@ -42,9 +43,8 @@ export const CertificationDetail = (props: {
     <ListItem>
       <ListItemButton
         href={certification.url}
-        rel="external noreferrer noopener nofollow"
-        target="_blank"
-        title={t("certification.detail.title")}
+        rel="external noreferrer noopener"
+        title={TRANSLATION.certification.detail.title}
         disableGutters
       >
         <ListItemText primary={certification.name} secondary={formattedDate} />

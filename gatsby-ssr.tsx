@@ -1,17 +1,18 @@
-import { getInitColorSchemeScript } from "@mui/material/styles";
+import { getInitColorSchemeScript } from "@mui/material/styles/CssVarsProvider";
 import { Fragment } from "react";
 
-import siteMetaData from "./src/constants/siteMetaData";
+import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
 import type { GatsbySSR } from "gatsby";
 
+import { WrapPageElement } from "@/layouts/WrapPageElement";
 import { WrapRootElement } from "@/layouts/WrapRootElement";
 
 export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   setHtmlAttributes,
   setPreBodyComponents,
 }) => {
-  setHtmlAttributes({ lang: siteMetaData.defaultLanguage });
+  setHtmlAttributes({ lang: SITE_METADATA.defaultLanguage });
 
   setPreBodyComponents([
     <Fragment key="init-color-scheme-script">
@@ -24,4 +25,8 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
 
 export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
   return <WrapRootElement>{element}</WrapRootElement>;
+};
+
+export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => {
+  return <WrapPageElement>{element}</WrapPageElement>;
 };

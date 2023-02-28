@@ -1,4 +1,5 @@
-import { Typography, Chip } from "@mui/material";
+import Chip from "@mui/material/Chip";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 
 import type { PortfolioSkillGroupDetailFragment } from "@/generated/graphqlTypes";
@@ -30,8 +31,7 @@ export const SkillGroupDetail = (props: {
           justifyContent: "flex-start",
           flexWrap: "wrap",
           listStyle: "none",
-          margin: 0,
-          marginBottom: theme.spacing(2),
+          margin: theme.spacing(0, 0, 2, 1),
           padding: 0,
         })}
       >

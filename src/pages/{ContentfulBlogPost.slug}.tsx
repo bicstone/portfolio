@@ -1,31 +1,38 @@
-import {
-  AccessTimeRounded as AccessTimeIcon,
-  UpdateRounded as UpdateIcon,
-} from "@mui/icons-material";
-import { Card, Container, NoSsr, Typography } from "@mui/material";
+import AccessTimeIcon from "@mui/icons-material/AccessTimeRounded";
+import UpdateIcon from "@mui/icons-material/UpdateRounded";
+import Card from "@mui/material/Card";
+import Container from "@mui/material/Container";
+import NoSsr from "@mui/material/NoSsr";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useI18next } from "gatsby-plugin-react-i18next";
-import { useMemo } from "react";
+import { useLayoutEffect, useMemo } from "react";
 
 import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InarticleAd } from "@/components/InarticleAd";
-import siteMetaData from "@/constants/siteMetaData";
+import { ShareButtons } from "@/components/ShareButtons";
+import { Heading } from "@/components/markdown/Heading";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostDetail } from "@/features/BlogPostDetail";
+import { BlogPostTableOfContent } from "@/features/BlogPostTableOfContent";
 import { HelloContent } from "@/features/PortfolioHello";
 import { RelatedBlogPostList } from "@/features/RelatedBlogPostList";
-import { Head as HeadTemplate } from "@/layouts/Head";
+import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPostPage($id: String!, $language: String!) {
+  query BlogPostPage($id: String!) {
     post: contentfulBlogPost(id: { eq: $id }) {
+      slug
+      redirect
       title
       excerpt
       created
+      createdDateTime: created(formatString: "X")
       updated
       category {
         name
@@ -37,35 +44,20 @@ export const query = graphql`
           createdDateTime: created(formatString: "X")
         }
       }
-      thumbnail {
-        file {
-          url
-        }
-        title
-      }
       ...BlogPostDetail
+      # ...BlogPostTableOfContent
     }
     links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioHelloContent
       }
     }
-    # gatsby-plugin-react-i18next
-    locales: allLocale(filter: { language: { eq: $language } }) {
-      edges {
-        node {
-          ...UseUrl
-        }
-      }
-    }
   }
 `;
 
 export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
-  const BLOG_TITLE = "まっしろブログ"; // TODO: i18next does not work in Head
   const post = data.post;
-  const title = `${post.title} - ${BLOG_TITLE}`;
-  const canonical = `${siteMetaData.siteUrl}${location.pathname}`;
+  const title = `${post.title} - ${SITE_METADATA.blogTitle}`;
 
   return (
     <>
@@ -73,13 +65,13 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={post.excerpt}
-        image={post.thumbnail.file.url}
-        imageAlt={post.thumbnail.title}
+        image={`${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`}
+        imageAlt={SITE_METADATA.blogTitle}
         type="article"
       />
       <meta property="article:published_time" content={post.created} />
       <meta property="article:modified_time" content={post.updated} />
-      <meta property="article:author" content={siteMetaData.siteUrl} />
+      <meta property="article:author" content={SITE_METADATA.siteUrl} />
       <meta property="article:section" content={post.category.name} />
       {post.tags.map((tag) => (
         <meta key={tag.name} property="article:tag" content={tag.name} />
@@ -92,21 +84,21 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [post.thumbnail.file.url],
+            image: [`${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`],
             datePublished: post.created,
             dateModified: post.updated,
             dateCreated: post.created,
             author: {
               "@type": "Person",
-              name: `${siteMetaData.lastName} ${siteMetaData.firstName}`,
-              url: siteMetaData.siteUrl,
+              name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
+              url: SITE_METADATA.siteUrl,
             },
             publisher: {
               "@type": "Organization",
-              name: siteMetaData.title,
+              name: SITE_METADATA.title,
               logo: {
                 "@type": "ImageObject",
-                url: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
               },
             },
             description: post.excerpt,
@@ -125,8 +117,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 1,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${"/"}`,
-                  name: siteMetaData.title,
+                  "@id": `${SITE_METADATA.siteUrl}${"/"}`,
+                  name: SITE_METADATA.title,
                   "@type": "Thing",
                 },
               },
@@ -134,8 +126,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 2,
                 item: {
-                  "@id": `${siteMetaData.siteUrl}${"/blog"}`,
-                  name: BLOG_TITLE,
+                  "@id": `${SITE_METADATA.siteUrl}${"/blog"}`,
+                  name: SITE_METADATA.blogTitle,
                   "@type": "Thing",
                 },
               },
@@ -143,7 +135,7 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 3,
                 item: {
-                  "@id": canonical,
+                  "@id": `${SITE_METADATA.siteUrl}/${post.slug}`,
                   name: post.title,
                   "@type": "Thing",
                 },
@@ -158,8 +150,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            url: siteMetaData.siteUrl,
-            logo: `${siteMetaData.siteUrl}${siteMetaData.image}`,
+            url: SITE_METADATA.siteUrl,
+            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
           }),
         }}
       />
@@ -169,19 +161,31 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
 
 export const BlogPostPage = ({
   data,
+  location,
 }: PageProps<BlogPostPageQuery>): JSX.Element => {
-  const { t } = useI18next();
-
   const post = data.post;
-
   const relatedPosts = useMemo(() => {
     const posts = post.tags.flatMap((tag) => tag.blog_post);
     const filteredPosts = Array.from(
       new Map(posts.map((post) => [post.id, post])).values()
-    );
+    ).filter((post) => post.slug !== data.post.slug);
     filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
-    return filteredPosts;
-  }, [post.tags]);
+
+    // Pick up to 18 articles in the following order.
+    // 18 is divisible by 1, 2, or 3.
+    //
+    // 1. Latest 10 articles.
+    // 2. Older articles than this.
+
+    const newerPosts = filteredPosts
+      .filter((post) => post.createdDateTime >= data.post.createdDateTime)
+      .slice(0, 10);
+    const olderPosts = filteredPosts
+      .filter((post) => post.createdDateTime < data.post.createdDateTime)
+      .slice(0, 18 - newerPosts.length);
+
+    return [...newerPosts, ...olderPosts];
+  }, [data.post.createdDateTime, data.post.slug, post.tags]);
 
   const createdDate = useMemo(
     () => formatDateTime(post.created, "yyyy/MM/dd"),
@@ -191,6 +195,12 @@ export const BlogPostPage = ({
     () => formatDateTime(post.updated, "yyyy/MM/dd"),
     [post.updated]
   );
+
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined" && isDefined(post.redirect)) {
+      window.location.href = post.redirect;
+    }
+  }, [post.redirect]);
 
   return (
     <Container maxWidth="md">
@@ -202,45 +212,53 @@ export const BlogPostPage = ({
         })}
       />
 
-      <Typography variant="h4" component="h1">
-        {post.title}
-      </Typography>
-
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        component="div"
-        css={(theme) => ({
+      <div
+        css={{
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "flex-end",
-          marginTop: theme.spacing(1),
-        })}
+        }}
       >
-        {isDefined(post.updated) && (
-          <>
-            <UpdateIcon
-              fontSize="inherit"
-              css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-            />
-            <time
-              dateTime={post.updated}
-              css={(theme) => ({ marginRight: theme.spacing(1) })}
-            >
-              {updatedDate}
-            </time>
-          </>
-        )}
-        {isDefined(post.created) && (
-          <>
-            <AccessTimeIcon
-              fontSize="inherit"
-              css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-            />
-            <time dateTime={post.created}>{createdDate}</time>
-          </>
-        )}
-      </Typography>
+        <Typography variant="h4" component="h1">
+          {post.title}
+        </Typography>
+
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          component="div"
+          css={(theme) => ({
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+            marginTop: theme.spacing(1),
+          })}
+        >
+          {isDefined(post.updated) && (
+            <>
+              <UpdateIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time
+                dateTime={post.updated}
+                css={(theme) => ({ marginRight: theme.spacing(1) })}
+              >
+                {updatedDate}
+              </time>
+            </>
+          )}
+          {isDefined(post.created) && (
+            <>
+              <AccessTimeIcon
+                fontSize="inherit"
+                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
+              />
+              <time dateTime={post.created}>{createdDate}</time>
+            </>
+          )}
+        </Typography>
+      </div>
 
       <Card
         css={(theme) => ({
@@ -249,12 +267,46 @@ export const BlogPostPage = ({
           borderRadius: theme.spacing(2),
         })}
       >
+        <Heading
+          variant="h5"
+          component="h2"
+          css={(theme) => ({
+            padding: theme.spacing(2),
+            "&::before": {
+              top: theme.spacing(2),
+              bottom: theme.spacing(2),
+            },
+          })}
+        >
+          {TRANSLATION.blog.tableOfContentsTitle}
+        </Heading>
+        <BlogPostTableOfContent post={post} />
+
+        <Heading
+          variant="h5"
+          component="h2"
+          id={TRANSLATION.blog.introductionTitle}
+        >
+          {TRANSLATION.blog.introductionTitle}
+        </Heading>
         <BlogPostDetail post={post} />
+
+        <Heading variant="h5" component="h2">
+          {TRANSLATION.blog.shareTitle}
+        </Heading>
+        <ShareButtons
+          title={`${post.title} - ${SITE_METADATA.blogTitle}`}
+          url={`${SITE_METADATA.siteUrl}${location.pathname}`}
+        />
       </Card>
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-        <Typography variant="h5" component="h2">
-          {t("blog.author-title")}
+        <Typography
+          variant="h5"
+          component="h2"
+          id={TRANSLATION.blog.authorTitle}
+        >
+          {TRANSLATION.blog.authorTitle}
         </Typography>
 
         <section
@@ -272,7 +324,7 @@ export const BlogPostPage = ({
           <NoSsr defer>
             <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
               <Typography variant="h5" component="h2" paragraph>
-                {t("blog.ad-label")}
+                {TRANSLATION.blog.adLabel}
               </Typography>
               <InarticleAd
                 pubId={process.env.GATSBY_ADSENSE_PUB_ID}
@@ -283,8 +335,13 @@ export const BlogPostPage = ({
         )}
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-        <Typography variant="h5" component="h2" paragraph>
-          {t("blog.related-title")}
+        <Typography
+          variant="h5"
+          component="h2"
+          paragraph
+          id={TRANSLATION.blog.relatedTitle}
+        >
+          {TRANSLATION.blog.relatedTitle}
         </Typography>
         <RelatedBlogPostList posts={relatedPosts} />
       </aside>

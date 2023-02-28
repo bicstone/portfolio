@@ -1,10 +1,13 @@
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUpRounded";
-import { Tooltip, Fade, Fab, useScrollTrigger } from "@mui/material";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import Fab from "@mui/material/Fab";
+import Fade from "@mui/material/Fade";
+import Tooltip from "@mui/material/Tooltip";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { useCallback, useState } from "react";
 
+import { TRANSLATION } from "@/constants/TRANSLATION";
+
 export const BackToTop = (): JSX.Element => {
-  const { t } = useI18next();
   const [isOpen, setOpen] = useState(false);
 
   const isShow = useScrollTrigger({
@@ -28,7 +31,7 @@ export const BackToTop = (): JSX.Element => {
   return (
     <Fade in={isShow}>
       <Tooltip
-        title={t("scrollToTop.title")}
+        title={TRANSLATION.scrollToTop.title}
         open={isOpen}
         onClose={handleClose}
         onOpen={handleOpen}
@@ -36,7 +39,7 @@ export const BackToTop = (): JSX.Element => {
         <Fab
           size="medium"
           variant="circular"
-          aria-label={t("scrollToTop.title")}
+          aria-label={TRANSLATION.scrollToTop.title}
           onClick={handleClick}
           css={(theme) => ({
             position: "fixed",

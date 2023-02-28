@@ -1,17 +1,14 @@
-import {
-  UnfoldMoreRounded as UnfoldMoreIcon,
-  UnfoldLessRounded as UnfoldLessIcon,
-} from "@mui/icons-material";
-import { Button } from "@mui/material";
-import { useI18next } from "gatsby-plugin-react-i18next";
+import UnfoldLessIcon from "@mui/icons-material/UnfoldLessRounded";
+import UnfoldMoreIcon from "@mui/icons-material/UnfoldMoreRounded";
+import Button from "@mui/material/Button";
+
+import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const BulkExpandButton = (props: {
   expanded: boolean;
   onClick: () => void;
 }): JSX.Element => {
   const { expanded, onClick } = props;
-
-  const { t } = useI18next();
 
   return (
     <Button
@@ -26,11 +23,11 @@ export const BulkExpandButton = (props: {
       size="small"
       endIcon={expanded ? <UnfoldLessIcon /> : <UnfoldMoreIcon />}
       onClick={onClick}
-      aria-label={t("bulk-expand-button.hint")}
+      aria-label={TRANSLATION.bulkExpandButton.hint}
     >
       {expanded
-        ? t("bulk-expand-button.label.all-less")
-        : t("bulk-expand-button.label.all-more")}
+        ? TRANSLATION.bulkExpandButton.label.allLess
+        : TRANSLATION.bulkExpandButton.label.allMore}
     </Button>
   );
 };
