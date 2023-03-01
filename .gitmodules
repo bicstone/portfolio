@@ -1,6 +1,6 @@
 [submodule "static"]
 	path = static
-	url = git@github.com:bicstone/portfolio-static.git
+	url = https://github.com/bicstone/portfolio-static.git
 [submodule "content"]
 	path = content
-	url = git@github.com:bicstone/portfolio-content.git
+	url = https://github.com/bicstone/portfolio-content.git
