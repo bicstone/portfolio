@@ -164,6 +164,14 @@ yarn deploy
 
 package.json の browserslist を参照
 
+## Submodule について
+
+`content` ディレクトリ及び `static` ディレクトリは、権利が複雑になるのを避けるため、非公開リポジトリで管理しています。
+
+`content` は `content-sample` ディレクトリをコピーして作成してください。
+
+`static` は空のディレクトリを作成してください。
+
 ## ライセンス
 
 - ディレクトリ内に LICENSE ファイルがある場合、そのライセンスに従います。

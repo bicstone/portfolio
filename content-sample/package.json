@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "scripts": {
+    "lint": "yarn format && yarn lint:md && yarn lint:text",
+    "lint:fix": "yarn format --write && yarn lint:md --fix && yarn lint:text --fix",
+    "lint:md": "markdownlint-cli2 ./articles/**/*.md",
+    "lint:text": "textlint --cache ./articles/**/*.md",
+    "format": "prettier --cache --check ./articles/**/*.md",
+    "postinstall": "husky install"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "husky": "latest",
+    "markdownlint": "latest",
+    "markdownlint-cli2": "latest",
+    "prettier": "latest",
+    "textlint": "latest",
+    "textlint-filter-rule-comments": "latest",
+    "textlint-rule-preset-ja-spacing": "latest",
+    "textlint-rule-preset-ja-technical-writing": "latest"
+  },
+  "packageManager": "yarn@3.4.1"
+}

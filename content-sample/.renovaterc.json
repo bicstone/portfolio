@@ -1,0 +1,11 @@
+{
+  "extends": ["github>bicstone/renovate-config"],
+  "packageRules": [
+    {
+      "groupName": "devDependencies",
+      "matchDepTypes": ["dependencies"],
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"]
+    }
+  ]
+}
