@@ -1,8 +1,6 @@
 import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
-import NoSsr from "@mui/material/NoSsr";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles/CssVarsProvider";
-import { Script } from "gatsby";
 
 import BackgroundImage from "./background.svg";
 
@@ -11,7 +9,6 @@ import type { ReactNode } from "react";
 
 import { FONT_FAMILY } from "@/components/markdown/constants";
 import { useTheme } from "@/hooks/useTheme";
-import { isDefined } from "@/utils/typeguard";
 
 interface WrapRootElementProps {
   children: ReactNode;
@@ -75,28 +72,6 @@ export const WrapRootElement = ({
         />
         <CssBaseline enableColorScheme />
         {children}
-        {isDefined(process.env.GATSBY_SENTRY_PUBLIC_KEY) && (
-          <NoSsr defer>
-            <Script
-              id="sentry"
-              src={`https://js.sentry-cdn.com/${process.env.GATSBY_SENTRY_PUBLIC_KEY}.min.js`}
-              crossOrigin="anonymous"
-              strategy="idle"
-              async
-            />
-          </NoSsr>
-        )}
-        {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) && (
-          <NoSsr defer>
-            <Script
-              id="adsbygoogle.js"
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.GATSBY_ADSENSE_PUB_ID}`}
-              crossOrigin="anonymous"
-              strategy="idle"
-              async
-            />
-          </NoSsr>
-        )}
       </CssVarsProvider>
     </EmotionThemeProvider>
   );
