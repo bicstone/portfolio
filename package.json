@@ -9,11 +9,8 @@
     "develop": "gatsby develop --port 10014",
     "serve": "gatsby serve --port 20014",
     "clean": "gatsby clean",
-    "lint": "yarn lint:src && yarn lint:md && yarn lint:text",
-    "lint:fix": "yarn lint:src --fix && lint:md --fix && yarn lint:text --fix",
-    "lint:src": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
-    "lint:md": "cd content && yarn lint:md",
-    "lint:text": "cd content && yarn lint:text",
+    "lint": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
+    "lint:fix": "yarn lint --fix",
     "format": "prettier --cache --ignore-path .eslintignore --write .",
     "graphql": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
@@ -97,8 +94,5 @@
     "last 3 ChromeAndroid major versions",
     "last 3 iOS major versions"
   ],
-  "packageManager": "yarn@3.4.1",
-  "workspaces": [
-    "content"
-  ]
+  "packageManager": "yarn@3.4.1"
 }
