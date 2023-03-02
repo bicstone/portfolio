@@ -1,0 +1,25 @@
+{
+  "rules": {
+    "preset-ja-spacing": {
+      "ja-space-around-code": {
+        "before": true,
+        "after": true
+      },
+      "ja-space-between-half-and-full-width": {
+        "space": [
+          "alphabets",
+          "numbers"
+        ],
+        "exceptPunctuation": true
+      }
+    },
+    "preset-ja-technical-writing": {
+      "no-exclamation-question-mark": false,
+      "sentence-length": false,
+      "max-kanji-continuous-len": false
+    }
+  },
+  "filters": {
+    "comments": true
+  }
+}
