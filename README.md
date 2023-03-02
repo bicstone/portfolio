@@ -179,7 +179,3 @@ package.json の browserslist を参照
 - その他は MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)
-
-## Contributing
-
-- content, static ディレクトリで参照しているリポジトリは非公開です。それぞれ、 content-sample, static-sample ディレクトリを参考にしてください。

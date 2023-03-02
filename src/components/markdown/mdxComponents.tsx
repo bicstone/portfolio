@@ -7,6 +7,7 @@ import TableRow from "@mui/material/TableRow";
 import { AnchorIcon } from "./AnchorIcon";
 import { AnchorLink } from "./AnchorLink";
 import { Blockquote } from "./Blockquote";
+import { CodeSandbox } from "./CodeSandbox";
 import { Heading } from "./Heading";
 import { Image } from "./Image";
 import { InlineCode } from "./InlineCode";
@@ -16,6 +17,8 @@ import { QuotingCode } from "./QuotingCode";
 import { Table } from "./Table";
 import { Video } from "./Video";
 
+import type { MDXComponents } from "mdx/types";
+
 import { isDefined } from "@/utils/typeguard";
 
 const notImplemented = (name: string): null => {
@@ -24,73 +27,43 @@ const notImplemented = (name: string): null => {
   return null;
 };
 
-type MdxComponents = Record<string, (props: any) => JSX.Element | null>;
-
-export const mdxComponents: MdxComponents = {
-  p: ({ ref, ...props }: JSX.IntrinsicElements["p"]) => (
-    <Paragraph {...props} />
-  ),
+export const mdxComponents: MDXComponents = {
+  p: ({ ref, ...props }) => <Paragraph {...props} />,
   h1: () => notImplemented("h1"),
-  h2: ({ ref, ...props }: JSX.IntrinsicElements["h2"]) => (
-    <Heading variant="h5" component="h2" {...props} />
-  ),
-  h3: ({ ref, ...props }: JSX.IntrinsicElements["h3"]) => (
-    <Heading variant="h6" component="h3" {...props} />
-  ),
-  h4: ({ ref, ...props }: JSX.IntrinsicElements["h4"]) => (
+  h2: ({ ref, ...props }) => <Heading variant="h5" component="h2" {...props} />,
+  h3: ({ ref, ...props }) => <Heading variant="h6" component="h3" {...props} />,
+  h4: ({ ref, ...props }) => (
     <Heading variant="subtitle1" component="h4" {...props} />
   ),
   h5: () => notImplemented("h5"),
   h6: () => notImplemented("h6"),
-  blockquote: ({ ref, ...props }: JSX.IntrinsicElements["blockquote"]) => (
-    <Blockquote {...props} />
-  ),
-  table: ({ ref, ...props }: JSX.IntrinsicElements["table"]) => (
-    <Table {...props} />
-  ),
-  thead: ({ ref, ...props }: JSX.IntrinsicElements["thead"]) => (
-    <TableHead {...props} />
-  ),
-  tbody: ({ ref, ...props }: JSX.IntrinsicElements["tbody"]) => (
-    <TableBody {...props} />
-  ),
-  tr: ({ ref, ...props }: JSX.IntrinsicElements["tr"]) => (
-    <TableRow {...props} />
-  ),
-  th: ({ ref, align, ...props }: JSX.IntrinsicElements["th"]) => {
+  blockquote: ({ ref, ...props }) => <Blockquote {...props} />,
+  table: ({ ref, ...props }) => <Table {...props} />,
+  thead: ({ ref, ...props }) => <TableHead {...props} />,
+  tbody: ({ ref, ...props }) => <TableBody {...props} />,
+  tr: ({ ref, ...props }) => <TableRow {...props} />,
+  th: ({ ref, align, ...props }) => {
     if (align === "char") {
       notImplemented("th align=char");
       return null;
     }
     return <TableCell align={align ?? "inherit"} component="th" {...props} />;
   },
-  td: ({ ref, align, ...props }: JSX.IntrinsicElements["td"]) => {
+  td: ({ ref, align, ...props }) => {
     if (align === "char") {
       notImplemented("td align=char");
       return null;
     }
     return <TableCell align={align ?? "inherit"} component="td" {...props} />;
   },
-  inlineCode: ({ ref, ...props }: JSX.IntrinsicElements["code"]) => (
-    <InlineCode {...props} />
-  ),
-  pre: ({ ref, ...props }: JSX.IntrinsicElements["pre"]) => (
-    <QuotingCode {...props} />
-  ),
-  hr: ({ ref, ...props }: JSX.IntrinsicElements["hr"]) => (
-    <Divider {...props} />
-  ),
-  a: ({ ref, ...props }: JSX.IntrinsicElements["a"]) => (
-    <AnchorLink {...props} />
-  ),
-  anchor: ({ ref, ...props }: any) => <AnchorIcon {...props} />,
-  link: ({ ref, ...props }: JSX.IntrinsicElements["a"]) => (
-    <LinkCard {...props} />
-  ),
-  video: ({ ref, ...props }: JSX.IntrinsicElements["video"]) => (
-    <Video controls {...props} />
-  ),
-  img: ({ ref, ...props }: JSX.IntrinsicElements["img"]) => (
-    <Image {...props} />
-  ),
+  inlineCode: ({ ref, ...props }) => <InlineCode {...props} />,
+  pre: ({ ref, ...props }) => <QuotingCode {...props} />,
+  hr: ({ ref, ...props }) => <Divider {...props} />,
+  a: ({ ref, ...props }) => <AnchorLink {...props} />,
+  video: ({ ref, ...props }) => <Video controls {...props} />,
+  img: ({ ref, ...props }) => <Image {...props} />,
+  // custom components
+  anchor: ({ ref, ...props }) => <AnchorIcon {...props} />,
+  LinkCard: ({ ref, ...props }) => <LinkCard {...props} />,
+  CodeSandbox: ({ ref, ...props }) => <CodeSandbox {...props} />,
 };

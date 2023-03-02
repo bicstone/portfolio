@@ -10,6 +10,7 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 export const query = graphql`
   fragment BlogPostTableOfContent on ContentfulBlogPost {
     content {
+      content
       # childMdx {
       #   tableOfContents
       # }
