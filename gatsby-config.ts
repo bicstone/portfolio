@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
-import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
+import type { MdxFrontmatter } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
@@ -14,13 +14,13 @@ const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
 interface GatsbyPluginFeedQuery {
-  readonly allContentfulBlogPost: {
-    readonly nodes: ReadonlyArray<
-      Pick<
-        ContentfulBlogPost,
+  readonly allMdx: {
+    readonly nodes: ReadonlyArray<{
+      frontmatter: Pick<
+        MdxFrontmatter,
         "title" | "slug" | "excerpt" | "created" | "updated"
-      >
-    >;
+      >;
+    }>;
   };
 }
 
@@ -90,29 +90,31 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({
-              query: { allContentfulBlogPost },
+              query: { allMdx },
             }: {
               query: GatsbyPluginFeedQuery;
             }) => {
-              return allContentfulBlogPost.nodes.map((node) => {
+              return allMdx.nodes.map(({ frontmatter }) => {
                 return {
-                  guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                  title: node.title,
-                  url: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                  description: node.excerpt,
-                  date: node.created,
+                  guid: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+                  title: frontmatter.title,
+                  url: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+                  description: frontmatter.excerpt,
+                  date: frontmatter.created,
                 };
               });
             },
             query: `#graphql
               {
-                allContentfulBlogPost(sort: { created: DESC }) {
+                allMdx(sort: {frontmatter: {created: DESC}}) {
                   nodes {
-                    title
-                    slug
-                    excerpt
-                    created
-                    updated
+                    frontmatter{
+                      title
+                      slug
+                      excerpt
+                      created
+                      updated
+                    }
                   }
                 }
               }
@@ -152,8 +154,15 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.resolve("content", "blog"),
-        name: `blog`,
+        path: path.resolve("content", "articles"),
+        name: `articles`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "images"),
+        name: `images`,
       },
     },
     {

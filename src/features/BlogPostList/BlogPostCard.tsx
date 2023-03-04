@@ -13,11 +13,13 @@ import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  fragment BlogPostCard on ContentfulBlogPost {
-    title
-    slug
-    created
-    redirect
+  fragment BlogPostCard on Mdx {
+    frontmatter {
+      title
+      slug
+      created
+      redirect
+    }
   }
 `;
 
@@ -27,24 +29,24 @@ export const BlogPostCard = (props: {
   const { post } = props;
 
   const createdDate = useMemo(
-    () => formatDateTime(post.created, "yyyy/MM/dd"),
-    [post.created]
+    () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
+    [post.frontmatter.created]
   );
 
   const linkProps: CardActionAreaProps = useMemo(() => {
-    if (isDefined(post.redirect)) {
+    if (isDefined(post.frontmatter.redirect)) {
       return {
         LinkComponent: "a" as const,
-        href: post.redirect,
+        href: post.frontmatter.redirect,
         rel: "external noreferrer noopener",
       };
     } else {
       return {
         component: RouterLink,
-        to: `/${post.slug}`,
+        to: `/${post.frontmatter.slug}`,
       };
     }
-  }, [post.redirect, post.slug]);
+  }, [post.frontmatter.redirect, post.frontmatter.slug]);
 
   return (
     // use padding because virtuoso does not support margin.
@@ -52,7 +54,7 @@ export const BlogPostCard = (props: {
       <Card elevation={2}>
         <CardActionArea
           {...linkProps}
-          title={post.title}
+          title={post.frontmatter.title}
           css={{
             display: "flex",
             justifyContent: "flex-start",
@@ -84,10 +86,10 @@ export const BlogPostCard = (props: {
                   marginRight: theme.spacing(0.5),
                 })}
               />
-              <time dateTime={post.created}>{createdDate}</time>
+              <time dateTime={post.frontmatter.created}>{createdDate}</time>
             </Typography>
             <Typography component="h3" variant="h6">
-              {post.title}
+              {post.frontmatter.title}
             </Typography>
           </div>
         </CardActionArea>

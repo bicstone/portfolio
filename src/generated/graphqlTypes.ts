@@ -5413,6 +5413,7 @@ export type Mdx = Node & {
   readonly body: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly excerpt: Maybe<Scalars['String']>;
+  readonly frontmatter: Maybe<MdxFrontmatter>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -5478,6 +5479,7 @@ export type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -5488,6 +5490,7 @@ export type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -5496,6 +5499,66 @@ export type MdxFilterInput = {
 
 export type MdxFilterListInput = {
   readonly elemMatch: InputMaybe<MdxFilterInput>;
+};
+
+export type MdxFrontmatter = {
+  readonly category: Maybe<Scalars['String']>;
+  readonly created: Maybe<Scalars['Date']>;
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly redirect: Maybe<Scalars['String']>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updated: Maybe<Scalars['Date']>;
+};
+
+
+export type MdxFrontmatterCreatedArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+export type MdxFrontmatterUpdatedArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+export type MdxFrontmatterFieldSelector = {
+  readonly category: InputMaybe<FieldSelectorEnum>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly redirect: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updated: InputMaybe<FieldSelectorEnum>;
+};
+
+export type MdxFrontmatterFilterInput = {
+  readonly category: InputMaybe<StringQueryOperatorInput>;
+  readonly created: InputMaybe<DateQueryOperatorInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly redirect: InputMaybe<StringQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updated: InputMaybe<DateQueryOperatorInput>;
+};
+
+export type MdxFrontmatterSortInput = {
+  readonly category: InputMaybe<SortOrderEnum>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly redirect: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly updated: InputMaybe<SortOrderEnum>;
 };
 
 export type MdxGroupConnection = {
@@ -5543,6 +5606,7 @@ export type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -6397,6 +6461,7 @@ export type QueryMdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
+  frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -7928,13 +7993,18 @@ export type ContentfulProjectDetailTextNodeSysSortInput = {
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
+export type OnCreatePagesStatefullyQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'excerpt'>> }> } };
 
 export type BlogPostDetailFragment = { readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> };
 
-export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'redirect'>;
+export type BlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>> };
 
-export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'redirect'>;
+export type BlogPostListFragment = (
+  Pick<Mdx, 'id'>
+  & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>> }
+);
+
+export type BlogPostTableOfContentFragment = { readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> };
 
 export type PortfolioCertificationCardFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name'>
@@ -8050,8 +8120,8 @@ export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'redirect'>
-      & { readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'created' | 'category' | 'slug' | 'redirect'>> }
     )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;

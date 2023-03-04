@@ -25,12 +25,12 @@ import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPage {
-    blogPostList: allContentfulBlogPost(sort: { created: DESC }) {
+    blogPostList: allMdx(sort: { frontmatter: { created: DESC } }) {
       nodes {
-        title
-        created
-        category {
-          id
+        frontmatter {
+          title
+          created
+          category
         }
         ...BlogPostList
       }
@@ -88,9 +88,9 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
             blogPost: [
               ...blogPostList.map((post) => ({
                 "@type": "BlogPosting",
-                headline: post.title,
-                image: `${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`,
-                datePublished: post.created,
+                headline: post.frontmatter.title,
+                image: `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
+                datePublished: post.frontmatter.created,
                 author: {
                   "@type": "Person",
                   name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
@@ -212,7 +212,8 @@ const BlogPage = ({
   }, []);
 
   const filteredBlogPostList = useCallback(
-    (id: string) => blogPostList.filter((post) => post.category.id === id),
+    (id: string) =>
+      blogPostList.filter((post) => post.frontmatter.category === id),
     [blogPostList]
   );
 

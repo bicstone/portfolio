@@ -35,13 +35,15 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
-    const result = await graphql<OnCreatePagesStatefullyQuery>(`
+    const result = await graphql<OnCreatePagesStatefullyQuery>(/* GraphQL */ `
       query OnCreatePagesStatefully {
-        allContentfulBlogPost(sort: { created: DESC }) {
+        allMdx(sort: { frontmatter: { created: DESC } }) {
           nodes {
-            title
-            slug
-            excerpt
+            frontmatter {
+              title
+              slug
+              excerpt
+            }
           }
         }
       }
@@ -49,9 +51,9 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     if (isDefined(result?.errors)) throw result.errors;
 
-    const blogPostList = result?.data?.allContentfulBlogPost?.nodes;
+    const blogPostList = result?.data?.allMdx?.nodes;
 
-    if (!isDefined(blogPostList)) throw new Error();
+    if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
 
     const blogPostListIndex = Fuse.createIndex(
       Array.from(BLOG_POST_SEARCH_FIELDS),
@@ -78,7 +80,10 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     // MEMO: Writing files in parallel can speed up the process,
     // but will cause non-reproducible errors, so write in series.
     for (const blogPost of blogPostList) {
-      await createOgpImage({ title: blogPost.title, slug: blogPost.slug });
+      await createOgpImage({
+        title: blogPost.frontmatter.title,
+        slug: blogPost.frontmatter.slug,
+      });
     }
 
     reporter.success(
