@@ -11,7 +11,10 @@ import {
 import { createOgpImage } from "./src/utils/createOgpImage";
 import { isDefined } from "./src/utils/typeguard";
 
-import type { OnCreatePagesStatefullyQuery } from "./src/generated/graphqlTypes";
+import type {
+  OnCreatePagesQuery,
+  OnCreatePagesStatefullyQuery,
+} from "./src/generated/graphqlTypes";
 import type { GatsbyNode } from "gatsby";
 
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
@@ -33,11 +36,55 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   });
 };
 
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+}) => {
+  const result = await graphql<OnCreatePagesQuery>(/* GraphQL */ `
+    query OnCreatePages {
+      allMdx {
+        nodes {
+          id
+          frontmatter {
+            slug
+          }
+          internal {
+            contentFilePath
+          }
+        }
+      }
+    }
+  `);
+
+  if (isDefined(result?.errors)) throw result.errors;
+
+  const blogPostList = result?.data?.allMdx?.nodes;
+
+  if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
+
+  const TemplatePath = path.resolve(
+    process.cwd(),
+    "src",
+    "templates",
+    "BlogPost.tsx"
+  );
+
+  blogPostList.forEach((node) => {
+    actions.createPage({
+      path: node.frontmatter.slug,
+      component: `${TemplatePath}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: {
+        id: node.id,
+      },
+    });
+  });
+};
+
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
     const result = await graphql<OnCreatePagesStatefullyQuery>(/* GraphQL */ `
       query OnCreatePagesStatefully {
-        allMdx(sort: { frontmatter: { created: DESC } }) {
+        allMdx {
           nodes {
             frontmatter {
               title

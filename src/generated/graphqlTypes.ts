@@ -397,7 +397,6 @@ export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & 
   readonly created: Maybe<Scalars['Date']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly excerpt: Maybe<Scalars['String']>;
-  readonly gatsbyPath: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
@@ -426,11 +425,6 @@ export type ContentfulBlogPostCreatedAtArgs = {
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
   locale: InputMaybe<Scalars['String']>;
-};
-
-
-export type ContentfulBlogPostGatsbyPathArgs = {
-  filePath: InputMaybe<Scalars['String']>;
 };
 
 
@@ -504,7 +498,6 @@ export type ContentfulBlogPostFieldSelector = {
   readonly created: InputMaybe<FieldSelectorEnum>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
-  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
@@ -529,7 +522,6 @@ export type ContentfulBlogPostFilterInput = {
   readonly created: InputMaybe<DateQueryOperatorInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
-  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
@@ -599,7 +591,6 @@ export type ContentfulBlogPostSortInput = {
   readonly created: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
-  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
@@ -6025,7 +6016,6 @@ export type QueryContentfulBlogPostArgs = {
   created: InputMaybe<DateQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
-  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
@@ -7990,12 +7980,18 @@ export type ContentfulProjectDetailTextNodeSysSortInput = {
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
+export type OnCreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OnCreatePagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<(
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug'>>, readonly internal: Pick<Internal, 'contentFilePath'> }
+    )> } };
+
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type OnCreatePagesStatefullyQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'excerpt'>> }> } };
-
-export type BlogPostDetailFragment = { readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> };
 
 export type BlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>> };
 
@@ -8004,7 +8000,7 @@ export type BlogPostListFragment = (
   & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>> }
 );
 
-export type BlogPostTableOfContentFragment = { readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> };
+export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
 export type PortfolioCertificationCardFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name'>
@@ -8162,19 +8158,15 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
       & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
     )> } };
 
-export type BlogPostPageQueryVariables = Exact<{
+export type BlogPostTemplateQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-export type BlogPostPageQuery = { readonly post: Maybe<(
-    Pick<ContentfulBlogPost, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated'>
-    & { createdDateTime: ContentfulBlogPost['created'] }
-    & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
-      Pick<ContentfulTag, 'name'>
-      & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(
-        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>
-        & { createdDateTime: ContentfulBlogPost['created'] }
-      )>>> }
-    )>>>, readonly content: Maybe<Pick<ContentfulBlogPostContentTextNode, 'content'>> }
+export type BlogPostTemplateQuery = { readonly post: Maybe<(
+    Pick<Mdx, 'tableOfContents'>
+    & { readonly frontmatter: Maybe<(
+      Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated' | 'category' | 'tags'>
+      & { createdDateTime: MdxFrontmatter['created'] }
+    )> }
   )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> } };

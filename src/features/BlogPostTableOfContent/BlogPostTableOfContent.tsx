@@ -3,18 +3,13 @@ import { graphql } from "gatsby";
 
 import { TimelineItem } from "./TimelineItem";
 
-// import type { BlogPostTableOfContentFragment } from "@/generated/graphqlTypes";
+import type { BlogPostTableOfContentFragment } from "@/generated/graphqlTypes";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const query = graphql`
-  fragment BlogPostTableOfContent on ContentfulBlogPost {
-    content {
-      content
-      # childMdx {
-      #   tableOfContents
-      # }
-    }
+  fragment BlogPostTableOfContent on Mdx {
+    tableOfContents
   }
 `;
 
@@ -23,8 +18,10 @@ interface TableOfContentItem {
   title: string;
 }
 
-export const BlogPostTableOfContent = (props: { post: any }): JSX.Element => {
-  const items = props.post.content.childMdx.tableOfContents.items as
+export const BlogPostTableOfContent = (props: {
+  post: BlogPostTableOfContentFragment;
+}): JSX.Element => {
+  const items = props.post.tableOfContents.items as
     | TableOfContentItem[]
     | undefined;
 

@@ -61,8 +61,16 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.md`],
         gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 600,
+              linkImagesToOriginal: true,
+              backgroundColor: "none",
+              withWebp: true,
+            },
+          },
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
