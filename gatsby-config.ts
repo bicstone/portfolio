@@ -169,8 +169,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: path.resolve("content", "images"),
-        name: `images`,
+        path: path.resolve("content", "assets"),
+        name: `assets`,
       },
     },
     {
