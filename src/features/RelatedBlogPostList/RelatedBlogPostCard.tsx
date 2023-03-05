@@ -13,10 +13,12 @@ import type { RelatedBlogPostCardFragment } from "@/generated/graphqlTypes";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  fragment RelatedBlogPostCard on ContentfulBlogPost {
-    title
-    slug
-    redirect
+  fragment RelatedBlogPostCard on Mdx {
+    frontmatter {
+      title
+      slug
+      redirect
+    }
   }
 `;
 
@@ -26,24 +28,24 @@ export const RelatedBlogPostCard = (props: {
   const { post } = props;
 
   const linkProps: CardActionAreaProps = useMemo(() => {
-    if (isDefined(post.redirect)) {
+    if (isDefined(post.frontmatter.redirect)) {
       return {
         LinkComponent: "a" as const,
-        href: post.redirect,
+        href: post.frontmatter.redirect,
         rel: "external noreferrer noopener",
       };
     } else {
       return {
         component: RouterLink,
-        to: `/${post.slug}`,
+        to: `/${post.frontmatter.slug}`,
       };
     }
-  }, [post.redirect, post.slug]);
+  }, [post.frontmatter.redirect, post.frontmatter.slug]);
 
   return (
     <Grid item component="article" xs={12} sm={6} md={4}>
       <Card>
-        <CardActionArea {...linkProps} title={post.title}>
+        <CardActionArea {...linkProps} title={post.frontmatter.title}>
           <CardHeader
             title={
               <Typography
@@ -68,7 +70,7 @@ export const RelatedBlogPostCard = (props: {
                   };
                 }}
               >
-                {post.title}
+                {post.frontmatter.title}
               </Typography>
             }
             disableTypography

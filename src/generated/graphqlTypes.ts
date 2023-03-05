@@ -7985,7 +7985,7 @@ export type OnCreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type OnCreatePagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<(
       Pick<Mdx, 'id'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug'>>, readonly internal: Pick<Internal, 'contentFilePath'> }
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug' | 'tags'>>, readonly internal: Pick<Internal, 'contentFilePath'> }
     )> } };
 
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
@@ -8103,9 +8103,12 @@ export type PortfolioWhatICanDoListFragment = (
   )> }
 );
 
-export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'redirect'>;
+export type RelatedBlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> };
 
-export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>;
+export type RelatedBlogPostListFragment = (
+  Pick<Mdx, 'id'>
+  & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> }
+);
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8160,13 +8163,20 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
 
 export type BlogPostTemplateQueryVariables = Exact<{
   id: Scalars['String'];
+  tags: ReadonlyArray<Scalars['String']> | Scalars['String'];
 }>;
 
 
 export type BlogPostTemplateQuery = { readonly post: Maybe<(
-    Pick<Mdx, 'tableOfContents'>
+    Pick<Mdx, 'id' | 'tableOfContents'>
     & { readonly frontmatter: Maybe<(
       Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated' | 'category' | 'tags'>
-      & { createdDateTime: MdxFrontmatter['created'] }
+      & { createdTime: MdxFrontmatter['created'] }
     )> }
-  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> } };
+  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly relatedPosts: { readonly nodes: ReadonlyArray<(
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>
+        & { createdTime: MdxFrontmatter['created'] }
+      )> }
+    )> } };

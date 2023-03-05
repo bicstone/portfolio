@@ -17,6 +17,9 @@ import type {
 } from "./src/generated/graphqlTypes";
 import type { GatsbyNode } from "gatsby";
 
+/*
+  Add import alias
+*/
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   actions,
 }) => {
@@ -36,6 +39,9 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   });
 };
 
+/**
+ * Create blog post pages
+ */
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
   actions,
@@ -47,6 +53,8 @@ export const createPages: GatsbyNode["createPages"] = async ({
           id
           frontmatter {
             slug
+            # for relatedPosts
+            tags
           }
           internal {
             contentFilePath
@@ -75,11 +83,17 @@ export const createPages: GatsbyNode["createPages"] = async ({
       component: `${TemplatePath}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         id: node.id,
+        // for relatedPosts
+        tags: node.frontmatter.tags,
       },
     });
   });
 };
 
+/**
+ * Create OGP images
+ * Create fuse index
+ */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
     const result = await graphql<OnCreatePagesStatefullyQuery>(/* GraphQL */ `
@@ -98,7 +112,11 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     if (isDefined(result?.errors)) throw result.errors;
 
-    const blogPostList = result?.data?.allMdx?.nodes;
+    const blogPostList = result?.data?.allMdx?.nodes.map((node) => ({
+      title: node.frontmatter.title,
+      slug: node.frontmatter.slug,
+      excerpt: node.frontmatter.excerpt,
+    }));
 
     if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
 
@@ -128,8 +146,8 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     // but will cause non-reproducible errors, so write in series.
     for (const blogPost of blogPostList) {
       await createOgpImage({
-        title: blogPost.frontmatter.title,
-        slug: blogPost.frontmatter.slug,
+        title: blogPost.title,
+        slug: blogPost.slug,
       });
     }
 

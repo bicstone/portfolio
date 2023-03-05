@@ -150,6 +150,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
                 </ListItemButton>
               </ListItem>
             )}
+            overscan={{ main: 50, reverse: 50 }}
             style={{ height: "100%" }}
           />
         ) : (

@@ -25,31 +25,36 @@ import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPostTemplate($id: String!) {
+  query BlogPostTemplate($id: String!, $tags: [String!]!) {
     post: mdx(id: { eq: $id }) {
+      id
       frontmatter {
         slug
         redirect
         title
         excerpt
         created
-        createdDateTime: created(formatString: "X")
+        createdTime: created(formatString: "X")
         updated
         category
         tags
-        # tags {
-        #   name
-        #   blog_post {
-        #     ...RelatedBlogPostList
-        #     createdDateTime: created(formatString: "X")
-        #   }
-        # }
       }
       ...BlogPostTableOfContent
     }
     links: allContentfulHello(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioHelloContent
+      }
+    }
+    relatedPosts: allMdx(
+      filter: { frontmatter: { tags: { in: $tags } } }
+      sort: { frontmatter: { created: DESC } }
+    ) {
+      nodes {
+        frontmatter {
+          createdTime: created(formatString: "X")
+        }
+        ...RelatedBlogPostList
       }
     }
   }
@@ -174,11 +179,9 @@ const BlogPostTemplate = ({
 }: PageProps<BlogPostTemplateQuery>): JSX.Element => {
   const post = data.post;
   const relatedPosts = React.useMemo(() => {
-    // const posts = post.tags.flatMap((tag) => tag.blog_post);
-    // const filteredPosts = Array.from(
-    //   new Map(posts.map((post) => [post.id, post])).values()
-    // ).filter((post) => post.slug !== data.post.slug);
-    // filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
+    const filteredPosts = data.relatedPosts.nodes.filter(
+      (p) => p.id !== post.id
+    );
 
     // Pick up to 18 articles in the following order.
     // 18 is divisible by 1, 2, or 3.
@@ -186,16 +189,15 @@ const BlogPostTemplate = ({
     // 1. Latest 10 articles.
     // 2. Older articles than this.
 
-    // const newerPosts = filteredPosts
-    //   .filter((post) => post.createdDateTime >= data.post.createdDateTime)
-    //   .slice(0, 10);
-    // const olderPosts = filteredPosts
-    //   .filter((post) => post.createdDateTime < data.post.createdDateTime)
-    //   .slice(0, 18 - newerPosts.length);
+    const newerPosts = filteredPosts
+      .filter((p) => p.frontmatter.createdTime >= post.frontmatter.createdTime)
+      .slice(0, 10);
+    const olderPosts = filteredPosts
+      .filter((p) => p.frontmatter.createdTime < post.frontmatter.createdTime)
+      .slice(0, 18 - newerPosts.length);
 
-    // return [...newerPosts, ...olderPosts];
-    return [];
-  }, []);
+    return [...newerPosts, ...olderPosts];
+  }, [data.relatedPosts.nodes, post.frontmatter.createdTime, post.id]);
 
   const createdDate = React.useMemo(
     () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
