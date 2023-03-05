@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import NoSsr from "@mui/material/NoSsr";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
+// Mdx required "React"
 import * as React from "react";
 
 import type { BlogPostTemplateQuery } from "@/generated/graphqlTypes";

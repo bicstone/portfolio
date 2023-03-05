@@ -12,7 +12,10 @@ import type { MdxFrontmatter } from "@/generated/graphqlTypes";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { isDefined } from "@/utils/typeguard";
 
-export type BlogPost = Pick<MdxFrontmatter, (typeof BLOG_POST_SEARCH_FIELDS)[number]>;
+export type BlogPost = Pick<
+  MdxFrontmatter,
+  (typeof BLOG_POST_SEARCH_FIELDS)[number]
+>;
 
 /**
  * Search using Fuse.
