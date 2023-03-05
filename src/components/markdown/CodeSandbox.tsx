@@ -23,12 +23,11 @@ export const CodeSandbox: FunctionComponent<ICodeSandboxProps> = ({
 }: ICodeSandboxProps) => (
   <GeneralObserver>
     <StyledIframe
-      title={`codeSandbox-${codeSandboxId}`}
+      title="codeSandbox preview page"
       src={`https://codesandbox.io/embed/${codeSandboxId}`}
       loading="lazy"
       referrerPolicy="no-referrer"
       allow=""
-      sandbox="allow-scripts"
     />
   </GeneralObserver>
 );
