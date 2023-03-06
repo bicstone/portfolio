@@ -68,7 +68,8 @@ const config: GatsbyConfig = {
               maxWidth: 600,
               linkImagesToOriginal: true,
               backgroundColor: "none",
-              withWebp: true,
+              withWebp: !isDevelopment,
+              withAvif: !isDevelopment,
             },
           },
           {
