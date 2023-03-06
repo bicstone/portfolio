@@ -4,30 +4,28 @@
 import styled from "@emotion/styled";
 import { type FunctionComponent } from "react";
 
-import { GeneralObserver } from "./general-observer";
 export interface ICodeSandboxProps {
   /** CodeSandbox id */
   codeSandboxId: string;
 }
 
 const StyledIframe = styled("iframe")(({ theme }) => ({
-  width: "100%",
+  width: `calc(100% - ${theme.spacing(4)})`,
   height: "500px",
-  border: `1px solid ${theme.vars.palette.divider}`,
+  border: "none",
   borderRadius: theme.spacing(2),
+  margin: theme.spacing(2),
   overflow: "hidden",
 }));
 
 export const CodeSandbox: FunctionComponent<ICodeSandboxProps> = ({
   codeSandboxId,
 }: ICodeSandboxProps) => (
-  <GeneralObserver>
-    <StyledIframe
-      title="codeSandbox preview page"
-      src={`https://codesandbox.io/embed/${codeSandboxId}`}
-      loading="lazy"
-      referrerPolicy="no-referrer"
-      allow=""
-    />
-  </GeneralObserver>
+  <StyledIframe
+    title="codeSandbox preview page"
+    src={`https://codesandbox.io/embed/${codeSandboxId}`}
+    loading="lazy"
+    referrerPolicy="no-referrer"
+    allow=""
+  />
 );

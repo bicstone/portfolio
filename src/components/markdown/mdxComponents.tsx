@@ -1,19 +1,19 @@
+import "prism-themes/themes/prism-a11y-dark.min.css";
+import "./styles.css";
+
 import Divider from "@mui/material/Divider";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-import { AnchorIcon } from "./AnchorIcon";
 import { AnchorLink } from "./AnchorLink";
 import { Blockquote } from "./Blockquote";
 import { CodeSandbox } from "./CodeSandbox";
 import { Heading } from "./Heading";
-import { Image } from "./Image";
 import { InlineCode } from "./InlineCode";
 import { LinkCard } from "./LinkCard";
 import { Paragraph } from "./Paragraph";
-import { QuotingCode } from "./QuotingCode";
 import { Table } from "./Table";
 import { Video } from "./Video";
 
@@ -27,13 +27,17 @@ const notImplemented = (name: string): null => {
   return null;
 };
 
-export const mdxComponents: MDXComponents = {
+const baseMdxComponents: MDXComponents = {
   p: ({ ref, ...props }) => <Paragraph {...props} />,
   h1: () => notImplemented("h1"),
-  h2: ({ ref, ...props }) => <Heading variant="h5" component="h2" {...props} />,
-  h3: ({ ref, ...props }) => <Heading variant="h6" component="h3" {...props} />,
+  h2: ({ ref, ...props }) => (
+    <Heading variant="h5" component="h2" prefix="#" {...props} />
+  ),
+  h3: ({ ref, ...props }) => (
+    <Heading variant="h6" component="h3" prefix="##" {...props} />
+  ),
   h4: ({ ref, ...props }) => (
-    <Heading variant="subtitle1" component="h4" {...props} />
+    <Heading variant="subtitle1" component="h4" prefix="###" {...props} />
   ),
   h5: () => notImplemented("h5"),
   h6: () => notImplemented("h6"),
@@ -56,14 +60,22 @@ export const mdxComponents: MDXComponents = {
     }
     return <TableCell align={align ?? "inherit"} component="td" {...props} />;
   },
-  inlineCode: ({ ref, ...props }) => <InlineCode {...props} />,
-  pre: ({ ref, ...props }) => <QuotingCode {...props} />,
+  code: ({ ref, ...props }) => <InlineCode {...props} />,
   hr: ({ ref, ...props }) => <Divider {...props} />,
   a: ({ ref, ...props }) => <AnchorLink {...props} />,
   video: ({ ref, ...props }) => <Video controls {...props} />,
-  img: ({ ref, ...props }) => <Image {...props} />,
+
   // custom components
-  anchor: ({ ref, ...props }) => <AnchorIcon {...props} />,
   LinkCard: ({ ref, ...props }) => <LinkCard {...props} />,
   CodeSandbox: ({ ref, ...props }) => <CodeSandbox {...props} />,
+};
+
+export const mdxComponents = (): MDXComponents => {
+  const mdxComponents = { ...baseMdxComponents };
+  for (const [key, value] of Object.entries(baseMdxComponents)) {
+    // Copy to the capitalized key of the same name.
+    // To replace components when HTML tags are input.
+    mdxComponents[key.toUpperCase()] = value;
+  }
+  return mdxComponents;
 };

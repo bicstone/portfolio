@@ -72,14 +72,6 @@ const config: GatsbyConfig = {
             },
           },
           {
-            resolve: `gatsby-remark-autolink-headers`,
-            options: {
-              isIconAfterHeader: true,
-              icon: "<anchor />",
-            },
-          },
-          {
-            // should be placed after `gatsby-remark-autolink-headers`
             resolve: `gatsby-remark-prismjs`,
             options: {
               noInlineHighlight: true,

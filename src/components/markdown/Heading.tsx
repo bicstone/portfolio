@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
-import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Typography, { type TypographyProps } from "@mui/material/Typography";
+import { slug } from "github-slugger";
 
-export const Heading = styled(Typography)(({ theme }) => ({
+import { AnchorLink } from "./AnchorLink";
+
+export const StyledTypography = styled(Typography)(({ theme }) => ({
   display: "block",
   position: "relative",
   // marginTop = (AppBar height) 6 + (Typography margin) 2 = 8
@@ -20,4 +24,26 @@ export const Heading = styled(Typography)(({ theme }) => ({
     backgroundColor: theme.vars.palette.primary.main,
     borderRadius: theme.shape.borderRadius,
   },
-})) as typeof Typography;
+}));
+
+export const Heading = <T extends React.ElementType>({
+  children,
+  prefix,
+  ...props
+}: TypographyProps<T> & {
+  component: T;
+  prefix: string;
+}): JSX.Element => {
+  const id = slug(children as string);
+  return (
+    <StyledTypography {...props} id={id}>
+      {prefix.length > 0 && (
+        <AnchorLink href={`#${id}`} underline="hover">
+          {prefix}
+        </AnchorLink>
+      )}
+      <Box display="inline-block" mr={0.5} />
+      {children}
+    </StyledTypography>
+  );
+};

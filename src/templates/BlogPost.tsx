@@ -283,6 +283,7 @@ const BlogPostTemplate = ({
         <Heading
           variant="h5"
           component="h2"
+          prefix=""
           css={(theme) => ({
             padding: theme.spacing(2),
             "&::before": {
@@ -298,13 +299,14 @@ const BlogPostTemplate = ({
         <Heading
           variant="h5"
           component="h2"
+          prefix="#"
           id={TRANSLATION.blog.introductionTitle}
         >
           {TRANSLATION.blog.introductionTitle}
         </Heading>
         <BlogPostDetail>{children}</BlogPostDetail>
 
-        <Heading variant="h5" component="h2">
+        <Heading variant="h5" component="h2" prefix="">
           {TRANSLATION.blog.shareTitle}
         </Heading>
         <ShareButtons
