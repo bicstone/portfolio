@@ -75,7 +75,7 @@ export const mdxComponents = (): MDXComponents => {
   for (const [key, value] of Object.entries(baseMdxComponents)) {
     // Copy to the capitalized key of the same name.
     // To replace components when HTML tags are input.
-    mdxComponents[key.toUpperCase()] = value;
+    mdxComponents[key.charAt(0).toUpperCase() + key.slice(1)] = value;
   }
   return mdxComponents;
 };
