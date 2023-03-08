@@ -18,12 +18,22 @@ interface GatsbyPluginFeedQuery {
     readonly nodes: ReadonlyArray<{
       frontmatter: Pick<
         MdxFrontmatter,
-        "title" | "slug" | "excerpt" | "created" | "updated"
+        "title" | "slug" | "excerpt" | "created" | "updated" | "redirect"
       >;
     }>;
   };
 }
 
+interface GatsbyPluginSitemapQuery {
+  readonly allMdx: {
+    readonly nodes: ReadonlyArray<{
+      frontmatter: Pick<
+        MdxFrontmatter,
+        "slug" | "created" | "updated" | "redirect"
+      >;
+    }>;
+  };
+}
 const config: GatsbyConfig = {
   trailingSlash,
   pathPrefix,
@@ -99,14 +109,16 @@ const config: GatsbyConfig = {
                 return {
                   guid: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
                   title: frontmatter.title,
-                  url: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+                  url:
+                    frontmatter.redirect ??
+                    `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
                   description: frontmatter.excerpt,
                   date: frontmatter.created,
                 };
               });
             },
             query: `#graphql
-              {
+              query FeedQuery {
                 allMdx(sort: {frontmatter: {created: DESC}}) {
                   nodes {
                     frontmatter{
@@ -115,6 +127,7 @@ const config: GatsbyConfig = {
                       excerpt
                       created
                       updated
+                      redirect
                     }
                   }
                 }
@@ -142,6 +155,36 @@ const config: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `#graphql
+        query SitemapQuery{
+          allMdx(sort: {frontmatter: {created: DESC}}) {
+            nodes {
+              frontmatter{
+                slug
+                created
+                updated
+                redirect
+              }
+            }
+          }
+        }
+      `,
+        serialize: ({
+          query: { allMdx },
+        }: {
+          query: GatsbyPluginSitemapQuery;
+        }) => {
+          return allMdx.nodes.map(({ frontmatter }) => {
+            return {
+              url:
+                frontmatter.redirect ??
+                `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+              lastmod: frontmatter.updated ?? frontmatter.created,
+            };
+          });
+        },
+      },
     },
     {
       resolve: "gatsby-source-contentful",
