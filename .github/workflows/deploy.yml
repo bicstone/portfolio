@@ -28,8 +28,6 @@ jobs:
 
       - run: yarn install --immutable
 
-      - run: yarn clean
-
       - run: yarn build
         env:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
