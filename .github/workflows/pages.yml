@@ -47,7 +47,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
       - name: Build
         env:
           # "bucketName" is a required option for gatsby-plugin-s3
