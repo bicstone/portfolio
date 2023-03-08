@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
-import type { MdxFrontmatter } from "@/generated/graphqlTypes";
+import type { MdxFrontmatter, Site } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
@@ -30,6 +30,7 @@ interface GatsbyPluginSitemapQuery {
       frontmatter: Pick<MdxFrontmatter, "slug" | "created" | "updated">;
     }>;
   };
+  readonly site: Pick<Site, "buildTime">;
 }
 const config: GatsbyConfig = {
   trailingSlash,
@@ -115,7 +116,7 @@ const config: GatsbyConfig = {
               });
             },
             query: `#graphql
-              query FeedQuery {
+              {
                 allMdx(sort: {frontmatter: {created: DESC}}) {
                   nodes {
                     frontmatter{
@@ -155,7 +156,10 @@ const config: GatsbyConfig = {
       options: {
         resolveSiteUrl: () => SITE_METADATA.siteUrl,
         query: `#graphql
-        query SitemapQuery{
+        {
+          site {
+            buildTime
+          }
           allMdx(sort: {frontmatter: {created: DESC}}) {
             nodes {
               frontmatter{
@@ -167,18 +171,45 @@ const config: GatsbyConfig = {
           }
         }
       `,
-        resolvePages: ({ allMdx }: GatsbyPluginSitemapQuery) => {
-          return allMdx.nodes.map(({ frontmatter }) => {
+        resolvePages: ({ allMdx, site }: GatsbyPluginSitemapQuery) => {
+          const posts = allMdx.nodes.map(({ frontmatter }) => {
             return {
-              url: `/${frontmatter.slug}`,
+              path: `/${frontmatter.slug}`,
               lastmod: frontmatter.updated ?? frontmatter.created,
+              changefreq: `weekly`,
+              priority: 0.8,
             };
           });
+          const home = {
+            path: `/`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 1.0,
+          };
+          const blog = {
+            path: `/blog`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 0.6,
+          };
+          return [...posts, home, blog];
         },
-        serialize: ({ url, lastmod }: { url: string; lastmod: string }) => {
+        serialize: ({
+          path,
+          lastmod,
+          changefreq,
+          priority,
+        }: {
+          path: string;
+          lastmod: string;
+          changefreq: string;
+          priority: number;
+        }) => {
           return {
-            url,
+            url: path,
             lastmod,
+            changefreq,
+            priority,
           };
         },
       },
