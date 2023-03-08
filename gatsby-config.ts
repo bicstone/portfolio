@@ -178,6 +178,7 @@ const config: GatsbyConfig = {
             };
           });
         },
+        resolveSiteUrl: () => SITE_METADATA.siteUrl,
       },
     },
     {
