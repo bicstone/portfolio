@@ -153,6 +153,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        resolveSiteUrl: () => SITE_METADATA.siteUrl,
         query: `#graphql
         query SitemapQuery{
           allMdx(sort: {frontmatter: {created: DESC}}) {
@@ -166,11 +167,7 @@ const config: GatsbyConfig = {
           }
         }
       `,
-        serialize: ({
-          query: { allMdx },
-        }: {
-          query: GatsbyPluginSitemapQuery;
-        }) => {
+        resolvePages: ({ allMdx }: GatsbyPluginSitemapQuery) => {
           return allMdx.nodes.map(({ frontmatter }) => {
             return {
               url: `/${frontmatter.slug}`,
@@ -178,7 +175,12 @@ const config: GatsbyConfig = {
             };
           });
         },
-        resolveSiteUrl: () => SITE_METADATA.siteUrl,
+        serialize: ({ url, lastmod }: { url: string; lastmod: string }) => {
+          return {
+            url,
+            lastmod,
+          };
+        },
       },
     },
     {
