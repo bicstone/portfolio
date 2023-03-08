@@ -39,8 +39,8 @@ const baseMdxComponents: MDXComponents = {
   h4: ({ ref, ...props }) => (
     <Heading variant="subtitle1" component="h4" prefix="###" {...props} />
   ),
-  h5: () => notImplemented("h5"),
-  h6: () => notImplemented("h6"),
+  h5: ({ ref, ...props }) => <strong {...props} />,
+  h6: ({ ref, ...props }) => <strong {...props} />,
   blockquote: ({ ref, ...props }) => <Blockquote {...props} />,
   table: ({ ref, ...props }) => <Table {...props} />,
   thead: ({ ref, ...props }) => <TableHead {...props} />,
