@@ -27,10 +27,7 @@ interface GatsbyPluginFeedQuery {
 interface GatsbyPluginSitemapQuery {
   readonly allMdx: {
     readonly nodes: ReadonlyArray<{
-      frontmatter: Pick<
-        MdxFrontmatter,
-        "slug" | "created" | "updated" | "redirect"
-      >;
+      frontmatter: Pick<MdxFrontmatter, "slug" | "created" | "updated">;
     }>;
   };
 }
@@ -164,7 +161,6 @@ const config: GatsbyConfig = {
                 slug
                 created
                 updated
-                redirect
               }
             }
           }
@@ -177,9 +173,7 @@ const config: GatsbyConfig = {
         }) => {
           return allMdx.nodes.map(({ frontmatter }) => {
             return {
-              url:
-                frontmatter.redirect ??
-                `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+              url: `/${frontmatter.slug}`,
               lastmod: frontmatter.updated ?? frontmatter.created,
             };
           });
