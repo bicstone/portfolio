@@ -25,8 +25,8 @@ jobs:
 
           if [[ `git status --porcelain` ]]; then
             git add .
-            git commit -m "Update content"
-            git push
+            git commit -m "chore: Update content"
+            git push origin HEAD:${GITHUB_REF};
           else
             echo "No changes"
           fi
