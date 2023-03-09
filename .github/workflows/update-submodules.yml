@@ -1,14 +1,14 @@
 name: Update content
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main, develop]
   repository_dispatch:
     types: [update]
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    environment: create-pull-request
+
     steps:
       - uses: actions/checkout@v3
         with:
@@ -18,15 +18,14 @@ jobs:
       - name: Update submodules
         run: git submodule update --remote --recursive
 
-      - name: Push changes
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-
-          if [[ `git status --porcelain` ]]; then
-            git add .
-            git commit -m "chore: Update content"
-            git push origin HEAD:${GITHUB_REF}
-          else
-            echo "No changes"
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GH_PAT_PR }}
+          commit-message: "chore: Update content"
+          branch: chore/update-content
+          delete-branch: true
+          title: "chore: Update content"
+          assignees: bicstone
+          reviewers: bicstone
+          draft: fals
