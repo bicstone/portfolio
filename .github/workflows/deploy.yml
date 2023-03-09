@@ -34,7 +34,6 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          GTM_ID: ${{ secrets.GTM_ID }}
           GATSBY_ADSENSE_PUB_ID: ${{ secrets.GATSBY_ADSENSE_PUB_ID }}
           GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ secrets.GATSBY_ADSENSE_INARTICLE_AD_ID }}
 

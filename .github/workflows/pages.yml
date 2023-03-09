@@ -30,13 +30,6 @@ jobs:
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
-      # https://github.com/actions/configure-pages/issues/28
-      # - name: Setup Pages
-      #   id: pages
-      #   uses: actions/configure-pages@v2
-      #   with:
-      #     static_site_generator: gatsby
-      #     generator_config_file: "./gatsby-config.ts"
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -56,11 +49,7 @@ jobs:
           ALL_PAGES_TO_NO_INDEX: "true"
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          GTM_ID: ${{ secrets.GTM_ID }}
-
           PREFIX_PATHS: "true"
-          # We are waiting for fix configure-pages.
-          # https://github.com/actions/configure-pages/issues/28
           GATSBY_SITE_URL: "https://bicstone.github.io/portfolio"
           PATH_PREFIX: "/portfolio"
         run: yarn build

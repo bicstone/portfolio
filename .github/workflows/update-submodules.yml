@@ -1,0 +1,30 @@
+name: Update content
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment: create-pull-request
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT_CHECKOUT }}
+          submodules: recursive
+
+      - name: Update submodules
+        run: git submodule update --remote --recursive
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.GH_PAT_PR }}
+          commit-message: "chore: Update content"
+          branch: chore/update-content
+          delete-branch: true
+          title: "chore: Update content"
+          assignees: bicstone
+          reviewers: bicstone
