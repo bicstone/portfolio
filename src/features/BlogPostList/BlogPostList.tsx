@@ -23,6 +23,7 @@ export const BlogPostList = (props: {
       data={blogPostList}
       itemContent={(_index, post) => <BlogPostCard key={post.id} post={post} />}
       style={{ height: "100%" }}
+      overscan={50}
     />
   );
 };

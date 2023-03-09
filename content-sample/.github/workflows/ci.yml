@@ -10,10 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version-file: ".nvmrc"
-          cache: "yarn"
-      - run: yarn install --frozen-lockfile
+          node-version: latest
+          cache: yarn
+      - run: yarn install --immutable
       - run: yarn lint

@@ -36,7 +36,7 @@ export const TRANSLATION = {
     description:
       "Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。",
     description2:
-      "すべてに返信できておらず申し訳ございません。 PayCareer の面接オファーは基本承認しています。",
+      "メールや DM などお気軽にご連絡ください。すべてに目を通しています。",
     goToPortfolio: "ポートフォリオ",
     icon: {
       fukkireta:
