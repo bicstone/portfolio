@@ -26,10 +26,11 @@ jobs:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('public') }}
+            .yarn/cache
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('.cache') }}-${{ hashFiles('yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn build
