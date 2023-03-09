@@ -28,4 +28,3 @@ jobs:
           title: "chore: Update content"
           assignees: bicstone
           reviewers: bicstone
-          draft: fals
