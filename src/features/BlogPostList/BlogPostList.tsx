@@ -22,8 +22,8 @@ export const BlogPostList = (props: {
       useWindowScroll
       data={blogPostList}
       itemContent={(_index, post) => <BlogPostCard key={post.id} post={post} />}
+      overscan={2000}
       style={{ height: "100%" }}
-      overscan={50}
     />
   );
 };
