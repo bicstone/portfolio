@@ -37,8 +37,6 @@ export const query = graphql`
     }
     categoryList: allContentfulCategory(sort: { sortKey: ASC }) {
       nodes {
-        id
-        slug
         name
       }
     }
@@ -199,7 +197,7 @@ const BlogPage = ({
   const hash = useMemo(() => location.hash.slice(1), [location.hash]);
   const value = useMemo(
     () =>
-      categoryList.map((category) => category.slug).includes(hash)
+      categoryList.map((category) => category.name).includes(hash)
         ? hash
         : ALL_VALUE,
     [categoryList, hash]
@@ -242,17 +240,17 @@ const BlogPage = ({
           allowScrollButtonsMobile
         >
           <StyledTab value={ALL_VALUE} label="All" />
-          {categoryList.map(({ slug, name }) => (
-            <StyledTab key={slug} label={name} value={slug} />
+          {categoryList.map(({ name }) => (
+            <StyledTab key={name} label={name} value={name} />
           ))}
         </StyledTabList>
         <StyledTabPanel value={ALL_VALUE}>
           <BlogPostList blogPostList={blogPostList} />
         </StyledTabPanel>
-        {categoryList.map(({ id, slug }) => {
-          const filteredList = filteredBlogPostList(id);
+        {categoryList.map(({ name }) => {
+          const filteredList = filteredBlogPostList(name);
           return (
-            <StyledTabPanel key={slug} value={slug}>
+            <StyledTabPanel key={name} value={name}>
               <BlogPostList blogPostList={filteredList} />
             </StyledTabPanel>
           );

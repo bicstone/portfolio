@@ -8121,7 +8121,7 @@ export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
       Pick<Mdx, 'id'>
       & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'created' | 'category' | 'slug' | 'redirect'>> }
-    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> } };
+    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'name'>> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
