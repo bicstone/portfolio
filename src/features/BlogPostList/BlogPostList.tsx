@@ -6,7 +6,7 @@ import { BlogPostCard } from "./BlogPostCard";
 import type { BlogPostListFragment } from "@/generated/graphqlTypes";
 
 export const query = graphql`
-  fragment BlogPostList on ContentfulBlogPost {
+  fragment BlogPostList on Mdx {
     id
     ...BlogPostCard
   }

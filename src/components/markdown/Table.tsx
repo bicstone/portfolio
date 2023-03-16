@@ -5,7 +5,7 @@ import TableContainer from "@mui/material/TableContainer";
 import type { HTMLAttributes } from "react";
 
 const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
-  margin: theme.spacing(2, 0),
+  margin: theme.spacing(2),
 }));
 
 export const Table = ({

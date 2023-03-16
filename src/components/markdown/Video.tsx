@@ -1,13 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Video = styled("video")(({ theme }) => ({
-  position: "relative",
-  display: "block",
-  width: "100%",
-  maxWidth: 600,
-  marginLeft: "auto",
-  marginRight: "auto",
+  width: `calc(100% - ${theme.spacing(4)})`,
+  margin: theme.spacing(2),
   borderRadius: theme.spacing(2),
-  border: `1px solid ${theme.vars.palette.divider}`,
-  padding: theme.spacing(2),
 }));

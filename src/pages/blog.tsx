@@ -25,20 +25,18 @@ import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPage {
-    blogPostList: allContentfulBlogPost(sort: { created: DESC }) {
+    blogPostList: allMdx(sort: { frontmatter: { created: DESC } }) {
       nodes {
-        title
-        created
-        category {
-          id
+        frontmatter {
+          title
+          created
+          category
         }
         ...BlogPostList
       }
     }
     categoryList: allContentfulCategory(sort: { sortKey: ASC }) {
       nodes {
-        id
-        slug
         name
       }
     }
@@ -88,9 +86,9 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
             blogPost: [
               ...blogPostList.map((post) => ({
                 "@type": "BlogPosting",
-                headline: post.title,
-                image: `${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`,
-                datePublished: post.created,
+                headline: post.frontmatter.title,
+                image: `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
+                datePublished: post.frontmatter.created,
                 author: {
                   "@type": "Person",
                   name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
@@ -199,7 +197,7 @@ const BlogPage = ({
   const hash = useMemo(() => location.hash.slice(1), [location.hash]);
   const value = useMemo(
     () =>
-      categoryList.map((category) => category.slug).includes(hash)
+      categoryList.map((category) => category.name).includes(hash)
         ? hash
         : ALL_VALUE,
     [categoryList, hash]
@@ -212,7 +210,8 @@ const BlogPage = ({
   }, []);
 
   const filteredBlogPostList = useCallback(
-    (id: string) => blogPostList.filter((post) => post.category.id === id),
+    (id: string) =>
+      blogPostList.filter((post) => post.frontmatter.category === id),
     [blogPostList]
   );
 
@@ -241,17 +240,17 @@ const BlogPage = ({
           allowScrollButtonsMobile
         >
           <StyledTab value={ALL_VALUE} label="All" />
-          {categoryList.map(({ slug, name }) => (
-            <StyledTab key={slug} label={name} value={slug} />
+          {categoryList.map(({ name }) => (
+            <StyledTab key={name} label={name} value={name} />
           ))}
         </StyledTabList>
         <StyledTabPanel value={ALL_VALUE}>
           <BlogPostList blogPostList={blogPostList} />
         </StyledTabPanel>
-        {categoryList.map(({ id, slug }) => {
-          const filteredList = filteredBlogPostList(id);
+        {categoryList.map(({ name }) => {
+          const filteredList = filteredBlogPostList(name);
           return (
-            <StyledTabPanel key={slug} value={slug}>
+            <StyledTabPanel key={name} value={name}>
               <BlogPostList blogPostList={filteredList} />
             </StyledTabPanel>
           );

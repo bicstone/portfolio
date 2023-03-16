@@ -5,14 +5,14 @@ import Container from "@mui/material/Container";
 import NoSsr from "@mui/material/NoSsr";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useLayoutEffect, useMemo } from "react";
+// Mdx required "React"
+import * as React from "react";
 
-import type { BlogPostPageQuery } from "@/generated/graphqlTypes";
-import type { PageProps, HeadFC } from "gatsby";
+import type { BlogPostTemplateQuery } from "@/generated/graphqlTypes";
+import type { HeadFC, PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InarticleAd } from "@/components/InarticleAd";
-import { ShareButtons } from "@/components/ShareButtons";
 import { Heading } from "@/components/markdown/Heading";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
@@ -25,26 +25,20 @@ import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  query BlogPostPage($id: String!) {
-    post: contentfulBlogPost(id: { eq: $id }) {
-      slug
-      redirect
-      title
-      excerpt
-      created
-      createdDateTime: created(formatString: "X")
-      updated
-      category {
-        name
+  query BlogPostTemplate($id: String!, $tags: [String!]!) {
+    post: mdx(id: { eq: $id }) {
+      id
+      frontmatter {
+        slug
+        redirect
+        title
+        excerpt
+        created
+        createdTime: created(formatString: "X")
+        updated
+        category
+        tags
       }
-      tags {
-        name
-        blog_post {
-          ...RelatedBlogPostList
-          createdDateTime: created(formatString: "X")
-        }
-      }
-      ...BlogPostDetail
       ...BlogPostTableOfContent
     }
     links: allContentfulHello(sort: { sortKey: ASC }) {
@@ -52,29 +46,46 @@ export const query = graphql`
         ...PortfolioHelloContent
       }
     }
+    relatedPosts: allMdx(
+      filter: { frontmatter: { tags: { in: $tags } } }
+      sort: { frontmatter: { created: DESC } }
+    ) {
+      nodes {
+        frontmatter {
+          createdTime: created(formatString: "X")
+        }
+        ...RelatedBlogPostList
+      }
+    }
   }
 `;
 
-export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
+export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
   const post = data.post;
-  const title = `${post.title} - ${SITE_METADATA.blogTitle}`;
+  const title = `${post.frontmatter.title} - ${SITE_METADATA.blogTitle}`;
 
   return (
     <>
       <HeadTemplate
         location={location}
         title={title}
-        description={post.excerpt}
-        image={`${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`}
+        description={post.frontmatter.excerpt}
+        image={`${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`}
         imageAlt={SITE_METADATA.blogTitle}
         type="article"
       />
-      <meta property="article:published_time" content={post.created} />
-      <meta property="article:modified_time" content={post.updated} />
+      <meta
+        property="article:published_time"
+        content={post.frontmatter.created}
+      />
+      <meta
+        property="article:modified_time"
+        content={post.frontmatter.updated}
+      />
       <meta property="article:author" content={SITE_METADATA.siteUrl} />
-      <meta property="article:section" content={post.category.name} />
-      {post.tags.map((tag) => (
-        <meta key={tag.name} property="article:tag" content={tag.name} />
+      <meta property="article:section" content={post.frontmatter.category} />
+      {post.frontmatter.tags.map((tag) => (
+        <meta key={tag} property="article:tag" content={tag} />
       ))}
 
       <script
@@ -84,10 +95,12 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [`${SITE_METADATA.siteUrl}/ogp/${post.slug}.png`],
-            datePublished: post.created,
-            dateModified: post.updated,
-            dateCreated: post.created,
+            image: [
+              `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
+            ],
+            datePublished: post.frontmatter.created,
+            dateModified: post.frontmatter.updated,
+            dateCreated: post.frontmatter.created,
             author: {
               "@type": "Person",
               name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
@@ -101,8 +114,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
               },
             },
-            description: post.excerpt,
-            keywords: post.tags.map((tag) => tag.name).join(", "),
+            description: post.frontmatter.excerpt,
+            keywords: post.frontmatter.tags.map((tag) => tag).join(", "),
           }),
         }}
       />
@@ -135,8 +148,8 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
                 "@type": "ListItem",
                 position: 3,
                 item: {
-                  "@id": `${SITE_METADATA.siteUrl}/${post.slug}`,
-                  name: post.title,
+                  "@id": `${SITE_METADATA.siteUrl}/${post.frontmatter.slug}`,
+                  name: post.frontmatter.title,
                   "@type": "Thing",
                 },
               },
@@ -159,17 +172,16 @@ export const Head: HeadFC<BlogPostPageQuery> = ({ location, data }) => {
   );
 };
 
-export const BlogPostPage = ({
+const BlogPostTemplate = ({
   data,
   location,
-}: PageProps<BlogPostPageQuery>): JSX.Element => {
+  children,
+}: PageProps<BlogPostTemplateQuery>): JSX.Element => {
   const post = data.post;
-  const relatedPosts = useMemo(() => {
-    const posts = post.tags.flatMap((tag) => tag.blog_post);
-    const filteredPosts = Array.from(
-      new Map(posts.map((post) => [post.id, post])).values()
-    ).filter((post) => post.slug !== data.post.slug);
-    filteredPosts.sort((a, b) => b.createdDateTime - a.createdDateTime);
+  const relatedPosts = React.useMemo(() => {
+    const filteredPosts = data.relatedPosts.nodes.filter(
+      (p) => p.id !== post.id
+    );
 
     // Pick up to 18 articles in the following order.
     // 18 is divisible by 1, 2, or 3.
@@ -178,34 +190,34 @@ export const BlogPostPage = ({
     // 2. Older articles than this.
 
     const newerPosts = filteredPosts
-      .filter((post) => post.createdDateTime >= data.post.createdDateTime)
+      .filter((p) => p.frontmatter.createdTime >= post.frontmatter.createdTime)
       .slice(0, 10);
     const olderPosts = filteredPosts
-      .filter((post) => post.createdDateTime < data.post.createdDateTime)
+      .filter((p) => p.frontmatter.createdTime < post.frontmatter.createdTime)
       .slice(0, 18 - newerPosts.length);
 
     return [...newerPosts, ...olderPosts];
-  }, [data.post.createdDateTime, data.post.slug, post.tags]);
+  }, [data.relatedPosts.nodes, post.frontmatter.createdTime, post.id]);
 
-  const createdDate = useMemo(
-    () => formatDateTime(post.created, "yyyy/MM/dd"),
-    [post.created]
+  const createdDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
+    [post.frontmatter.created]
   );
-  const updatedDate = useMemo(
-    () => formatDateTime(post.updated, "yyyy/MM/dd"),
-    [post.updated]
+  const updatedDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.updated, "yyyy/MM/dd"),
+    [post.frontmatter.updated]
   );
 
-  useLayoutEffect(() => {
-    if (typeof window !== "undefined" && isDefined(post.redirect)) {
-      window.location.href = post.redirect;
+  React.useLayoutEffect(() => {
+    if (typeof window !== "undefined" && isDefined(post.frontmatter.redirect)) {
+      window.location.href = post.frontmatter.redirect;
     }
-  }, [post.redirect]);
+  }, [post.frontmatter.redirect]);
 
   return (
     <Container maxWidth="md">
       <Breadcrumbs
-        title={post.title}
+        title={post.frontmatter.title}
         css={(theme) => ({
           marginTop: theme.spacing(2),
           marginBottom: theme.spacing(2),
@@ -220,7 +232,7 @@ export const BlogPostPage = ({
         }}
       >
         <Typography variant="h4" component="h1">
-          {post.title}
+          {post.frontmatter.title}
         </Typography>
 
         <Typography
@@ -234,27 +246,27 @@ export const BlogPostPage = ({
             marginTop: theme.spacing(1),
           })}
         >
-          {isDefined(post.updated) && (
+          {isDefined(post.frontmatter.updated) && (
             <>
               <UpdateIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
               <time
-                dateTime={post.updated}
+                dateTime={post.frontmatter.updated}
                 css={(theme) => ({ marginRight: theme.spacing(1) })}
               >
                 {updatedDate}
               </time>
             </>
           )}
-          {isDefined(post.created) && (
+          {isDefined(post.frontmatter.created) && (
             <>
               <AccessTimeIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
-              <time dateTime={post.created}>{createdDate}</time>
+              <time dateTime={post.frontmatter.created}>{createdDate}</time>
             </>
           )}
         </Typography>
@@ -263,23 +275,10 @@ export const BlogPostPage = ({
       <Card
         css={(theme) => ({
           margin: theme.spacing(3, 0),
-          padding: theme.spacing(3, 0),
+          padding: theme.spacing(0, 1, 3, 1),
           borderRadius: theme.spacing(2),
         })}
       >
-        <Heading
-          variant="h5"
-          component="h2"
-          css={(theme) => ({
-            padding: theme.spacing(2),
-            "&::before": {
-              top: theme.spacing(2),
-              bottom: theme.spacing(2),
-            },
-          })}
-        >
-          {TRANSLATION.blog.tableOfContentsTitle}
-        </Heading>
         <BlogPostTableOfContent post={post} />
 
         <Heading
@@ -289,15 +288,7 @@ export const BlogPostPage = ({
         >
           {TRANSLATION.blog.introductionTitle}
         </Heading>
-        <BlogPostDetail post={post} />
-
-        <Heading variant="h5" component="h2">
-          {TRANSLATION.blog.shareTitle}
-        </Heading>
-        <ShareButtons
-          title={`${post.title} - ${SITE_METADATA.blogTitle}`}
-          url={`${SITE_METADATA.siteUrl}${location.pathname}`}
-        />
+        <BlogPostDetail>{children}</BlogPostDetail>
       </Card>
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
@@ -347,7 +338,7 @@ export const BlogPostPage = ({
       </aside>
 
       <Breadcrumbs
-        title={post.title}
+        title={post.frontmatter.title}
         css={(theme) => ({
           marginTop: theme.spacing(2),
           marginBottom: theme.spacing(2),
@@ -357,4 +348,4 @@ export const BlogPostPage = ({
   );
 };
 
-export default BlogPostPage;
+export default BlogPostTemplate;
