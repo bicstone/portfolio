@@ -1,26 +1,5 @@
-import Link from "@mui/material/Link";
+import Link, { type LinkProps } from "@mui/material/Link";
 
-import type { AnchorHTMLAttributes } from "react";
-
-export const AnchorLink = (
-  props: AnchorHTMLAttributes<HTMLAnchorElement>
-): JSX.Element => {
-  const href = props?.href;
-
-  if (typeof href === "string" && href.startsWith("#")) {
-    // anchor links
-    return (
-      <Link
-        {...props}
-        color="text.secondary"
-        tabIndex={-1}
-        css={{ verticalAlign: "middle" }}
-      />
-    );
-  }
-
-  return (
-    // other links
-    <Link {...props} rel="external noreferrer noopener nofollow" />
-  );
+export const AnchorLink = (props: LinkProps): JSX.Element => {
+  return <Link {...props} rel="external noreferrer noopener nofollow" />;
 };

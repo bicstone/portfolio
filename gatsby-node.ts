@@ -1,4 +1,4 @@
-import { promises as fs } from "fs";
+import fs from "fs";
 import path from "path";
 
 import Fuse from "fuse.js";
@@ -11,9 +11,15 @@ import {
 import { createOgpImage } from "./src/utils/createOgpImage";
 import { isDefined } from "./src/utils/typeguard";
 
-import type { OnCreatePagesStatefullyQuery } from "./src/generated/graphqlTypes";
+import type {
+  OnCreatePagesQuery,
+  OnCreatePagesStatefullyQuery,
+} from "./src/generated/graphqlTypes";
 import type { GatsbyNode } from "gatsby";
 
+/*
+  Add import alias
+*/
 export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   actions,
 }) => {
@@ -33,15 +39,93 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
   });
 };
 
+/**
+ * Create blog post pages
+ */
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+  reporter,
+}) => {
+  const result = await graphql<OnCreatePagesQuery>(/* GraphQL */ `
+    query OnCreatePages {
+      allMdx {
+        nodes {
+          id
+          frontmatter {
+            slug
+            # for relatedPosts
+            tags
+          }
+          internal {
+            contentFilePath
+          }
+        }
+      }
+    }
+  `);
+
+  if (isDefined(result?.errors)) throw result.errors;
+
+  const blogPostList = result?.data?.allMdx?.nodes;
+
+  if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
+
+  const TemplatePath = path.resolve(
+    process.cwd(),
+    "src",
+    "templates",
+    "BlogPost.tsx"
+  );
+
+  blogPostList.forEach((node) => {
+    actions.createPage({
+      path: node.frontmatter.slug,
+      component: `${TemplatePath}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: {
+        id: node.id,
+        // for relatedPosts
+        tags: node.frontmatter.tags,
+      },
+    });
+  });
+
+  reporter.success(
+    `createPages: Created ${blogPostList.length} blog post pages`
+  );
+};
+
+/**
+ * Copy assets to public
+ * Create fuse index
+ * Create OGP images
+ */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
-    const result = await graphql<OnCreatePagesStatefullyQuery>(`
+    /**
+     *  Copy assets to public
+     */
+    const sourcePath = path.resolve(process.cwd(), "content", "assets");
+    const destPath = path.resolve(process.cwd(), "public", "assets");
+
+    fs.cpSync(sourcePath, destPath, { recursive: true, force: true });
+
+    reporter.success(
+      `onCreatePagesStatefully: Copied assets from ${sourcePath} to ${destPath}`
+    );
+
+    /**
+     * Fetch blog post list
+     */
+    const result = await graphql<OnCreatePagesStatefullyQuery>(/* GraphQL */ `
       query OnCreatePagesStatefully {
-        allContentfulBlogPost(sort: { created: DESC }) {
+        allMdx {
           nodes {
-            title
-            slug
-            excerpt
+            frontmatter {
+              title
+              slug
+              excerpt
+            }
           }
         }
       }
@@ -49,10 +133,17 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     if (isDefined(result?.errors)) throw result.errors;
 
-    const blogPostList = result?.data?.allContentfulBlogPost?.nodes;
+    const blogPostList = result?.data?.allMdx?.nodes.map((node) => ({
+      title: node.frontmatter.title,
+      slug: node.frontmatter.slug,
+      excerpt: node.frontmatter.excerpt,
+    }));
 
-    if (!isDefined(blogPostList)) throw new Error();
+    if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
 
+    /**
+     * Create fuse index
+     */
     const blogPostListIndex = Fuse.createIndex(
       Array.from(BLOG_POST_SEARCH_FIELDS),
       blogPostList
@@ -60,13 +151,11 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     const dir = path.resolve(process.cwd(), "static");
 
-    // MEMO: Writing files in parallel can speed up the process,
-    // but will cause non-reproducible errors, so write in series.
-    await fs.writeFile(
+    fs.writeFileSync(
       path.resolve(dir, BLOG_POST_LIST_JSON_FILENAME),
       JSON.stringify(blogPostList)
     );
-    await fs.writeFile(
+    fs.writeFileSync(
       path.resolve(dir, BLOG_POST_LIST_INDEX_JSON_FILENAME),
       JSON.stringify(blogPostListIndex)
     );
@@ -75,10 +164,14 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
       `onCreatePagesStatefully: Created ${blogPostList.length} blog posts index`
     );
 
-    // MEMO: Writing files in parallel can speed up the process,
-    // but will cause non-reproducible errors, so write in series.
+    /**
+     * Create OGP images
+     */
     for (const blogPost of blogPostList) {
-      await createOgpImage({ title: blogPost.title, slug: blogPost.slug });
+      await createOgpImage({
+        title: blogPost.title,
+        slug: blogPost.slug,
+      });
     }
 
     reporter.success(

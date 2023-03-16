@@ -7,13 +7,13 @@ import {
 } from "./constants";
 
 import type { BLOG_POST_SEARCH_FIELDS } from "./constants";
-import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
+import type { MdxFrontmatter } from "@/generated/graphqlTypes";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { isDefined } from "@/utils/typeguard";
 
 export type BlogPost = Pick<
-  ContentfulBlogPost,
+  MdxFrontmatter,
   (typeof BLOG_POST_SEARCH_FIELDS)[number]
 >;
 

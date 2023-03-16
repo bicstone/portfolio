@@ -397,7 +397,6 @@ export type ContentfulBlogPost = ContentfulEntry & ContentfulReference & Node & 
   readonly created: Maybe<Scalars['Date']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly excerpt: Maybe<Scalars['String']>;
-  readonly gatsbyPath: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
@@ -426,11 +425,6 @@ export type ContentfulBlogPostCreatedAtArgs = {
   formatString: InputMaybe<Scalars['String']>;
   fromNow: InputMaybe<Scalars['Boolean']>;
   locale: InputMaybe<Scalars['String']>;
-};
-
-
-export type ContentfulBlogPostGatsbyPathArgs = {
-  filePath: InputMaybe<Scalars['String']>;
 };
 
 
@@ -504,7 +498,6 @@ export type ContentfulBlogPostFieldSelector = {
   readonly created: InputMaybe<FieldSelectorEnum>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
-  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
@@ -529,7 +522,6 @@ export type ContentfulBlogPostFilterInput = {
   readonly created: InputMaybe<DateQueryOperatorInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
-  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
@@ -599,7 +591,6 @@ export type ContentfulBlogPostSortInput = {
   readonly created: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
-  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
@@ -4517,12 +4508,18 @@ export type File = Node & {
   readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly blksize: Maybe<Scalars['Int']>;
+  readonly blocks: Maybe<Scalars['Int']>;
   readonly changeTime: Scalars['Date'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   readonly childImageSharp: Maybe<ImageSharp>;
+  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
+  readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
   readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
+  /** Returns all children nodes filtered by type Mdx */
+  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly ctime: Scalars['Date'];
   readonly ctimeMs: Scalars['Float'];
   readonly dev: Scalars['Int'];
@@ -4541,6 +4538,8 @@ export type File = Node & {
   readonly nlink: Scalars['Int'];
   readonly parent: Maybe<Node>;
   readonly prettySize: Scalars['String'];
+  /** Copy file to static directory and return public url to it */
+  readonly publicURL: Maybe<Scalars['String']>;
   readonly rdev: Scalars['Int'];
   readonly relativeDirectory: Scalars['String'];
   readonly relativePath: Scalars['String'];
@@ -4660,10 +4659,14 @@ export type FileFieldSelector = {
   readonly birthTime: InputMaybe<FieldSelectorEnum>;
   readonly birthtime: InputMaybe<FieldSelectorEnum>;
   readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly blksize: InputMaybe<FieldSelectorEnum>;
+  readonly blocks: InputMaybe<FieldSelectorEnum>;
   readonly changeTime: InputMaybe<FieldSelectorEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
+  readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
+  readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly ctime: InputMaybe<FieldSelectorEnum>;
   readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
   readonly dev: InputMaybe<FieldSelectorEnum>;
@@ -4682,6 +4685,7 @@ export type FileFieldSelector = {
   readonly nlink: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly prettySize: InputMaybe<FieldSelectorEnum>;
+  readonly publicURL: InputMaybe<FieldSelectorEnum>;
   readonly rdev: InputMaybe<FieldSelectorEnum>;
   readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
   readonly relativePath: InputMaybe<FieldSelectorEnum>;
@@ -4700,10 +4704,14 @@ export type FileFilterInput = {
   readonly birthTime: InputMaybe<DateQueryOperatorInput>;
   readonly birthtime: InputMaybe<DateQueryOperatorInput>;
   readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly blksize: InputMaybe<IntQueryOperatorInput>;
+  readonly blocks: InputMaybe<IntQueryOperatorInput>;
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
   readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
   readonly dev: InputMaybe<IntQueryOperatorInput>;
@@ -4722,6 +4730,7 @@ export type FileFilterInput = {
   readonly nlink: InputMaybe<IntQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly publicURL: InputMaybe<StringQueryOperatorInput>;
   readonly rdev: InputMaybe<IntQueryOperatorInput>;
   readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
   readonly relativePath: InputMaybe<StringQueryOperatorInput>;
@@ -4781,10 +4790,14 @@ export type FileSortInput = {
   readonly birthTime: InputMaybe<SortOrderEnum>;
   readonly birthtime: InputMaybe<SortOrderEnum>;
   readonly birthtimeMs: InputMaybe<SortOrderEnum>;
+  readonly blksize: InputMaybe<SortOrderEnum>;
+  readonly blocks: InputMaybe<SortOrderEnum>;
   readonly changeTime: InputMaybe<SortOrderEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
+  readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
+  readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly ctime: InputMaybe<SortOrderEnum>;
   readonly ctimeMs: InputMaybe<SortOrderEnum>;
   readonly dev: InputMaybe<SortOrderEnum>;
@@ -4803,6 +4816,7 @@ export type FileSortInput = {
   readonly nlink: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly prettySize: InputMaybe<SortOrderEnum>;
+  readonly publicURL: InputMaybe<SortOrderEnum>;
   readonly rdev: InputMaybe<SortOrderEnum>;
   readonly relativeDirectory: InputMaybe<SortOrderEnum>;
   readonly relativePath: InputMaybe<SortOrderEnum>;
@@ -4850,15 +4864,6 @@ export enum GatsbyImagePlaceholder {
   DominantColor = 1,
   None = 2,
   TracedSvg = 3
-}
-
-export enum HeadingsMdx {
-  H1 = 0,
-  H2 = 1,
-  H3 = 2,
-  H4 = 3,
-  H5 = 4,
-  H6 = 5
 }
 
 export enum ImageCropFocus {
@@ -5396,33 +5401,19 @@ export type JsonQueryOperatorInput = {
 };
 
 export type Mdx = Node & {
-  readonly body: Scalars['String'];
+  readonly body: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
-  readonly excerpt: Scalars['String'];
-  readonly fileAbsolutePath: Scalars['String'];
+  readonly excerpt: Maybe<Scalars['String']>;
   readonly frontmatter: Maybe<MdxFrontmatter>;
-  readonly headings: Maybe<ReadonlyArray<Maybe<MdxHeadingMdx>>>;
-  readonly html: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly mdxAST: Maybe<Scalars['JSON']>;
   readonly parent: Maybe<Node>;
-  readonly rawBody: Scalars['String'];
-  readonly slug: Maybe<Scalars['String']>;
   readonly tableOfContents: Maybe<Scalars['JSON']>;
-  readonly timeToRead: Maybe<Scalars['Int']>;
-  readonly wordCount: Maybe<MdxWordCount>;
 };
 
 
 export type MdxExcerptArgs = {
   pruneLength?: InputMaybe<Scalars['Int']>;
-  truncate?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-export type MdxHeadingsArgs = {
-  depth: InputMaybe<HeadingsMdx>;
 };
 
 
@@ -5479,38 +5470,22 @@ export type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
-  readonly fileAbsolutePath: InputMaybe<FieldSelectorEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
-  readonly headings: InputMaybe<MdxHeadingMdxFieldSelector>;
-  readonly html: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly mdxAST: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly rawBody: InputMaybe<FieldSelectorEnum>;
-  readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly tableOfContents: InputMaybe<FieldSelectorEnum>;
-  readonly timeToRead: InputMaybe<FieldSelectorEnum>;
-  readonly wordCount: InputMaybe<MdxWordCountFieldSelector>;
 };
 
 export type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
-  readonly fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  readonly headings: InputMaybe<MdxHeadingMdxFilterListInput>;
-  readonly html: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly mdxAST: InputMaybe<JsonQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly rawBody: InputMaybe<StringQueryOperatorInput>;
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly tableOfContents: InputMaybe<JsonQueryOperatorInput>;
-  readonly timeToRead: InputMaybe<IntQueryOperatorInput>;
-  readonly wordCount: InputMaybe<MdxWordCountFilterInput>;
 };
 
 export type MdxFilterListInput = {
@@ -5518,19 +5493,63 @@ export type MdxFilterListInput = {
 };
 
 export type MdxFrontmatter = {
-  readonly title: Scalars['String'];
+  readonly category: Maybe<Scalars['String']>;
+  readonly created: Maybe<Scalars['Date']>;
+  readonly excerpt: Maybe<Scalars['String']>;
+  readonly redirect: Maybe<Scalars['String']>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updated: Maybe<Scalars['Date']>;
+};
+
+
+export type MdxFrontmatterCreatedArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+export type MdxFrontmatterUpdatedArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
 };
 
 export type MdxFrontmatterFieldSelector = {
+  readonly category: InputMaybe<FieldSelectorEnum>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly redirect: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updated: InputMaybe<FieldSelectorEnum>;
 };
 
 export type MdxFrontmatterFilterInput = {
+  readonly category: InputMaybe<StringQueryOperatorInput>;
+  readonly created: InputMaybe<DateQueryOperatorInput>;
+  readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly redirect: InputMaybe<StringQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updated: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type MdxFrontmatterSortInput = {
+  readonly category: InputMaybe<SortOrderEnum>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly redirect: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
+  readonly updated: InputMaybe<SortOrderEnum>;
 };
 
 export type MdxGroupConnection = {
@@ -5574,71 +5593,15 @@ export type MdxGroupConnectionSumArgs = {
   field: MdxFieldSelector;
 };
 
-export type MdxHeadingMdx = {
-  readonly depth: Maybe<Scalars['Int']>;
-  readonly value: Maybe<Scalars['String']>;
-};
-
-export type MdxHeadingMdxFieldSelector = {
-  readonly depth: InputMaybe<FieldSelectorEnum>;
-  readonly value: InputMaybe<FieldSelectorEnum>;
-};
-
-export type MdxHeadingMdxFilterInput = {
-  readonly depth: InputMaybe<IntQueryOperatorInput>;
-  readonly value: InputMaybe<StringQueryOperatorInput>;
-};
-
-export type MdxHeadingMdxFilterListInput = {
-  readonly elemMatch: InputMaybe<MdxHeadingMdxFilterInput>;
-};
-
-export type MdxHeadingMdxSortInput = {
-  readonly depth: InputMaybe<SortOrderEnum>;
-  readonly value: InputMaybe<SortOrderEnum>;
-};
-
 export type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
-  readonly fileAbsolutePath: InputMaybe<SortOrderEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
-  readonly headings: InputMaybe<MdxHeadingMdxSortInput>;
-  readonly html: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly mdxAST: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly rawBody: InputMaybe<SortOrderEnum>;
-  readonly slug: InputMaybe<SortOrderEnum>;
   readonly tableOfContents: InputMaybe<SortOrderEnum>;
-  readonly timeToRead: InputMaybe<SortOrderEnum>;
-  readonly wordCount: InputMaybe<MdxWordCountSortInput>;
-};
-
-export type MdxWordCount = {
-  readonly paragraphs: Maybe<Scalars['Int']>;
-  readonly sentences: Maybe<Scalars['Int']>;
-  readonly words: Maybe<Scalars['Int']>;
-};
-
-export type MdxWordCountFieldSelector = {
-  readonly paragraphs: InputMaybe<FieldSelectorEnum>;
-  readonly sentences: InputMaybe<FieldSelectorEnum>;
-  readonly words: InputMaybe<FieldSelectorEnum>;
-};
-
-export type MdxWordCountFilterInput = {
-  readonly paragraphs: InputMaybe<IntQueryOperatorInput>;
-  readonly sentences: InputMaybe<IntQueryOperatorInput>;
-  readonly words: InputMaybe<IntQueryOperatorInput>;
-};
-
-export type MdxWordCountSortInput = {
-  readonly paragraphs: InputMaybe<SortOrderEnum>;
-  readonly sentences: InputMaybe<SortOrderEnum>;
-  readonly words: InputMaybe<SortOrderEnum>;
 };
 
 /** Node Interface */
@@ -6053,7 +6016,6 @@ export type QueryContentfulBlogPostArgs = {
   created: InputMaybe<DateQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
-  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
@@ -6070,9 +6032,7 @@ export type QueryContentfulBlogPostArgs = {
 
 
 export type QueryContentfulBlogPostContentTextNodeArgs = {
-  childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
   content: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -6201,9 +6161,7 @@ export type QueryContentfulIconArgs = {
 
 
 export type QueryContentfulIconSvgTextNodeArgs = {
-  childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -6237,9 +6195,7 @@ export type QueryContentfulOssArgs = {
 
 
 export type QueryContentfulOssDetailTextNodeArgs = {
-  childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
   detail: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -6272,9 +6228,7 @@ export type QueryContentfulProjectArgs = {
 
 
 export type QueryContentfulProjectDetailTextNodeArgs = {
-  childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
-  childrenMdx: InputMaybe<MdxFilterListInput>;
   detail: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -6443,10 +6397,14 @@ export type QueryFileArgs = {
   birthTime: InputMaybe<DateQueryOperatorInput>;
   birthtime: InputMaybe<DateQueryOperatorInput>;
   birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  blksize: InputMaybe<IntQueryOperatorInput>;
+  blocks: InputMaybe<IntQueryOperatorInput>;
   changeTime: InputMaybe<DateQueryOperatorInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  childrenMdx: InputMaybe<MdxFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
   ctimeMs: InputMaybe<FloatQueryOperatorInput>;
   dev: InputMaybe<IntQueryOperatorInput>;
@@ -6465,6 +6423,7 @@ export type QueryFileArgs = {
   nlink: InputMaybe<IntQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   prettySize: InputMaybe<StringQueryOperatorInput>;
+  publicURL: InputMaybe<StringQueryOperatorInput>;
   rdev: InputMaybe<IntQueryOperatorInput>;
   relativeDirectory: InputMaybe<StringQueryOperatorInput>;
   relativePath: InputMaybe<StringQueryOperatorInput>;
@@ -6492,19 +6451,11 @@ export type QueryMdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
-  fileAbsolutePath: InputMaybe<StringQueryOperatorInput>;
   frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
-  headings: InputMaybe<MdxHeadingMdxFilterListInput>;
-  html: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  mdxAST: InputMaybe<JsonQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  rawBody: InputMaybe<StringQueryOperatorInput>;
-  slug: InputMaybe<StringQueryOperatorInput>;
   tableOfContents: InputMaybe<JsonQueryOperatorInput>;
-  timeToRead: InputMaybe<IntQueryOperatorInput>;
-  wordCount: InputMaybe<MdxWordCountFilterInput>;
 };
 
 
@@ -7462,11 +7413,7 @@ export type WebPOptions = {
 };
 
 export type ContentfulBlogPostContentTextNode = Node & {
-  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type Mdx */
-  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly content: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
@@ -7520,9 +7467,7 @@ export type ContentfulBlogPostContentTextNodeEdge = {
 };
 
 export type ContentfulBlogPostContentTextNodeFieldSelector = {
-  readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly content: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -7531,9 +7476,7 @@ export type ContentfulBlogPostContentTextNodeFieldSelector = {
 };
 
 export type ContentfulBlogPostContentTextNodeFilterInput = {
-  readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly content: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -7587,9 +7530,7 @@ export type ContentfulBlogPostContentTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulBlogPostContentTextNodeSortInput = {
-  readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly content: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -7614,11 +7555,7 @@ export type ContentfulBlogPostContentTextNodeSysSortInput = {
 };
 
 export type ContentfulIconSvgTextNode = Node & {
-  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type Mdx */
-  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -7672,9 +7609,7 @@ export type ContentfulIconSvgTextNodeEdge = {
 };
 
 export type ContentfulIconSvgTextNodeFieldSelector = {
-  readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -7683,9 +7618,7 @@ export type ContentfulIconSvgTextNodeFieldSelector = {
 };
 
 export type ContentfulIconSvgTextNodeFilterInput = {
-  readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -7739,9 +7672,7 @@ export type ContentfulIconSvgTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulIconSvgTextNodeSortInput = {
-  readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -7766,11 +7697,7 @@ export type ContentfulIconSvgTextNodeSysSortInput = {
 };
 
 export type ContentfulOssDetailTextNode = Node & {
-  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type Mdx */
-  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly detail: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
@@ -7824,9 +7751,7 @@ export type ContentfulOssDetailTextNodeEdge = {
 };
 
 export type ContentfulOssDetailTextNodeFieldSelector = {
-  readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly detail: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -7835,9 +7760,7 @@ export type ContentfulOssDetailTextNodeFieldSelector = {
 };
 
 export type ContentfulOssDetailTextNodeFilterInput = {
-  readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly detail: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -7891,9 +7814,7 @@ export type ContentfulOssDetailTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulOssDetailTextNodeSortInput = {
-  readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly detail: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -7918,11 +7839,7 @@ export type ContentfulOssDetailTextNodeSysSortInput = {
 };
 
 export type ContentfulProjectDetailTextNode = Node & {
-  /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
-  readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
-  /** Returns all children nodes filtered by type Mdx */
-  readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly detail: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
@@ -7976,9 +7893,7 @@ export type ContentfulProjectDetailTextNodeEdge = {
 };
 
 export type ContentfulProjectDetailTextNodeFieldSelector = {
-  readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly detail: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -7987,9 +7902,7 @@ export type ContentfulProjectDetailTextNodeFieldSelector = {
 };
 
 export type ContentfulProjectDetailTextNodeFilterInput = {
-  readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly detail: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -8043,9 +7956,7 @@ export type ContentfulProjectDetailTextNodeGroupConnectionSumArgs = {
 };
 
 export type ContentfulProjectDetailTextNodeSortInput = {
-  readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly detail: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -8069,18 +7980,27 @@ export type ContentfulProjectDetailTextNodeSysSortInput = {
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
+export type OnCreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type OnCreatePagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<(
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug' | 'tags'>>, readonly internal: Pick<Internal, 'contentFilePath'> }
+    )> } };
+
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnCreatePagesStatefullyQuery = { readonly allContentfulBlogPost: { readonly nodes: ReadonlyArray<Pick<ContentfulBlogPost, 'title' | 'slug' | 'excerpt'>> } };
+export type OnCreatePagesStatefullyQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'excerpt'>> }> } };
 
-export type BlogPostDetailFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> };
+export type BlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>> };
 
-export type BlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'created' | 'redirect'>;
+export type BlogPostListFragment = (
+  Pick<Mdx, 'id'>
+  & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>> }
+);
 
-export type BlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'created' | 'redirect'>;
-
-export type BlogPostTableOfContentFragment = { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'tableOfContents'>> }> };
+export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
 export type PortfolioCertificationCardFragment = (
   Pick<ContentfulQualificationMap, 'id' | 'name'>
@@ -8183,9 +8103,12 @@ export type PortfolioWhatICanDoListFragment = (
   )> }
 );
 
-export type RelatedBlogPostCardFragment = Pick<ContentfulBlogPost, 'title' | 'slug' | 'redirect'>;
+export type RelatedBlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> };
 
-export type RelatedBlogPostListFragment = Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>;
+export type RelatedBlogPostListFragment = (
+  Pick<Mdx, 'id'>
+  & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> }
+);
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8196,9 +8119,9 @@ export type BlogPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type BlogPageQuery = { readonly blogPostList: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulBlogPost, 'title' | 'created' | 'id' | 'slug' | 'redirect'>
-      & { readonly category: Maybe<Pick<ContentfulCategory, 'id'>> }
-    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'id' | 'slug' | 'name'>> } };
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'created' | 'category' | 'slug' | 'redirect'>> }
+    )> }, readonly categoryList: { readonly nodes: ReadonlyArray<Pick<ContentfulCategory, 'name'>> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -8238,19 +8161,22 @@ export type IndexPageQuery = { readonly links: { readonly nodes: ReadonlyArray<P
       & { readonly qualifications: Maybe<ReadonlyArray<Maybe<Pick<ContentfulQualification, 'id' | 'name' | 'date' | 'endDate' | 'url'>>>> }
     )> } };
 
-export type BlogPostPageQueryVariables = Exact<{
+export type BlogPostTemplateQueryVariables = Exact<{
   id: Scalars['String'];
+  tags: ReadonlyArray<Scalars['String']> | Scalars['String'];
 }>;
 
 
-export type BlogPostPageQuery = { readonly post: Maybe<(
-    Pick<ContentfulBlogPost, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated'>
-    & { createdDateTime: ContentfulBlogPost['created'] }
-    & { readonly category: Maybe<Pick<ContentfulCategory, 'name'>>, readonly tags: Maybe<ReadonlyArray<Maybe<(
-      Pick<ContentfulTag, 'name'>
-      & { readonly blog_post: Maybe<ReadonlyArray<Maybe<(
-        Pick<ContentfulBlogPost, 'id' | 'title' | 'slug' | 'redirect'>
-        & { createdDateTime: ContentfulBlogPost['created'] }
-      )>>> }
-    )>>>, readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body' | 'tableOfContents'>> }> }
-  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> } };
+export type BlogPostTemplateQuery = { readonly post: Maybe<(
+    Pick<Mdx, 'id' | 'tableOfContents'>
+    & { readonly frontmatter: Maybe<(
+      Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated' | 'category' | 'tags'>
+      & { createdTime: MdxFrontmatter['created'] }
+    )> }
+  )>, readonly links: { readonly nodes: ReadonlyArray<Pick<ContentfulHello, 'id' | 'href' | 'name'>> }, readonly relatedPosts: { readonly nodes: ReadonlyArray<(
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<(
+        Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>
+        & { createdTime: MdxFrontmatter['created'] }
+      )> }
+    )> } };

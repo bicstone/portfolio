@@ -8,12 +8,8 @@ import type { BlogPostTableOfContentFragment } from "@/generated/graphqlTypes";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const query = graphql`
-  fragment BlogPostTableOfContent on ContentfulBlogPost {
-    content {
-      childMdx {
-        tableOfContents
-      }
-    }
+  fragment BlogPostTableOfContent on Mdx {
+    tableOfContents
   }
 `;
 
@@ -25,7 +21,7 @@ interface TableOfContentItem {
 export const BlogPostTableOfContent = (props: {
   post: BlogPostTableOfContentFragment;
 }): JSX.Element => {
-  const items = props.post.content.childMdx.tableOfContents.items as
+  const items = props.post.tableOfContents.items as
     | TableOfContentItem[]
     | undefined;
 

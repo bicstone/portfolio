@@ -1,8 +1,10 @@
+import path from "path";
+
 import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
-import type { ContentfulBlogPost } from "@/generated/graphqlTypes";
+import type { MdxFrontmatter, Site } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
@@ -12,16 +14,24 @@ const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
 interface GatsbyPluginFeedQuery {
-  readonly allContentfulBlogPost: {
-    readonly nodes: ReadonlyArray<
-      Pick<
-        ContentfulBlogPost,
-        "title" | "slug" | "excerpt" | "created" | "updated"
-      >
-    >;
+  readonly allMdx: {
+    readonly nodes: ReadonlyArray<{
+      frontmatter: Pick<
+        MdxFrontmatter,
+        "title" | "slug" | "excerpt" | "created" | "updated" | "redirect"
+      >;
+    }>;
   };
 }
 
+interface GatsbyPluginSitemapQuery {
+  readonly allMdx: {
+    readonly nodes: ReadonlyArray<{
+      frontmatter: Pick<MdxFrontmatter, "slug" | "created" | "updated">;
+    }>;
+  };
+  readonly site: Pick<Site, "buildTime">;
+}
 const config: GatsbyConfig = {
   trailingSlash,
   pathPrefix,
@@ -61,24 +71,15 @@ const config: GatsbyConfig = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: `gatsby-remark-autolink-headers`,
+            resolve: `gatsby-remark-images`,
             options: {
-              isIconAfterHeader: true,
-              icon: "<anchor />",
+              maxWidth: 600,
+              linkImagesToOriginal: true,
+              backgroundColor: "none",
+              withWebp: !isDevelopment,
+              withAvif: !isDevelopment,
             },
           },
-          ...(isDevelopment
-            ? []
-            : [
-                {
-                  resolve: `gatsby-remark-images-contentful`,
-                  options: {
-                    maxWidth: 600,
-                    showCaptions: true,
-                    withWebp: true,
-                  },
-                },
-              ]),
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -89,9 +90,6 @@ const config: GatsbyConfig = {
               },
             },
           },
-          {
-            resolve: `gatsby-plugin-mdx-embed`,
-          },
         ],
       },
     },
@@ -101,29 +99,34 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({
-              query: { allContentfulBlogPost },
+              query: { allMdx },
             }: {
               query: GatsbyPluginFeedQuery;
             }) => {
-              return allContentfulBlogPost.nodes.map((node) => {
+              return allMdx.nodes.map(({ frontmatter }) => {
                 return {
-                  guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                  title: node.title,
-                  url: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                  description: node.excerpt,
-                  date: node.created,
+                  guid: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+                  title: frontmatter.title,
+                  url:
+                    frontmatter.redirect ??
+                    `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
+                  description: frontmatter.excerpt,
+                  date: frontmatter.created,
                 };
               });
             },
             query: `#graphql
               {
-                allContentfulBlogPost(sort: { created: DESC }) {
+                allMdx(sort: {frontmatter: {created: DESC}}) {
                   nodes {
-                    title
-                    slug
-                    excerpt
-                    created
-                    updated
+                    frontmatter{
+                      title
+                      slug
+                      excerpt
+                      created
+                      updated
+                      redirect
+                    }
                   }
                 }
               }
@@ -150,6 +153,66 @@ const config: GatsbyConfig = {
     },
     {
       resolve: `gatsby-plugin-sitemap`,
+      options: {
+        resolveSiteUrl: () => SITE_METADATA.siteUrl,
+        query: `#graphql
+        {
+          site {
+            buildTime
+          }
+          allMdx(sort: {frontmatter: {created: DESC}}) {
+            nodes {
+              frontmatter{
+                slug
+                created
+                updated
+              }
+            }
+          }
+        }
+      `,
+        resolvePages: ({ allMdx, site }: GatsbyPluginSitemapQuery) => {
+          const posts = allMdx.nodes.map(({ frontmatter }) => {
+            return {
+              path: `/${frontmatter.slug}`,
+              lastmod: frontmatter.updated ?? frontmatter.created,
+              changefreq: `weekly`,
+              priority: 0.8,
+            };
+          });
+          const home = {
+            path: `/`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 1.0,
+          };
+          const blog = {
+            path: `/blog`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 0.6,
+          };
+          return [...posts, home, blog];
+        },
+        serialize: ({
+          path,
+          lastmod,
+          changefreq,
+          priority,
+        }: {
+          path: string;
+          lastmod: string;
+          changefreq: string;
+          priority: number;
+        }) => {
+          return {
+            url: path,
+            lastmod,
+            changefreq,
+            priority,
+          };
+        },
+      },
     },
     {
       resolve: "gatsby-source-contentful",
@@ -158,6 +221,20 @@ const config: GatsbyConfig = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         host: isDevelopment ? "preview.contentful.com" : "cdn.contentful.com",
         localeFilter: (locale: { code: string }) => locale.code === "ja",
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "articles"),
+        name: `articles`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "images"),
+        name: `images`,
       },
     },
     {

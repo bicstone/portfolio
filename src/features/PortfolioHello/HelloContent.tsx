@@ -63,9 +63,6 @@ export const HelloContent = (props: {
                 <Typography variant="body1" gutterBottom>
                   {TRANSLATION.hello.description}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" gutterBottom>
-                  {TRANSLATION.hello.description2}
-                </Typography>
                 <SocialLinks links={links} />
               </>
             }
