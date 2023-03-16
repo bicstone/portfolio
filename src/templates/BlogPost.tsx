@@ -13,7 +13,6 @@ import type { HeadFC, PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InarticleAd } from "@/components/InarticleAd";
-import { ShareButtons } from "@/components/ShareButtons";
 import { Heading } from "@/components/markdown/Heading";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
@@ -276,43 +275,20 @@ const BlogPostTemplate = ({
       <Card
         css={(theme) => ({
           margin: theme.spacing(3, 0),
-          padding: theme.spacing(3, 0),
+          padding: theme.spacing(0, 1, 3, 1),
           borderRadius: theme.spacing(2),
         })}
       >
-        <Heading
-          variant="h5"
-          component="h2"
-          prefix=""
-          css={(theme) => ({
-            padding: theme.spacing(2),
-            "&::before": {
-              top: theme.spacing(2),
-              bottom: theme.spacing(2),
-            },
-          })}
-        >
-          {TRANSLATION.blog.tableOfContentsTitle}
-        </Heading>
         <BlogPostTableOfContent post={post} />
 
         <Heading
           variant="h5"
           component="h2"
-          prefix="#"
           id={TRANSLATION.blog.introductionTitle}
         >
           {TRANSLATION.blog.introductionTitle}
         </Heading>
         <BlogPostDetail>{children}</BlogPostDetail>
-
-        <Heading variant="h5" component="h2" prefix="">
-          {TRANSLATION.blog.shareTitle}
-        </Heading>
-        <ShareButtons
-          title={`${post.frontmatter.title} - ${SITE_METADATA.blogTitle}`}
-          url={`${SITE_METADATA.siteUrl}${location.pathname}`}
-        />
       </Card>
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
