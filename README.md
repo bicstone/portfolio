@@ -18,9 +18,11 @@
 
 ## 構成
 
-Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstack 構成としました。
+Gatsby.js + (Contentful) + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstack 構成としました。
 
 ※ 検証環境は GitHub Pages を使用
+
+※ 現在 Contentful の引き剥がしを実施中です。
 
 ## 特徴
 
@@ -29,7 +31,7 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、高速で応答します。
 - インフラには、Amazon CloudFront + Amazon S3 を用いており、ユーザーの最寄りデータセンターから転送されるため通信が安定します。
 - Cache-Control HTTP ヘッダーを適切に設定しており、2 回目以降に余分なダウンロードを防止したり、逆に古いコンテンツが表示されることを防ぎます。
-- サードパーティスクリプトは遅延読み込みを行っています。(将来的には Partytown を採用予定)
+- 画像やサードパーティスクリプトなどは遅延読み込みを行っています。
 - Lighthouse を使用しレビューを受けています。
 
 ### セキュリティ
@@ -57,7 +59,6 @@ Gatsby.js + Contentful + Amazon CloudFront (Cloud Functions) + Amazon S3 を用�
 - Amazon CloudWatch による監視を行っています。
 - FOSSA を用いることで、ライブラリ追加時のライセンス管理を行っています。
 - Sentry を用いてエラー管理を行っています。
-- ポートフォリオは最新のコンテンツを維持し続けることが最も重要であるため、更新作業を省力化することが最も重要だと考えました。バックエンドはヘッドレス CMS である Contentful で管理しています。
 
 ### テスト
 
