@@ -23,9 +23,9 @@
     "@mdx-js/mdx": "2.3.0",
     "@mdx-js/react": "2.3.0",
     "@mui/icons-material": "5.11.11",
-    "@mui/lab": "5.0.0-alpha.122",
-    "@mui/material": "5.11.12",
-    "@sentry/browser": "7.42.0",
+    "@mui/lab": "5.0.0-alpha.123",
+    "@mui/material": "5.11.13",
+    "@sentry/browser": "7.44.1",
     "date-fns": "2.29.3",
     "date-fns-tz": "2.0.0",
     "fuse.js": "6.6.2",
@@ -51,7 +51,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-error-boundary": "3.1.4",
-    "react-hotkeys-hook": "4.3.7",
+    "react-hotkeys-hook": "4.3.8",
     "react-virtuoso": "4.1.0"
   },
   "devDependencies": {
