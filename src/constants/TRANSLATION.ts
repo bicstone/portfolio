@@ -44,7 +44,7 @@ export const TRANSLATION = {
       normal:
         "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
-    title: "Oishi Takanori (@bicstone)",
+    title: "Oishi Takanori (BICSTONE)",
     zenn: {
       title: "Zenn",
       url: "https://zenn.dev/bicstone",
