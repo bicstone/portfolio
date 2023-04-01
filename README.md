@@ -1,4 +1,4 @@
-# Oishi Takanori ポートフォリオ & ブログ 💚
+# Oishi Takanori (BICSTONE) ポートフォリオ & ブログ 💚
 
 ![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/workflows/Node.js%20CI/badge.svg)
 ![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy.yml/badge.svg?branch=main)
