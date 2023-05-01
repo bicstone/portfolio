@@ -27,4 +27,3 @@ jobs:
           delete-branch: true
           title: "chore: Update content"
           assignees: bicstone
-          reviewers: bicstone
