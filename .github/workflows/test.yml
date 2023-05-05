@@ -22,31 +22,8 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "yarn"
 
-      - uses: actions/cache/restore@v3
-        with:
-          path: |
-            public
-            .cache
-          key: gatsby-v1-${{ hashFiles('public') }}
-          restore-keys: |
-            gatsby-v1-
-
       - run: yarn install --immutable
 
       - run: yarn typecheck
 
       - run: yarn lint
-
-      - run: yarn build
-        env:
-          # "bucketName" is a required option for gatsby-plugin-s3
-          AWS_S3_BUCKET_NAME: "example"
-          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-
-      - uses: actions/cache/save@v3
-        with:
-          path: |
-            public
-            .cache
-          key: gatsby-v1-${{ hashFiles('public') }}
