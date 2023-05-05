@@ -29,7 +29,7 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "yarn"
 
-      - uses: actions/cache@v3
+      - uses: actions/cache/restore@v3
         with:
           path: |
             public
@@ -64,3 +64,10 @@ jobs:
           aws cloudfront create-invalidation \
           --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
           --paths "/*"
+
+      - uses: actions/cache/save@v3
+        with:
+          path: |
+            public
+            .cache
+          key: gatsby-v1-${{ hashFiles('public') }}
