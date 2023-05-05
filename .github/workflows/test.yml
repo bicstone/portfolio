@@ -1,16 +1,15 @@
-name: Deploy to S3
+name: Test
 
 on:
   push:
+  workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: read
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-    environment: temp-test
 
     steps:
       - uses: actions/checkout@v3
@@ -18,41 +17,29 @@ jobs:
           token: ${{ secrets.GH_PAT_CHECKOUT }}
           submodules: "recursive"
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
 
-      - name: Restore cache
-        uses: actions/cache@v3
+      - uses: actions/cache@v3
         with:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('.cache') }}-${{ hashFiles('yarn.lock') }}
+          key: gatsby-v1-${{ hashFiles('public') }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-build-
+            gatsby-v1-
 
       - run: yarn install --immutable
 
+      - run: yarn typecheck
+
+      - run: yarn lint
+
       - run: yarn build
         env:
-          AWS_S3_BUCKET_NAME: "bicstone-portfolio-frontend-test"
-          AWS_REGION: ap-northeast-1
+          # "bucketName" is a required option for gatsby-plugin-s3
+          AWS_S3_BUCKET_NAME: "example"
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          GTM_ID: "a"
-          GATSBY_ADSENSE_PUB_ID: "a"
-          GATSBY_ADSENSE_INARTICLE_AD_ID: "a"
-
-      - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: ${{ secrets.AWS_ROLE_NAME }}
-          aws-region: ap-northeast-1
-
-      - run: yarn deploy
-        env:
-          AWS_S3_BUCKET_NAME: "bicstone-portfolio-frontend-test"
-          AWS_REGION: ap-northeast-1
