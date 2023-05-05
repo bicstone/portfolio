@@ -1,4 +1,4 @@
-name: Deploy to Staging (staging)
+name: Deploy to Staging (stg)
 
 on:
   push:
@@ -17,7 +17,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: deploy-pages
+    environment: deploy-to-stg
 
     steps:
       - uses: actions/checkout@v3

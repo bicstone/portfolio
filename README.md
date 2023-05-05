@@ -1,8 +1,8 @@
-# Oishi Takanori (BICSTONE) ポートフォリオ & ブログ 💚
+# Oishi Takanori (BICSTONE) ポートフォリオ & ブログ
 
-![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/workflows/Node.js%20CI/badge.svg)
-![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy.yml/badge.svg?branch=main)
-![GitHub Actions による検証環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/pages.yml/badge.svg)
+![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/actions/workflows/test.yml/badge.svg?branch=main)
+![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-prod.yml/badge.svg?branch=main)
+![GitHub Actions による検証環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-stg.yml/badge.svg?branch=stg)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)
 [![sonarcloudによる静的スキャンの結果](https://sonarcloud.io/api/project_badges/measure?project=bicstone_masshiro.me&metric=alert_status)](https://sonarcloud.io/dashboard?id=bicstone_masshiro.me)
 [![DeepSourceによる静的スキャンの結果](https://deepsource.io/gh/bicstone/portfolio.svg/?label=active+issues&token=YEW43yfxCIzfiws5kGiZjSN0)](https://deepsource.io/gh/bicstone/portfolio/?ref=repository-badge)
@@ -13,8 +13,8 @@
 
 ![PC・タブレット・スマホでポートフォリオサイトを表示した写真、マルチプラットフォームに対応したことを示す図](./docs/readme-images/portfolio.jpg)
 
-- 本番環境 <https://bicstone.me/>
-- 検証環境 <https://bicstone.github.io/portfolio/>
+- 本番環境 <https://bicstone.me>
+- 検証環境 <https://bicstone.github.io/portfolio>
 
 ## 構成
 
@@ -22,7 +22,7 @@ Gatsby.js + (Contentful) + Amazon CloudFront (Cloud Functions) + Amazon S3 を�
 
 ※ 検証環境は GitHub Pages を使用
 
-※ 現在 Contentful の引き剥がしを実施中です。
+※ 現在 Contentful と emotion の引き剥がしを行っています。
 
 ## 特徴
 
@@ -41,7 +41,10 @@ Gatsby.js + (Contentful) + Amazon CloudFront (Cloud Functions) + Amazon S3 を�
 - セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory, DeepSource, SonarCloud を使用し、レビューを受けています。
-- 使用ツールは二要素認証を用いたアカウント保護を行っています。 GitHub 上で承認を行わないと deploy できないようにしています。
+- 使用ツールは二要素認証を用いたアカウント保護を行っています。
+- GitHub の Environments や Protection rule などを活用し、ブランチやシークレットの保護を行っています。
+- Personal access token が必要な場面では、すべて Fine-grained PAT を用いて最小限度の権限を与えています。
+- AWS への認証において OpenID Connect を活用しています。短命の認証情報を用いることで、リポジトリにシークレットを保持せずにデプロイをしています。
 - Renovate を用いて依存関係を定期的にアップデートしています。
 
 ### アクセシビリティ
@@ -55,6 +58,7 @@ Gatsby.js + (Contentful) + Amazon CloudFront (Cloud Functions) + Amazon S3 を�
 
 ### DevOps
 
+- GitFeatureFlow を採用しています。
 - CI/CD や SaaS を使用することで、開発効率を高めつつ、継続的な自動化と品質保持を行っています。
 - Amazon CloudWatch による監視を行っています。
 - FOSSA を用いることで、ライブラリ追加時のライセンス管理を行っています。
@@ -167,7 +171,7 @@ package.json の browserslist を参照
 
 ## Submodule について
 
-`content` ディレクトリ及び `static` ディレクトリは、権利が複雑になるのを避けるため、非公開リポジトリで管理しています。
+`content` ディレクトリ及び `static` ディレクトリは、著作権などが複雑になるのを避けるため、非公開リポジトリで管理しています。
 
 `content` は `content-sample` ディレクトリをコピーして作成してください。
 

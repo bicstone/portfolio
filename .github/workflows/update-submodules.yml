@@ -10,7 +10,7 @@ permissions: {}
 jobs:
   update:
     runs-on: ubuntu-latest
-    environment: create-pull-request
+    environment: update-submodules
 
     steps:
       - uses: actions/checkout@v3
