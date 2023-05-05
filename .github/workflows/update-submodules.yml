@@ -1,13 +1,16 @@
-name: Update content
+name: Update submodules
+
 on:
   workflow_dispatch:
   repository_dispatch:
     types: [update]
 
+permissions: {}
+
 jobs:
   update:
     runs-on: ubuntu-latest
-    environment: create-pull-request
+    environment: update-submodules
 
     steps:
       - uses: actions/checkout@v3
@@ -22,8 +25,8 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GH_PAT_PR }}
-          commit-message: "chore: Update content"
-          branch: chore/update-content
+          commit-message: "chore: Update submodules"
+          branch: chore/update-submodules
           delete-branch: true
-          title: "chore: Update content"
+          title: "chore: Update submodules"
           assignees: bicstone

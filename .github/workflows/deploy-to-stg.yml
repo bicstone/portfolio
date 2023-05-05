@@ -1,0 +1,63 @@
+name: Deploy to Staging (stg)
+
+on:
+  push:
+    branches: ["stg"]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-to-stg
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: deploy-to-stg
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT_CHECKOUT }}
+          submodules: "recursive"
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: "yarn"
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            public
+            .cache
+          key: gatsby-v1-${{ hashFiles('public') }}
+          restore-keys: |
+            gatsby-v1-
+
+      - run: yarn install --immutable
+
+      - run: yarn build
+        env:
+          # "bucketName" is a required option for gatsby-plugin-s3
+          AWS_S3_BUCKET_NAME: "example"
+          ALL_PAGES_TO_NO_INDEX: "true"
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          GTM_ID: ${{ env.GTM_ID }}
+          PREFIX_PATHS: "true"
+          GATSBY_SITE_URL: "https://bicstone.github.io/portfolio"
+          PATH_PREFIX: "/portfolio"
+
+      - run: |
+          echo -e "User-agent: *\nDisallow: /" > ./public/robots.txt
+
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./public
+
+      - uses: actions/deploy-pages@v2

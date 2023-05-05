@@ -1,13 +1,14 @@
-name: Node.js CI
+name: Test
 
 on:
   push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,23 +16,27 @@ jobs:
         with:
           token: ${{ secrets.GH_PAT_CHECKOUT }}
           submodules: "recursive"
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+
+      - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
-      - name: Restore cache
-        uses: actions/cache@v3
+
+      - uses: actions/cache@v3
         with:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('.cache') }}-${{ hashFiles('yarn.lock') }}
+          key: gatsby-v1-${{ hashFiles('public') }}
           restore-keys: |
-            ${{ runner.os }}-gatsby-build-
+            gatsby-v1-
+
       - run: yarn install --immutable
+
       - run: yarn typecheck
+
       - run: yarn lint
+
       - run: yarn build
         env:
           # "bucketName" is a required option for gatsby-plugin-s3
