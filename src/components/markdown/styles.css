@@ -2,10 +2,6 @@ span.gatsby-resp-image-wrapper {
   margin-bottom: calc(var(--mui-shape-borderRadius) * 2);
 }
 
-img.gatsby-resp-image-image {
-  border-radius: calc(var(--mui-shape-borderRadius) * 2);
-}
-
 pre[class*="language-"] {
   border-radius: calc(var(--mui-shape-borderRadius) * 2);
   /* CONSOLE_FONT_FAMILY */
