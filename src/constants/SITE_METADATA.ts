@@ -1,11 +1,11 @@
 export const SITE_METADATA = {
   title: "Oishi Takanori Portfolio",
   blogTitle: "まっしろブログ",
-  shortTitle: "BICSTONE",
+  shortTitle: "bicstone",
   siteUrl: process.env.GATSBY_SITE_URL ?? "https://bicstone.me",
   description:
-    "Webディベロッパー/機械エンジニア Oishi Takanori (BICSTONE) のポートフォリオサイトです。",
-  author: "BICSTONE",
+    "Webディベロッパー/機械エンジニア おおいし (@bicstone) のポートフォリオサイトです。",
+  author: "bicstone",
   image: "/android-chrome-512x512.png",
   image192: "/android-chrome-192x192.png",
   imageAvatar: "/avatar.svg",

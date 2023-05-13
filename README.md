@@ -1,4 +1,4 @@
-# Oishi Takanori (BICSTONE) ポートフォリオ & ブログ
+# Oishi Takanori (@bicstone) ポートフォリオ & ブログ
 
 ![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/actions/workflows/test.yml/badge.svg?branch=main)
 ![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-prod.yml/badge.svg?branch=main)
