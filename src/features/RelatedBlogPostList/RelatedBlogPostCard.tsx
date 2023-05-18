@@ -32,7 +32,7 @@ export const RelatedBlogPostCard = (props: {
       return {
         LinkComponent: "a" as const,
         href: post.frontmatter.redirect,
-        rel: "external noreferrer noopener",
+        rel: "external noopener",
       };
     } else {
       return {
