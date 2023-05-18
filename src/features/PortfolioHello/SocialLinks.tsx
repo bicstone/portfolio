@@ -54,21 +54,6 @@ export const SocialLinks = (props: {
         {TRANSLATION.blog.title}
       </Button>
 
-      <Button
-        component={Link}
-        to={TRANSLATION.hello.zenn.url}
-        variant="contained"
-        color="secondary"
-        size="small"
-        rel="external noreferrer noopener"
-        css={(theme) => ({
-          marginTop: theme.spacing(1),
-          marginRight: theme.spacing(1),
-        })}
-      >
-        {TRANSLATION.hello.zenn.title}
-      </Button>
-
       {links.map((link) => (
         <Button
           key={link.id}
@@ -76,7 +61,7 @@ export const SocialLinks = (props: {
           variant="outlined"
           color="secondary"
           size="small"
-          rel="external noreferrer noopener"
+          rel="external noopener"
           css={(theme) => ({
             marginTop: theme.spacing(1),
             marginRight: theme.spacing(1),

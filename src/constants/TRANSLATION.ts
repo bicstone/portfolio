@@ -45,10 +45,6 @@ export const TRANSLATION = {
         "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
     title: "おおいし (@bicstone)",
-    zenn: {
-      title: "Zenn",
-      url: "https://zenn.dev/bicstone",
-    },
   },
   histories: {
     date: "年",

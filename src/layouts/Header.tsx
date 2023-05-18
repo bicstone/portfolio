@@ -1,5 +1,4 @@
 import DarkModeIcon from "@mui/icons-material/DarkModeRounded";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import LightModeIcon from "@mui/icons-material/LightModeRounded";
 import StickyNote2Icon from "@mui/icons-material/StickyNote2Rounded";
 import AppBar from "@mui/material/AppBar";
@@ -139,27 +138,6 @@ export const Header = (): JSX.Element => {
               </>
             </Button>
           )}
-          <Button
-            css={(theme) => ({
-              backgroundColor: theme.vars.palette.background.default,
-              marginRight: theme.spacing(0.5),
-              "&:hover": {
-                backgroundColor: theme.vars.palette.background.default,
-              },
-              [theme.breakpoints.down("sm")]: {
-                display: "none",
-              },
-            })}
-            variant="outlined"
-            color="inherit"
-            size="small"
-            href={`https://github.com/${SITE_METADATA.github}`}
-            title={TRANSLATION.header.githubTitle}
-            startIcon={<GitHubIcon />}
-            rel="external noreferrer noopener"
-          >
-            {TRANSLATION.header.githubTitle}
-          </Button>
           <IconButton
             size="small"
             onClick={() => {

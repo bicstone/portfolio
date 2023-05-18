@@ -26,11 +26,7 @@ export const LinkCard = (
       css={(theme) => ({ margin: theme.spacing(2) })}
       elevation={2}
     >
-      <CardActionArea
-        component="a"
-        rel="external noreferrer noopener nofollow"
-        {...props}
-      >
+      <CardActionArea component="a" rel="external noopener nofollow" {...props}>
         <CardHeader
           title={
             <Typography variant="subtitle1" css={{ wordBreak: "break-all" }}>
