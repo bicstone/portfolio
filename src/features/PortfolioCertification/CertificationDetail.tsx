@@ -21,20 +21,10 @@ export const CertificationDetail = (props: {
 }): JSX.Element => {
   const { certification } = props;
 
-  const startDate = useMemo(() => {
-    return formatDateTime(certification.startDate, "yyyy/MM/dd");
-  }, [certification.startDate]);
-
-  const endDate = useMemo(() => {
-    return formatDateTime(certification.endDate, "yyyy/MM/dd");
-  }, [certification.endDate]);
-
-  const formattedDate = useMemo(() => {
-    if (isDefined(endDate) && endDate !== "") {
-      return `${startDate} - ${endDate}`;
-    }
-    return startDate;
-  }, [startDate, endDate]);
+  const startDate = formatDateTime(certification.startDate, "yyyy/MM/dd");
+  const endDate = formatDateTime(certification.endDate, "yyyy/MM/dd");
+  const formattedDate =
+    endDate !== "" ? `${startDate} - ${endDate}` : startDate;
 
   return (
     <ListItem>
