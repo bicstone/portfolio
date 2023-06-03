@@ -1,12 +1,10 @@
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { graphql } from "gatsby";
-import { useMemo } from "react";
 
 import type { PortfolioCertificationDetailFragment } from "@/generated/graphqlTypes";
 
 import { formatDateTime } from "@/utils/format";
-import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   fragment PortfolioCertificationDetail on CertificationsYamlCertifications {
