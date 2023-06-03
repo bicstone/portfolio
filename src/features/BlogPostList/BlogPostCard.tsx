@@ -27,8 +27,10 @@ export type BlogPostCardProps = {
   post: BlogPostCardFragment;
 } & React.HTMLAttributes<HTMLElement>;
 
-export const BlogPostCard = ({post, ...props}: BlogPostCardProps): JSX.Element => {
-
+export const BlogPostCard = ({
+  post,
+  ...props
+}: BlogPostCardProps): JSX.Element => {
   const createdDate = useMemo(
     () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
     [post.frontmatter.created]
