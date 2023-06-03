@@ -40,10 +40,8 @@ export const query = graphql`
         ...PortfolioHistoryList
       }
     }
-    osses: allContentfulOss(sort: { startDate: DESC }) {
-      nodes {
-        ...PortfolioOssList
-      }
+    osses: allOssesYaml(sort: { startDate: DESC }) {
+      ...PortfolioOssList
     }
     skills: allContentfulSkillMap(sort: { sortKey: ASC }) {
       nodes {
@@ -174,7 +172,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         title={TRANSLATION.home.ossesTitle}
         help={TRANSLATION.home.ossesHelp}
       >
-        <OssList osses={data.osses.nodes} />
+        <OssList osses={data.osses} />
       </Section>
       <Section
         title={TRANSLATION.home.qualificationsTitle}

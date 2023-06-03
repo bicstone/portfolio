@@ -5,14 +5,16 @@ import { OssCard } from "./OssCard";
 import type { PortfolioOssListFragment } from "@/generated/graphqlTypes";
 
 export const query = graphql`
-  fragment PortfolioOssList on ContentfulOss {
-    id
-    ...PortfolioOssCard
+  fragment PortfolioOssList on OssesYamlConnection {
+    nodes {
+      name
+      ...PortfolioOssCard
+    }
   }
 `;
 
 export const OssList = (props: {
-  osses: readonly PortfolioOssListFragment[];
+  osses: PortfolioOssListFragment;
 }): JSX.Element => {
   const { osses } = props;
 
@@ -30,8 +32,8 @@ export const OssList = (props: {
         },
       })}
     >
-      {osses.map((oss) => (
-        <OssCard key={oss.id} oss={oss} />
+      {osses.nodes.map((oss) => (
+        <OssCard key={oss.name} oss={oss} />
       ))}
     </div>
   );
