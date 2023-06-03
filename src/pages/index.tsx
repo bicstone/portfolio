@@ -30,11 +30,6 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage {
-    links: allLinksYaml(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioHelloContent
-      }
-    }
     whatICanDos: allContentfulWhatICanDo(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioWhatICanDoList
@@ -159,7 +154,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   return (
     <>
       <PaddingContainer maxWidth="lg">
-        <HelloContent links={data.links.nodes} />
+        <HelloContent />
       </PaddingContainer>
       <PaddingContainer maxWidth="lg">
         <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />

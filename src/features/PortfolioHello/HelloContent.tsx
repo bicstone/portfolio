@@ -2,28 +2,15 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { graphql } from "gatsby";
 import { useState } from "react";
 
 import { FukkiretaAnimationSvgIcon } from "./FukkiretaAnimationSvgIcon";
 import { SocialLinks } from "./SocialLinks";
 
-import type { PortfolioHelloContentFragment } from "@/generated/graphqlTypes";
-
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
-export const query = graphql`
-  fragment PortfolioHelloContent on LinksYaml {
-    ...SocialLinks
-  }
-`;
-
-export const HelloContent = (props: {
-  links: readonly PortfolioHelloContentFragment[];
-}): JSX.Element => {
-  const { links } = props;
-
+export const HelloContent = (): JSX.Element => {
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   return (
@@ -63,7 +50,7 @@ export const HelloContent = (props: {
                 <Typography variant="body1" gutterBottom>
                   {TRANSLATION.hello.description}
                 </Typography>
-                <SocialLinks links={links} />
+                <SocialLinks />
               </>
             }
           />
