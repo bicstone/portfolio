@@ -10,20 +10,29 @@ import { CertificationDetail } from "./CertificationDetail";
 import type { PortfolioCertificationCardFragment } from "@/generated/graphqlTypes";
 
 export const query = graphql`
-  fragment PortfolioCertificationCard on ContentfulQualificationMap {
-    id
+  fragment PortfolioCertificationCard on CertificationsYaml {
     name
-    qualifications {
-      id
+    certifications {
+      startDate
       ...PortfolioCertificationDetail
     }
   }
 `;
 
 export const CertificationCard = (props: {
-  certification: PortfolioCertificationCardFragment;
+  group: PortfolioCertificationCardFragment;
 }): JSX.Element => {
-  const { certification } = props;
+  const { group } = props;
+
+  const sortedCertifications = Array.from(group.certifications).sort((a, b) => {
+    if (a.startDate > b.startDate) {
+      return -1;
+    }
+    if (a.startDate < b.startDate) {
+      return 1;
+    }
+    return 0;
+  });
 
   return (
     <Grid item xs={12} sm={6} md={4} component="section">
@@ -31,14 +40,14 @@ export const CertificationCard = (props: {
         <CardHeader
           title={
             <Typography component="h2" variant="h6">
-              {certification.name}
+              {group.name}
             </Typography>
           }
           subheader={
             <List dense>
-              {certification.qualifications.map((certification) => (
+              {sortedCertifications.map((certification) => (
                 <CertificationDetail
-                  key={certification.id}
+                  key={certification.name}
                   certification={certification}
                 />
               ))}

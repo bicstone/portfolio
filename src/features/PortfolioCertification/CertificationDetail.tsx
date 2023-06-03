@@ -1,21 +1,18 @@
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { graphql } from "gatsby";
 import { useMemo } from "react";
 
 import type { PortfolioCertificationDetailFragment } from "@/generated/graphqlTypes";
 
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  fragment PortfolioCertificationDetail on ContentfulQualification {
+  fragment PortfolioCertificationDetail on CertificationsYamlCertifications {
     name
-    date
+    startDate
     endDate
-    url
   }
 `;
 
@@ -24,9 +21,9 @@ export const CertificationDetail = (props: {
 }): JSX.Element => {
   const { certification } = props;
 
-  const date = useMemo(() => {
-    return formatDateTime(certification.date, "yyyy/MM/dd");
-  }, [certification.date]);
+  const startDate = useMemo(() => {
+    return formatDateTime(certification.startDate, "yyyy/MM/dd");
+  }, [certification.startDate]);
 
   const endDate = useMemo(() => {
     return formatDateTime(certification.endDate, "yyyy/MM/dd");
@@ -34,23 +31,12 @@ export const CertificationDetail = (props: {
 
   const formattedDate = useMemo(() => {
     if (isDefined(endDate) && endDate !== "") {
-      return `${date} - ${endDate}`;
+      return `${startDate} - ${endDate}`;
     }
-    return date;
-  }, [date, endDate]);
+    return startDate;
+  }, [startDate, endDate]);
 
-  return isDefined(certification.url) ? (
-    <ListItem>
-      <ListItemButton
-        href={certification.url}
-        rel="external noopener"
-        title={TRANSLATION.certification.detail.title}
-        disableGutters
-      >
-        <ListItemText primary={certification.name} secondary={formattedDate} />
-      </ListItemButton>
-    </ListItem>
-  ) : (
+  return (
     <ListItem>
       <ListItemText primary={certification.name} secondary={formattedDate} />
     </ListItem>

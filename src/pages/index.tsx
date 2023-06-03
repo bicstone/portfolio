@@ -50,10 +50,8 @@ export const query = graphql`
         ...PortfolioSkillList
       }
     }
-    certification: allContentfulQualificationMap(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioCertificationList
-      }
+    certifications: allCertificationsYaml(sort: { sortKey: ASC }) {
+      ...PortfolioCertificationList
     }
   }
 `;
@@ -182,7 +180,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         title={TRANSLATION.home.qualificationsTitle}
         help={TRANSLATION.home.qualificationsHelp}
       >
-        <CertificationList certifications={data.certification.nodes} />
+        <CertificationList certifications={data.certifications} />
       </Section>
     </>
   );

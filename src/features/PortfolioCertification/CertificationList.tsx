@@ -6,24 +6,23 @@ import { CertificationCard } from "./CertificationCard";
 import type { PortfolioCertificationListFragment } from "@/generated/graphqlTypes";
 
 export const query = graphql`
-  fragment PortfolioCertificationList on ContentfulQualificationMap {
-    id
-    ...PortfolioCertificationCard
+  fragment PortfolioCertificationList on CertificationsYamlConnection {
+    nodes {
+      sortKey
+      ...PortfolioCertificationCard
+    }
   }
 `;
 
 export const CertificationList = (props: {
-  certifications: readonly PortfolioCertificationListFragment[];
+  certifications: PortfolioCertificationListFragment;
 }): JSX.Element => {
   const { certifications } = props;
 
   return (
     <Grid container spacing={2}>
-      {certifications.map((certification) => (
-        <CertificationCard
-          key={certification.id}
-          certification={certification}
-        />
+      {certifications.nodes.map((group) => (
+        <CertificationCard key={group.sortKey} group={group} />
       ))}
     </Grid>
   );

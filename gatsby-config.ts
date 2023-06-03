@@ -235,6 +235,13 @@ const config: GatsbyConfig = {
         name: `images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "certifications"),
+        name: `certifications`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
   ],
