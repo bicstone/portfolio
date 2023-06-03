@@ -50,7 +50,7 @@ export const HelloContent = (props: {
         />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
-        <Card>
+        <Card variant="elevation">
           <CardHeader
             disableTypography
             title={
