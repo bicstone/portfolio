@@ -292,7 +292,7 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         // },
       },
     });
-  }, [lightTheme]);
+  }, [darkTheme.palette, lightComponentsTheme.components, lightTheme.palette]);
 
   return theme;
 };
