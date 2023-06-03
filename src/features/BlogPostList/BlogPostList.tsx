@@ -1,5 +1,4 @@
 import { graphql } from "gatsby";
-import { Virtuoso } from "react-virtuoso";
 
 import { BlogPostCard } from "./BlogPostCard";
 
@@ -18,12 +17,10 @@ export const BlogPostList = (props: {
   const { blogPostList } = props;
 
   return (
-    <Virtuoso
-      useWindowScroll
-      data={blogPostList}
-      itemContent={(_index, post) => <BlogPostCard key={post.id} post={post} />}
-      overscan={2000}
-      style={{ height: "100%" }}
-    />
+    <>
+      {blogPostList.map((post) => (
+        <BlogPostCard key={post.id} post={post} />
+      ))}
+    </>
   );
 };

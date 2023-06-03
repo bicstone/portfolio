@@ -49,8 +49,7 @@ export const BlogPostCard = (props: {
   }, [post.frontmatter.redirect, post.frontmatter.slug]);
 
   return (
-    // use padding because virtuoso does not support margin.
-    <article css={(theme) => ({ padding: theme.spacing(0.5, 0) })}>
+    <article css={(theme) => ({ margin: theme.spacing(0.5, 0) })}>
       <Card elevation={2}>
         <CardActionArea
           {...linkProps}
