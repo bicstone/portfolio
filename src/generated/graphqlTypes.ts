@@ -38,7 +38,6 @@ export type BooleanQueryOperatorInput = {
 };
 
 export type CertificationsYaml = Node & {
-  readonly category: Maybe<Scalars['String']['output']>;
   readonly certifications: Maybe<ReadonlyArray<Maybe<CertificationsYamlCertifications>>>;
   readonly children: ReadonlyArray<Node>;
   readonly id: Scalars['ID']['output'];
@@ -138,7 +137,6 @@ export type CertificationsYamlEdge = {
 };
 
 export type CertificationsYamlFieldSelector = {
-  readonly category: InputMaybe<FieldSelectorEnum>;
   readonly certifications: InputMaybe<CertificationsYamlCertificationsFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
@@ -149,7 +147,6 @@ export type CertificationsYamlFieldSelector = {
 };
 
 export type CertificationsYamlFilterInput = {
-  readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly certifications: InputMaybe<CertificationsYamlCertificationsFilterListInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -205,7 +202,6 @@ export type CertificationsYamlGroupConnectionSumArgs = {
 };
 
 export type CertificationsYamlSortInput = {
-  readonly category: InputMaybe<SortOrderEnum>;
   readonly certifications: InputMaybe<CertificationsYamlCertificationsSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
@@ -6182,7 +6178,6 @@ export type QueryAllSitePluginArgs = {
 
 
 export type QueryCertificationsYamlArgs = {
-  category: InputMaybe<StringQueryOperatorInput>;
   certifications: InputMaybe<CertificationsYamlCertificationsFilterListInput>;
   children: InputMaybe<NodeFilterListInput>;
   id: InputMaybe<StringQueryOperatorInput>;
@@ -8222,14 +8217,14 @@ export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
 export type PortfolioCertificationCardFragment = (
   Pick<CertificationsYaml, 'name'>
-  & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'name' | 'startDate' | 'endDate'>>>> }
+  & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'startDate' | 'name' | 'endDate'>>>> }
 );
 
 export type PortfolioCertificationDetailFragment = Pick<CertificationsYamlCertifications, 'name' | 'startDate' | 'endDate'>;
 
 export type PortfolioCertificationListFragment = { readonly nodes: ReadonlyArray<(
     Pick<CertificationsYaml, 'sortKey' | 'name'>
-    & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'name' | 'startDate' | 'endDate'>>>> }
+    & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'startDate' | 'name' | 'endDate'>>>> }
   )> };
 
 export type PortfolioHistoryCardFragment = (
@@ -8350,7 +8345,7 @@ export type IndexPageQuery = { readonly projects: { readonly nodes: ReadonlyArra
       )>>> }
     )> }, readonly certifications: { readonly nodes: ReadonlyArray<(
       Pick<CertificationsYaml, 'sortKey' | 'name'>
-      & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'name' | 'startDate' | 'endDate'>>>> }
+      & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'startDate' | 'name' | 'endDate'>>>> }
     )> } };
 
 export type BlogPostTemplateQueryVariables = Exact<{
