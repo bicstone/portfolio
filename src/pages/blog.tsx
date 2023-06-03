@@ -1,19 +1,9 @@
-import { Global } from "@emotion/react";
-import styled from "@emotion/styled";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
 import Container from "@mui/material/Container";
-import Tab, { tabClasses } from "@mui/material/Tab";
-import { tabScrollButtonClasses } from "@mui/material/TabScrollButton";
-import { tabsClasses } from "@mui/material/Tabs";
 import Typography from "@mui/material/Typography";
-import { graphql } from "gatsby";
-import { useCallback, useMemo } from "react";
+import { graphql, Script } from "gatsby";
 
 import type { BlogPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
-import type { SyntheticEvent } from "react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
@@ -21,7 +11,6 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
-import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query BlogPage {
@@ -33,11 +22,6 @@ export const query = graphql`
           category
         }
         ...BlogPostList
-      }
-    }
-    categoryList: allContentfulCategory(sort: { sortKey: ASC }) {
-      nodes {
-        name
       }
     }
   }
@@ -59,7 +43,9 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
         type="blog"
       />
 
-      <script
+      <Script
+        id="pages-blog-ld-json-blog"
+        strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -99,7 +85,9 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
           }),
         }}
       />
-      <script
+      <Script
+        id="pages-blog-ld-json-breadcrumb-list"
+        strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -128,7 +116,9 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
           }),
         }}
       />
-      <script
+      <Script
+        id="pages-blog-ld-json-organization"
+        strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -143,119 +133,24 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
   );
 };
 
-const StyledTabList = styled(TabList)(({ theme }) => ({
-  margin: theme.spacing(1, 0),
-  minHeight: 0,
-  [`& .${tabsClasses.flexContainer}`]: {
-    gap: theme.spacing(0.5),
-  },
-  [`& .${tabsClasses.indicator}`]: {
-    display: "none",
-  },
-  [`& .${tabScrollButtonClasses.root}`]: {
-    borderRadius: theme.spacing(5),
-  },
-  // "&&&"" is override MUI styles
-  [`&&& .${tabScrollButtonClasses.disabled}`]: {
-    opacity: 1,
-    color: theme.vars.palette.text.disabled,
-  },
-}));
-
-const StyledTab = styled(Tab)(({ theme }) => ({
-  background: theme.vars.palette.background.paper,
-  border: `1px solid ${theme.vars.palette.divider}`,
-  borderRadius: theme.spacing(1.5),
-  color: theme.vars.palette.text.primary,
-  fontWeight: "bold",
-  margin: 0,
-  minHeight: 0,
-  minWidth: theme.spacing(8),
-  padding: theme.spacing(1, 2),
-  textTransform: "none",
-  [`&.${tabClasses.selected}`]: {
-    background: theme.vars.palette.secondary.main,
-    color: theme.vars.palette.secondary.contrastText,
-  },
-}));
-
-const StyledTabPanel = styled(TabPanel)(({ theme }) => ({
-  flexGrow: 1,
-  padding: 0,
-  marginBottom: theme.spacing(1),
-}));
-
-const ALL_VALUE = "all";
-
-const BlogPage = ({
-  data,
-  location,
-}: PageProps<BlogPageQuery>): JSX.Element => {
+const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
   const blogPostList = data.blogPostList.nodes;
-  const categoryList = data.categoryList.nodes;
-
-  const hash = useMemo(() => location.hash.slice(1), [location.hash]);
-  const value = useMemo(
-    () =>
-      categoryList.map((category) => category.name).includes(hash)
-        ? hash
-        : ALL_VALUE,
-    [categoryList, hash]
-  );
-
-  const handleChange = useCallback((_: SyntheticEvent, value: string) => {
-    if (isDefined(window)) {
-      window.location.hash = `#${value}`;
-    }
-  }, []);
-
-  const filteredBlogPostList = useCallback(
-    (id: string) =>
-      blogPostList.filter((post) => post.frontmatter.category === id),
-    [blogPostList]
-  );
 
   return (
     <Container
       maxWidth="md"
       css={{ display: "flex", flexDirection: "column", height: "100%" }}
     >
-      {/* Always display scrollbar-Y to prevent flash */}
-      <Global styles={{ body: { overflowY: "scroll" } }} />
-
       <Breadcrumbs
         title={TRANSLATION.blog.title}
         css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
-      <Typography component="h1" variant="h4" align="center">
+      <Typography component="h1" variant="h4" align="center" paragraph>
         {TRANSLATION.blog.title}
       </Typography>
 
-      <TabContext value={value}>
-        <StyledTabList
-          onChange={handleChange}
-          textColor="secondary"
-          variant="scrollable"
-          allowScrollButtonsMobile
-        >
-          <StyledTab value={ALL_VALUE} label="All" />
-          {categoryList.map(({ name }) => (
-            <StyledTab key={name} label={name} value={name} />
-          ))}
-        </StyledTabList>
-        <StyledTabPanel value={ALL_VALUE}>
-          <BlogPostList blogPostList={blogPostList} />
-        </StyledTabPanel>
-        {categoryList.map(({ name }) => {
-          const filteredList = filteredBlogPostList(name);
-          return (
-            <StyledTabPanel key={name} value={name}>
-              <BlogPostList blogPostList={filteredList} />
-            </StyledTabPanel>
-          );
-        })}
-      </TabContext>
+      <BlogPostList blogPostList={blogPostList} />
 
       <Breadcrumbs
         title={TRANSLATION.blog.title}

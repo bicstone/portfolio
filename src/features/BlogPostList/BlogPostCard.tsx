@@ -23,11 +23,14 @@ export const query = graphql`
   }
 `;
 
-export const BlogPostCard = (props: {
+export type BlogPostCardProps = {
   post: BlogPostCardFragment;
-}): JSX.Element => {
-  const { post } = props;
+} & React.HTMLAttributes<HTMLElement>;
 
+export const BlogPostCard = ({
+  post,
+  ...props
+}: BlogPostCardProps): JSX.Element => {
   const createdDate = useMemo(
     () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
     [post.frontmatter.created]
@@ -49,8 +52,7 @@ export const BlogPostCard = (props: {
   }, [post.frontmatter.redirect, post.frontmatter.slug]);
 
   return (
-    // use padding because virtuoso does not support margin.
-    <article css={(theme) => ({ padding: theme.spacing(0.5, 0) })}>
+    <article {...props}>
       <Card elevation={2}>
         <CardActionArea
           {...linkProps}

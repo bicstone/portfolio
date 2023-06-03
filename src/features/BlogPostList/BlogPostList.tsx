@@ -1,5 +1,5 @@
+import styled from "@emotion/styled";
 import { graphql } from "gatsby";
-import { Virtuoso } from "react-virtuoso";
 
 import { BlogPostCard } from "./BlogPostCard";
 
@@ -12,18 +12,20 @@ export const query = graphql`
   }
 `;
 
+const StyledBlogPostCard = styled(BlogPostCard)(({ theme }) => ({
+  margin: theme.spacing(0.5, 0),
+}));
+
 export const BlogPostList = (props: {
   blogPostList: readonly BlogPostListFragment[];
 }): JSX.Element => {
   const { blogPostList } = props;
 
   return (
-    <Virtuoso
-      useWindowScroll
-      data={blogPostList}
-      itemContent={(_index, post) => <BlogPostCard key={post.id} post={post} />}
-      overscan={2000}
-      style={{ height: "100%" }}
-    />
+    <>
+      {blogPostList.map((post) => (
+        <StyledBlogPostCard key={post.id} post={post} />
+      ))}
+    </>
   );
 };

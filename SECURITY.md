@@ -10,7 +10,7 @@ You may optionally encrypt your report with GPG, using my key [EA52 C9F1 C3C9 39
 
 <summary>My key inline</summary>
 
-```plan
+```plain
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 mQINBGHar1ABEAC69RQoe6XH4u+2yzDlyf9pKavn1aB72O+Jfwb2Ic7v1X10QvHT
 lR9y3ndl5PkcLwsJIoZtPJ6sxj+NOsyOHCcKhIbw2bT1D5+CE7uMwnKOmd0WhtSV
