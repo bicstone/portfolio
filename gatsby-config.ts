@@ -236,8 +236,14 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-transformer-sharp`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "links"),
+        name: `images`,
+      },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
   ],
 };
 

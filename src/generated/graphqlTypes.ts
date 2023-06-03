@@ -4515,11 +4515,15 @@ export type File = Node & {
   readonly changeTime: Scalars['Date']['output'];
   /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
   readonly childImageSharp: Maybe<ImageSharp>;
+  /** Returns the first child node of type LinksYaml or null if there are no children of given type on this node */
+  readonly childLinksYaml: Maybe<LinksYaml>;
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
   readonly childMdx: Maybe<Mdx>;
   readonly children: ReadonlyArray<Node>;
   /** Returns all children nodes filtered by type ImageSharp */
   readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
+  /** Returns all children nodes filtered by type LinksYaml */
+  readonly childrenLinksYaml: Maybe<ReadonlyArray<Maybe<LinksYaml>>>;
   /** Returns all children nodes filtered by type Mdx */
   readonly childrenMdx: Maybe<ReadonlyArray<Maybe<Mdx>>>;
   readonly ctime: Scalars['Date']['output'];
@@ -4665,9 +4669,11 @@ export type FileFieldSelector = {
   readonly blocks: InputMaybe<FieldSelectorEnum>;
   readonly changeTime: InputMaybe<FieldSelectorEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
+  readonly childLinksYaml: InputMaybe<LinksYamlFieldSelector>;
   readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
+  readonly childrenLinksYaml: InputMaybe<LinksYamlFieldSelector>;
   readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly ctime: InputMaybe<FieldSelectorEnum>;
   readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
@@ -4710,9 +4716,11 @@ export type FileFilterInput = {
   readonly blocks: InputMaybe<IntQueryOperatorInput>;
   readonly changeTime: InputMaybe<DateQueryOperatorInput>;
   readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  readonly childLinksYaml: InputMaybe<LinksYamlFilterInput>;
   readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  readonly childrenLinksYaml: InputMaybe<LinksYamlFilterListInput>;
   readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
   readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
@@ -4796,9 +4804,11 @@ export type FileSortInput = {
   readonly blocks: InputMaybe<SortOrderEnum>;
   readonly changeTime: InputMaybe<SortOrderEnum>;
   readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
+  readonly childLinksYaml: InputMaybe<LinksYamlSortInput>;
   readonly childMdx: InputMaybe<MdxSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
+  readonly childrenLinksYaml: InputMaybe<LinksYamlSortInput>;
   readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly ctime: InputMaybe<SortOrderEnum>;
   readonly ctimeMs: InputMaybe<SortOrderEnum>;
@@ -5402,6 +5412,136 @@ export type JsonQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type LinksYaml = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly href: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']['output']>;
+  readonly parent: Maybe<Node>;
+  readonly sortKey: Maybe<Scalars['Int']['output']>;
+};
+
+export type LinksYamlConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<LinksYamlEdge>;
+  readonly group: ReadonlyArray<LinksYamlGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<LinksYaml>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type LinksYamlConnectionDistinctArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+
+export type LinksYamlConnectionGroupArgs = {
+  field: LinksYamlFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LinksYamlConnectionMaxArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+
+export type LinksYamlConnectionMinArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+
+export type LinksYamlConnectionSumArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+export type LinksYamlEdge = {
+  readonly next: Maybe<LinksYaml>;
+  readonly node: LinksYaml;
+  readonly previous: Maybe<LinksYaml>;
+};
+
+export type LinksYamlFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly href: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly sortKey: InputMaybe<FieldSelectorEnum>;
+};
+
+export type LinksYamlFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type LinksYamlFilterListInput = {
+  readonly elemMatch: InputMaybe<LinksYamlFilterInput>;
+};
+
+export type LinksYamlGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<LinksYamlEdge>;
+  readonly field: Scalars['String']['output'];
+  readonly fieldValue: Maybe<Scalars['String']['output']>;
+  readonly group: ReadonlyArray<LinksYamlGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<LinksYaml>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type LinksYamlGroupConnectionDistinctArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+
+export type LinksYamlGroupConnectionGroupArgs = {
+  field: LinksYamlFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type LinksYamlGroupConnectionMaxArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+
+export type LinksYamlGroupConnectionMinArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+
+export type LinksYamlGroupConnectionSumArgs = {
+  field: LinksYamlFieldSelector;
+};
+
+export type LinksYamlSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly href: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly sortKey: InputMaybe<SortOrderEnum>;
+};
+
 export type Mdx = Node & {
   readonly body: Maybe<Scalars['String']['output']>;
   readonly children: ReadonlyArray<Node>;
@@ -5704,6 +5844,7 @@ export type Query = {
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
+  readonly allLinksYaml: LinksYamlConnection;
   readonly allMdx: MdxConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
@@ -5734,6 +5875,7 @@ export type Query = {
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
+  readonly linksYaml: Maybe<LinksYaml>;
   readonly mdx: Maybe<Mdx>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
@@ -5932,6 +6074,14 @@ export type QueryAllImageSharpArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   skip: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpSortInput>>>;
+};
+
+
+export type QueryAllLinksYamlArgs = {
+  filter: InputMaybe<LinksYamlFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<LinksYamlSortInput>>>;
 };
 
 
@@ -6407,9 +6557,11 @@ export type QueryFileArgs = {
   blocks: InputMaybe<IntQueryOperatorInput>;
   changeTime: InputMaybe<DateQueryOperatorInput>;
   childImageSharp: InputMaybe<ImageSharpFilterInput>;
+  childLinksYaml: InputMaybe<LinksYamlFilterInput>;
   childMdx: InputMaybe<MdxFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
+  childrenLinksYaml: InputMaybe<LinksYamlFilterListInput>;
   childrenMdx: InputMaybe<MdxFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
   ctimeMs: InputMaybe<FloatQueryOperatorInput>;
@@ -6450,6 +6602,17 @@ export type QueryImageSharpArgs = {
   original: InputMaybe<ImageSharpOriginalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   resize: InputMaybe<ImageSharpResizeFilterInput>;
+};
+
+
+export type QueryLinksYamlArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  href: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  sortKey: InputMaybe<IntQueryOperatorInput>;
 };
 
 

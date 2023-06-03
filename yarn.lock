@@ -5971,6 +5971,7 @@ __metadata:
     gatsby-source-contentful: "npm:8.10.0"
     gatsby-source-filesystem: "npm:5.10.0"
     gatsby-transformer-sharp: "npm:5.10.0"
+    gatsby-transformer-yaml: "npm:5.10.0"
     github-slugger: "npm:2.0.0"
     html-react-parser: "npm:3.0.16"
     husky: "npm:8.0.3"
@@ -10213,6 +10214,19 @@ __metadata:
     gatsby: ^5.0.0-next
     gatsby-plugin-sharp: ^5.0.0-next
   checksum: f52ffe1754cee2ddbec8233074cccb7e4f4443ef4709b405c1c3b8b9d98cbe04be613ab037ab6b07b8ec09dacacdcee7bd77aa9697ae46865d0a5a4d0874112d
+  languageName: node
+  linkType: hard
+
+"gatsby-transformer-yaml@npm:5.10.0":
+  version: 5.10.0
+  resolution: "gatsby-transformer-yaml@npm:5.10.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    js-yaml: "npm:^4.1.0"
+    lodash: "npm:^4.17.21"
+  peerDependencies:
+    gatsby: ^5.0.0-next
+  checksum: 324cb70df864730528170576fd963d5817c701022ff7b61f7b9ef50a80dc0b7b1bb5e8ca00af1dbfcf7cd251ef67ad18b7f424fbb1083057242d03e69b502c81
   languageName: node
   linkType: hard
 

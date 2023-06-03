@@ -14,7 +14,7 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const query = graphql`
-  fragment PortfolioHelloContent on ContentfulHello {
+  fragment PortfolioHelloContent on LinksYaml {
     ...SocialLinks
   }
 `;

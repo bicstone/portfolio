@@ -1,24 +1,28 @@
-import Button from "@mui/material/Button";
+import styled from "@emotion/styled";
+import Button, { type ButtonProps } from "@mui/material/Button";
 import { useLocation } from "@reach/router";
-import { graphql, Link, withPrefix } from "gatsby";
-
-import type { SocialLinksFragment } from "@/generated/graphqlTypes";
+import { Link, withPrefix } from "gatsby";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
-export const query = graphql`
-  fragment SocialLinks on LinksYaml {
-    id
-    href
-    name
-  }
-`;
+const StyledButton = styled(Button)(({ theme }) => ({
+marginTop: theme.spacing(1),
+marginRight: theme.spacing(1),
+}));
 
-export const SocialLinks = (props: {
-  links: readonly SocialLinksFragment[];
-}): JSX.Element => {
-  const { links } = props;
+const SocialLink = (props: ButtonProps): JSX.Element => {
+  return (
+    <StyledButton
+      variant="outlined"
+      color="secondary"
+      size="small"
+      rel="external noopener"
+      {...props}
+    />
+  );
+};
 
+export const SocialLinks = (): JSX.Element => {
   const location = useLocation();
   const isHome = location.pathname === withPrefix("/");
 

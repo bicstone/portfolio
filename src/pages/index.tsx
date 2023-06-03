@@ -30,7 +30,7 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage {
-    links: allContentfulHello(sort: { sortKey: ASC }) {
+    links: allLinksYaml(sort: { sortKey: ASC }) {
       nodes {
         ...PortfolioHelloContent
       }
