@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 
 import { BlogPostCard } from "./BlogPostCard";
@@ -11,6 +12,10 @@ export const query = graphql`
   }
 `;
 
+const StyledBlogPostCard = styled(BlogPostCard)(({ theme }) => ({
+  margin: theme.spacing(0.5, 0),
+}));
+
 export const BlogPostList = (props: {
   blogPostList: readonly BlogPostListFragment[];
 }): JSX.Element => {
@@ -19,7 +24,7 @@ export const BlogPostList = (props: {
   return (
     <>
       {blogPostList.map((post) => (
-        <BlogPostCard key={post.id} post={post} />
+        <StyledBlogPostCard key={post.id} post={post} />
       ))}
     </>
   );
