@@ -25,7 +25,7 @@ export const WhatICanDoCard = (props: {
   const { whatICanDo } = props;
 
   return (
-    <Card component="section">
+    <Card component="section" variant="elevation">
       <CardHeader
         avatar={
           <SvgAvatar

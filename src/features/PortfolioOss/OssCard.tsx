@@ -38,7 +38,7 @@ export const OssCard = (props: {
   }, [oss.startDate]);
 
   return (
-    <Card component="section">
+    <Card component="section" variant="filled">
       <CardActionArea
         title={oss.name}
         href={oss.href}
