@@ -213,15 +213,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: isDevelopment ? "preview.contentful.com" : "cdn.contentful.com",
-        localeFilter: (locale: { code: string }) => locale.code === "ja",
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.resolve("content", "articles"),
