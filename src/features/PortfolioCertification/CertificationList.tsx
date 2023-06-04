@@ -21,24 +21,28 @@ export const CertificationList = (props: {
 }): JSX.Element => {
   const { certifications } = props;
 
-  const filteredCertifications = (fieldValue: string) => {
-    return certifications.group.find((group) => group.fieldValue === fieldValue)
-      .nodes;
+  const getFilteredCertifications = (
+    fieldValue: string
+  ): PortfolioCertificationListFragment["group"][number]["nodes"] => {
+    return (
+      certifications.group.find((group) => group.fieldValue === fieldValue)
+        ?.nodes ?? []
+    );
   };
 
   return (
     <Grid container spacing={2}>
       <CertificationCard
         category="主な資格"
-        certifications={filteredCertifications("主な資格")}
+        certifications={getFilteredCertifications("主な資格")}
       />
       <CertificationCard
         category="その他のIT資格"
-        certifications={filteredCertifications("その他のIT資格")}
+        certifications={getFilteredCertifications("その他のIT資格")}
       />
       <CertificationCard
         category="その他の工学資格"
-        certifications={filteredCertifications("その他の工学資格")}
+        certifications={getFilteredCertifications("その他の工学資格")}
       />
     </Grid>
   );

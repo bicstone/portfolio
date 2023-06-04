@@ -18,7 +18,7 @@ export const query = graphql`
 
 export const CertificationCard = (props: {
   category: string;
-  certifications: PortfolioCertificationCardFragment[];
+  certifications: readonly PortfolioCertificationCardFragment[];
 }): JSX.Element => {
   const { category, certifications } = props;
 
