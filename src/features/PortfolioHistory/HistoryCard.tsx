@@ -5,7 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { memo, useMemo } from "react";
+import { memo, useId, useMemo } from "react";
 
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
@@ -14,17 +14,11 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
-  fragment PortfolioHistoryCard on ContentfulHistory {
-    id
-    date
+  fragment PortfolioHistoryCard on HistoriesYaml {
     name
-    subName
-    icon {
-      name
-      svg {
-        svg
-      }
-    }
+    date
+    excerpt
+    icon
   }
 `;
 
@@ -33,9 +27,10 @@ export const HistoryCard = memo(
   (props: {
     history: PortfolioHistoryCardFragment;
     expanded: boolean;
-    onChange: (id: string) => void;
+    onChange: (name: string) => void;
   }): JSX.Element => {
     const { history, expanded, onChange } = props;
+    const id = useId();
 
     const year = useMemo(() => {
       return formatDateTime(history.date, "yyyy");
@@ -46,19 +41,17 @@ export const HistoryCard = memo(
         expanded={expanded}
         disableGutters
         onChange={() => {
-          onChange(history.id);
+          onChange(history.name);
         }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls={`${history.id}-content`}
-          id={`${history.id}-header`}
+          aria-controls={`${id}-content`}
+          id={`${id}-header`}
         >
           <CardHeader
             css={{ padding: 0 }}
-            avatar={
-              <SvgAvatar name={history.icon.name} svg={history.icon.svg.svg} />
-            }
+            avatar={<SvgAvatar aria-hidden="true" svg={history.icon} />}
             title={
               <>
                 <Typography
@@ -82,7 +75,7 @@ export const HistoryCard = memo(
             component="div"
             css={(theme) => ({ margin: theme.spacing(2) })}
           >
-            {history.subName}
+            {history.excerpt}
           </Typography>
         </AccordionDetails>
       </Accordion>

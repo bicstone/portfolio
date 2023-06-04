@@ -34,10 +34,8 @@ export const query = graphql`
         ...PortfolioProjectList
       }
     }
-    histories: allContentfulHistory(sort: { date: DESC }) {
-      nodes {
-        ...PortfolioHistoryList
-      }
+    histories: allHistoriesYaml(sort: { date: DESC }) {
+      ...PortfolioHistoryList
     }
     osses: allOssesYaml(sort: { startDate: DESC }) {
       ...PortfolioOssList
@@ -154,7 +152,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         title={TRANSLATION.home.historiesTitle}
         help={TRANSLATION.home.historiesHelp}
       >
-        <HistoryList histories={data.histories.nodes} />
+        <HistoryList histories={data.histories} />
       </Section>
       <Section
         title={TRANSLATION.home.ossesTitle}

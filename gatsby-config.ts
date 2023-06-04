@@ -245,6 +245,13 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: path.resolve("content", "histories"),
+        name: `histories`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: path.resolve("content", "osses"),
         name: `osses`,
       },

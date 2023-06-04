@@ -18,11 +18,9 @@
 
 ## 構成
 
-Gatsby.js + (Contentful) + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstack 構成としました。
+Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstack 構成としました。
 
 ※ 検証環境は GitHub Pages を使用
-
-※ 現在 Contentful と emotion の引き剥がしを行っています。
 
 ## 特徴
 
@@ -37,7 +35,7 @@ Gatsby.js + (Contentful) + Amazon CloudFront (Cloud Functions) + Amazon S3 を�
 ### セキュリティ
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、脆弱性による改ざん等のリスクが軽減されます。
-- DNSSEC を構成しており、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクが軽減されます。
+- 2023年まで DNSSEC を構成しており、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクが軽減されます。2023年に廃止しました。
 - セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory, DeepSource, SonarCloud を使用し、レビューを受けています。

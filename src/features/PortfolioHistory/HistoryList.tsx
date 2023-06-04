@@ -10,9 +10,11 @@ import { BulkExpandButton } from "@/components/BulkExpandButton";
 import { useAccordionExpend } from "@/hooks/useAccordionExpend";
 
 export const query = graphql`
-  fragment PortfolioHistoryList on ContentfulHistory {
-    id
-    ...PortfolioHistoryCard
+  fragment PortfolioHistoryList on HistoriesYamlConnection {
+    nodes {
+      name
+      ...PortfolioHistoryCard
+    }
   }
 `;
 
@@ -22,7 +24,7 @@ export const HistoryList = (props: {
   const { histories } = props;
 
   const allIds = useMemo(
-    () => histories.map((history) => history.id),
+    () => histories.nodes.map((history) => history.name),
     [histories]
   );
 
@@ -35,11 +37,11 @@ export const HistoryList = (props: {
         <BulkExpandButton expanded={isAllExpanded} onClick={toggleBulkExpand} />
       </Typography>
       <div>
-        {histories.map((history) => (
+        {histories.nodes.map((history) => (
           <HistoryCard
-            key={history.id}
+            key={history.name}
             history={history}
-            expanded={expandedIds.includes(history.id)}
+            expanded={expandedIds.includes(history.name)}
             onChange={toggleExpand}
           />
         ))}

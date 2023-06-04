@@ -29,9 +29,6 @@ export const HeadTemplate = (props: {
         hrefLang={SITE_METADATA.defaultLanguage}
       />
       <link rel="alternate" href={canonical} hrefLang="x-default" />
-      {/* contentful */}
-      <link rel="dns-prefetch" href="https://images.ctfassets.net" />
-      <link rel="dns-prefetch" href="https://videos.ctfassets.net" />
       {/* sentry */}
       <link rel="dns-prefetch" href="https://js.sentry-cdn.com" />
       {/* analytics */}
