@@ -35,7 +35,6 @@ Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstac
 ### セキュリティ
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、脆弱性による改ざん等のリスクが軽減されます。
-- 2023 年まで DNSSEC を構成し、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクを軽減していました。2023 年に廃止しました。
 - セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
 - 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory, DeepSource, SonarCloud を使用し、レビューを受けています。
@@ -44,6 +43,7 @@ Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstac
 - Personal access token が必要な場面では、すべて Fine-grained PAT を用いて最小限度の権限を与えています。
 - AWS への認証において OpenID Connect を活用しています。短命の認証情報を用いることで、リポジトリにシークレットを保持せずにデプロイをしています。
 - Renovate を用いて依存関係を定期的にアップデートしています。
+- 2023 年まで DNSSEC を構成し、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクを軽減していました。2023 年に廃止しました。
 
 ### アクセシビリティ
 
