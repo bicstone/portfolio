@@ -19,7 +19,7 @@ export const query = graphql`
 `;
 
 export const HistoryList = (props: {
-  histories: readonly PortfolioHistoryListFragment[];
+  histories: PortfolioHistoryListFragment;
 }): JSX.Element => {
   const { histories } = props;
 
