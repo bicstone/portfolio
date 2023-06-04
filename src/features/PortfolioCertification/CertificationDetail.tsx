@@ -1,21 +1,16 @@
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { graphql } from "gatsby";
-import { useMemo } from "react";
 
 import type { PortfolioCertificationDetailFragment } from "@/generated/graphqlTypes";
 
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
-import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
-  fragment PortfolioCertificationDetail on ContentfulQualification {
+  fragment PortfolioCertificationDetail on CertificationsYaml {
     name
-    date
+    startDate
     endDate
-    url
   }
 `;
 
@@ -24,33 +19,12 @@ export const CertificationDetail = (props: {
 }): JSX.Element => {
   const { certification } = props;
 
-  const date = useMemo(() => {
-    return formatDateTime(certification.date, "yyyy/MM/dd");
-  }, [certification.date]);
+  const startDate = formatDateTime(certification.startDate, "yyyy/MM/dd");
+  const endDate = formatDateTime(certification.endDate, "yyyy/MM/dd");
+  const formattedDate =
+    endDate !== "" ? `${startDate} - ${endDate}` : startDate;
 
-  const endDate = useMemo(() => {
-    return formatDateTime(certification.endDate, "yyyy/MM/dd");
-  }, [certification.endDate]);
-
-  const formattedDate = useMemo(() => {
-    if (isDefined(endDate) && endDate !== "") {
-      return `${date} - ${endDate}`;
-    }
-    return date;
-  }, [date, endDate]);
-
-  return isDefined(certification.url) ? (
-    <ListItem>
-      <ListItemButton
-        href={certification.url}
-        rel="external noopener"
-        title={TRANSLATION.certification.detail.title}
-        disableGutters
-      >
-        <ListItemText primary={certification.name} secondary={formattedDate} />
-      </ListItemButton>
-    </ListItem>
-  ) : (
+  return (
     <ListItem>
       <ListItemText primary={certification.name} secondary={formattedDate} />
     </ListItem>

@@ -1,41 +1,25 @@
+import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-import { graphql } from "gatsby";
 
-import type { PortfolioWhatICanDoCardFragment } from "@/generated/graphqlTypes";
+export interface WhatICanDoCardProps {
+  avatar: JSX.Element;
+  name: string;
+  subName: string;
+}
 
-import { SvgAvatar } from "@/components/SvgAvatar";
-
-export const query = graphql`
-  fragment PortfolioWhatICanDoCard on ContentfulWhatICanDo {
-    name
-    subName
-    icon {
-      name
-      svg {
-        svg
-      }
-    }
-  }
-`;
-
-export const WhatICanDoCard = (props: {
-  whatICanDo: PortfolioWhatICanDoCardFragment;
-}): JSX.Element => {
-  const { whatICanDo } = props;
-
+export const WhatICanDoCard = ({
+  avatar,
+  name,
+  subName,
+}: WhatICanDoCardProps): JSX.Element => {
   return (
     <Card component="section">
       <CardHeader
-        avatar={
-          <SvgAvatar
-            name={whatICanDo.icon.name}
-            svg={whatICanDo.icon.svg.svg}
-          />
-        }
-        title={whatICanDo.name}
+        avatar={<Avatar aria-hidden="true">{avatar}</Avatar>}
+        title={name}
         titleTypographyProps={{ component: "h2", variant: "h6" }}
-        subheader={whatICanDo.subName}
+        subheader={subName}
         subheaderTypographyProps={{
           variant: "body2",
           color: "text.secondary",

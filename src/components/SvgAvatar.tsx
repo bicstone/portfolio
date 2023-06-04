@@ -6,7 +6,7 @@ import { memo } from "react";
 import type { ComponentProps } from "react";
 
 export interface SvgAvatarProps {
-  name: string;
+  name?: string;
   svg: string;
 }
 

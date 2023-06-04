@@ -9,7 +9,6 @@ import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
 
-const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
@@ -213,15 +212,6 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: isDevelopment ? "preview.contentful.com" : "cdn.contentful.com",
-        localeFilter: (locale: { code: string }) => locale.code === "ja",
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: path.resolve("content", "articles"),
@@ -236,8 +226,35 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-transformer-sharp`,
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "certifications"),
+        name: `certifications`,
+      },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "histories"),
+        name: `histories`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "osses"),
+        name: `osses`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", "projects"),
+        name: `projects`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
   ],
 };
 

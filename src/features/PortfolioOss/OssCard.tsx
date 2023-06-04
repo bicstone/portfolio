@@ -1,28 +1,19 @@
+import GitHubIcon from "@mui/icons-material/GitHub";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useMemo } from "react";
 
 import type { PortfolioOssCardFragment } from "@/generated/graphqlTypes";
 
-import { SvgAvatar } from "@/components/SvgAvatar";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
-  fragment PortfolioOssCard on ContentfulOss {
+  fragment PortfolioOssCard on OssesYaml {
     name
-    tags {
-      name
-    }
-    icon {
-      name
-      svg {
-        svg
-      }
-    }
+    tags
     startDate
     href
   }
@@ -32,10 +23,7 @@ export const OssCard = (props: {
   oss: PortfolioOssCardFragment;
 }): JSX.Element => {
   const { oss } = props;
-
-  const startYear = useMemo(() => {
-    return formatDateTime(oss.startDate, "yyyy/MM");
-  }, [oss.startDate]);
+  const startYear = formatDateTime(oss.startDate, "yyyy/MM");
 
   return (
     <Card component="section">
@@ -46,7 +34,7 @@ export const OssCard = (props: {
         css={{ height: "100%" }}
       >
         <CardHeader
-          avatar={<SvgAvatar name={oss.icon.name} svg={oss.icon.svg.svg} />}
+          avatar={<GitHubIcon aria-hidden="true" />}
           title={
             <>
               <Typography variant="body2" component="div" color="textSecondary">
@@ -60,12 +48,7 @@ export const OssCard = (props: {
           subheader={
             <Typography variant="body2" component="div" color="textSecondary">
               {oss.tags.map((tag) => (
-                <Chip
-                  variant="outlined"
-                  size="small"
-                  key={tag.name}
-                  label={tag.name}
-                />
+                <Chip variant="outlined" size="small" key={tag} label={tag} />
               ))}
             </Typography>
           }

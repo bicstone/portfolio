@@ -1,0 +1,9 @@
+- name: ITパスポート試験
+  startDate: 2012-10-15
+  category: その他のIT資格
+- name: 応用情報技術者試験
+  startDate: 2016-12-16
+  category: 主な資格
+- name: 日本品質管理学会 品質管理検定3級
+  startDate: 2016-10-04
+  category: その他の工学資格

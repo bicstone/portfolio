@@ -18,7 +18,6 @@ import { HelloContent } from "@/features/PortfolioHello";
 import { HistoryList } from "@/features/PortfolioHistory";
 import { OssList } from "@/features/PortfolioOss";
 import { ProjectList } from "@/features/PortfolioProject";
-import { SkillList } from "@/features/PortfolioSkill";
 import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
@@ -30,40 +29,17 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage {
-    links: allContentfulHello(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioHelloContent
-      }
+    projects: allProjectsYaml(sort: { startDate: DESC }) {
+      ...PortfolioProjectList
     }
-    whatICanDos: allContentfulWhatICanDo(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioWhatICanDoList
-      }
+    histories: allHistoriesYaml(sort: { date: DESC }) {
+      ...PortfolioHistoryList
     }
-    projects: allContentfulProject(sort: { startDate: DESC }) {
-      nodes {
-        ...PortfolioProjectList
-      }
+    osses: allOssesYaml(sort: { startDate: DESC }) {
+      ...PortfolioOssList
     }
-    histories: allContentfulHistory(sort: { date: DESC }) {
-      nodes {
-        ...PortfolioHistoryList
-      }
-    }
-    osses: allContentfulOss(sort: { startDate: DESC }) {
-      nodes {
-        ...PortfolioOssList
-      }
-    }
-    skills: allContentfulSkillMap(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioSkillList
-      }
-    }
-    certification: allContentfulQualificationMap(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioCertificationList
-      }
+    certifications: allCertificationsYaml(sort: { startDate: DESC }) {
+      ...PortfolioCertificationList
     }
   }
 `;
@@ -159,40 +135,34 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   return (
     <>
       <PaddingContainer maxWidth="lg">
-        <HelloContent links={data.links.nodes} />
+        <HelloContent />
       </PaddingContainer>
       <PaddingContainer maxWidth="lg">
-        <WhatICanDoList whatICanDos={data.whatICanDos.nodes} />
+        <WhatICanDoList />
       </PaddingContainer>
       <Section
         title={TRANSLATION.home.projectsTitle}
         help={TRANSLATION.home.projectsHelp}
       >
-        <ProjectList projects={data.projects.nodes} />
+        <ProjectList projects={data.projects} />
       </Section>
       <Section
         title={TRANSLATION.home.historiesTitle}
         help={TRANSLATION.home.historiesHelp}
       >
-        <HistoryList histories={data.histories.nodes} />
-      </Section>
-      <Section
-        title={TRANSLATION.home.skillsTitle}
-        help={TRANSLATION.home.skillsHelp}
-      >
-        <SkillList skills={data.skills.nodes} />
+        <HistoryList histories={data.histories} />
       </Section>
       <Section
         title={TRANSLATION.home.ossesTitle}
         help={TRANSLATION.home.ossesHelp}
       >
-        <OssList osses={data.osses.nodes} />
+        <OssList osses={data.osses} />
       </Section>
       <Section
         title={TRANSLATION.home.qualificationsTitle}
         help={TRANSLATION.home.qualificationsHelp}
       >
-        <CertificationList certifications={data.certification.nodes} />
+        <CertificationList certifications={data.certifications} />
       </Section>
     </>
   );

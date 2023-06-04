@@ -41,11 +41,6 @@ export const query = graphql`
       }
       ...BlogPostTableOfContent
     }
-    links: allContentfulHello(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioHelloContent
-      }
-    }
     relatedPosts: allMdx(
       filter: { frontmatter: { tags: { in: $tags } } }
       sort: { frontmatter: { created: DESC } }
@@ -306,7 +301,7 @@ const BlogPostTemplate = ({
             marginBottom: theme.spacing(2),
           })}
         >
-          <HelloContent links={data.links.nodes} />
+          <HelloContent />
         </section>
       </aside>
 
