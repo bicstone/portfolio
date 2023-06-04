@@ -29,10 +29,8 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage {
-    projects: allContentfulProject(sort: { startDate: DESC }) {
-      nodes {
-        ...PortfolioProjectList
-      }
+    projects: allProjectsYaml(sort: { startDate: DESC }) {
+      ...PortfolioProjectList
     }
     histories: allHistoriesYaml(sort: { date: DESC }) {
       ...PortfolioHistoryList
@@ -146,7 +144,7 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         title={TRANSLATION.home.projectsTitle}
         help={TRANSLATION.home.projectsHelp}
       >
-        <ProjectList projects={data.projects.nodes} />
+        <ProjectList projects={data.projects} />
       </Section>
       <Section
         title={TRANSLATION.home.historiesTitle}
