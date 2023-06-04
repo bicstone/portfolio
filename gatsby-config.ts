@@ -9,7 +9,6 @@ import type { GatsbyConfig } from "gatsby";
 
 dotenv.config({ path: `.env` });
 
-const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 
