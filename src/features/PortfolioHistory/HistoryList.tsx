@@ -1,6 +1,5 @@
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useMemo } from "react";
 
 import { HistoryCard } from "./HistoryCard";
 
@@ -23,10 +22,7 @@ export const HistoryList = (props: {
 }): JSX.Element => {
   const { histories } = props;
 
-  const allIds = useMemo(
-    () => histories.nodes.map((history) => history.name),
-    [histories]
-  );
+  const allIds = histories.nodes.map((history) => history.name);
 
   const { expandedIds, isAllExpanded, toggleBulkExpand, toggleExpand } =
     useAccordionExpend(allIds);

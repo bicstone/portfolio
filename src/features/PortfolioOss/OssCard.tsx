@@ -5,7 +5,6 @@ import CardHeader from "@mui/material/CardHeader";
 import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { useMemo } from "react";
 
 import type { PortfolioOssCardFragment } from "@/generated/graphqlTypes";
 
@@ -24,10 +23,7 @@ export const OssCard = (props: {
   oss: PortfolioOssCardFragment;
 }): JSX.Element => {
   const { oss } = props;
-
-  const startYear = useMemo(() => {
-    return formatDateTime(oss.startDate, "yyyy/MM");
-  }, [oss.startDate]);
+  const startYear = formatDateTime(oss.startDate, "yyyy/MM");
 
   return (
     <Card component="section">

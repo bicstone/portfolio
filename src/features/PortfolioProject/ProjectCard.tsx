@@ -2,7 +2,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { memo, useMemo } from "react";
+import { memo } from "react";
 
 import type { PortfolioProjectCardFragment } from "@/generated/graphqlTypes";
 

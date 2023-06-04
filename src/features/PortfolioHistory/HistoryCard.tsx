@@ -5,7 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { memo, useId, useMemo } from "react";
+import { memo, useId } from "react";
 
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
@@ -31,10 +31,7 @@ export const HistoryCard = memo(
   }): JSX.Element => {
     const { history, expanded, onChange } = props;
     const id = useId();
-
-    const year = useMemo(() => {
-      return formatDateTime(history.date, "yyyy");
-    }, [history.date]);
+    const year = formatDateTime(history.date, "yyyy");
 
     return (
       <Accordion
