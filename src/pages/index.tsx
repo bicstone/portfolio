@@ -18,7 +18,6 @@ import { HelloContent } from "@/features/PortfolioHello";
 import { HistoryList } from "@/features/PortfolioHistory";
 import { OssList } from "@/features/PortfolioOss";
 import { ProjectList } from "@/features/PortfolioProject";
-import { SkillList } from "@/features/PortfolioSkill";
 import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
@@ -42,11 +41,6 @@ export const query = graphql`
     }
     osses: allOssesYaml(sort: { startDate: DESC }) {
       ...PortfolioOssList
-    }
-    skills: allContentfulSkillMap(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioSkillList
-      }
     }
     certifications: allCertificationsYaml(sort: { startDate: DESC }) {
       ...PortfolioCertificationList
@@ -161,12 +155,6 @@ const Home = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         help={TRANSLATION.home.historiesHelp}
       >
         <HistoryList histories={data.histories.nodes} />
-      </Section>
-      <Section
-        title={TRANSLATION.home.skillsTitle}
-        help={TRANSLATION.home.skillsHelp}
-      >
-        <SkillList skills={data.skills.nodes} />
       </Section>
       <Section
         title={TRANSLATION.home.ossesTitle}

@@ -8413,27 +8413,6 @@ export type PortfolioProjectListFragment = (
   )> }
 );
 
-export type PortfolioSkillCardFragment = (
-  Pick<ContentfulSkillMap, 'id' | 'name'>
-  & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
-    Pick<ContentfulSkillGrpup, 'id' | 'name'>
-    & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-  )>>> }
-);
-
-export type PortfolioSkillGroupDetailFragment = (
-  Pick<ContentfulSkillGrpup, 'name'>
-  & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-);
-
-export type PortfolioSkillListFragment = (
-  Pick<ContentfulSkillMap, 'id' | 'name'>
-  & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
-    Pick<ContentfulSkillGrpup, 'id' | 'name'>
-    & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-  )>>> }
-);
-
 export type RelatedBlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> };
 
 export type RelatedBlogPostListFragment = (
@@ -8469,13 +8448,7 @@ export type IndexPageQuery = { readonly projects: { readonly nodes: ReadonlyArra
         Pick<ContentfulIcon, 'name'>
         & { readonly svg: Maybe<Pick<ContentfulIconSvgTextNode, 'svg'>> }
       )> }
-    )> }, readonly osses: { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'name' | 'tags' | 'startDate' | 'href'>> }, readonly skills: { readonly nodes: ReadonlyArray<(
-      Pick<ContentfulSkillMap, 'id' | 'name'>
-      & { readonly skillGroups: Maybe<ReadonlyArray<Maybe<(
-        Pick<ContentfulSkillGrpup, 'id' | 'name'>
-        & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
-      )>>> }
-    )> }, readonly certifications: { readonly group: ReadonlyArray<(
+    )> }, readonly osses: { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'name' | 'tags' | 'startDate' | 'href'>> }, readonly certifications: { readonly group: ReadonlyArray<(
       Pick<CertificationsYamlGroupConnection, 'fieldValue'>
       & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'name' | 'startDate' | 'endDate'>> }
     )> } };
