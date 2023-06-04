@@ -38,23 +38,18 @@ export type BooleanQueryOperatorInput = {
 };
 
 export type CertificationsYaml = Node & {
-  readonly certifications: Maybe<ReadonlyArray<Maybe<CertificationsYamlCertifications>>>;
+  readonly category: Maybe<Scalars['String']['output']>;
   readonly children: ReadonlyArray<Node>;
+  readonly endDate: Maybe<Scalars['Date']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly name: Maybe<Scalars['String']['output']>;
   readonly parent: Maybe<Node>;
-  readonly sortKey: Maybe<Scalars['Int']['output']>;
-};
-
-export type CertificationsYamlCertifications = {
-  readonly endDate: Maybe<Scalars['Date']['output']>;
-  readonly name: Maybe<Scalars['String']['output']>;
   readonly startDate: Maybe<Scalars['Date']['output']>;
 };
 
 
-export type CertificationsYamlCertificationsEndDateArgs = {
+export type CertificationsYamlEndDateArgs = {
   difference: InputMaybe<Scalars['String']['input']>;
   formatString: InputMaybe<Scalars['String']['input']>;
   fromNow: InputMaybe<Scalars['Boolean']['input']>;
@@ -62,33 +57,11 @@ export type CertificationsYamlCertificationsEndDateArgs = {
 };
 
 
-export type CertificationsYamlCertificationsStartDateArgs = {
+export type CertificationsYamlStartDateArgs = {
   difference: InputMaybe<Scalars['String']['input']>;
   formatString: InputMaybe<Scalars['String']['input']>;
   fromNow: InputMaybe<Scalars['Boolean']['input']>;
   locale: InputMaybe<Scalars['String']['input']>;
-};
-
-export type CertificationsYamlCertificationsFieldSelector = {
-  readonly endDate: InputMaybe<FieldSelectorEnum>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
-  readonly startDate: InputMaybe<FieldSelectorEnum>;
-};
-
-export type CertificationsYamlCertificationsFilterInput = {
-  readonly endDate: InputMaybe<DateQueryOperatorInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
-  readonly startDate: InputMaybe<DateQueryOperatorInput>;
-};
-
-export type CertificationsYamlCertificationsFilterListInput = {
-  readonly elemMatch: InputMaybe<CertificationsYamlCertificationsFilterInput>;
-};
-
-export type CertificationsYamlCertificationsSortInput = {
-  readonly endDate: InputMaybe<SortOrderEnum>;
-  readonly name: InputMaybe<SortOrderEnum>;
-  readonly startDate: InputMaybe<SortOrderEnum>;
 };
 
 export type CertificationsYamlConnection = {
@@ -137,23 +110,25 @@ export type CertificationsYamlEdge = {
 };
 
 export type CertificationsYamlFieldSelector = {
-  readonly certifications: InputMaybe<CertificationsYamlCertificationsFieldSelector>;
+  readonly category: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly endDate: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly name: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly sortKey: InputMaybe<FieldSelectorEnum>;
+  readonly startDate: InputMaybe<FieldSelectorEnum>;
 };
 
 export type CertificationsYamlFilterInput = {
-  readonly certifications: InputMaybe<CertificationsYamlCertificationsFilterListInput>;
+  readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly endDate: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly name: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly sortKey: InputMaybe<IntQueryOperatorInput>;
+  readonly startDate: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type CertificationsYamlFilterListInput = {
@@ -202,13 +177,14 @@ export type CertificationsYamlGroupConnectionSumArgs = {
 };
 
 export type CertificationsYamlSortInput = {
-  readonly certifications: InputMaybe<CertificationsYamlCertificationsSortInput>;
+  readonly category: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
+  readonly endDate: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly name: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly sortKey: InputMaybe<SortOrderEnum>;
+  readonly startDate: InputMaybe<SortOrderEnum>;
 };
 
 export type ContentfulAsset = ContentfulReference & Node & RemoteFile & {
@@ -6340,13 +6316,14 @@ export type QueryAllSitePluginArgs = {
 
 
 export type QueryCertificationsYamlArgs = {
-  certifications: InputMaybe<CertificationsYamlCertificationsFilterListInput>;
+  category: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
+  endDate: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   name: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  sortKey: InputMaybe<IntQueryOperatorInput>;
+  startDate: InputMaybe<DateQueryOperatorInput>;
 };
 
 
@@ -8391,16 +8368,13 @@ export type BlogPostListFragment = (
 
 export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
-export type PortfolioCertificationCardFragment = (
-  Pick<CertificationsYaml, 'name'>
-  & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'startDate' | 'name' | 'endDate'>>>> }
-);
+export type PortfolioCertificationCardFragment = Pick<CertificationsYaml, 'name' | 'startDate' | 'endDate'>;
 
-export type PortfolioCertificationDetailFragment = Pick<CertificationsYamlCertifications, 'name' | 'startDate' | 'endDate'>;
+export type PortfolioCertificationDetailFragment = Pick<CertificationsYaml, 'name' | 'startDate' | 'endDate'>;
 
-export type PortfolioCertificationListFragment = { readonly nodes: ReadonlyArray<(
-    Pick<CertificationsYaml, 'sortKey' | 'name'>
-    & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'startDate' | 'name' | 'endDate'>>>> }
+export type PortfolioCertificationListFragment = { readonly group: ReadonlyArray<(
+    Pick<CertificationsYamlGroupConnection, 'fieldValue'>
+    & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'name' | 'startDate' | 'endDate'>> }
   )> };
 
 export type PortfolioHistoryCardFragment = (
@@ -8501,9 +8475,9 @@ export type IndexPageQuery = { readonly projects: { readonly nodes: ReadonlyArra
         Pick<ContentfulSkillGrpup, 'id' | 'name'>
         & { readonly skills: Maybe<ReadonlyArray<Maybe<Pick<ContentfulTag, 'id' | 'level' | 'name'>>>> }
       )>>> }
-    )> }, readonly certifications: { readonly nodes: ReadonlyArray<(
-      Pick<CertificationsYaml, 'sortKey' | 'name'>
-      & { readonly certifications: Maybe<ReadonlyArray<Maybe<Pick<CertificationsYamlCertifications, 'startDate' | 'name' | 'endDate'>>>> }
+    )> }, readonly certifications: { readonly group: ReadonlyArray<(
+      Pick<CertificationsYamlGroupConnection, 'fieldValue'>
+      & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'name' | 'startDate' | 'endDate'>> }
     )> } };
 
 export type BlogPostTemplateQueryVariables = Exact<{

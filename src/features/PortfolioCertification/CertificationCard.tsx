@@ -12,27 +12,15 @@ import type { PortfolioCertificationCardFragment } from "@/generated/graphqlType
 export const query = graphql`
   fragment PortfolioCertificationCard on CertificationsYaml {
     name
-    certifications {
-      startDate
-      ...PortfolioCertificationDetail
-    }
+    ...PortfolioCertificationDetail
   }
 `;
 
 export const CertificationCard = (props: {
-  group: PortfolioCertificationCardFragment;
+  category: string;
+  certifications: PortfolioCertificationCardFragment[];
 }): JSX.Element => {
-  const { group } = props;
-
-  const sortedCertifications = Array.from(group.certifications).sort((a, b) => {
-    if (a.startDate > b.startDate) {
-      return -1;
-    }
-    if (a.startDate < b.startDate) {
-      return 1;
-    }
-    return 0;
-  });
+  const { category, certifications } = props;
 
   return (
     <Grid item xs={12} sm={6} md={4} component="section">
@@ -40,12 +28,12 @@ export const CertificationCard = (props: {
         <CardHeader
           title={
             <Typography component="h2" variant="h6">
-              {group.name}
+              {category}
             </Typography>
           }
           subheader={
             <List dense>
-              {sortedCertifications.map((certification) => (
+              {certifications.map((certification) => (
                 <CertificationDetail
                   key={certification.name}
                   certification={certification}

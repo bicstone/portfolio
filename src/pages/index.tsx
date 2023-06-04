@@ -48,7 +48,7 @@ export const query = graphql`
         ...PortfolioSkillList
       }
     }
-    certifications: allCertificationsYaml(sort: { sortKey: ASC }) {
+    certifications: allCertificationsYaml(sort: { startDate: DESC }) {
       ...PortfolioCertificationList
     }
   }

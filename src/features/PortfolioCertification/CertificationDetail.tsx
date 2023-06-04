@@ -7,7 +7,7 @@ import type { PortfolioCertificationDetailFragment } from "@/generated/graphqlTy
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
-  fragment PortfolioCertificationDetail on CertificationsYamlCertifications {
+  fragment PortfolioCertificationDetail on CertificationsYaml {
     name
     startDate
     endDate
