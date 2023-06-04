@@ -1,50 +1,9 @@
-- name: ICTプロフィシエンシー検定協会 P検 3級
-  startDate: 2010-04-01
-  category: その他のIT資格
-- name: ICTプロフィシエンシー検定協会 P検 準2級
-  startDate: 2010-07-19
-  category: その他のIT資格
-- name: ICTプロフィシエンシー検定協会 P検 2級
-  startDate: 2011-03-05
-  category: その他のIT資格
 - name: ITパスポート試験
   startDate: 2012-10-15
-  category: その他のIT資格
-- name: 基本情報技術者試験
-  startDate: 2015-11-16
   category: その他のIT資格
 - name: 応用情報技術者試験
   startDate: 2016-12-16
   category: 主な資格
-- name: 第一種準中型自動車免許(5t)
-  startDate: 2016-02-19
-  category: 主な資格
 - name: 日本品質管理学会 品質管理検定3級
   startDate: 2016-10-04
   category: その他の工学資格
-- name: 第二種電気工事士
-  startDate: 2018-02-19
-  category: 主な資格
-- name: 床上操作式クレーン運転作業者 (5t以上)
-  startDate: 2018-08-10
-  category: その他の工学資格
-- name: 玉掛け作業者
-  startDate: 2018-05-31
-  category: その他の工学資格
-- name: （型わく支保工、足場）計画作成参画者
-  startDate: 2017-09-15
-  category: その他の工学資格
-- name: ゴンドラ操作者
-  startDate: 2017-04-05
-  category: その他の工学資格
-- name: 情報処理安全確保支援士試験 合格
-  startDate: 2018-12-21
-  category: 主な資格
-- name: 情報処理安全確保支援士登録 017758号
-  startDate: 2019-04-01
-  endDate: 2025-03-31
-  category: 主な資格
-- name: Certified ScrumMaster® (CSM®)
-  startDate: 2022-11-20
-  endDate: 2024-11-20
-  category: 主な資格
