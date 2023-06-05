@@ -8,27 +8,80 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { BlogPostList } from "@/features/BlogPostList";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
   query BlogPage {
-    blogPostList: allMdx(sort: { frontmatter: { created: DESC } }) {
+    blogPosts: allMdx(sort: { frontmatter: { created: DESC } }) {
       nodes {
+        __typename
         frontmatter {
           title
+          slug
           created
           category
         }
         ...BlogPostList
       }
     }
+    timelines: allTimeline(sort: { date: DESC }) {
+      nodes {
+        __typename
+        title
+        url
+        date
+      }
+    }
   }
 `;
 
+export interface TimeLineItem {
+  typeName: string;
+  title: string;
+  date: string;
+  url: string;
+}
+
+const getTimelineItems = (data: BlogPageQuery): TimeLineItem[] => {
+  const timelineItems: TimeLineItem[] = [];
+
+  data.blogPosts.nodes.forEach((node) => {
+    timelineItems.push({
+      typeName: node.__typename,
+      title: node.frontmatter.title,
+      date: node.frontmatter.created,
+      url: node.frontmatter.slug,
+    });
+  });
+
+  data.timelines.nodes.forEach((node) => {
+    timelineItems.push({
+      typeName: node.__typename,
+      title: node.title,
+      date: node.date,
+      url: node.url,
+    });
+  });
+
+  const sortedTimelineItems = Array.from(timelineItems).sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    if (dateA > dateB) {
+      return -1;
+    }
+    if (dateA < dateB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  return sortedTimelineItems;
+};
+
 export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
-  const blogPostList = data.blogPostList.nodes;
+  const timelineItems = getTimelineItems(data);
   const title = `${SITE_METADATA.blogTitle} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
@@ -70,11 +123,13 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
               },
             },
             blogPost: [
-              ...blogPostList.map((post) => ({
+              ...timelineItems.map((item) => ({
                 "@type": "BlogPosting",
-                headline: post.frontmatter.title,
-                image: `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
-                datePublished: post.frontmatter.created,
+                headline: item.title,
+                image:
+                  item.typeName === "Mdx" &&
+                  `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
+                datePublished: item.date,
                 author: {
                   "@type": "Person",
                   name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
@@ -134,7 +189,7 @@ export const Head: HeadFC<BlogPageQuery> = ({ location, data }) => {
 };
 
 const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
-  const blogPostList = data.blogPostList.nodes;
+  const timelineItems = getTimelineItems(data);
 
   return (
     <Container
@@ -150,7 +205,14 @@ const BlogPage = ({ data }: PageProps<BlogPageQuery>): JSX.Element => {
         {TRANSLATION.blog.title}
       </Typography>
 
-      <BlogPostList blogPostList={blogPostList} />
+      <ul>
+        {timelineItems.map((item) => (
+          <li key={item.url}>
+            {item.title} - {item.date}
+          </li>
+        ))}
+        {/* <BlogPostList blogPostList={timelineItems} /> */}
+      </ul>
 
       <Breadcrumbs
         title={TRANSLATION.blog.title}

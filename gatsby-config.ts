@@ -11,6 +11,17 @@ dotenv.config({ path: `.env` });
 
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
+const contentPaths = [
+  "articles",
+  "connpass",
+  "images",
+  "certifications",
+  "histories",
+  "osses",
+  "projects",
+  "speakerdeck",
+  "zenn",
+];
 
 interface GatsbyPluginFeedQuery {
   readonly allMdx: {
@@ -211,48 +222,15 @@ const config: GatsbyConfig = {
         },
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "articles"),
-        name: `articles`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "images"),
-        name: `images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "certifications"),
-        name: `certifications`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "histories"),
-        name: `histories`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "osses"),
-        name: `osses`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "projects"),
-        name: `projects`,
-      },
-    },
+    ...contentPaths.map((contentPath) => {
+      return {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: path.resolve("content", contentPath),
+          name: contentPath,
+        },
+      };
+    }),
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
   ],

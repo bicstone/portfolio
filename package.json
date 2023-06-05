@@ -59,6 +59,7 @@
     "@graphql-codegen/introspection": "4.0.0",
     "@graphql-codegen/typescript": "4.0.0",
     "@graphql-codegen/typescript-operations": "4.0.0",
+    "@types/js-yaml": "4.0.5",
     "@types/node": "18.16.16",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
@@ -77,6 +78,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "eslint-plugin-regexp": "1.15.0",
     "husky": "8.0.3",
+    "js-yaml": "4.1.0",
     "prettier": "2.8.8",
     "typescript": "5.1.3"
   },

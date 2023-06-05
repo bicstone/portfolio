@@ -9,6 +9,7 @@ import {
   BLOG_POST_SEARCH_FIELDS,
 } from "./src/features/BlogPostSearch/constants";
 import { createOgpImage } from "./src/utils/createOgpImage";
+import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
 import { isDefined } from "./src/utils/typeguard";
 
 import type {
@@ -99,6 +100,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
  * Copy assets to public
  * Create fuse index
  * Create OGP images
+ * Create Zenn articles json
+ * Create Speaker Deck Slides json
+ * Create Connpass Events json
  */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
@@ -177,4 +181,51 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     reporter.success(
       `onCreatePagesStatefully: Created ${blogPostList.length} blog ogp images`
     );
+
+    /**
+     * Create Zenn articles json
+     * Create Speaker Deck Slides json
+     * Create Connpass Events json
+     */
+    await fetchLaprasActivity();
+
+    reporter.success(
+      `onCreatePagesStatefully: Created Zenn articles, Speaker Deck Slides, Connpass Events json`
+    );
+  };
+
+/**
+ * Create timeline schema
+ */
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+  ({ actions }) => {
+    const { createTypes } = actions;
+    const typeDefs = /* GraphQL */ `
+      interface Timeline implements Node {
+        id: ID!
+        title: String!
+        date: Date!
+        url: String!
+      }
+
+      type ArticlesYaml implements Node & Timeline {
+        title: String!
+        date: Date!
+        url: String!
+      }
+
+      type EventsYaml implements Node & Timeline {
+        title: String!
+        date: Date!
+        url: String!
+      }
+
+      type SlidesYaml implements Node & Timeline {
+        title: String!
+        date: Date!
+        url: String!
+      }
+    `;
+
+    createTypes(typeDefs);
   };
