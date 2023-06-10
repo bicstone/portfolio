@@ -2000,24 +2000,16 @@ export type NodeSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
 };
 
-export type OssesYaml = Node & {
+export type OssesYaml = Node & Timeline & {
   readonly __typename?: 'OssesYaml';
   readonly children: ReadonlyArray<Node>;
-  readonly href: Maybe<Scalars['String']['output']>;
+  readonly date: Scalars['Date']['output'];
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
-  readonly name: Maybe<Scalars['String']['output']>;
   readonly parent: Maybe<Node>;
-  readonly startDate: Maybe<Scalars['Date']['output']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
-};
-
-
-export type OssesYamlStartDateArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
+  readonly title: Scalars['String']['output'];
+  readonly url: Scalars['String']['output'];
 };
 
 export type OssesYamlConnection = {
@@ -2069,24 +2061,24 @@ export type OssesYamlEdge = {
 
 export type OssesYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly href: InputMaybe<FieldSelectorEnum>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly startDate: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 export type OssesYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly href: InputMaybe<StringQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly startDate: InputMaybe<DateQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type OssesYamlFilterListInput = {
@@ -2137,13 +2129,13 @@ export type OssesYamlGroupConnectionSumArgs = {
 
 export type OssesYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
-  readonly href: InputMaybe<SortOrderEnum>;
+  readonly date: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly name: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly startDate: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 export type PngOptions = {
@@ -2665,13 +2657,13 @@ export type QueryMdxArgs = {
 
 export type QueryOssesYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
-  href: InputMaybe<StringQueryOperatorInput>;
+  date: InputMaybe<DateQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  startDate: InputMaybe<DateQueryOperatorInput>;
   tags: InputMaybe<StringQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -3920,14 +3912,14 @@ export type PortfolioHistoryListFragment = (
 
 export type PortfolioOssCardFragment = (
   { readonly __typename?: 'OssesYaml' }
-  & Pick<OssesYaml, 'name' | 'tags' | 'startDate' | 'href'>
+  & Pick<OssesYaml, 'title' | 'tags' | 'date' | 'url'>
 );
 
 export type PortfolioOssListFragment = (
   { readonly __typename?: 'OssesYamlConnection' }
   & { readonly nodes: ReadonlyArray<(
     { readonly __typename?: 'OssesYaml' }
-    & Pick<OssesYaml, 'name' | 'tags' | 'startDate' | 'href'>
+    & Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>
   )> }
 );
 
@@ -3993,7 +3985,7 @@ export type IndexPageQuery = (
     { readonly __typename?: 'OssesYamlConnection' }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename?: 'OssesYaml' }
-      & Pick<OssesYaml, 'name' | 'tags' | 'startDate' | 'href'>
+      & Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>
     )> }
   ), readonly certifications: (
     { readonly __typename?: 'CertificationsYamlConnection' }
@@ -4027,6 +4019,9 @@ export type OutputsPageQuery = (
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'title' | 'url' | 'date'>
+    ) | (
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'title' | 'url' | 'date'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'title' | 'url' | 'date'>

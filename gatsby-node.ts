@@ -217,6 +217,12 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date!
         url: String!
       }
+
+      type OssesYaml implements Node & Timeline {
+        title: String!
+        date: Date!
+        url: String!
+      }
     `;
 
     createTypes(typeDefs);

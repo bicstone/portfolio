@@ -72,7 +72,9 @@ export const TimelineCard = ({
                   marginRight: theme.spacing(0.5),
                 })}
               />
-              <time dateTime={item.date}>{formattedDate}</time>
+              <time dateTime={item.date}>
+                {formattedDate} / {item.typeName}
+              </time>
             </Typography>
             <Typography component="h3" variant="h6">
               {item.title}
