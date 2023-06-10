@@ -6,7 +6,7 @@ export const TRANSLATION = {
     relatedTitle: "関連記事",
     shareTitle: "シェア",
     tableOfContentsTitle: "目次",
-    title: "まっしろブログ",
+    title: "Timeline",
   },
   bulkExpandButton: {
     hint: "このボタンを押下すると、全項目の詳細説明の展開を切り替えられます。すべて展開せずとも、項目上でキーボードの Enter を押下すると、それぞれの項目で展開を操作できます。",
@@ -91,7 +91,7 @@ export const TRANSLATION = {
     loading: "読み込み中",
     error:
       "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
-    hint: "まっしろブログを検索",
+    hint: "Timeline を検索",
     title: "検索",
   },
   share: {
@@ -125,6 +125,9 @@ export const TRANSLATION = {
       name: "LINE",
       title: "LINE で共有する  (新しい window で開きます)",
     },
+  },
+  outputs: {
+    title: "Outputs",
   },
 } as const satisfies Record<
   string,

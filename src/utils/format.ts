@@ -1,5 +1,5 @@
 import { isValid } from "date-fns";
-import { ja } from "date-fns/locale";
+import { enUS } from "date-fns/locale";
 import { format as formatFn, utcToZonedTime } from "date-fns-tz";
 
 const timeZone = "Asia/Tokyo";
@@ -14,5 +14,5 @@ export const formatDateTime = (value: string, format: string): string => {
 
   if (!isValid(parsedDate)) return "";
 
-  return formatFn(parsedDate, format, { locale: ja, timeZone });
+  return formatFn(parsedDate, format, { locale: enUS, timeZone });
 };
