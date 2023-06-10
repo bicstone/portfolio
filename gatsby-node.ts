@@ -206,19 +206,26 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         url: String!
       }
 
-      type ArticlesYaml implements Node & Timeline {
+      interface Output implements Node & Timeline {
+        id: ID!
         title: String!
         date: Date!
         url: String!
       }
 
-      type SlidesYaml implements Node & Timeline {
+      type ArticlesYaml implements Node & Timeline & Output {
         title: String!
         date: Date!
         url: String!
       }
 
-      type OssesYaml implements Node & Timeline {
+      type SlidesYaml implements Node & Timeline & Output {
+        title: String!
+        date: Date!
+        url: String!
+      }
+
+      type OssesYaml implements Node & Timeline & Output {
         title: String!
         date: Date!
         url: String!

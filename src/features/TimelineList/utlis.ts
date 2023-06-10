@@ -20,7 +20,7 @@ export const getTimelineItems = (data: OutputsPageQuery): TimelineItem[] => {
     });
   });
 
-  data.timelines.nodes.forEach((node) => {
+  data.outputs.nodes.forEach((node) => {
     timelineItems.push({
       typeName: node.__typename,
       title: node.title,

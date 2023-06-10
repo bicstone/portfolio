@@ -26,7 +26,7 @@ export const query = graphql`
         }
       }
     }
-    timelines: allTimeline(sort: { date: DESC }) {
+    outputs: allOutput(sort: { date: DESC }) {
       nodes {
         __typename
         title
