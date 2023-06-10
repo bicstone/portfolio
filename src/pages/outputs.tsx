@@ -84,7 +84,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
                 "@type": "BlogPosting",
                 headline: item.title,
                 image:
-                  item.typeName === "Mdx" &&
+                  item.typename === "Mdx" &&
                   `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
                 datePublished: item.date,
                 author: {

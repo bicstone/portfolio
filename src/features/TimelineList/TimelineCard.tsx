@@ -21,7 +21,7 @@ export const TimelineCard = ({
   const formattedDate = formatDateTime(item.date, "MMM d");
 
   const linkProps: CardActionAreaProps = (() => {
-    switch (item.typeName) {
+    switch (item.typename) {
       case "Mdx":
         return {
           component: Link,
@@ -73,7 +73,7 @@ export const TimelineCard = ({
                 })}
               />
               <time dateTime={item.date}>
-                {formattedDate} / {item.typeName}
+                {formattedDate} / {item.typename}
               </time>
             </Typography>
             <Typography component="h3" variant="h6">

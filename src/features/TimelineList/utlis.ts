@@ -1,7 +1,7 @@
 import type { OutputsPageQuery } from "@/generated/graphqlTypes";
 
 export interface TimelineItem {
-  typeName: string;
+  typename: string;
   title: string;
   date: string;
   url: string;
@@ -13,7 +13,7 @@ export const getTimelineItems = (data: OutputsPageQuery): TimelineItem[] => {
 
   data.blogPosts.nodes.forEach((node) => {
     timelineItems.push({
-      typeName: node.__typename,
+      typename: node.__typename,
       title: node.frontmatter.title,
       date: node.frontmatter.created,
       url: node.frontmatter.slug,
@@ -22,7 +22,7 @@ export const getTimelineItems = (data: OutputsPageQuery): TimelineItem[] => {
 
   data.outputs.nodes.forEach((node) => {
     timelineItems.push({
-      typeName: node.__typename,
+      typename: node.__typename,
       title: node.title,
       date: node.date,
       url: node.url,
