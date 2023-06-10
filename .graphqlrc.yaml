@@ -11,6 +11,7 @@ extensions:
           - typescript
           - typescript-operations
     config:
+      skipTypename: true
       numericEnums: true
       avoidOptionals: true
       preResolveTypes: false
