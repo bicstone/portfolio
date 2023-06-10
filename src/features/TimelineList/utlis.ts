@@ -12,7 +12,7 @@ export type TimelineItem =
       url: string;
     }
   | {
-      typename: string;
+      typename: "ProjectsYaml" | "OssesYaml" | "ArticlesYaml" | "SlidesYaml";
       title: string;
       date: string;
       endDate?: string;
