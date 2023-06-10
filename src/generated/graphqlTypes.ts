@@ -3878,23 +3878,6 @@ export type OnCreatePagesStatefullyQuery = (
   ) }
 );
 
-export type BlogPostCardFragment = (
-  { readonly __typename?: 'Mdx' }
-  & { readonly frontmatter: Maybe<(
-    { readonly __typename?: 'MdxFrontmatter' }
-    & Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>
-  )> }
-);
-
-export type BlogPostListFragment = (
-  { readonly __typename?: 'Mdx' }
-  & Pick<Mdx, 'id'>
-  & { readonly frontmatter: Maybe<(
-    { readonly __typename?: 'MdxFrontmatter' }
-    & Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'redirect'>
-  )> }
-);
-
 export type BlogPostTableOfContentFragment = (
   { readonly __typename?: 'Mdx' }
   & Pick<Mdx, 'tableOfContents'>
@@ -4034,10 +4017,9 @@ export type OutputsPageQuery = (
     { readonly __typename?: 'MdxConnection' }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'id'>
       & { readonly frontmatter: Maybe<(
         { readonly __typename?: 'MdxFrontmatter' }
-        & Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category' | 'redirect'>
+        & Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>
       )> }
     )> }
   ), readonly timelines: (

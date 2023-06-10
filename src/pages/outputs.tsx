@@ -24,7 +24,6 @@ export const query = graphql`
           created
           category
         }
-        ...BlogPostList
       }
     }
     timelines: allTimeline(sort: { date: DESC }) {
