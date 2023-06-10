@@ -1,8 +1,6 @@
 import DarkModeIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeIcon from "@mui/icons-material/LightModeRounded";
-import StickyNote2Icon from "@mui/icons-material/StickyNote2Rounded";
 import AppBar from "@mui/material/AppBar";
-import Button, { buttonClasses } from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Toolbar from "@mui/material/Toolbar";
@@ -27,7 +25,6 @@ export const Header = (): JSX.Element => {
     threshold: 0,
   });
   const isHome = location.pathname === withPrefix("/");
-  const isBlogHome = location.pathname === withPrefix("/blog");
 
   return (
     <AppBar
@@ -91,59 +88,13 @@ export const Header = (): JSX.Element => {
           </Link>
         )}
         <div css={{ flexGrow: 1 }} />
-        <nav>
-          {isBlogHome ? (
-            <SearchButton />
-          ) : (
-            <Button
-              css={(theme) => ({
-                backgroundColor: theme.vars.palette.background.default,
-                marginRight: theme.spacing(0.5),
-                "&:hover": {
-                  backgroundColor: theme.vars.palette.background.default,
-                },
-                [theme.breakpoints.down("sm")]: {
-                  [`& .${buttonClasses.startIcon}`]: {
-                    display: "none",
-                  },
-                },
-              })}
-              variant="outlined"
-              color="inherit"
-              size="small"
-              component={RouterLink}
-              to="/blog"
-              title={TRANSLATION.blog.title}
-              startIcon={<StickyNote2Icon />}
-            >
-              <>
-                <span
-                  css={(theme) => ({
-                    display: "inline",
-                    [theme.breakpoints.down("sm")]: {
-                      display: "none",
-                    },
-                  })}
-                >
-                  {TRANSLATION.blog.title}
-                </span>
-                <StickyNote2Icon
-                  css={(theme) => ({
-                    display: "none",
-                    [theme.breakpoints.down("sm")]: {
-                      display: "inline-block",
-                    },
-                  })}
-                />
-              </>
-            </Button>
-          )}
+        <nav css={(theme) => ({ display: "flex", gap: theme.spacing(1) })}>
+          <SearchButton />
           <IconButton
             size="small"
             onClick={() => {
               setPaletteMode(paletteMode === "light" ? "dark" : "light");
             }}
-            css={(theme) => ({ margin: theme.spacing(0, 1) })}
             title={TRANSLATION.header.toggleDarkThemeTitle}
           >
             {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}

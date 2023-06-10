@@ -1,8 +1,9 @@
+import CloseIcon from "@mui/icons-material/CloseRounded";
 import SearchIcon from "@mui/icons-material/SearchRounded";
 import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -85,18 +86,13 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         }}
       >
         {TRANSLATION.search.title}
-        <Button
-          css={(theme) => ({
-            padding: theme.spacing(0, 1.5),
-            minWidth: 0,
-          })}
-          color="secondary"
-          variant="contained"
+        <IconButton
+          size="small"
           title={TRANSLATION.search.close.hint}
           onClick={onClose}
         >
-          {TRANSLATION.search.close.title}
-        </Button>
+          <CloseIcon />
+        </IconButton>
       </DialogTitle>
       <TextField
         // eslint-disable-next-line jsx-a11y/no-autofocus -- for modal focus
