@@ -12,11 +12,18 @@ export type TimelineItem =
       url: string;
     }
   | {
-      typename: "ProjectsYaml" | "OssesYaml" | "ArticlesYaml" | "SlidesYaml";
+      typename: "OssesYaml" | "ArticlesYaml" | "SlidesYaml";
       title: string;
       date: string;
-      endDate?: string;
-      url?: string;
+      endDate?: null;
+      url: string;
+    }
+  | {
+      typename: "ProjectsYaml";
+      title: string;
+      date: string;
+      endDate: string;
+      url?: null;
     };
 
 // TODO: 型がページに依存している
