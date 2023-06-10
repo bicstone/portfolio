@@ -1,33 +1,55 @@
-import type { OutputsPageQuery } from "@/generated/graphqlTypes";
+import type {
+  OutputsPageQuery,
+  ProjectsPageQuery,
+} from "@/generated/graphqlTypes";
 
 export interface TimelineItem {
   typename: string;
   title: string;
   date: string;
-  url: string;
+  endDate?: string;
+  url?: string;
 }
 
-// TODO: 型がページに依存
-export const getTimelineItems = (data: OutputsPageQuery): TimelineItem[] => {
+// TODO: 型がページに依存している
+export const getTimelineItems = (
+  data: OutputsPageQuery | ProjectsPageQuery
+): TimelineItem[] => {
   const timelineItems: TimelineItem[] = [];
 
-  data.blogPosts.nodes.forEach((node) => {
-    timelineItems.push({
-      typename: node.__typename,
-      title: node.frontmatter.title,
-      date: node.frontmatter.created,
-      url: node.frontmatter.slug,
+  if ("blogPosts" in data) {
+    data.blogPosts.nodes.forEach((node) => {
+      timelineItems.push({
+        typename: node.__typename,
+        title: node.frontmatter.title,
+        date: node.frontmatter.created,
+        url: node.frontmatter.slug,
+      });
     });
-  });
+  }
 
-  data.outputs.nodes.forEach((node) => {
-    timelineItems.push({
-      typename: node.__typename,
-      title: node.title,
-      date: node.date,
-      url: node.url,
+  if ("outputs" in data) {
+    data.outputs.nodes.forEach((node) => {
+      timelineItems.push({
+        typename: node.__typename,
+        title: node.title,
+        date: node.date,
+        url: node.url,
+      });
     });
-  });
+  }
+
+  if ("projects" in data) {
+    data.projects.nodes.forEach((node) => {
+      timelineItems.push({
+        typename: node.__typename,
+        title: node.title,
+        date: node.date,
+        url:
+          "url" in node && typeof node?.url === "string" ? node.url : undefined,
+      });
+    });
+  }
 
   const sortedTimelineItems = Array.from(timelineItems).sort((a, b) => {
     const dateA = new Date(a.date);

@@ -8,7 +8,7 @@ import type { PortfolioProjectListFragment } from "@/generated/graphqlTypes";
 export const query = graphql`
   fragment PortfolioProjectList on ProjectsYamlConnection {
     nodes {
-      name
+      id
       ...PortfolioProjectCard
     }
   }
@@ -22,7 +22,7 @@ export const ProjectList = (props: {
   return (
     <Card>
       {projects.nodes.map((project) => (
-        <ProjectCard key={project.name} project={project} />
+        <ProjectCard key={project.id} project={project} />
       ))}
     </Card>
   );

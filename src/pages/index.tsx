@@ -29,7 +29,7 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 
 export const query = graphql`
   query IndexPage {
-    projects: allProjectsYaml(sort: { startDate: DESC }) {
+    projects: allProjectsYaml(sort: { date: DESC }) {
       ...PortfolioProjectList
     }
     histories: allHistoriesYaml(sort: { date: DESC }) {

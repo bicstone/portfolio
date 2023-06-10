@@ -2000,7 +2000,7 @@ export type NodeSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
 };
 
-export type OssesYaml = Node & Output & Timeline & {
+export type OssesYaml = Node & Output & Project & Timeline & {
   readonly __typename?: 'OssesYaml';
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
@@ -2304,33 +2304,142 @@ export enum PotraceTurnPolicy {
   TurnpolicyWhite = 5
 }
 
-export type ProjectsYaml = Node & {
+export type Project = {
+  readonly children: ReadonlyArray<Node>;
+  readonly date: Scalars['Date']['output'];
+  readonly id: Scalars['ID']['output'];
+  readonly internal: Internal;
+  readonly parent: Maybe<Node>;
+  readonly title: Scalars['String']['output'];
+};
+
+export type ProjectConnection = {
+  readonly __typename?: 'ProjectConnection';
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<ProjectEdge>;
+  readonly group: ReadonlyArray<ProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<Project>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type ProjectConnectionDistinctArgs = {
+  field: ProjectFieldSelector;
+};
+
+
+export type ProjectConnectionGroupArgs = {
+  field: ProjectFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProjectConnectionMaxArgs = {
+  field: ProjectFieldSelector;
+};
+
+
+export type ProjectConnectionMinArgs = {
+  field: ProjectFieldSelector;
+};
+
+
+export type ProjectConnectionSumArgs = {
+  field: ProjectFieldSelector;
+};
+
+export type ProjectEdge = {
+  readonly __typename?: 'ProjectEdge';
+  readonly next: Maybe<Project>;
+  readonly node: Project;
+  readonly previous: Maybe<Project>;
+};
+
+export type ProjectFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
+export type ProjectFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type ProjectGroupConnection = {
+  readonly __typename?: 'ProjectGroupConnection';
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<ProjectEdge>;
+  readonly field: Scalars['String']['output'];
+  readonly fieldValue: Maybe<Scalars['String']['output']>;
+  readonly group: ReadonlyArray<ProjectGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<Project>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type ProjectGroupConnectionDistinctArgs = {
+  field: ProjectFieldSelector;
+};
+
+
+export type ProjectGroupConnectionGroupArgs = {
+  field: ProjectFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ProjectGroupConnectionMaxArgs = {
+  field: ProjectFieldSelector;
+};
+
+
+export type ProjectGroupConnectionMinArgs = {
+  field: ProjectFieldSelector;
+};
+
+
+export type ProjectGroupConnectionSumArgs = {
+  field: ProjectFieldSelector;
+};
+
+export type ProjectSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly date: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
+};
+
+export type ProjectsYaml = Node & Project & Timeline & {
   readonly __typename?: 'ProjectsYaml';
   readonly children: ReadonlyArray<Node>;
+  readonly date: Scalars['Date']['output'];
   readonly endDate: Maybe<Scalars['Date']['output']>;
   readonly icon: Maybe<Scalars['String']['output']>;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
-  readonly name: Maybe<Scalars['String']['output']>;
   readonly parent: Maybe<Node>;
-  readonly startDate: Maybe<Scalars['Date']['output']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
-};
-
-
-export type ProjectsYamlEndDateArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type ProjectsYamlStartDateArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
+  readonly title: Scalars['String']['output'];
 };
 
 export type ProjectsYamlConnection = {
@@ -2382,26 +2491,26 @@ export type ProjectsYamlEdge = {
 
 export type ProjectsYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
   readonly endDate: InputMaybe<FieldSelectorEnum>;
   readonly icon: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly startDate: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 export type ProjectsYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly endDate: InputMaybe<DateQueryOperatorInput>;
   readonly icon: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly startDate: InputMaybe<DateQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type ProjectsYamlFilterListInput = {
@@ -2452,14 +2561,14 @@ export type ProjectsYamlGroupConnectionSumArgs = {
 
 export type ProjectsYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
+  readonly date: InputMaybe<SortOrderEnum>;
   readonly endDate: InputMaybe<SortOrderEnum>;
   readonly icon: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly name: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly startDate: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 export type Query = {
@@ -2473,6 +2582,7 @@ export type Query = {
   readonly allMdx: MdxConnection;
   readonly allOssesYaml: OssesYamlConnection;
   readonly allOutput: OutputConnection;
+  readonly allProject: ProjectConnection;
   readonly allProjectsYaml: ProjectsYamlConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
@@ -2490,6 +2600,7 @@ export type Query = {
   readonly mdx: Maybe<Mdx>;
   readonly ossesYaml: Maybe<OssesYaml>;
   readonly output: Maybe<Output>;
+  readonly project: Maybe<Project>;
   readonly projectsYaml: Maybe<ProjectsYaml>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
@@ -2570,6 +2681,14 @@ export type QueryAllOutputArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   skip: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<OutputSortInput>>>;
+};
+
+
+export type QueryAllProjectArgs = {
+  filter: InputMaybe<ProjectFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ProjectSortInput>>>;
 };
 
 
@@ -2817,16 +2936,26 @@ export type QueryOutputArgs = {
 };
 
 
+export type QueryProjectArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  date: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+};
+
+
 export type QueryProjectsYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
+  date: InputMaybe<DateQueryOperatorInput>;
   endDate: InputMaybe<DateQueryOperatorInput>;
   icon: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  startDate: InputMaybe<DateQueryOperatorInput>;
   tags: InputMaybe<StringQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -2922,7 +3051,6 @@ export type QueryTimelineArgs = {
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type Site = Node & {
@@ -3847,7 +3975,6 @@ export type Timeline = {
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly title: Scalars['String']['output'];
-  readonly url: Scalars['String']['output'];
 };
 
 export type TimelineConnection = {
@@ -3904,7 +4031,6 @@ export type TimelineFieldSelector = {
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
-  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 export type TimelineFilterInput = {
@@ -3914,7 +4040,6 @@ export type TimelineFilterInput = {
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type TimelineGroupConnection = {
@@ -3966,7 +4091,6 @@ export type TimelineSortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
-  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 export type TransformOptions = {
@@ -4075,14 +4199,14 @@ export type PortfolioOssListFragment = (
 
 export type PortfolioProjectCardFragment = (
   { readonly __typename?: 'ProjectsYaml' }
-  & Pick<ProjectsYaml, 'name' | 'tags' | 'icon' | 'startDate' | 'endDate'>
+  & Pick<ProjectsYaml, 'title' | 'tags' | 'icon' | 'date' | 'endDate'>
 );
 
 export type PortfolioProjectListFragment = (
   { readonly __typename?: 'ProjectsYamlConnection' }
   & { readonly nodes: ReadonlyArray<(
     { readonly __typename?: 'ProjectsYaml' }
-    & Pick<ProjectsYaml, 'name' | 'tags' | 'icon' | 'startDate' | 'endDate'>
+    & Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>
   )> }
 );
 
@@ -4123,7 +4247,7 @@ export type IndexPageQuery = (
     { readonly __typename?: 'ProjectsYamlConnection' }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename?: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'name' | 'tags' | 'icon' | 'startDate' | 'endDate'>
+      & Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>
     )> }
   ), readonly histories: (
     { readonly __typename?: 'HistoriesYamlConnection' }
@@ -4175,6 +4299,23 @@ export type OutputsPageQuery = (
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'title' | 'url' | 'date'>
+    )> }
+  ) }
+);
+
+export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ProjectsPageQuery = (
+  { readonly __typename?: 'Query' }
+  & { readonly projects: (
+    { readonly __typename?: 'ProjectConnection' }
+    & { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'ProjectsYaml' }
+      & Pick<ProjectsYaml, 'title' | 'date'>
     )> }
   ) }
 );
