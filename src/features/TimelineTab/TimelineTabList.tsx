@@ -62,7 +62,7 @@ export const TimelineTabList = (): JSX.Element => {
       </StyledTab>
       <StyledTab
         component={Link}
-        to="/history"
+        to="/histories"
         activeClassName={SelectedClassName}
       >
         Histories

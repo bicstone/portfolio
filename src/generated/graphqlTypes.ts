@@ -4367,6 +4367,23 @@ export type BuildTimeDataQuery = (
   )> }
 );
 
+export type HistoryPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HistoryPageQuery = (
+  { readonly __typename?: 'Query' }
+  & { readonly histories: (
+    { readonly __typename?: 'HistoryConnection' }
+    & { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'CertificationsYaml' }
+      & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'HistoriesYaml' }
+      & Pick<HistoriesYaml, 'title' | 'date'>
+    )> }
+  ) }
+);
+
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4399,23 +4416,6 @@ export type IndexPageQuery = (
         { readonly __typename?: 'CertificationsYaml' }
         & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
       )> }
-    )> }
-  ) }
-);
-
-export type HistoryPageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type HistoryPageQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly histories: (
-    { readonly __typename?: 'HistoryConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'title' | 'date'>
     )> }
   ) }
 );

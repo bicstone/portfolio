@@ -10,7 +10,6 @@ import { memo, useId } from "react";
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
@@ -32,7 +31,7 @@ export const HistoryCard = memo(
   }): JSX.Element => {
     const { history, expanded, onChange } = props;
     const id = useId();
-    const year = formatDateTime(history.date, "yyyy");
+    const date = formatDateTime(history.date, "yyyy/MM");
 
     return (
       <Accordion
@@ -57,7 +56,7 @@ export const HistoryCard = memo(
                   component="div"
                   color="textSecondary"
                 >
-                  {`${year} ${TRANSLATION.histories.date}`}
+                  {date}
                 </Typography>
                 <Typography component="h2" variant="h6">
                   {history.title}

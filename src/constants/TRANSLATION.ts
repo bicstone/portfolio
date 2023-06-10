@@ -46,9 +46,6 @@ export const TRANSLATION = {
     },
     title: "おおいし (@bicstone)",
   },
-  histories: {
-    date: "年",
-  },
   home: {
     contactsTitle: "お問い合わせ",
     historiesTitle: "経歴",
