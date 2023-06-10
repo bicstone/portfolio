@@ -44,7 +44,7 @@ export const TimelineTabList = (): JSX.Element => {
         to="/timeline"
         activeClassName={SelectedClassName}
       >
-        Home
+        All
       </StyledTab>
       <StyledTab
         component={Link}
@@ -62,10 +62,10 @@ export const TimelineTabList = (): JSX.Element => {
       </StyledTab>
       <StyledTab
         component={Link}
-        to="/journeys"
+        to="/history"
         activeClassName={SelectedClassName}
       >
-        Journeys
+        Histories
       </StyledTab>
     </div>
   );

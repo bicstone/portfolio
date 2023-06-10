@@ -1,7 +1,8 @@
 import type {
-  JourneyPageQuery,
+  HistoryPageQuery,
   OutputsPageQuery,
   ProjectsPageQuery,
+  TimelinePageQuery,
 } from "@/generated/graphqlTypes";
 
 export type TimelineItem =
@@ -37,7 +38,11 @@ export type TimelineItem =
 
 // TODO: 型がページに依存している
 export const getTimelineItems = (
-  data: OutputsPageQuery | ProjectsPageQuery | JourneyPageQuery
+  data:
+    | OutputsPageQuery
+    | ProjectsPageQuery
+    | HistoryPageQuery
+    | TimelinePageQuery
 ): TimelineItem[] => {
   const timelineItems: TimelineItem[] = [];
 
@@ -86,8 +91,8 @@ export const getTimelineItems = (
     });
   }
 
-  if ("journeys" in data) {
-    data.journeys.nodes.forEach((node) => {
+  if ("histories" in data) {
+    data.histories.nodes.forEach((node) => {
       switch (node.__typename) {
         case "CertificationsYaml":
           timelineItems.push({
@@ -95,6 +100,60 @@ export const getTimelineItems = (
             title: node.title,
             date: node.date,
             endDate: node.endDate,
+          });
+          break;
+        case "HistoriesYaml":
+          timelineItems.push({
+            typename: node.__typename,
+            title: node.title,
+            date: node.date,
+          });
+          break;
+      }
+    });
+  }
+
+  if ("timelineItems" in data) {
+    data.timelineItems.nodes.forEach((node) => {
+      switch (node.__typename) {
+        case "ArticlesYaml":
+          timelineItems.push({
+            typename: node.__typename,
+            title: node.title,
+            date: node.date,
+            url: node.url,
+          });
+          break;
+        case "CertificationsYaml":
+          timelineItems.push({
+            typename: node.__typename,
+            title: node.title,
+            date: node.date,
+            endDate: node.endDate,
+          });
+          break;
+        case "OssesYaml":
+          timelineItems.push({
+            typename: node.__typename,
+            title: node.title,
+            date: node.date,
+            url: node.url,
+          });
+          break;
+        case "ProjectsYaml":
+          timelineItems.push({
+            typename: node.__typename,
+            title: node.title,
+            date: node.date,
+            endDate: node.endDate,
+          });
+          break;
+        case "SlidesYaml":
+          timelineItems.push({
+            typename: node.__typename,
+            title: node.title,
+            date: node.date,
+            url: node.url,
           });
           break;
         case "HistoriesYaml":

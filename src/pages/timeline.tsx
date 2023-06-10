@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { graphql, Script } from "gatsby";
 
-import type { HistoryPageQuery } from "@/generated/graphqlTypes";
+import type { TimelinePageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -14,23 +14,46 @@ import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
-  query HistoryPage {
-    histories: allHistory(sort: { date: DESC }) {
+  query TimelinePage {
+    blogPosts: allMdx(sort: { frontmatter: { created: DESC } }) {
+      nodes {
+        __typename
+        frontmatter {
+          title
+          slug
+          created
+          category
+        }
+      }
+    }
+    timelineItems: allTimeline(sort: { date: DESC }) {
       nodes {
         __typename
         title
         date
+        ... on ArticlesYaml {
+          url
+        }
         ... on CertificationsYaml {
           endDate
+        }
+        ... on OssesYaml {
+          url
+        }
+        ... on ProjectsYaml {
+          endDate
+        }
+        ... on SlidesYaml {
+          url
         }
       }
     }
   }
 `;
 
-export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
-  const projectItems = getTimelineItems(data);
-  const title = `${TRANSLATION.histories.title} - ${SITE_METADATA.title}`;
+export const Head: HeadFC<TimelinePageQuery> = ({ location, data }) => {
+  const timelineItems = getTimelineItems(data);
+  const title = `${TRANSLATION.timeline.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
   return (
@@ -45,7 +68,7 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
       />
 
       <Script
-        id="history-Page-ld-json-blog"
+        id="timeline-Page-ld-json-blog"
         strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -71,9 +94,12 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
               },
             },
             blogPost: [
-              ...projectItems.map((item) => ({
+              ...timelineItems.map((item) => ({
                 "@type": "BlogPosting",
                 headline: item.title,
+                image:
+                  item.typename === "Mdx" &&
+                  `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
@@ -86,7 +112,7 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
         }}
       />
       <Script
-        id="history-Page-ld-json-breadcrumb-list"
+        id="timeline-Page-ld-json-breadcrumb-list"
         strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -108,7 +134,7 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
                 position: 2,
                 item: {
                   "@id": `${SITE_METADATA.siteUrl}${location.pathname}`,
-                  name: TRANSLATION.histories.title,
+                  name: TRANSLATION.timeline.title,
                   "@type": "Thing",
                 },
               },
@@ -117,7 +143,7 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
         }}
       />
       <Script
-        id="history-Page-ld-json-organization"
+        id="timeline-Page-ld-json-organization"
         strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -133,30 +159,30 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
   );
 };
 
-const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
-  const projectItems = getTimelineItems(data);
+const TimelinePage = ({ data }: PageProps<TimelinePageQuery>): JSX.Element => {
+  const timelineItems = getTimelineItems(data);
 
   return (
     <Container maxWidth="md">
       <Breadcrumbs
-        title={TRANSLATION.histories.title}
+        title={TRANSLATION.timeline.title}
         css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
       <Typography component="h1" variant="h4" align="center" paragraph>
-        {TRANSLATION.histories.title}
+        {TRANSLATION.timeline.title}
       </Typography>
 
       <TimelineTabList />
 
-      <TimelineList items={projectItems} />
+      <TimelineList items={timelineItems} />
 
       <Breadcrumbs
-        title={TRANSLATION.histories.title}
+        title={TRANSLATION.timeline.title}
         css={(theme) => ({ margin: theme.spacing(2, 0) })}
       />
     </Container>
   );
 };
 
-export default HistoryPage;
+export default TimelinePage;

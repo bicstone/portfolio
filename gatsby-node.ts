@@ -248,18 +248,18 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         endDate: Date
       }
 
-      interface Journey implements Node & Timeline {
+      interface History implements Node & Timeline {
         id: ID!
         title: String!
         date: Date!
       }
 
-      type CertificationsYaml implements Node & Timeline & Journey {
+      type CertificationsYaml implements Node & Timeline & History {
         title: String!
         date: Date!
       }
 
-      type HistoriesYaml implements Node & Timeline & Journey {
+      type HistoriesYaml implements Node & Timeline & History {
         title: String!
         date: Date!
       }
