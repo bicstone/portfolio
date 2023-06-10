@@ -3,13 +3,21 @@ import type {
   ProjectsPageQuery,
 } from "@/generated/graphqlTypes";
 
-export interface TimelineItem {
-  typename: string;
-  title: string;
-  date: string;
-  endDate?: string;
-  url?: string;
-}
+export type TimelineItem =
+  | {
+      typename: "Mdx";
+      title: string;
+      date: string;
+      endDate?: null;
+      url: string;
+    }
+  | {
+      typename: string;
+      title: string;
+      date: string;
+      endDate?: string;
+      url?: string;
+    };
 
 // TODO: 型がページに依存している
 export const getTimelineItems = (
