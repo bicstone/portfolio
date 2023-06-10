@@ -13,7 +13,6 @@ const SPEAKER_DECK_FILE = path.resolve(
   "speakerdeck",
   "slides.yml"
 );
-const CONNPASS_FILE = path.resolve(CONTENT_DIR, "connpass", "events.yml");
 
 interface ZennArticle {
   title: string;
@@ -31,19 +30,9 @@ interface SpeakerDeckSlide {
   presentation_date: string;
 }
 
-interface Event {
-  title: string;
-  url: string;
-  status: number;
-  date: string;
-  is_presenter: boolean;
-  is_organizer: boolean;
-}
-
 interface Response {
   zenn_articles: ZennArticle[];
   speaker_deck_slides: SpeakerDeckSlide[];
-  events: Event[];
 }
 
 interface TimeLineItem {
@@ -89,17 +78,7 @@ export const fetchLaprasActivity = async (): Promise<void> => {
     }
   );
 
-  const events: TimeLineItem[] = response.events.map((event) => {
-    return {
-      title: event.title,
-      date: event.date,
-      url: event.url,
-    };
-  });
-
   await fs.writeFile(ZENN_FILE, dump(zennArticles));
 
   await fs.writeFile(SPEAKER_DECK_FILE, dump(speakerDeckSlides));
-
-  await fs.writeFile(CONNPASS_FILE, dump(events));
 };

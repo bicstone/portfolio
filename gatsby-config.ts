@@ -13,7 +13,6 @@ const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 const contentPaths = [
   "articles",
-  "connpass",
   "images",
   "certifications",
   "histories",

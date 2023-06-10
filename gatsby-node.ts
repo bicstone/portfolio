@@ -102,7 +102,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
  * Create OGP images
  * Create Zenn articles json
  * Create Speaker Deck Slides json
- * Create Connpass Events json
  */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter }) => {
@@ -185,12 +184,11 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     /**
      * Create Zenn articles json
      * Create Speaker Deck Slides json
-     * Create Connpass Events json
      */
     await fetchLaprasActivity();
 
     reporter.success(
-      `onCreatePagesStatefully: Created Zenn articles, Speaker Deck Slides, Connpass Events json`
+      `onCreatePagesStatefully: Created Zenn articles and Speaker Deck Slides json`
     );
   };
 
@@ -209,12 +207,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       }
 
       type ArticlesYaml implements Node & Timeline {
-        title: String!
-        date: Date!
-        url: String!
-      }
-
-      type EventsYaml implements Node & Timeline {
         title: String!
         date: Date!
         url: String!
