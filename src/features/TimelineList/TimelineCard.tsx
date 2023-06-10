@@ -30,7 +30,7 @@ export const TimelineCard = ({
       default:
         return {
           LinkComponent: "a" as const,
-          href: item.url,
+          href: "url" in item ? item.url : "",
           rel: "external noopener",
         };
     }

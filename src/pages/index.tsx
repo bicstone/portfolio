@@ -38,7 +38,7 @@ export const query = graphql`
     osses: allOssesYaml(sort: { date: DESC }) {
       ...PortfolioOssList
     }
-    certifications: allCertificationsYaml(sort: { startDate: DESC }) {
+    certifications: allCertificationsYaml(sort: { date: DESC }) {
       ...PortfolioCertificationList
     }
   }

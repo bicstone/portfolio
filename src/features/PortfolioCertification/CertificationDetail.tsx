@@ -8,8 +8,8 @@ import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
   fragment PortfolioCertificationDetail on CertificationsYaml {
-    name
-    startDate
+    title
+    date
     endDate
   }
 `;
@@ -19,14 +19,13 @@ export const CertificationDetail = (props: {
 }): JSX.Element => {
   const { certification } = props;
 
-  const startDate = formatDateTime(certification.startDate, "yyyy/MM/dd");
+  const date = formatDateTime(certification.date, "yyyy/MM/dd");
   const endDate = formatDateTime(certification.endDate, "yyyy/MM/dd");
-  const formattedDate =
-    endDate !== "" ? `${startDate} - ${endDate}` : startDate;
+  const formattedDate = endDate !== "" ? `${date} - ${endDate}` : date;
 
   return (
     <ListItem>
-      <ListItemText primary={certification.name} secondary={formattedDate} />
+      <ListItemText primary={certification.title} secondary={formattedDate} />
     </ListItem>
   );
 };

@@ -15,7 +15,8 @@ import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
   fragment PortfolioHistoryCard on HistoriesYaml {
-    name
+    id
+    title
     date
     excerpt
     icon
@@ -27,7 +28,7 @@ export const HistoryCard = memo(
   (props: {
     history: PortfolioHistoryCardFragment;
     expanded: boolean;
-    onChange: (name: string) => void;
+    onChange: (id: string) => void;
   }): JSX.Element => {
     const { history, expanded, onChange } = props;
     const id = useId();
@@ -38,7 +39,7 @@ export const HistoryCard = memo(
         expanded={expanded}
         disableGutters
         onChange={() => {
-          onChange(history.name);
+          onChange(history.id);
         }}
       >
         <AccordionSummary
@@ -59,7 +60,7 @@ export const HistoryCard = memo(
                   {`${year} ${TRANSLATION.histories.date}`}
                 </Typography>
                 <Typography component="h2" variant="h6">
-                  {history.name}
+                  {history.title}
                 </Typography>
               </>
             }

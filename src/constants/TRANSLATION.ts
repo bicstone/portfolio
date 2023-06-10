@@ -132,6 +132,9 @@ export const TRANSLATION = {
   projects: {
     title: "Projects",
   },
+  journeys: {
+    title: "Journeys",
+  },
 } as const satisfies Record<
   string,
   Record<string, string | Record<string, string>>

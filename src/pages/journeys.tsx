@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { graphql, Script } from "gatsby";
 
-import type { ProjectsPageQuery } from "@/generated/graphqlTypes";
+import type { JourneyPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -14,26 +14,23 @@ import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
-  query ProjectsPage {
-    projects: allProject(sort: { date: DESC }) {
+  query JourneyPage {
+    journeys: allJourney(sort: { date: DESC }) {
       nodes {
         __typename
         title
         date
-        ... on ProjectsYaml {
+        ... on CertificationsYaml {
           endDate
-        }
-        ... on OssesYaml {
-          url
         }
       }
     }
   }
 `;
 
-export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
+export const Head: HeadFC<JourneyPageQuery> = ({ location, data }) => {
   const projectItems = getTimelineItems(data);
-  const title = `${TRANSLATION.projects.title} - ${SITE_METADATA.title}`;
+  const title = `${TRANSLATION.journeys.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
   return (
@@ -48,7 +45,7 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
       />
 
       <Script
-        id="projects-Page-ld-json-blog"
+        id="journey-Page-ld-json-blog"
         strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -77,9 +74,6 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
               ...projectItems.map((item) => ({
                 "@type": "BlogPosting",
                 headline: item.title,
-                image:
-                  item.typename === "Mdx" &&
-                  `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
@@ -92,7 +86,7 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
         }}
       />
       <Script
-        id="projects-Page-ld-json-breadcrumb-list"
+        id="journey-Page-ld-json-breadcrumb-list"
         strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -114,7 +108,7 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
                 position: 2,
                 item: {
                   "@id": `${SITE_METADATA.siteUrl}${location.pathname}`,
-                  name: TRANSLATION.projects.title,
+                  name: TRANSLATION.journeys.title,
                   "@type": "Thing",
                 },
               },
@@ -123,7 +117,7 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
         }}
       />
       <Script
-        id="projects-Page-ld-json-organization"
+        id="journey-Page-ld-json-organization"
         strategy="post-hydrate"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -139,18 +133,18 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
   );
 };
 
-const ProjectsPage = ({ data }: PageProps<ProjectsPageQuery>): JSX.Element => {
+const JourneyPage = ({ data }: PageProps<JourneyPageQuery>): JSX.Element => {
   const projectItems = getTimelineItems(data);
 
   return (
     <Container maxWidth="md">
       <Breadcrumbs
-        title={TRANSLATION.projects.title}
+        title={TRANSLATION.journeys.title}
         css={(theme) => ({ marginBottom: theme.spacing(2) })}
       />
 
       <Typography component="h1" variant="h4" align="center" paragraph>
-        {TRANSLATION.projects.title}
+        {TRANSLATION.journeys.title}
       </Typography>
 
       <TimelineTabList />
@@ -158,11 +152,11 @@ const ProjectsPage = ({ data }: PageProps<ProjectsPageQuery>): JSX.Element => {
       <TimelineList items={projectItems} />
 
       <Breadcrumbs
-        title={TRANSLATION.projects.title}
+        title={TRANSLATION.journeys.title}
         css={(theme) => ({ margin: theme.spacing(2, 0) })}
       />
     </Container>
   );
 };
 
-export default ProjectsPage;
+export default JourneyPage;

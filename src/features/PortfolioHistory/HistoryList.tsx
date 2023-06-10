@@ -11,7 +11,7 @@ import { useAccordionExpend } from "@/hooks/useAccordionExpend";
 export const query = graphql`
   fragment PortfolioHistoryList on HistoriesYamlConnection {
     nodes {
-      name
+      id
       ...PortfolioHistoryCard
     }
   }
@@ -22,7 +22,7 @@ export const HistoryList = (props: {
 }): JSX.Element => {
   const { histories } = props;
 
-  const allIds = histories.nodes.map((history) => history.name);
+  const allIds = histories.nodes.map((history) => history.id);
 
   const { expandedIds, isAllExpanded, toggleBulkExpand, toggleExpand } =
     useAccordionExpend(allIds);
@@ -35,9 +35,9 @@ export const HistoryList = (props: {
       <div>
         {histories.nodes.map((history) => (
           <HistoryCard
-            key={history.name}
+            key={history.id}
             history={history}
-            expanded={expandedIds.includes(history.name)}
+            expanded={expandedIds.includes(history.id)}
             onChange={toggleExpand}
           />
         ))}

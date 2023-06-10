@@ -247,6 +247,22 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date!
         endDate: Date
       }
+
+      interface Journey implements Node & Timeline {
+        id: ID!
+        title: String!
+        date: Date!
+      }
+
+      type CertificationsYaml implements Node & Timeline & Journey {
+        title: String!
+        date: Date!
+      }
+
+      type HistoriesYaml implements Node & Timeline & Journey {
+        title: String!
+        date: Date!
+      }
     `;
 
     createTypes(typeDefs);
