@@ -161,7 +161,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
         case "SlidesYaml":
           timelineList.push({
             title: node.title,
-            // TODO
+            // TODO nullable
             slug: "",
             url: node.url,
             excerpt: "",
@@ -202,18 +202,18 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
       }
     });
 
-    if (!isDefined(timelineList)) throw new Error("blogPostList is undefined");
+    if (!isDefined(timelineList)) throw new Error("timelineList is undefined");
 
     await Promise.all(
-      timelineList.map(async (blogPost) => {
+      timelineList.map(async (timeline) => {
         const node = {
-          ...blogPost,
-          id: createNodeId(blogPost.title),
+          ...timeline,
+          id: createNodeId(timeline.title),
           parent: null,
           children: [],
           internal: {
             type: "Search",
-            contentDigest: createContentDigest(blogPost),
+            contentDigest: createContentDigest(timeline),
           },
         };
         await createNode(node);
@@ -221,7 +221,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     );
 
     reporter.success(
-      `onCreatePagesStatefully: Created ${timelineList.length} blog posts index`
+      `onCreatePagesStatefully: Created ${timelineList.length} search nodes`
     );
 
     /**
@@ -268,10 +268,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
   ({ actions }) => {
     const { createTypes } = actions;
 
-    /**
-     *  Create timeline schema
-     */
-    const timelineTypeDefs = /* GraphQL */ `
+    const typeDefs = /* GraphQL */ `
       interface Timeline implements Node {
         id: ID!
         title: String!
@@ -358,15 +355,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         title: String!
         date: Date! @dateformat
       }
-    `;
 
-    createTypes(timelineTypeDefs);
-
-    /**
-     *  Create Search schema
-     */
-    const searchTypeDefs = /* GraphQL */ `
-      interface Search implements Node {
+      type Search implements Node {
         id: ID!
         title: String!
         excerpt: String!
@@ -374,5 +364,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         slug: String
       }
     `;
-    createTypes(searchTypeDefs);
+
+    createTypes(typeDefs);
   };

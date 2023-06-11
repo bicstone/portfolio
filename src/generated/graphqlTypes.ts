@@ -3260,7 +3260,7 @@ export type QueryTimelineArgs = {
   title: InputMaybe<StringQueryOperatorInput>;
 };
 
-export type Search = {
+export type Search = Node & {
   readonly children: ReadonlyArray<Node>;
   readonly excerpt: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
@@ -4468,7 +4468,7 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<never> } };
+export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<Search, 'title' | 'excerpt' | 'url' | 'slug'>> } };
 
 export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 

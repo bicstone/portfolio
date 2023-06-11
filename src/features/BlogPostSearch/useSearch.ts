@@ -36,8 +36,9 @@ export const useSearch = (props: {
   useEffect(() => {
     setFuse(
       new Fuse(data.allSearch.nodes, {
-        ignoreLocation: true,
         findAllMatches: true,
+        ignoreLocation: true,
+        keys: ["title", "excerpt", "url", "slug"],
       })
     );
   }, [data.allSearch.nodes]);
