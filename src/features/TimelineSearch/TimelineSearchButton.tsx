@@ -13,9 +13,9 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { useTheme } from "@/hooks/useTheme";
 
-const SearchModal = lazy(async () => await import("./SearchModal"));
+const SearchModal = lazy(async () => await import("./TimelineSearchModal"));
 
-export const SearchButton = (): JSX.Element => {
+export const TimelineSearchButton = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = useCallback(() => {

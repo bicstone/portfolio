@@ -171,14 +171,14 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
           timelineList.push({
             title: node.title,
             slug: node.slug,
-            url: node.slug,
+            url: `/${node.slug}`,
             excerpt: node.excerpt,
           });
           break;
         case "CertificationsYaml":
           timelineList.push({
             title: node.title,
-            slug: "/histories",
+            slug: "histories",
             url: "/histories",
             excerpt: "",
           });
@@ -186,7 +186,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
         case "HistoriesYaml":
           timelineList.push({
             title: node.title,
-            slug: "/histories",
+            slug: "histories",
             url: "/histories",
             excerpt: "",
           });
@@ -194,7 +194,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
         case "ProjectsYaml":
           timelineList.push({
             title: node.title,
-            slug: "/projects",
+            slug: "projects",
             url: "/projects",
             excerpt: "",
           });

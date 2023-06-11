@@ -4,21 +4,18 @@ import { useEffect, useState } from "react";
 
 import type { Search, UseSearchQuery } from "@/generated/graphqlTypes";
 
-import { isDefined } from "@/utils/typeguard";
-
 export type SearchResult = Pick<Search, "title" | "slug" | "url" | "excerpt">;
 
 /**
  * Search using Fuse.
  */
-export const useSearch = (props: {
+export const useTimelineSearch = (props: {
   keyword: string | Fuse.Expression;
 }): {
   readonly result?: Array<Fuse.FuseResult<SearchResult>>;
 } => {
   const { keyword } = props;
   const [fuse, setFuse] = useState<Fuse<SearchResult>>();
-  const [result, setResult] = useState<Array<Fuse.FuseResult<SearchResult>>>();
 
   const data = useStaticQuery<UseSearchQuery>(graphql`
     query UseSearch {
@@ -32,22 +29,19 @@ export const useSearch = (props: {
       }
     }
   `);
+  const searchItems = data.allSearch.nodes;
 
   useEffect(() => {
     setFuse(
-      new Fuse(data.allSearch.nodes, {
+      new Fuse(searchItems, {
         findAllMatches: true,
         ignoreLocation: true,
         keys: ["title", "excerpt", "url", "slug"],
       })
     );
-  }, [data.allSearch.nodes]);
+  }, [searchItems]);
 
-  useEffect(() => {
-    if (isDefined(fuse)) {
-      setResult(fuse.search(keyword));
-    }
-  }, [fuse, keyword]);
+  const result = fuse?.search(keyword);
 
   return { result } as const;
 };

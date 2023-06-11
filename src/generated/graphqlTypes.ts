@@ -4465,11 +4465,6 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
       & Pick<SlidesYaml, 'url' | 'title' | 'date'>
     )> } };
 
-export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<Search, 'title' | 'excerpt' | 'url' | 'slug'>> } };
-
 export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
 export type PortfolioCertificationCardFragment = Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>;
@@ -4499,6 +4494,11 @@ export type RelatedBlogPostListFragment = (
   Pick<Mdx, 'id'>
   & { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'> }
 );
+
+export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<Search, 'title' | 'excerpt' | 'url' | 'slug'>> } };
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 

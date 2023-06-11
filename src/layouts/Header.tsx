@@ -12,7 +12,7 @@ import { Link as RouterLink, withPrefix } from "gatsby";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { SearchButton } from "@/features/BlogPostSearch";
+import { TimelineSearchButton } from "@/features/TimelineSearch";
 
 /**
  * Header Layout
@@ -89,7 +89,7 @@ export const Header = (): JSX.Element => {
         )}
         <div css={{ flexGrow: 1 }} />
         <nav css={(theme) => ({ display: "flex", gap: theme.spacing(1) })}>
-          <SearchButton />
+          <TimelineSearchButton />
           <IconButton
             size="small"
             onClick={() => {
