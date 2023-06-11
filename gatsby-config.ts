@@ -177,6 +177,20 @@ const config: GatsbyConfig = {
           }
         `,
         resolvePages: ({ allMdx, site }: GatsbyPluginSitemapQuery) => {
+          const home = {
+            path: `/`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 1.0,
+          };
+
+          const me = {
+            path: `/me`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 0.9,
+          };
+
           const posts = allMdx.nodes.map(({ frontmatter }) => {
             return {
               path: `/${frontmatter.slug}`,
@@ -185,19 +199,15 @@ const config: GatsbyConfig = {
               priority: 0.8,
             };
           });
-          const home = {
-            path: `/`,
-            lastmod: site.buildTime,
-            changefreq: `daily`,
-            priority: 1.0,
-          };
+
           const pages = ["histories", "outputs", "projects"].map((page) => ({
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.6,
+            priority: 0.1,
           }));
-          return [...posts, home, pages];
+
+          return [home, me, ...posts, ...pages];
         },
         serialize: ({
           path,
