@@ -18,13 +18,13 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "11.11.0",
+    "@emotion/react": "11.11.1",
     "@emotion/styled": "11.11.0",
     "@mdx-js/mdx": "2.3.0",
     "@mdx-js/react": "2.3.0",
     "@mui/icons-material": "5.11.16",
-    "@mui/lab": "5.0.0-alpha.132",
-    "@mui/material": "5.13.3",
+    "@mui/lab": "5.0.0-alpha.133",
+    "@mui/material": "5.13.4",
     "@sentry/browser": "7.54.0",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.0",
@@ -50,9 +50,9 @@
     "prismjs": "1.29.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-error-boundary": "4.0.9",
+    "react-error-boundary": "4.0.10",
     "react-hotkeys-hook": "4.4.0",
-    "react-virtuoso": "4.3.8"
+    "react-virtuoso": "4.3.10"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "4.0.1",
