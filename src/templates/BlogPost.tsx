@@ -34,7 +34,7 @@ export const query = graphql`
         title
         excerpt
         date
-        updatedDate
+        updateDate
         category
         tags
       }
@@ -71,7 +71,7 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
       <meta property="article:published_time" content={post.frontmatter.date} />
       <meta
         property="article:modified_time"
-        content={post.frontmatter.updatedDate}
+        content={post.frontmatter.updateDate}
       />
       <meta property="article:author" content={SITE_METADATA.siteUrl} />
       <meta property="article:section" content={post.frontmatter.category} />
@@ -90,7 +90,7 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
               `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
             ],
             datePublished: post.frontmatter.date,
-            dateModified: post.frontmatter.updatedDate,
+            dateModified: post.frontmatter.updateDate,
             dateCreated: post.frontmatter.date,
             author: {
               "@type": "Person",
@@ -194,9 +194,9 @@ const BlogPostTemplate = ({
     () => formatDateTime(post.frontmatter.date, "yyyy/MM/dd"),
     [post.frontmatter.date]
   );
-  const updatedDateDate = React.useMemo(
-    () => formatDateTime(post.frontmatter.updatedDate, "yyyy/MM/dd"),
-    [post.frontmatter.updatedDate]
+  const updateDateDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.updateDate, "yyyy/MM/dd"),
+    [post.frontmatter.updateDate]
   );
 
   React.useLayoutEffect(() => {
@@ -237,17 +237,17 @@ const BlogPostTemplate = ({
             marginTop: theme.spacing(1),
           })}
         >
-          {isDefined(post.frontmatter.updatedDate) && (
+          {isDefined(post.frontmatter.updateDate) && (
             <>
               <UpdateIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
               <time
-                dateTime={post.frontmatter.updatedDate}
+                dateTime={post.frontmatter.updateDate}
                 css={(theme) => ({ marginRight: theme.spacing(1) })}
               >
-                {updatedDateDate}
+                {updateDateDate}
               </time>
             </>
           )}

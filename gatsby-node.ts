@@ -239,8 +239,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         slug: String! @proxy(from: "frontmatter.slug")
         tags: [String!] @proxy(from: "frontmatter.tags")
         title: String! @proxy(from: "frontmatter.title")
-        type: String! @proxy(from: "frontmatter.type")
-        updatedDate: Date @dateformat @proxy(from: "frontmatter.updatedDate")
+        updateDate: Date @dateformat @proxy(from: "frontmatter.updateDate")
       }
 
       type MdxFrontmatter {
@@ -251,8 +250,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         slug: String!
         tags: [String!]
         title: String!
-        type: String!
-        updatedDate: Date @dateformat
+        updateDate: Date @dateformat
       }
 
       interface Project implements Node & Timeline {
