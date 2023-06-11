@@ -1835,7 +1835,7 @@ export type Mdx = Node & {
   readonly body: Maybe<Scalars['String']['output']>;
   readonly category: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
-  readonly created: Scalars['Date']['output'];
+  readonly date: Scalars['Date']['output'];
   readonly excerpt: Scalars['String']['output'];
   readonly frontmatter: Maybe<MdxFrontmatter>;
   readonly id: Scalars['ID']['output'];
@@ -1847,7 +1847,7 @@ export type Mdx = Node & {
   readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
   readonly title: Scalars['String']['output'];
   readonly type: Scalars['String']['output'];
-  readonly updated: Maybe<Scalars['Date']['output']>;
+  readonly updatedDate: Maybe<Scalars['Date']['output']>;
 };
 
 
@@ -1904,7 +1904,7 @@ export type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
   readonly category: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
-  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
@@ -1916,14 +1916,14 @@ export type MdxFieldSelector = {
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
-  readonly updated: InputMaybe<FieldSelectorEnum>;
+  readonly updatedDate: InputMaybe<FieldSelectorEnum>;
 };
 
 export type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
   readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
-  readonly created: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -1935,7 +1935,7 @@ export type MdxFilterInput = {
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
-  readonly updated: InputMaybe<DateQueryOperatorInput>;
+  readonly updatedDate: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type MdxFilterListInput = {
@@ -1944,50 +1944,50 @@ export type MdxFilterListInput = {
 
 export type MdxFrontmatter = {
   readonly category: Scalars['String']['output'];
-  readonly created: Scalars['Date']['output'];
+  readonly date: Scalars['Date']['output'];
   readonly excerpt: Scalars['String']['output'];
   readonly redirect: Maybe<Scalars['String']['output']>;
   readonly slug: Scalars['String']['output'];
   readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
   readonly title: Scalars['String']['output'];
   readonly type: Scalars['String']['output'];
-  readonly updated: Maybe<Scalars['Date']['output']>;
+  readonly updatedDate: Maybe<Scalars['Date']['output']>;
 };
 
 export type MdxFrontmatterFieldSelector = {
   readonly category: InputMaybe<FieldSelectorEnum>;
-  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly date: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly redirect: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
   readonly type: InputMaybe<FieldSelectorEnum>;
-  readonly updated: InputMaybe<FieldSelectorEnum>;
+  readonly updatedDate: InputMaybe<FieldSelectorEnum>;
 };
 
 export type MdxFrontmatterFilterInput = {
   readonly category: InputMaybe<StringQueryOperatorInput>;
-  readonly created: InputMaybe<DateQueryOperatorInput>;
+  readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly redirect: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
-  readonly updated: InputMaybe<DateQueryOperatorInput>;
+  readonly updatedDate: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type MdxFrontmatterSortInput = {
   readonly category: InputMaybe<SortOrderEnum>;
-  readonly created: InputMaybe<SortOrderEnum>;
+  readonly date: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly redirect: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
-  readonly updated: InputMaybe<SortOrderEnum>;
+  readonly updatedDate: InputMaybe<SortOrderEnum>;
 };
 
 export type MdxGroupConnection = {
@@ -2035,7 +2035,7 @@ export type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
   readonly category: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
-  readonly created: InputMaybe<SortOrderEnum>;
+  readonly date: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
@@ -2047,7 +2047,7 @@ export type MdxSortInput = {
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
-  readonly updated: InputMaybe<SortOrderEnum>;
+  readonly updatedDate: InputMaybe<SortOrderEnum>;
 };
 
 /** Node Interface */
@@ -2992,7 +2992,7 @@ export type QueryMdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
   category: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
-  created: InputMaybe<DateQueryOperatorInput>;
+  date: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
   frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
@@ -3004,7 +3004,7 @@ export type QueryMdxArgs = {
   tags: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   type: InputMaybe<StringQueryOperatorInput>;
-  updated: InputMaybe<DateQueryOperatorInput>;
+  updatedDate: InputMaybe<DateQueryOperatorInput>;
 };
 
 
@@ -4245,7 +4245,7 @@ export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type OutputsPageQuery = { readonly blogPosts: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'Mdx' }
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>> }
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'date' | 'category'>> }
     )> }, readonly outputs: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'title' | 'url' | 'date'>
@@ -4273,7 +4273,7 @@ export type TimelinePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type TimelinePageQuery = { readonly blogPosts: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'Mdx' }
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>> }
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'date' | 'category'>> }
     )> }, readonly timelineItems: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
@@ -4302,8 +4302,8 @@ export type BlogPostTemplateQueryVariables = Exact<{
 
 export type BlogPostTemplateQuery = { readonly post: Maybe<(
     Pick<Mdx, 'id' | 'tableOfContents'>
-    & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated' | 'category' | 'tags'>> }
+    & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'date' | 'updatedDate' | 'category' | 'tags'>> }
   )>, readonly relatedPosts: { readonly nodes: ReadonlyArray<(
       Pick<Mdx, 'id'>
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'created' | 'title' | 'slug' | 'redirect'>> }
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'date' | 'title' | 'slug' | 'redirect'>> }
     )> } };

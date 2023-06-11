@@ -33,8 +33,8 @@ export const query = graphql`
         redirect
         title
         excerpt
-        created
-        updated
+        date
+        updatedDate
         category
         tags
       }
@@ -42,11 +42,11 @@ export const query = graphql`
     }
     relatedPosts: allMdx(
       filter: { frontmatter: { tags: { in: $tags } } }
-      sort: { frontmatter: { created: DESC } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         frontmatter {
-          created
+          date
         }
         ...RelatedBlogPostList
       }
@@ -68,13 +68,10 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
         imageAlt={SITE_METADATA.blogTitle}
         type="article"
       />
-      <meta
-        property="article:published_time"
-        content={post.frontmatter.created}
-      />
+      <meta property="article:published_time" content={post.frontmatter.date} />
       <meta
         property="article:modified_time"
-        content={post.frontmatter.updated}
+        content={post.frontmatter.updatedDate}
       />
       <meta property="article:author" content={SITE_METADATA.siteUrl} />
       <meta property="article:section" content={post.frontmatter.category} />
@@ -92,9 +89,9 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
             image: [
               `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
             ],
-            datePublished: post.frontmatter.created,
-            dateModified: post.frontmatter.updated,
-            dateCreated: post.frontmatter.created,
+            datePublished: post.frontmatter.date,
+            dateModified: post.frontmatter.updatedDate,
+            dateCreated: post.frontmatter.date,
             author: {
               "@type": "Person",
               name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
@@ -184,22 +181,22 @@ const BlogPostTemplate = ({
     // 2. Older articles than this.
 
     const newerPosts = filteredPosts
-      .filter((p) => p.frontmatter.created >= post.frontmatter.created)
+      .filter((p) => p.frontmatter.date >= post.frontmatter.date)
       .slice(0, 10);
     const olderPosts = filteredPosts
-      .filter((p) => p.frontmatter.created < post.frontmatter.created)
+      .filter((p) => p.frontmatter.date < post.frontmatter.date)
       .slice(0, 18 - newerPosts.length);
 
     return [...newerPosts, ...olderPosts];
-  }, [data.relatedPosts.nodes, post.frontmatter.created, post.id]);
+  }, [data.relatedPosts.nodes, post.frontmatter.date, post.id]);
 
-  const createdDate = React.useMemo(
-    () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
-    [post.frontmatter.created]
+  const dateDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.date, "yyyy/MM/dd"),
+    [post.frontmatter.date]
   );
-  const updatedDate = React.useMemo(
-    () => formatDateTime(post.frontmatter.updated, "yyyy/MM/dd"),
-    [post.frontmatter.updated]
+  const updatedDateDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.updatedDate, "yyyy/MM/dd"),
+    [post.frontmatter.updatedDate]
   );
 
   React.useLayoutEffect(() => {
@@ -240,27 +237,27 @@ const BlogPostTemplate = ({
             marginTop: theme.spacing(1),
           })}
         >
-          {isDefined(post.frontmatter.updated) && (
+          {isDefined(post.frontmatter.updatedDate) && (
             <>
               <UpdateIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
               <time
-                dateTime={post.frontmatter.updated}
+                dateTime={post.frontmatter.updatedDate}
                 css={(theme) => ({ marginRight: theme.spacing(1) })}
               >
-                {updatedDate}
+                {updatedDateDate}
               </time>
             </>
           )}
-          {isDefined(post.frontmatter.created) && (
+          {isDefined(post.frontmatter.date) && (
             <>
               <AccessTimeIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
-              <time dateTime={post.frontmatter.created}>{createdDate}</time>
+              <time dateTime={post.frontmatter.date}>{dateDate}</time>
             </>
           )}
         </Typography>

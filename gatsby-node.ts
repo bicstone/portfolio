@@ -202,26 +202,26 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       type Mdx implements Node {
         frontmatter: MdxFrontmatter
         category: String!
-        created: Date!
+        date: Date!
         excerpt: String!
         redirect: String
         slug: String!
         tags: [String!]
         title: String!
         type: String!
-        updated: Date
+        updatedDate: Date
       }
 
       type MdxFrontmatter {
         category: String!
-        created: Date!
+        date: Date!
         excerpt: String!
         redirect: String
         slug: String!
         tags: [String!]
         title: String!
         type: String!
-        updated: Date
+        updatedDate: Date
       }
 
       interface Timeline implements Node {

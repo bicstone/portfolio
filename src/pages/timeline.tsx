@@ -15,13 +15,13 @@ import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
   query TimelinePage {
-    blogPosts: allMdx(sort: { frontmatter: { created: DESC } }) {
+    blogPosts: allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         __typename
         frontmatter {
           title
           slug
-          created
+          date
           category
         }
       }

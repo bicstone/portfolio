@@ -51,7 +51,7 @@ export const getTimelineItems = (
       timelineItems.push({
         typename: node.__typename,
         title: node.frontmatter.title,
-        date: node.frontmatter.created,
+        date: node.frontmatter.date,
         url: node.frontmatter.slug,
       });
     });

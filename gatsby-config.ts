@@ -27,7 +27,7 @@ interface GatsbyPluginFeedQuery {
     readonly nodes: ReadonlyArray<{
       frontmatter: Pick<
         MdxFrontmatter,
-        "title" | "slug" | "excerpt" | "created" | "updated" | "redirect"
+        "title" | "slug" | "excerpt" | "date" | "updatedDate" | "redirect"
       >;
     }>;
   };
@@ -36,7 +36,7 @@ interface GatsbyPluginFeedQuery {
 interface GatsbyPluginSitemapQuery {
   readonly allMdx: {
     readonly nodes: ReadonlyArray<{
-      frontmatter: Pick<MdxFrontmatter, "slug" | "created" | "updated">;
+      frontmatter: Pick<MdxFrontmatter, "slug" | "date" | "updatedDate">;
     }>;
   };
   readonly site: Pick<Site, "buildTime">;
@@ -114,20 +114,20 @@ const config: GatsbyConfig = {
                     frontmatter.redirect ??
                     `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
                   description: frontmatter.excerpt,
-                  date: frontmatter.created,
+                  date: frontmatter.date,
                 };
               });
             },
             query: `#graphql
               {
-                allMdx(sort: {frontmatter: {created: DESC}}) {
+                allMdx(sort: {frontmatter: {date: DESC}}) {
                   nodes {
                     frontmatter{
                       title
                       slug
                       excerpt
-                      created
-                      updated
+                      date
+                      updatedDate
                       redirect
                     }
                   }
@@ -161,12 +161,12 @@ const config: GatsbyConfig = {
           site {
             buildTime
           }
-          allMdx(sort: {frontmatter: {created: DESC}}) {
+          allMdx(sort: {frontmatter: {date: DESC}}) {
             nodes {
               frontmatter{
                 slug
-                created
-                updated
+                date
+                updatedDate
               }
             }
           }
@@ -176,7 +176,7 @@ const config: GatsbyConfig = {
           const posts = allMdx.nodes.map(({ frontmatter }) => {
             return {
               path: `/${frontmatter.slug}`,
-              lastmod: frontmatter.updated ?? frontmatter.created,
+              lastmod: frontmatter.updatedDate ?? frontmatter.date,
               changefreq: `weekly`,
               priority: 0.8,
             };
