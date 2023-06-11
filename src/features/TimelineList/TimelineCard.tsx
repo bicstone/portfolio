@@ -6,7 +6,7 @@ import CardActionArea, {
 import Typography from "@mui/material/Typography";
 import { Link } from "gatsby";
 
-import { type TimelineItem } from "./TimelineList";
+import { type TimelineItem } from "./utils";
 
 import { formatDateTime } from "@/utils/format";
 
