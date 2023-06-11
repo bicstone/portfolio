@@ -4536,7 +4536,33 @@ export type HistoryPageQuery = { readonly histories: { readonly nodes: ReadonlyA
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> }, readonly histories: { readonly nodes: ReadonlyArray<Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>> }, readonly osses: { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>> }, readonly certifications: { readonly group: ReadonlyArray<(
+export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'ArticlesYaml' }
+      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'CertificationsYaml' }
+      & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'HistoriesYaml' }
+      & Pick<HistoriesYaml, 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'slug' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'ProjectsYaml' }
+      & Pick<ProjectsYaml, 'endDate' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'SlidesYaml' }
+      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
+    )> } };
+
+export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MePageQuery = { readonly projects: { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> }, readonly histories: { readonly nodes: ReadonlyArray<Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>> }, readonly osses: { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>> }, readonly certifications: { readonly group: ReadonlyArray<(
       Pick<CertificationsYamlGroupConnection, 'fieldValue'>
       & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>> }
     )> } };
@@ -4567,32 +4593,6 @@ export type ProjectsPageQuery = { readonly projects: { readonly nodes: ReadonlyA
     ) | (
       { readonly __typename: 'ProjectsYaml' }
       & Pick<ProjectsYaml, 'endDate' | 'title' | 'date'>
-    )> } };
-
-export type TimelinePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type TimelinePageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
     )> } };
 
 export type BlogPostTemplateQueryVariables = Exact<{

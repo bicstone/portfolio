@@ -140,7 +140,7 @@ const config: GatsbyConfig = {
             `,
             output: "/rss.xml",
             link: `${SITE_METADATA.siteUrl}/rss.xml`,
-            title: SITE_METADATA.blogTitle,
+            title: SITE_METADATA.title,
           },
         ],
       },
@@ -191,14 +191,12 @@ const config: GatsbyConfig = {
             changefreq: `daily`,
             priority: 1.0,
           };
-          const pages = ["histories", "outputs", "projects", "timeline"].map(
-            (page) => ({
-              path: `/${page}`,
-              lastmod: site.buildTime,
-              changefreq: `daily`,
-              priority: 0.6,
-            })
-          );
+          const pages = ["histories", "outputs", "projects"].map((page) => ({
+            path: `/${page}`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 0.6,
+          }));
           return [...posts, home, pages];
         },
         serialize: ({

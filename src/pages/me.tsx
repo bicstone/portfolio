@@ -7,7 +7,7 @@ import styled from "@mui/material/styles/styled";
 import { graphql } from "gatsby";
 import { useState } from "react";
 
-import type { IndexPageQuery } from "@/generated/graphqlTypes";
+import type { MePageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 
@@ -28,7 +28,7 @@ const PaddingContainer = styled(Container)(({ theme }) => ({
 }));
 
 export const query = graphql`
-  query IndexPage {
+  query MePage {
     projects: allProjectsYaml(sort: { date: DESC }) {
       ...PortfolioProjectList
     }
@@ -118,7 +118,7 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
   );
 };
 
-const Me = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
+const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
   return (
     <>
       <PaddingContainer maxWidth="lg">
@@ -155,4 +155,4 @@ const Me = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   );
 };
 
-export default Me;
+export default MePage;

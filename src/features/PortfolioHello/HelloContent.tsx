@@ -1,11 +1,12 @@
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
+import { Link as RouterLink } from "gatsby";
 import { useState } from "react";
 
 import { FukkiretaAnimationSvgIcon } from "./FukkiretaAnimationSvgIcon";
-import { SocialLinks } from "./SocialLinks";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
@@ -50,7 +51,14 @@ export const HelloContent = (): JSX.Element => {
                 <Typography variant="body1" gutterBottom>
                   {TRANSLATION.hello.description}
                 </Typography>
-                <SocialLinks />
+                <Link
+                  color="secondary"
+                  component={RouterLink}
+                  to="/me"
+                  underline="hover"
+                >
+                  もっと知りたい
+                </Link>
               </>
             }
           />

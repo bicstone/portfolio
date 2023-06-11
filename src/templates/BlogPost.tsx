@@ -56,7 +56,7 @@ export const query = graphql`
 
 export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
   const post = data.post;
-  const title = `${post.frontmatter.title} - ${SITE_METADATA.blogTitle}`;
+  const title = `${post.frontmatter.title} - ${SITE_METADATA.title}`;
 
   return (
     <>
@@ -65,7 +65,7 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
         title={title}
         description={post.frontmatter.excerpt}
         image={`${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`}
-        imageAlt={SITE_METADATA.blogTitle}
+        imageAlt={SITE_METADATA.title}
         type="article"
       />
       <meta property="article:published_time" content={post.frontmatter.date} />
