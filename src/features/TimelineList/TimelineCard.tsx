@@ -6,6 +6,9 @@ import { Link as RouterLink } from "gatsby";
 
 import { type TimelineItem } from "./utils";
 
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { TRANSLATION } from "@/constants/TRANSLATION";
+
 export type TimelineCardProps = {
   item: TimelineItem;
 } & React.HTMLAttributes<HTMLElement>;
@@ -93,10 +96,12 @@ const LinkedCard = ({ title, url }: ExternalLinkedCardProps): JSX.Element => {
               })}
             >
               <img
-                src={`http://www.google.com/s2/favicons?domain=${domain}`}
-                alt="favicon"
                 width={16}
                 height={16}
+                src={`${SITE_METADATA.siteUrl}${SITE_METADATA.imageAvatar}`}
+                alt={TRANSLATION.header.avatar}
+                loading="eager"
+                decoding="async"
               />
               <Typography variant="caption" color="text.secondary">
                 {domain}
@@ -134,10 +139,12 @@ const RouterLinkCard = ({ title, slug }: RouterLinkCardProps): JSX.Element => {
               })}
             >
               <img
-                src="http://www.google.com/s2/favicons?domain=bicstone.me"
-                alt="favicon"
                 width={16}
                 height={16}
+                src={`${SITE_METADATA.siteUrl}${SITE_METADATA.imageAvatar}`}
+                alt={TRANSLATION.header.avatar}
+                loading="eager"
+                decoding="async"
               />
               <Typography variant="caption" color="text.secondary">
                 bicstone.me
