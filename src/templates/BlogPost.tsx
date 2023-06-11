@@ -110,55 +110,6 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
           }),
         }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}${"/"}`,
-                  name: SITE_METADATA.title,
-                  "@type": "Thing",
-                },
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}${"/blog"}`,
-                  name: SITE_METADATA.blogTitle,
-                  "@type": "Thing",
-                },
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}/${post.frontmatter.slug}`,
-                  name: post.frontmatter.title,
-                  "@type": "Thing",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            url: SITE_METADATA.siteUrl,
-            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
-          }),
-        }}
-      />
     </>
   );
 };

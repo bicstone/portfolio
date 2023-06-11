@@ -52,7 +52,6 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
         imageAlt={title}
         type="blog"
       />
-
       <Script
         id="outputs-Page-ld-json-blog"
         strategy="post-hydrate"
@@ -84,8 +83,9 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
                 "@type": "BlogPosting",
                 headline: item.title,
                 image:
-                  item.__typename === "Mdx" &&
-                  `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`,
+                  item.__typename === "Mdx"
+                    ? `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`
+                    : `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
@@ -94,50 +94,6 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
                 },
               })),
             ],
-          }),
-        }}
-      />
-      <Script
-        id="outputs-Page-ld-json-breadcrumb-list"
-        strategy="post-hydrate"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}${"/"}`,
-                  name: SITE_METADATA.title,
-                  "@type": "Thing",
-                },
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}${location.pathname}`,
-                  name: TRANSLATION.outputs.title,
-                  "@type": "Thing",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-      <Script
-        id="outputs-Page-ld-json-organization"
-        strategy="post-hydrate"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            url: SITE_METADATA.siteUrl,
-            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
           }),
         }}
       />

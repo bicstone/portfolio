@@ -46,27 +46,14 @@ export const query = graphql`
 
 export const Head: HeadFC = ({ location }) => {
   return (
-    <>
-      <HeadTemplate
-        location={location}
-        title={SITE_METADATA.title}
-        description={SITE_METADATA.description}
-        image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
-        imageAlt={SITE_METADATA.title}
-        type="profile"
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            url: SITE_METADATA.siteUrl,
-            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
-          }),
-        }}
-      />
-    </>
+    <HeadTemplate
+      location={location}
+      title={SITE_METADATA.title}
+      description={SITE_METADATA.description}
+      image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
+      imageAlt={SITE_METADATA.title}
+      type="profile"
+    />
   );
 };
 
