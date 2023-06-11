@@ -4,8 +4,12 @@ import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
-import type { MdxFrontmatter, Site } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
+
+import {
+  type GatsbyPluginSitemapQuery,
+  type GatsbyPluginFeedQuery,
+} from "@/generated/graphqlTypes";
 
 dotenv.config({ path: `.env` });
 
@@ -22,25 +26,6 @@ const contentPaths = [
   "zenn",
 ];
 
-interface GatsbyPluginFeedQuery {
-  readonly allMdx: {
-    readonly nodes: ReadonlyArray<{
-      frontmatter: Pick<
-        MdxFrontmatter,
-        "title" | "slug" | "excerpt" | "date" | "updateDate" | "redirect"
-      >;
-    }>;
-  };
-}
-
-interface GatsbyPluginSitemapQuery {
-  readonly allMdx: {
-    readonly nodes: ReadonlyArray<{
-      frontmatter: Pick<MdxFrontmatter, "slug" | "date" | "updateDate">;
-    }>;
-  };
-  readonly site: Pick<Site, "buildTime">;
-}
 const config: GatsbyConfig = {
   trailingSlash,
   pathPrefix,
@@ -102,33 +87,52 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({
-              query: { allMdx },
+              query: { allOutput },
             }: {
               query: GatsbyPluginFeedQuery;
             }) => {
-              return allMdx.nodes.map(({ frontmatter }) => {
-                return {
-                  guid: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
-                  title: frontmatter.title,
-                  url:
-                    frontmatter.redirect ??
-                    `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
-                  description: frontmatter.excerpt,
-                  date: frontmatter.date,
-                };
+              return allOutput.nodes.map((node) => {
+                switch (node.__typename) {
+                  case "Mdx":
+                    return {
+                      guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
+                      title: node.title,
+                      url: `${SITE_METADATA.siteUrl}/${node.slug}`,
+                      description: node.excerpt,
+                      date: node.date,
+                    };
+                  default:
+                    return {
+                      guid: node.url,
+                      title: node.title,
+                      url: node.url,
+                      description: "",
+                      date: node.date,
+                    };
+                }
               });
             },
-            query: `#graphql
-              {
-                allMdx(sort: {frontmatter: {date: DESC}}) {
+            query: /* GraphQL */ `
+              query GatsbyPluginFeed {
+                allOutput(sort: { date: DESC }) {
                   nodes {
-                    frontmatter{
-                      title
+                    __typename
+                    title
+                    date
+                    ... on ArticlesYaml {
+                      url
+                    }
+                    ... on SlidesYaml {
+                      url
+                    }
+                    ... on OssesYaml {
+                      url
+                    }
+                    ... on Mdx {
                       slug
                       excerpt
-                      date
                       updateDate
-                      redirect
+                      excerpt
                     }
                   }
                 }
@@ -156,22 +160,22 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         resolveSiteUrl: () => SITE_METADATA.siteUrl,
-        query: `#graphql
-        {
-          site {
-            buildTime
-          }
-          allMdx(sort: {frontmatter: {date: DESC}}) {
-            nodes {
-              frontmatter{
-                slug
-                date
-                updateDate
+        query: /* GraphQL */ `
+          query GatsbyPluginSitemap {
+            site {
+              buildTime
+            }
+            allMdx(sort: { frontmatter: { date: DESC } }) {
+              nodes {
+                frontmatter {
+                  slug
+                  date
+                  updateDate
+                }
               }
             }
           }
-        }
-      `,
+        `,
         resolvePages: ({ allMdx, site }: GatsbyPluginSitemapQuery) => {
           const posts = allMdx.nodes.map(({ frontmatter }) => {
             return {
@@ -187,13 +191,15 @@ const config: GatsbyConfig = {
             changefreq: `daily`,
             priority: 1.0,
           };
-          const blog = {
-            path: `/blog`,
-            lastmod: site.buildTime,
-            changefreq: `daily`,
-            priority: 0.6,
-          };
-          return [...posts, home, blog];
+          const pages = ["histories", "outputs", "projects", "timeline"].map(
+            (page) => ({
+              path: `/${page}`,
+              lastmod: site.buildTime,
+              changefreq: `daily`,
+              priority: 0.6,
+            })
+          );
+          return [...posts, home, pages];
         },
         serialize: ({
           path,

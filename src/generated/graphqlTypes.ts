@@ -176,7 +176,7 @@ export type BooleanQueryOperatorInput = {
 };
 
 export type CertificationsYaml = History & Node & Timeline & {
-  readonly category: Maybe<Scalars['String']['output']>;
+  readonly category: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly endDate: Maybe<Scalars['Date']['output']>;
@@ -1074,8 +1074,8 @@ export enum GatsbyImagePlaceholder {
 export type HistoriesYaml = History & Node & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
-  readonly excerpt: Maybe<Scalars['String']['output']>;
-  readonly icon: Maybe<Scalars['String']['output']>;
+  readonly excerpt: Scalars['String']['output'];
+  readonly icon: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -1864,7 +1864,7 @@ export type JsonQueryOperatorInput = {
 };
 
 export type Mdx = Node & Output & Timeline & {
-  readonly body: Maybe<Scalars['String']['output']>;
+  readonly body: Scalars['String']['output'];
   readonly category: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
@@ -1875,7 +1875,7 @@ export type Mdx = Node & Output & Timeline & {
   readonly parent: Maybe<Node>;
   readonly redirect: Maybe<Scalars['String']['output']>;
   readonly slug: Scalars['String']['output'];
-  readonly tableOfContents: Maybe<Scalars['JSON']['output']>;
+  readonly tableOfContents: Scalars['JSON']['output'];
   readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
   readonly title: Scalars['String']['output'];
   readonly updateDate: Maybe<Scalars['Date']['output']>;
@@ -1887,11 +1887,6 @@ export type MdxDateArgs = {
   formatString: InputMaybe<Scalars['String']['input']>;
   fromNow: InputMaybe<Scalars['Boolean']['input']>;
   locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type MdxTableOfContentsArgs = {
-  maxDepth: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -2145,7 +2140,7 @@ export type OssesYaml = Node & Output & Project & Timeline & {
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
+  readonly tags: ReadonlyArray<Scalars['String']['output']>;
   readonly title: Scalars['String']['output'];
   readonly url: Scalars['String']['output'];
 };
@@ -2581,11 +2576,11 @@ export type ProjectsYaml = Node & Project & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly endDate: Maybe<Scalars['Date']['output']>;
-  readonly icon: Maybe<Scalars['String']['output']>;
+  readonly icon: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
+  readonly tags: ReadonlyArray<Scalars['String']['output']>;
   readonly title: Scalars['String']['output'];
 };
 
@@ -4430,6 +4425,28 @@ export type TransformOptions = {
 export type WebPOptions = {
   readonly quality: InputMaybe<Scalars['Int']['input']>;
 };
+
+export type GatsbyPluginFeedQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatsbyPluginFeedQuery = { readonly allOutput: { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'ArticlesYaml' }
+      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'slug' | 'excerpt' | 'updateDate' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'SlidesYaml' }
+      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
+    )> } };
+
+export type GatsbyPluginSitemapQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatsbyPluginSitemapQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>>, readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly frontmatter: Pick<MdxFrontmatter, 'slug' | 'date' | 'updateDate'> }> } };
 
 export type OnCreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
 

@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 
 import { createOgpImage } from "./src/utils/createOgpImage";
+import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
 import { isDefined } from "./src/utils/typeguard";
 
 import type {
@@ -251,8 +252,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
      * Create Zenn articles json
      * Create Speaker Deck Slides json
      */
-    // TODO
-    // await fetchLaprasActivity();
+    await fetchLaprasActivity();
 
     reporter.success(
       `onCreatePagesStatefully: Created Zenn articles and Speaker Deck Slides json`
@@ -269,38 +269,41 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     const { createTypes } = actions;
 
     const typeDefs = /* GraphQL */ `
-      interface Timeline implements Node {
+      interface Timeline implements Node @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
       }
 
-      interface Output implements Node & Timeline {
+      interface Output implements Node & Timeline @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
       }
 
-      type ArticlesYaml implements Node & Timeline & Output {
+      type ArticlesYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!
       }
 
-      type SlidesYaml implements Node & Timeline & Output {
+      type SlidesYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!
       }
 
-      type OssesYaml implements Node & Timeline & Output {
+      type OssesYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!
+        tags: [String!]!
       }
 
-      type Mdx implements Node & Timeline & Output {
+      type Mdx implements Node & Timeline & Output @dontInfer {
         frontmatter: MdxFrontmatter!
+        body: String!
+        tableOfContents: JSON!
         category: String! @proxy(from: "frontmatter.category")
         date: Date! @dateformat @proxy(from: "frontmatter.date")
         excerpt: String! @proxy(from: "frontmatter.excerpt")
@@ -322,41 +325,48 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         updateDate: Date @dateformat
       }
 
-      interface Project implements Node & Timeline {
+      interface Project implements Node & Timeline @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
       }
 
-      type OssesYaml implements Node & Timeline & Project {
+      type OssesYaml implements Node & Timeline & Project @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!
+        tags: [String!]!
       }
 
-      type ProjectsYaml implements Node & Timeline & Project {
+      type ProjectsYaml implements Node & Timeline & Project @dontInfer {
         title: String!
         date: Date! @dateformat
         endDate: Date @dateformat
+        tags: [String!]!
+        icon: String!
       }
 
-      interface History implements Node & Timeline {
+      interface History implements Node & Timeline @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
       }
 
-      type CertificationsYaml implements Node & Timeline & History {
+      type CertificationsYaml implements Node & Timeline & History @dontInfer {
         title: String!
         date: Date! @dateformat
+        endDate: Date @dateformat
+        category: String!
       }
 
-      type HistoriesYaml implements Node & Timeline & History {
+      type HistoriesYaml implements Node & Timeline & History @dontInfer {
         title: String!
         date: Date! @dateformat
+        excerpt: String!
+        icon: String!
       }
 
-      type Search implements Node {
+      type Search implements Node @dontInfer {
         id: ID!
         title: String!
         excerpt: String!
