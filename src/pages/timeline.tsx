@@ -1,4 +1,7 @@
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
 import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { graphql, Script } from "gatsby";
 
@@ -8,6 +11,7 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
+import { HelloContent } from "@/features/PortfolioHello";
 import { TimelineList } from "@/features/TimelineList";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { useBuildTime } from "@/hooks/useBuildTime";
@@ -113,13 +117,74 @@ const TimelinePage = ({ data }: PageProps<TimelinePageQuery>): JSX.Element => {
 
   return (
     <Container maxWidth="md">
-      <Breadcrumbs
-        title={TRANSLATION.timeline.title}
-        css={(theme) => ({ marginBottom: theme.spacing(2) })}
-      />
+      <HelloContent />
+      <div css={(theme) => ({ height: theme.spacing(3) })} />
+      <Grid container spacing={2}>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <Card>
+            <CardActionArea
+              href="https://github.com/bicstone"
+              rel="external noopener"
+            >
+              GitHub
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <Card>
+            <CardActionArea
+              href="https://twitter.com/bicstone_me"
+              rel="external noopener"
+            >
+              Twitter
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <Card>
+            <CardActionArea
+              href="https://www.linkedin.com/in/bicstone"
+              rel="external noopener"
+            >
+              LinkedIn
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <Card>
+            <CardActionArea
+              href="https://youtrust.jp/users/bicstone"
+              rel="external noopener"
+            >
+              YOUTRUST
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <Card>
+            <CardActionArea
+              href="https://connpass.com/user/bicstone"
+              rel="external noopener"
+            >
+              Connpass
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <Card>
+            <CardActionArea
+              href="https://pay-career.com/spot_request/2022249011"
+              rel="external noopener"
+            >
+              PayCareer
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </Grid>
+      <div css={(theme) => ({ height: theme.spacing(3) })} />
 
-      <Typography component="h1" variant="h4" align="center" paragraph>
-        {TRANSLATION.timeline.title}
+      <Typography component="h1" variant="h5" align="center" paragraph>
+        {TRANSLATION.projects.title}
       </Typography>
 
       <TimelineTabList />
