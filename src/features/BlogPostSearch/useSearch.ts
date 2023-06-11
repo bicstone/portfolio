@@ -1,21 +1,12 @@
 import Fuse from "fuse.js";
+import { useStaticQuery, graphql } from "gatsby";
 import { useEffect, useState } from "react";
 
-import {
-  BLOG_POST_LIST_INDEX_JSON_FILENAME,
-  BLOG_POST_LIST_JSON_FILENAME,
-} from "./constants";
+import type { Search, UseSearchQuery } from "@/generated/graphqlTypes";
 
-import type { BLOG_POST_SEARCH_FIELDS } from "./constants";
-import type { MdxFrontmatter } from "@/generated/graphqlTypes";
-
-import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { isDefined } from "@/utils/typeguard";
 
-export type BlogPost = Pick<
-  MdxFrontmatter,
-  (typeof BLOG_POST_SEARCH_FIELDS)[number]
->;
+export type SearchResult = Pick<Search, "title" | "slug" | "url" | "excerpt">;
 
 /**
  * Search using Fuse.
@@ -23,56 +14,33 @@ export type BlogPost = Pick<
 export const useSearch = (props: {
   keyword: string | Fuse.Expression;
 }): {
-  readonly result?: Array<Fuse.FuseResult<BlogPost>>;
-  readonly fetching: boolean;
-  readonly error: boolean;
+  readonly result?: Array<Fuse.FuseResult<SearchResult>>;
 } => {
   const { keyword } = props;
+  const [fuse, setFuse] = useState<Fuse<SearchResult>>();
+  const [result, setResult] = useState<Array<Fuse.FuseResult<SearchResult>>>();
 
-  const [blogPostList, setBlogPostList] = useState<readonly BlogPost[]>();
-  const [blogPostListIndex, setBlogPostListIndex] =
-    useState<Fuse.FuseIndex<BlogPost>>();
-  const [error, setError] = useState<boolean>(false);
-  const [fetching, setFetching] = useState<boolean>(true);
-  const [fuse, setFuse] = useState<Fuse<BlogPost>>();
-  const [result, setResult] = useState<Array<Fuse.FuseResult<BlogPost>>>();
-
-  useEffect(() => {
-    const fetchBlogPostList = fetch(
-      `${SITE_METADATA.siteUrl}/${BLOG_POST_LIST_JSON_FILENAME}`
-    ).then(async (response) => await response.json());
-    const fetchBlogPostListIndex = fetch(
-      `${SITE_METADATA.siteUrl}/${BLOG_POST_LIST_INDEX_JSON_FILENAME}`
-    ).then(async (response) => await response.json());
-
-    Promise.all([fetchBlogPostList, fetchBlogPostListIndex])
-      .then(([blogPostList, blogPostListIndex]) => {
-        setBlogPostList(blogPostList);
-        setBlogPostListIndex(Fuse.parseIndex(blogPostListIndex));
-      })
-      .catch((error) => {
-        isDefined(window.Sentry) && window.Sentry.captureException(error);
-        setError(true);
-      })
-      .finally(() => {
-        setFetching(false);
-      });
-  }, []);
-
-  useEffect(() => {
-    if (isDefined(blogPostList) && isDefined(blogPostListIndex)) {
-      setFuse(
-        new Fuse(
-          blogPostList,
-          {
-            ignoreLocation: true,
-            findAllMatches: true,
-          },
-          blogPostListIndex
-        )
-      );
+  const data = useStaticQuery<UseSearchQuery>(graphql`
+    query UseSearch {
+      allSearch {
+        nodes {
+          title
+          excerpt
+          url
+          slug
+        }
+      }
     }
-  }, [blogPostList, blogPostListIndex]);
+  `);
+
+  useEffect(() => {
+    setFuse(
+      new Fuse(data.allSearch.nodes, {
+        ignoreLocation: true,
+        findAllMatches: true,
+      })
+    );
+  }, [data.allSearch.nodes]);
 
   useEffect(() => {
     if (isDefined(fuse)) {
@@ -80,5 +48,5 @@ export const useSearch = (props: {
     }
   }, [fuse, keyword]);
 
-  return { result, fetching, error } as const;
+  return { result } as const;
 };

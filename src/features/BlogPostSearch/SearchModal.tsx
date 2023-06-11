@@ -1,6 +1,5 @@
 import CloseIcon from "@mui/icons-material/CloseRounded";
 import SearchIcon from "@mui/icons-material/SearchRounded";
-import Alert from "@mui/material/Alert";
 import DialogTitle from "@mui/material/DialogTitle";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -62,9 +61,7 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
     } as { $or: Array<Record<string, string>> };
   }, [inputValue]);
 
-  const { result, fetching, error } = useSearch({
-    keyword,
-  });
+  const { result } = useSearch({ keyword });
 
   return (
     <div
@@ -129,17 +126,16 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         id={listId}
         dense
         css={{ overflowY: "auto", flexGrow: 1 }}
-        aria-busy={fetching || filtering}
+        aria-busy={filtering}
       >
-        {error && <Alert severity="error">{TRANSLATION.search.error}</Alert>}
-        {isDefined(result) && !fetching ? (
+        {isDefined(result) ? (
           <Virtuoso
             data={result}
             itemContent={(_index, post) => (
               <ListItem key={post.refIndex} role="option">
                 <ListItemButton
                   component={RouterLink}
-                  to={`/${post.item.slug}`}
+                  to={`/${post.item.url}`}
                   onClick={onClose}
                 >
                   <ListItemText primary={post.item.title} />
