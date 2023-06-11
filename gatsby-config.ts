@@ -55,9 +55,7 @@ const config: GatsbyConfig = {
   jsxImportSource: "@emotion/react",
 
   plugins: [
-    {
-      resolve: "gatsby-plugin-emotion",
-    },
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-fix-fouc`,
       options: {
@@ -66,15 +64,13 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: process.env.GTM_ID,
         includeInDevelopment: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-image`,
-    },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -155,9 +151,7 @@ const config: GatsbyConfig = {
         acl: null,
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

@@ -24,7 +24,6 @@ export type AvifOptions = {
 };
 
 export type ArticlesYaml = Node & Output & Timeline & {
-  readonly __typename?: 'ArticlesYaml';
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly id: Scalars['ID']['output'];
@@ -35,7 +34,6 @@ export type ArticlesYaml = Node & Output & Timeline & {
 };
 
 export type ArticlesYamlConnection = {
-  readonly __typename?: 'ArticlesYamlConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ArticlesYamlEdge>;
   readonly group: ReadonlyArray<ArticlesYamlGroupConnection>;
@@ -75,7 +73,6 @@ export type ArticlesYamlConnectionSumArgs = {
 };
 
 export type ArticlesYamlEdge = {
-  readonly __typename?: 'ArticlesYamlEdge';
   readonly next: Maybe<ArticlesYaml>;
   readonly node: ArticlesYaml;
   readonly previous: Maybe<ArticlesYaml>;
@@ -106,7 +103,6 @@ export type ArticlesYamlFilterListInput = {
 };
 
 export type ArticlesYamlGroupConnection = {
-  readonly __typename?: 'ArticlesYamlGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ArticlesYamlEdge>;
   readonly field: Scalars['String']['output'];
@@ -172,7 +168,6 @@ export type BooleanQueryOperatorInput = {
 };
 
 export type CertificationsYaml = History & Node & Timeline & {
-  readonly __typename?: 'CertificationsYaml';
   readonly category: Maybe<Scalars['String']['output']>;
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
@@ -192,7 +187,6 @@ export type CertificationsYamlEndDateArgs = {
 };
 
 export type CertificationsYamlConnection = {
-  readonly __typename?: 'CertificationsYamlConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<CertificationsYamlEdge>;
   readonly group: ReadonlyArray<CertificationsYamlGroupConnection>;
@@ -232,7 +226,6 @@ export type CertificationsYamlConnectionSumArgs = {
 };
 
 export type CertificationsYamlEdge = {
-  readonly __typename?: 'CertificationsYamlEdge';
   readonly next: Maybe<CertificationsYaml>;
   readonly node: CertificationsYaml;
   readonly previous: Maybe<CertificationsYaml>;
@@ -265,7 +258,6 @@ export type CertificationsYamlFilterListInput = {
 };
 
 export type CertificationsYamlGroupConnection = {
-  readonly __typename?: 'CertificationsYamlGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<CertificationsYamlEdge>;
   readonly field: Scalars['String']['output'];
@@ -329,7 +321,6 @@ export type DateQueryOperatorInput = {
 };
 
 export type Directory = Node & {
-  readonly __typename?: 'Directory';
   readonly absolutePath: Scalars['String']['output'];
   readonly accessTime: Scalars['Date']['output'];
   readonly atime: Scalars['Date']['output'];
@@ -426,7 +417,6 @@ export type DirectoryMtimeArgs = {
 };
 
 export type DirectoryConnection = {
-  readonly __typename?: 'DirectoryConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<DirectoryEdge>;
   readonly group: ReadonlyArray<DirectoryGroupConnection>;
@@ -466,7 +456,6 @@ export type DirectoryConnectionSumArgs = {
 };
 
 export type DirectoryEdge = {
-  readonly __typename?: 'DirectoryEdge';
   readonly next: Maybe<Directory>;
   readonly node: Directory;
   readonly previous: Maybe<Directory>;
@@ -549,7 +538,6 @@ export type DirectoryFilterInput = {
 };
 
 export type DirectoryGroupConnection = {
-  readonly __typename?: 'DirectoryGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<DirectoryEdge>;
   readonly field: Scalars['String']['output'];
@@ -639,7 +627,6 @@ export enum FieldSelectorEnum {
 }
 
 export type File = Node & {
-  readonly __typename?: 'File';
   readonly absolutePath: Scalars['String']['output'];
   readonly accessTime: Scalars['Date']['output'];
   readonly atime: Scalars['Date']['output'];
@@ -772,7 +759,6 @@ export type FileMtimeArgs = {
 };
 
 export type FileConnection = {
-  readonly __typename?: 'FileConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<FileEdge>;
   readonly group: ReadonlyArray<FileGroupConnection>;
@@ -812,7 +798,6 @@ export type FileConnectionSumArgs = {
 };
 
 export type FileEdge = {
-  readonly __typename?: 'FileEdge';
   readonly next: Maybe<File>;
   readonly node: File;
   readonly previous: Maybe<File>;
@@ -933,7 +918,6 @@ export type FileFilterInput = {
 };
 
 export type FileGroupConnection = {
-  readonly __typename?: 'FileGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<FileEdge>;
   readonly field: Scalars['String']['output'];
@@ -1072,7 +1056,6 @@ export enum GatsbyImagePlaceholder {
 }
 
 export type HistoriesYaml = History & Node & Timeline & {
-  readonly __typename?: 'HistoriesYaml';
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly excerpt: Maybe<Scalars['String']['output']>;
@@ -1084,7 +1067,6 @@ export type HistoriesYaml = History & Node & Timeline & {
 };
 
 export type HistoriesYamlConnection = {
-  readonly __typename?: 'HistoriesYamlConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<HistoriesYamlEdge>;
   readonly group: ReadonlyArray<HistoriesYamlGroupConnection>;
@@ -1124,7 +1106,6 @@ export type HistoriesYamlConnectionSumArgs = {
 };
 
 export type HistoriesYamlEdge = {
-  readonly __typename?: 'HistoriesYamlEdge';
   readonly next: Maybe<HistoriesYaml>;
   readonly node: HistoriesYaml;
   readonly previous: Maybe<HistoriesYaml>;
@@ -1157,7 +1138,6 @@ export type HistoriesYamlFilterListInput = {
 };
 
 export type HistoriesYamlGroupConnection = {
-  readonly __typename?: 'HistoriesYamlGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<HistoriesYamlEdge>;
   readonly field: Scalars['String']['output'];
@@ -1219,7 +1199,6 @@ export type History = {
 };
 
 export type HistoryConnection = {
-  readonly __typename?: 'HistoryConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<HistoryEdge>;
   readonly group: ReadonlyArray<HistoryGroupConnection>;
@@ -1259,7 +1238,6 @@ export type HistoryConnectionSumArgs = {
 };
 
 export type HistoryEdge = {
-  readonly __typename?: 'HistoryEdge';
   readonly next: Maybe<History>;
   readonly node: History;
   readonly previous: Maybe<History>;
@@ -1284,7 +1262,6 @@ export type HistoryFilterInput = {
 };
 
 export type HistoryGroupConnection = {
-  readonly __typename?: 'HistoryGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<HistoryEdge>;
   readonly field: Scalars['String']['output'];
@@ -1379,7 +1356,6 @@ export enum ImagePlaceholder {
 }
 
 export type ImageSharp = Node & {
-  readonly __typename?: 'ImageSharp';
   readonly children: ReadonlyArray<Node>;
   readonly fixed: Maybe<ImageSharpFixed>;
   readonly fluid: Maybe<ImageSharpFluid>;
@@ -1485,7 +1461,6 @@ export type ImageSharpResizeArgs = {
 };
 
 export type ImageSharpConnection = {
-  readonly __typename?: 'ImageSharpConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ImageSharpEdge>;
   readonly group: ReadonlyArray<ImageSharpGroupConnection>;
@@ -1525,7 +1500,6 @@ export type ImageSharpConnectionSumArgs = {
 };
 
 export type ImageSharpEdge = {
-  readonly __typename?: 'ImageSharpEdge';
   readonly next: Maybe<ImageSharp>;
   readonly node: ImageSharp;
   readonly previous: Maybe<ImageSharp>;
@@ -1560,7 +1534,6 @@ export type ImageSharpFilterListInput = {
 };
 
 export type ImageSharpFixed = {
-  readonly __typename?: 'ImageSharpFixed';
   readonly aspectRatio: Maybe<Scalars['Float']['output']>;
   readonly base64: Maybe<Scalars['String']['output']>;
   readonly height: Scalars['Float']['output'];
@@ -1613,7 +1586,6 @@ export type ImageSharpFixedSortInput = {
 };
 
 export type ImageSharpFluid = {
-  readonly __typename?: 'ImageSharpFluid';
   readonly aspectRatio: Scalars['Float']['output'];
   readonly base64: Maybe<Scalars['String']['output']>;
   readonly originalImg: Maybe<Scalars['String']['output']>;
@@ -1674,7 +1646,6 @@ export type ImageSharpFluidSortInput = {
 };
 
 export type ImageSharpGroupConnection = {
-  readonly __typename?: 'ImageSharpGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ImageSharpEdge>;
   readonly field: Scalars['String']['output'];
@@ -1716,7 +1687,6 @@ export type ImageSharpGroupConnectionSumArgs = {
 };
 
 export type ImageSharpOriginal = {
-  readonly __typename?: 'ImageSharpOriginal';
   readonly height: Maybe<Scalars['Float']['output']>;
   readonly src: Maybe<Scalars['String']['output']>;
   readonly width: Maybe<Scalars['Float']['output']>;
@@ -1741,7 +1711,6 @@ export type ImageSharpOriginalSortInput = {
 };
 
 export type ImageSharpResize = {
-  readonly __typename?: 'ImageSharpResize';
   readonly aspectRatio: Maybe<Scalars['Float']['output']>;
   readonly height: Maybe<Scalars['Int']['output']>;
   readonly originalName: Maybe<Scalars['String']['output']>;
@@ -1801,7 +1770,6 @@ export type IntQueryOperatorInput = {
 };
 
 export type Internal = {
-  readonly __typename?: 'Internal';
   readonly content: Maybe<Scalars['String']['output']>;
   readonly contentDigest: Scalars['String']['output'];
   readonly contentFilePath: Maybe<Scalars['String']['output']>;
@@ -1864,20 +1832,22 @@ export type JsonQueryOperatorInput = {
 };
 
 export type Mdx = Node & {
-  readonly __typename?: 'Mdx';
   readonly body: Maybe<Scalars['String']['output']>;
+  readonly category: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
-  readonly excerpt: Maybe<Scalars['String']['output']>;
+  readonly created: Scalars['Date']['output'];
+  readonly excerpt: Scalars['String']['output'];
   readonly frontmatter: Maybe<MdxFrontmatter>;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
+  readonly redirect: Maybe<Scalars['String']['output']>;
+  readonly slug: Scalars['String']['output'];
   readonly tableOfContents: Maybe<Scalars['JSON']['output']>;
-};
-
-
-export type MdxExcerptArgs = {
-  pruneLength?: InputMaybe<Scalars['Int']['input']>;
+  readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
+  readonly title: Scalars['String']['output'];
+  readonly type: Scalars['String']['output'];
+  readonly updated: Maybe<Scalars['Date']['output']>;
 };
 
 
@@ -1886,7 +1856,6 @@ export type MdxTableOfContentsArgs = {
 };
 
 export type MdxConnection = {
-  readonly __typename?: 'MdxConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<MdxEdge>;
   readonly group: ReadonlyArray<MdxGroupConnection>;
@@ -1926,7 +1895,6 @@ export type MdxConnectionSumArgs = {
 };
 
 export type MdxEdge = {
-  readonly __typename?: 'MdxEdge';
   readonly next: Maybe<Mdx>;
   readonly node: Mdx;
   readonly previous: Maybe<Mdx>;
@@ -1934,24 +1902,40 @@ export type MdxEdge = {
 
 export type MdxFieldSelector = {
   readonly body: InputMaybe<FieldSelectorEnum>;
+  readonly category: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly redirect: InputMaybe<FieldSelectorEnum>;
+  readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly tableOfContents: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+  readonly updated: InputMaybe<FieldSelectorEnum>;
 };
 
 export type MdxFilterInput = {
   readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
+  readonly created: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
+  readonly redirect: InputMaybe<StringQueryOperatorInput>;
+  readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly tableOfContents: InputMaybe<JsonQueryOperatorInput>;
+  readonly tags: InputMaybe<StringQueryOperatorInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+  readonly updated: InputMaybe<DateQueryOperatorInput>;
 };
 
 export type MdxFilterListInput = {
@@ -1959,32 +1943,15 @@ export type MdxFilterListInput = {
 };
 
 export type MdxFrontmatter = {
-  readonly __typename?: 'MdxFrontmatter';
-  readonly category: Maybe<Scalars['String']['output']>;
-  readonly created: Maybe<Scalars['Date']['output']>;
-  readonly excerpt: Maybe<Scalars['String']['output']>;
+  readonly category: Scalars['String']['output'];
+  readonly created: Scalars['Date']['output'];
+  readonly excerpt: Scalars['String']['output'];
   readonly redirect: Maybe<Scalars['String']['output']>;
-  readonly slug: Maybe<Scalars['String']['output']>;
-  readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
-  readonly title: Maybe<Scalars['String']['output']>;
-  readonly type: Maybe<Scalars['String']['output']>;
+  readonly slug: Scalars['String']['output'];
+  readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
+  readonly title: Scalars['String']['output'];
+  readonly type: Scalars['String']['output'];
   readonly updated: Maybe<Scalars['Date']['output']>;
-};
-
-
-export type MdxFrontmatterCreatedArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type MdxFrontmatterUpdatedArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type MdxFrontmatterFieldSelector = {
@@ -2024,7 +1991,6 @@ export type MdxFrontmatterSortInput = {
 };
 
 export type MdxGroupConnection = {
-  readonly __typename?: 'MdxGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<MdxEdge>;
   readonly field: Scalars['String']['output'];
@@ -2067,13 +2033,21 @@ export type MdxGroupConnectionSumArgs = {
 
 export type MdxSortInput = {
   readonly body: InputMaybe<SortOrderEnum>;
+  readonly category: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
   readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
+  readonly redirect: InputMaybe<SortOrderEnum>;
+  readonly slug: InputMaybe<SortOrderEnum>;
   readonly tableOfContents: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+  readonly updated: InputMaybe<SortOrderEnum>;
 };
 
 /** Node Interface */
@@ -2110,7 +2084,6 @@ export type NodeSortInput = {
 };
 
 export type OssesYaml = Node & Output & Project & Timeline & {
-  readonly __typename?: 'OssesYaml';
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly id: Scalars['ID']['output'];
@@ -2122,7 +2095,6 @@ export type OssesYaml = Node & Output & Project & Timeline & {
 };
 
 export type OssesYamlConnection = {
-  readonly __typename?: 'OssesYamlConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<OssesYamlEdge>;
   readonly group: ReadonlyArray<OssesYamlGroupConnection>;
@@ -2162,7 +2134,6 @@ export type OssesYamlConnectionSumArgs = {
 };
 
 export type OssesYamlEdge = {
-  readonly __typename?: 'OssesYamlEdge';
   readonly next: Maybe<OssesYaml>;
   readonly node: OssesYaml;
   readonly previous: Maybe<OssesYaml>;
@@ -2195,7 +2166,6 @@ export type OssesYamlFilterListInput = {
 };
 
 export type OssesYamlGroupConnection = {
-  readonly __typename?: 'OssesYamlGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<OssesYamlEdge>;
   readonly field: Scalars['String']['output'];
@@ -2258,7 +2228,6 @@ export type Output = {
 };
 
 export type OutputConnection = {
-  readonly __typename?: 'OutputConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<OutputEdge>;
   readonly group: ReadonlyArray<OutputGroupConnection>;
@@ -2298,7 +2267,6 @@ export type OutputConnectionSumArgs = {
 };
 
 export type OutputEdge = {
-  readonly __typename?: 'OutputEdge';
   readonly next: Maybe<Output>;
   readonly node: Output;
   readonly previous: Maybe<Output>;
@@ -2325,7 +2293,6 @@ export type OutputFilterInput = {
 };
 
 export type OutputGroupConnection = {
-  readonly __typename?: 'OutputGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<OutputEdge>;
   readonly field: Scalars['String']['output'];
@@ -2382,7 +2349,6 @@ export type PngOptions = {
 };
 
 export type PageInfo = {
-  readonly __typename?: 'PageInfo';
   readonly currentPage: Scalars['Int']['output'];
   readonly hasNextPage: Scalars['Boolean']['output'];
   readonly hasPreviousPage: Scalars['Boolean']['output'];
@@ -2423,7 +2389,6 @@ export type Project = {
 };
 
 export type ProjectConnection = {
-  readonly __typename?: 'ProjectConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ProjectEdge>;
   readonly group: ReadonlyArray<ProjectGroupConnection>;
@@ -2463,7 +2428,6 @@ export type ProjectConnectionSumArgs = {
 };
 
 export type ProjectEdge = {
-  readonly __typename?: 'ProjectEdge';
   readonly next: Maybe<Project>;
   readonly node: Project;
   readonly previous: Maybe<Project>;
@@ -2488,7 +2452,6 @@ export type ProjectFilterInput = {
 };
 
 export type ProjectGroupConnection = {
-  readonly __typename?: 'ProjectGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ProjectEdge>;
   readonly field: Scalars['String']['output'];
@@ -2539,7 +2502,6 @@ export type ProjectSortInput = {
 };
 
 export type ProjectsYaml = Node & Project & Timeline & {
-  readonly __typename?: 'ProjectsYaml';
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly endDate: Maybe<Scalars['Date']['output']>;
@@ -2552,7 +2514,6 @@ export type ProjectsYaml = Node & Project & Timeline & {
 };
 
 export type ProjectsYamlConnection = {
-  readonly __typename?: 'ProjectsYamlConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ProjectsYamlEdge>;
   readonly group: ReadonlyArray<ProjectsYamlGroupConnection>;
@@ -2592,7 +2553,6 @@ export type ProjectsYamlConnectionSumArgs = {
 };
 
 export type ProjectsYamlEdge = {
-  readonly __typename?: 'ProjectsYamlEdge';
   readonly next: Maybe<ProjectsYaml>;
   readonly node: ProjectsYaml;
   readonly previous: Maybe<ProjectsYaml>;
@@ -2627,7 +2587,6 @@ export type ProjectsYamlFilterListInput = {
 };
 
 export type ProjectsYamlGroupConnection = {
-  readonly __typename?: 'ProjectsYamlGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ProjectsYamlEdge>;
   readonly field: Scalars['String']['output'];
@@ -2681,7 +2640,6 @@ export type ProjectsYamlSortInput = {
 };
 
 export type Query = {
-  readonly __typename?: 'Query';
   readonly allArticlesYaml: ArticlesYamlConnection;
   readonly allCertificationsYaml: CertificationsYamlConnection;
   readonly allDirectory: DirectoryConnection;
@@ -3032,13 +2990,21 @@ export type QueryImageSharpArgs = {
 
 export type QueryMdxArgs = {
   body: InputMaybe<StringQueryOperatorInput>;
+  category: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
+  created: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
   frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
+  redirect: InputMaybe<StringQueryOperatorInput>;
+  slug: InputMaybe<StringQueryOperatorInput>;
   tableOfContents: InputMaybe<JsonQueryOperatorInput>;
+  tags: InputMaybe<StringQueryOperatorInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  type: InputMaybe<StringQueryOperatorInput>;
+  updated: InputMaybe<DateQueryOperatorInput>;
 };
 
 
@@ -3183,7 +3149,6 @@ export type QueryTimelineArgs = {
 };
 
 export type Site = Node & {
-  readonly __typename?: 'Site';
   readonly buildTime: Maybe<Scalars['Date']['output']>;
   readonly children: ReadonlyArray<Node>;
   readonly graphqlTypegen: Maybe<Scalars['Boolean']['output']>;
@@ -3209,7 +3174,6 @@ export type SiteBuildTimeArgs = {
 };
 
 export type SiteBuildMetadata = Node & {
-  readonly __typename?: 'SiteBuildMetadata';
   readonly buildTime: Maybe<Scalars['Date']['output']>;
   readonly children: ReadonlyArray<Node>;
   readonly id: Scalars['ID']['output'];
@@ -3226,7 +3190,6 @@ export type SiteBuildMetadataBuildTimeArgs = {
 };
 
 export type SiteBuildMetadataConnection = {
-  readonly __typename?: 'SiteBuildMetadataConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SiteBuildMetadataEdge>;
   readonly group: ReadonlyArray<SiteBuildMetadataGroupConnection>;
@@ -3266,7 +3229,6 @@ export type SiteBuildMetadataConnectionSumArgs = {
 };
 
 export type SiteBuildMetadataEdge = {
-  readonly __typename?: 'SiteBuildMetadataEdge';
   readonly next: Maybe<SiteBuildMetadata>;
   readonly node: SiteBuildMetadata;
   readonly previous: Maybe<SiteBuildMetadata>;
@@ -3289,7 +3251,6 @@ export type SiteBuildMetadataFilterInput = {
 };
 
 export type SiteBuildMetadataGroupConnection = {
-  readonly __typename?: 'SiteBuildMetadataGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SiteBuildMetadataEdge>;
   readonly field: Scalars['String']['output'];
@@ -3339,7 +3300,6 @@ export type SiteBuildMetadataSortInput = {
 };
 
 export type SiteConnection = {
-  readonly __typename?: 'SiteConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SiteEdge>;
   readonly group: ReadonlyArray<SiteGroupConnection>;
@@ -3379,7 +3339,6 @@ export type SiteConnectionSumArgs = {
 };
 
 export type SiteEdge = {
-  readonly __typename?: 'SiteEdge';
   readonly next: Maybe<Site>;
   readonly node: Site;
   readonly previous: Maybe<Site>;
@@ -3420,7 +3379,6 @@ export type SiteFilterInput = {
 };
 
 export type SiteFunction = Node & {
-  readonly __typename?: 'SiteFunction';
   readonly absoluteCompiledFilePath: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
   readonly functionRoute: Scalars['String']['output'];
@@ -3435,7 +3393,6 @@ export type SiteFunction = Node & {
 };
 
 export type SiteFunctionConnection = {
-  readonly __typename?: 'SiteFunctionConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SiteFunctionEdge>;
   readonly group: ReadonlyArray<SiteFunctionGroupConnection>;
@@ -3475,7 +3432,6 @@ export type SiteFunctionConnectionSumArgs = {
 };
 
 export type SiteFunctionEdge = {
-  readonly __typename?: 'SiteFunctionEdge';
   readonly next: Maybe<SiteFunction>;
   readonly node: SiteFunction;
   readonly previous: Maybe<SiteFunction>;
@@ -3510,7 +3466,6 @@ export type SiteFunctionFilterInput = {
 };
 
 export type SiteFunctionGroupConnection = {
-  readonly __typename?: 'SiteFunctionGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SiteFunctionEdge>;
   readonly field: Scalars['String']['output'];
@@ -3566,7 +3521,6 @@ export type SiteFunctionSortInput = {
 };
 
 export type SiteGroupConnection = {
-  readonly __typename?: 'SiteGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SiteEdge>;
   readonly field: Scalars['String']['output'];
@@ -3608,7 +3562,6 @@ export type SiteGroupConnectionSumArgs = {
 };
 
 export type SitePage = Node & {
-  readonly __typename?: 'SitePage';
   readonly children: ReadonlyArray<Node>;
   readonly component: Scalars['String']['output'];
   readonly componentChunkName: Scalars['String']['output'];
@@ -3623,7 +3576,6 @@ export type SitePage = Node & {
 };
 
 export type SitePageConnection = {
-  readonly __typename?: 'SitePageConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SitePageEdge>;
   readonly group: ReadonlyArray<SitePageGroupConnection>;
@@ -3663,7 +3615,6 @@ export type SitePageConnectionSumArgs = {
 };
 
 export type SitePageEdge = {
-  readonly __typename?: 'SitePageEdge';
   readonly next: Maybe<SitePage>;
   readonly node: SitePage;
   readonly previous: Maybe<SitePage>;
@@ -3698,7 +3649,6 @@ export type SitePageFilterInput = {
 };
 
 export type SitePageGroupConnection = {
-  readonly __typename?: 'SitePageGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SitePageEdge>;
   readonly field: Scalars['String']['output'];
@@ -3754,7 +3704,6 @@ export type SitePageSortInput = {
 };
 
 export type SitePlugin = Node & {
-  readonly __typename?: 'SitePlugin';
   readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
   readonly children: ReadonlyArray<Node>;
   readonly id: Scalars['ID']['output'];
@@ -3771,7 +3720,6 @@ export type SitePlugin = Node & {
 };
 
 export type SitePluginConnection = {
-  readonly __typename?: 'SitePluginConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SitePluginEdge>;
   readonly group: ReadonlyArray<SitePluginGroupConnection>;
@@ -3811,7 +3759,6 @@ export type SitePluginConnectionSumArgs = {
 };
 
 export type SitePluginEdge = {
-  readonly __typename?: 'SitePluginEdge';
   readonly next: Maybe<SitePlugin>;
   readonly node: SitePlugin;
   readonly previous: Maybe<SitePlugin>;
@@ -3850,7 +3797,6 @@ export type SitePluginFilterInput = {
 };
 
 export type SitePluginGroupConnection = {
-  readonly __typename?: 'SitePluginGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SitePluginEdge>;
   readonly field: Scalars['String']['output'];
@@ -3908,7 +3854,6 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
-  readonly __typename?: 'SiteSiteMetadata';
   readonly description: Maybe<Scalars['String']['output']>;
   readonly siteUrl: Maybe<Scalars['String']['output']>;
   readonly title: Maybe<Scalars['String']['output']>;
@@ -3950,7 +3895,6 @@ export type SiteSortInput = {
 };
 
 export type SlidesYaml = Node & Output & Timeline & {
-  readonly __typename?: 'SlidesYaml';
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly id: Scalars['ID']['output'];
@@ -3961,7 +3905,6 @@ export type SlidesYaml = Node & Output & Timeline & {
 };
 
 export type SlidesYamlConnection = {
-  readonly __typename?: 'SlidesYamlConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SlidesYamlEdge>;
   readonly group: ReadonlyArray<SlidesYamlGroupConnection>;
@@ -4001,7 +3944,6 @@ export type SlidesYamlConnectionSumArgs = {
 };
 
 export type SlidesYamlEdge = {
-  readonly __typename?: 'SlidesYamlEdge';
   readonly next: Maybe<SlidesYaml>;
   readonly node: SlidesYaml;
   readonly previous: Maybe<SlidesYaml>;
@@ -4032,7 +3974,6 @@ export type SlidesYamlFilterListInput = {
 };
 
 export type SlidesYamlGroupConnection = {
-  readonly __typename?: 'SlidesYamlGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SlidesYamlEdge>;
   readonly field: Scalars['String']['output'];
@@ -4107,7 +4048,6 @@ export type Timeline = {
 };
 
 export type TimelineConnection = {
-  readonly __typename?: 'TimelineConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<TimelineEdge>;
   readonly group: ReadonlyArray<TimelineGroupConnection>;
@@ -4147,7 +4087,6 @@ export type TimelineConnectionSumArgs = {
 };
 
 export type TimelineEdge = {
-  readonly __typename?: 'TimelineEdge';
   readonly next: Maybe<Timeline>;
   readonly node: Timeline;
   readonly previous: Maybe<Timeline>;
@@ -4172,7 +4111,6 @@ export type TimelineFilterInput = {
 };
 
 export type TimelineGroupConnection = {
-  readonly __typename?: 'TimelineGroupConnection';
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<TimelineEdge>;
   readonly field: Scalars['String']['output'];
@@ -4238,205 +4176,77 @@ export type WebPOptions = {
 export type OnCreatePagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnCreatePagesQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly allMdx: (
-    { readonly __typename?: 'MdxConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'Mdx' }
-      & Pick<Mdx, 'id'>
-      & { readonly frontmatter: Maybe<(
-        { readonly __typename?: 'MdxFrontmatter' }
-        & Pick<MdxFrontmatter, 'slug' | 'tags'>
-      )>, readonly internal: (
-        { readonly __typename?: 'Internal' }
-        & Pick<Internal, 'contentFilePath'>
-      ) }
-    )> }
-  ) }
-);
+export type OnCreatePagesQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<(
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug' | 'tags'>>, readonly internal: Pick<Internal, 'contentFilePath'> }
+    )> } };
 
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnCreatePagesStatefullyQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly allMdx: (
-    { readonly __typename?: 'MdxConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'Mdx' }
-      & { readonly frontmatter: Maybe<(
-        { readonly __typename?: 'MdxFrontmatter' }
-        & Pick<MdxFrontmatter, 'title' | 'slug' | 'excerpt'>
-      )> }
-    )> }
-  ) }
-);
+export type OnCreatePagesStatefullyQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'excerpt'>> }> } };
 
-export type BlogPostTableOfContentFragment = (
-  { readonly __typename?: 'Mdx' }
-  & Pick<Mdx, 'tableOfContents'>
-);
+export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
-export type PortfolioCertificationCardFragment = (
-  { readonly __typename?: 'CertificationsYaml' }
-  & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
-);
+export type PortfolioCertificationCardFragment = Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>;
 
-export type PortfolioCertificationDetailFragment = (
-  { readonly __typename?: 'CertificationsYaml' }
-  & Pick<CertificationsYaml, 'title' | 'date' | 'endDate'>
-);
+export type PortfolioCertificationDetailFragment = Pick<CertificationsYaml, 'title' | 'date' | 'endDate'>;
 
-export type PortfolioCertificationListFragment = (
-  { readonly __typename?: 'CertificationsYamlConnection' }
-  & { readonly group: ReadonlyArray<(
-    { readonly __typename?: 'CertificationsYamlGroupConnection' }
-    & Pick<CertificationsYamlGroupConnection, 'fieldValue'>
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
-    )> }
-  )> }
-);
+export type PortfolioCertificationListFragment = { readonly group: ReadonlyArray<(
+    Pick<CertificationsYamlGroupConnection, 'fieldValue'>
+    & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>> }
+  )> };
 
-export type PortfolioHistoryCardFragment = (
-  { readonly __typename?: 'HistoriesYaml' }
-  & Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>
-);
+export type PortfolioHistoryCardFragment = Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>;
 
-export type PortfolioHistoryListFragment = (
-  { readonly __typename?: 'HistoriesYamlConnection' }
-  & { readonly nodes: ReadonlyArray<(
-    { readonly __typename?: 'HistoriesYaml' }
-    & Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>
-  )> }
-);
+export type PortfolioHistoryListFragment = { readonly nodes: ReadonlyArray<Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>> };
 
-export type PortfolioOssCardFragment = (
-  { readonly __typename?: 'OssesYaml' }
-  & Pick<OssesYaml, 'title' | 'tags' | 'date' | 'url'>
-);
+export type PortfolioOssCardFragment = Pick<OssesYaml, 'title' | 'tags' | 'date' | 'url'>;
 
-export type PortfolioOssListFragment = (
-  { readonly __typename?: 'OssesYamlConnection' }
-  & { readonly nodes: ReadonlyArray<(
-    { readonly __typename?: 'OssesYaml' }
-    & Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>
-  )> }
-);
+export type PortfolioOssListFragment = { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>> };
 
-export type PortfolioProjectCardFragment = (
-  { readonly __typename?: 'ProjectsYaml' }
-  & Pick<ProjectsYaml, 'title' | 'tags' | 'icon' | 'date' | 'endDate'>
-);
+export type PortfolioProjectCardFragment = Pick<ProjectsYaml, 'title' | 'tags' | 'icon' | 'date' | 'endDate'>;
 
-export type PortfolioProjectListFragment = (
-  { readonly __typename?: 'ProjectsYamlConnection' }
-  & { readonly nodes: ReadonlyArray<(
-    { readonly __typename?: 'ProjectsYaml' }
-    & Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>
-  )> }
-);
+export type PortfolioProjectListFragment = { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> };
 
-export type RelatedBlogPostCardFragment = (
-  { readonly __typename?: 'Mdx' }
-  & { readonly frontmatter: Maybe<(
-    { readonly __typename?: 'MdxFrontmatter' }
-    & Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>
-  )> }
-);
+export type RelatedBlogPostCardFragment = { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> };
 
 export type RelatedBlogPostListFragment = (
-  { readonly __typename?: 'Mdx' }
-  & Pick<Mdx, 'id'>
-  & { readonly frontmatter: Maybe<(
-    { readonly __typename?: 'MdxFrontmatter' }
-    & Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>
-  )> }
+  Pick<Mdx, 'id'>
+  & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>> }
 );
 
 export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BuildTimeDataQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly site: Maybe<(
-    { readonly __typename?: 'Site' }
-    & Pick<Site, 'buildTime'>
-  )> }
-);
+export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
 export type HistoryPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HistoryPageQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly histories: (
-    { readonly __typename?: 'HistoryConnection' }
-    & { readonly nodes: ReadonlyArray<(
+export type HistoryPageQuery = { readonly histories: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'CertificationsYaml' }
       & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'title' | 'date'>
-    )> }
-  ) }
-);
+    )> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly projects: (
-    { readonly __typename?: 'ProjectsYamlConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>
-    )> }
-  ), readonly histories: (
-    { readonly __typename?: 'HistoriesYamlConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>
-    )> }
-  ), readonly osses: (
-    { readonly __typename?: 'OssesYamlConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'OssesYaml' }
-      & Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>
-    )> }
-  ), readonly certifications: (
-    { readonly __typename?: 'CertificationsYamlConnection' }
-    & { readonly group: ReadonlyArray<(
-      { readonly __typename?: 'CertificationsYamlGroupConnection' }
-      & Pick<CertificationsYamlGroupConnection, 'fieldValue'>
-      & { readonly nodes: ReadonlyArray<(
-        { readonly __typename?: 'CertificationsYaml' }
-        & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
-      )> }
-    )> }
-  ) }
-);
+export type IndexPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> }, readonly histories: { readonly nodes: ReadonlyArray<Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>> }, readonly osses: { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>> }, readonly certifications: { readonly group: ReadonlyArray<(
+      Pick<CertificationsYamlGroupConnection, 'fieldValue'>
+      & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>> }
+    )> } };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OutputsPageQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly blogPosts: (
-    { readonly __typename?: 'MdxConnection' }
-    & { readonly nodes: ReadonlyArray<(
+export type OutputsPageQuery = { readonly blogPosts: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'Mdx' }
-      & { readonly frontmatter: Maybe<(
-        { readonly __typename?: 'MdxFrontmatter' }
-        & Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>
-      )> }
-    )> }
-  ), readonly outputs: (
-    { readonly __typename?: 'OutputConnection' }
-    & { readonly nodes: ReadonlyArray<(
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>> }
+    )> }, readonly outputs: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'title' | 'url' | 'date'>
     ) | (
@@ -4445,44 +4255,26 @@ export type OutputsPageQuery = (
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'title' | 'url' | 'date'>
-    )> }
-  ) }
-);
+    )> } };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsPageQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly projects: (
-    { readonly __typename?: 'ProjectConnection' }
-    & { readonly nodes: ReadonlyArray<(
+export type ProjectsPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'OssesYaml' }
       & Pick<OssesYaml, 'url' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'ProjectsYaml' }
       & Pick<ProjectsYaml, 'endDate' | 'title' | 'date'>
-    )> }
-  ) }
-);
+    )> } };
 
 export type TimelinePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TimelinePageQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly blogPosts: (
-    { readonly __typename?: 'MdxConnection' }
-    & { readonly nodes: ReadonlyArray<(
+export type TimelinePageQuery = { readonly blogPosts: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'Mdx' }
-      & { readonly frontmatter: Maybe<(
-        { readonly __typename?: 'MdxFrontmatter' }
-        & Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>
-      )> }
-    )> }
-  ), readonly timelineItems: (
-    { readonly __typename?: 'TimelineConnection' }
-    & { readonly nodes: ReadonlyArray<(
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'created' | 'category'>> }
+    )> }, readonly timelineItems: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
     ) | (
@@ -4500,9 +4292,7 @@ export type TimelinePageQuery = (
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-    )> }
-  ) }
-);
+    )> } };
 
 export type BlogPostTemplateQueryVariables = Exact<{
   id: Scalars['String']['input'];
@@ -4510,26 +4300,10 @@ export type BlogPostTemplateQueryVariables = Exact<{
 }>;
 
 
-export type BlogPostTemplateQuery = (
-  { readonly __typename?: 'Query' }
-  & { readonly post: Maybe<(
-    { readonly __typename?: 'Mdx' }
-    & Pick<Mdx, 'id' | 'tableOfContents'>
-    & { readonly frontmatter: Maybe<(
-      { readonly __typename?: 'MdxFrontmatter' }
-      & Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated' | 'category' | 'tags'>
-      & { createdTime: MdxFrontmatter['created'] }
-    )> }
-  )>, readonly relatedPosts: (
-    { readonly __typename?: 'MdxConnection' }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename?: 'Mdx' }
-      & Pick<Mdx, 'id'>
-      & { readonly frontmatter: Maybe<(
-        { readonly __typename?: 'MdxFrontmatter' }
-        & Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'>
-        & { createdTime: MdxFrontmatter['created'] }
-      )> }
-    )> }
-  ) }
-);
+export type BlogPostTemplateQuery = { readonly post: Maybe<(
+    Pick<Mdx, 'id' | 'tableOfContents'>
+    & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'created' | 'updated' | 'category' | 'tags'>> }
+  )>, readonly relatedPosts: { readonly nodes: ReadonlyArray<(
+      Pick<Mdx, 'id'>
+      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'created' | 'title' | 'slug' | 'redirect'>> }
+    )> } };

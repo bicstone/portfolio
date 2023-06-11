@@ -34,7 +34,6 @@ export const query = graphql`
         title
         excerpt
         created
-        createdTime: created(formatString: "X")
         updated
         category
         tags
@@ -47,7 +46,7 @@ export const query = graphql`
     ) {
       nodes {
         frontmatter {
-          createdTime: created(formatString: "X")
+          created
         }
         ...RelatedBlogPostList
       }
@@ -185,14 +184,14 @@ const BlogPostTemplate = ({
     // 2. Older articles than this.
 
     const newerPosts = filteredPosts
-      .filter((p) => p.frontmatter.createdTime >= post.frontmatter.createdTime)
+      .filter((p) => p.frontmatter.created >= post.frontmatter.created)
       .slice(0, 10);
     const olderPosts = filteredPosts
-      .filter((p) => p.frontmatter.createdTime < post.frontmatter.createdTime)
+      .filter((p) => p.frontmatter.created < post.frontmatter.created)
       .slice(0, 18 - newerPosts.length);
 
     return [...newerPosts, ...olderPosts];
-  }, [data.relatedPosts.nodes, post.frontmatter.createdTime, post.id]);
+  }, [data.relatedPosts.nodes, post.frontmatter.created, post.id]);
 
   const createdDate = React.useMemo(
     () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),

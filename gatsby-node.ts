@@ -199,6 +199,31 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
   ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = /* GraphQL */ `
+      type Mdx implements Node {
+        frontmatter: MdxFrontmatter
+        category: String!
+        created: Date!
+        excerpt: String!
+        redirect: String
+        slug: String!
+        tags: [String!]
+        title: String!
+        type: String!
+        updated: Date
+      }
+
+      type MdxFrontmatter {
+        category: String!
+        created: Date!
+        excerpt: String!
+        redirect: String
+        slug: String!
+        tags: [String!]
+        title: String!
+        type: String!
+        updated: Date
+      }
+
       interface Timeline implements Node {
         id: ID!
         title: String!
