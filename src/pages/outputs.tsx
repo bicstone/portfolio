@@ -8,37 +8,37 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { getTimelineItems, TimelineList } from "@/features/TimelineList";
+import { TimelineList } from "@/features/TimelineList";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
   query OutputsPage {
-    blogPosts: allMdx(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        __typename
-        frontmatter {
-          title
-          slug
-          date
-          category
-        }
-      }
-    }
     outputs: allOutput(sort: { date: DESC }) {
       nodes {
         __typename
         title
-        url
         date
+        ... on ArticlesYaml {
+          url
+        }
+        ... on SlidesYaml {
+          url
+        }
+        ... on OssesYaml {
+          url
+        }
+        ... on Mdx {
+          slug
+        }
       }
     }
   }
 `;
 
 export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
-  const outputItems = getTimelineItems(data);
+  const outputItems = data.outputs.nodes;
   const title = `${TRANSLATION.outputs.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
@@ -84,8 +84,8 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
                 "@type": "BlogPosting",
                 headline: item.title,
                 image:
-                  item.typename === "Mdx" &&
-                  `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
+                  item.__typename === "Mdx" &&
+                  `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
@@ -146,7 +146,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
 };
 
 const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
-  const outputItems = getTimelineItems(data);
+  const outputItems = data.outputs.nodes;
 
   return (
     <Container maxWidth="md">

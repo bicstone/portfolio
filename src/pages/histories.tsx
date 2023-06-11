@@ -8,7 +8,7 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { getTimelineItems, TimelineList } from "@/features/TimelineList";
+import { TimelineList } from "@/features/TimelineList";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -29,7 +29,7 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
-  const projectItems = getTimelineItems(data);
+  const projectItems = data.histories.nodes;
   const title = `${TRANSLATION.histories.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
@@ -134,7 +134,7 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
 };
 
 const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
-  const projectItems = getTimelineItems(data);
+  const projectItems = data.histories.nodes;
 
   return (
     <Container maxWidth="md">

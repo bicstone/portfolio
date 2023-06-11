@@ -6,7 +6,7 @@ import CardActionArea, {
 import Typography from "@mui/material/Typography";
 import { Link } from "gatsby";
 
-import { type TimelineItem } from "./utlis";
+import { type TimelineItem } from "./TimelineList";
 
 import { formatDateTime } from "@/utils/format";
 
@@ -21,11 +21,11 @@ export const TimelineCard = ({
   const formattedDate = formatDateTime(item.date, "MMM d");
 
   const linkProps: CardActionAreaProps = (() => {
-    switch (item.typename) {
+    switch (item.__typename) {
       case "Mdx":
         return {
           component: Link,
-          to: `/${item.url}`,
+          to: `/${item.slug}`,
         };
       default:
         return {
@@ -73,7 +73,7 @@ export const TimelineCard = ({
                 })}
               />
               <time dateTime={item.date}>
-                {formattedDate} / {item.typename}
+                {formattedDate} / {item.__typename}
               </time>
             </Typography>
             <Typography component="h3" variant="h6">

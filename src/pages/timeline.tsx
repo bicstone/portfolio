@@ -8,24 +8,13 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { getTimelineItems, TimelineList } from "@/features/TimelineList";
+import { TimelineList } from "@/features/TimelineList";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
   query TimelinePage {
-    blogPosts: allMdx(sort: { frontmatter: { date: DESC } }) {
-      nodes {
-        __typename
-        frontmatter {
-          title
-          slug
-          date
-          category
-        }
-      }
-    }
     timelineItems: allTimeline(sort: { date: DESC }) {
       nodes {
         __typename
@@ -46,13 +35,16 @@ export const query = graphql`
         ... on SlidesYaml {
           url
         }
+        ... on Mdx {
+          slug
+        }
       }
     }
   }
 `;
 
 export const Head: HeadFC<TimelinePageQuery> = ({ location, data }) => {
-  const timelineItems = getTimelineItems(data);
+  const timelineItems = data.timelineItems.nodes;
   const title = `${TRANSLATION.timeline.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
@@ -97,9 +89,6 @@ export const Head: HeadFC<TimelinePageQuery> = ({ location, data }) => {
               ...timelineItems.map((item) => ({
                 "@type": "BlogPosting",
                 headline: item.title,
-                image:
-                  item.typename === "Mdx" &&
-                  `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
@@ -160,7 +149,7 @@ export const Head: HeadFC<TimelinePageQuery> = ({ location, data }) => {
 };
 
 const TimelinePage = ({ data }: PageProps<TimelinePageQuery>): JSX.Element => {
-  const timelineItems = getTimelineItems(data);
+  const timelineItems = data.timelineItems.nodes;
 
   return (
     <Container maxWidth="md">

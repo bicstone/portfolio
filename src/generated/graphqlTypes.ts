@@ -33,6 +33,14 @@ export type ArticlesYaml = Node & Output & Timeline & {
   readonly url: Scalars['String']['output'];
 };
 
+
+export type ArticlesYamlDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ArticlesYamlConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<ArticlesYamlEdge>;
@@ -176,6 +184,14 @@ export type CertificationsYaml = History & Node & Timeline & {
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly title: Scalars['String']['output'];
+};
+
+
+export type CertificationsYamlDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -1066,6 +1082,14 @@ export type HistoriesYaml = History & Node & Timeline & {
   readonly title: Scalars['String']['output'];
 };
 
+
+export type HistoriesYamlDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
 export type HistoriesYamlConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<HistoriesYamlEdge>;
@@ -1196,6 +1220,14 @@ export type History = {
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly title: Scalars['String']['output'];
+};
+
+
+export type HistoryDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type HistoryConnection = {
@@ -1831,7 +1863,7 @@ export type JsonQueryOperatorInput = {
   readonly regex: InputMaybe<Scalars['JSON']['input']>;
 };
 
-export type Mdx = Node & {
+export type Mdx = Node & Output & Timeline & {
   readonly body: Maybe<Scalars['String']['output']>;
   readonly category: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
@@ -1851,8 +1883,24 @@ export type Mdx = Node & {
 };
 
 
+export type MdxDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
 export type MdxTableOfContentsArgs = {
   maxDepth: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type MdxUpdatedDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type MdxConnection = {
@@ -1952,6 +2000,22 @@ export type MdxFrontmatter = {
   readonly title: Scalars['String']['output'];
   readonly type: Scalars['String']['output'];
   readonly updatedDate: Maybe<Scalars['Date']['output']>;
+};
+
+
+export type MdxFrontmatterDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MdxFrontmatterUpdatedDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type MdxFrontmatterFieldSelector = {
@@ -2094,6 +2158,14 @@ export type OssesYaml = Node & Output & Project & Timeline & {
   readonly url: Scalars['String']['output'];
 };
 
+
+export type OssesYamlDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
 export type OssesYamlConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<OssesYamlEdge>;
@@ -2224,7 +2296,14 @@ export type Output = {
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly title: Scalars['String']['output'];
-  readonly url: Scalars['String']['output'];
+};
+
+
+export type OutputDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type OutputConnection = {
@@ -2279,7 +2358,6 @@ export type OutputFieldSelector = {
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
-  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 export type OutputFilterInput = {
@@ -2289,7 +2367,6 @@ export type OutputFilterInput = {
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type OutputGroupConnection = {
@@ -2340,7 +2417,6 @@ export type OutputSortInput = {
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
-  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 export type PngOptions = {
@@ -2386,6 +2462,14 @@ export type Project = {
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly title: Scalars['String']['output'];
+};
+
+
+export type ProjectDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectConnection = {
@@ -2511,6 +2595,22 @@ export type ProjectsYaml = Node & Project & Timeline & {
   readonly parent: Maybe<Node>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']['output']>>>;
   readonly title: Scalars['String']['output'];
+};
+
+
+export type ProjectsYamlDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type ProjectsYamlEndDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectsYamlConnection = {
@@ -3027,7 +3127,6 @@ export type QueryOutputArgs = {
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -3904,6 +4003,14 @@ export type SlidesYaml = Node & Output & Timeline & {
   readonly url: Scalars['String']['output'];
 };
 
+
+export type SlidesYamlDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
 export type SlidesYamlConnection = {
   readonly distinct: ReadonlyArray<Scalars['String']['output']>;
   readonly edges: ReadonlyArray<SlidesYamlEdge>;
@@ -4045,6 +4152,14 @@ export type Timeline = {
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
   readonly title: Scalars['String']['output'];
+};
+
+
+export type TimelineDateArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 export type TimelineConnection = {
@@ -4243,18 +4358,18 @@ export type IndexPageQuery = { readonly projects: { readonly nodes: ReadonlyArra
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OutputsPageQuery = { readonly blogPosts: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'Mdx' }
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'date' | 'category'>> }
-    )> }, readonly outputs: { readonly nodes: ReadonlyArray<(
+export type OutputsPageQuery = { readonly outputs: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'title' | 'url' | 'date'>
+      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'slug' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'title' | 'url' | 'date'>
+      & Pick<OssesYaml, 'url' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'title' | 'url' | 'date'>
+      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
     )> } };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4271,10 +4386,7 @@ export type ProjectsPageQuery = { readonly projects: { readonly nodes: ReadonlyA
 export type TimelinePageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type TimelinePageQuery = { readonly blogPosts: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'Mdx' }
-      & { readonly frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'slug' | 'date' | 'category'>> }
-    )> }, readonly timelineItems: { readonly nodes: ReadonlyArray<(
+export type TimelinePageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
     ) | (
@@ -4283,6 +4395,9 @@ export type TimelinePageQuery = { readonly blogPosts: { readonly nodes: Readonly
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'slug' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'OssesYaml' }
       & Pick<OssesYaml, 'url' | 'title' | 'date'>

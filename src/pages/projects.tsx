@@ -8,7 +8,7 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { getTimelineItems, TimelineList } from "@/features/TimelineList";
+import { TimelineList } from "@/features/TimelineList";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -32,7 +32,7 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
-  const projectItems = getTimelineItems(data);
+  const projectItems = data.projects.nodes;
   const title = `${TRANSLATION.projects.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
@@ -77,9 +77,6 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
               ...projectItems.map((item) => ({
                 "@type": "BlogPosting",
                 headline: item.title,
-                image:
-                  item.typename === "Mdx" &&
-                  `${SITE_METADATA.siteUrl}/ogp/${item.url}.png`,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
@@ -140,7 +137,7 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
 };
 
 const ProjectsPage = ({ data }: PageProps<ProjectsPageQuery>): JSX.Element => {
-  const projectItems = getTimelineItems(data);
+  const projectItems = data.projects.nodes;
 
   return (
     <Container maxWidth="md">

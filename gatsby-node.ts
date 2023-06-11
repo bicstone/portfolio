@@ -194,99 +194,99 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
 /**
  * Create timeline schema
+ * see https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/
  */
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
   ({ actions }) => {
     const { createTypes } = actions;
     const typeDefs = /* GraphQL */ `
-      type Mdx implements Node {
-        frontmatter: MdxFrontmatter
-        category: String!
-        date: Date!
-        excerpt: String!
-        redirect: String
-        slug: String!
-        tags: [String!]
-        title: String!
-        type: String!
-        updatedDate: Date
-      }
-
-      type MdxFrontmatter {
-        category: String!
-        date: Date!
-        excerpt: String!
-        redirect: String
-        slug: String!
-        tags: [String!]
-        title: String!
-        type: String!
-        updatedDate: Date
-      }
-
       interface Timeline implements Node {
         id: ID!
         title: String!
-        date: Date!
+        date: Date! @dateformat
       }
 
       interface Output implements Node & Timeline {
         id: ID!
         title: String!
-        date: Date!
-        url: String!
+        date: Date! @dateformat
       }
 
       type ArticlesYaml implements Node & Timeline & Output {
         title: String!
-        date: Date!
+        date: Date! @dateformat
         url: String!
       }
 
       type SlidesYaml implements Node & Timeline & Output {
         title: String!
-        date: Date!
+        date: Date! @dateformat
         url: String!
       }
 
       type OssesYaml implements Node & Timeline & Output {
         title: String!
-        date: Date!
+        date: Date! @dateformat
         url: String!
+      }
+
+      type Mdx implements Node & Timeline & Output {
+        frontmatter: MdxFrontmatter
+        category: String! @proxy(from: "frontmatter.category")
+        date: Date! @dateformat @proxy(from: "frontmatter.date")
+        excerpt: String! @proxy(from: "frontmatter.excerpt")
+        redirect: String @proxy(from: "frontmatter.redirect")
+        slug: String! @proxy(from: "frontmatter.slug")
+        tags: [String!] @proxy(from: "frontmatter.tags")
+        title: String! @proxy(from: "frontmatter.title")
+        type: String! @proxy(from: "frontmatter.type")
+        updatedDate: Date @dateformat @proxy(from: "frontmatter.updatedDate")
+      }
+
+      type MdxFrontmatter {
+        category: String!
+        date: Date! @dateformat
+        excerpt: String!
+        redirect: String
+        slug: String!
+        tags: [String!]
+        title: String!
+        type: String!
+        updatedDate: Date @dateformat
       }
 
       interface Project implements Node & Timeline {
         id: ID!
         title: String!
-        date: Date!
+        date: Date! @dateformat
       }
 
       type OssesYaml implements Node & Timeline & Project {
         title: String!
-        date: Date!
+        date: Date! @dateformat
         url: String!
       }
 
       type ProjectsYaml implements Node & Timeline & Project {
         title: String!
-        date: Date!
-        endDate: Date
+        date: Date! @dateformat
+        endDate: Date @dateformat
       }
 
       interface History implements Node & Timeline {
         id: ID!
         title: String!
-        date: Date!
+        date: Date! @dateformat
       }
 
       type CertificationsYaml implements Node & Timeline & History {
         title: String!
-        date: Date!
+        date: Date! @dateformat
       }
 
       type HistoriesYaml implements Node & Timeline & History {
         title: String!
-        date: Date!
+        date: Date! @dateformat
       }
     `;
 
