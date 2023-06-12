@@ -2,9 +2,8 @@ import { promises as fs } from "fs";
 import https from "https";
 import path from "path";
 
+import { toDate } from "date-fns-tz";
 import { dump } from "js-yaml";
-
-import { formatDateTime } from "../format";
 
 const API_URL = "https://lapras.com/public/bicstone.json";
 
@@ -39,8 +38,7 @@ interface Response {
 
 interface TimeLineItem {
   title: string;
-  // If a date type is specified, Gatsby will perform extra processing.
-  date: string;
+  date: Date;
   url: string;
 }
 
@@ -62,12 +60,12 @@ const fetchData = async (): Promise<string> => {
 export const fetchLaprasActivity = async (): Promise<void> => {
   const data = await fetchData();
   const response: Response = JSON.parse(data);
-  const isoFormat = "yyyy-MM-dd'T'HH:mm:ssXXX";
+  const timeZone = "Asia/Tokyo";
 
   const zennArticles: TimeLineItem[] = response.zenn_articles.map((article) => {
     return {
       title: article.title,
-      date: formatDateTime(article.posted_at, isoFormat),
+      date: toDate(article.posted_at, { timeZone }),
       url: article.url,
     };
   });
@@ -76,7 +74,7 @@ export const fetchLaprasActivity = async (): Promise<void> => {
     (slide) => {
       return {
         title: slide.title,
-        date: formatDateTime(slide.presentation_date, isoFormat),
+        date: toDate(slide.presentation_date, { timeZone }),
         url: slide.url,
       };
     }
