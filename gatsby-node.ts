@@ -307,7 +307,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         category: String! @proxy(from: "frontmatter.category")
         date: Date! @dateformat @proxy(from: "frontmatter.date")
         excerpt: String! @proxy(from: "frontmatter.excerpt")
-        redirect: String @proxy(from: "frontmatter.redirect")
         slug: String! @proxy(from: "frontmatter.slug")
         tags: [String!] @proxy(from: "frontmatter.tags")
         title: String! @proxy(from: "frontmatter.title")
@@ -318,7 +317,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         category: String!
         date: Date! @dateformat
         excerpt: String!
-        redirect: String
         slug: String!
         tags: [String!]
         title: String!
