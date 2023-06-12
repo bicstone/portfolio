@@ -16,7 +16,7 @@ const StyledTab = styled(Button)(({ theme }) => ({
   minWidth: theme.spacing(8),
   padding: theme.spacing(1, 2),
   textTransform: "none",
-  width: theme.spacing(15),
+  width: theme.spacing(14),
   [`&.${SelectedClassName}`]: {
     background: theme.vars.palette.secondary.main,
     color: theme.vars.palette.secondary.contrastText,

@@ -2,8 +2,6 @@ import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles/CssVarsProvider";
 
-import BackgroundImage from "./background.svg";
-
 import type Sentry from "@sentry/browser";
 import type { ReactNode } from "react";
 
@@ -41,9 +39,6 @@ export const WrapRootElement = ({
             },
             body: {
               height: "100%",
-              backgroundImage: `url(${BackgroundImage})`,
-              backgroundRepeat: "repeat",
-              backgroundSize: "400px 400px",
               cursor: "default",
               fontFamily: FONT_FAMILY,
               overflowWrap: "break-word",

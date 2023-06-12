@@ -1873,7 +1873,6 @@ export type Mdx = Node & Output & Timeline & {
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
-  readonly redirect: Maybe<Scalars['String']['output']>;
   readonly slug: Scalars['String']['output'];
   readonly tableOfContents: Scalars['JSON']['output'];
   readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
@@ -1952,7 +1951,6 @@ export type MdxFieldSelector = {
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly redirect: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly tableOfContents: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
@@ -1970,7 +1968,6 @@ export type MdxFilterInput = {
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly redirect: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly tableOfContents: InputMaybe<JsonQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
@@ -1986,7 +1983,6 @@ export type MdxFrontmatter = {
   readonly category: Scalars['String']['output'];
   readonly date: Scalars['Date']['output'];
   readonly excerpt: Scalars['String']['output'];
-  readonly redirect: Maybe<Scalars['String']['output']>;
   readonly slug: Scalars['String']['output'];
   readonly tags: Maybe<ReadonlyArray<Scalars['String']['output']>>;
   readonly title: Scalars['String']['output'];
@@ -2013,7 +2009,6 @@ export type MdxFrontmatterFieldSelector = {
   readonly category: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
-  readonly redirect: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly tags: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
@@ -2024,7 +2019,6 @@ export type MdxFrontmatterFilterInput = {
   readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
-  readonly redirect: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly tags: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
@@ -2035,7 +2029,6 @@ export type MdxFrontmatterSortInput = {
   readonly category: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
-  readonly redirect: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
@@ -2093,7 +2086,6 @@ export type MdxSortInput = {
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly redirect: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly tableOfContents: InputMaybe<SortOrderEnum>;
   readonly tags: InputMaybe<SortOrderEnum>;
@@ -2746,6 +2738,7 @@ export type Query = {
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
   readonly allSlidesYaml: SlidesYamlConnection;
+  readonly allStaticImage: StaticImageConnection;
   readonly allTimeline: TimelineConnection;
   readonly articlesYaml: Maybe<ArticlesYaml>;
   readonly certificationsYaml: Maybe<CertificationsYaml>;
@@ -2766,6 +2759,7 @@ export type Query = {
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
   readonly slidesYaml: Maybe<SlidesYaml>;
+  readonly staticImage: Maybe<StaticImage>;
   readonly timeline: Maybe<Timeline>;
 };
 
@@ -2919,6 +2913,14 @@ export type QueryAllSlidesYamlArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   skip: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SlidesYamlSortInput>>>;
+};
+
+
+export type QueryAllStaticImageArgs = {
+  filter: InputMaybe<StaticImageFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<StaticImageSortInput>>>;
 };
 
 
@@ -3095,7 +3097,6 @@ export type QueryMdxArgs = {
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
-  redirect: InputMaybe<StringQueryOperatorInput>;
   slug: InputMaybe<StringQueryOperatorInput>;
   tableOfContents: InputMaybe<JsonQueryOperatorInput>;
   tags: InputMaybe<StringQueryOperatorInput>;
@@ -3243,6 +3244,46 @@ export type QuerySlidesYamlArgs = {
   parent: InputMaybe<NodeFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryStaticImageArgs = {
+  absolutePath: InputMaybe<StringQueryOperatorInput>;
+  accessTime: InputMaybe<DateQueryOperatorInput>;
+  atime: InputMaybe<DateQueryOperatorInput>;
+  atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  base: InputMaybe<StringQueryOperatorInput>;
+  birthTime: InputMaybe<DateQueryOperatorInput>;
+  birthtime: InputMaybe<DateQueryOperatorInput>;
+  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  blksize: InputMaybe<IntQueryOperatorInput>;
+  blocks: InputMaybe<IntQueryOperatorInput>;
+  changeTime: InputMaybe<DateQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  ctime: InputMaybe<DateQueryOperatorInput>;
+  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  dev: InputMaybe<IntQueryOperatorInput>;
+  dir: InputMaybe<StringQueryOperatorInput>;
+  ext: InputMaybe<StringQueryOperatorInput>;
+  extension: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  ino: InputMaybe<FloatQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  mode: InputMaybe<IntQueryOperatorInput>;
+  modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  mtime: InputMaybe<DateQueryOperatorInput>;
+  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  nlink: InputMaybe<IntQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  prettySize: InputMaybe<StringQueryOperatorInput>;
+  rdev: InputMaybe<IntQueryOperatorInput>;
+  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  relativePath: InputMaybe<StringQueryOperatorInput>;
+  root: InputMaybe<StringQueryOperatorInput>;
+  size: InputMaybe<IntQueryOperatorInput>;
+  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -4274,6 +4315,312 @@ export enum SortOrderEnum {
   Desc = 1
 }
 
+export type StaticImage = Node & {
+  readonly absolutePath: Maybe<Scalars['String']['output']>;
+  readonly accessTime: Maybe<Scalars['Date']['output']>;
+  readonly atime: Maybe<Scalars['Date']['output']>;
+  readonly atimeMs: Maybe<Scalars['Float']['output']>;
+  readonly base: Maybe<Scalars['String']['output']>;
+  readonly birthTime: Maybe<Scalars['Date']['output']>;
+  readonly birthtime: Maybe<Scalars['Date']['output']>;
+  readonly birthtimeMs: Maybe<Scalars['Float']['output']>;
+  readonly blksize: Maybe<Scalars['Int']['output']>;
+  readonly blocks: Maybe<Scalars['Int']['output']>;
+  readonly changeTime: Maybe<Scalars['Date']['output']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly ctime: Maybe<Scalars['Date']['output']>;
+  readonly ctimeMs: Maybe<Scalars['Float']['output']>;
+  readonly dev: Maybe<Scalars['Int']['output']>;
+  readonly dir: Maybe<Scalars['String']['output']>;
+  readonly ext: Maybe<Scalars['String']['output']>;
+  readonly extension: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly ino: Maybe<Scalars['Float']['output']>;
+  readonly internal: Internal;
+  readonly mode: Maybe<Scalars['Int']['output']>;
+  readonly modifiedTime: Maybe<Scalars['Date']['output']>;
+  readonly mtime: Maybe<Scalars['Date']['output']>;
+  readonly mtimeMs: Maybe<Scalars['Float']['output']>;
+  readonly name: Maybe<Scalars['String']['output']>;
+  readonly nlink: Maybe<Scalars['Int']['output']>;
+  readonly parent: Maybe<Node>;
+  readonly prettySize: Maybe<Scalars['String']['output']>;
+  readonly rdev: Maybe<Scalars['Int']['output']>;
+  readonly relativeDirectory: Maybe<Scalars['String']['output']>;
+  readonly relativePath: Maybe<Scalars['String']['output']>;
+  readonly root: Maybe<Scalars['String']['output']>;
+  readonly size: Maybe<Scalars['Int']['output']>;
+  readonly sourceInstanceName: Maybe<Scalars['String']['output']>;
+  readonly uid: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type StaticImageAccessTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageAtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageBirthTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageBirthtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageChangeTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageCtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageModifiedTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageMtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+export type StaticImageConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<StaticImageEdge>;
+  readonly group: ReadonlyArray<StaticImageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<StaticImage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type StaticImageConnectionDistinctArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageConnectionGroupArgs = {
+  field: StaticImageFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StaticImageConnectionMaxArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageConnectionMinArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageConnectionSumArgs = {
+  field: StaticImageFieldSelector;
+};
+
+export type StaticImageEdge = {
+  readonly next: Maybe<StaticImage>;
+  readonly node: StaticImage;
+  readonly previous: Maybe<StaticImage>;
+};
+
+export type StaticImageFieldSelector = {
+  readonly absolutePath: InputMaybe<FieldSelectorEnum>;
+  readonly accessTime: InputMaybe<FieldSelectorEnum>;
+  readonly atime: InputMaybe<FieldSelectorEnum>;
+  readonly atimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly base: InputMaybe<FieldSelectorEnum>;
+  readonly birthTime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly blksize: InputMaybe<FieldSelectorEnum>;
+  readonly blocks: InputMaybe<FieldSelectorEnum>;
+  readonly changeTime: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly ctime: InputMaybe<FieldSelectorEnum>;
+  readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly dev: InputMaybe<FieldSelectorEnum>;
+  readonly dir: InputMaybe<FieldSelectorEnum>;
+  readonly ext: InputMaybe<FieldSelectorEnum>;
+  readonly extension: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ino: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly mode: InputMaybe<FieldSelectorEnum>;
+  readonly modifiedTime: InputMaybe<FieldSelectorEnum>;
+  readonly mtime: InputMaybe<FieldSelectorEnum>;
+  readonly mtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly nlink: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly prettySize: InputMaybe<FieldSelectorEnum>;
+  readonly rdev: InputMaybe<FieldSelectorEnum>;
+  readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
+  readonly relativePath: InputMaybe<FieldSelectorEnum>;
+  readonly root: InputMaybe<FieldSelectorEnum>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
+  readonly uid: InputMaybe<FieldSelectorEnum>;
+};
+
+export type StaticImageFilterInput = {
+  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
+  readonly atime: InputMaybe<DateQueryOperatorInput>;
+  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly base: InputMaybe<StringQueryOperatorInput>;
+  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly blksize: InputMaybe<IntQueryOperatorInput>;
+  readonly blocks: InputMaybe<IntQueryOperatorInput>;
+  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly ctime: InputMaybe<DateQueryOperatorInput>;
+  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly dev: InputMaybe<IntQueryOperatorInput>;
+  readonly dir: InputMaybe<StringQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly extension: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ino: InputMaybe<FloatQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mode: InputMaybe<IntQueryOperatorInput>;
+  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nlink: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly rdev: InputMaybe<IntQueryOperatorInput>;
+  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
+  readonly root: InputMaybe<StringQueryOperatorInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type StaticImageGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<StaticImageEdge>;
+  readonly field: Scalars['String']['output'];
+  readonly fieldValue: Maybe<Scalars['String']['output']>;
+  readonly group: ReadonlyArray<StaticImageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<StaticImage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type StaticImageGroupConnectionDistinctArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageGroupConnectionGroupArgs = {
+  field: StaticImageFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StaticImageGroupConnectionMaxArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageGroupConnectionMinArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageGroupConnectionSumArgs = {
+  field: StaticImageFieldSelector;
+};
+
+export type StaticImageSortInput = {
+  readonly absolutePath: InputMaybe<SortOrderEnum>;
+  readonly accessTime: InputMaybe<SortOrderEnum>;
+  readonly atime: InputMaybe<SortOrderEnum>;
+  readonly atimeMs: InputMaybe<SortOrderEnum>;
+  readonly base: InputMaybe<SortOrderEnum>;
+  readonly birthTime: InputMaybe<SortOrderEnum>;
+  readonly birthtime: InputMaybe<SortOrderEnum>;
+  readonly birthtimeMs: InputMaybe<SortOrderEnum>;
+  readonly blksize: InputMaybe<SortOrderEnum>;
+  readonly blocks: InputMaybe<SortOrderEnum>;
+  readonly changeTime: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly ctime: InputMaybe<SortOrderEnum>;
+  readonly ctimeMs: InputMaybe<SortOrderEnum>;
+  readonly dev: InputMaybe<SortOrderEnum>;
+  readonly dir: InputMaybe<SortOrderEnum>;
+  readonly ext: InputMaybe<SortOrderEnum>;
+  readonly extension: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ino: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly mode: InputMaybe<SortOrderEnum>;
+  readonly modifiedTime: InputMaybe<SortOrderEnum>;
+  readonly mtime: InputMaybe<SortOrderEnum>;
+  readonly mtimeMs: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly nlink: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly prettySize: InputMaybe<SortOrderEnum>;
+  readonly rdev: InputMaybe<SortOrderEnum>;
+  readonly relativeDirectory: InputMaybe<SortOrderEnum>;
+  readonly relativePath: InputMaybe<SortOrderEnum>;
+  readonly root: InputMaybe<SortOrderEnum>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
+  readonly uid: InputMaybe<SortOrderEnum>;
+};
+
 export type StringQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['String']['input']>;
   readonly glob: InputMaybe<Scalars['String']['input']>;
@@ -4505,11 +4852,11 @@ export type PortfolioProjectCardFragment = Pick<ProjectsYaml, 'title' | 'tags' |
 
 export type PortfolioProjectListFragment = { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> };
 
-export type RelatedBlogPostCardFragment = { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'> };
+export type RelatedBlogPostCardFragment = { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug'> };
 
 export type RelatedBlogPostListFragment = (
   Pick<Mdx, 'id'>
-  & { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug' | 'redirect'> }
+  & { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug'> }
 );
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4527,10 +4874,10 @@ export type HistoryPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type HistoryPageQuery = { readonly histories: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
+      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'title' | 'date'>
+      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
     )> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4538,25 +4885,25 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'title' | 'date'>
+      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'title' | 'date'>
+      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'title' | 'date'>
+      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'title' | 'date'>
+      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'title' | 'date'>
+      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
+      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
     )> } };
 
 export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4572,16 +4919,16 @@ export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type OutputsPageQuery = { readonly outputs: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'title' | 'date'>
+      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'title' | 'date'>
+      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
+      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
     )> } };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4589,10 +4936,10 @@ export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type ProjectsPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'title' | 'date'>
+      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'title' | 'date'>
+      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
     )> } };
 
 export type BlogPostTemplateQueryVariables = Exact<{
@@ -4603,8 +4950,8 @@ export type BlogPostTemplateQueryVariables = Exact<{
 
 export type BlogPostTemplateQuery = { readonly post: Maybe<(
     Pick<Mdx, 'id' | 'tableOfContents'>
-    & { readonly frontmatter: Pick<MdxFrontmatter, 'slug' | 'redirect' | 'title' | 'excerpt' | 'date' | 'updateDate' | 'category' | 'tags'> }
+    & { readonly frontmatter: Pick<MdxFrontmatter, 'slug' | 'title' | 'excerpt' | 'date' | 'updateDate' | 'category' | 'tags'> }
   )>, readonly relatedPosts: { readonly nodes: ReadonlyArray<(
       Pick<Mdx, 'id'>
-      & { readonly frontmatter: Pick<MdxFrontmatter, 'date' | 'title' | 'slug' | 'redirect'> }
+      & { readonly frontmatter: Pick<MdxFrontmatter, 'date' | 'title' | 'slug'> }
     )> } };

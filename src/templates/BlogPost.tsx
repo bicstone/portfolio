@@ -30,7 +30,6 @@ export const query = graphql`
       id
       frontmatter {
         slug
-        redirect
         title
         excerpt
         date
@@ -149,12 +148,6 @@ const BlogPostTemplate = ({
     () => formatDateTime(post.frontmatter.updateDate, "yyyy/MM/dd"),
     [post.frontmatter.updateDate]
   );
-
-  React.useLayoutEffect(() => {
-    if (typeof window !== "undefined" && isDefined(post.frontmatter.redirect)) {
-      window.location.href = post.frontmatter.redirect;
-    }
-  }, [post.frontmatter.redirect]);
 
   return (
     <Container maxWidth="md">

@@ -8,7 +8,7 @@ import type { HeadFC, PageProps } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { TimelineList } from "@/features/TimelineList";
+import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
@@ -17,6 +17,7 @@ export const query = graphql`
     outputs: allOutput(sort: { date: DESC }) {
       nodes {
         __typename
+        id
         title
         date
         ... on ArticlesYaml {
