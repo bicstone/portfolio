@@ -3074,13 +3074,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/lab@npm:5.0.0-alpha.133":
-  version: 5.0.0-alpha.133
-  resolution: "@mui/lab@npm:5.0.0-alpha.133"
+"@mui/lab@npm:5.0.0-alpha.134":
+  version: 5.0.0-alpha.134
+  resolution: "@mui/lab@npm:5.0.0-alpha.134"
   dependencies:
     "@babel/runtime": "npm:^7.21.0"
     "@mui/base": "npm:5.0.0-beta.4"
-    "@mui/system": "npm:^5.13.2"
+    "@mui/system": "npm:^5.13.5"
     "@mui/types": "npm:^7.2.4"
     "@mui/utils": "npm:^5.13.1"
     clsx: "npm:^1.2.1"
@@ -3100,18 +3100,18 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 0d5f7f5d7d4610e9c7de808fda67bb65110fa310336713683413a9f669c0b01a24825e801c75eefaf795eab8e755bbd005d5ffc6c8c722633887fe5e27f8083c
+  checksum: 2899937ebab116338cccd8865213219bf805cc0c23400b2f598a844ac11ac52049ec36082843d2baf6f895bcbfaaac458c753f052ca6a918befeef6ec160c9ce
   languageName: node
   linkType: hard
 
-"@mui/material@npm:5.13.4":
-  version: 5.13.4
-  resolution: "@mui/material@npm:5.13.4"
+"@mui/material@npm:5.13.5":
+  version: 5.13.5
+  resolution: "@mui/material@npm:5.13.5"
   dependencies:
     "@babel/runtime": "npm:^7.21.0"
     "@mui/base": "npm:5.0.0-beta.4"
     "@mui/core-downloads-tracker": "npm:^5.13.4"
-    "@mui/system": "npm:^5.13.2"
+    "@mui/system": "npm:^5.13.5"
     "@mui/types": "npm:^7.2.4"
     "@mui/utils": "npm:^5.13.1"
     "@types/react-transition-group": "npm:^4.4.6"
@@ -3133,7 +3133,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: faa71e39c18ba509afcdabf8cb5944993a270a2606f7819a5cdffade9a8178dd4ad4db7fc09ccbdaf5b49c91f02bd497ab8a13b703d2530d91a5000b0529ae6f
+  checksum: 84a32505ce224507820c5364627a3879b2ae96bda1235ee482c549e097af6df6918ac2c3bc39b52d7a673d30e93e1bafe6357691798c0081222135e57c1d7884
   languageName: node
   linkType: hard
 
@@ -3175,9 +3175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/system@npm:^5.13.2":
-  version: 5.13.2
-  resolution: "@mui/system@npm:5.13.2"
+"@mui/system@npm:^5.13.5":
+  version: 5.13.5
+  resolution: "@mui/system@npm:5.13.5"
   dependencies:
     "@babel/runtime": "npm:^7.21.0"
     "@mui/private-theming": "npm:^5.13.1"
@@ -3199,7 +3199,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 53c486292f4a5e04eac6b313bdba75167f882f38a3625672f4646b66c07d160321ef354ed9c33a5c665302588d94afdf5762082314b4a7159b781fff196d4aad
+  checksum: 09c215386c094a2708441a4f0ae7003e30e43331c9f6cf0964c25946a7ad17f7371062dc9ce00c7642f3d374b6eaf583bec8737d07beb2d6bd9e9aecf4b62565
   languageName: node
   linkType: hard
 
@@ -5799,8 +5799,8 @@ __metadata:
     "@mdx-js/mdx": "npm:2.3.0"
     "@mdx-js/react": "npm:2.3.0"
     "@mui/icons-material": "npm:5.11.16"
-    "@mui/lab": "npm:5.0.0-alpha.133"
-    "@mui/material": "npm:5.13.4"
+    "@mui/lab": "npm:5.0.0-alpha.134"
+    "@mui/material": "npm:5.13.5"
     "@sentry/browser": "npm:7.54.0"
     "@types/js-yaml": "npm:4.0.5"
     "@types/node": "npm:20.3.0"
