@@ -11,7 +11,8 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { HelloContent } from "@/features/PortfolioHello";
+import { BentoHello } from "@/features/BentoHello";
+import { BentoIcon } from "@/features/BentoIcon";
 import { TimelineList } from "@/features/TimelineList";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { useBuildTime } from "@/hooks/useBuildTime";
@@ -117,9 +118,14 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
 
   return (
     <Container maxWidth="md">
-      <HelloContent />
       <div css={(theme) => ({ height: theme.spacing(3) })} />
       <Grid container spacing={2}>
+        <Grid item xs={4} sm={3} md={2} component="section">
+          <BentoIcon />
+        </Grid>
+        <Grid item xs={8} sm={9} md={10} component="section">
+          <BentoHello />
+        </Grid>
         <Grid item xs={4} sm={3} md={2} component="section">
           <Card css={{ paddingTop: "100%" }}>
             <CardActionArea
