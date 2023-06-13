@@ -6,7 +6,6 @@ import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
@@ -23,7 +22,7 @@ export const query = graphql`
 
 export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
   const timelineItems = data.timelineGroups.group.flatMap(({ nodes }) => nodes);
-  const title = `${TRANSLATION.timeline.title} - ${SITE_METADATA.title}`;
+  const title = SITE_METADATA.title;
   const buildTime = useBuildTime();
 
   return (
