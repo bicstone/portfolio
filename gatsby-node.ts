@@ -405,7 +405,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
     node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
 
   if (typeof date === "string" || date instanceof Date) {
-    const dateYear = formatInTimeZone(date, "Asia/Tokyo", "YYYY");
+    const dateYear = formatInTimeZone(date, "Asia/Tokyo", "yyyy");
     createNodeField({ node, name: "dateYear", value: Number(dateYear) });
   }
 };
