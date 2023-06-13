@@ -28,7 +28,7 @@ export const TimelineTabList = (): JSX.Element => {
     <div
       css={(theme) => ({
         display: "flex",
-        gap: theme.spacing(2),
+        gap: theme.spacing(1),
         overflowX: "auto",
         overflowY: "hidden",
         scrollbarWidth: "none",
