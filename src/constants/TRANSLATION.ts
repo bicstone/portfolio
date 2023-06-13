@@ -6,7 +6,6 @@ export const TRANSLATION = {
     relatedTitle: "関連記事",
     shareTitle: "シェア",
     tableOfContentsTitle: "目次",
-    title: "まっしろブログ",
   },
   bulkExpandButton: {
     hint: "このボタンを押下すると、全項目の詳細説明の展開を切り替えられます。すべて展開せずとも、項目上でキーボードの Enter を押下すると、それぞれの項目で展開を操作できます。",
@@ -34,7 +33,7 @@ export const TRANSLATION = {
   },
   hello: {
     description:
-      "Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士 / 電気工事士 / 機械エンジニア です。 様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。",
+      "Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士(017758) / 電気工事士 / 機械エンジニアです。様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。",
     description2:
       "メールや DM などお気軽にご連絡ください。すべてに目を通します。",
     goToPortfolio: "ポートフォリオ",
@@ -45,9 +44,6 @@ export const TRANSLATION = {
         "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
     title: "おおいし (@bicstone)",
-  },
-  histories: {
-    date: "年",
   },
   home: {
     contactsTitle: "お問い合わせ",
@@ -74,7 +70,7 @@ export const TRANSLATION = {
     title: "Not Found",
   },
   privacy: {
-    title: "プライバシーポリシー・お問い合わせ",
+    title: "プライバシーポリシー お問い合わせ",
   },
   scrollToTop: {
     title: "最上部に移動",
@@ -90,41 +86,18 @@ export const TRANSLATION = {
     },
     loading: "読み込み中",
     error:
-      "ブログ記事インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
-    hint: "まっしろブログを検索",
+      "インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
+    hint: "タイムラインを検索",
     title: "検索",
   },
-  share: {
-    twitter: {
-      color: "#1aa1f2",
-      name: "Twitter",
-      title: "Twitter で共有する (新しい window で開きます)",
-    },
-    facebook: {
-      color: "#3b5897",
-      name: "Facebook",
-      title: "Facebook で共有する (新しい window で開きます)",
-    },
-    hatenaBookmark: {
-      color: "#2e6dbe",
-      name: "はてブ",
-      title: "はてなブックマークを追加 (新しい window で開きます)",
-    },
-    pocket: {
-      color: "#f03f56",
-      name: "Pocket",
-      title: "Pocket に追加  (新しい window で開きます)",
-    },
-    linkedin: {
-      color: "#0077b5",
-      name: "LinkedIn",
-      title: "Linkedin で共有する  (新しい window で開きます)",
-    },
-    line: {
-      color: "#00c400",
-      name: "LINE",
-      title: "LINE で共有する  (新しい window で開きます)",
-    },
+  outputs: {
+    title: "Outputs",
+  },
+  projects: {
+    title: "Projects",
+  },
+  histories: {
+    title: "Histories",
   },
 } as const satisfies Record<
   string,

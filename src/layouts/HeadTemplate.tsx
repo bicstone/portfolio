@@ -112,6 +112,7 @@ export const HeadTemplate = (props: {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@bicstone_me" />
       <meta name="twitter:creator" content="@bicstone_me" />
+
       {
         /* local dev server CSP */
         process.env.NODE_ENV === "development" && (
@@ -130,6 +131,48 @@ export const HeadTemplate = (props: {
           />
         )
       }
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            url: SITE_METADATA.siteUrl,
+            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
+          }),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                item: {
+                  "@id": SITE_METADATA.siteUrl,
+                  name: SITE_METADATA.title,
+                  "@type": "Thing",
+                },
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                item: {
+                  "@id": canonical,
+                  name: title,
+                  "@type": "Thing",
+                },
+              },
+            ],
+          }),
+        }}
+      />
     </>
   );
 };

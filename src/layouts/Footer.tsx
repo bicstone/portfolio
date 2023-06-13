@@ -33,6 +33,7 @@ export const Footer = (): JSX.Element => {
       </Typography>
       <Typography variant="body2" color="textSecondary" align="center">
         {`© ${nowDate.getFullYear()} ${TRANSLATION.footer.copyright}`}
+        {` / Made with Gatsby.js`}
       </Typography>
       <BackToTop />
     </footer>

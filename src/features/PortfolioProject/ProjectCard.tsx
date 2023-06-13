@@ -11,10 +11,10 @@ import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
   fragment PortfolioProjectCard on ProjectsYaml {
-    name
+    title
     tags
     icon
-    startDate
+    date
     endDate
   }
 `;
@@ -23,9 +23,9 @@ export const ProjectCard = memo(
   (props: { project: PortfolioProjectCardFragment }): JSX.Element => {
     const { project } = props;
 
-    const startDate = formatDateTime(project.startDate, "yyyy/MM");
+    const date = formatDateTime(project.date, "yyyy/MM");
     const endDate = formatDateTime(project.endDate, "yyyy/MM");
-    const formattedDate = `${startDate} - ${endDate}`;
+    const formattedDate = `${date} - ${endDate}`;
 
     return (
       <CardHeader
@@ -41,7 +41,7 @@ export const ProjectCard = memo(
               {formattedDate}
             </Typography>
             <Typography component="h2" variant="h6">
-              {project.name}
+              {project.title}
             </Typography>
           </>
         }

@@ -11,7 +11,7 @@ import type { PortfolioCertificationCardFragment } from "@/generated/graphqlType
 
 export const query = graphql`
   fragment PortfolioCertificationCard on CertificationsYaml {
-    name
+    id
     ...PortfolioCertificationDetail
   }
 `;
@@ -35,7 +35,7 @@ export const CertificationCard = (props: {
             <List dense>
               {certifications.map((certification) => (
                 <CertificationDetail
-                  key={certification.name}
+                  key={certification.id}
                   certification={certification}
                 />
               ))}

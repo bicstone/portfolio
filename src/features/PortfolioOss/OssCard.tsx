@@ -12,10 +12,10 @@ import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
   fragment PortfolioOssCard on OssesYaml {
-    name
+    title
     tags
-    startDate
-    href
+    date
+    url
   }
 `;
 
@@ -23,13 +23,13 @@ export const OssCard = (props: {
   oss: PortfolioOssCardFragment;
 }): JSX.Element => {
   const { oss } = props;
-  const startYear = formatDateTime(oss.startDate, "yyyy/MM");
+  const startYear = formatDateTime(oss.date, "yyyy/MM");
 
   return (
     <Card component="section">
       <CardActionArea
-        title={oss.name}
-        href={oss.href}
+        title={oss.title}
+        href={oss.url}
         rel="external noopener"
         css={{ height: "100%" }}
       >
@@ -41,7 +41,7 @@ export const OssCard = (props: {
                 {startYear}～
               </Typography>
               <Typography component="h2" variant="h6">
-                {oss.name}
+                {oss.title}
               </Typography>
             </>
           }

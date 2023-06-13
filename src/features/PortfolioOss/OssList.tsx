@@ -7,7 +7,7 @@ import type { PortfolioOssListFragment } from "@/generated/graphqlTypes";
 export const query = graphql`
   fragment PortfolioOssList on OssesYamlConnection {
     nodes {
-      name
+      id
       ...PortfolioOssCard
     }
   }
@@ -33,7 +33,7 @@ export const OssList = (props: {
       })}
     >
       {osses.nodes.map((oss) => (
-        <OssCard key={oss.name} oss={oss} />
+        <OssCard key={oss.id} oss={oss} />
       ))}
     </div>
   );

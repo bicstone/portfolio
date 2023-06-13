@@ -1,8 +1,8 @@
+import CloseIcon from "@mui/icons-material/CloseRounded";
 import SearchIcon from "@mui/icons-material/SearchRounded";
-import Alert from "@mui/material/Alert";
-import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -11,11 +11,10 @@ import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 import TextField from "@mui/material/TextField";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Link as RouterLink } from "gatsby";
-import { useState, useMemo, useTransition, useId } from "react";
+import { useState, useTransition, useId } from "react";
 import { Virtuoso } from "react-virtuoso";
 
-import { useSearch } from "./useSearch";
+import { useTimelineSearch } from "./useTimelineSearch";
 
 import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
@@ -28,7 +27,9 @@ import {
 } from "@/utils/convert";
 import { isDefined } from "@/utils/typeguard";
 
-export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
+export const TimelineSearchModal = (props: {
+  onClose: () => void;
+}): JSX.Element => {
   const { onClose } = props;
 
   const [filtering, startTransition] = useTransition();
@@ -46,24 +47,20 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
     });
   };
 
-  const keyword: Fuse.Expression = useMemo(() => {
-    // Incorrect typescript type inference
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    return {
-      $or: [
-        { title: inputValue },
-        { excerpt: inputValue },
-        { title: convertKatakanaToHiragana(inputValue) },
-        { excerpt: convertKatakanaToHiragana(inputValue) },
-        { title: convertHiraganaToKatakana(inputValue) },
-        { excerpt: convertHiraganaToKatakana(inputValue) },
-      ],
-    } as { $or: Array<Record<string, string>> };
-  }, [inputValue]);
+  const keyword: Fuse.Expression = {
+    $or: [
+      { title: inputValue },
+      { excerpt: inputValue },
+      { slug: inputValue },
+      { url: inputValue },
+      { title: convertKatakanaToHiragana(inputValue) },
+      { excerpt: convertKatakanaToHiragana(inputValue) },
+      { title: convertHiraganaToKatakana(inputValue) },
+      { excerpt: convertHiraganaToKatakana(inputValue) },
+    ],
+  };
 
-  const { result, fetching, error } = useSearch({
-    keyword,
-  });
+  const { result } = useTimelineSearch({ keyword });
 
   return (
     <div
@@ -85,18 +82,13 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         }}
       >
         {TRANSLATION.search.title}
-        <Button
-          css={(theme) => ({
-            padding: theme.spacing(0, 1.5),
-            minWidth: 0,
-          })}
-          color="secondary"
-          variant="contained"
+        <IconButton
+          size="small"
           title={TRANSLATION.search.close.hint}
           onClick={onClose}
         >
-          {TRANSLATION.search.close.title}
-        </Button>
+          <CloseIcon />
+        </IconButton>
       </DialogTitle>
       <TextField
         // eslint-disable-next-line jsx-a11y/no-autofocus -- for modal focus
@@ -133,19 +125,14 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
         id={listId}
         dense
         css={{ overflowY: "auto", flexGrow: 1 }}
-        aria-busy={fetching || filtering}
+        aria-busy={filtering}
       >
-        {error && <Alert severity="error">{TRANSLATION.search.error}</Alert>}
-        {isDefined(result) && !fetching ? (
+        {isDefined(result) ? (
           <Virtuoso
             data={result}
             itemContent={(_index, post) => (
               <ListItem key={post.refIndex} role="option">
-                <ListItemButton
-                  component={RouterLink}
-                  to={`/${post.item.slug}`}
-                  onClick={onClose}
-                >
+                <ListItemButton href={post.item.url}>
                   <ListItemText primary={post.item.title} />
                 </ListItemButton>
               </ListItem>
@@ -173,4 +160,4 @@ export const SearchModal = (props: { onClose: () => void }): JSX.Element => {
 };
 
 // for React.lazy
-export default SearchModal;
+export default TimelineSearchModal;

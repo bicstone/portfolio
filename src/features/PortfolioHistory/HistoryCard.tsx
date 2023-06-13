@@ -10,12 +10,12 @@ import { memo, useId } from "react";
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
   fragment PortfolioHistoryCard on HistoriesYaml {
-    name
+    id
+    title
     date
     excerpt
     icon
@@ -27,18 +27,18 @@ export const HistoryCard = memo(
   (props: {
     history: PortfolioHistoryCardFragment;
     expanded: boolean;
-    onChange: (name: string) => void;
+    onChange: (id: string) => void;
   }): JSX.Element => {
     const { history, expanded, onChange } = props;
     const id = useId();
-    const year = formatDateTime(history.date, "yyyy");
+    const date = formatDateTime(history.date, "yyyy/MM");
 
     return (
       <Accordion
         expanded={expanded}
         disableGutters
         onChange={() => {
-          onChange(history.name);
+          onChange(history.id);
         }}
       >
         <AccordionSummary
@@ -56,10 +56,10 @@ export const HistoryCard = memo(
                   component="div"
                   color="textSecondary"
                 >
-                  {`${year} ${TRANSLATION.histories.date}`}
+                  {date}
                 </Typography>
                 <Typography component="h2" variant="h6">
-                  {history.name}
+                  {history.title}
                 </Typography>
               </>
             }
