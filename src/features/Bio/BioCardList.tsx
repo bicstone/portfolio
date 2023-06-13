@@ -4,16 +4,6 @@ import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
-import connpassLogo from "@/components/logos/connpass.svg";
-import feedLogo from "@/components/logos/feed.svg";
-import githubLogo from "@/components/logos/github.svg";
-import linkdinLogo from "@/components/logos/linkdin.png";
-import paycareerLogo from "@/components/logos/paycareer.svg";
-import speakerdeckLogo from "@/components/logos/speakerdeck.png";
-import twitterLogo from "@/components/logos/twitter.svg";
-import youtrustLogo from "@/components/logos/youtrust.svg";
-import zennLogo from "@/components/logos/zenn.svg";
-
 export const BioCardList = (): JSX.Element => {
   return (
     <div
@@ -33,21 +23,21 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon />
       <BioSocialLinkCard
-        logo={twitterLogo}
+        logo="/logos/twitter.svg"
         title="Twitter"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
         url="https://twitter.com/bicstone_me"
       />
       <BioSocialLinkCard
-        logo={youtrustLogo}
+        logo="/logos/youtrust.svg"
         title="YOUTRUST"
         subTitle="@bicstone"
         actionTitle="つながる"
         url="https://youtrust.jp/users/bicstone"
       />
       <BioSocialLinkCard
-        logo={linkdinLogo}
+        logo="/logos/linkdin.png"
         title="LinkedIn"
         subTitle="@bicstone"
         actionTitle="つながる"
@@ -62,42 +52,42 @@ export const BioCardList = (): JSX.Element => {
         })}
       />
       <BioSocialLinkCard
-        logo={githubLogo}
+        logo="/logos/github.svg"
         title="GitHub"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://github.com/bicstone"
       />
       <BioSocialLinkCard
-        logo={zennLogo}
+        logo="/logos/zenn.svg"
         title="Zenn"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://zenn.dev/bicstone"
       />
       <BioSocialLinkCard
-        logo={speakerdeckLogo}
+        logo="/logos/speakerdeck.png"
         title="Speaker Deck"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
       />
       <BioSocialLinkCard
-        logo={connpassLogo}
+        logo="/logos/connpass.svg"
         title="Connpass"
         subTitle="@bicstone"
         actionTitle="交流する"
         url="https://connpass.com/user/bicstone"
       />
       <BioSocialLinkCard
-        logo={paycareerLogo}
+        logo="/logos/paycareer.svg"
         title="PayCareer"
         subTitle="2022249011"
         actionTitle="面接する"
         url="https://pay-career.com/spot_request/2022249011"
       />
       <BioSocialLinkCard
-        logo={feedLogo}
+        logo="/logos/feed.svg"
         title="RSS"
         subTitle="rss.xml"
         actionTitle="購読する"

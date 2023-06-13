@@ -4581,29 +4581,35 @@ export type RelatedBlogPostListFragment = (
   & { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug'> }
 );
 
+export type TimelineArticleCardFragment = Pick<ArticlesYaml, 'title' | 'date' | 'url'>;
+
+export type TimelineCertificationCardFragment = Pick<CertificationsYaml, 'title' | 'date' | 'endDate'>;
+
+export type TimelineHistoryCardFragment = Pick<HistoriesYaml, 'title' | 'date'>;
+
 export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
     { dateYear: TimelineGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+      & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
     ) | (
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
     )> }
   )> };
 
@@ -4611,7 +4617,7 @@ export type TimelineListHistoryFragment = { readonly group: ReadonlyArray<(
     { dateYear: HistoryGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
@@ -4622,16 +4628,16 @@ export type TimelineListOutputFragment = { readonly group: ReadonlyArray<(
     { dateYear: OutputGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+      & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
     ) | (
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
     )> }
   )> };
 
@@ -4639,12 +4645,20 @@ export type TimelineListProjectFragment = { readonly group: ReadonlyArray<(
     { dateYear: ProjectGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+      & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
     )> }
   )> };
+
+export type TimelineMdxCardFragment = Pick<Mdx, 'title' | 'date' | 'slug'>;
+
+export type TimelineOssCardFragment = Pick<OssesYaml, 'title' | 'date' | 'url'>;
+
+export type TimelineProjectCardFragment = Pick<ProjectsYaml, 'title' | 'date' | 'endDate'>;
+
+export type TimelineSlideCardFragment = Pick<SlidesYaml, 'title' | 'date' | 'url'>;
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4663,7 +4677,7 @@ export type HistoryPageQuery = { readonly histories: { readonly group: ReadonlyA
       { dateYear: HistoryGroupConnection['fieldValue'] }
       & { readonly nodes: ReadonlyArray<(
         { readonly __typename: 'CertificationsYaml' }
-        & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+        & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
       ) | (
         { readonly __typename: 'HistoriesYaml' }
         & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
@@ -4677,25 +4691,25 @@ export type IndexPageQuery = { readonly timelineGroups: { readonly group: Readon
       { dateYear: TimelineGroupConnection['fieldValue'] }
       & { readonly nodes: ReadonlyArray<(
         { readonly __typename: 'ArticlesYaml' }
-        & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'CertificationsYaml' }
-        & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+        & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
       ) | (
         { readonly __typename: 'HistoriesYaml' }
         & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
       ) | (
         { readonly __typename: 'Mdx' }
-        & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+        & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
       ) | (
         { readonly __typename: 'OssesYaml' }
-        & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'ProjectsYaml' }
-        & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+        & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
       ) | (
         { readonly __typename: 'SlidesYaml' }
-        & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       )> }
     )> } };
 
@@ -4714,16 +4728,16 @@ export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArr
       { dateYear: OutputGroupConnection['fieldValue'] }
       & { readonly nodes: ReadonlyArray<(
         { readonly __typename: 'ArticlesYaml' }
-        & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'Mdx' }
-        & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+        & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
       ) | (
         { readonly __typename: 'OssesYaml' }
-        & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'SlidesYaml' }
-        & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       )> }
     )> } };
 
@@ -4734,10 +4748,10 @@ export type ProjectsPageQuery = { readonly projects: { readonly group: ReadonlyA
       { dateYear: ProjectGroupConnection['fieldValue'] }
       & { readonly nodes: ReadonlyArray<(
         { readonly __typename: 'OssesYaml' }
-        & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+        & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'ProjectsYaml' }
-        & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+        & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
       )> }
     )> } };
 

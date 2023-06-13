@@ -26,6 +26,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
             <>
               <Typography
                 variant="body2"
+                component="h2"
                 color="text.secondary"
                 css={(theme) => ({
                   display: "-webkit-box",

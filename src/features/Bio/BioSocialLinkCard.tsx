@@ -67,7 +67,7 @@ export const BioSocialLinkCard = ({
           />
         </StyledLogoCard>
         <div>
-          <Typography variant="body1">
+          <Typography variant="body1" component="h2">
             <ExternalLink>{title}</ExternalLink>
           </Typography>
           <Typography variant="caption" color="text.secondary">

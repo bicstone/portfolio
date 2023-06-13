@@ -1,7 +1,13 @@
 import { Typography } from "@mui/material";
 import { graphql } from "gatsby";
 
-import { TimelineCard } from "./TimelineCard";
+import { TimelineArticleCard } from "./TimelineArticleCard";
+import { TimelineCertificationCard } from "./TimelineCertificationCard";
+import { TimelineHistoryCard } from "./TimelineHistoryCard";
+import { TimelineMdxCard } from "./TimelineMdxCard";
+import { TimelineOssCard } from "./TimelineOssCard";
+import { TimelineProjectCard } from "./TimelineProjectCard";
+import { TimelineSlideCard } from "./TimelineSlideCard";
 
 import {
   type TimelineListOutputFragment,
@@ -17,25 +23,26 @@ export const query = graphql`
       nodes {
         __typename
         id
-        title
-        date
         ... on ArticlesYaml {
-          url
+          ...TimelineArticleCard
         }
         ... on CertificationsYaml {
-          endDate
+          ...TimelineCertificationCard
+        }
+        ... on HistoriesYaml {
+          ...TimelineHistoryCard
         }
         ... on OssesYaml {
-          url
+          ...TimelineOssCard
         }
         ... on ProjectsYaml {
-          endDate
+          ...TimelineProjectCard
         }
         ... on SlidesYaml {
-          url
+          ...TimelineSlideCard
         }
         ... on Mdx {
-          slug
+          ...TimelineMdxCard
         }
       }
     }
@@ -47,10 +54,11 @@ export const query = graphql`
       nodes {
         __typename
         id
-        title
-        date
         ... on CertificationsYaml {
-          endDate
+          ...TimelineCertificationCard
+        }
+        ... on HistoriesYaml {
+          ...TimelineHistoryCard
         }
       }
     }
@@ -62,19 +70,17 @@ export const query = graphql`
       nodes {
         __typename
         id
-        title
-        date
         ... on ArticlesYaml {
-          url
+          ...TimelineArticleCard
         }
         ... on SlidesYaml {
-          url
+          ...TimelineSlideCard
         }
         ... on OssesYaml {
-          url
+          ...TimelineOssCard
         }
         ... on Mdx {
-          slug
+          ...TimelineMdxCard
         }
       }
     }
@@ -86,13 +92,11 @@ export const query = graphql`
       nodes {
         __typename
         id
-        title
-        date
         ... on ProjectsYaml {
-          endDate
+          ...TimelineProjectCard
         }
         ... on OssesYaml {
-          url
+          ...TimelineOssCard
         }
       }
     }
@@ -114,7 +118,7 @@ export const TimelineList = (props: {
   return (
     <>
       {sortedGroups.map(({ dateYear, nodes }) => (
-        <div
+        <section
           key={dateYear}
           id={dateYear}
           css={(theme) => ({
@@ -138,10 +142,34 @@ export const TimelineList = (props: {
           >
             {dateYear}
           </Typography>
-          {nodes.map((item) => (
-            <TimelineCard key={item.id} item={item} />
-          ))}
-        </div>
+          {nodes.map((item) => {
+            switch (item.__typename) {
+              case "ArticlesYaml":
+                return <TimelineArticleCard key={item.id} item={item} />;
+
+              case "CertificationsYaml":
+                return <TimelineCertificationCard key={item.id} item={item} />;
+
+              case "HistoriesYaml":
+                return <TimelineHistoryCard key={item.id} item={item} />;
+
+              case "OssesYaml":
+                return <TimelineOssCard key={item.id} item={item} />;
+
+              case "ProjectsYaml":
+                return <TimelineProjectCard key={item.id} item={item} />;
+
+              case "SlidesYaml":
+                return <TimelineSlideCard key={item.id} item={item} />;
+
+              case "Mdx":
+                return <TimelineMdxCard key={item.id} item={item} />;
+
+              default:
+                return null;
+            }
+          })}
+        </section>
       ))}
     </>
   );
