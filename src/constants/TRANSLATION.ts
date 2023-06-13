@@ -70,7 +70,7 @@ export const TRANSLATION = {
     title: "Not Found",
   },
   privacy: {
-    title: "プライバシーポリシー・お問い合わせ",
+    title: "プライバシーポリシー お問い合わせ",
   },
   scrollToTop: {
     title: "最上部に移動",

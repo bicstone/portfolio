@@ -2,8 +2,6 @@ import CodeIcon from "@mui/icons-material/CodeRounded";
 import Avatar from "@mui/material/Avatar";
 import { type CardProps } from "@mui/material/Card";
 import red from "@mui/material/colors/red";
-import { isSameYear } from "date-fns";
-import { toDate } from "date-fns-tz";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
@@ -16,6 +14,10 @@ export const query = graphql`
     title
     date
     endDate
+    fields {
+      dateYear
+      endDateYear
+    }
   }
 `;
 
@@ -27,9 +29,8 @@ export const TimelineProjectCard = ({
   item,
   ...props
 }: TimelineProjectCardProps): JSX.Element => {
-  const date = toDate(item.date, { timeZone: "Asia/Tokyo" });
-  const endDate = toDate(item.endDate, { timeZone: "Asia/Tokyo" });
-  const format = isSameYear(date, endDate) ? "M月" : "yyyy年M月";
+  const format =
+    item.fields.dateYear === item.fields.endDateYear ? "M月" : "yyyy年M月";
   const dateFormatted = formatDateTime(item.date, "M月");
   const endDateFormatted = formatDateTime(item.endDate, format);
   const subTitle =

@@ -274,6 +274,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     const typeDefs = /* GraphQL */ `
       type TimelineFields {
         dateYear: Int!
+        endDateYear: Int
       }
 
       interface Timeline implements Node @dontInfer {
@@ -398,14 +399,21 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
 /**
  * Add `dateYear` field to nodes
+ * Add `endDateYear` field to nodes
  */
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
   const { createNodeField } = actions;
   const date =
     node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
+  const endDate =
+    node?.endDate ?? (node?.frontmatter as Record<string, unknown>)?.endDate;
 
   if (typeof date === "string" || date instanceof Date) {
     const dateYear = formatInTimeZone(date, "Asia/Tokyo", "yyyy");
     createNodeField({ node, name: "dateYear", value: Number(dateYear) });
+  }
+  if (typeof endDate === "string" || endDate instanceof Date) {
+    const endDateYear = formatInTimeZone(endDate, "Asia/Tokyo", "yyyy");
+    createNodeField({ node, name: "endDateYear", value: Number(endDateYear) });
   }
 };

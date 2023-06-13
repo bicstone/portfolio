@@ -4405,18 +4405,22 @@ export type TimelineFieldSelector = {
 
 export type TimelineFields = {
   readonly dateYear: Scalars['Int']['output'];
+  readonly endDateYear: Maybe<Scalars['Int']['output']>;
 };
 
 export type TimelineFieldsFieldSelector = {
   readonly dateYear: InputMaybe<FieldSelectorEnum>;
+  readonly endDateYear: InputMaybe<FieldSelectorEnum>;
 };
 
 export type TimelineFieldsFilterInput = {
   readonly dateYear: InputMaybe<IntQueryOperatorInput>;
+  readonly endDateYear: InputMaybe<IntQueryOperatorInput>;
 };
 
 export type TimelineFieldsSortInput = {
   readonly dateYear: InputMaybe<SortOrderEnum>;
+  readonly endDateYear: InputMaybe<SortOrderEnum>;
 };
 
 export type TimelineFilterInput = {
@@ -4607,6 +4611,7 @@ export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
     ) | (
       { readonly __typename: 'ProjectsYaml' }
       & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
@@ -4649,6 +4654,7 @@ export type TimelineListProjectFragment = { readonly group: ReadonlyArray<(
     ) | (
       { readonly __typename: 'ProjectsYaml' }
       & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
     )> }
   )> };
 
@@ -4656,7 +4662,10 @@ export type TimelineMdxCardFragment = Pick<Mdx, 'title' | 'date' | 'slug'>;
 
 export type TimelineOssCardFragment = Pick<OssesYaml, 'title' | 'date' | 'url'>;
 
-export type TimelineProjectCardFragment = Pick<ProjectsYaml, 'title' | 'date' | 'endDate'>;
+export type TimelineProjectCardFragment = (
+  Pick<ProjectsYaml, 'title' | 'date' | 'endDate'>
+  & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
+);
 
 export type TimelineSlideCardFragment = Pick<SlidesYaml, 'title' | 'date' | 'url'>;
 
@@ -4707,6 +4716,7 @@ export type IndexPageQuery = { readonly timelineGroups: { readonly group: Readon
       ) | (
         { readonly __typename: 'ProjectsYaml' }
         & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+        & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
       ) | (
         { readonly __typename: 'SlidesYaml' }
         & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
@@ -4752,6 +4762,7 @@ export type ProjectsPageQuery = { readonly projects: { readonly group: ReadonlyA
       ) | (
         { readonly __typename: 'ProjectsYaml' }
         & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+        & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
       )> }
     )> } };
 
