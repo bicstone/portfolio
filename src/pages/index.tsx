@@ -115,6 +115,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   return (
     <Container
       maxWidth="md"
+      fixed
       css={(theme) => ({
         marginTop: theme.spacing(4),
         marginBottom: theme.spacing(4),

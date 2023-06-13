@@ -13,8 +13,7 @@ export const TimelineList = (props: {
         gap: theme.spacing(3),
         gridTemplateColumns: "repeat(2, 1fr)",
         width: "100%",
-        [theme.breakpoints.down("sm")]: {
-          gap: theme.spacing(2),
+        [theme.breakpoints.down("md")]: {
           gridTemplateColumns: "repeat(1, 1fr)",
         },
       })}
