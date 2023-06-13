@@ -98,7 +98,7 @@ const config: GatsbyConfig = {
                       guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
                       title: node.title,
                       url: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                      description: node.excerpt,
+                      description: node.frontmatter.excerpt,
                       date: node.date,
                     };
                   default:
@@ -130,9 +130,9 @@ const config: GatsbyConfig = {
                     }
                     ... on Mdx {
                       slug
-                      excerpt
-                      updateDate
-                      excerpt
+                      frontmatter {
+                        excerpt
+                      }
                     }
                   }
                 }

@@ -6,7 +6,6 @@ export const TRANSLATION = {
     relatedTitle: "関連記事",
     shareTitle: "シェア",
     tableOfContentsTitle: "目次",
-    title: "Timeline",
   },
   bulkExpandButton: {
     hint: "このボタンを押下すると、全項目の詳細説明の展開を切り替えられます。すべて展開せずとも、項目上でキーボードの Enter を押下すると、それぞれの項目で展開を操作できます。",
@@ -91,38 +90,6 @@ export const TRANSLATION = {
     hint: "タイムラインを検索",
     title: "検索",
   },
-  share: {
-    twitter: {
-      color: "#1aa1f2",
-      name: "Twitter",
-      title: "Twitter で共有する (新しい window で開きます)",
-    },
-    facebook: {
-      color: "#3b5897",
-      name: "Facebook",
-      title: "Facebook で共有する (新しい window で開きます)",
-    },
-    hatenaBookmark: {
-      color: "#2e6dbe",
-      name: "はてブ",
-      title: "はてなブックマークを追加 (新しい window で開きます)",
-    },
-    pocket: {
-      color: "#f03f56",
-      name: "Pocket",
-      title: "Pocket に追加  (新しい window で開きます)",
-    },
-    linkedin: {
-      color: "#0077b5",
-      name: "LinkedIn",
-      title: "Linkedin で共有する  (新しい window で開きます)",
-    },
-    line: {
-      color: "#00c400",
-      name: "LINE",
-      title: "LINE で共有する  (新しい window で開きます)",
-    },
-  },
   outputs: {
     title: "Outputs",
   },
@@ -131,9 +98,6 @@ export const TRANSLATION = {
   },
   histories: {
     title: "Histories",
-  },
-  timeline: {
-    title: "Timeline",
   },
 } as const satisfies Record<
   string,

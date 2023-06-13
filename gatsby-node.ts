@@ -144,7 +144,9 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             }
             ... on Mdx {
               slug
-              excerpt
+              frontmatter {
+                excerpt
+              }
             }
           }
         }
@@ -175,7 +177,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             title: node.title,
             slug: node.slug,
             url: `/${node.slug}`,
-            excerpt: node.excerpt,
+            excerpt: node.frontmatter.excerpt,
           });
           break;
         case "CertificationsYaml":
@@ -316,7 +318,8 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         tableOfContents: JSON!
         category: String! @proxy(from: "frontmatter.category")
         date: Date! @dateformat @proxy(from: "frontmatter.date")
-        excerpt: String! @proxy(from: "frontmatter.excerpt")
+        # Conflicts with plugin fields
+        # excerpt: String! @proxy(from: "frontmatter.excerpt")
         slug: String! @proxy(from: "frontmatter.slug")
         tags: [String!] @proxy(from: "frontmatter.tags")
         title: String! @proxy(from: "frontmatter.title")

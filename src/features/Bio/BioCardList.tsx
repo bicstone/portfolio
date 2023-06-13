@@ -36,7 +36,7 @@ export const BioCardList = (): JSX.Element => {
         logo={twitterLogo}
         title="Twitter"
         subTitle="@bicstone_me"
-        actionTitle="Follow"
+        actionTitle="フォロー"
         url="https://twitter.com/bicstone_me"
       />
       <BioSocialLinkCard
@@ -50,7 +50,7 @@ export const BioCardList = (): JSX.Element => {
         logo={linkdinLogo}
         title="LinkedIn"
         subTitle="@bicstone"
-        actionTitle="Connect"
+        actionTitle="つながる"
         url="https://www.linkedin.com/in/bicstone"
       />
       <BioHelloCard

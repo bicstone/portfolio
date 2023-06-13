@@ -1884,7 +1884,7 @@ export type Mdx = Node & Output & Timeline & {
   readonly category: Scalars['String']['output'];
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
-  readonly excerpt: Scalars['String']['output'];
+  readonly excerpt: Maybe<Scalars['String']['output']>;
   readonly fields: TimelineFields;
   readonly frontmatter: MdxFrontmatter;
   readonly id: Scalars['ID']['output'];
@@ -1903,6 +1903,11 @@ export type MdxDateArgs = {
   formatString: InputMaybe<Scalars['String']['input']>;
   fromNow: InputMaybe<Scalars['Boolean']['input']>;
   locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type MdxExcerptArgs = {
+  pruneLength?: InputMaybe<Scalars['Int']['input']>;
 };
 
 
@@ -4496,7 +4501,8 @@ export type GatsbyPluginFeedQuery = { readonly allOutput: { readonly nodes: Read
       & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'excerpt' | 'updateDate' | 'title' | 'date'>
+      & Pick<Mdx, 'slug' | 'title' | 'date'>
+      & { readonly frontmatter: Pick<MdxFrontmatter, 'excerpt'> }
     ) | (
       { readonly __typename: 'OssesYaml' }
       & Pick<OssesYaml, 'url' | 'title' | 'date'>
@@ -4532,7 +4538,8 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
       & Pick<HistoriesYaml, 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'excerpt' | 'title' | 'date'>
+      & Pick<Mdx, 'slug' | 'title' | 'date'>
+      & { readonly frontmatter: Pick<MdxFrontmatter, 'excerpt'> }
     ) | (
       { readonly __typename: 'OssesYaml' }
       & Pick<OssesYaml, 'url' | 'title' | 'date'>
