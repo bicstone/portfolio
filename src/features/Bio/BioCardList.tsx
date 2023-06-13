@@ -29,45 +29,21 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={twitterLogo}
-            alt="Twitter"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={twitterLogo}
         title="Twitter"
         subTitle="@bicstone_me"
         actionTitle="Follow"
         url="https://twitter.com/bicstone_me"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={youtrustLogo}
-            alt="YOUTRUST"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={youtrustLogo}
         title="YOUTRUST"
         subTitle="@bicstone"
         actionTitle="つながる"
         url="https://youtrust.jp/users/bicstone"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={linkdinLogo}
-            alt="YOUTRUST"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={linkdinLogo}
         title="LinkedIn"
         subTitle="@bicstone"
         actionTitle="Connect"
@@ -82,90 +58,42 @@ export const BioCardList = (): JSX.Element => {
         })}
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={githubLogo}
-            alt="GitHub"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={githubLogo}
         title="GitHub"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://github.com/bicstone"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={zennLogo}
-            alt="Zenn"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={zennLogo}
         title="Zenn"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://zenn.dev/bicstone"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={speakerdeckLogo}
-            alt="Speaker Deck"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={speakerdeckLogo}
         title="Speaker Deck"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={connpassLogo}
-            alt="Connpass"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={connpassLogo}
         title="Connpass"
         subTitle="@bicstone"
         actionTitle="交流する"
         url="https://connpass.com/user/bicstone"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={paycareerLogo}
-            alt="PayCareer"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={paycareerLogo}
         title="PayCareer"
         subTitle="2022249011"
         actionTitle="面接する"
         url="https://pay-career.com/spot_request/2022249011"
       />
       <BioSocialLinkCard
-        logo={
-          <img
-            width={32}
-            src={feedLogo}
-            alt="PayCareer"
-            loading="eager"
-            decoding="async"
-          />
-        }
+        logo={feedLogo}
         title="RSS"
         subTitle="rss.xml"
         actionTitle="購読する"

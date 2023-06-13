@@ -3,6 +3,8 @@ import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 
+import { ExternalLink } from "@/components/ExternalLink";
+
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
   position: "relative",
@@ -33,7 +35,7 @@ const StyledLogoCard = styled(Card)(({ theme }) => ({
 }));
 
 export type BioHelloCardProps = CardProps & {
-  logo: React.ReactNode;
+  logo: string;
   title: string;
   subTitle: string;
   actionTitle: string;
@@ -51,9 +53,19 @@ export const BioSocialLinkCard = ({
   return (
     <StyledCard {...props} component="article" css={{}}>
       <StyledCardActionArea href={url} rel="external noopener">
-        <StyledLogoCard elevation={2}>{logo}</StyledLogoCard>
+        <StyledLogoCard elevation={2}>
+          <img
+            width={32}
+            src={logo}
+            alt={title}
+            loading="eager"
+            decoding="async"
+          />
+        </StyledLogoCard>
         <div>
-          <Typography variant="body1">{title}</Typography>
+          <Typography variant="body1">
+            <ExternalLink>{title}</ExternalLink>
+          </Typography>
           <Typography variant="caption" color="text.secondary">
             {subTitle}
           </Typography>

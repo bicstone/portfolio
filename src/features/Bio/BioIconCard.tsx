@@ -44,7 +44,7 @@ export const BioIcon = (props: CardProps): JSX.Element => {
   };
 
   return (
-    <Card {...props} title="alt" component="article">
+    <Card {...props} title={alt} component="article">
       <StyledCardActionArea onClick={onClick}>
         <FukkiretaAnimationImg
           activeAnimation={activeAnimation}

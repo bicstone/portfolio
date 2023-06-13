@@ -11,7 +11,9 @@ import { Link as RouterLink } from "gatsby";
 
 import { type TimelineItem } from "./utils";
 
+import { ExternalLink } from "@/components/ExternalLink";
 import gitHubIcon from "@/components/logos/github.svg";
+import speakerdeckIcon from "@/components/logos/speakerdeck.png";
 import zennIcon from "@/components/logos/zenn.svg";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
@@ -45,13 +47,12 @@ export const TimelineCard = ({
         <Card elevation={2} {...props}>
           <CardContent
             avatar={
-              <Avatar
+              <img
                 alt="zenn"
+                decoding="async"
+                loading="lazy"
                 src={zennIcon}
-                imgProps={{
-                  decoding: "async",
-                  loading: "eager",
-                }}
+                width={40}
               />
             }
             title={item.title}
@@ -95,13 +96,12 @@ export const TimelineCard = ({
         <Card elevation={2} {...props}>
           <CardContent
             avatar={
-              <Avatar
+              <img
                 alt="GitHub"
                 src={gitHubIcon}
-                imgProps={{
-                  decoding: "async",
-                  loading: "eager",
-                }}
+                decoding="async"
+                loading="lazy"
+                width={40}
               />
             }
             title={item.title}
@@ -130,9 +130,13 @@ export const TimelineCard = ({
         <Card elevation={2} {...props}>
           <CardContent
             avatar={
-              <Avatar>
-                <CodeIcon />
-              </Avatar>
+              <img
+                alt="Speaker Deck"
+                src={speakerdeckIcon}
+                decoding="async"
+                loading="lazy"
+                width={40}
+              />
             }
             title={item.title}
             date={item.date}
@@ -205,7 +209,7 @@ const CardContent = ({
             wordBreak: "break-all",
           }),
         }}
-        title={title}
+        title={isDefined(slug) ? title : <ExternalLink>{title}</ExternalLink>}
         subheaderTypographyProps={{
           variant: "caption",
           color: "text.secondary",
