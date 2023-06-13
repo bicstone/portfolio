@@ -32,7 +32,8 @@ export const TimelineSlideCard = ({
           src={withPrefix("/logos/speakerdeck.png")}
           decoding="async"
           loading="lazy"
-          width={40}
+          width={32}
+          height={32}
         />
       }
       title={item.title}

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import LaunchIcon from "@mui/icons-material/LaunchRounded";
+import { type ReactNode } from "react";
 
 const StyledLaunchIcon = styled(LaunchIcon)(({ theme }) => ({
   fontSize: ".8rem",
@@ -9,14 +10,14 @@ const StyledLaunchIcon = styled(LaunchIcon)(({ theme }) => ({
 }));
 
 export interface ExternalLinkProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export const ExternalLink = ({ children }: ExternalLinkProps): JSX.Element => {
   return (
-    <span>
+    <>
       {children}
       <StyledLaunchIcon fontSize="inherit" titleAccess="外部リンク" />
-    </span>
+    </>
   );
 };

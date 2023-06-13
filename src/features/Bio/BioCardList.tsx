@@ -53,6 +53,7 @@ export const BioCardList = (): JSX.Element => {
       />
       <BioSocialLinkCard
         logo={withPrefix("/logos/github.svg")}
+        darkLogo={withPrefix("/logos/github_white.svg")}
         title="GitHub"
         subTitle="@bicstone"
         actionTitle="フォロー"
