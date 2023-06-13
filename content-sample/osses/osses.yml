@@ -1,4 +1,4 @@
-- date: 2022-08-19
+- date: 2022-08-19T00:00:00+09:00
   title: gatsby-plugin-fix-fouc
   url: https://github.com/bicstone/gatsby-plugin-fix-fouc
   tags:
@@ -9,7 +9,7 @@
     - Jest
     - Cypress
 
-- date: 2020-12-01
+- date: 2020-12-01T00:00:00+09:00
   title: Portfolio
   url: https://bicstone.me
   tags:
@@ -19,14 +19,14 @@
     - GraphQL
     - AWS
 
-- date: 2019-11-17
+- date: 2019-11-17T00:00:00+09:00
   title: ra-language-japanese
   url: https://github.com/bicstone/ra-language-japanese
   tags:
     - TypeScript
     - npm
 
-- date: 2019-11-15
+- date: 2019-11-15T00:00:00+09:00
   title: backlog-notify
   url: https://github.com/bicstone/backlog-notify
   tags:
@@ -35,7 +35,7 @@
     - GitHub Actions
     - Jest
 
-- date: 2017-02-17
+- date: 2017-02-17T00:00:00+09:00
   title: userscripts
   url: https://github.com/bicstone/userscripts
   tags:
