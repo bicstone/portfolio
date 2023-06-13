@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import Button from "@mui/material/Button";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
+
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
   position: "relative",
@@ -23,6 +23,15 @@ const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
   justifyContent: "space-evenly",
 })) as typeof CardActionArea;
 
+const StyledLogoCard = styled(Card)(({ theme }) => ({
+  width: theme.spacing(5),
+  height: theme.spacing(5),
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: theme.spacing(1),
+}));
+
 export type BioHelloCardProps = CardProps & {
   logo: React.ReactNode;
   title: string;
@@ -42,23 +51,13 @@ export const BioSocialLinkCard = ({
   return (
     <StyledCard {...props} component="article" css={{}}>
       <StyledCardActionArea href={url} rel="external noopener">
-        <Card
-          css={(theme) => ({
-            width: theme.spacing(5),
-            height: theme.spacing(5),
-          })}
-        >
-          {logo}
-        </Card>
+        <StyledLogoCard elevation={2}>{logo}</StyledLogoCard>
         <div>
           <Typography variant="body1">{title}</Typography>
           <Typography variant="caption" color="text.secondary">
             {subTitle}
           </Typography>
         </div>
-        <Button variant="outlined" color="primary" size="small">
-          {actionTitle}
-        </Button>
       </StyledCardActionArea>
     </StyledCard>
   );

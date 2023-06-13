@@ -1,9 +1,18 @@
 import { withPrefix } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 
 import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
+
+import connpassLogo from "@/components/logos/connpass.svg";
+import feedLogo from "@/components/logos/feed.svg";
+import githubLogo from "@/components/logos/github.svg";
+import linkdinLogo from "@/components/logos/linkdin.png";
+import paycareerLogo from "@/components/logos/paycareer.svg";
+import speakerdeckLogo from "@/components/logos/speakerdeck.png";
+import twitterLogo from "@/components/logos/twitter.svg";
+import youtrustLogo from "@/components/logos/youtrust.svg";
+import zennLogo from "@/components/logos/zenn.svg";
 
 export const BioCardList = (): JSX.Element => {
   return (
@@ -21,10 +30,9 @@ export const BioCardList = (): JSX.Element => {
       <BioIcon />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
+          <img
+            width={32}
+            src={twitterLogo}
             alt="Twitter"
             loading="eager"
             decoding="async"
@@ -37,11 +45,10 @@ export const BioCardList = (): JSX.Element => {
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={youtrustLogo}
+            alt="YOUTRUST"
             loading="eager"
             decoding="async"
           />
@@ -53,11 +60,10 @@ export const BioCardList = (): JSX.Element => {
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={linkdinLogo}
+            alt="YOUTRUST"
             loading="eager"
             decoding="async"
           />
@@ -77,75 +83,70 @@ export const BioCardList = (): JSX.Element => {
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={githubLogo}
+            alt="GitHub"
             loading="eager"
             decoding="async"
           />
         }
         title="GitHub"
         subTitle="@bicstone"
-        actionTitle="Follow"
+        actionTitle="フォロー"
         url="https://github.com/bicstone"
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={zennLogo}
+            alt="Zenn"
             loading="eager"
             decoding="async"
           />
         }
         title="Zenn"
         subTitle="@bicstone"
-        actionTitle="Follow"
-        url="https://speakerdeck.com/bicstone"
+        actionTitle="フォロー"
+        url="https://zenn.dev/bicstone"
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={speakerdeckLogo}
+            alt="Speaker Deck"
             loading="eager"
             decoding="async"
           />
         }
         title="Speaker Deck"
         subTitle="@bicstone"
-        actionTitle="Follow"
+        actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={connpassLogo}
+            alt="Connpass"
             loading="eager"
             decoding="async"
           />
         }
         title="Connpass"
         subTitle="@bicstone"
-        actionTitle="Attend"
+        actionTitle="交流する"
         url="https://connpass.com/user/bicstone"
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={paycareerLogo}
+            alt="PayCareer"
             loading="eager"
             decoding="async"
           />
@@ -157,11 +158,10 @@ export const BioCardList = (): JSX.Element => {
       />
       <BioSocialLinkCard
         logo={
-          <StaticImage
-            width={40}
-            height={40}
-            src="./logos/speakerdeck.png"
-            alt="Twitter"
+          <img
+            width={32}
+            src={feedLogo}
+            alt="PayCareer"
             loading="eager"
             decoding="async"
           />

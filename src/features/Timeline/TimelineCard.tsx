@@ -9,10 +9,10 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import { Link as RouterLink } from "gatsby";
 
-import gitHubIcon from "./avatars/github.svg";
-import zennIcon from "./avatars/zenn.svg";
 import { type TimelineItem } from "./utils";
 
+import gitHubIcon from "@/components/logos/github.svg";
+import zennIcon from "@/components/logos/zenn.svg";
 import { formatDateTime } from "@/utils/format";
 import { isDefined } from "@/utils/typeguard";
 
