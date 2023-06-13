@@ -26,7 +26,7 @@ export const TimelineCertificationCard = ({
   ...props
 }: TimelineCertificationCardProps): JSX.Element => {
   const dateFormatted = formatDateTime(item.date, "M月d日");
-  const endDateFormatted = formatDateTime(item.endDate, "yyyy年M月d日");
+  const endDateFormatted = formatDateTime(item.endDate, "yy年M月d日");
   const subTitle =
     item.endDate !== "" ? (
       <>
