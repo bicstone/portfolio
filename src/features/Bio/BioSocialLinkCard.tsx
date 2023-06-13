@@ -51,9 +51,9 @@ export const BioSocialLinkCard = ({
   ...props
 }: BioHelloCardProps): JSX.Element => {
   return (
-    <StyledCard {...props} component="article" css={{}}>
-      <StyledCardActionArea href={url} rel="external noopener">
-        <StyledLogoCard elevation={2}>
+    <StyledCard {...props} component="article">
+      <StyledCardActionArea href={url} rel="external noopener" title={title}>
+        <StyledLogoCard>
           <img
             width={32}
             src={logo}

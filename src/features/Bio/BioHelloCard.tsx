@@ -9,7 +9,12 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 export const BioHelloCard = (props: CardProps): JSX.Element => {
   return (
     <Card {...props} component="article">
-      <CardActionArea component={RouterLink} to="/me" css={{ height: "100%" }}>
+      <CardActionArea
+        component={RouterLink}
+        to="/me"
+        css={{ height: "100%" }}
+        title="もっと詳しく"
+      >
         <CardHeader
           disableTypography
           title={

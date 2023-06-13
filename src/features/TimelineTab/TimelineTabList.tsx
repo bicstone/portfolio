@@ -1,68 +1,40 @@
-import styled from "@emotion/styled";
-import Button from "@mui/material/Button";
-import { Link } from "gatsby";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { Link, withPrefix } from "gatsby";
 
-const SelectedClassName = "selected";
+export interface TimelineTabListProps {
+  path: string;
+}
 
-const StyledTab = styled(Button)(({ theme }) => ({
-  background: theme.vars.palette.background.paper,
-  border: `1px solid ${theme.vars.palette.divider}`,
-  borderRadius: theme.spacing(1.5),
-  color: theme.vars.palette.text.primary,
-  fontWeight: "bold",
-  lineHeight: 1.25,
-  margin: 0,
-  minHeight: 0,
-  minWidth: theme.spacing(8),
-  padding: theme.spacing(1, 2),
-  textTransform: "none",
-  width: theme.spacing(14),
-  [`&.${SelectedClassName}`]: {
-    background: theme.vars.palette.secondary.main,
-    color: theme.vars.palette.secondary.contrastText,
-  },
-})) as typeof Button;
-
-export const TimelineTabList = (): JSX.Element => {
+export const TimelineTabList = ({
+  path,
+}: TimelineTabListProps): JSX.Element => {
   return (
-    <div
-      css={(theme) => ({
-        display: "flex",
-        gap: theme.spacing(1),
-        overflowX: "auto",
-        overflowY: "hidden",
-        scrollbarWidth: "none",
-        whiteSpace: "nowrap",
-        width: "100%",
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-      })}
-    >
-      <StyledTab component={Link} to="/" activeClassName={SelectedClassName}>
+    <ToggleButtonGroup value={path} color="secondary" exclusive fullWidth>
+      <ToggleButton component={Link} value={withPrefix("/")} to="/">
         All
-      </StyledTab>
-      <StyledTab
+      </ToggleButton>
+      <ToggleButton
         component={Link}
+        value={withPrefix("/outputs")}
         to="/outputs"
-        activeClassName={SelectedClassName}
       >
         Outputs
-      </StyledTab>
-      <StyledTab
+      </ToggleButton>
+      <ToggleButton
         component={Link}
+        value={withPrefix("/projects")}
         to="/projects"
-        activeClassName={SelectedClassName}
       >
         Projects
-      </StyledTab>
-      <StyledTab
+      </ToggleButton>
+      <ToggleButton
         component={Link}
+        value={withPrefix("/histories")}
         to="/histories"
-        activeClassName={SelectedClassName}
       >
         Histories
-      </StyledTab>
-    </div>
+      </ToggleButton>
+    </ToggleButtonGroup>
   );
 };

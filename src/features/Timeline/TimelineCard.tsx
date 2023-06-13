@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesomeRounded";
 import CodeIcon from "@mui/icons-material/CodeRounded";
-import StickyNote2Icon from "@mui/icons-material/StickyNote2Rounded";
+import TextSnippetIcon from "@mui/icons-material/TextSnippetRounded";
 import VerifiedIcon from "@mui/icons-material/VerifiedRounded";
 import Avatar from "@mui/material/Avatar";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
+import red from "@mui/material/colors/red";
 import { isSameYear } from "date-fns";
 import { Link as RouterLink } from "gatsby";
 
@@ -35,8 +36,8 @@ export const TimelineCard = ({
         <Card {...props}>
           <CardContent
             avatar={
-              <Avatar>
-                <StickyNote2Icon />
+              <Avatar variant="rounded">
+                <TextSnippetIcon />
               </Avatar>
             }
             title={item.title}
@@ -75,7 +76,7 @@ export const TimelineCard = ({
         <Card {...props}>
           <CardContent
             avatar={
-              <Avatar>
+              <Avatar variant="rounded" css={{ background: red[200] }}>
                 <VerifiedIcon />
               </Avatar>
             }
@@ -93,7 +94,7 @@ export const TimelineCard = ({
         <Card {...props}>
           <CardContent
             avatar={
-              <Avatar>
+              <Avatar variant="rounded" css={{ background: red[200] }}>
                 <AutoAwesomeIcon />
               </Avatar>
             }
@@ -141,7 +142,7 @@ export const TimelineCard = ({
         <Card {...props}>
           <CardContent
             avatar={
-              <Avatar>
+              <Avatar variant="rounded" css={{ background: red[200] }}>
                 <CodeIcon />
               </Avatar>
             }

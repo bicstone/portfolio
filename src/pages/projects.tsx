@@ -35,8 +35,12 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
   );
 };
 
-const ProjectsPage = ({ data }: PageProps<ProjectsPageQuery>): JSX.Element => {
+const ProjectsPage = ({
+  data,
+  location,
+}: PageProps<ProjectsPageQuery>): JSX.Element => {
   const projectGroups = data.projects;
+  const path = location.pathname;
 
   return (
     <Container
@@ -49,7 +53,7 @@ const ProjectsPage = ({ data }: PageProps<ProjectsPageQuery>): JSX.Element => {
     >
       <BioCardList />
       <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
-      <TimelineTabList />
+      <TimelineTabList path={path} />
       <div css={(theme) => ({ height: theme.spacing(3) })} />
       <TimelineList groups={projectGroups} />
     </Container>

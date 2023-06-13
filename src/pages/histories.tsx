@@ -35,8 +35,12 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location }) => {
   );
 };
 
-const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
+const HistoryPage = ({
+  data,
+  location,
+}: PageProps<HistoryPageQuery>): JSX.Element => {
   const projectGroups = data.histories;
+  const path = location.pathname;
 
   return (
     <Container
@@ -49,7 +53,7 @@ const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
     >
       <BioCardList />
       <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
-      <TimelineTabList />
+      <TimelineTabList path={path} />
       <div css={(theme) => ({ height: theme.spacing(3) })} />
       <TimelineList groups={projectGroups} />
     </Container>

@@ -121,6 +121,15 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
             },
           },
         },
+        MuiToggleButton: {
+          styleOverrides: {
+            root: {
+              borderRadius: "50px",
+              textTransform: "none",
+              fontWeight: "bold",
+            },
+          },
+        },
       },
     });
   }, [defaultTheme]);

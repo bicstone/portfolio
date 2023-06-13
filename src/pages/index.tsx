@@ -86,8 +86,12 @@ export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
   );
 };
 
-const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
+const IndexPage = ({
+  data,
+  location,
+}: PageProps<IndexPageQuery>): JSX.Element => {
   const timelineGroups = data.timelineGroups;
+  const path = location.pathname;
 
   return (
     <Container
@@ -100,7 +104,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
     >
       <BioCardList />
       <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
-      <TimelineTabList />
+      <TimelineTabList path={path} />
       <div css={(theme) => ({ height: theme.spacing(3) })} />
       <TimelineList groups={timelineGroups} />
     </Container>
