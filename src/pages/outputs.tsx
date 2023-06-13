@@ -1,13 +1,13 @@
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import { graphql } from "gatsby";
 
 import type { OutputsPageQuery } from "@/generated/graphqlTypes";
 import type { HeadFC, PageProps } from "gatsby";
 
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
+import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -15,29 +15,12 @@ import { HeadTemplate } from "@/layouts/HeadTemplate";
 export const query = graphql`
   query OutputsPage {
     outputs: allOutput(sort: { date: DESC }) {
-      nodes {
-        __typename
-        id
-        title
-        date
-        ... on ArticlesYaml {
-          url
-        }
-        ... on SlidesYaml {
-          url
-        }
-        ... on OssesYaml {
-          url
-        }
-        ... on Mdx {
-          slug
-        }
-      }
+      ...TimelineListOutput
     }
   }
 `;
 
-export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
+export const Head: HeadFC<OutputsPageQuery> = ({ location }) => {
   const title = `${TRANSLATION.outputs.title} - ${SITE_METADATA.title}`;
 
   return (
@@ -53,27 +36,22 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
 };
 
 const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
-  const outputItems = data.outputs.nodes;
+  const outputGroups = data.outputs;
 
   return (
-    <Container maxWidth="md">
-      <Breadcrumbs
-        title={TRANSLATION.outputs.title}
-        css={(theme) => ({ marginBottom: theme.spacing(2) })}
-      />
-
-      <Typography component="h1" variant="h4" align="center" paragraph>
-        {TRANSLATION.outputs.title}
-      </Typography>
-
+    <Container
+      maxWidth="md"
+      fixed
+      css={(theme) => ({
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(4),
+      })}
+    >
+      <BioCardList />
+      <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
       <TimelineTabList />
-
-      <TimelineList items={outputItems} />
-
-      <Breadcrumbs
-        title={TRANSLATION.outputs.title}
-        css={(theme) => ({ margin: theme.spacing(2, 0) })}
-      />
+      <div css={(theme) => ({ height: theme.spacing(3) })} />
+      <TimelineList groups={outputGroups} />
     </Container>
   );
 };

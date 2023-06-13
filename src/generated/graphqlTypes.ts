@@ -26,6 +26,7 @@ export type AvifOptions = {
 export type ArticlesYaml = Node & Output & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -89,6 +90,7 @@ export type ArticlesYamlEdge = {
 export type ArticlesYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -99,6 +101,7 @@ export type ArticlesYamlFieldSelector = {
 export type ArticlesYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -154,6 +157,7 @@ export type ArticlesYamlGroupConnectionSumArgs = {
 export type ArticlesYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -180,6 +184,7 @@ export type CertificationsYaml = History & Node & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly endDate: Maybe<Scalars['Date']['output']>;
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -252,6 +257,7 @@ export type CertificationsYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly endDate: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -263,6 +269,7 @@ export type CertificationsYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly endDate: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -319,6 +326,7 @@ export type CertificationsYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly endDate: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -1075,6 +1083,7 @@ export type HistoriesYaml = History & Node & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly excerpt: Scalars['String']['output'];
+  readonly fields: TimelineFields;
   readonly icon: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
@@ -1139,6 +1148,7 @@ export type HistoriesYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly icon: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -1150,6 +1160,7 @@ export type HistoriesYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly icon: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -1206,6 +1217,7 @@ export type HistoriesYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly icon: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -1216,6 +1228,7 @@ export type HistoriesYamlSortInput = {
 export type History = {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -1278,6 +1291,7 @@ export type HistoryEdge = {
 export type HistoryFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -1287,6 +1301,7 @@ export type HistoryFieldSelector = {
 export type HistoryFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -1337,6 +1352,7 @@ export type HistoryGroupConnectionSumArgs = {
 export type HistorySortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -1869,6 +1885,7 @@ export type Mdx = Node & Output & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly excerpt: Scalars['String']['output'];
+  readonly fields: TimelineFields;
   readonly frontmatter: MdxFrontmatter;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
@@ -1947,6 +1964,7 @@ export type MdxFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly excerpt: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -1964,6 +1982,7 @@ export type MdxFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly excerpt: InputMaybe<StringQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -2082,6 +2101,7 @@ export type MdxSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly excerpt: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly frontmatter: InputMaybe<MdxFrontmatterSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -2129,6 +2149,7 @@ export type NodeSortInput = {
 export type OssesYaml = Node & Output & Project & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -2193,6 +2214,7 @@ export type OssesYamlEdge = {
 export type OssesYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -2204,6 +2226,7 @@ export type OssesYamlFieldSelector = {
 export type OssesYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -2260,6 +2283,7 @@ export type OssesYamlGroupConnectionSumArgs = {
 export type OssesYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -2271,6 +2295,7 @@ export type OssesYamlSortInput = {
 export type Output = {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -2333,6 +2358,7 @@ export type OutputEdge = {
 export type OutputFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -2342,6 +2368,7 @@ export type OutputFieldSelector = {
 export type OutputFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -2392,6 +2419,7 @@ export type OutputGroupConnectionSumArgs = {
 export type OutputSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -2437,6 +2465,7 @@ export enum PotraceTurnPolicy {
 export type Project = {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -2499,6 +2528,7 @@ export type ProjectEdge = {
 export type ProjectFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -2508,6 +2538,7 @@ export type ProjectFieldSelector = {
 export type ProjectFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -2558,6 +2589,7 @@ export type ProjectGroupConnectionSumArgs = {
 export type ProjectSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -2568,6 +2600,7 @@ export type ProjectsYaml = Node & Project & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly endDate: Maybe<Scalars['Date']['output']>;
+  readonly fields: TimelineFields;
   readonly icon: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
@@ -2641,6 +2674,7 @@ export type ProjectsYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
   readonly endDate: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly icon: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -2653,6 +2687,7 @@ export type ProjectsYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
   readonly endDate: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly icon: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -2710,6 +2745,7 @@ export type ProjectsYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
   readonly endDate: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly icon: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -2925,6 +2961,7 @@ export type QueryAllTimelineArgs = {
 export type QueryArticlesYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -2938,6 +2975,7 @@ export type QueryCertificationsYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
   endDate: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -3046,6 +3084,7 @@ export type QueryHistoriesYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   icon: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -3057,6 +3096,7 @@ export type QueryHistoriesYamlArgs = {
 export type QueryHistoryArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -3083,6 +3123,7 @@ export type QueryMdxArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   frontmatter: InputMaybe<MdxFrontmatterFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -3098,6 +3139,7 @@ export type QueryMdxArgs = {
 export type QueryOssesYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -3110,6 +3152,7 @@ export type QueryOssesYamlArgs = {
 export type QueryOutputArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -3120,6 +3163,7 @@ export type QueryOutputArgs = {
 export type QueryProjectArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -3131,6 +3175,7 @@ export type QueryProjectsYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
   endDate: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   icon: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -3229,6 +3274,7 @@ export type QuerySitePluginArgs = {
 export type QuerySlidesYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -3240,6 +3286,7 @@ export type QuerySlidesYamlArgs = {
 export type QueryTimelineArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
+  fields: InputMaybe<TimelineFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -4125,6 +4172,7 @@ export type SiteSortInput = {
 export type SlidesYaml = Node & Output & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -4188,6 +4236,7 @@ export type SlidesYamlEdge = {
 export type SlidesYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -4198,6 +4247,7 @@ export type SlidesYamlFieldSelector = {
 export type SlidesYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -4253,6 +4303,7 @@ export type SlidesYamlGroupConnectionSumArgs = {
 export type SlidesYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -4277,6 +4328,7 @@ export type StringQueryOperatorInput = {
 export type Timeline = {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
+  readonly fields: TimelineFields;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
@@ -4339,15 +4391,33 @@ export type TimelineEdge = {
 export type TimelineFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
+export type TimelineFields = {
+  readonly dateYear: Scalars['Int']['output'];
+};
+
+export type TimelineFieldsFieldSelector = {
+  readonly dateYear: InputMaybe<FieldSelectorEnum>;
+};
+
+export type TimelineFieldsFilterInput = {
+  readonly dateYear: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type TimelineFieldsSortInput = {
+  readonly dateYear: InputMaybe<SortOrderEnum>;
+};
+
 export type TimelineFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -4398,6 +4468,7 @@ export type TimelineGroupConnectionSumArgs = {
 export type TimelineSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly fields: InputMaybe<TimelineFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
@@ -4503,6 +4574,71 @@ export type RelatedBlogPostListFragment = (
   & { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug'> }
 );
 
+export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
+    { dateYear: TimelineGroupConnection['fieldValue'] }
+    & { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'ArticlesYaml' }
+      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'CertificationsYaml' }
+      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'HistoriesYaml' }
+      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'ProjectsYaml' }
+      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'SlidesYaml' }
+      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+    )> }
+  )> };
+
+export type TimelineListHistoryFragment = { readonly group: ReadonlyArray<(
+    { dateYear: HistoryGroupConnection['fieldValue'] }
+    & { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'CertificationsYaml' }
+      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'HistoriesYaml' }
+      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+    )> }
+  )> };
+
+export type TimelineListOutputFragment = { readonly group: ReadonlyArray<(
+    { dateYear: OutputGroupConnection['fieldValue'] }
+    & { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'ArticlesYaml' }
+      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'SlidesYaml' }
+      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+    )> }
+  )> };
+
+export type TimelineListProjectFragment = { readonly group: ReadonlyArray<(
+    { dateYear: ProjectGroupConnection['fieldValue'] }
+    & { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'ProjectsYaml' }
+      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+    )> }
+  )> };
+
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4516,38 +4652,44 @@ export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>>
 export type HistoryPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HistoryPageQuery = { readonly histories: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+export type HistoryPageQuery = { readonly histories: { readonly group: ReadonlyArray<(
+      { dateYear: HistoryGroupConnection['fieldValue'] }
+      & { readonly nodes: ReadonlyArray<(
+        { readonly __typename: 'CertificationsYaml' }
+        & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'HistoriesYaml' }
+        & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+      )> }
     )> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'HistoriesYaml' }
-      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+export type IndexPageQuery = { readonly timelineGroups: { readonly group: ReadonlyArray<(
+      { dateYear: TimelineGroupConnection['fieldValue'] }
+      & { readonly nodes: ReadonlyArray<(
+        { readonly __typename: 'ArticlesYaml' }
+        & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'CertificationsYaml' }
+        & Pick<CertificationsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'HistoriesYaml' }
+        & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'Mdx' }
+        & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'OssesYaml' }
+        & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'ProjectsYaml' }
+        & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'SlidesYaml' }
+        & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+      )> }
     )> } };
 
 export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4561,29 +4703,35 @@ export type MePageQuery = { readonly projects: { readonly nodes: ReadonlyArray<P
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OutputsPageQuery = { readonly outputs: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'Mdx' }
-      & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArray<(
+      { dateYear: OutputGroupConnection['fieldValue'] }
+      & { readonly nodes: ReadonlyArray<(
+        { readonly __typename: 'ArticlesYaml' }
+        & Pick<ArticlesYaml, 'url' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'Mdx' }
+        & Pick<Mdx, 'slug' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'OssesYaml' }
+        & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'SlidesYaml' }
+        & Pick<SlidesYaml, 'url' | 'id' | 'title' | 'date'>
+      )> }
     )> } };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ProjectsPageQuery = { readonly projects: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'ProjectsYaml' }
-      & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+export type ProjectsPageQuery = { readonly projects: { readonly group: ReadonlyArray<(
+      { dateYear: ProjectGroupConnection['fieldValue'] }
+      & { readonly nodes: ReadonlyArray<(
+        { readonly __typename: 'OssesYaml' }
+        & Pick<OssesYaml, 'url' | 'id' | 'title' | 'date'>
+      ) | (
+        { readonly __typename: 'ProjectsYaml' }
+        & Pick<ProjectsYaml, 'endDate' | 'id' | 'title' | 'date'>
+      )> }
     )> } };
 
 export type BlogPostTemplateQueryVariables = Exact<{

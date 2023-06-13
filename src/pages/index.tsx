@@ -15,37 +15,14 @@ import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
   query IndexPage {
-    timelineItems: allTimeline(sort: { date: DESC }) {
-      nodes {
-        __typename
-        id
-        title
-        date
-        ... on ArticlesYaml {
-          url
-        }
-        ... on CertificationsYaml {
-          endDate
-        }
-        ... on OssesYaml {
-          url
-        }
-        ... on ProjectsYaml {
-          endDate
-        }
-        ... on SlidesYaml {
-          url
-        }
-        ... on Mdx {
-          slug
-        }
-      }
+    timelineGroups: allTimeline(sort: { date: DESC }) {
+      ...TimelineListTimeline
     }
   }
 `;
 
 export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
-  const timelineItems = data.timelineItems.nodes;
+  const timelineItems = data.timelineGroups.group.flatMap(({ nodes }) => nodes);
   const title = `${TRANSLATION.timeline.title} - ${SITE_METADATA.title}`;
   const buildTime = useBuildTime();
 
@@ -110,7 +87,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
 };
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const timelineItems = data.timelineItems.nodes;
+  const timelineGroups = data.timelineGroups;
 
   return (
     <Container
@@ -125,7 +102,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
       <TimelineTabList />
       <div css={(theme) => ({ height: theme.spacing(3) })} />
-      <TimelineList items={timelineItems} />
+      <TimelineList groups={timelineGroups} />
     </Container>
   );
 };

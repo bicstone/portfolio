@@ -1,13 +1,13 @@
 import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import { graphql } from "gatsby";
 
 import type { HistoryPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
-import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
+import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -15,20 +15,12 @@ import { HeadTemplate } from "@/layouts/HeadTemplate";
 export const query = graphql`
   query HistoryPage {
     histories: allHistory(sort: { date: DESC }) {
-      nodes {
-        __typename
-        id
-        title
-        date
-        ... on CertificationsYaml {
-          endDate
-        }
-      }
+      ...TimelineListHistory
     }
   }
 `;
 
-export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
+export const Head: HeadFC<HistoryPageQuery> = ({ location }) => {
   const title = `${TRANSLATION.histories.title} - ${SITE_METADATA.title}`;
 
   return (
@@ -44,27 +36,22 @@ export const Head: HeadFC<HistoryPageQuery> = ({ location, data }) => {
 };
 
 const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
-  const projectItems = data.histories.nodes;
+  const projectGroups = data.histories;
 
   return (
-    <Container maxWidth="md">
-      <Breadcrumbs
-        title={TRANSLATION.histories.title}
-        css={(theme) => ({ marginBottom: theme.spacing(2) })}
-      />
-
-      <Typography component="h1" variant="h4" align="center" paragraph>
-        {TRANSLATION.histories.title}
-      </Typography>
-
+    <Container
+      maxWidth="md"
+      fixed
+      css={(theme) => ({
+        marginTop: theme.spacing(4),
+        marginBottom: theme.spacing(4),
+      })}
+    >
+      <BioCardList />
+      <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
       <TimelineTabList />
-
-      <TimelineList items={projectItems} />
-
-      <Breadcrumbs
-        title={TRANSLATION.histories.title}
-        css={(theme) => ({ margin: theme.spacing(2, 0) })}
-      />
+      <div css={(theme) => ({ height: theme.spacing(3) })} />
+      <TimelineList groups={projectGroups} />
     </Container>
   );
 };

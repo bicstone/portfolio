@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
+import { isSameYear } from "date-fns";
 import { Link as RouterLink } from "gatsby";
 
 import { type TimelineItem } from "./utils";
@@ -27,7 +28,9 @@ export const TimelineCard = ({
   ...props
 }: TimelineCardProps): JSX.Element => {
   switch (item.__typename) {
-    case "Mdx":
+    case "Mdx": {
+      const date = formatDateTime(item.date, "M月d日");
+
       return (
         <Card {...props}>
           <CardContent
@@ -37,12 +40,15 @@ export const TimelineCard = ({
               </Avatar>
             }
             title={item.title}
-            date={item.date}
+            subTitle={`${date} on Blog`}
             slug={item.slug}
           />
         </Card>
       );
-    case "ArticlesYaml":
+    }
+    case "ArticlesYaml": {
+      const date = formatDateTime(item.date, "M月d日");
+
       return (
         <Card {...props}>
           <CardContent
@@ -56,12 +62,15 @@ export const TimelineCard = ({
               />
             }
             title={item.title}
-            date={item.date}
+            subTitle={`${date} on Zenn`}
             url={item.url}
           />
         </Card>
       );
-    case "CertificationsYaml":
+    }
+    case "CertificationsYaml": {
+      const date = formatDateTime(item.date, "M月d日");
+
       return (
         <Card {...props}>
           <CardContent
@@ -71,12 +80,15 @@ export const TimelineCard = ({
               </Avatar>
             }
             title={item.title}
-            date={item.date}
+            subTitle={date}
             slug="me"
           />
         </Card>
       );
-    case "HistoriesYaml":
+    }
+    case "HistoriesYaml": {
+      const date = formatDateTime(item.date, "M月");
+
       return (
         <Card {...props}>
           <CardContent
@@ -86,13 +98,15 @@ export const TimelineCard = ({
               </Avatar>
             }
             title={item.title}
-            date={item.date}
-            dateFormat="yyyy/MM"
+            subTitle={date}
             slug="me"
           />
         </Card>
       );
-    case "OssesYaml":
+    }
+    case "OssesYaml": {
+      const date = formatDateTime(item.date, "M月");
+
       return (
         <Card {...props}>
           <CardContent
@@ -106,13 +120,23 @@ export const TimelineCard = ({
               />
             }
             title={item.title}
-            date={item.date}
-            dateFormat="yyyy/MM"
+            subTitle={`${date} on GitHub`}
             url={item.url}
           />
         </Card>
       );
-    case "ProjectsYaml":
+    }
+    case "ProjectsYaml": {
+      const date = new Date(item.date);
+      const endDate = new Date(item.endDate);
+      const format = isSameYear(date, endDate) ? "M月" : "yy年M月";
+      const dateFormatted = formatDateTime(item.date, "M月");
+      const endDateFormatted = formatDateTime(item.endDate, format);
+      const subTitle =
+        item.endDate !== ""
+          ? `${dateFormatted} ～ ${endDateFormatted}`
+          : `${dateFormatted} ～`;
+
       return (
         <Card {...props}>
           <CardContent
@@ -122,13 +146,15 @@ export const TimelineCard = ({
               </Avatar>
             }
             title={item.title}
-            date={item.date}
-            dateFormat="yyyy/MM"
+            subTitle={subTitle}
             slug="me"
           />
         </Card>
       );
-    case "SlidesYaml":
+    }
+    case "SlidesYaml": {
+      const date = formatDateTime(item.date, "M月d日");
+
       return (
         <Card {...props}>
           <CardContent
@@ -142,35 +168,34 @@ export const TimelineCard = ({
               />
             }
             title={item.title}
-            date={item.date}
+            subTitle={`${date} on Speaker Deck`}
             url={item.url}
           />
         </Card>
       );
+    }
   }
 };
 
-const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
+const StyledCardActionArea = styled(CardActionArea)({
   display: "flex",
   height: "100%",
   justifyContent: "flex-start",
   alignItems: "stretch",
-})) as typeof CardActionArea;
+}) as typeof CardActionArea;
 
 type ContentProps =
   | {
       avatar: React.ReactNode;
       title: string;
-      date: string;
-      dateFormat?: string;
+      subTitle: string;
       url: string;
       slug?: null;
     }
   | {
       avatar: React.ReactNode;
       title: string;
-      date: string;
-      dateFormat?: string;
+      subTitle: string;
       url?: null;
       slug: string;
     };
@@ -178,13 +203,10 @@ type ContentProps =
 const CardContent = ({
   avatar,
   title,
-  date,
-  dateFormat = "yyyy/MM/dd",
+  subTitle,
   slug,
   url,
 }: ContentProps): JSX.Element => {
-  const formattedDate = formatDateTime(date, dateFormat);
-
   const linkProps = isDefined(slug)
     ? {
         component: RouterLink,
@@ -220,7 +242,7 @@ const CardContent = ({
           variant: "caption",
           color: "text.secondary",
         }}
-        subheader={formattedDate}
+        subheader={subTitle}
       />
     </StyledCardActionArea>
   );

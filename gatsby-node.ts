@@ -1,6 +1,8 @@
 import fs from "fs";
 import path from "path";
 
+import { toDate } from "date-fns-tz";
+
 import { createOgpImage } from "./src/utils/createOgpImage";
 import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
 import { isDefined } from "./src/utils/typeguard";
@@ -260,8 +262,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   };
 
 /**
- * Create timeline schema
- * Create Search schema
+ * GraphQL Schema
  * see https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/
  */
 export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
@@ -269,28 +270,36 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
     const { createTypes } = actions;
 
     const typeDefs = /* GraphQL */ `
+      type TimelineFields {
+        dateYear: Int!
+      }
+
       interface Timeline implements Node @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
+        fields: TimelineFields!
       }
 
       interface Output implements Node & Timeline @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
+        fields: TimelineFields!
       }
 
       type ArticlesYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!
+        fields: TimelineFields!
       }
 
       type SlidesYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!
+        fields: TimelineFields!
       }
 
       type OssesYaml implements Node & Timeline & Output @dontInfer {
@@ -298,6 +307,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         url: String!
         tags: [String!]!
+        fields: TimelineFields!
       }
 
       type Mdx implements Node & Timeline & Output @dontInfer {
@@ -311,6 +321,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         tags: [String!] @proxy(from: "frontmatter.tags")
         title: String! @proxy(from: "frontmatter.title")
         updateDate: Date @dateformat @proxy(from: "frontmatter.updateDate")
+        fields: TimelineFields!
       }
 
       type MdxFrontmatter {
@@ -327,6 +338,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         id: ID!
         title: String!
         date: Date! @dateformat
+        fields: TimelineFields!
       }
 
       type OssesYaml implements Node & Timeline & Project @dontInfer {
@@ -334,6 +346,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         url: String!
         tags: [String!]!
+        fields: TimelineFields!
       }
 
       type ProjectsYaml implements Node & Timeline & Project @dontInfer {
@@ -342,12 +355,14 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         endDate: Date @dateformat
         tags: [String!]!
         icon: String!
+        fields: TimelineFields!
       }
 
       interface History implements Node & Timeline @dontInfer {
         id: ID!
         title: String!
         date: Date! @dateformat
+        fields: TimelineFields!
       }
 
       type CertificationsYaml implements Node & Timeline & History @dontInfer {
@@ -355,6 +370,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         endDate: Date @dateformat
         category: String!
+        fields: TimelineFields!
       }
 
       type HistoriesYaml implements Node & Timeline & History @dontInfer {
@@ -362,6 +378,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         excerpt: String!
         icon: String!
+        fields: TimelineFields!
       }
 
       type Search implements Node @dontInfer {
@@ -375,3 +392,18 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 
     createTypes(typeDefs);
   };
+
+/**
+ * Add `dateYear` field to nodes
+ */
+export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
+  const { createNodeField } = actions;
+  const date =
+    node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
+
+  if (typeof date === "string" || date instanceof Date) {
+    const parsedDate = toDate(date, { timeZone: "Asia/Tokyo" });
+    const dateYear = parsedDate.getFullYear();
+    createNodeField({ node, name: "dateYear", value: dateYear });
+  }
+};

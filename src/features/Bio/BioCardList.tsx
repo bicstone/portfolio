@@ -23,7 +23,7 @@ export const BioCardList = (): JSX.Element => {
         gridTemplateColumns: "repeat(4, 1fr)",
         width: "100%",
         [theme.breakpoints.down("md")]: {
-          gap: theme.spacing(4),
+          gap: theme.spacing(5),
           gridTemplateColumns: "repeat(2, 1fr)",
         },
         [theme.breakpoints.down("sm")]: {
