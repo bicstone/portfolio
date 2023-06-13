@@ -23,21 +23,21 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon />
       <BioSocialLinkCard
-        logo="/logos/twitter.svg"
+        logo={withPrefix("/logos/twitter.svg")}
         title="Twitter"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
         url="https://twitter.com/bicstone_me"
       />
       <BioSocialLinkCard
-        logo="/logos/youtrust.svg"
+        logo={withPrefix("/logos/youtrust.svg")}
         title="YOUTRUST"
         subTitle="@bicstone"
         actionTitle="つながる"
         url="https://youtrust.jp/users/bicstone"
       />
       <BioSocialLinkCard
-        logo="/logos/linkdin.png"
+        logo={withPrefix("/logos/linkdin.png")}
         title="LinkedIn"
         subTitle="@bicstone"
         actionTitle="つながる"
@@ -52,42 +52,42 @@ export const BioCardList = (): JSX.Element => {
         })}
       />
       <BioSocialLinkCard
-        logo="/logos/github.svg"
+        logo={withPrefix("/logos/github.svg")}
         title="GitHub"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://github.com/bicstone"
       />
       <BioSocialLinkCard
-        logo="/logos/zenn.svg"
+        logo={withPrefix("/logos/zenn.svg")}
         title="Zenn"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://zenn.dev/bicstone"
       />
       <BioSocialLinkCard
-        logo="/logos/speakerdeck.png"
+        logo={withPrefix("/logos/speakerdeck.png")}
         title="Speaker Deck"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
       />
       <BioSocialLinkCard
-        logo="/logos/connpass.svg"
+        logo={withPrefix("/logos/connpass.svg")}
         title="Connpass"
         subTitle="@bicstone"
         actionTitle="交流する"
         url="https://connpass.com/user/bicstone"
       />
       <BioSocialLinkCard
-        logo="/logos/paycareer.svg"
+        logo={withPrefix("/logos/paycareer.svg")}
         title="PayCareer"
         subTitle="2022249011"
         actionTitle="面接する"
         url="https://pay-career.com/spot_request/2022249011"
       />
       <BioSocialLinkCard
-        logo="/logos/feed.svg"
+        logo={withPrefix("/logos/feed.svg")}
         title="RSS"
         subTitle="rss.xml"
         actionTitle="購読する"

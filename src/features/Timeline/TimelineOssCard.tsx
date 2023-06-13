@@ -1,5 +1,5 @@
 import { type CardProps } from "@mui/material/Card";
-import { graphql } from "gatsby";
+import { graphql, withPrefix } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
@@ -29,7 +29,7 @@ export const TimelineOssCard = ({
       avatar={
         <img
           alt="GitHub"
-          src="/logos/github.svg"
+          src={withPrefix("/logos/github.svg")}
           decoding="async"
           loading="lazy"
           width={40}

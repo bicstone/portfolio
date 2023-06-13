@@ -1,5 +1,5 @@
 import { type CardProps } from "@mui/material/Card";
-import { graphql } from "gatsby";
+import { graphql, withPrefix } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
@@ -29,7 +29,7 @@ export const TimelineSlideCard = ({
       avatar={
         <img
           alt="Speaker Deck"
-          src="/logos/speakerdeck.png"
+          src={withPrefix("/logos/speakerdeck.png")}
           decoding="async"
           loading="lazy"
           width={40}

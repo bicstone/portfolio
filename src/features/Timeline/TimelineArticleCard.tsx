@@ -1,5 +1,5 @@
 import { type CardProps } from "@mui/material/Card";
-import { graphql } from "gatsby";
+import { graphql, withPrefix } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
@@ -31,7 +31,7 @@ export const TimelineArticleCard = ({
           alt="zenn"
           decoding="async"
           loading="lazy"
-          src="/logos/zenn.svg"
+          src={withPrefix("/logos/zenn.svg")}
           width={40}
         />
       }
