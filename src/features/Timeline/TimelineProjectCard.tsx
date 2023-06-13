@@ -30,7 +30,7 @@ export const TimelineProjectCard = ({
   ...props
 }: TimelineProjectCardProps): JSX.Element => {
   const format =
-    item.fields.dateYear === item.fields.endDateYear ? "M月" : "yyyy年M月";
+    item.fields.dateYear === item.fields.endDateYear ? "M月" : "yy年M月";
   const dateFormatted = formatDateTime(item.date, "M月");
   const endDateFormatted = formatDateTime(item.endDate, format);
   const subTitle =
