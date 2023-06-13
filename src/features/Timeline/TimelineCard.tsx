@@ -72,7 +72,7 @@ export const TimelineCard = ({
             }
             title={item.title}
             date={item.date}
-            slug="/me"
+            slug="me"
           />
         </Card>
       );
@@ -88,7 +88,7 @@ export const TimelineCard = ({
             title={item.title}
             date={item.date}
             dateFormat="yyyy/MM"
-            slug="/me"
+            slug="me"
           />
         </Card>
       );
@@ -124,7 +124,7 @@ export const TimelineCard = ({
             title={item.title}
             date={item.date}
             dateFormat="yyyy/MM"
-            slug="/me"
+            slug="me"
           />
         </Card>
       );
