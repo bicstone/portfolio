@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import VerifiedIcon from "@mui/icons-material/VerifiedRounded";
 import Avatar from "@mui/material/Avatar";
 import { type CardProps } from "@mui/material/Card";
@@ -16,6 +17,12 @@ export const query = graphql`
     endDate
   }
 `;
+
+const StyledAvatar = styled(Avatar)(({ theme }) => ({
+  background: red[200],
+  height: theme.spacing(4),
+  width: theme.spacing(4),
+}));
 
 export type TimelineCertificationCardProps = {
   item: TimelineCertificationCardFragment;
@@ -44,9 +51,9 @@ export const TimelineCertificationCard = ({
   return (
     <TimelineCardBase
       avatar={
-        <Avatar variant="rounded" css={{ background: red[200] }}>
+        <StyledAvatar variant="rounded">
           <VerifiedIcon />
-        </Avatar>
+        </StyledAvatar>
       }
       title={item.title}
       subTitle={subTitle}

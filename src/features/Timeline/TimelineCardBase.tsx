@@ -67,7 +67,7 @@ export const TimelineCardBase = ({
       };
 
   return (
-    <Card {...props}>
+    <Card component="article" {...props}>
       <StyledCardActionArea {...linkProps}>
         <StyledCardHeader
           avatar={avatar}

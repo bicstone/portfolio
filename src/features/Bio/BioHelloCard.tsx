@@ -8,7 +8,7 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const BioHelloCard = (props: CardProps): JSX.Element => {
   return (
-    <Card {...props} component="article">
+    <Card component="aside" {...props}>
       <CardActionArea
         component={RouterLink}
         to="/me"

@@ -32,7 +32,8 @@ export const TimelineArticleCard = ({
           decoding="async"
           loading="lazy"
           src={withPrefix("/logos/zenn.svg")}
-          width={40}
+          width={32}
+          height={32}
         />
       }
       title={item.title}

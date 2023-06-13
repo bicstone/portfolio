@@ -27,13 +27,36 @@ export const TimelineOssCard = ({
   return (
     <TimelineCardBase
       avatar={
-        <img
-          alt="GitHub"
-          src={withPrefix("/logos/github.svg")}
-          decoding="async"
-          loading="lazy"
-          width={40}
-        />
+        <>
+          <img
+            alt="GitHub"
+            src={withPrefix("/logos/github.svg")}
+            decoding="async"
+            loading="lazy"
+            width={32}
+            height={32}
+            css={{
+              display: "block",
+              '[data-mui-color-scheme="dark"] &': {
+                display: "none",
+              },
+            }}
+          />
+          <img
+            alt="GitHub"
+            src={withPrefix("/logos/github_white.svg")}
+            decoding="async"
+            loading="lazy"
+            width={32}
+            height={32}
+            css={{
+              display: "none",
+              '[data-mui-color-scheme="dark"] &': {
+                display: "block",
+              },
+            }}
+          />
+        </>
       }
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}

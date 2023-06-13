@@ -4,6 +4,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 
 import { ExternalLink } from "@/components/ExternalLink";
+import { isDefined } from "@/utils/typeguard";
 
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
@@ -25,17 +26,9 @@ const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
   justifyContent: "space-evenly",
 })) as typeof CardActionArea;
 
-const StyledLogoCard = styled(Card)(({ theme }) => ({
-  width: theme.spacing(5),
-  height: theme.spacing(5),
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: theme.spacing(1),
-}));
-
 export type BioHelloCardProps = CardProps & {
   logo: string;
+  darkLogo?: string;
   title: string;
   subTitle: string;
   actionTitle: string;
@@ -44,6 +37,7 @@ export type BioHelloCardProps = CardProps & {
 
 export const BioSocialLinkCard = ({
   logo,
+  darkLogo,
   title,
   subTitle,
   actionTitle,
@@ -57,15 +51,47 @@ export const BioSocialLinkCard = ({
         rel="external noopener"
         title={actionTitle}
       >
-        <StyledLogoCard>
+        {isDefined(darkLogo) ? (
+          <>
+            <img
+              width={32}
+              height={32}
+              src={logo}
+              alt={title}
+              loading="eager"
+              decoding="async"
+              css={{
+                display: "block",
+                '[data-mui-color-scheme="dark"] &': {
+                  display: "none",
+                },
+              }}
+            />
+            <img
+              width={32}
+              height={32}
+              src={darkLogo}
+              alt={title}
+              loading="eager"
+              decoding="async"
+              css={{
+                display: "none",
+                '[data-mui-color-scheme="dark"] &': {
+                  display: "block",
+                },
+              }}
+            />
+          </>
+        ) : (
           <img
             width={32}
+            height={32}
             src={logo}
             alt={title}
             loading="eager"
             decoding="async"
           />
-        </StyledLogoCard>
+        )}
         <div>
           <Typography variant="body1" component="h2">
             <ExternalLink>{title}</ExternalLink>
