@@ -10,10 +10,11 @@ export const TimelineList = (props: {
     <div
       css={(theme) => ({
         display: "grid",
-        gap: theme.spacing(2),
+        gap: theme.spacing(3),
         gridTemplateColumns: "repeat(2, 1fr)",
         width: "100%",
         [theme.breakpoints.down("sm")]: {
+          gap: theme.spacing(2),
           gridTemplateColumns: "repeat(1, 1fr)",
         },
       })}
