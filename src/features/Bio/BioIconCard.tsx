@@ -9,8 +9,10 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 
 const FukkiretaAnimationImg = styled("img")<{
   activeAnimation: boolean;
-}>(({ activeAnimation }) => ({
+}>(({ activeAnimation }) => ({ theme }) => ({
   cursor: "pointer",
+  margin: theme.spacing(0, 2),
+
   ...(activeAnimation && {
     transformOrigin: "center bottom",
     animationName: keyframes`
@@ -54,9 +56,6 @@ export const BioIcon = (props: CardProps): JSX.Element => {
           loading="eager"
           decoding="async"
           alt={alt}
-          css={(theme) => ({
-            margin: theme.spacing(0, 2),
-          })}
         />
       </StyledCardActionArea>
     </Card>

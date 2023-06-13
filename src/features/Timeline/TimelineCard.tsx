@@ -29,7 +29,7 @@ export const TimelineCard = ({
   switch (item.__typename) {
     case "Mdx":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <Avatar>
@@ -44,7 +44,7 @@ export const TimelineCard = ({
       );
     case "ArticlesYaml":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <img
@@ -63,7 +63,7 @@ export const TimelineCard = ({
       );
     case "CertificationsYaml":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <Avatar>
@@ -78,7 +78,7 @@ export const TimelineCard = ({
       );
     case "HistoriesYaml":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <Avatar>
@@ -87,13 +87,14 @@ export const TimelineCard = ({
             }
             title={item.title}
             date={item.date}
+            dateFormat="yyyy/MM"
             slug="/me"
           />
         </Card>
       );
     case "OssesYaml":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <img
@@ -106,13 +107,14 @@ export const TimelineCard = ({
             }
             title={item.title}
             date={item.date}
+            dateFormat="yyyy/MM"
             url={item.url}
           />
         </Card>
       );
     case "ProjectsYaml":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <Avatar>
@@ -121,13 +123,14 @@ export const TimelineCard = ({
             }
             title={item.title}
             date={item.date}
+            dateFormat="yyyy/MM"
             slug="/me"
           />
         </Card>
       );
     case "SlidesYaml":
       return (
-        <Card elevation={2} {...props}>
+        <Card {...props}>
           <CardContent
             avatar={
               <img
@@ -159,6 +162,7 @@ type ContentProps =
       avatar: React.ReactNode;
       title: string;
       date: string;
+      dateFormat?: string;
       url: string;
       slug?: null;
     }
@@ -166,6 +170,7 @@ type ContentProps =
       avatar: React.ReactNode;
       title: string;
       date: string;
+      dateFormat?: string;
       url?: null;
       slug: string;
     };
@@ -174,10 +179,11 @@ const CardContent = ({
   avatar,
   title,
   date,
+  dateFormat = "yyyy/MM/dd",
   slug,
   url,
 }: ContentProps): JSX.Element => {
-  const formattedDate = formatDateTime(date, "yyyy/MM/dd");
+  const formattedDate = formatDateTime(date, dateFormat);
 
   const linkProps = isDefined(slug)
     ? {
