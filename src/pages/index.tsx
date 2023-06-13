@@ -121,9 +121,9 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       })}
     >
       <BioCardList />
-      <Divider css={(theme) => ({ margin: theme.spacing(4, 0) })} />
+      <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
       <TimelineTabList />
-      <div css={(theme) => ({ height: theme.spacing(2) })} />
+      <div css={(theme) => ({ height: theme.spacing(3) })} />
       <TimelineList items={timelineItems} />
     </Container>
   );
