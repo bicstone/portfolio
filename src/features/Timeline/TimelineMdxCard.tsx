@@ -34,7 +34,7 @@ export const TimelineMdxCard = ({
         </Avatar>
       }
       title={item.title}
-      subTitle={date}
+      subTitle={<time dateTime={item.date}>{date}</time>}
       slug={item.slug}
       {...props}
     />

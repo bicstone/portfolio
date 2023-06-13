@@ -4,6 +4,8 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader, { cardHeaderClasses } from "@mui/material/CardHeader";
 import { Link as RouterLink } from "gatsby";
 
+import type { ReactNode } from "react";
+
 import { ExternalLink } from "@/components/ExternalLink";
 import { isDefined } from "@/utils/typeguard";
 
@@ -29,16 +31,16 @@ const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
 
 export type TimelineCardBaseProps =
   | {
-      avatar: React.ReactNode;
+      avatar: JSX.Element;
       title: string;
-      subTitle: string;
+      subTitle: ReactNode;
       url: string;
       slug?: null;
     }
   | {
-      avatar: React.ReactNode;
+      avatar: JSX.Element;
       title: string;
-      subTitle: string;
+      subTitle: ReactNode;
       url?: null;
       slug: string;
     };

@@ -33,9 +33,18 @@ export const TimelineProjectCard = ({
   const dateFormatted = formatDateTime(item.date, "M月");
   const endDateFormatted = formatDateTime(item.endDate, format);
   const subTitle =
-    item.endDate !== ""
-      ? `${dateFormatted} ～ ${endDateFormatted}`
-      : `${dateFormatted} ～`;
+    item.endDate !== "" ? (
+      <>
+        <time dateTime={item.date}>{dateFormatted}</time>
+        {` ～ `}
+        <time dateTime={item.endDate}>{endDateFormatted}</time>
+      </>
+    ) : (
+      <>
+        <time dateTime={item.date}>{dateFormatted}</time>
+        {` ～`}
+      </>
+    );
 
   return (
     <TimelineCardBase

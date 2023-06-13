@@ -36,7 +36,7 @@ export const TimelineArticleCard = ({
         />
       }
       title={item.title}
-      subTitle={date}
+      subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}
       {...props}
     />
