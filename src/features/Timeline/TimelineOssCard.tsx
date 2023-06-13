@@ -36,7 +36,7 @@ export const TimelineOssCard = ({
         />
       }
       title={item.title}
-      subTitle={`${date} on GitHub`}
+      subTitle={date}
       url={item.url}
       {...props}
     />

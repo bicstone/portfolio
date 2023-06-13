@@ -36,7 +36,7 @@ export const TimelineArticleCard = ({
         />
       }
       title={item.title}
-      subTitle={`${date} on Zenn`}
+      subTitle={date}
       url={item.url}
       {...props}
     />

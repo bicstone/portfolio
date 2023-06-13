@@ -36,7 +36,7 @@ export const TimelineSlideCard = ({
         />
       }
       title={item.title}
-      subTitle={`${date} on Speaker Deck`}
+      subTitle={date}
       url={item.url}
       {...props}
     />

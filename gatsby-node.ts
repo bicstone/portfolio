@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { toDate } from "date-fns-tz";
+import { formatInTimeZone } from "date-fns-tz";
 
 import { createOgpImage } from "./src/utils/createOgpImage";
 import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
@@ -405,8 +405,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
     node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
 
   if (typeof date === "string" || date instanceof Date) {
-    const parsedDate = toDate(date, { timeZone: "Asia/Tokyo" });
-    const dateYear = parsedDate.getFullYear();
-    createNodeField({ node, name: "dateYear", value: dateYear });
+    const dateYear = formatInTimeZone(date, "Asia/Tokyo", "YYYY");
+    createNodeField({ node, name: "dateYear", value: Number(dateYear) });
   }
 };
