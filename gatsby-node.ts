@@ -25,6 +25,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
       alias: {
         // see tsconfig.json
         "@/constants": path.resolve("src/constants"),
+        "@/content/*": ["content/*"],
         "@/components": path.resolve("src/components"),
         "@/features": path.resolve("src/features"),
         "@/generated": path.resolve("src/generated"),
