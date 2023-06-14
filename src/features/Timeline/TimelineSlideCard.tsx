@@ -1,8 +1,9 @@
 import { type CardProps } from "@mui/material/Card";
-import { graphql, withPrefix } from "gatsby";
+import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import { SpeakerDeckLogo } from "@/components/logos/SpeakerDeckLogo";
 import { type TimelineSlideCardFragment } from "@/generated/graphqlTypes";
 import { formatDateTime } from "@/utils/format";
 
@@ -26,16 +27,7 @@ export const TimelineSlideCard = ({
 
   return (
     <TimelineCardBase
-      avatar={
-        <img
-          alt="Speaker Deck"
-          src={withPrefix("/logos/speakerdeck.png")}
-          decoding="async"
-          loading="lazy"
-          width={32}
-          height={32}
-        />
-      }
+      avatar={<SpeakerDeckLogo aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}

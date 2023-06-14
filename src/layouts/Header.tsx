@@ -9,7 +9,7 @@ import { useColorScheme } from "@mui/material/styles/CssVarsProvider";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { Link as RouterLink } from "gatsby";
 
-import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineSearchButton } from "@/features/TimelineSearch";
 
@@ -47,16 +47,13 @@ export const Header = (): JSX.Element => {
               gap: theme.spacing(0.5),
             })}
           >
-            <img
-              width={20}
-              height={20}
-              src={`${SITE_METADATA.siteUrl}${SITE_METADATA.imageAvatar}`}
-              alt={TRANSLATION.header.avatar}
-              loading="eager"
-              decoding="async"
+            <BicstoneLogo
+              aria-hidden="true"
               css={(theme) => ({
                 marginRight: theme.spacing(0.5),
                 display: "inline-flex",
+                with: theme.spacing(2),
+                height: theme.spacing(2),
               })}
             />
             <Typography color="textPrimary" variant="h6" component="h1">

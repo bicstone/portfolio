@@ -1,8 +1,9 @@
 import { type CardProps } from "@mui/material/Card";
-import { graphql, withPrefix } from "gatsby";
+import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import { ZennLogo } from "@/components/logos/ZennLogo";
 import { type TimelineArticleCardFragment } from "@/generated/graphqlTypes";
 import { formatDateTime } from "@/utils/format";
 
@@ -26,16 +27,7 @@ export const TimelineArticleCard = ({
 
   return (
     <TimelineCardBase
-      avatar={
-        <img
-          alt="zenn"
-          decoding="async"
-          loading="lazy"
-          src={withPrefix("/logos/zenn.svg")}
-          width={32}
-          height={32}
-        />
-      }
+      avatar={<ZennLogo aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}
