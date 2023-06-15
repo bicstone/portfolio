@@ -2,11 +2,11 @@ import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
+import visuallyHidden from "@mui/utils/visuallyHidden";
 import { type MouseEventHandler, useState } from "react";
 
 import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-
 const FukkiretaAnimationImg = styled(BicstoneLogo)<{
   activeAnimation: boolean;
 }>(({ activeAnimation }) => ({ theme }) => ({
@@ -54,6 +54,7 @@ export const BioIcon = (props: CardProps): JSX.Element => {
           activeAnimation={activeAnimation}
           aria-hidden="true"
         />
+        <span css={{ ...visuallyHidden }}>{alt}</span>
       </StyledCardActionArea>
     </Card>
   );

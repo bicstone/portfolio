@@ -11,33 +11,34 @@ export const TimelineTabList = ({
 }: TimelineTabListProps): JSX.Element => {
   return (
     <ToggleButtonGroup
+      id="timeline"
       size="large"
       value={path}
       color="secondary"
       exclusive
       fullWidth
     >
-      <ToggleButton component={Link} value={withPrefix("/")} to="/">
+      <ToggleButton component={Link} value={withPrefix("/")} to="/#timeline">
         All
       </ToggleButton>
       <ToggleButton
         component={Link}
         value={withPrefix("/outputs")}
-        to="/outputs"
+        to="/outputs#timeline"
       >
         Outputs
       </ToggleButton>
       <ToggleButton
         component={Link}
         value={withPrefix("/projects")}
-        to="/projects"
+        to="/projects#timeline"
       >
         Projects
       </ToggleButton>
       <ToggleButton
         component={Link}
         value={withPrefix("/histories")}
-        to="/histories"
+        to="/histories#timeline"
       >
         Histories
       </ToggleButton>
