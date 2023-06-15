@@ -46,14 +46,6 @@ const NotFound = (): JSX.Element => {
         >
           {TRANSLATION.notFound.backToHome}
         </Button>
-        <Button
-          component={RouterLink}
-          variant="contained"
-          to="/blog"
-          color="secondary"
-        >
-          {TRANSLATION.notFound.backToBlog}
-        </Button>
       </div>
     </Container>
   );

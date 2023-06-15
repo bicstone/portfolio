@@ -5,26 +5,20 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
-import { memo, useMemo } from "react";
+import { memo, useId } from "react";
 
 import type { PortfolioHistoryCardFragment } from "@/generated/graphqlTypes";
 
 import { SvgAvatar } from "@/components/SvgAvatar";
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
-  fragment PortfolioHistoryCard on ContentfulHistory {
+  fragment PortfolioHistoryCard on HistoriesYaml {
     id
+    title
     date
-    name
-    subName
-    icon {
-      name
-      svg {
-        svg
-      }
-    }
+    excerpt
+    icon
   }
 `;
 
@@ -36,10 +30,8 @@ export const HistoryCard = memo(
     onChange: (id: string) => void;
   }): JSX.Element => {
     const { history, expanded, onChange } = props;
-
-    const year = useMemo(() => {
-      return formatDateTime(history.date, "yyyy");
-    }, [history.date]);
+    const id = useId();
+    const date = formatDateTime(history.date, "yyyy/MM");
 
     return (
       <Accordion
@@ -51,14 +43,12 @@ export const HistoryCard = memo(
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls={`${history.id}-content`}
-          id={`${history.id}-header`}
+          aria-controls={`${id}-content`}
+          id={`${id}-header`}
         >
           <CardHeader
             css={{ padding: 0 }}
-            avatar={
-              <SvgAvatar name={history.icon.name} svg={history.icon.svg.svg} />
-            }
+            avatar={<SvgAvatar aria-hidden="true" svg={history.icon} />}
             title={
               <>
                 <Typography
@@ -66,10 +56,10 @@ export const HistoryCard = memo(
                   component="div"
                   color="textSecondary"
                 >
-                  {`${year} ${TRANSLATION.histories.date}`}
+                  {date}
                 </Typography>
                 <Typography component="h2" variant="h6">
-                  {history.name}
+                  {history.title}
                 </Typography>
               </>
             }
@@ -82,7 +72,7 @@ export const HistoryCard = memo(
             component="div"
             css={(theme) => ({ margin: theme.spacing(2) })}
           >
-            {history.subName}
+            {history.excerpt}
           </Typography>
         </AccordionDetails>
       </Accordion>

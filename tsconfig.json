@@ -50,6 +50,7 @@
     "paths": {
       // see gatsby-node.ts
       "@/constants/*": ["src/constants/*"],
+      "@/content/*": ["content/*"],
       "@/components/*": ["src/components/*"],
       "@/features/*": ["src/features/*"],
       "@/generated/*": ["src/generated/*"],

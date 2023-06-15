@@ -1,12 +1,9 @@
 import Card from "@mui/material/Card";
-import CardActionArea, {
-  type CardActionAreaProps,
-} from "@mui/material/CardActionArea";
+import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { graphql, Link as RouterLink } from "gatsby";
-import { useMemo } from "react";
 
 import type { RelatedBlogPostCardFragment } from "@/generated/graphqlTypes";
 
@@ -17,7 +14,6 @@ export const query = graphql`
     frontmatter {
       title
       slug
-      redirect
     }
   }
 `;
@@ -27,25 +23,14 @@ export const RelatedBlogPostCard = (props: {
 }): JSX.Element => {
   const { post } = props;
 
-  const linkProps: CardActionAreaProps = useMemo(() => {
-    if (isDefined(post.frontmatter.redirect)) {
-      return {
-        LinkComponent: "a" as const,
-        href: post.frontmatter.redirect,
-        rel: "external noopener",
-      };
-    } else {
-      return {
-        component: RouterLink,
-        to: `/${post.frontmatter.slug}`,
-      };
-    }
-  }, [post.frontmatter.redirect, post.frontmatter.slug]);
-
   return (
     <Grid item component="article" xs={12} sm={6} md={4}>
       <Card>
-        <CardActionArea {...linkProps} title={post.frontmatter.title}>
+        <CardActionArea
+          component={RouterLink}
+          to={`/${post.frontmatter.slug}`}
+          title={post.frontmatter.title}
+        >
           <CardHeader
             title={
               <Typography

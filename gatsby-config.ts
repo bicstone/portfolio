@@ -4,34 +4,28 @@ import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
-import type { MdxFrontmatter, Site } from "@/generated/graphqlTypes";
 import type { GatsbyConfig } from "gatsby";
+
+import {
+  type GatsbyPluginSitemapQuery,
+  type GatsbyPluginFeedQuery,
+} from "@/generated/graphqlTypes";
 
 dotenv.config({ path: `.env` });
 
-const isDevelopment = process.env.NODE_ENV === "development";
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
+const contentPaths = [
+  "articles",
+  "images",
+  "certifications",
+  "histories",
+  "osses",
+  "projects",
+  "speakerdeck",
+  "zenn",
+];
 
-interface GatsbyPluginFeedQuery {
-  readonly allMdx: {
-    readonly nodes: ReadonlyArray<{
-      frontmatter: Pick<
-        MdxFrontmatter,
-        "title" | "slug" | "excerpt" | "created" | "updated" | "redirect"
-      >;
-    }>;
-  };
-}
-
-interface GatsbyPluginSitemapQuery {
-  readonly allMdx: {
-    readonly nodes: ReadonlyArray<{
-      frontmatter: Pick<MdxFrontmatter, "slug" | "created" | "updated">;
-    }>;
-  };
-  readonly site: Pick<Site, "buildTime">;
-}
 const config: GatsbyConfig = {
   trailingSlash,
   pathPrefix,
@@ -46,9 +40,7 @@ const config: GatsbyConfig = {
   jsxImportSource: "@emotion/react",
 
   plugins: [
-    {
-      resolve: "gatsby-plugin-emotion",
-    },
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-fix-fouc`,
       options: {
@@ -57,15 +49,13 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: process.env.GTM_ID,
         includeInDevelopment: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-image`,
-    },
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -97,33 +87,52 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({
-              query: { allMdx },
+              query: { allOutput },
             }: {
               query: GatsbyPluginFeedQuery;
             }) => {
-              return allMdx.nodes.map(({ frontmatter }) => {
-                return {
-                  guid: `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
-                  title: frontmatter.title,
-                  url:
-                    frontmatter.redirect ??
-                    `${SITE_METADATA.siteUrl}/${frontmatter.slug}`,
-                  description: frontmatter.excerpt,
-                  date: frontmatter.created,
-                };
+              return allOutput.nodes.map((node) => {
+                switch (node.__typename) {
+                  case "Mdx":
+                    return {
+                      guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
+                      title: node.title,
+                      url: `${SITE_METADATA.siteUrl}/${node.slug}`,
+                      description: node.frontmatter.excerpt,
+                      date: node.date,
+                    };
+                  default:
+                    return {
+                      guid: node.url,
+                      title: node.title,
+                      url: node.url,
+                      description: "",
+                      date: node.date,
+                    };
+                }
               });
             },
-            query: `#graphql
-              {
-                allMdx(sort: {frontmatter: {created: DESC}}) {
+            query: /* GraphQL */ `
+              query GatsbyPluginFeed {
+                allOutput(sort: { date: DESC }) {
                   nodes {
-                    frontmatter{
-                      title
+                    __typename
+                    title
+                    date
+                    ... on ArticlesYaml {
+                      url
+                    }
+                    ... on SlidesYaml {
+                      url
+                    }
+                    ... on OssesYaml {
+                      url
+                    }
+                    ... on Mdx {
                       slug
-                      excerpt
-                      created
-                      updated
-                      redirect
+                      frontmatter {
+                        excerpt
+                      }
                     }
                   }
                 }
@@ -131,7 +140,7 @@ const config: GatsbyConfig = {
             `,
             output: "/rss.xml",
             link: `${SITE_METADATA.siteUrl}/rss.xml`,
-            title: SITE_METADATA.blogTitle,
+            title: SITE_METADATA.title,
           },
         ],
       },
@@ -146,51 +155,59 @@ const config: GatsbyConfig = {
         acl: null,
       },
     },
-    {
-      resolve: `gatsby-plugin-sharp`,
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         resolveSiteUrl: () => SITE_METADATA.siteUrl,
-        query: `#graphql
-        {
-          site {
-            buildTime
-          }
-          allMdx(sort: {frontmatter: {created: DESC}}) {
-            nodes {
-              frontmatter{
-                slug
-                created
-                updated
+        query: /* GraphQL */ `
+          query GatsbyPluginSitemap {
+            site {
+              buildTime
+            }
+            allMdx(sort: { frontmatter: { date: DESC } }) {
+              nodes {
+                frontmatter {
+                  slug
+                  date
+                  updateDate
+                }
               }
             }
           }
-        }
-      `,
+        `,
         resolvePages: ({ allMdx, site }: GatsbyPluginSitemapQuery) => {
-          const posts = allMdx.nodes.map(({ frontmatter }) => {
-            return {
-              path: `/${frontmatter.slug}`,
-              lastmod: frontmatter.updated ?? frontmatter.created,
-              changefreq: `weekly`,
-              priority: 0.8,
-            };
-          });
           const home = {
             path: `/`,
             lastmod: site.buildTime,
             changefreq: `daily`,
             priority: 1.0,
           };
-          const blog = {
-            path: `/blog`,
+
+          const me = {
+            path: `/me`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.6,
+            priority: 0.9,
           };
-          return [...posts, home, blog];
+
+          const posts = allMdx.nodes.map(({ frontmatter }) => {
+            return {
+              path: `/${frontmatter.slug}`,
+              lastmod: frontmatter.updateDate ?? frontmatter.date,
+              changefreq: `weekly`,
+              priority: 0.8,
+            };
+          });
+
+          const pages = ["histories", "outputs", "projects"].map((page) => ({
+            path: `/${page}`,
+            lastmod: site.buildTime,
+            changefreq: `daily`,
+            priority: 0.1,
+          }));
+
+          return [home, me, ...posts, ...pages];
         },
         serialize: ({
           path,
@@ -212,32 +229,17 @@ const config: GatsbyConfig = {
         },
       },
     },
-    {
-      resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: isDevelopment ? "preview.contentful.com" : "cdn.contentful.com",
-        localeFilter: (locale: { code: string }) => locale.code === "ja",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "articles"),
-        name: `articles`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: path.resolve("content", "images"),
-        name: `images`,
-      },
-    },
-    {
-      resolve: `gatsby-transformer-sharp`,
-    },
+    ...contentPaths.map((contentPath) => {
+      return {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          path: path.resolve("content", contentPath),
+          name: contentPath,
+        },
+      };
+    }),
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-yaml`,
   ],
 };
 

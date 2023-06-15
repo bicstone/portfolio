@@ -1,6 +1,5 @@
 export const SITE_METADATA = {
   title: "Oishi Takanori Portfolio",
-  blogTitle: "まっしろブログ",
   shortTitle: "bicstone",
   siteUrl: process.env.GATSBY_SITE_URL ?? "https://bicstone.me",
   description:
@@ -8,7 +7,6 @@ export const SITE_METADATA = {
   author: "bicstone",
   image: "/android-chrome-512x512.png",
   image192: "/android-chrome-192x192.png",
-  imageAvatar: "/avatar.svg",
   twitter: "@bicstone_me",
   github: "bicstone",
   firstName: "Takanori",

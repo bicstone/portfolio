@@ -30,29 +30,22 @@ export const query = graphql`
       id
       frontmatter {
         slug
-        redirect
         title
         excerpt
-        created
-        createdTime: created(formatString: "X")
-        updated
+        date
+        updateDate
         category
         tags
       }
       ...BlogPostTableOfContent
     }
-    links: allContentfulHello(sort: { sortKey: ASC }) {
-      nodes {
-        ...PortfolioHelloContent
-      }
-    }
     relatedPosts: allMdx(
       filter: { frontmatter: { tags: { in: $tags } } }
-      sort: { frontmatter: { created: DESC } }
+      sort: { frontmatter: { date: DESC } }
     ) {
       nodes {
         frontmatter {
-          createdTime: created(formatString: "X")
+          date
         }
         ...RelatedBlogPostList
       }
@@ -62,7 +55,7 @@ export const query = graphql`
 
 export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
   const post = data.post;
-  const title = `${post.frontmatter.title} - ${SITE_METADATA.blogTitle}`;
+  const title = `${post.frontmatter.title} - ${SITE_METADATA.title}`;
 
   return (
     <>
@@ -71,16 +64,13 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
         title={title}
         description={post.frontmatter.excerpt}
         image={`${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`}
-        imageAlt={SITE_METADATA.blogTitle}
+        imageAlt={SITE_METADATA.title}
         type="article"
       />
-      <meta
-        property="article:published_time"
-        content={post.frontmatter.created}
-      />
+      <meta property="article:published_time" content={post.frontmatter.date} />
       <meta
         property="article:modified_time"
-        content={post.frontmatter.updated}
+        content={post.frontmatter.updateDate}
       />
       <meta property="article:author" content={SITE_METADATA.siteUrl} />
       <meta property="article:section" content={post.frontmatter.category} />
@@ -98,9 +88,9 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
             image: [
               `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
             ],
-            datePublished: post.frontmatter.created,
-            dateModified: post.frontmatter.updated,
-            dateCreated: post.frontmatter.created,
+            datePublished: post.frontmatter.date,
+            dateModified: post.frontmatter.updateDate,
+            dateCreated: post.frontmatter.date,
             author: {
               "@type": "Person",
               name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
@@ -116,55 +106,6 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
             },
             description: post.frontmatter.excerpt,
             keywords: post.frontmatter.tags.map((tag) => tag).join(", "),
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}${"/"}`,
-                  name: SITE_METADATA.title,
-                  "@type": "Thing",
-                },
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}${"/blog"}`,
-                  name: SITE_METADATA.blogTitle,
-                  "@type": "Thing",
-                },
-              },
-              {
-                "@type": "ListItem",
-                position: 3,
-                item: {
-                  "@id": `${SITE_METADATA.siteUrl}/${post.frontmatter.slug}`,
-                  name: post.frontmatter.title,
-                  "@type": "Thing",
-                },
-              },
-            ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            url: SITE_METADATA.siteUrl,
-            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
           }),
         }}
       />
@@ -190,29 +131,23 @@ const BlogPostTemplate = ({
     // 2. Older articles than this.
 
     const newerPosts = filteredPosts
-      .filter((p) => p.frontmatter.createdTime >= post.frontmatter.createdTime)
+      .filter((p) => p.frontmatter.date >= post.frontmatter.date)
       .slice(0, 10);
     const olderPosts = filteredPosts
-      .filter((p) => p.frontmatter.createdTime < post.frontmatter.createdTime)
+      .filter((p) => p.frontmatter.date < post.frontmatter.date)
       .slice(0, 18 - newerPosts.length);
 
     return [...newerPosts, ...olderPosts];
-  }, [data.relatedPosts.nodes, post.frontmatter.createdTime, post.id]);
+  }, [data.relatedPosts.nodes, post.frontmatter.date, post.id]);
 
-  const createdDate = React.useMemo(
-    () => formatDateTime(post.frontmatter.created, "yyyy/MM/dd"),
-    [post.frontmatter.created]
+  const dateDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.date, "yyyy/MM/dd"),
+    [post.frontmatter.date]
   );
-  const updatedDate = React.useMemo(
-    () => formatDateTime(post.frontmatter.updated, "yyyy/MM/dd"),
-    [post.frontmatter.updated]
+  const updateDateDate = React.useMemo(
+    () => formatDateTime(post.frontmatter.updateDate, "yyyy/MM/dd"),
+    [post.frontmatter.updateDate]
   );
-
-  React.useLayoutEffect(() => {
-    if (typeof window !== "undefined" && isDefined(post.frontmatter.redirect)) {
-      window.location.href = post.frontmatter.redirect;
-    }
-  }, [post.frontmatter.redirect]);
 
   return (
     <Container maxWidth="md">
@@ -246,27 +181,27 @@ const BlogPostTemplate = ({
             marginTop: theme.spacing(1),
           })}
         >
-          {isDefined(post.frontmatter.updated) && (
+          {isDefined(post.frontmatter.updateDate) && (
             <>
               <UpdateIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
               <time
-                dateTime={post.frontmatter.updated}
+                dateTime={post.frontmatter.updateDate}
                 css={(theme) => ({ marginRight: theme.spacing(1) })}
               >
-                {updatedDate}
+                {updateDateDate}
               </time>
             </>
           )}
-          {isDefined(post.frontmatter.created) && (
+          {isDefined(post.frontmatter.date) && (
             <>
               <AccessTimeIcon
                 fontSize="inherit"
                 css={(theme) => ({ marginRight: theme.spacing(0.5) })}
               />
-              <time dateTime={post.frontmatter.created}>{createdDate}</time>
+              <time dateTime={post.frontmatter.date}>{dateDate}</time>
             </>
           )}
         </Typography>
@@ -306,7 +241,7 @@ const BlogPostTemplate = ({
             marginBottom: theme.spacing(2),
           })}
         >
-          <HelloContent links={data.links.nodes} />
+          <HelloContent />
         </section>
       </aside>
 
