@@ -1,8 +1,9 @@
 import { type CardProps } from "@mui/material/Card";
-import { graphql, withPrefix } from "gatsby";
+import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import { GitHubLogo } from "@/components/logos/GitHubLogo";
 import { type TimelineOssCardFragment } from "@/generated/graphqlTypes";
 import { formatDateTime } from "@/utils/format";
 
@@ -26,38 +27,7 @@ export const TimelineOssCard = ({
 
   return (
     <TimelineCardBase
-      avatar={
-        <>
-          <img
-            alt="GitHub"
-            src={withPrefix("/logos/github.svg")}
-            decoding="async"
-            loading="lazy"
-            width={32}
-            height={32}
-            css={{
-              display: "block",
-              '[data-mui-color-scheme="dark"] &': {
-                display: "none",
-              },
-            }}
-          />
-          <img
-            alt="GitHub"
-            src={withPrefix("/logos/github_white.svg")}
-            decoding="async"
-            loading="lazy"
-            width={32}
-            height={32}
-            css={{
-              display: "none",
-              '[data-mui-color-scheme="dark"] &': {
-                display: "block",
-              },
-            }}
-          />
-        </>
-      }
+      avatar={<GitHubLogo aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}

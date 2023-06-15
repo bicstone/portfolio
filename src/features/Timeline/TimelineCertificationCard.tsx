@@ -1,12 +1,9 @@
-import styled from "@emotion/styled";
-import VerifiedIcon from "@mui/icons-material/VerifiedRounded";
-import Avatar from "@mui/material/Avatar";
 import { type CardProps } from "@mui/material/Card";
-import red from "@mui/material/colors/red";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import { VerifiedIcon } from "@/components/logos/VerifiedIcon";
 import { type TimelineCertificationCardFragment } from "@/generated/graphqlTypes";
 import { formatDateTime } from "@/utils/format";
 
@@ -17,12 +14,6 @@ export const query = graphql`
     endDate
   }
 `;
-
-const StyledAvatar = styled(Avatar)(({ theme }) => ({
-  background: red[200],
-  height: theme.spacing(4),
-  width: theme.spacing(4),
-}));
 
 export type TimelineCertificationCardProps = {
   item: TimelineCertificationCardFragment;
@@ -50,11 +41,7 @@ export const TimelineCertificationCard = ({
 
   return (
     <TimelineCardBase
-      avatar={
-        <StyledAvatar variant="rounded">
-          <VerifiedIcon />
-        </StyledAvatar>
-      }
+      avatar={<VerifiedIcon />}
       title={item.title}
       subTitle={subTitle}
       slug="me"

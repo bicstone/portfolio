@@ -4,6 +4,16 @@ import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
+import { ConnpassLogo } from "@/components/logos/ConnpassLogo";
+import { FeedLogo } from "@/components/logos/FeedLogo";
+import { GitHubLogo } from "@/components/logos/GitHubLogo";
+import { LinkedInLogo } from "@/components/logos/LinkedInLogo";
+import { PaycareerLogo } from "@/components/logos/PaycareerLogo";
+import { SpeakerDeckLogo } from "@/components/logos/SpeakerDeckLogo";
+import { TwitterLogo } from "@/components/logos/TwitterLogo";
+import { YoutrustLogo } from "@/components/logos/YoutrustLogo";
+import { ZennLogo } from "@/components/logos/ZennLogo";
+
 export const BioCardList = (): JSX.Element => {
   return (
     <div
@@ -23,21 +33,21 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/twitter.svg")}
+        avatar={<TwitterLogo aria-hidden="true" />}
         title="Twitter"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
         url="https://twitter.com/bicstone_me"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/youtrust.svg")}
+        avatar={<YoutrustLogo aria-hidden="true" />}
         title="YOUTRUST"
         subTitle="@bicstone"
         actionTitle="つながる"
         url="https://youtrust.jp/users/bicstone"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/linkdin.png")}
+        avatar={<LinkedInLogo aria-hidden="true" />}
         title="LinkedIn"
         subTitle="@bicstone"
         actionTitle="つながる"
@@ -52,43 +62,42 @@ export const BioCardList = (): JSX.Element => {
         })}
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/github.svg")}
-        darkLogo={withPrefix("/logos/github_white.svg")}
+        avatar={<GitHubLogo aria-hidden="true" />}
         title="GitHub"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://github.com/bicstone"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/zenn.svg")}
+        avatar={<ZennLogo aria-hidden="true" />}
         title="Zenn"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://zenn.dev/bicstone"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/speakerdeck.png")}
+        avatar={<SpeakerDeckLogo aria-hidden="true" />}
         title="Speaker Deck"
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/connpass.svg")}
+        avatar={<ConnpassLogo aria-hidden="true" />}
         title="Connpass"
         subTitle="@bicstone"
         actionTitle="交流する"
         url="https://connpass.com/user/bicstone"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/paycareer.svg")}
+        avatar={<PaycareerLogo aria-hidden="true" />}
         title="PayCareer"
         subTitle="2022249011"
         actionTitle="面接する"
         url="https://pay-career.com/spot_request/2022249011"
       />
       <BioSocialLinkCard
-        logo={withPrefix("/logos/feed.svg")}
+        avatar={<FeedLogo aria-hidden="true" />}
         title="RSS"
         subTitle="rss.xml"
         actionTitle="購読する"

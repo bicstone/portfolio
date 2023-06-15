@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
+import { type ReactNode } from "react";
 
 import { ExternalLink } from "@/components/ExternalLink";
-import { isDefined } from "@/utils/typeguard";
 
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
@@ -27,8 +27,7 @@ const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
 })) as typeof CardActionArea;
 
 export type BioHelloCardProps = CardProps & {
-  logo: string;
-  darkLogo?: string;
+  avatar: ReactNode;
   title: string;
   subTitle: string;
   actionTitle: string;
@@ -36,8 +35,7 @@ export type BioHelloCardProps = CardProps & {
 };
 
 export const BioSocialLinkCard = ({
-  logo,
-  darkLogo,
+  avatar,
   title,
   subTitle,
   actionTitle,
@@ -51,47 +49,7 @@ export const BioSocialLinkCard = ({
         rel="external noopener"
         title={actionTitle}
       >
-        {isDefined(darkLogo) ? (
-          <>
-            <img
-              width={32}
-              height={32}
-              src={logo}
-              alt={title}
-              loading="eager"
-              decoding="async"
-              css={{
-                display: "block",
-                '[data-mui-color-scheme="dark"] &': {
-                  display: "none",
-                },
-              }}
-            />
-            <img
-              width={32}
-              height={32}
-              src={darkLogo}
-              alt={title}
-              loading="eager"
-              decoding="async"
-              css={{
-                display: "none",
-                '[data-mui-color-scheme="dark"] &': {
-                  display: "block",
-                },
-              }}
-            />
-          </>
-        ) : (
-          <img
-            width={32}
-            height={32}
-            src={logo}
-            alt={title}
-            loading="eager"
-            decoding="async"
-          />
-        )}
+        {avatar}
         <div>
           <Typography variant="body1" component="h2">
             <ExternalLink>{title}</ExternalLink>

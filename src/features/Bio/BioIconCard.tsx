@@ -2,16 +2,18 @@ import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
+import visuallyHidden from "@mui/utils/visuallyHidden";
 import { type MouseEventHandler, useState } from "react";
 
-import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-
-const FukkiretaAnimationImg = styled("img")<{
+const FukkiretaAnimationImg = styled(BicstoneLogo)<{
   activeAnimation: boolean;
 }>(({ activeAnimation }) => ({ theme }) => ({
   cursor: "pointer",
   margin: theme.spacing(0, 2),
+  width: theme.spacing(12),
+  height: theme.spacing(12),
 
   ...(activeAnimation && {
     transformOrigin: "center bottom",
@@ -50,13 +52,9 @@ export const BioIcon = (props: CardProps): JSX.Element => {
       <StyledCardActionArea onClick={onClick}>
         <FukkiretaAnimationImg
           activeAnimation={activeAnimation}
-          width={100}
-          height={100}
-          src={`${SITE_METADATA.siteUrl}${SITE_METADATA.imageAvatar}`}
-          loading="eager"
-          decoding="async"
-          alt={alt}
+          aria-hidden="true"
         />
+        <span css={{ ...visuallyHidden }}>{alt}</span>
       </StyledCardActionArea>
     </Card>
   );
