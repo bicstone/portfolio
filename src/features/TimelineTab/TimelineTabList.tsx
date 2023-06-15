@@ -17,6 +17,12 @@ export const TimelineTabList = ({
       color="secondary"
       exclusive
       fullWidth
+      css={(theme) => ({
+        // negative top margin for anchor link
+        // AppBar height = 6 + 2
+        marginTop: theme.spacing(-8),
+        paddingTop: theme.spacing(8),
+      })}
     >
       <ToggleButton component={Link} value={withPrefix("/")} to="/#timeline">
         All
