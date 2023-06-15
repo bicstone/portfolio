@@ -224,81 +224,81 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
       // },
       components: {
         ...lightComponentsTheme.components,
-      //   MuiButton: {
-      //     styleOverrides: {
-      //       root: {
-      //         borderRadius: "50px",
-      //         textTransform: "none",
-      //         fontWeight: "bold",
-      //       },
-      //       sizeSmall: {
-      //         padding: defaultTheme.spacing(0.5, 1.5),
-      //       },
-      //     },
-      //   },
-      //   MuiButtonBase: {
-      //     styleOverrides: {
-      //       root: {
-      //         userSelect: "auto",
-      //       },
-      //     },
-      //   },
-      //   MuiChip: {
-      //     styleOverrides: {
-      //       root: {
-      //         marginRight: defaultTheme.spacing(0.5),
-      //         marginTop: defaultTheme.spacing(0.5),
-      //       },
-      //     },
-      //   },
-      //   MuiLinearProgress: {
-      //     styleOverrides: {
-      //       root: {
-      //         height: defaultTheme.spacing(0.5),
-      //       },
-      //     },
-      //   },
-      //   MuiLink: {
-      //     defaultProps: {
-      //       color: "inherit",
-      //     },
-      //   },
-      //   MuiPaper: {
-      //     styleOverrides: {
-      //       rounded: {
-      //         borderRadius: defaultTheme.spacing(1.5),
-      //       },
-      //     },
-      //   },
-      //   MuiAccordion: {
-      //     styleOverrides: {
-      //       rounded: {
-      //         "&:before": {
-      //           display: "none",
-      //         },
-      //         "&:not(:last-of-type)": {
-      //           borderBottom: `1px solid ${defaultTheme.palette.divider}`,
-      //         },
-      //         "&:first-of-type": {
-      //           borderTopLeftRadius: defaultTheme.spacing(1.5),
-      //           borderTopRightRadius: defaultTheme.spacing(1.5),
-      //         },
-      //         "&:last-of-type": {
-      //           borderBottomLeftRadius: defaultTheme.spacing(1.5),
-      //           borderBottomRightRadius: defaultTheme.spacing(1.5),
-      //         },
-      //       },
-      //     },
-      //   },
-      //   MuiToggleButton: {
-      //     styleOverrides: {
-      //       root: {
-      //         borderRadius: "50px",
-      //         textTransform: "none",
-      //         fontWeight: "bold",
-      //       },
-      //     },
-      //   },
+        //   MuiButton: {
+        //     styleOverrides: {
+        //       root: {
+        //         borderRadius: "50px",
+        //         textTransform: "none",
+        //         fontWeight: "bold",
+        //       },
+        //       sizeSmall: {
+        //         padding: defaultTheme.spacing(0.5, 1.5),
+        //       },
+        //     },
+        //   },
+        //   MuiButtonBase: {
+        //     styleOverrides: {
+        //       root: {
+        //         userSelect: "auto",
+        //       },
+        //     },
+        //   },
+        //   MuiChip: {
+        //     styleOverrides: {
+        //       root: {
+        //         marginRight: defaultTheme.spacing(0.5),
+        //         marginTop: defaultTheme.spacing(0.5),
+        //       },
+        //     },
+        //   },
+        //   MuiLinearProgress: {
+        //     styleOverrides: {
+        //       root: {
+        //         height: defaultTheme.spacing(0.5),
+        //       },
+        //     },
+        //   },
+        //   MuiLink: {
+        //     defaultProps: {
+        //       color: "inherit",
+        //     },
+        //   },
+        //   MuiPaper: {
+        //     styleOverrides: {
+        //       rounded: {
+        //         borderRadius: defaultTheme.spacing(1.5),
+        //       },
+        //     },
+        //   },
+        //   MuiAccordion: {
+        //     styleOverrides: {
+        //       rounded: {
+        //         "&:before": {
+        //           display: "none",
+        //         },
+        //         "&:not(:last-of-type)": {
+        //           borderBottom: `1px solid ${defaultTheme.palette.divider}`,
+        //         },
+        //         "&:first-of-type": {
+        //           borderTopLeftRadius: defaultTheme.spacing(1.5),
+        //           borderTopRightRadius: defaultTheme.spacing(1.5),
+        //         },
+        //         "&:last-of-type": {
+        //           borderBottomLeftRadius: defaultTheme.spacing(1.5),
+        //           borderBottomRightRadius: defaultTheme.spacing(1.5),
+        //         },
+        //       },
+        //     },
+        //   },
+        //   MuiToggleButton: {
+        //     styleOverrides: {
+        //       root: {
+        //         borderRadius: "50px",
+        //         textTransform: "none",
+        //         fontWeight: "bold",
+        //       },
+        //     },
+        //   },
       },
     });
   }, [darkTheme.palette, lightComponentsTheme.components, lightTheme.palette]);
