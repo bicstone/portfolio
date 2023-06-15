@@ -52,8 +52,8 @@ export const Header = (): JSX.Element => {
               css={(theme) => ({
                 marginRight: theme.spacing(0.5),
                 display: "inline-flex",
-                with: theme.spacing(2),
-                height: theme.spacing(2),
+                width: theme.spacing(3),
+                height: theme.spacing(3),
               })}
             />
             <Typography color="textPrimary" variant="h6" component="h1">

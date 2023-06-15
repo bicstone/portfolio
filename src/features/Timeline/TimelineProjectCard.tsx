@@ -1,12 +1,9 @@
-import styled from "@emotion/styled";
-import CodeIcon from "@mui/icons-material/CodeRounded";
-import Avatar from "@mui/material/Avatar";
 import { type CardProps } from "@mui/material/Card";
-import red from "@mui/material/colors/red";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import { CodeIcon } from "@/components/logos/CodeIcon";
 import { type TimelineProjectCardFragment } from "@/generated/graphqlTypes";
 import { formatDateTime } from "@/utils/format";
 
@@ -25,12 +22,6 @@ export const query = graphql`
 export type TimelineProjectCardProps = {
   item: TimelineProjectCardFragment;
 } & CardProps;
-
-const StyledAvatar = styled(Avatar)(({ theme }) => ({
-  background: red[200],
-  height: theme.spacing(4),
-  width: theme.spacing(4),
-}));
 
 export const TimelineProjectCard = ({
   item,
@@ -56,11 +47,7 @@ export const TimelineProjectCard = ({
 
   return (
     <TimelineCardBase
-      avatar={
-        <StyledAvatar variant="rounded">
-          <CodeIcon />
-        </StyledAvatar>
-      }
+      avatar={<CodeIcon />}
       title={item.title}
       subTitle={subTitle}
       slug="me"

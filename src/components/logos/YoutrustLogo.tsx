@@ -5,5 +5,5 @@ import { LogoBase } from "./LogoBase";
 import logo from "@/content/logos/YoutrustLogo.svg";
 
 export const YoutrustLogo = styled(LogoBase)({
-  backgroundImage: logo,
+  backgroundImage: `url(${logo})`,
 });

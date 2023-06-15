@@ -1,11 +1,9 @@
-import styled from "@emotion/styled";
-import TextSnippetIcon from "@mui/icons-material/TextSnippetRounded";
-import Avatar from "@mui/material/Avatar";
 import { type CardProps } from "@mui/material/Card";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import { DescriptionIcon } from "@/components/logos/DescriptionIcon";
 import { type TimelineMdxCardFragment } from "@/generated/graphqlTypes";
 import { formatDateTime } from "@/utils/format";
 
@@ -16,11 +14,6 @@ export const query = graphql`
     slug
   }
 `;
-
-const StyledAvatar = styled(Avatar)(({ theme }) => ({
-  height: theme.spacing(4),
-  width: theme.spacing(4),
-}));
 
 export type TimelineMdxCardProps = {
   item: TimelineMdxCardFragment;
@@ -34,11 +27,7 @@ export const TimelineMdxCard = ({
 
   return (
     <TimelineCardBase
-      avatar={
-        <StyledAvatar variant="rounded">
-          <TextSnippetIcon />
-        </StyledAvatar>
-      }
+      avatar={<DescriptionIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       slug={item.slug}

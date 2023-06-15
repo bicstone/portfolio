@@ -5,5 +5,5 @@ import { LogoBase } from "./LogoBase";
 import logo from "@/content/logos/FeedLogo.svg";
 
 export const FeedLogo = styled(LogoBase)({
-  backgroundImage: logo,
+  backgroundImage: `url(${logo})`,
 });

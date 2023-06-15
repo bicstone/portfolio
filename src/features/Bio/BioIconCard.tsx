@@ -12,7 +12,7 @@ const FukkiretaAnimationImg = styled(BicstoneLogo)<{
 }>(({ activeAnimation }) => ({ theme }) => ({
   cursor: "pointer",
   margin: theme.spacing(0, 2),
-  with: theme.spacing(12),
+  width: theme.spacing(12),
   height: theme.spacing(12),
 
   ...(activeAnimation && {

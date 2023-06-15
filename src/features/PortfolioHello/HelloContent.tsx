@@ -13,7 +13,7 @@ export const HelloContent = (): JSX.Element => {
           aria-hidden="true"
           css={(theme) => ({
             margin: theme.spacing(0, 2),
-            with: theme.spacing(12),
+            width: theme.spacing(12),
             height: theme.spacing(12),
           })}
         />
