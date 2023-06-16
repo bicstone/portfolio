@@ -177,13 +177,14 @@ export const TimelineList = ({
   if (virtualized) {
     return (
       <VirtuosoGrid
-        useWindowScroll
         data={flatNodes}
         components={{
           List: Container,
         }}
         itemContent={(index, item) => <TimelineItem key={index} item={item} />}
+        overscan={10}
         style={{ height: "100%" }}
+        useWindowScroll
       />
     );
   }
