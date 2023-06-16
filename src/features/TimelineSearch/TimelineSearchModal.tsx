@@ -137,6 +137,7 @@ export const TimelineSearchModal = (props: {
                 </ListItemButton>
               </ListItem>
             )}
+            tabIndex={-1}
             style={{ height: "100%" }}
           />
         ) : (
