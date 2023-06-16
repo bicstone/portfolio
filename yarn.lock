@@ -5811,7 +5811,7 @@ __metadata:
     canvas: "npm:2.11.2"
     date-fns: "npm:2.30.0"
     date-fns-tz: "npm:2.0.0"
-    dotenv: "npm:16.1.4"
+    dotenv: "npm:16.2.0"
     eslint: "npm:8.42.0"
     eslint-config-prettier: "npm:8.8.0"
     eslint-config-standard-with-typescript: "npm:35.0.0"
@@ -7724,7 +7724,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.1.4, dotenv@npm:^16.0.0":
+"dotenv@npm:16.2.0":
+  version: 16.2.0
+  resolution: "dotenv@npm:16.2.0"
+  checksum: a5a723114ef4e52fc06846560af5fb8cae09709441af944bf3e69566bece6c638ec5fc0e13bf8896b2123d01146a1228d720fc14f0180507a66571f8d3b5eb5b
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.0.0":
   version: 16.1.4
   resolution: "dotenv@npm:16.1.4"
   checksum: c8eb9665ee670f2d3aa36b6f3dc43a9108a02da9efaa86cb9890d6873cbc025b047e30ce23f852195be8e4a2601b7684c23173d937d754443c4fbc957e1da512
