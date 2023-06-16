@@ -1,5 +1,5 @@
 import styled, { type CSSObject } from "@emotion/styled";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { Link } from "gatsby";
 import { type HTMLAttributes } from "react";
 
 const activeClassName = "active";
@@ -8,13 +8,9 @@ const StyledAnchorLinkGroup = styled("nav")(({ theme }) => ({
   display: "flex",
   borderRadius: theme.shape.borderRadius,
   width: "100%",
-  // negative top margin for anchor link
-  // AppBar height = 6 + 2
-  marginTop: theme.spacing(-8),
-  paddingTop: theme.spacing(8),
 }));
 
-const StyledLink = styled(AnchorLink)(({ theme }) => ({
+const StyledLink = styled(Link)(({ theme }) => ({
   alignItems: "center",
   border: `1px solid ${theme.vars.palette.divider}`,
   borderRadius: theme.spacing(10),
@@ -59,21 +55,17 @@ export const TimelineTabList = (
   props: HTMLAttributes<HTMLElement>
 ): JSX.Element => {
   return (
-    <StyledAnchorLinkGroup id="timeline" {...props}>
-      <StyledLink
-        to="/#timeline"
-        stripHash
-        gatsbyLinkProps={{ activeClassName }}
-      >
+    <StyledAnchorLinkGroup {...props}>
+      <StyledLink to="/" activeClassName={activeClassName}>
         All
       </StyledLink>
-      <StyledLink to="/outputs" gatsbyLinkProps={{ activeClassName }}>
+      <StyledLink to="/outputs" activeClassName={activeClassName}>
         Outputs
       </StyledLink>
-      <StyledLink to="/projects" gatsbyLinkProps={{ activeClassName }}>
+      <StyledLink to="/projects" activeClassName={activeClassName}>
         Projects
       </StyledLink>
-      <StyledLink to="/histories" gatsbyLinkProps={{ activeClassName }}>
+      <StyledLink to="/histories" activeClassName={activeClassName}>
         Histories
       </StyledLink>
     </StyledAnchorLinkGroup>
