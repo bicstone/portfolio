@@ -14,6 +14,7 @@ const SPEAKER_DECK_FILE = path.resolve(
   "speakerdeck",
   "slides.yml"
 );
+const SCORE_FILE = path.resolve(CONTENT_DIR, "lapras", "scores.json");
 
 interface ZennArticle {
   title: string;
@@ -31,9 +32,13 @@ interface SpeakerDeckSlide {
   presentation_date: string;
 }
 
+// https://github.com/lapras-inc/public-api-schema
 interface Response {
   zenn_articles: ZennArticle[];
   speaker_deck_slides: SpeakerDeckSlide[];
+  e_score: number;
+  b_score: number;
+  i_score: number;
 }
 
 interface TimeLineItem {
@@ -80,7 +85,15 @@ export const fetchLaprasActivity = async (): Promise<void> => {
     }
   );
 
+  const scores = {
+    eScore: response.e_score,
+    bScore: response.b_score,
+    iScore: response.i_score,
+  };
+
   await fs.writeFile(ZENN_FILE, dump(zennArticles));
 
   await fs.writeFile(SPEAKER_DECK_FILE, dump(speakerDeckSlides));
+
+  await fs.writeFile(SCORE_FILE, JSON.stringify(scores));
 };

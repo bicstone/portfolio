@@ -18,7 +18,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
         <CardHeader
           disableTypography
           title={
-            <Typography component="p" variant="h6" gutterBottom>
+            <Typography component="h2" variant="h6" gutterBottom>
               {TRANSLATION.hello.title}
             </Typography>
           }

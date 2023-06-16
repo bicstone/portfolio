@@ -1,7 +1,9 @@
 import { withPrefix } from "gatsby";
 
+import { BioFindyScoreCard } from "./BioFindyScoreCard";
 import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
+import { BioLaprasScoreCard } from "./BioLaprasScoreCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
 import { ConnpassLogo } from "@/components/logos/ConnpassLogo";
@@ -53,14 +55,7 @@ export const BioCardList = (): JSX.Element => {
         actionTitle="つながる"
         url="https://www.linkedin.com/in/bicstone"
       />
-      <BioHelloCard
-        css={(theme) => ({
-          gridColumn: "1 / 3",
-          [theme.breakpoints.down("sm")]: {
-            gridColumn: "1 / 3",
-          },
-        })}
-      />
+      <BioHelloCard css={{ gridColumn: "1 / 3" }} />
       <BioSocialLinkCard
         avatar={<GitHubLogo aria-hidden="true" />}
         title="GitHub"
@@ -102,6 +97,15 @@ export const BioCardList = (): JSX.Element => {
         subTitle="rss.xml"
         actionTitle="購読する"
         url={withPrefix("/rss.xml")}
+      />
+      <BioFindyScoreCard css={{ gridColumn: "1 / 3" }} />
+      <BioLaprasScoreCard
+        css={(theme) => ({
+          gridColumn: "3 / 5",
+          [theme.breakpoints.down("md")]: {
+            gridColumn: "1 / 3",
+          },
+        })}
       />
     </div>
   );
