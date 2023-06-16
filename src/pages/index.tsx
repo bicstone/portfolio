@@ -47,8 +47,10 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <BioCardList />
         <Spacer y={6} />
         <TimelineTabList />
-        <Spacer y={3} />
-        <TimelineList groups={timelineGroups} />
+        <Spacer y={6} />
+        <TimelineList groups={timelineGroups} virtualized />
+        <Spacer y={6} />
+        <TimelineTabList />
       </Container>
     </>
   );
