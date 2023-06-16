@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
-import { Slice } from "gatsby";
+
+import Footer from "./Footer";
+import Header from "./Header";
 
 import type { ReactNode } from "react";
 
@@ -19,9 +21,9 @@ export const WrapPageElement = (props: {
 
   return (
     <>
-      <Slice alias="HEADER" />
+      <Header />
       <StyledMain>{children}</StyledMain>
-      <Slice alias="FOOTER" />
+      <Footer />
     </>
   );
 };
