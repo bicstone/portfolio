@@ -44,8 +44,14 @@ const NotFound = (): JSX.Element => {
           color="secondary"
           css={(theme) => ({ marginRight: theme.spacing(2) })}
         >
-          {TRANSLATION.notFound.backToHome}
+          {TRANSLATION.notFound.backToTimeline}
         </Button>
+        <Button
+          component={RouterLink}
+          variant="outlined"
+          to="/"
+          color="secondary"
+        ></Button>
       </div>
     </Container>
   );

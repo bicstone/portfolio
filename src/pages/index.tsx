@@ -1,10 +1,10 @@
-import { Divider } from "@mui/material";
 import Container from "@mui/material/Container";
 import { graphql } from "gatsby";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
+import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
@@ -22,45 +22,19 @@ export const query = graphql`
 
 export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
   const title = SITE_METADATA.title;
-
-  return (
-    <HeadTemplate
-      location={location}
-      title={title}
-      description={SITE_METADATA.description}
-      image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
-      imageAlt={title}
-      type="blog"
-    />
-  );
-};
-
-const IndexPage = ({
-  data,
-  location,
-}: PageProps<IndexPageQuery>): JSX.Element => {
-  const timelineGroups = data.timelineGroups;
-  const timelineItems = timelineGroups.group.flatMap(({ nodes }) => nodes);
-  const path = location.pathname;
+  const timelineItems = data.timelineGroups.group.flatMap(({ nodes }) => nodes);
   const buildTime = useBuildTime();
 
   return (
     <>
-      <Container
-        maxWidth="md"
-        fixed
-        css={(theme) => ({
-          marginTop: theme.spacing(4),
-          marginBottom: theme.spacing(4),
-        })}
-      >
-        <BioCardList />
-        <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
-        <TimelineTabList path={path} />
-        <div css={(theme) => ({ height: theme.spacing(3) })} />
-        <TimelineList groups={timelineGroups} />
-      </Container>
-
+      <HeadTemplate
+        location={location}
+        title={title}
+        description={SITE_METADATA.description}
+        image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
+        imageAlt={title}
+        type="blog"
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -104,6 +78,28 @@ const IndexPage = ({
           }),
         }}
       />
+    </>
+  );
+};
+
+const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
+  const timelineGroups = data.timelineGroups;
+
+  return (
+    <>
+      <Container
+        maxWidth="md"
+        fixed
+        css={(theme) => ({ margin: theme.spacing(4, "auto") })}
+      >
+        <BioCardList />
+        <Spacer y={6} />
+        <TimelineTabList />
+        <Spacer y={6} />
+        <TimelineList groups={timelineGroups} virtualized />
+        <Spacer y={6} />
+        <TimelineTabList />
+      </Container>
     </>
   );
 };

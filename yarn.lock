@@ -5811,7 +5811,7 @@ __metadata:
     canvas: "npm:2.11.2"
     date-fns: "npm:2.30.0"
     date-fns-tz: "npm:2.0.0"
-    dotenv: "npm:16.1.4"
+    dotenv: "npm:16.2.0"
     eslint: "npm:8.42.0"
     eslint-config-prettier: "npm:8.8.0"
     eslint-config-standard-with-typescript: "npm:35.0.0"
@@ -5824,6 +5824,7 @@ __metadata:
     eslint-plugin-regexp: "npm:1.15.0"
     fuse.js: "npm:6.6.2"
     gatsby: "npm:5.10.0"
+    gatsby-plugin-anchor-links: "npm:1.2.1"
     gatsby-plugin-emotion: "npm:8.10.0"
     gatsby-plugin-feed: "npm:5.10.0"
     gatsby-plugin-fix-fouc: "npm:1.0.3"
@@ -7723,7 +7724,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:16.1.4, dotenv@npm:^16.0.0":
+"dotenv@npm:16.2.0":
+  version: 16.2.0
+  resolution: "dotenv@npm:16.2.0"
+  checksum: a5a723114ef4e52fc06846560af5fb8cae09709441af944bf3e69566bece6c638ec5fc0e13bf8896b2123d01146a1228d720fc14f0180507a66571f8d3b5eb5b
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.0.0":
   version: 16.1.4
   resolution: "dotenv@npm:16.1.4"
   checksum: c8eb9665ee670f2d3aa36b6f3dc43a9108a02da9efaa86cb9890d6873cbc025b047e30ce23f852195be8e4a2601b7684c23173d937d754443c4fbc957e1da512
@@ -9581,6 +9589,15 @@ __metadata:
   peerDependencies:
     "@parcel/core": ^2.0.0
   checksum: f2197c416badf47dce52f04a9dcd9a2520a90964da50916657a27169e99dec815e6151ee2d0178f717ca91df4012eb990e42665620440e54c3292061ee3ae7d8
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-anchor-links@npm:1.2.1":
+  version: 1.2.1
+  resolution: "gatsby-plugin-anchor-links@npm:1.2.1"
+  dependencies:
+    scroll-to-element: "npm:^2.0.3"
+  checksum: c6776ac153f4785cf0811beee780be362a49f64799a6c7a3cba0d0e122c56560054302b2fb1f022e1ef56725ddc8fbbcf0c81030927633452571e9064ee562f1
   languageName: node
   linkType: hard
 
@@ -15625,6 +15642,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"raf@npm:^3.4.0":
+  version: 3.4.1
+  resolution: "raf@npm:3.4.1"
+  dependencies:
+    performance-now: "npm:^2.1.0"
+  checksum: edeeb83c7727fba43430c954452e1b4706ce6c4d52fdc6743b1e34e5ba3e8e08bc9e85b237a558441ef10e17e6de53ba19949d92c2b3bbd0561d861fe3282ea8
+  languageName: node
+  linkType: hard
+
 "randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
@@ -16514,6 +16540,15 @@ __metadata:
     ajv: "npm:^6.12.5"
     ajv-keywords: "npm:^3.5.2"
   checksum: 11d35f997eb710b684142bd0ca9ef00f96329258a31410ac13e59a3b4d5822e37be1218e44355b0dd669bdca09f0facbed4f3bc183a08e35293561e7a56d766b
+  languageName: node
+  linkType: hard
+
+"scroll-to-element@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "scroll-to-element@npm:2.0.3"
+  dependencies:
+    raf: "npm:^3.4.0"
+  checksum: 0862a5b21a58fdf26316f6b1cfa4d1d4b5de22ad4a5f9e7b82b491a8dcc89f69e118b51f2d044947d280438ef0810afbf72f900e20294beb4f32d9f59260cee7
   languageName: node
   linkType: hard
 

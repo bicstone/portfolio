@@ -38,6 +38,37 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 };
 
 /**
+ * Copy assets to public
+ * Create Zenn articles json
+ * Create Speaker Deck Slides json
+ */
+export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
+  reporter,
+}) => {
+  /**
+   *  Copy assets to public
+   */
+  const sourcePath = path.resolve(process.cwd(), "content", "assets");
+  const destPath = path.resolve(process.cwd(), "public", "assets");
+
+  fs.cpSync(sourcePath, destPath, { recursive: true, force: true });
+
+  reporter.success(
+    `onPreBootstrap: Copied assets from ${sourcePath} to ${destPath}`
+  );
+
+  /**
+   * Create Zenn articles json
+   * Create Speaker Deck Slides json
+   */
+  await fetchLaprasActivity();
+
+  reporter.success(
+    `onPreBootstrap: Created Zenn articles and Speaker Deck Slides json`
+  );
+};
+
+/**
  * Create blog post pages
  */
 export const createPages: GatsbyNode["createPages"] = async ({
@@ -94,26 +125,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
 };
 
 /**
- * Copy assets to public
  * Add Search nodes
  * Create OGP images
- * Create Zenn articles json
- * Create Speaker Deck Slides json
  */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter, actions, createNodeId, createContentDigest }) => {
     const { createNode } = actions;
-    /**
-     *  Copy assets to public
-     */
-    const sourcePath = path.resolve(process.cwd(), "content", "assets");
-    const destPath = path.resolve(process.cwd(), "public", "assets");
-
-    fs.cpSync(sourcePath, destPath, { recursive: true, force: true });
-
-    reporter.success(
-      `onCreatePagesStatefully: Copied assets from ${sourcePath} to ${destPath}`
-    );
 
     /**
      * Add Search nodes
@@ -251,16 +268,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     reporter.success(
       `onCreatePagesStatefully: Created ${blogPostList.length} blog ogp images`
-    );
-
-    /**
-     * Create Zenn articles json
-     * Create Speaker Deck Slides json
-     */
-    await fetchLaprasActivity();
-
-    reporter.success(
-      `onCreatePagesStatefully: Created Zenn articles and Speaker Deck Slides json`
     );
   };
 

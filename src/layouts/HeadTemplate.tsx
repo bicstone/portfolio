@@ -75,6 +75,7 @@ export const HeadTemplate = (props: {
       />
       <meta name="application-name" content={SITE_METADATA.shortTitle} />
       <meta name="msapplication-TileColor" content={SITE_METADATA.tileColor} />
+      <meta name="theme-color" content="#fcfdf7" />
       {/* others */}
       <meta
         name="viewport"
