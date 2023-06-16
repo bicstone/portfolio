@@ -1,13 +1,12 @@
 import Container from "@mui/material/Container";
-import Divider from "@mui/material/Divider";
 import { graphql } from "gatsby";
 
 import type { ProjectsPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -20,7 +19,7 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
+export const Head: HeadFC<ProjectsPageQuery> = ({ location }) => {
   const title = `${TRANSLATION.projects.title} - ${SITE_METADATA.title}`;
 
   return (
@@ -35,12 +34,9 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location, data }) => {
   );
 };
 
-const ProjectsPage = ({
-  data,
-  location,
-}: PageProps<ProjectsPageQuery>): JSX.Element => {
+const ProjectsPage = ({ data }: PageProps<ProjectsPageQuery>): JSX.Element => {
+  const title = TRANSLATION.projects.title;
   const projectGroups = data.projects;
-  const path = location.pathname;
 
   return (
     <Container
@@ -51,11 +47,13 @@ const ProjectsPage = ({
         marginBottom: theme.spacing(4),
       })}
     >
-      <BioCardList />
-      <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
-      <TimelineTabList path={path} />
-      <div css={(theme) => ({ height: theme.spacing(3) })} />
+      <Breadcrumbs title={title} />
+      <div css={(theme) => ({ height: theme.spacing(4) })} />
+      <TimelineTabList />
+      <div css={(theme) => ({ height: theme.spacing(2) })} />
       <TimelineList groups={projectGroups} />
+      <div css={(theme) => ({ height: theme.spacing(4) })} />
+      <Breadcrumbs title={title} />
     </Container>
   );
 };

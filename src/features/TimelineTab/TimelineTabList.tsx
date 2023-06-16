@@ -7,10 +7,6 @@ const StyledAnchorLinkGroup = styled("nav")(({ theme }) => ({
   display: "flex",
   borderRadius: theme.shape.borderRadius,
   width: "100%",
-  // negative top margin for anchor link
-  // AppBar height = 6 + 2
-  marginTop: theme.spacing(-8),
-  paddingTop: theme.spacing(8),
 }));
 
 const StyledLink = styled(Link)(({ theme }) => ({
@@ -56,17 +52,17 @@ const StyledLink = styled(Link)(({ theme }) => ({
 
 export const TimelineTabList = (): JSX.Element => {
   return (
-    <StyledAnchorLinkGroup id="timeline">
-      <StyledLink to="/#timeline" activeClassName={activeClassName}>
+    <StyledAnchorLinkGroup>
+      <StyledLink to="/" activeClassName={activeClassName}>
         All
       </StyledLink>
-      <StyledLink to="/outputs#timeline" activeClassName={activeClassName}>
+      <StyledLink to="/outputs" activeClassName={activeClassName}>
         Outputs
       </StyledLink>
-      <StyledLink to="/projects#timeline" activeClassName={activeClassName}>
+      <StyledLink to="/projects" activeClassName={activeClassName}>
         Projects
       </StyledLink>
-      <StyledLink to="/histories#timeline" activeClassName={activeClassName}>
+      <StyledLink to="/histories" activeClassName={activeClassName}>
         Histories
       </StyledLink>
     </StyledAnchorLinkGroup>

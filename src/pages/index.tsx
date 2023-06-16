@@ -34,10 +34,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
   );
 };
 
-const IndexPage = ({
-  data,
-  location,
-}: PageProps<IndexPageQuery>): JSX.Element => {
+const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const timelineGroups = data.timelineGroups;
 
   return (
