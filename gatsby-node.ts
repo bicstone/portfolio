@@ -4,7 +4,6 @@ import path from "path";
 import { formatInTimeZone } from "date-fns-tz";
 
 import { createOgpImage } from "./src/utils/createOgpImage";
-import { fetchFindyScore } from "./src/utils/fetchFindyScore";
 import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
 import { isDefined } from "./src/utils/typeguard";
 
@@ -42,8 +41,6 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
  * Copy assets to public
  * Create Zenn articles json
  * Create Speaker Deck Slides json
- * Create Lapras score json
- * Create Findy score json
  */
 export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
   reporter,
@@ -69,13 +66,6 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
   reporter.success(
     `onPreBootstrap: Created Zenn articles and Speaker Deck Slides json`
   );
-
-  /**
-   * Create Findy score json
-   */
-  await fetchFindyScore();
-
-  reporter.success(`onPreBootstrap: Created Findy score json`);
 };
 
 /**
