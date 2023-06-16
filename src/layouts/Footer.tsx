@@ -4,8 +4,6 @@ import { Link as RouterLink } from "gatsby";
 
 import { BackToTop } from "./BackToTop";
 
-import { TRANSLATION } from "@/constants/TRANSLATION";
-
 /**
  * Footer Layout
  */
@@ -14,28 +12,43 @@ export const Footer = (): JSX.Element => {
   return (
     <footer
       css={(theme) => ({
+        alignItems: "center",
+        borderTop: `1px solid ${theme.vars.palette.divider}`,
+        display: "flex",
+        flexDirection: "column",
+        marginBottom: `env(safe-area-inset-bottom, 0px)`,
         marginTop: "auto",
         padding: theme.spacing(3),
-        borderTop: `1px solid ${theme.vars.palette.divider}`,
-        marginBottom: `env(safe-area-inset-bottom, 0px)`,
       })}
-      role="contentinfo"
     >
       <Typography
         variant="body2"
         color="textSecondary"
         align="center"
         paragraph
+        css={(theme) => ({ display: "inline-flex", gap: theme.spacing(1) })}
       >
+        <Link component={RouterLink} color="inherit" to="/">
+          ホーム
+        </Link>
+        <Link component={RouterLink} color="inherit" to="/me">
+          プロフィール
+        </Link>
         <Link component={RouterLink} color="inherit" to="/privacy">
-          {TRANSLATION.privacy.title}
+          プライバシーポリシー
         </Link>
       </Typography>
-      <Typography variant="body2" color="textSecondary" align="center">
-        {`© ${nowDate.getFullYear()} ${TRANSLATION.footer.copyright}`}
-        {` / Made with Gatsby.js`}
+      <Typography
+        variant="caption"
+        color="textSecondary"
+        align="center"
+        component="p"
+      >
+        {`© ${nowDate.getFullYear()} Oishi Takanori / Made with Gatsby.js`}
       </Typography>
       <BackToTop />
     </footer>
   );
 };
+
+export default Footer;

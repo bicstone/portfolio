@@ -64,7 +64,7 @@ export const TimelineSearchButton = (): JSX.Element => {
                     color: theme.vars.palette.common.white,
                     zIndex: theme.zIndex.modal,
                   })}
-                  aria-busy
+                  aria-busy="true"
                   onClick={handleClose}
                 >
                   <CircularProgress color="inherit" />

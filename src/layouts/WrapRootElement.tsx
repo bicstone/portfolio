@@ -33,7 +33,7 @@ export const WrapRootElement = ({
     <EmotionThemeProvider theme={theme}>
       <CssVarsProvider defaultMode="system" theme={theme}>
         <Global
-          styles={(theme) => ({
+          styles={{
             html: {
               height: "100%",
             },
@@ -51,7 +51,7 @@ export const WrapRootElement = ({
               flexDirection: "column",
               height: "100%",
             },
-          })}
+          }}
         />
         <CssBaseline enableColorScheme />
         {children}

@@ -40,14 +40,14 @@ const config: GatsbyConfig = {
   jsxImportSource: "@emotion/react",
 
   plugins: [
-    `gatsby-plugin-emotion`,
     {
-      resolve: `gatsby-plugin-fix-fouc`,
+      resolve: `gatsby-plugin-anchor-links`,
       options: {
-        attributeName: "is-loading",
-        timeout: 0,
+        offset: 0,
+        duration: 0,
       },
     },
+    `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
@@ -188,7 +188,7 @@ const config: GatsbyConfig = {
             path: `/me`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.9,
+            priority: 1.0,
           };
 
           const posts = allMdx.nodes.map(({ frontmatter }) => {
@@ -204,7 +204,7 @@ const config: GatsbyConfig = {
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.1,
+            priority: 0.6,
           }));
 
           return [home, me, ...posts, ...pages];
