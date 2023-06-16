@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 
+import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
@@ -41,15 +42,12 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <Container
         maxWidth="md"
         fixed
-        css={(theme) => ({
-          marginTop: theme.spacing(4),
-          marginBottom: theme.spacing(4),
-        })}
+        css={(theme) => ({ margin: theme.spacing(4, "auto") })}
       >
         <BioCardList />
-        <div css={(theme) => ({ height: theme.spacing(6) })} />
+        <Spacer y={6} />
         <TimelineTabList />
-        <div css={(theme) => ({ height: theme.spacing(3) })} />
+        <Spacer y={3} />
         <TimelineList groups={timelineGroups} />
       </Container>
     </>

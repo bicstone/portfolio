@@ -5,6 +5,7 @@ import type { OutputsPageQuery } from "@/generated/graphqlTypes";
 import type { HeadFC, PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineList } from "@/features/Timeline";
@@ -93,11 +94,11 @@ const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
       css={(theme) => ({ margin: theme.spacing(4, "auto") })}
     >
       <Breadcrumbs title={title} />
-      <div css={(theme) => ({ height: theme.spacing(4) })} />
+      <Spacer y={4} />
       <TimelineTabList />
-      <div css={(theme) => ({ height: theme.spacing(2) })} />
+      <Spacer y={2} />
       <TimelineList groups={outputGroups} />
-      <div css={(theme) => ({ height: theme.spacing(4) })} />
+      <Spacer y={4} />
       <Breadcrumbs title={title} />
     </Container>
   );

@@ -3,7 +3,6 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import styled from "@mui/material/styles/styled";
 import { graphql } from "gatsby";
 import { useState } from "react";
 
@@ -12,6 +11,7 @@ import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { CertificationList } from "@/features/PortfolioCertification";
@@ -22,11 +22,6 @@ import { ProjectList } from "@/features/PortfolioProject";
 import { WhatICanDoList } from "@/features/PortfolioWhatICanDo";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
-
-const PaddingContainer = styled(Container)(({ theme }) => ({
-  marginTop: theme.spacing(5),
-  marginBottom: theme.spacing(5),
-}));
 
 export const query = graphql`
   query MePage {
@@ -81,84 +76,86 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 
   return (
     <section>
-      <PaddingContainer maxWidth="lg">
-        <div
-          css={(theme) => ({
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "center",
-            marginBottom: theme.spacing(2),
-            gap: theme.spacing(0.5),
-          })}
-        >
-          <Typography component="h2" variant="h4">
-            {title}
-          </Typography>
-          {isDefined(help) && (
-            <Tooltip
-              title={help}
-              open={isOpen}
-              onOpen={openTooltip}
-              onClose={closeTooltip}
-              disableTouchListener
+      <div
+        css={(theme) => ({
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+          marginBottom: theme.spacing(2),
+          gap: theme.spacing(0.5),
+        })}
+      >
+        <Typography component="h2" variant="h4">
+          {title}
+        </Typography>
+        {isDefined(help) && (
+          <Tooltip
+            title={help}
+            open={isOpen}
+            onOpen={openTooltip}
+            onClose={closeTooltip}
+            disableTouchListener
+          >
+            <IconButton
+              size="small"
+              color="secondary"
+              css={{ cursor: "help" }}
+              onClick={toggleTooltip}
             >
-              <IconButton
-                size="small"
-                color="secondary"
-                css={{ cursor: "help" }}
-                onClick={toggleTooltip}
-              >
-                <HelpOutlineIcon />
-              </IconButton>
-            </Tooltip>
-          )}
-        </div>
-        {children}
-      </PaddingContainer>
+              <HelpOutlineIcon />
+            </IconButton>
+          </Tooltip>
+        )}
+      </div>
+      {children}
     </section>
   );
 };
 
 const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
-  const title = "ポートフォリオ";
+  const title = "自己紹介";
 
   return (
-    <>
+    <Container
+      maxWidth="lg"
+      css={(theme) => ({ margin: theme.spacing(4, "auto") })}
+    >
       <Breadcrumbs title={title} />
-      <div css={(theme) => ({ height: theme.spacing(4) })} />
-      <PaddingContainer maxWidth="lg">
-        <HelloContent />
-      </PaddingContainer>
-      <PaddingContainer maxWidth="lg">
-        <WhatICanDoList />
-      </PaddingContainer>
+      <Spacer y={4} />
+      <HelloContent />
+      <Spacer y={4} />
+      <WhatICanDoList />
+      <Spacer y={4} />
       <Section
         title={TRANSLATION.home.projectsTitle}
         help={TRANSLATION.home.projectsHelp}
       >
         <ProjectList projects={data.projects} />
       </Section>
+      <Spacer y={4} />
       <Section
         title={TRANSLATION.home.historiesTitle}
         help={TRANSLATION.home.historiesHelp}
       >
         <HistoryList histories={data.histories} />
       </Section>
+      <Spacer y={4} />
       <Section
         title={TRANSLATION.home.ossesTitle}
         help={TRANSLATION.home.ossesHelp}
       >
         <OssList osses={data.osses} />
       </Section>
+      <Spacer y={4} />
       <Section
         title={TRANSLATION.home.qualificationsTitle}
         help={TRANSLATION.home.qualificationsHelp}
       >
         <CertificationList certifications={data.certifications} />
       </Section>
-      <div css={(theme) => ({ height: theme.spacing(4) })} />
+      <Spacer y={4} />
       <Breadcrumbs title={title} />
-    </>
+    </Container>
   );
 };
 

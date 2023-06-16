@@ -19,9 +19,9 @@ const StyledCardActionArea = styled(CardActionArea)({
 const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
   [`& .${cardHeaderClasses.title}`]: {
     display: "-webkit-box",
-    maxHeight: "3rem",
-    overflow: "hidden",
+    height: "3rem",
     marginBottom: theme.spacing(1),
+    overflow: "hidden",
     textOverflow: "ellipsis",
     WebkitBoxOrient: "vertical",
     WebkitLineClamp: 2,
