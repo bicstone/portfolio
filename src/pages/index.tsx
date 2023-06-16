@@ -90,11 +90,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <Container
         maxWidth="md"
         fixed
-        css={(theme) => ({
-          margin: theme.spacing(4, "auto"),
-          // prevent flickering caused by virtual scrolling
-          minHeight: "200vh",
-        })}
+        css={(theme) => ({ margin: theme.spacing(4, "auto") })}
       >
         <BioCardList />
         <Spacer y={6} />

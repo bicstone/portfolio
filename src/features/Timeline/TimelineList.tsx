@@ -183,7 +183,11 @@ export const TimelineList = ({
         }}
         itemContent={(index, item) => <TimelineItem key={index} item={item} />}
         overscan={10}
-        style={{ height: "100%" }}
+        style={{
+          height: "100%",
+          // prevent flickering caused by virtual scrolling
+          minHeight: "100vh",
+        }}
         useWindowScroll
       />
     );
