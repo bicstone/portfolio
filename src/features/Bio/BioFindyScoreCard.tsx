@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
-import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 
 import { ExternalLink } from "@/components/ExternalLink";
