@@ -22,15 +22,6 @@ export const TRANSLATION = {
   footer: {
     copyright: "Oishi Takanori",
   },
-  header: {
-    avatar: "ニコニコした Oishi Takanori の似顔絵",
-    goToPortfolio: "ポートフォリオに移動",
-    changeLanguageTitle: "言語切替",
-    githubTitle: "GitHub",
-    githubUrl: "https://github.com/bicstone/",
-    titleHome: "Oishi Takanori",
-    toggleDarkThemeTitle: "ダークモード切替",
-  },
   hello: {
     description:
       "Webエンジニア / Certified ScrumMaster® / 情報処理安全確保支援士(017758) / 電気工事士 / 機械エンジニアです。様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、相互成長し続けられるエンジニアを目指しています。",
@@ -70,7 +61,7 @@ export const TRANSLATION = {
     title: "Not Found",
   },
   privacy: {
-    title: "プライバシーポリシー お問い合わせ",
+    title: "プライバシーポリシー",
   },
   scrollToTop: {
     title: "最上部に移動",

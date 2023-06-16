@@ -1,7 +1,12 @@
+import styled from "@emotion/styled";
+import { Slice } from "gatsby";
+
 import type { ReactNode } from "react";
 
-import { Footer } from "@/layouts/Footer";
-import { Header } from "@/layouts/Header";
+const StyledMain = styled("main")(({ theme }) => ({
+  marginTop: theme.spacing(8),
+  flexGrow: 1,
+}));
 
 /**
  * WrapPageElement
@@ -14,14 +19,9 @@ export const WrapPageElement = (props: {
 
   return (
     <>
-      <Header />
-      <main
-        role="main"
-        css={(theme) => ({ marginTop: theme.spacing(8), flexGrow: 1 })}
-      >
-        {children}
-      </main>
-      <Footer />
+      <Slice alias="HEADER" />
+      <StyledMain>{children}</StyledMain>
+      <Slice alias="FOOTER" />
     </>
   );
 };

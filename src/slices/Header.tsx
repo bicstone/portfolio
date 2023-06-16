@@ -10,7 +10,6 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { Link as RouterLink } from "gatsby";
 
 import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
-import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineSearchButton } from "@/features/TimelineSearch";
 
 /**
@@ -38,7 +37,8 @@ export const Header = (): JSX.Element => {
         <Link
           component={RouterLink}
           to="/"
-          title={TRANSLATION.header.goToPortfolio}
+          title="ホームに移動"
+          underline="hover"
         >
           <div
             css={(theme) => ({
@@ -57,7 +57,7 @@ export const Header = (): JSX.Element => {
               })}
             />
             <Typography color="textPrimary" variant="h6" component="h1">
-              {TRANSLATION.header.titleHome}
+              おおいし （@bicstone）
             </Typography>
           </div>
         </Link>
@@ -69,7 +69,7 @@ export const Header = (): JSX.Element => {
             onClick={() => {
               setPaletteMode(paletteMode === "light" ? "dark" : "light");
             }}
-            title={TRANSLATION.header.toggleDarkThemeTitle}
+            title="ダークモード切り替え"
           >
             {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
           </IconButton>
@@ -78,3 +78,5 @@ export const Header = (): JSX.Element => {
     </AppBar>
   );
 };
+
+export default Header;

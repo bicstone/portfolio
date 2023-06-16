@@ -188,14 +188,7 @@ const config: GatsbyConfig = {
             path: `/me`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.9,
-          };
-
-          const timeline = {
-            path: `/timeline`,
-            lastmod: site.buildTime,
-            changefreq: `daily`,
-            priority: 0.9,
+            priority: 1.0,
           };
 
           const posts = allMdx.nodes.map(({ frontmatter }) => {
@@ -211,10 +204,10 @@ const config: GatsbyConfig = {
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.1,
+            priority: 0.6,
           }));
 
-          return [home, me, timeline, ...posts, ...pages];
+          return [home, me, ...posts, ...pages];
         },
         serialize: ({
           path,

@@ -32,6 +32,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
         "@/hooks": path.resolve("src/hooks"),
         "@/utils": path.resolve("src/utils"),
         "@/layouts": path.resolve("src/layouts"),
+        "@/slides": path.resolve("src/slides"),
       },
     },
   });
@@ -70,6 +71,7 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
 
 /**
  * Create blog post pages
+ * Create slices
  */
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -122,6 +124,19 @@ export const createPages: GatsbyNode["createPages"] = async ({
   reporter.success(
     `createPages: Created ${blogPostList.length} blog post pages`
   );
+
+  actions.createSlice({
+    // XXX: Build fails when constants are set
+    id: "HEADER",
+    component: path.resolve(process.cwd(), "src", "slices", "Header.tsx"),
+  });
+
+  actions.createSlice({
+    id: "FOOTER",
+    component: path.resolve(process.cwd(), "src", "slices", "Footer.tsx"),
+  });
+
+  reporter.success(`createPages: Created slices`);
 };
 
 /**
