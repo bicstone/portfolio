@@ -65,7 +65,7 @@ export const TRANSLATION = {
   },
   notFound: {
     backToHome: "ポートフォリオに移動",
-    backToBlog: "ブログ記事一覧に移動",
+    backToTimeline: "タイムラインに移動",
     description: "ページが見つかりませんでした。",
     title: "Not Found",
   },

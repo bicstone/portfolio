@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import Container from "@mui/material/Container";
 import { graphql } from "gatsby";
 
@@ -48,7 +47,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         })}
       >
         <BioCardList />
-        <Divider css={(theme) => ({ margin: theme.spacing(6, 0) })} />
+        <div css={(theme) => ({ height: theme.spacing(6) })} />
         <TimelineTabList />
         <div css={(theme) => ({ height: theme.spacing(3) })} />
         <TimelineList groups={timelineGroups} />

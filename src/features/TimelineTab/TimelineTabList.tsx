@@ -1,5 +1,6 @@
 import styled, { type CSSObject } from "@emotion/styled";
 import { Link } from "gatsby";
+import { type HTMLAttributes } from "react";
 
 const activeClassName = "active";
 
@@ -50,9 +51,11 @@ const StyledLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-export const TimelineTabList = (): JSX.Element => {
+export const TimelineTabList = (
+  props: HTMLAttributes<HTMLElement>
+): JSX.Element => {
   return (
-    <StyledAnchorLinkGroup>
+    <StyledAnchorLinkGroup {...props}>
       <StyledLink to="/" activeClassName={activeClassName}>
         All
       </StyledLink>

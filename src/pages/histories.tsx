@@ -42,10 +42,7 @@ const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
     <Container
       maxWidth="md"
       fixed
-      css={(theme) => ({
-        marginTop: theme.spacing(4),
-        marginBottom: theme.spacing(4),
-      })}
+      css={(theme) => ({ margin: theme.spacing(4, "auto") })}
     >
       <Breadcrumbs title={title} />
       <div css={(theme) => ({ height: theme.spacing(4) })} />
