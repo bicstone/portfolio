@@ -11,6 +11,7 @@ import type { MePageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
 import type { ReactNode } from "react";
 
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { CertificationList } from "@/features/PortfolioCertification";
@@ -119,8 +120,12 @@ const Section = ({ title, help, children }: SectionProps): JSX.Element => {
 };
 
 const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
+  const title = "ポートフォリオ";
+
   return (
     <>
+      <Breadcrumbs title={title} />
+      <div css={(theme) => ({ height: theme.spacing(4) })} />
       <PaddingContainer maxWidth="lg">
         <HelloContent />
       </PaddingContainer>
@@ -151,6 +156,8 @@ const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
       >
         <CertificationList certifications={data.certifications} />
       </Section>
+      <div css={(theme) => ({ height: theme.spacing(4) })} />
+      <Breadcrumbs title={title} />
     </>
   );
 };

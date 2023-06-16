@@ -21,7 +21,7 @@ export const onRouteUpdate: GatsbyBrowser["onRouteUpdate"] = ({ location }) => {
     setTimeout(() => {
       const id = location.hash.replace("#", "");
       const element = document.getElementById(id);
-      if (element != null) {
+      if (element !== null) {
         element.scrollIntoView();
       }
     }, 0);

@@ -1,14 +1,16 @@
 import { withPrefix } from "gatsby";
 
-import { BioFindyScoreCard } from "./BioFindyScoreCard";
+import { BioCsmCard } from "./BioCsmCard";
 import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
-import { BioLaprasScoreCard } from "./BioLaprasScoreCard";
+import { BioRissCard } from "./BioRissCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
 import { ConnpassLogo } from "@/components/logos/ConnpassLogo";
 import { FeedLogo } from "@/components/logos/FeedLogo";
+import { FindyLogo } from "@/components/logos/FindyLogo";
 import { GitHubLogo } from "@/components/logos/GitHubLogo";
+import { LaprasLogo } from "@/components/logos/LaprasLogo";
 import { LinkedInLogo } from "@/components/logos/LinkedInLogo";
 import { PaycareerLogo } from "@/components/logos/PaycareerLogo";
 import { SpeakerDeckLogo } from "@/components/logos/SpeakerDeckLogo";
@@ -56,6 +58,8 @@ export const BioCardList = (): JSX.Element => {
         url="https://www.linkedin.com/in/bicstone"
       />
       <BioHelloCard css={{ gridColumn: "1 / 3" }} />
+      <BioRissCard />
+      <BioCsmCard />
       <BioSocialLinkCard
         avatar={<GitHubLogo aria-hidden="true" />}
         title="GitHub"
@@ -85,6 +89,20 @@ export const BioCardList = (): JSX.Element => {
         url="https://connpass.com/user/bicstone"
       />
       <BioSocialLinkCard
+        avatar={<FindyLogo aria-hidden="true" />}
+        title="Findy"
+        subTitle="AKvsozgldUI4i"
+        actionTitle="スキル偏差値を見る"
+        url="https://findy-code.io/share_profiles/AKvsozgldUI4i"
+      />
+      <BioSocialLinkCard
+        avatar={<LaprasLogo aria-hidden="true" />}
+        title="Lapras"
+        subTitle="@bicstone"
+        actionTitle="LAPRAS SCOREを見る"
+        url="https://lapras.com/public/bicstone"
+      />
+      <BioSocialLinkCard
         avatar={<PaycareerLogo aria-hidden="true" />}
         title="PayCareer"
         subTitle="2022249011"
@@ -97,15 +115,6 @@ export const BioCardList = (): JSX.Element => {
         subTitle="rss.xml"
         actionTitle="購読する"
         url={withPrefix("/rss.xml")}
-      />
-      <BioFindyScoreCard css={{ gridColumn: "1 / 3" }} />
-      <BioLaprasScoreCard
-        css={(theme) => ({
-          gridColumn: "3 / 5",
-          [theme.breakpoints.down("md")]: {
-            gridColumn: "1 / 3",
-          },
-        })}
       />
     </div>
   );
