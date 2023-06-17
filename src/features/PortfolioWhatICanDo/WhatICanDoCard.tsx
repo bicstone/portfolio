@@ -14,7 +14,7 @@ export const WhatICanDoCard = ({
   subName,
 }: WhatICanDoCardProps): JSX.Element => {
   return (
-    <Card component="section" variant="elevation">
+    <Card component="section" variant="outlined">
       <CardHeader
         avatar={<Avatar aria-hidden="true">{avatar}</Avatar>}
         title={name}

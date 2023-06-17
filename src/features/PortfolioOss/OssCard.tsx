@@ -26,7 +26,7 @@ export const OssCard = (props: {
   const startYear = formatDateTime(oss.date, "yyyy/MM");
 
   return (
-    <Card component="section" variant="filled">
+    <Card component="section" variant="outlined">
       <CardActionArea
         title={oss.title}
         href={oss.url}

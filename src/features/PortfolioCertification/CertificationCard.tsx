@@ -24,7 +24,7 @@ export const CertificationCard = (props: {
 
   return (
     <Grid item xs={12} sm={6} md={4} component="section">
-      <Card>
+      <Card variant="outlined">
         <CardHeader
           title={
             <Typography component="h2" variant="h6">

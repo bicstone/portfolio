@@ -36,10 +36,17 @@ export const useTheme = (): CustomTheme => {
       },
       components: {
         ...m3Components,
+        MuiCard: {
+          ...m3Components.MuiCard,
+          defaultProps: {
+            ...m3Components.MuiCard?.defaultProps,
+            variant: "filled",
+          },
+        },
         MuiButtonBase: {
-          ...m3Components?.MuiButtonBase,
+          ...m3Components.MuiButtonBase,
           styleOverrides: {
-            ...m3Components?.MuiButtonBase?.styleOverrides,
+            ...m3Components.MuiButtonBase?.styleOverrides,
             root: {
               userSelect: "auto",
             },
@@ -50,12 +57,6 @@ export const useTheme = (): CustomTheme => {
           styleOverrides: {
             ...m3Components.MuiAccordion?.styleOverrides,
             rounded: ({ theme }) => ({
-              "&:before": {
-                display: "none",
-              },
-              "&:not(:last-of-type)": {
-                borderBottom: `1px solid ${theme.vars.palette.divider}`,
-              },
               "&:first-of-type": {
                 borderTopLeftRadius: theme.spacing(2.5),
                 borderTopRightRadius: theme.spacing(2.5),

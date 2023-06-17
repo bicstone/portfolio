@@ -20,7 +20,7 @@ export const ProjectList = (props: {
   const { projects } = props;
 
   return (
-    <Card>
+    <Card variant="outlined">
       {projects.nodes.map((project) => (
         <ProjectCard key={project.id} project={project} />
       ))}

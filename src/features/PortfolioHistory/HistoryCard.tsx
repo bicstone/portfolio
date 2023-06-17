@@ -35,6 +35,7 @@ export const HistoryCard = memo(
 
     return (
       <Accordion
+        variant="outlined"
         expanded={expanded}
         disableGutters
         onChange={() => {

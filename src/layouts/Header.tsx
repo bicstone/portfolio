@@ -24,9 +24,10 @@ export const Header = (): JSX.Element => {
   return (
     <AppBar
       position="fixed"
-      color="inherit"
+      color={scrollTrigger ? "primary" : "default"}
       elevation={scrollTrigger ? 4 : 0}
       role="banner"
+      enableColorOnDark
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
         <Link

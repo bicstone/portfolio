@@ -32,7 +32,7 @@ export const HelloContent = ({
         />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
-        <Card variant="elevation">
+        <Card variant="outlined">
           <CardActionArea
             component={RouterLink}
             to={linkToHome ? "/" : "/me"}
