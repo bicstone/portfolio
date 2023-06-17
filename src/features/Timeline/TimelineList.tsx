@@ -109,33 +109,59 @@ export const query = graphql`
 
 interface TimelineItemProps {
   item: TimelineListProps["groups"]["group"][number]["nodes"][number];
+  showYear?: boolean;
 }
 
-const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
+const TimelineItem = ({
+  item,
+  showYear = false,
+}: TimelineItemProps): JSX.Element | null => {
   switch (item.__typename) {
-    case "ArticlesYaml":
-      return <TimelineArticleCard key={item.id} item={item} />;
+    case "ArticlesYaml": {
+      return (
+        <TimelineArticleCard key={item.id} item={item} showYear={showYear} />
+      );
+    }
 
-    case "CertificationsYaml":
-      return <TimelineCertificationCard key={item.id} item={item} />;
+    case "CertificationsYaml": {
+      return (
+        <TimelineCertificationCard
+          key={item.id}
+          item={item}
+          showYear={showYear}
+        />
+      );
+    }
 
-    case "HistoriesYaml":
-      return <TimelineHistoryCard key={item.id} item={item} />;
+    case "HistoriesYaml": {
+      return (
+        <TimelineHistoryCard key={item.id} item={item} showYear={showYear} />
+      );
+    }
 
-    case "OssesYaml":
-      return <TimelineOssCard key={item.id} item={item} />;
+    case "OssesYaml": {
+      return <TimelineOssCard key={item.id} item={item} showYear={showYear} />;
+    }
 
-    case "ProjectsYaml":
-      return <TimelineProjectCard key={item.id} item={item} />;
+    case "ProjectsYaml": {
+      return (
+        <TimelineProjectCard key={item.id} item={item} showYear={showYear} />
+      );
+    }
 
-    case "SlidesYaml":
-      return <TimelineSlideCard key={item.id} item={item} />;
+    case "SlidesYaml": {
+      return (
+        <TimelineSlideCard key={item.id} item={item} showYear={showYear} />
+      );
+    }
 
-    case "Mdx":
-      return <TimelineMdxCard key={item.id} item={item} />;
+    case "Mdx": {
+      return <TimelineMdxCard key={item.id} item={item} showYear={showYear} />;
+    }
 
-    default:
+    default: {
       return null;
+    }
   }
 };
 
@@ -181,7 +207,9 @@ export const TimelineList = ({
         components={{
           List: Container,
         }}
-        itemContent={(index, item) => <TimelineItem key={index} item={item} />}
+        itemContent={(index, item) => (
+          <TimelineItem key={index} item={item} showYear />
+        )}
         overscan={10}
         style={{
           height: "100%",

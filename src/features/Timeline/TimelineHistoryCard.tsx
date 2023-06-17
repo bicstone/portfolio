@@ -16,13 +16,15 @@ export const query = graphql`
 
 export type TimelineHistoryCardProps = {
   item: TimelineHistoryCardFragment;
+  showYear?: boolean;
 } & CardProps;
 
 export const TimelineHistoryCard = ({
   item,
+  showYear = false,
   ...props
 }: TimelineHistoryCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, "M月");
+  const date = formatDateTime(item.date, showYear ? "yy年M月" : "M月");
 
   return (
     <TimelineCardBase

@@ -17,13 +17,18 @@ export const query = graphql`
 
 export type TimelineCertificationCardProps = {
   item: TimelineCertificationCardFragment;
+  showYear?: boolean;
 } & CardProps;
 
 export const TimelineCertificationCard = ({
   item,
+  showYear = false,
   ...props
 }: TimelineCertificationCardProps): JSX.Element => {
-  const dateFormatted = formatDateTime(item.date, "M月d日");
+  const dateFormatted = formatDateTime(
+    item.date,
+    showYear ? "yy年M月d日" : "M月d日"
+  );
   const endDateFormatted = formatDateTime(item.endDate, "yy年M月d日");
   const subTitle =
     item.endDate !== "" ? (
