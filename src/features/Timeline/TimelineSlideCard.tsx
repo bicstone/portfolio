@@ -17,13 +17,15 @@ export const query = graphql`
 
 export type TimelineSlideCardProps = {
   item: TimelineSlideCardFragment;
+  showYear?: boolean;
 } & CardProps;
 
 export const TimelineSlideCard = ({
   item,
+  showYear = false,
   ...props
 }: TimelineSlideCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, "M月d日");
+  const date = formatDateTime(item.date, showYear ? "yyyy/MM/dd" : "M月d日");
 
   return (
     <TimelineCardBase

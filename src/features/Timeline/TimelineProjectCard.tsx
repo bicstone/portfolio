@@ -21,16 +21,21 @@ export const query = graphql`
 
 export type TimelineProjectCardProps = {
   item: TimelineProjectCardFragment;
+  showYear?: boolean;
 } & CardProps;
 
 export const TimelineProjectCard = ({
   item,
+  showYear = false,
   ...props
 }: TimelineProjectCardProps): JSX.Element => {
-  const format =
+  const endDateFormat =
     item.fields.dateYear === item.fields.endDateYear ? "M月" : "yy年M月";
-  const dateFormatted = formatDateTime(item.date, "M月");
-  const endDateFormatted = formatDateTime(item.endDate, format);
+  const dateFormatted = formatDateTime(item.date, showYear ? "yyyy/MM" : "M月");
+  const endDateFormatted = formatDateTime(
+    item.endDate,
+    showYear ? "yyyy/MM" : endDateFormat
+  );
   const subTitle =
     item.endDate !== "" ? (
       <>
