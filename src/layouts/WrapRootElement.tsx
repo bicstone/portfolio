@@ -4,12 +4,21 @@ import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/s
 
 import { useTheme } from "./themes/useTheme";
 
+import type Sentry from "@sentry/browser";
 import type { ReactNode } from "react";
 
 import { FONT_FAMILY } from "@/components/markdown/constants";
 
 interface WrapRootElementProps {
   children: ReactNode;
+}
+
+declare global {
+  interface Window {
+    Sentry?: typeof Sentry;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    adsbygoogle?: any;
+  }
 }
 
 /**
