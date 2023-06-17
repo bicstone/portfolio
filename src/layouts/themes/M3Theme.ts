@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { darken, lighten, type ThemeOptions } from "@mui/material/styles";
+import type { ThemeOptions } from "@mui/material/styles";
 
 interface M3Tone {
   0: string;
@@ -346,17 +346,16 @@ export const getDesignTokens = (
         secondary: scheme.onSecondaryContainer,
       },
       divider: scheme.outline,
-
-      primary085Lighten: lighten(scheme.primary, 0.85),
-      primary080Darken: darken(scheme.primary, 0.8),
-      primaryContainer008Darken: darken(scheme.primaryContainer, 0.08),
-      primaryContainer008Lighten: lighten(scheme.primaryContainer, 0.08),
-      secondaryContainer008Darken: darken(scheme.secondaryContainer, 0.08),
-      secondaryContainer008Lighten: lighten(scheme.secondaryContainer, 0.08),
-      tertiaryContainer008Darken: darken(scheme.tertiaryContainer, 0.08),
-      tertiaryContainer008Lighten: lighten(scheme.tertiaryContainer, 0.08),
-      primary090Lighten: lighten(scheme.primary, 0.9),
-      primary090Darken: darken(scheme.primary, 0.9),
+      primary085Lighten: scheme.primary085Lighten,
+      primary080Darken: scheme.primary080Darken,
+      primaryContainer008Darken: scheme.primaryContainer008Darken,
+      primaryContainer008Lighten: scheme.primaryContainer008Lighten,
+      secondaryContainer008Darken: scheme.secondaryContainer008Darken,
+      secondaryContainer008Lighten: scheme.secondaryContainer008Lighten,
+      tertiaryContainer008Darken: scheme.tertiaryContainer008Darken,
+      tertiaryContainer008Lighten: scheme.tertiaryContainer008Lighten,
+      primary090Lighten: scheme.primary090Lighten,
+      primary090Darken: scheme.primary090Darken,
     },
     tones,
   } as ThemeOptions;
