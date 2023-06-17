@@ -2,11 +2,11 @@ import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 
 import { HistoryCard } from "./HistoryCard";
+import { useAccordionExpend } from "./useAccordionExpend";
 
 import type { PortfolioHistoryListFragment } from "@/generated/graphqlTypes";
 
 import { BulkExpandButton } from "@/components/BulkExpandButton";
-import { useAccordionExpend } from "@/hooks/useAccordionExpend";
 
 export const query = graphql`
   fragment PortfolioHistoryList on HistoriesYamlConnection {

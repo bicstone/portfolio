@@ -2,11 +2,12 @@ import { Global, ThemeProvider as EmotionThemeProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles/CssVarsProvider";
 
+import { useTheme } from "./useTheme";
+
 import type Sentry from "@sentry/browser";
 import type { ReactNode } from "react";
 
 import { FONT_FAMILY } from "@/components/markdown/constants";
-import { useTheme } from "@/hooks/useTheme";
 
 interface WrapRootElementProps {
   children: ReactNode;

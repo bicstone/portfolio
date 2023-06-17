@@ -145,6 +145,7 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-s3`,
       options: {

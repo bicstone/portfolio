@@ -11,7 +11,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { useTheme } from "@/hooks/useTheme";
+import { useTheme } from "@/layouts/useTheme";
 
 const SearchModal = lazy(async () => await import("./TimelineSearchModal"));
 
@@ -32,7 +32,7 @@ export const TimelineSearchButton = (): JSX.Element => {
   });
 
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <>

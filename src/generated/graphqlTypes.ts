@@ -4721,7 +4721,7 @@ export type IndexPageQuery = { readonly timelineGroups: { readonly group: Readon
         { readonly __typename: 'SlidesYaml' }
         & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       )> }
-    )> } };
+    )> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
 export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4749,7 +4749,7 @@ export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArr
         { readonly __typename: 'SlidesYaml' }
         & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       )> }
-    )> } };
+    )> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
 

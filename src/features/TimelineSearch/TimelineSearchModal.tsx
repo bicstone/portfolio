@@ -10,7 +10,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Skeleton from "@mui/material/Skeleton";
 import TextField from "@mui/material/TextField";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState, useTransition, useId } from "react";
 import { Virtuoso } from "react-virtuoso";
 
@@ -20,7 +19,6 @@ import type Fuse from "fuse.js";
 import type { ChangeEvent } from "react";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { useTheme } from "@/hooks/useTheme";
 import {
   convertHiraganaToKatakana,
   convertKatakanaToHiragana,
@@ -36,8 +34,6 @@ export const TimelineSearchModal = (props: {
   const [inputValue, setInputValue] = useState("");
   const [inputValueSync, setInputValueSync] = useState("");
   const listId = useId();
-  const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
@@ -64,15 +60,19 @@ export const TimelineSearchModal = (props: {
 
   return (
     <div
-      css={{
-        width: mobile ? "100%" : 600,
+      css={(theme) => ({
+        width: 600,
         maxWidth: "100%",
-        height: mobile ? "100%" : 500,
+        height: 500,
         maxHeight: "100%",
         display: "flex",
         overflow: "hidden",
         flexDirection: "column",
-      }}
+        [theme.breakpoints.down("sm")]: {
+          width: "100%",
+          height: "100%",
+        },
+      })}
     >
       <DialogTitle
         css={{

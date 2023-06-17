@@ -5831,6 +5831,7 @@ __metadata:
     gatsby-plugin-google-tagmanager: "npm:5.10.0"
     gatsby-plugin-image: "npm:3.10.0"
     gatsby-plugin-mdx: "npm:5.10.0"
+    gatsby-plugin-remove-serviceworker: "npm:1.0.0"
     gatsby-plugin-s3: "npm:0.4.1"
     gatsby-plugin-sharp: "npm:5.10.0"
     gatsby-plugin-sitemap: "npm:6.10.0"
@@ -9745,6 +9746,13 @@ __metadata:
   peerDependencies:
     gatsby: ^5.0.0-next
   checksum: d8c728aca9a8710b96bfb9e6247a88d0726ebeb8cb49b79601ce176b895eef45a5163684c2a6655809358038576cccb40c3f8d20bb0528e79bf363a96e4ef3f5
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-remove-serviceworker@npm:1.0.0":
+  version: 1.0.0
+  resolution: "gatsby-plugin-remove-serviceworker@npm:1.0.0"
+  checksum: f550fc2e68fed84534dedb7a20f4147485c5754a11b9cae00959c5bec9004817fb309895350a67ccf137eaa67dd557e25da3db4120c704e3edea3ef7423333d0
   languageName: node
   linkType: hard
 

@@ -9,7 +9,6 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
-import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
@@ -17,13 +16,16 @@ export const query = graphql`
     timelineGroups: allTimeline(sort: { date: DESC }) {
       ...TimelineListTimeline
     }
+    site {
+      buildTime
+    }
   }
 `;
 
 export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
   const title = SITE_METADATA.title;
   const timelineItems = data.timelineGroups.group.flatMap(({ nodes }) => nodes);
-  const buildTime = useBuildTime();
+  const buildTime = data.site.buildTime;
 
   return (
     <>
