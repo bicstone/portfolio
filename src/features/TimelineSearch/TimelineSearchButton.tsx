@@ -11,7 +11,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { useTheme } from "@/layouts/useTheme";
+import { useTheme } from "@/layouts/themes/useTheme";
 
 const SearchModal = lazy(async () => await import("./TimelineSearchModal"));
 

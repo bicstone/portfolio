@@ -1,4 +1,7 @@
 /**
+
+Forked from https://github.com/ZakAlbert/react-material-you-theme/tree/95d94dcbfe
+
 MIT License
 
 Copyright (c) 2022 @ZakAlbert94
@@ -22,8 +25,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import { type Theme, lighten, darken, alpha } from "@mui/material";
-import { type ThemeOptions } from "@mui/material/styles";
+import {
+  darken,
+  lighten,
+  type Theme,
+  type ThemeOptions,
+} from "@mui/material/styles";
 
 interface M3Tone {
   0: string;
@@ -100,93 +107,6 @@ export interface M3ThemeScheme {
   dark: M3ColorTokens;
   tones?: M3ThemeTones;
 }
-
-export const DEFAULT_M3_THEME_SCHEME: M3ThemeScheme = {
-  light: {
-    primary: "#6750A4",
-    onPrimary: "#FFFFFF",
-
-    primaryContainer: "#EADDFF",
-    onPrimaryContainer: "#21005E",
-
-    secondary: "#9c27b0",
-    onSecondary: "#FFFFFF",
-
-    secondaryContainer: "#E8DEF8",
-    onSecondaryContainer: "#1E192B",
-
-    tertiary: "#7D5260",
-    onTertiary: "#FFFFFF",
-
-    tertiaryContainer: "#FFD8E4",
-    onTertiaryContainer: "#370B1E",
-
-    error: "#B3261E",
-    onError: "#ffffff",
-
-    errorContainer: "#F9DEDC",
-    onErrorContainer: "#370B1E",
-
-    background: "#FFFBFE",
-    onBackground: "#1C1B1F",
-
-    surface: "#FFFBFE",
-    onSurface: "#1C1B1F",
-
-    surfaceVariant: "#E7E0EC",
-    onSurfaceVariant: "#49454E",
-
-    inverseSurface: "#313033",
-    inverseOnSurface: "#F4EFF4",
-
-    inversePrimary: "#D0BCFF",
-
-    outline: "#79747E",
-    shadow: "#000000",
-  },
-  dark: {
-    primary: "#D0BCFF",
-    onPrimary: "#371E73",
-
-    primaryContainer: "#4F378B",
-    onPrimaryContainer: "#EADDFF",
-
-    secondary: "#CCC2DC",
-    onSecondary: "#332D41",
-
-    secondaryContainer: "#4A4458",
-    onSecondaryContainer: "#E8DEF8",
-
-    tertiary: "#EFB8C8",
-    onTertiary: "#492532",
-
-    tertiaryContainer: "#633B48",
-    onTertiaryContainer: "#FFD8E4",
-
-    error: "#F2B8B5",
-    onError: "#601410",
-
-    errorContainer: "#8C1D18",
-    onErrorContainer: "#F9DEDC",
-
-    background: "#1C1B1F",
-    onBackground: "#E6E1E5",
-
-    surface: "#1C1B1F",
-    onSurface: "#E6E1E5",
-
-    surfaceVariant: "#49454F",
-    onSurfaceVariant: "#CAC4D0",
-
-    inverseSurface: "#E6E1E5",
-    inverseOnSurface: "#313033",
-
-    inversePrimary: "#6750A4",
-
-    outline: "#938F99",
-    shadow: "#000000",
-  },
-};
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -419,11 +339,6 @@ export const getThemedComponents = (
 ): { components: Theme["components"] } => {
   return {
     components: {
-      MuiCssBaseline: {
-        defaultProps: {
-          enableColorScheme: true,
-        },
-      },
       MuiDivider: {
         styleOverrides: {
           root: {
@@ -436,32 +351,6 @@ export const getThemedComponents = (
         styleOverrides: {
           root: {
             padding: theme.spacing(1),
-          },
-        },
-      },
-      MuiTabs: {
-        styleOverrides: {
-          root: {
-            marginLeft: theme.spacing(1),
-          },
-          indicator: {
-            height: 3,
-            borderTopLeftRadius: 3,
-            borderTopRightRadius: 3,
-          },
-        },
-      },
-      MuiTab: {
-        styleOverrides: {
-          root: {
-            textTransform: "none",
-            margin: "0 16px",
-            minWidth: 0,
-            padding: 0,
-            [theme.breakpoints.up("md")]: {
-              padding: 0,
-              minWidth: 0,
-            },
           },
         },
       },
@@ -519,10 +408,10 @@ export const getThemedComponents = (
             props: { variant: "elevated" },
             style: {
               boxShadow: theme.shadows[1],
-              background: alpha(theme.palette.primary.main, 0.05),
+              background: `rgba(${theme.palette.primary.main} / 0.05)`,
               color: theme.palette.primary.main,
               "&:hover": {
-                background: alpha(theme.palette.primary.main, 0.15),
+                background: `rgba(${theme.palette.primary.main} / 0.15)`,
               },
             },
           },
@@ -533,7 +422,7 @@ export const getThemedComponents = (
               color: theme.palette.onPrimary.main,
               "&:hover": {
                 boxShadow: theme.shadows[1],
-                background: alpha(theme.palette.primary.main, 0.85),
+                background: `rgba(${theme.palette.primary.main} / 0.85)`,
               },
             },
           },
@@ -544,7 +433,7 @@ export const getThemedComponents = (
               color: theme.palette.onSecondaryContainer.main,
               "&:hover": {
                 boxShadow: theme.shadows[1],
-                background: alpha(theme.palette.secondaryContainer.main, 0.8),
+                background: `rgba(${theme.palette.secondaryContainer.main} / 0.8)`,
               },
             },
           },
@@ -655,11 +544,11 @@ export const getThemedComponents = (
             style: {
               boxShadow: theme.shadows[3],
               // background: theme.palette.surface.main,
-              background: alpha(theme.palette.primary.main, 0.05),
+              background: `rgba(${theme.palette.primary.main} / 0.05)`,
               color: theme.palette.primary.main,
               "&:hover": {
                 boxShadow: theme.shadows[4],
-                background: alpha(theme.palette.primary.main, 0.08),
+                background: `rgba(${theme.palette.primary.main} / 0.08)`,
               },
             },
           },
@@ -668,12 +557,12 @@ export const getThemedComponents = (
             style: {
               boxShadow: theme.shadows[3],
               // background: theme.palette.surface.main,
-              background: alpha(theme.palette.primary.main, 0.05),
+              background: `rgba(${theme.palette.primary.main} / 0.05)`,
               color: theme.palette.primary.main,
               fontWeight: "bold",
               "&:hover": {
                 boxShadow: theme.shadows[4],
-                background: alpha(theme.palette.primary.main, 0.08),
+                background: `rgba(${theme.palette.primary.main} / 0.08)`,
               },
             },
           },
@@ -691,7 +580,7 @@ export const getThemedComponents = (
             props: { variant: "elevation" },
             style: {
               boxShadow: theme.shadows[1],
-              backgroundColor: alpha(theme.palette.primary.main, 0.05),
+              backgroundColor: `rgba(${theme.palette.primary.main} / 0.05)`,
               transition: theme.transitions.create(
                 ["background-color", "box-shadow", "border-color", "color"],
                 {
@@ -700,7 +589,7 @@ export const getThemedComponents = (
               ),
               "&:hover": {
                 boxShadow: theme.shadows[2],
-                background: alpha(theme.palette.primary.main, 0.08),
+                background: `rgba(${theme.palette.primary.main} / 0.08)`,
               },
             },
           },
@@ -716,7 +605,7 @@ export const getThemedComponents = (
               ),
               "&:hover": {
                 boxShadow: theme.shadows[1],
-                background: alpha(theme.palette.surfaceVariant.main, 0.8),
+                background: `rgba(${theme.palette.surfaceVariant.main} / 0.8)`,
               },
             },
           },
@@ -733,7 +622,7 @@ export const getThemedComponents = (
               ),
               "&:hover": {
                 boxShadow: theme.shadows[1],
-                background: alpha(theme.palette.onSurface.main, 0.05),
+                background: `rgba(${theme.palette.onSurface.main} / 0.05)`,
               },
             },
           },
@@ -751,21 +640,6 @@ export const getThemedComponents = (
           outlined: {
             borderColor: theme.palette.outline,
             background: theme.palette.surface.main,
-          },
-        },
-      },
-      MuiDrawer: {
-        styleOverrides: {
-          root: {
-            // background: theme.palette.surface.main,
-            // color: theme.palette.onSurface.main,
-          },
-          paper: {
-            border: "0px",
-            // background: theme.palette.mode == 'light' ? lighten(theme.palette.primary.main, 0.85) : darken(theme.palette.primary.main, 0.8),
-            // color: theme.palette.surface.contrastText,
-            background: theme.palette.surface.main,
-            color: theme.palette.onSurface.main,
           },
         },
       },
@@ -806,14 +680,6 @@ export const getThemedComponents = (
           },
         },
       },
-      MuiTooltip: {
-        styleOverrides: {
-          tooltip: {
-            background: theme.palette.secondaryContainer.main,
-            color: theme.palette.secondaryContainer.contrastText,
-          },
-        },
-      },
       MuiAccordion: {
         styleOverrides: {
           root: {
@@ -823,97 +689,6 @@ export const getThemedComponents = (
             "&.Mui-disabled": {
               backgroundColor: theme.palette.inverseOnSurface.main,
               color: theme.palette.inverseSurface.main,
-            },
-          },
-        },
-      },
-      MuiSnackbarContent: {
-        styleOverrides: {
-          root: {
-            backgroundColor: theme.palette.inverseSurface.main,
-          },
-          message: {
-            color: theme.palette.inverseOnSurface.main,
-          },
-          action: {
-            color: theme.palette.inversePrimary.main,
-          },
-        },
-      },
-      MuiSwitch: {
-        styleOverrides: {
-          root: {
-            width: 42,
-            height: 26,
-            padding: 0,
-            marginLeft: 12,
-            marginRight: 8,
-            "& .MuiSwitch-switchBase": {
-              padding: 0,
-              margin: 7,
-              transitionDuration: "100ms",
-              "&.Mui-checked": {
-                transform: "translateX(16px)",
-                margin: 4,
-                "& + .MuiSwitch-track": {
-                  backgroundColor: theme.palette.primary.main,
-                  opacity: 1,
-                  border: 0,
-                },
-                "& .MuiSwitch-thumb": {
-                  color: theme.palette.onPrimary.main,
-                  width: 18,
-                  height: 18,
-                },
-                /* '& .MuiSwitch-thumb:before': {
-                                    backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
-                                        theme.palette.primary.main,
-                                    )}" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>')`,
-                                },
-                                '&.Mui-disabled .MuiSwitch-thumb:before': {
-                                    backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="12" width="12" viewBox="0 0 24 24"><path fill="${encodeURIComponent(
-                                        alpha(theme.palette.onSurfaceVariant.main, 0.28),
-                                    )}" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>')`,
-                                }, */
-                "&.Mui-disabled + .MuiSwitch-track": {
-                  backgroundColor: alpha(theme.palette.onSurface.main, 0.1),
-                },
-                "&.Mui-disabled .MuiSwitch-thumb": {
-                  color: alpha(theme.palette.surface.main, 0.8),
-                },
-              },
-              "&.Mui-focusVisible .MuiSwitch-thumb": {
-                color: theme.palette.primary.main,
-                border: `6px solid ${theme.palette.primary.contrastText}`,
-              },
-              "&.Mui-disabled .MuiSwitch-thumb": {
-                color: alpha(theme.palette.onSurface.main, 0.3),
-              },
-            },
-            "& .MuiSwitch-thumb": {
-              boxSizing: "border-box",
-              color: theme.palette.outline,
-              width: 12,
-              height: 12,
-              "&:before": {
-                content: "''",
-                position: "absolute",
-                width: "100%",
-                height: "100%",
-                left: 0,
-                top: 0,
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
-              },
-            },
-            "& .MuiSwitch-track": {
-              borderRadius: 26 / 2,
-              border: `1px solid ${theme.palette.outline}`,
-              backgroundColor: theme.palette.surfaceVariant.main,
-              opacity: 1,
-              transition: theme.transitions.create(["background-color"], {
-                duration: 500,
-              }),
             },
           },
         },

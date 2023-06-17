@@ -27,11 +27,6 @@ export const Header = (): JSX.Element => {
       color="inherit"
       elevation={scrollTrigger ? 4 : 0}
       role="banner"
-      css={(theme) => ({
-        background: scrollTrigger
-          ? theme.vars.palette.background.paper
-          : "transparent",
-      })}
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
         <Link
