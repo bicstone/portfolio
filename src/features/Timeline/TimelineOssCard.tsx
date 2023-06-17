@@ -25,7 +25,7 @@ export const TimelineOssCard = ({
   showYear = false,
   ...props
 }: TimelineOssCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, showYear ? "yy年M月" : "M月");
+  const date = formatDateTime(item.date, showYear ? "yy/MM" : "M月");
 
   return (
     <TimelineCardBase

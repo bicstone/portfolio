@@ -25,7 +25,7 @@ export const TimelineSlideCard = ({
   showYear = false,
   ...props
 }: TimelineSlideCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, showYear ? "yy年M月d日" : "M月d日");
+  const date = formatDateTime(item.date, showYear ? "yy/MM/dd" : "M月d日");
 
   return (
     <TimelineCardBase
