@@ -27,11 +27,11 @@ export const TimelineCertificationCard = ({
 }: TimelineCertificationCardProps): JSX.Element => {
   const dateFormatted = formatDateTime(
     item.date,
-    showYear ? "yy/MM/dd" : "M月d日"
+    showYear ? "yyyy/MM/dd" : "M月d日"
   );
   const endDateFormatted = formatDateTime(
     item.endDate,
-    showYear ? "yy/MM/dd" : "yy年M月d日"
+    showYear ? "yyyy/MM/dd" : "yy年M月d日"
   );
   const subTitle =
     item.endDate !== "" ? (

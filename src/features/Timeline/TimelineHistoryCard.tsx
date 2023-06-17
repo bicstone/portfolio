@@ -24,7 +24,7 @@ export const TimelineHistoryCard = ({
   showYear = false,
   ...props
 }: TimelineHistoryCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, showYear ? "yy/MM" : "M月");
+  const date = formatDateTime(item.date, showYear ? "yyyy/MM" : "M月");
 
   return (
     <TimelineCardBase
