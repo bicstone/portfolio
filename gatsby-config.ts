@@ -4,12 +4,21 @@ import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
+import type {
+  GatsbyPluginSitemapQuery,
+  GatsbyPluginFeedQuery,
+} from "@/generated/graphqlTypes";
+import type Sentry from "@sentry/browser";
 import type { GatsbyConfig } from "gatsby";
 
-import {
-  type GatsbyPluginSitemapQuery,
-  type GatsbyPluginFeedQuery,
-} from "@/generated/graphqlTypes";
+// Google Tag Manager types
+declare global {
+  interface Window {
+    Sentry?: typeof Sentry;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    adsbygoogle?: any;
+  }
+}
 
 dotenv.config({ path: `.env` });
 

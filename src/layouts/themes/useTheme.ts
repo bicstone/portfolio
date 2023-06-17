@@ -9,6 +9,9 @@ import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
 import { FONT_FAMILY } from "@/components/markdown/constants";
 
+// css vars types
+import type { } from "@mui/material/themeCssVarsAugmentation";
+
 export type CustomTheme = Omit<Theme, "palette"> & CssVarsTheme;
 
 export const useTheme = (): CustomTheme => {

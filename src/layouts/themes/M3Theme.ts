@@ -25,94 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import type { ThemeOptions } from "@mui/material/styles";
-
-interface M3Tone {
-  0: string;
-  10: string;
-  20: string;
-  30: string;
-  40: string;
-  50: string;
-  60: string;
-  70: string;
-  80: string;
-  90: string;
-  95: string;
-  99: string;
-  100: string;
-}
-export interface M3ThemeTones {
-  primary: M3Tone;
-  secondary: M3Tone;
-  tertiary: M3Tone;
-  neutral: M3Tone;
-  neutralVariant: M3Tone;
-  error: M3Tone;
-}
-
-export interface M3ColorTokens {
-  primary: string;
-  onPrimary: string;
-
-  primaryContainer: string;
-  onPrimaryContainer: string;
-
-  secondary: string;
-  onSecondary: string;
-
-  secondaryContainer: string;
-  onSecondaryContainer: string;
-
-  tertiary: string;
-  onTertiary: string;
-
-  tertiaryContainer: string;
-  onTertiaryContainer: string;
-
-  error: string;
-  onError: string;
-
-  errorContainer: string;
-  onErrorContainer: string;
-
-  background: string;
-  onBackground: string;
-
-  surface: string;
-  onSurface: string;
-
-  surfaceVariant: string;
-  onSurfaceVariant: string;
-
-  inverseSurface: string;
-  inverseOnSurface: string;
-
-  inversePrimary: string;
-  surfaceTint?: string;
-
-  outline: string;
-  shadow: string;
-
-  primary085Lighten: string;
-  primary080Darken: string;
-  primary090Lighten: string;
-  primary090Darken: string;
-  primaryContainer008Lighten: string;
-  primaryContainer008Darken: string;
-  secondaryContainer008Lighten: string;
-  secondaryContainer008Darken: string;
-  tertiaryContainer008Lighten: string;
-  tertiaryContainer008Darken: string;
-}
-
-export type M3ThemeMode = "dark" | "light";
-
-export interface M3ThemeScheme {
-  light: M3ColorTokens;
-  dark: M3ColorTokens;
-  tones?: M3ThemeTones;
-}
+import type { PaletteColor, ThemeOptions } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -207,6 +120,93 @@ declare module "@mui/material/Fab" {
     tertiary: true;
     surface: true;
   }
+}
+
+interface M3Tone {
+  0: string;
+  10: string;
+  20: string;
+  30: string;
+  40: string;
+  50: string;
+  60: string;
+  70: string;
+  80: string;
+  90: string;
+  95: string;
+  99: string;
+  100: string;
+}
+export interface M3ThemeTones {
+  primary: M3Tone;
+  secondary: M3Tone;
+  tertiary: M3Tone;
+  neutral: M3Tone;
+  neutralVariant: M3Tone;
+  error: M3Tone;
+}
+
+export interface M3ColorTokens {
+  primary: string;
+  onPrimary: string;
+
+  primaryContainer: string;
+  onPrimaryContainer: string;
+
+  secondary: string;
+  onSecondary: string;
+
+  secondaryContainer: string;
+  onSecondaryContainer: string;
+
+  tertiary: string;
+  onTertiary: string;
+
+  tertiaryContainer: string;
+  onTertiaryContainer: string;
+
+  error: string;
+  onError: string;
+
+  errorContainer: string;
+  onErrorContainer: string;
+
+  background: string;
+  onBackground: string;
+
+  surface: string;
+  onSurface: string;
+
+  surfaceVariant: string;
+  onSurfaceVariant: string;
+
+  inverseSurface: string;
+  inverseOnSurface: string;
+
+  inversePrimary: string;
+  surfaceTint?: string;
+
+  outline: string;
+  shadow: string;
+
+  primary085Lighten: string;
+  primary080Darken: string;
+  primary090Lighten: string;
+  primary090Darken: string;
+  primaryContainer008Lighten: string;
+  primaryContainer008Darken: string;
+  secondaryContainer008Lighten: string;
+  secondaryContainer008Darken: string;
+  tertiaryContainer008Lighten: string;
+  tertiaryContainer008Darken: string;
+}
+
+export type M3ThemeMode = "dark" | "light";
+
+export interface M3ThemeScheme {
+  light: M3ColorTokens;
+  dark: M3ColorTokens;
+  tones?: M3ThemeTones;
 }
 
 export const getDesignTokens = (

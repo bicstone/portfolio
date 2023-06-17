@@ -2,17 +2,16 @@ import { ThemeProvider as EmotionThemeProvider, Global } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles/CssVarsProvider";
 
-import { useTheme, type CustomTheme } from "./useTheme";
+import { useTheme } from "./useTheme";
 
+import type { Theme as MuiTheme } from "@mui/material/styles";
 import type { ReactNode } from "react";
-
-import type {} from "@mui/material/themeCssVarsAugmentation";
 
 import { FONT_FAMILY } from "@/components/markdown/constants";
 
+// emotion types
 declare module "@emotion/react" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface Theme extends CustomTheme {}
+  export interface Theme extends MuiTheme {}
 }
 
 interface CustomThemeProviderProps {
