@@ -1,7 +1,16 @@
 import styled, { type CSSObject } from "@emotion/styled";
 import Button from "@mui/material/Button";
+import { type Theme } from "@mui/material/styles";
+import { alpha } from "@mui/system/colorManipulator";
 import { Link } from "gatsby";
 import { type HTMLAttributes } from "react";
+
+import {
+  outputColorTokens,
+  historyColorTokens,
+  projectColorTokens,
+  type M3ColorTokens,
+} from "@/layouts/themes";
 
 const activeClassName = "active";
 
@@ -10,6 +19,57 @@ const StyledAnchorLinkGroup = styled("nav")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   width: "100%",
 }));
+
+const adoptColorTokens = (
+  colorTokens: M3ColorTokens,
+  darkColorTokens: M3ColorTokens,
+  theme: Theme
+): CSSObject => {
+  const background = colorTokens.surface;
+  const color = colorTokens.onSurface;
+  const darkBackground = darkColorTokens.surface;
+  const darkColor = darkColorTokens.onSurface;
+  const activeBackground = colorTokens.secondaryContainer;
+  const activeColor = colorTokens.onSecondaryContainer;
+  const activeDarkBackground = darkColorTokens.secondaryContainer;
+  const activeDarkColor = darkColorTokens.onSecondaryContainer;
+
+  return {
+    background,
+    color,
+
+    "&:hover": {
+      background: alpha(background, 0.15),
+    },
+
+    [theme.getColorSchemeSelector("dark")]: {
+      background: darkBackground,
+      color: darkColor,
+
+      "&:hover": {
+        background: alpha(darkBackground, 0.15),
+      },
+    },
+
+    [`&.${activeClassName}`]: {
+      background: activeBackground,
+      color: activeColor,
+
+      "&:hover": {
+        background: alpha(activeBackground, 0.15),
+      },
+
+      [theme.getColorSchemeSelector("dark")]: {
+        background: activeDarkBackground,
+        color: activeDarkColor,
+
+        "&:hover": {
+          background: alpha(activeDarkBackground, 0.15),
+        },
+      },
+    },
+  };
+};
 
 const StyledLink = styled(Button)(({ theme }) => ({
   alignItems: "center",
@@ -56,6 +116,13 @@ export const TimelineTabList = (
         component={Link}
         to="/outputs"
         activeClassName={activeClassName}
+        css={(theme) =>
+          adoptColorTokens(
+            outputColorTokens.lightColorTokens,
+            outputColorTokens.darkColorTokens,
+            theme
+          )
+        }
       >
         Outputs
       </StyledLink>
@@ -63,6 +130,13 @@ export const TimelineTabList = (
         component={Link}
         to="/projects"
         activeClassName={activeClassName}
+        css={(theme) =>
+          adoptColorTokens(
+            projectColorTokens.lightColorTokens,
+            projectColorTokens.darkColorTokens,
+            theme
+          )
+        }
       >
         Projects
       </StyledLink>
@@ -70,6 +144,13 @@ export const TimelineTabList = (
         component={Link}
         to="/histories"
         activeClassName={activeClassName}
+        css={(theme) =>
+          adoptColorTokens(
+            historyColorTokens.lightColorTokens,
+            historyColorTokens.darkColorTokens,
+            theme
+          )
+        }
       >
         Histories
       </StyledLink>
