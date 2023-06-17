@@ -22,10 +22,20 @@ export const useTheme = (): CustomTheme => {
     return createExtendTheme({
       colorSchemes: {
         light: {
-          palette: lightTheme.palette,
+          palette: {
+            ...lightTheme.palette,
+            Avatar: {
+              defaultBg: lightTheme.palette?.inverseSurface?.main,
+            },
+          },
         },
         dark: {
-          palette: darkTheme.palette,
+          palette: {
+            ...darkTheme.palette,
+            Avatar: {
+              defaultBg: darkTheme.palette?.inverseSurface?.main,
+            },
+          },
         },
       },
       typography: {

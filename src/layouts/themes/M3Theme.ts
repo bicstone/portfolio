@@ -25,7 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import type { PaletteColor, ThemeOptions } from "@mui/material/styles";
+import type { ThemeOptions } from "@mui/material/styles";
 
 declare module "@mui/material/styles" {
   interface Palette {
@@ -81,6 +81,61 @@ declare module "@mui/material/styles" {
     secondaryContainer008Darken: string;
     tertiaryContainer008Lighten: string;
     tertiaryContainer008Darken: string;
+  }
+
+  interface PaletteOptions {
+    // primary?: string,
+    onPrimary?: PaletteColor;
+
+    primaryContainer?: PaletteColor;
+    onPrimaryContainer?: PaletteColor;
+
+    // secondary?: string,
+    onSecondary?: PaletteColor;
+
+    secondaryContainer?: PaletteColor;
+    onSecondaryContainer?: PaletteColor;
+
+    tertiary?: PaletteColor;
+    onTertiary?: PaletteColor;
+
+    tertiaryContainer?: PaletteColor;
+    onTertiaryContainer?: PaletteColor;
+
+    // error?: string,
+    onError?: PaletteColor;
+
+    errorContainer?: PaletteColor;
+    onErrorContainer?: PaletteColor;
+
+    background2?: PaletteColor;
+    onBackground?: PaletteColor;
+
+    surface?: PaletteColor;
+    onSurface?: PaletteColor;
+
+    surfaceVariant?: PaletteColor;
+    onSurfaceVariant?: PaletteColor;
+
+    inverseSurface?: PaletteColor;
+    inverseOnSurface?: PaletteColor;
+    inversePrimary?: PaletteColor;
+
+    surfaceTint?: string;
+
+    outline?: string;
+    shadow?: string;
+
+    primary085Lighten?: string;
+    primary080Darken?: string;
+    primary090Lighten?: string;
+    primary090Darken?: string;
+    primaryContainer008Lighten?: string;
+    primaryContainer008Darken?: string;
+    secondaryContainer008Lighten?: string;
+    secondaryContainer008Darken?: string;
+    tertiaryContainer008Lighten?: string;
+    tertiaryContainer008Darken?: string;
   }
 }
 declare module "@mui/material/styles/createTheme" {
