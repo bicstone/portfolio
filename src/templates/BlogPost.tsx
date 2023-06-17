@@ -208,6 +208,7 @@ const BlogPostTemplate = ({
       </div>
 
       <Card
+        variant="outlined"
         css={(theme) => ({
           margin: theme.spacing(3, 0),
           padding: theme.spacing(0, 1, 3, 1),
