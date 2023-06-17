@@ -27,7 +27,7 @@ SOFTWARE.
 
 import type { Components, Theme } from "@mui/material/styles";
 
-export const components: Components<Omit<Theme, "palette">> = {
+export const m3Components: Components<Omit<Theme, "palette">> = {
   MuiCssBaseline: {
     defaultProps: {
       enableColorScheme: true,
@@ -292,7 +292,7 @@ export const components: Components<Omit<Theme, "palette">> = {
     styleOverrides: {
       root: {
         borderRadius: "20px",
-        padding: "10px 8px",
+        // padding: "10px 8px",
       },
     },
     variants: [

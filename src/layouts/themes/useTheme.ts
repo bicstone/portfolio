@@ -1,8 +1,7 @@
-import { createTheme } from "@mui/material/styles";
 import createExtendTheme from "@mui/material/styles/experimental_extendTheme";
 import { useMemo } from "react";
 
-import { components } from "./M3Components";
+import { m3Components } from "./M3Components";
 import { getDesignTokens } from "./M3Theme";
 import { darkColorTokens, lightColorTokens, tones } from "./defaultColorTokens";
 
@@ -10,13 +9,11 @@ import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
 import { FONT_FAMILY } from "@/components/markdown/constants";
 
-export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
-  const lightTheme = createTheme(
-    getDesignTokens("light", lightColorTokens, tones)
-  );
-  const darkTheme = createTheme(
-    getDesignTokens("dark", darkColorTokens, tones)
-  );
+export type CustomTheme = Omit<Theme, "palette"> & CssVarsTheme;
+
+export const useTheme = (): CustomTheme => {
+  const lightTheme = getDesignTokens("light", lightColorTokens, tones);
+  const darkTheme = getDesignTokens("dark", darkColorTokens, tones);
 
   const theme = useMemo(() => {
     return createExtendTheme({
@@ -35,82 +32,38 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         borderRadius: 8, // defaultTheme.spacing(1)
       },
       components: {
-        ...components,
-        //   MuiButton: {
-        //     styleOverrides: {
-        //       root: {
-        //         borderRadius: "50px",
-        //         textTransform: "none",
-        //         fontWeight: "bold",
-        //       },
-        //       sizeSmall: {
-        //         padding: defaultTheme.spacing(0.5, 1.5),
-        //       },
-        //     },
-        //   },
-        //   MuiButtonBase: {
-        //     styleOverrides: {
-        //       root: {
-        //         userSelect: "auto",
-        //       },
-        //     },
-        //   },
-        //   MuiChip: {
-        //     styleOverrides: {
-        //       root: {
-        //         marginRight: defaultTheme.spacing(0.5),
-        //         marginTop: defaultTheme.spacing(0.5),
-        //       },
-        //     },
-        //   },
-        //   MuiLinearProgress: {
-        //     styleOverrides: {
-        //       root: {
-        //         height: defaultTheme.spacing(0.5),
-        //       },
-        //     },
-        //   },
-        //   MuiLink: {
-        //     defaultProps: {
-        //       color: "inherit",
-        //     },
-        //   },
-        //   MuiPaper: {
-        //     styleOverrides: {
-        //       rounded: {
-        //         borderRadius: defaultTheme.spacing(1.5),
-        //       },
-        //     },
-        //   },
-        //   MuiAccordion: {
-        //     styleOverrides: {
-        //       rounded: {
-        //         "&:before": {
-        //           display: "none",
-        //         },
-        //         "&:not(:last-of-type)": {
-        //           borderBottom: `1px solid ${defaultTheme.palette.divider}`,
-        //         },
-        //         "&:first-of-type": {
-        //           borderTopLeftRadius: defaultTheme.spacing(1.5),
-        //           borderTopRightRadius: defaultTheme.spacing(1.5),
-        //         },
-        //         "&:last-of-type": {
-        //           borderBottomLeftRadius: defaultTheme.spacing(1.5),
-        //           borderBottomRightRadius: defaultTheme.spacing(1.5),
-        //         },
-        //       },
-        //     },
-        //   },
-        //   MuiToggleButton: {
-        //     styleOverrides: {
-        //       root: {
-        //         borderRadius: "50px",
-        //         textTransform: "none",
-        //         fontWeight: "bold",
-        //       },
-        //     },
-        //   },
+        ...m3Components,
+        MuiButtonBase: {
+          ...m3Components?.MuiButtonBase,
+          styleOverrides: {
+            ...m3Components?.MuiButtonBase?.styleOverrides,
+            root: {
+              userSelect: "auto",
+            },
+          },
+        },
+        MuiAccordion: {
+          ...m3Components.MuiAccordion,
+          styleOverrides: {
+            ...m3Components.MuiAccordion?.styleOverrides,
+            rounded: ({ theme }) => ({
+              "&:before": {
+                display: "none",
+              },
+              "&:not(:last-of-type)": {
+                borderBottom: `1px solid ${theme.vars.palette.divider}`,
+              },
+              "&:first-of-type": {
+                borderTopLeftRadius: theme.spacing(2.5),
+                borderTopRightRadius: theme.spacing(2.5),
+              },
+              "&:last-of-type": {
+                borderBottomLeftRadius: theme.spacing(2.5),
+                borderBottomRightRadius: theme.spacing(2.5),
+              },
+            }),
+          },
+        },
       },
     });
   }, [darkTheme.palette, lightTheme.palette]);
