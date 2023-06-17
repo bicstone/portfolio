@@ -25,12 +25,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import {
-  darken,
-  lighten,
-  type Theme,
-  type ThemeOptions,
-} from "@mui/material/styles";
+import { darken, lighten, type ThemeOptions } from "@mui/material/styles";
 
 interface M3Tone {
   0: string;
@@ -98,6 +93,17 @@ export interface M3ColorTokens {
 
   outline: string;
   shadow: string;
+
+  primary085Lighten: string;
+  primary080Darken: string;
+  primary090Lighten: string;
+  primary090Darken: string;
+  primaryContainer008Lighten: string;
+  primaryContainer008Darken: string;
+  secondaryContainer008Lighten: string;
+  secondaryContainer008Darken: string;
+  tertiaryContainer008Lighten: string;
+  tertiaryContainer008Darken: string;
 }
 
 export type M3ThemeMode = "dark" | "light";
@@ -151,6 +157,17 @@ declare module "@mui/material/styles" {
 
     outline: string;
     shadow: string;
+
+    primary085Lighten: string;
+    primary080Darken: string;
+    primary090Lighten: string;
+    primary090Darken: string;
+    primaryContainer008Lighten: string;
+    primaryContainer008Darken: string;
+    secondaryContainer008Lighten: string;
+    secondaryContainer008Darken: string;
+    tertiaryContainer008Lighten: string;
+    tertiaryContainer008Darken: string;
   }
 }
 declare module "@mui/material/styles/createTheme" {
@@ -329,370 +346,18 @@ export const getDesignTokens = (
         secondary: scheme.onSecondaryContainer,
       },
       divider: scheme.outline,
+
+      primary085Lighten: lighten(scheme.primary, 0.85),
+      primary080Darken: darken(scheme.primary, 0.8),
+      primaryContainer008Darken: darken(scheme.primaryContainer, 0.08),
+      primaryContainer008Lighten: lighten(scheme.primaryContainer, 0.08),
+      secondaryContainer008Darken: darken(scheme.secondaryContainer, 0.08),
+      secondaryContainer008Lighten: lighten(scheme.secondaryContainer, 0.08),
+      tertiaryContainer008Darken: darken(scheme.tertiaryContainer, 0.08),
+      tertiaryContainer008Lighten: lighten(scheme.tertiaryContainer, 0.08),
+      primary090Lighten: lighten(scheme.primary, 0.9),
+      primary090Darken: darken(scheme.primary, 0.9),
     },
     tones,
   } as ThemeOptions;
-};
-
-export const getThemedComponents = (
-  theme: Theme
-): { components: Theme["components"] } => {
-  return {
-    components: {
-      MuiDivider: {
-        styleOverrides: {
-          root: {
-            borderColor: theme.palette.outline,
-            backgroundColor: theme.palette.outline,
-          },
-        },
-      },
-      MuiIconButton: {
-        styleOverrides: {
-          root: {
-            padding: theme.spacing(1),
-          },
-        },
-      },
-      MuiAppBar: {
-        styleOverrides: {
-          root: {
-            background: theme.palette.surface.main,
-            color: theme.palette.onSurface.main,
-            transition: theme.transitions.create(
-              ["background-color", "box-shadow", "color"],
-              {
-                duration: theme.transitions.duration.short,
-              }
-            ),
-          },
-          colorDefault: {
-            background: theme.palette.surface.main,
-            color: theme.palette.onSurface.main,
-            transition: theme.transitions.create(
-              ["background-color", "box-shadow", "color"],
-              {
-                duration: theme.transitions.duration.short,
-              }
-            ),
-          },
-          colorPrimary: {
-            background:
-              theme.palette.mode === "light"
-                ? lighten(theme.palette.primary.main, 0.85)
-                : darken(theme.palette.primary.main, 0.8),
-            color: theme.palette.surface.contrastText,
-            transition: theme.transitions.create(
-              ["background-color", "box-shadow", "color"],
-              {
-                duration: theme.transitions.duration.short,
-              }
-            ),
-          },
-        },
-      },
-      MuiButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: "50px",
-            textTransform: "none",
-            fontWeight: "bold",
-          },
-          outlined: {
-            borderColor: theme.palette.outline,
-            // background: theme.palette.surface.main,
-          },
-        },
-        variants: [
-          {
-            props: { variant: "elevated" },
-            style: {
-              boxShadow: theme.shadows[1],
-              background: `rgba(${theme.palette.primary.main} / 0.05)`,
-              color: theme.palette.primary.main,
-              "&:hover": {
-                background: `rgba(${theme.palette.primary.main} / 0.15)`,
-              },
-            },
-          },
-          {
-            props: { variant: "filled" },
-            style: {
-              background: theme.palette.primary.main,
-              color: theme.palette.onPrimary.main,
-              "&:hover": {
-                boxShadow: theme.shadows[1],
-                background: `rgba(${theme.palette.primary.main} / 0.85)`,
-              },
-            },
-          },
-          {
-            props: { variant: "tonal" },
-            style: {
-              background: theme.palette.secondaryContainer.main,
-              color: theme.palette.onSecondaryContainer.main,
-              "&:hover": {
-                boxShadow: theme.shadows[1],
-                background: `rgba(${theme.palette.secondaryContainer.main} / 0.8)`,
-              },
-            },
-          },
-        ],
-      },
-      MuiFab: {
-        styleOverrides: {
-          root: {
-            borderRadius: "18px",
-          },
-        },
-        variants: [
-          {
-            props: { variant: "primary" },
-            style: {
-              boxShadow: theme.shadows[3],
-              background: theme.palette.primaryContainer.main,
-              color: theme.palette.onPrimaryContainer.main,
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background:
-                  theme.palette.mode === "dark"
-                    ? lighten(theme.palette.primaryContainer.main, 0.08)
-                    : darken(theme.palette.primaryContainer.main, 0.08),
-              },
-            },
-          },
-          {
-            props: { variant: "extended", color: "primary" },
-            style: {
-              boxShadow: theme.shadows[3],
-              background: theme.palette.primaryContainer.main,
-              color: theme.palette.onPrimaryContainer.main,
-              fontWeight: "bold",
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background:
-                  theme.palette.mode === "dark"
-                    ? lighten(theme.palette.primaryContainer.main, 0.08)
-                    : darken(theme.palette.primaryContainer.main, 0.08),
-              },
-            },
-          },
-          {
-            props: { variant: "secondary" },
-            style: {
-              boxShadow: theme.shadows[3],
-              background: theme.palette.secondaryContainer.main,
-              color: theme.palette.onSecondaryContainer.main,
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background:
-                  theme.palette.mode === "dark"
-                    ? lighten(theme.palette.secondaryContainer.main, 0.08)
-                    : darken(theme.palette.secondaryContainer.main, 0.08),
-              },
-            },
-          },
-          {
-            props: { variant: "extended", color: "secondary" },
-            style: {
-              boxShadow: theme.shadows[3],
-              background: theme.palette.secondaryContainer.main,
-              color: theme.palette.onSecondaryContainer.main,
-              fontWeight: "bold",
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background:
-                  theme.palette.mode === "dark"
-                    ? lighten(theme.palette.secondaryContainer.main, 0.08)
-                    : darken(theme.palette.secondaryContainer.main, 0.08),
-              },
-            },
-          },
-          {
-            props: { variant: "tertiary" },
-            style: {
-              boxShadow: theme.shadows[3],
-              background: theme.palette.tertiaryContainer.main,
-              color: theme.palette.onTertiaryContainer.main,
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background:
-                  theme.palette.mode === "dark"
-                    ? lighten(theme.palette.tertiaryContainer.main, 0.08)
-                    : darken(theme.palette.tertiaryContainer.main, 0.08),
-              },
-            },
-          },
-          {
-            props: { variant: "extended", color: "tertiary" },
-            style: {
-              boxShadow: theme.shadows[3],
-              background: theme.palette.tertiaryContainer.main,
-              color: theme.palette.onTertiaryContainer.main,
-              fontWeight: "bold",
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background:
-                  theme.palette.mode === "dark"
-                    ? lighten(theme.palette.tertiaryContainer.main, 0.08)
-                    : darken(theme.palette.tertiaryContainer.main, 0.08),
-              },
-            },
-          },
-          {
-            props: { variant: "surface" },
-            style: {
-              boxShadow: theme.shadows[3],
-              // background: theme.palette.surface.main,
-              background: `rgba(${theme.palette.primary.main} / 0.05)`,
-              color: theme.palette.primary.main,
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background: `rgba(${theme.palette.primary.main} / 0.08)`,
-              },
-            },
-          },
-          {
-            props: { variant: "extended", color: "surface" },
-            style: {
-              boxShadow: theme.shadows[3],
-              // background: theme.palette.surface.main,
-              background: `rgba(${theme.palette.primary.main} / 0.05)`,
-              color: theme.palette.primary.main,
-              fontWeight: "bold",
-              "&:hover": {
-                boxShadow: theme.shadows[4],
-                background: `rgba(${theme.palette.primary.main} / 0.08)`,
-              },
-            },
-          },
-        ],
-      },
-      MuiCard: {
-        styleOverrides: {
-          root: {
-            borderRadius: "20px",
-            padding: "10px 8px",
-          },
-        },
-        variants: [
-          {
-            props: { variant: "elevation" },
-            style: {
-              boxShadow: theme.shadows[1],
-              backgroundColor: `rgba(${theme.palette.primary.main} / 0.05)`,
-              transition: theme.transitions.create(
-                ["background-color", "box-shadow", "border-color", "color"],
-                {
-                  duration: theme.transitions.duration.short,
-                }
-              ),
-              "&:hover": {
-                boxShadow: theme.shadows[2],
-                background: `rgba(${theme.palette.primary.main} / 0.08)`,
-              },
-            },
-          },
-          {
-            props: { variant: "filled" },
-            style: {
-              backgroundColor: theme.palette.surfaceVariant.main,
-              transition: theme.transitions.create(
-                ["background-color", "box-shadow", "border-color", "color"],
-                {
-                  duration: theme.transitions.duration.short,
-                }
-              ),
-              "&:hover": {
-                boxShadow: theme.shadows[1],
-                background: `rgba(${theme.palette.surfaceVariant.main} / 0.8)`,
-              },
-            },
-          },
-          {
-            props: { variant: "outlined" },
-            style: {
-              backgroundColor: theme.palette.surface.main,
-              borderColor: theme.palette.outline,
-              transition: theme.transitions.create(
-                ["background-color", "box-shadow", "border-color", "color"],
-                {
-                  duration: theme.transitions.duration.short,
-                }
-              ),
-              "&:hover": {
-                boxShadow: theme.shadows[1],
-                background: `rgba(${theme.palette.onSurface.main} / 0.05)`,
-              },
-            },
-          },
-        ],
-      },
-      MuiPaper: {
-        styleOverrides: {
-          root: {
-            background:
-              theme.palette.mode === "dark"
-                ? darken(theme.palette.primary.main, 0.9)
-                : lighten(theme.palette.primary.main, 0.9),
-            color: theme.palette.onSurface.main,
-          },
-          outlined: {
-            borderColor: theme.palette.outline,
-            background: theme.palette.surface.main,
-          },
-        },
-      },
-      MuiListItem: {
-        styleOverrides: {
-          root: {
-            paddingTop: 1,
-            paddingBottom: 1,
-            "& .MuiListItemButton-root": {
-              paddingTop: 8,
-              paddingBottom: 8,
-            },
-          },
-        },
-      },
-      MuiListItemButton: {
-        styleOverrides: {
-          root: {
-            borderRadius: 50,
-            "&.Mui-selected": {
-              color: theme.palette.onSecondaryContainer.main,
-              background: theme.palette.secondaryContainer.main,
-              "& > .MuiListItemText-root > .MuiTypography-root": {
-                fontWeight: "bold",
-              },
-            },
-          },
-        },
-      },
-      MuiListItemIcon: {
-        styleOverrides: {
-          root: {
-            color: "inherit",
-            minWidth: 32,
-            "&.Mui-selected": {
-              fontWeight: "bold",
-            },
-          },
-        },
-      },
-      MuiAccordion: {
-        styleOverrides: {
-          root: {
-            "&:before": {
-              backgroundColor: theme.palette.surfaceVariant.main,
-            },
-            "&.Mui-disabled": {
-              backgroundColor: theme.palette.inverseOnSurface.main,
-              color: theme.palette.inverseSurface.main,
-            },
-          },
-        },
-      },
-    },
-  };
 };

@@ -2,7 +2,8 @@ import { createTheme } from "@mui/material/styles";
 import createExtendTheme from "@mui/material/styles/experimental_extendTheme";
 import { useMemo } from "react";
 
-import { getDesignTokens, getThemedComponents } from "./M3Theme";
+import { components } from "./M3Components";
+import { getDesignTokens } from "./M3Theme";
 import { darkColorTokens, lightColorTokens, tones } from "./defaultColorTokens";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";
@@ -16,8 +17,6 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
   const darkTheme = createTheme(
     getDesignTokens("dark", darkColorTokens, tones)
   );
-  const lightComponentsTheme = getThemedComponents(lightTheme);
-  // const darkComponentsTheme = getThemedComponents(darkTheme);
 
   const theme = useMemo(() => {
     return createExtendTheme({
@@ -36,7 +35,7 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         borderRadius: 8, // defaultTheme.spacing(1)
       },
       components: {
-        ...lightComponentsTheme.components,
+        ...components,
         //   MuiButton: {
         //     styleOverrides: {
         //       root: {
@@ -114,7 +113,7 @@ export const useTheme = (): Omit<Theme, "palette"> & CssVarsTheme => {
         //   },
       },
     });
-  }, [darkTheme.palette, lightComponentsTheme.components, lightTheme.palette]);
+  }, [darkTheme.palette, lightTheme.palette]);
 
   return theme;
 };

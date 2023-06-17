@@ -29,17 +29,14 @@ export const BackToTop = (): JSX.Element => {
           marginBottom: `env(safe-area-inset-bottom, 0px)`,
           right: theme.spacing(3),
           zIndex: theme.zIndex.tooltip,
-          border: `1px solid ${
-            theme.palette.mode === "dark"
-              ? theme.vars.palette.common.white
-              : theme.vars.palette.divider
-          }`,
+          border: `1px solid ${theme.vars.palette.divider}`,
           borderRadius: theme.spacing(2),
-          color:
-            theme.palette.mode === "dark"
-              ? theme.vars.palette.text.primary
-              : theme.vars.palette.text.secondary,
+          color: theme.vars.palette.text.secondary,
           backgroundColor: theme.vars.palette.background.paper,
+          [theme.getColorSchemeSelector("dark")]: {
+            border: `1px solid ${theme.vars.palette.common.white}`,
+            color: theme.vars.palette.text.primary,
+          },
           "&:hover": {
             backgroundColor: theme.vars.palette.background.paper,
           },
