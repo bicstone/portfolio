@@ -35,14 +35,14 @@ export const lightColorTokens: M3ColorTokens = {
   inversePrimary: "#8ad98e",
   primary085Lighten: lighten("#1f6c2f", 0.85),
   primary080Darken: darken("#1f6c2f", 0.8),
-  primaryContainer008Darken: darken("#a6f5a8", 0.08),
-  primaryContainer008Lighten: lighten("#a6f5a8", 0.08),
-  secondaryContainer008Darken: darken("#d4e8d0", 0.08),
-  secondaryContainer008Lighten: lighten("#d4e8d0", 0.08),
-  tertiaryContainer008Darken: darken("#bdebf2", 0.08),
-  tertiaryContainer008Lighten: lighten("#bdebf2", 0.08),
   primary090Lighten: lighten("#1f6c2f", 0.9),
   primary090Darken: darken("#1f6c2f", 0.9),
+  primaryContainer008Lighten: lighten("#a6f5a8", 0.08),
+  primaryContainer008Darken: darken("#a6f5a8", 0.08),
+  secondaryContainer008Lighten: lighten("#d4e8d0", 0.08),
+  secondaryContainer008Darken: darken("#d4e8d0", 0.08),
+  tertiaryContainer008Lighten: lighten("#bdebf2", 0.08),
+  tertiaryContainer008Darken: darken("#bdebf2", 0.08),
 };
 
 export const darkColorTokens: M3ColorTokens = {
@@ -75,14 +75,14 @@ export const darkColorTokens: M3ColorTokens = {
   inversePrimary: "#1f6c2f",
   primary085Lighten: lighten("#8ad98e", 0.85),
   primary080Darken: darken("#8ad98e", 0.8),
-  primaryContainer008Darken: darken("#005319", 0.08),
-  primaryContainer008Lighten: lighten("#005319", 0.08),
-  secondaryContainer008Darken: darken("#3a4b39", 0.08),
-  secondaryContainer008Lighten: lighten("#3a4b39", 0.08),
-  tertiaryContainer008Darken: darken("#1f4d53", 0.08),
-  tertiaryContainer008Lighten: lighten("#1f4d53", 0.08),
   primary090Lighten: lighten("#8ad98e", 0.9),
   primary090Darken: darken("#8ad98e", 0.9),
+  primaryContainer008Lighten: lighten("#005319", 0.08),
+  primaryContainer008Darken: darken("#005319", 0.08),
+  secondaryContainer008Lighten: lighten("#3a4b39", 0.08),
+  secondaryContainer008Darken: darken("#3a4b39", 0.08),
+  tertiaryContainer008Lighten: lighten("#1f4d53", 0.08),
+  tertiaryContainer008Darken: darken("#1f4d53", 0.08),
 };
 
 export const tones: M3ThemeTones = {

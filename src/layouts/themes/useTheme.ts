@@ -3,7 +3,7 @@ import { useMemo } from "react";
 
 import { m3Components } from "./M3Components";
 import { getDesignTokens } from "./M3Theme";
-import { darkColorTokens, lightColorTokens, tones } from "./defaultColorTokens";
+import { darkColorTokens, lightColorTokens } from "./defaultColorTokens";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";
 
@@ -15,8 +15,8 @@ import type {} from "@mui/material/themeCssVarsAugmentation";
 export type CustomTheme = Omit<Theme, "palette"> & CssVarsTheme;
 
 export const useTheme = (): CustomTheme => {
-  const lightTheme = getDesignTokens("light", lightColorTokens, tones);
-  const darkTheme = getDesignTokens("dark", darkColorTokens, tones);
+  const lightTheme = getDesignTokens("light", lightColorTokens);
+  const darkTheme = getDesignTokens("dark", darkColorTokens);
 
   const theme = useMemo(() => {
     return createExtendTheme({

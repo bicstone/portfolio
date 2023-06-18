@@ -3,15 +3,12 @@ import { IconButton } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Backdrop from "@mui/material/Backdrop";
 import CircularProgress from "@mui/material/CircularProgress";
-import Dialog from "@mui/material/Dialog";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState, useCallback, Suspense, lazy } from "react";
 import { createPortal } from "react-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import { useHotkeys } from "react-hotkeys-hook";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
-import { useTheme } from "@/layouts/themes/useTheme";
 
 const SearchModal = lazy(async () => await import("./TimelineSearchModal"));
 
@@ -30,9 +27,6 @@ export const TimelineSearchButton = (): JSX.Element => {
     event.preventDefault();
     handleOpen();
   });
-
-  const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <>
@@ -71,9 +65,7 @@ export const TimelineSearchButton = (): JSX.Element => {
                 </Backdrop>
               }
             >
-              <Dialog open onClose={handleClose} fullScreen={mobile}>
-                <SearchModal onClose={handleClose} />
-              </Dialog>
+              <SearchModal onClose={handleClose} />
             </Suspense>
           </ErrorBoundary>,
           document.body

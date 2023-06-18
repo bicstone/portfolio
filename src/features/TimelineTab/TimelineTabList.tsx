@@ -1,7 +1,6 @@
 import styled, { type CSSObject } from "@emotion/styled";
 import Button from "@mui/material/Button";
-import { type Theme } from "@mui/material/styles";
-import { alpha } from "@mui/system/colorManipulator";
+import { darken, lighten } from "@mui/material/styles";
 import { Link } from "gatsby";
 import { type HTMLAttributes } from "react";
 
@@ -20,52 +19,45 @@ const StyledAnchorLinkGroup = styled("nav")(({ theme }) => ({
   width: "100%",
 }));
 
-const adoptColorTokens = (
-  colorTokens: M3ColorTokens,
-  darkColorTokens: M3ColorTokens,
-  theme: Theme
-): CSSObject => {
+const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
   const background = colorTokens.surface;
   const color = colorTokens.onSurface;
-  const darkBackground = darkColorTokens.surface;
-  const darkColor = darkColorTokens.onSurface;
   const activeBackground = colorTokens.secondaryContainer;
   const activeColor = colorTokens.onSecondaryContainer;
-  const activeDarkBackground = darkColorTokens.secondaryContainer;
-  const activeDarkColor = darkColorTokens.onSecondaryContainer;
 
   return {
     background,
     color,
-
     "&:hover": {
-      background: alpha(background, 0.15),
+      background: darken(background, 0.08),
     },
-
-    [theme.getColorSchemeSelector("dark")]: {
-      background: darkBackground,
-      color: darkColor,
-
-      "&:hover": {
-        background: alpha(darkBackground, 0.15),
-      },
-    },
-
     [`&.${activeClassName}`]: {
       background: activeBackground,
       color: activeColor,
-
       "&:hover": {
-        background: alpha(activeBackground, 0.15),
+        background: darken(activeBackground, 0.08),
       },
+    },
+  };
+};
 
-      [theme.getColorSchemeSelector("dark")]: {
-        background: activeDarkBackground,
-        color: activeDarkColor,
+const adoptDarkColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
+  const background = colorTokens.surface;
+  const color = colorTokens.onSurface;
+  const activeBackground = colorTokens.secondaryContainer;
+  const activeColor = colorTokens.onSecondaryContainer;
 
-        "&:hover": {
-          background: alpha(activeDarkBackground, 0.15),
-        },
+  return {
+    background,
+    color,
+    "&:hover": {
+      background: lighten(background, 0.08),
+    },
+    [`&.${activeClassName}`]: {
+      background: activeBackground,
+      color: activeColor,
+      "&:hover": {
+        background: lighten(activeBackground, 0.08),
       },
     },
   };
@@ -116,13 +108,14 @@ export const TimelineTabList = (
         component={Link}
         to="/outputs"
         activeClassName={activeClassName}
-        css={(theme) =>
-          adoptColorTokens(
-            outputColorTokens.lightColorTokens,
-            outputColorTokens.darkColorTokens,
-            theme
-          )
-        }
+        css={(theme) => {
+          return {
+            ...adoptColorTokens(outputColorTokens.lightColorTokens),
+            [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
+              outputColorTokens.darkColorTokens
+            ),
+          };
+        }}
       >
         Outputs
       </StyledLink>
@@ -130,13 +123,14 @@ export const TimelineTabList = (
         component={Link}
         to="/projects"
         activeClassName={activeClassName}
-        css={(theme) =>
-          adoptColorTokens(
-            projectColorTokens.lightColorTokens,
-            projectColorTokens.darkColorTokens,
-            theme
-          )
-        }
+        css={(theme) => {
+          return {
+            ...adoptColorTokens(projectColorTokens.lightColorTokens),
+            [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
+              projectColorTokens.darkColorTokens
+            ),
+          };
+        }}
       >
         Projects
       </StyledLink>
@@ -144,13 +138,14 @@ export const TimelineTabList = (
         component={Link}
         to="/histories"
         activeClassName={activeClassName}
-        css={(theme) =>
-          adoptColorTokens(
-            historyColorTokens.lightColorTokens,
-            historyColorTokens.darkColorTokens,
-            theme
-          )
-        }
+        css={(theme) => {
+          return {
+            ...adoptColorTokens(historyColorTokens.lightColorTokens),
+            [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
+              historyColorTokens.darkColorTokens
+            ),
+          };
+        }}
       >
         Histories
       </StyledLink>

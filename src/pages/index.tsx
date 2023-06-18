@@ -22,10 +22,8 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
+export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
   const title = SITE_METADATA.title;
-  const timelineItems = data.timelineGroups.group.flatMap(({ nodes }) => nodes);
-  const buildTime = data.site.buildTime;
 
   return (
     <>
@@ -36,49 +34,6 @@ export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
         image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
         imageAlt={title}
         type="blog"
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            headline: SITE_METADATA.title,
-            image: [`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`],
-            datePublished: buildTime,
-            dateModified: buildTime,
-            description: SITE_METADATA.description,
-            author: {
-              "@type": "Person",
-              name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
-              url: SITE_METADATA.siteUrl,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: SITE_METADATA.title,
-              logo: {
-                "@type": "ImageObject",
-                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
-              },
-            },
-            blogPost: [
-              ...timelineItems.map((item) => ({
-                "@type": "BlogPosting",
-                headline: item.title,
-                image:
-                  item.__typename === "Mdx"
-                    ? `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`
-                    : `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
-                datePublished: item.date,
-                author: {
-                  "@type": "Person",
-                  name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
-                  url: SITE_METADATA.siteUrl,
-                },
-              })),
-            ],
-          }),
-        }}
       />
     </>
   );

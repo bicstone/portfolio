@@ -312,14 +312,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         fields: TimelineFields!
       }
 
-      type OssesYaml implements Node & Timeline & Output @dontInfer {
-        title: String!
-        date: Date! @dateformat
-        url: String!
-        tags: [String!]!
-        fields: TimelineFields!
-      }
-
       type Mdx implements Node & Timeline & Output @dontInfer {
         frontmatter: MdxFrontmatter!
         body: String!

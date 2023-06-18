@@ -206,7 +206,7 @@ const config: GatsbyConfig = {
               path: `/${frontmatter.slug}`,
               lastmod: frontmatter.updateDate ?? frontmatter.date,
               changefreq: `weekly`,
-              priority: 0.8,
+              priority: 0.6,
             };
           });
 
@@ -214,7 +214,7 @@ const config: GatsbyConfig = {
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.6,
+            priority: 1.0,
           }));
 
           return [home, me, ...posts, ...pages];

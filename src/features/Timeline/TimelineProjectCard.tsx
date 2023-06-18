@@ -1,3 +1,4 @@
+import styled, { type CSSObject } from "@emotion/styled";
 import { type CardProps } from "@mui/material/Card";
 import { graphql } from "gatsby";
 
@@ -5,6 +6,7 @@ import { TimelineCardBase } from "./TimelineCardBase";
 
 import { CodeIcon } from "@/components/logos/CodeIcon";
 import { type TimelineProjectCardFragment } from "@/generated/graphqlTypes";
+import { type M3ColorTokens, projectColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
@@ -23,6 +25,26 @@ export type TimelineProjectCardProps = {
   item: TimelineProjectCardFragment;
   showYear?: boolean;
 } & CardProps;
+
+const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
+  const background = colorTokens.surfaceVariant;
+
+  return {
+    background,
+    "&:hover": {
+      background: `rgba(${background} / 0.8)`,
+    },
+  };
+};
+
+const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
+  return {
+    ...adoptColorTokens(projectColorTokens.lightColorTokens),
+    [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
+      projectColorTokens.darkColorTokens
+    ),
+  };
+});
 
 export const TimelineProjectCard = ({
   item,
@@ -51,7 +73,7 @@ export const TimelineProjectCard = ({
     );
 
   return (
-    <TimelineCardBase
+    <StyledTimelineCard
       avatar={<CodeIcon />}
       title={item.title}
       subTitle={subTitle}
