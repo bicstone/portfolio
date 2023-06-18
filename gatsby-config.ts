@@ -15,8 +15,6 @@ import type { GatsbyConfig } from "gatsby";
 declare global {
   interface Window {
     Sentry?: typeof Sentry;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    adsbygoogle?: any;
   }
 }
 
