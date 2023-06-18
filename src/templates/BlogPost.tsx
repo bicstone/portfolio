@@ -166,7 +166,7 @@ const BlogPostTemplate = ({
           alignItems: "center",
         }}
       >
-        <Typography variant="h4" component="h1">
+        <Typography variant="h4" component="h1" fontWeight="bold">
           {post.frontmatter.title}
         </Typography>
 
@@ -213,6 +213,9 @@ const BlogPostTemplate = ({
           margin: theme.spacing(3, 0),
           padding: theme.spacing(0, 1, 3, 1),
           borderRadius: theme.spacing(2),
+          "&:hover": {
+            background: "inherit",
+          },
         })}
       >
         <BlogPostTableOfContent post={post} />
@@ -220,6 +223,7 @@ const BlogPostTemplate = ({
         <Heading
           variant="h5"
           component="h2"
+          fontWeight="bold"
           id={TRANSLATION.blog.introductionTitle}
         >
           {TRANSLATION.blog.introductionTitle}
@@ -231,6 +235,7 @@ const BlogPostTemplate = ({
         <Typography
           variant="h5"
           component="h2"
+          fontWeight="bold"
           id={TRANSLATION.blog.authorTitle}
         >
           {TRANSLATION.blog.authorTitle}
@@ -250,7 +255,12 @@ const BlogPostTemplate = ({
         isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
           <NoSsr defer>
             <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
-              <Typography variant="h5" component="h2" paragraph>
+              <Typography
+                variant="h5"
+                component="h2"
+                fontWeight="bold"
+                paragraph
+              >
                 {TRANSLATION.blog.adLabel}
               </Typography>
               <InarticleAd
@@ -265,6 +275,7 @@ const BlogPostTemplate = ({
         <Typography
           variant="h5"
           component="h2"
+          fontWeight="bold"
           paragraph
           id={TRANSLATION.blog.relatedTitle}
         >

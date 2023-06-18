@@ -50,7 +50,7 @@ export const TimelineItem = (props: {
         />
       </TimelineSeparator>
       <StyledTimelineContent>
-        <Link color="inherit" variant="body2" href={href}>
+        <Link color="inherit" variant="body2" fontWeight="bold" href={href}>
           {children}
         </Link>
       </StyledTimelineContent>
