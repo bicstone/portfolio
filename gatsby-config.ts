@@ -4,12 +4,19 @@ import dotenv from "dotenv";
 
 import { SITE_METADATA } from "./src/constants/SITE_METADATA";
 
+import type {
+  GatsbyPluginSitemapQuery,
+  GatsbyPluginFeedQuery,
+} from "@/generated/graphqlTypes";
+import type Sentry from "@sentry/browser";
 import type { GatsbyConfig } from "gatsby";
 
-import {
-  type GatsbyPluginSitemapQuery,
-  type GatsbyPluginFeedQuery,
-} from "@/generated/graphqlTypes";
+// Google Tag Manager types
+declare global {
+  interface Window {
+    Sentry?: typeof Sentry;
+  }
+}
 
 dotenv.config({ path: `.env` });
 
@@ -40,13 +47,6 @@ const config: GatsbyConfig = {
   jsxImportSource: "@emotion/react",
 
   plugins: [
-    {
-      resolve: `gatsby-plugin-anchor-links`,
-      options: {
-        offset: 0,
-        duration: 0,
-      },
-    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-google-tagmanager`,
@@ -145,6 +145,7 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    `gatsby-plugin-remove-serviceworker`,
     {
       resolve: `gatsby-plugin-s3`,
       options: {
@@ -159,6 +160,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        createLinkInHead: false,
         resolveSiteUrl: () => SITE_METADATA.siteUrl,
         query: /* GraphQL */ `
           query GatsbyPluginSitemap {
@@ -196,7 +198,7 @@ const config: GatsbyConfig = {
               path: `/${frontmatter.slug}`,
               lastmod: frontmatter.updateDate ?? frontmatter.date,
               changefreq: `weekly`,
-              priority: 0.8,
+              priority: 0.6,
             };
           });
 
@@ -204,7 +206,7 @@ const config: GatsbyConfig = {
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,
-            priority: 0.6,
+            priority: 1.0,
           }));
 
           return [home, me, ...posts, ...pages];

@@ -14,11 +14,15 @@ export const WhatICanDoCard = ({
   subName,
 }: WhatICanDoCardProps): JSX.Element => {
   return (
-    <Card component="section">
+    <Card component="section" variant="outlined">
       <CardHeader
         avatar={<Avatar aria-hidden="true">{avatar}</Avatar>}
         title={name}
-        titleTypographyProps={{ component: "h2", variant: "h6" }}
+        titleTypographyProps={{
+          component: "h2",
+          variant: "h6",
+          fontWeight: "bold",
+        }}
         subheader={subName}
         subheaderTypographyProps={{
           variant: "body2",

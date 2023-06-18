@@ -1,5 +1,5 @@
 import Container from "@mui/material/Container";
-import { graphql } from "gatsby";
+import { Script, graphql } from "gatsby";
 
 import type { IndexPageQuery } from "@/generated/graphqlTypes";
 import type { PageProps, HeadFC } from "gatsby";
@@ -9,21 +9,31 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
-import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
+import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query IndexPage {
     timelineGroups: allTimeline(sort: { date: DESC }) {
       ...TimelineListTimeline
     }
+    site {
+      buildTime
+    }
   }
 `;
 
-export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
+// LogRocket
+declare global {
+  interface Window {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    LogRocket?: any;
+  }
+}
+
+export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
   const title = SITE_METADATA.title;
-  const timelineItems = data.timelineGroups.group.flatMap(({ nodes }) => nodes);
-  const buildTime = useBuildTime();
+  const logRocketId = process.env.GATSBY_LOG_ROCKET_ID;
 
   return (
     <>
@@ -35,49 +45,22 @@ export const Head: HeadFC<IndexPageQuery> = ({ location, data }) => {
         imageAlt={title}
         type="blog"
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Blog",
-            headline: SITE_METADATA.title,
-            image: [`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`],
-            datePublished: buildTime,
-            dateModified: buildTime,
-            description: SITE_METADATA.description,
-            author: {
-              "@type": "Person",
-              name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
-              url: SITE_METADATA.siteUrl,
-            },
-            publisher: {
-              "@type": "Organization",
-              name: SITE_METADATA.title,
-              logo: {
-                "@type": "ImageObject",
-                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
-              },
-            },
-            blogPost: [
-              ...timelineItems.map((item) => ({
-                "@type": "BlogPosting",
-                headline: item.title,
-                image:
-                  item.__typename === "Mdx"
-                    ? `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`
-                    : `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
-                datePublished: item.date,
-                author: {
-                  "@type": "Person",
-                  name: `${SITE_METADATA.lastName} ${SITE_METADATA.firstName}`,
-                  url: SITE_METADATA.siteUrl,
-                },
-              })),
-            ],
-          }),
-        }}
-      />
+      {isDefined(logRocketId) && (
+        <Script
+          id="LogRocket.min.js"
+          strategy="idle"
+          src="https://cdn.lr-ingest.com/LogRocket.min.js"
+          async={true}
+          crossOrigin="anonymous"
+          onLoad={() => {
+            setTimeout(() => {
+              try {
+                window?.LogRocket?.init(logRocketId);
+              } catch (e) {}
+            }, 0);
+          }}
+        />
+      )}
     </>
   );
 };
@@ -97,8 +80,6 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <TimelineTabList />
         <Spacer y={6} />
         <TimelineList groups={timelineGroups} virtualized />
-        <Spacer y={6} />
-        <TimelineTabList />
       </Container>
     </>
   );

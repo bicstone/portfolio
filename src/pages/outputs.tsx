@@ -10,7 +10,6 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
-import { useBuildTime } from "@/hooks/useBuildTime";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
@@ -18,13 +17,16 @@ export const query = graphql`
     outputs: allOutput(sort: { date: DESC }) {
       ...TimelineListOutput
     }
+    site {
+      buildTime
+    }
   }
 `;
 
 export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
   const title = `${TRANSLATION.outputs.title} - ${SITE_METADATA.title}`;
   const outputsItems = data.outputs.group.flatMap(({ nodes }) => nodes);
-  const buildTime = useBuildTime();
+  const buildTime = data.site.buildTime;
 
   return (
     <>

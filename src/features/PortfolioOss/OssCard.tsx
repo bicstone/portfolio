@@ -26,7 +26,7 @@ export const OssCard = (props: {
   const startYear = formatDateTime(oss.date, "yyyy/MM");
 
   return (
-    <Card component="section">
+    <Card component="section" variant="outlined">
       <CardActionArea
         title={oss.title}
         href={oss.url}
@@ -34,13 +34,21 @@ export const OssCard = (props: {
         css={{ height: "100%" }}
       >
         <CardHeader
-          avatar={<GitHubIcon aria-hidden="true" />}
+          avatar={
+            <GitHubIcon
+              aria-hidden="true"
+              css={(theme) => ({
+                width: theme.spacing(5),
+                height: theme.spacing(5),
+              })}
+            />
+          }
           title={
             <>
               <Typography variant="body2" component="div" color="textSecondary">
                 {startYear}～
               </Typography>
-              <Typography component="h2" variant="h6">
+              <Typography component="h2" variant="h6" fontWeight="bold">
                 {oss.title}
               </Typography>
             </>

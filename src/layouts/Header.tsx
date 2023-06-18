@@ -24,14 +24,18 @@ export const Header = (): JSX.Element => {
   return (
     <AppBar
       position="fixed"
-      color="inherit"
-      elevation={scrollTrigger ? 4 : 0}
+      color={scrollTrigger ? "primary" : "transparent"}
+      elevation={0}
       role="banner"
-      css={(theme) => ({
-        background: scrollTrigger
-          ? theme.vars.palette.background.paper
-          : "transparent",
-      })}
+      enableColorOnDark
+      css={{
+        ...(!scrollTrigger && {
+          "&&": {
+            // && is required to override theme CSS specificity
+            background: "transparent",
+          },
+        }),
+      }}
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
         <Link
@@ -44,19 +48,23 @@ export const Header = (): JSX.Element => {
             css={(theme) => ({
               display: "flex",
               alignItems: "center",
-              gap: theme.spacing(0.5),
+              gap: theme.spacing(1),
             })}
           >
             <BicstoneLogo
               aria-hidden="true"
               css={(theme) => ({
-                marginRight: theme.spacing(0.5),
                 display: "inline-flex",
                 width: theme.spacing(3),
                 height: theme.spacing(3),
               })}
             />
-            <Typography color="textPrimary" variant="h6" component="h1">
+            <Typography
+              color="textPrimary"
+              variant="h6"
+              component="h1"
+              fontWeight="bold"
+            >
               おおいし （@bicstone）
             </Typography>
           </div>

@@ -54,7 +54,6 @@
       "@/components/*": ["src/components/*"],
       "@/features/*": ["src/features/*"],
       "@/generated/*": ["src/generated/*"],
-      "@/hooks/*": ["src/hooks/*"],
       "@/utils/*": ["src/utils/*"],
       "@/layouts/*": ["src/layouts/*"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,

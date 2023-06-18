@@ -52,6 +52,7 @@ const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
   return (
     <Container
       maxWidth="lg"
+      fixed
       css={(theme) => ({ margin: theme.spacing(4, "auto") })}
     >
       <Breadcrumbs title={title} />
@@ -65,28 +66,28 @@ const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
       </section>
       <Spacer y={8} />
       <section>
-        <Typography component="h2" variant="h4" paragraph>
+        <Typography component="h2" variant="h4" fontWeight="bold" paragraph>
           プロジェクト
         </Typography>
         <ProjectList projects={data.projects} />
       </section>
       <Spacer y={8} />
       <section>
-        <Typography component="h2" variant="h4" paragraph>
+        <Typography component="h2" variant="h4" fontWeight="bold" paragraph>
           経歴
         </Typography>
         <HistoryList histories={data.histories} />
       </section>
       <Spacer y={8} />
       <section>
-        <Typography component="h2" variant="h4" paragraph>
+        <Typography component="h2" variant="h4" fontWeight="bold" paragraph>
           OSS
         </Typography>
         <OssList osses={data.osses} />
       </section>
       <Spacer y={8} />
       <section>
-        <Typography component="h2" variant="h4" paragraph>
+        <Typography component="h2" variant="h4" fontWeight="bold" paragraph>
           資格
         </Typography>
         <CertificationList certifications={data.certifications} />

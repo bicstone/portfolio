@@ -74,6 +74,7 @@ export const TimelineCardBase = ({
           titleTypographyProps={{
             variant: "body1",
             component: "h3",
+            fontWeight: "bold",
           }}
           title={isDefined(slug) ? title : <ExternalLink>{title}</ExternalLink>}
           subheaderTypographyProps={{

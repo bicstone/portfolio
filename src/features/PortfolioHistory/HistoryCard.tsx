@@ -35,6 +35,7 @@ export const HistoryCard = memo(
 
     return (
       <Accordion
+        variant="outlined"
         expanded={expanded}
         disableGutters
         onChange={() => {
@@ -58,7 +59,7 @@ export const HistoryCard = memo(
                 >
                   {date}
                 </Typography>
-                <Typography component="h2" variant="h6">
+                <Typography component="h2" variant="h6" fontWeight="bold">
                   {history.title}
                 </Typography>
               </>

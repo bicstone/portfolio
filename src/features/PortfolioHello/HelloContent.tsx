@@ -32,7 +32,7 @@ export const HelloContent = ({
         />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
-        <Card>
+        <Card variant="elevation">
           <CardActionArea
             component={RouterLink}
             to={linkToHome ? "/" : "/me"}
@@ -42,7 +42,12 @@ export const HelloContent = ({
             <CardHeader
               disableTypography
               title={
-                <Typography component="h2" variant="h6" gutterBottom>
+                <Typography
+                  component="h2"
+                  variant="h6"
+                  fontWeight="bold"
+                  gutterBottom
+                >
                   おおいし (@bicstone)
                 </Typography>
               }
@@ -60,7 +65,11 @@ export const HelloContent = ({
                     様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、
                     相互成長し続けられるエンジニアを目指しています。
                   </Typography>
-                  <Typography variant="body2" color="secondary">
+                  <Typography
+                    variant="body2"
+                    color="secondary"
+                    css={{ textDecoration: "underline" }}
+                  >
                     {linkToHome ? "ホームに戻る" : "もっと詳しく"}
                   </Typography>
                 </>

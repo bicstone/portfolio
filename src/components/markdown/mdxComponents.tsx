@@ -31,13 +31,31 @@ const baseMdxComponents: MDXComponents = {
   p: ({ ref, ...props }) => <Paragraph {...props} />,
   h1: () => notImplemented("h1"),
   h2: ({ ref, ...props }) => (
-    <Heading variant="h5" component="h2" prefix="#" {...props} />
+    <Heading
+      variant="h5"
+      component="h2"
+      fontWeight="bold"
+      prefix="#"
+      {...props}
+    />
   ),
   h3: ({ ref, ...props }) => (
-    <Heading variant="h6" component="h3" prefix="##" {...props} />
+    <Heading
+      variant="h6"
+      component="h3"
+      fontWeight="bold"
+      prefix="##"
+      {...props}
+    />
   ),
   h4: ({ ref, ...props }) => (
-    <Heading variant="subtitle1" component="h4" prefix="###" {...props} />
+    <Heading
+      variant="subtitle1"
+      component="h4"
+      fontWeight="bold"
+      prefix="###"
+      {...props}
+    />
   ),
   h5: ({ ref, ...props }) => <strong {...props} />,
   h6: ({ ref, ...props }) => <strong {...props} />,

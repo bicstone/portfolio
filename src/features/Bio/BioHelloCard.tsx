@@ -18,7 +18,12 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
         <CardHeader
           disableTypography
           title={
-            <Typography component="h2" variant="h6" gutterBottom>
+            <Typography
+              component="h2"
+              variant="h6"
+              fontWeight="bold"
+              gutterBottom
+            >
               {TRANSLATION.hello.title}
             </Typography>
           }
@@ -42,7 +47,11 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
                 {TRANSLATION.hello.description}
               </Typography>
 
-              <Typography variant="body2" color="secondary">
+              <Typography
+                variant="body2"
+                color="secondary"
+                css={{ textDecoration: "underline" }}
+              >
                 もっと詳しく
               </Typography>
             </>

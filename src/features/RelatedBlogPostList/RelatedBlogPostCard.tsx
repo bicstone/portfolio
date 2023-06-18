@@ -25,7 +25,7 @@ export const RelatedBlogPostCard = (props: {
 
   return (
     <Grid item component="article" xs={12} sm={6} md={4}>
-      <Card>
+      <Card variant="filled">
         <CardActionArea
           component={RouterLink}
           to={`/${post.frontmatter.slug}`}
@@ -52,6 +52,7 @@ export const RelatedBlogPostCard = (props: {
                       isDefined(lineHeight) && {
                         height: `calc(${fontSize} * ${lineHeight} * 2)`,
                       }),
+                    fontWeight: "bold",
                   };
                 }}
               >
