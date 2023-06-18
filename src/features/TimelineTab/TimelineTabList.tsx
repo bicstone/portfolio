@@ -1,4 +1,5 @@
 import styled, { type CSSObject } from "@emotion/styled";
+import CheckIcon from "@mui/icons-material/CheckRounded";
 import Button from "@mui/material/Button";
 import { darken, lighten } from "@mui/material/styles";
 import { Link } from "gatsby";
@@ -78,11 +79,19 @@ const StyledLink = styled(Button)(({ theme }) => ({
   color: theme.vars.palette.onSurface.main,
   cursor: "pointer",
   display: "inline-flex",
+  gap: theme.spacing(1),
   justifyContent: "center",
   padding: theme.spacing(2),
+  whiteSpace: "nowrap",
   width: "100%",
 
   ...(theme.typography.button as CSSObject),
+
+  [theme.breakpoints.down("sm")]: {
+    gap: theme.spacing(0.5),
+    ...(theme.typography.caption as CSSObject),
+  },
+
   textTransform: "none",
   textDecoration: "none",
 
@@ -103,6 +112,14 @@ const StyledLink = styled(Button)(({ theme }) => ({
   },
 })) as typeof Button;
 
+const StyledCheckIcon = styled(CheckIcon)(({ theme }) => ({
+  fontSize: "inherit",
+  display: "none",
+  [`.${activeClassName} &`]: {
+    display: "inline-block",
+  },
+}));
+
 export const TimelineTabList = (
   props: HTMLAttributes<HTMLElement>
 ): JSX.Element => {
@@ -121,6 +138,7 @@ export const TimelineTabList = (
           };
         }}
       >
+        <StyledCheckIcon />
         All
       </StyledLink>
       <StyledLink
@@ -136,6 +154,7 @@ export const TimelineTabList = (
           };
         }}
       >
+        <StyledCheckIcon />
         Outputs
       </StyledLink>
       <StyledLink
@@ -151,6 +170,7 @@ export const TimelineTabList = (
           };
         }}
       >
+        <StyledCheckIcon />
         Projects
       </StyledLink>
       <StyledLink
@@ -166,6 +186,7 @@ export const TimelineTabList = (
           };
         }}
       >
+        <StyledCheckIcon />
         Histories
       </StyledLink>
     </StyledAnchorLinkGroup>
