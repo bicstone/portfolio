@@ -52,6 +52,7 @@ const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
   return (
     <Container
       maxWidth="lg"
+      fixed
       css={(theme) => ({ margin: theme.spacing(4, "auto") })}
     >
       <Breadcrumbs title={title} />
