@@ -25,7 +25,7 @@ const StyledAnchorLinkGroup = styled("nav")(({ theme }) => ({
 }));
 
 const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
-  const background = colorTokens.primary090Lighten;
+  const background = colorTokens.surfaceVariant;
   const color = colorTokens.onSurface;
   const outline = colorTokens.outline;
   const activeBackground = colorTokens.secondaryContainer;
@@ -49,14 +49,16 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
 };
 
 const adoptDarkColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
-  const background = colorTokens.surface;
+  const background = colorTokens.surfaceVariant;
   const color = colorTokens.onSurface;
+  const outline = colorTokens.outline;
   const activeBackground = colorTokens.secondaryContainer;
   const activeColor = colorTokens.onSecondaryContainer;
 
   return {
     background,
     color,
+    outline,
     "&:hover": {
       background: lighten(background, 0.08),
     },

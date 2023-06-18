@@ -1,5 +1,3 @@
-import { useColorScheme } from "@mui/material/styles/CssVarsProvider";
-
 import type { HeadProps } from "gatsby";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
@@ -17,7 +15,6 @@ export const HeadTemplate = (props: {
   type: string;
 }): JSX.Element => {
   const { location, title, description, image, imageAlt, type } = props;
-  const { mode: paletteMode } = useColorScheme();
 
   const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
   const canonical = `${SITE_METADATA.siteUrl}${location.pathname}`;
@@ -84,10 +81,6 @@ export const HeadTemplate = (props: {
       />
       <meta name="application-name" content={SITE_METADATA.shortTitle} />
       <meta name="msapplication-TileColor" content={SITE_METADATA.tileColor} />
-      <meta
-        name="theme-color"
-        content={paletteMode === "dark" ? "#1a1c19" : "#fcfdf7"}
-      />
       {/* others */}
       <meta
         name="viewport"

@@ -24,10 +24,18 @@ export const Header = (): JSX.Element => {
   return (
     <AppBar
       position="fixed"
-      color={scrollTrigger ? "primary" : "default"}
+      color={scrollTrigger ? "primary" : "transparent"}
       elevation={0}
       role="banner"
       enableColorOnDark
+      css={{
+        ...(!scrollTrigger && {
+          "&&": {
+            // && is required to override theme CSS specificity
+            background: "transparent",
+          },
+        }),
+      }}
     >
       <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
         <Link

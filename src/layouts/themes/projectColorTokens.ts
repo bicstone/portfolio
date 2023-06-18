@@ -1,5 +1,3 @@
-import { darken, lighten } from "@mui/material/styles";
-
 import { type M3ColorTokens, type M3ThemeTones } from "./M3Theme";
 
 // https://m3.material.io/theme-builder#/custom
@@ -33,16 +31,6 @@ export const lightColorTokens: M3ColorTokens = {
   inverseSurface: "#2f3032",
   inverseOnSurface: "#f0f0f3",
   inversePrimary: "#8bcdff",
-  primary085Lighten: lighten("#006496", 0.85),
-  primary080Darken: darken("#006496", 0.8),
-  primaryContainer008Darken: darken("#c9e6ff", 0.08),
-  primaryContainer008Lighten: lighten("#c9e6ff", 0.08),
-  secondaryContainer008Darken: darken("#d3e4f5", 0.08),
-  secondaryContainer008Lighten: lighten("#d3e4f5", 0.08),
-  tertiaryContainer008Darken: darken("#eddcff", 0.08),
-  tertiaryContainer008Lighten: lighten("#eddcff", 0.08),
-  primary090Lighten: lighten("#006496", 0.9),
-  primary090Darken: darken("#006496", 0.9),
 };
 
 export const darkColorTokens: M3ColorTokens = {
@@ -73,16 +61,6 @@ export const darkColorTokens: M3ColorTokens = {
   inverseSurface: "#e2e2e5",
   inverseOnSurface: "#2f3032",
   inversePrimary: "#006496",
-  primary085Lighten: lighten("#8bcdff", 0.85),
-  primary080Darken: darken("#8bcdff", 0.8),
-  primaryContainer008Darken: darken("#004b72", 0.08),
-  primaryContainer008Lighten: lighten("#004b72", 0.08),
-  secondaryContainer008Darken: darken("#394956", 0.08),
-  secondaryContainer008Lighten: lighten("#394956", 0.08),
-  tertiaryContainer008Darken: darken("#4d4162", 0.08),
-  tertiaryContainer008Lighten: lighten("#4d4162", 0.08),
-  primary090Lighten: lighten("#8bcdff", 0.9),
-  primary090Darken: darken("#8bcdff", 0.9),
 };
 
 export const tones: M3ThemeTones = {

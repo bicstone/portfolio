@@ -70,17 +70,6 @@ declare module "@mui/material/styles" {
 
     outline: string;
     shadow: string;
-
-    primary085Lighten: string;
-    primary080Darken: string;
-    primary090Lighten: string;
-    primary090Darken: string;
-    primaryContainer008Lighten: string;
-    primaryContainer008Darken: string;
-    secondaryContainer008Lighten: string;
-    secondaryContainer008Darken: string;
-    tertiaryContainer008Lighten: string;
-    tertiaryContainer008Darken: string;
   }
 
   interface PaletteOptions {
@@ -125,17 +114,6 @@ declare module "@mui/material/styles" {
 
     outline?: string;
     shadow?: string;
-
-    primary085Lighten?: string;
-    primary080Darken?: string;
-    primary090Lighten?: string;
-    primary090Darken?: string;
-    primaryContainer008Lighten?: string;
-    primaryContainer008Darken?: string;
-    secondaryContainer008Lighten?: string;
-    secondaryContainer008Darken?: string;
-    tertiaryContainer008Lighten?: string;
-    tertiaryContainer008Darken?: string;
   }
 }
 declare module "@mui/material/styles/createTheme" {
@@ -243,17 +221,6 @@ export interface M3ColorTokens {
 
   outline: string;
   shadow: string;
-
-  primary085Lighten: string;
-  primary080Darken: string;
-  primary090Lighten: string;
-  primary090Darken: string;
-  primaryContainer008Lighten: string;
-  primaryContainer008Darken: string;
-  secondaryContainer008Lighten: string;
-  secondaryContainer008Darken: string;
-  tertiaryContainer008Lighten: string;
-  tertiaryContainer008Darken: string;
 }
 
 export type M3ThemeMode = "dark" | "light";
@@ -401,16 +368,6 @@ export const getDesignTokens = (
         secondary: scheme.onSecondaryContainer,
       },
       divider: scheme.outline,
-      primary085Lighten: scheme.primary085Lighten,
-      primary080Darken: scheme.primary080Darken,
-      primaryContainer008Darken: scheme.primaryContainer008Darken,
-      primaryContainer008Lighten: scheme.primaryContainer008Lighten,
-      secondaryContainer008Darken: scheme.secondaryContainer008Darken,
-      secondaryContainer008Lighten: scheme.secondaryContainer008Lighten,
-      tertiaryContainer008Darken: scheme.tertiaryContainer008Darken,
-      tertiaryContainer008Lighten: scheme.tertiaryContainer008Lighten,
-      primary090Lighten: scheme.primary090Lighten,
-      primary090Darken: scheme.primary090Darken,
     },
     tones,
   } as ThemeOptions;
