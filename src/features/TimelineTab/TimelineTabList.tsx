@@ -5,6 +5,7 @@ import { Link } from "gatsby";
 import { type HTMLAttributes } from "react";
 
 import {
+  defaultColorTokens,
   outputColorTokens,
   historyColorTokens,
   projectColorTokens,
@@ -14,19 +15,24 @@ import {
 const activeClassName = "active";
 
 const StyledAnchorLinkGroup = styled("nav")(({ theme }) => ({
-  display: "flex",
   borderRadius: theme.shape.borderRadius,
+  display: "flex",
+  position: "sticky",
+  top: theme.spacing(7),
   width: "100%",
+  zIndex: theme.zIndex.appBar,
 }));
 
 const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
-  const background = colorTokens.surface;
+  const background = colorTokens.primary090Lighten;
   const color = colorTokens.onSurface;
+  const outline = colorTokens.outline;
   const activeBackground = colorTokens.secondaryContainer;
   const activeColor = colorTokens.onSecondaryContainer;
 
   return {
     background,
+    border: `1px solid ${outline}`,
     color,
     "&:hover": {
       background: darken(background, 0.08),
@@ -68,6 +74,7 @@ const StyledLink = styled(Button)(({ theme }) => ({
   background: theme.vars.palette.surface.main,
   border: `1px solid ${theme.vars.palette.outline}`,
   borderRadius: theme.spacing(10),
+  boxShadow: theme.shadows[1],
   color: theme.vars.palette.onSurface.main,
   cursor: "pointer",
   display: "inline-flex",
@@ -76,7 +83,6 @@ const StyledLink = styled(Button)(({ theme }) => ({
   width: "100%",
 
   ...(theme.typography.button as CSSObject),
-  fontWeight: "bold",
   textTransform: "none",
   textDecoration: "none",
 
@@ -93,6 +99,7 @@ const StyledLink = styled(Button)(({ theme }) => ({
   [`&.${activeClassName}`]: {
     color: theme.vars.palette.onSecondaryContainer.main,
     background: theme.vars.palette.secondaryContainer.main,
+    fontWeight: "bold",
   },
 })) as typeof Button;
 
@@ -101,7 +108,19 @@ export const TimelineTabList = (
 ): JSX.Element => {
   return (
     <StyledAnchorLinkGroup {...props}>
-      <StyledLink component={Link} to="/" activeClassName={activeClassName}>
+      <StyledLink
+        component={Link}
+        to="/"
+        activeClassName={activeClassName}
+        css={(theme) => {
+          return {
+            ...adoptColorTokens(defaultColorTokens.lightColorTokens),
+            [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
+              defaultColorTokens.darkColorTokens
+            ),
+          };
+        }}
+      >
         All
       </StyledLink>
       <StyledLink

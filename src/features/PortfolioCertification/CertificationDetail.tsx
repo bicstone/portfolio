@@ -25,7 +25,11 @@ export const CertificationDetail = (props: {
 
   return (
     <ListItem>
-      <ListItemText primary={certification.title} secondary={formattedDate} />
+      <ListItemText
+        primary={certification.title}
+        secondary={formattedDate}
+        primaryTypographyProps={{ fontWeight: "bold" }}
+      />
     </ListItem>
   );
 };

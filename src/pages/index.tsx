@@ -54,8 +54,6 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <TimelineTabList />
         <Spacer y={6} />
         <TimelineList groups={timelineGroups} virtualized />
-        <Spacer y={6} />
-        <TimelineTabList />
       </Container>
     </>
   );

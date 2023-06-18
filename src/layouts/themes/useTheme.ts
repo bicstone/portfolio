@@ -25,7 +25,7 @@ export const useTheme = (): CustomTheme => {
           palette: {
             ...lightTheme.palette,
             Avatar: {
-              defaultBg: lightTheme.palette?.inverseSurface?.main,
+              defaultBg: lightTheme.palette?.onSurfaceVariant?.main,
             },
           },
         },
@@ -33,7 +33,7 @@ export const useTheme = (): CustomTheme => {
           palette: {
             ...darkTheme.palette,
             Avatar: {
-              defaultBg: darkTheme.palette?.inverseSurface?.main,
+              defaultBg: darkTheme.palette?.onSurfaceVariant?.main,
             },
           },
         },

@@ -1,5 +1,6 @@
 import styled, { type CSSObject } from "@emotion/styled";
 import { type CardProps } from "@mui/material/Card";
+import { alpha } from "@mui/material/styles";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
@@ -24,11 +25,13 @@ export type TimelineCertificationCardProps = {
 
 const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
   const background = colorTokens.surfaceVariant;
+  const color = colorTokens.onSurface;
 
   return {
     background,
+    color,
     "&:hover": {
-      background: `rgba(${background} / 0.8)`,
+      background: alpha(background, 0.8),
     },
   };
 };

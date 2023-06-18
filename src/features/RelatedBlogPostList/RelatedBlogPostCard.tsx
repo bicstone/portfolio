@@ -52,6 +52,7 @@ export const RelatedBlogPostCard = (props: {
                       isDefined(lineHeight) && {
                         height: `calc(${fontSize} * ${lineHeight} * 2)`,
                       }),
+                    fontWeight: "bold",
                   };
                 }}
               >

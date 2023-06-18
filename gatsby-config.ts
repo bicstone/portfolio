@@ -169,6 +169,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
+        createLinkInHead: false,
         resolveSiteUrl: () => SITE_METADATA.siteUrl,
         query: /* GraphQL */ `
           query GatsbyPluginSitemap {

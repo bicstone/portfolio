@@ -75,14 +75,14 @@ export const darkColorTokens: M3ColorTokens = {
   inversePrimary: "#5b6400",
   primary085Lighten: lighten("#c3cf5e", 0.85),
   primary080Darken: darken("#c3cf5e", 0.8),
-  primaryContainer008Darken: darken("#434b00", 0.08),
-  primaryContainer008Lighten: lighten("#434b00", 0.08),
-  secondaryContainer008Darken: darken("#46492e", 0.08),
-  secondaryContainer008Lighten: lighten("#46492e", 0.08),
-  tertiaryContainer008Darken: darken("#234e43", 0.08),
-  tertiaryContainer008Lighten: lighten("#234e43", 0.08),
   primary090Lighten: lighten("#c3cf5e", 0.9),
   primary090Darken: darken("#c3cf5e", 0.9),
+  primaryContainer008Lighten: lighten("#434b00", 0.08),
+  primaryContainer008Darken: darken("#434b00", 0.08),
+  secondaryContainer008Lighten: lighten("#46492e", 0.08),
+  secondaryContainer008Darken: darken("#46492e", 0.08),
+  tertiaryContainer008Lighten: lighten("#234e43", 0.08),
+  tertiaryContainer008Darken: darken("#234e43", 0.08),
 };
 
 export const tones: M3ThemeTones = {

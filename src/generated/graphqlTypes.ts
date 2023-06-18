@@ -4674,11 +4674,6 @@ export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<Search, 'title' | 'excerpt' | 'url' | 'slug'>> } };
 
-export type BuildTimeDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type BuildTimeDataQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
-
 export type HistoryPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 

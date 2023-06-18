@@ -27,7 +27,7 @@ export const CertificationCard = (props: {
       <Card variant="outlined">
         <CardHeader
           title={
-            <Typography component="h2" variant="h6">
+            <Typography component="h2" variant="h6" fontWeight="bold">
               {category}
             </Typography>
           }

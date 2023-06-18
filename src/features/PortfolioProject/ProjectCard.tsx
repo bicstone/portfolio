@@ -40,7 +40,7 @@ export const ProjectCard = memo(
             <Typography variant="body2" component="div" color="textSecondary">
               {formattedDate}
             </Typography>
-            <Typography component="h2" variant="h6">
+            <Typography component="h2" variant="h6" fontWeight="bold">
               {project.title}
             </Typography>
           </>

@@ -51,7 +51,7 @@ export const BioSocialLinkCard = ({
       >
         {avatar}
         <div>
-          <Typography variant="body1" component="h2">
+          <Typography variant="body1" component="h2" fontWeight="bold">
             <ExternalLink>{title}</ExternalLink>
           </Typography>
           <Typography variant="caption" color="text.secondary">
