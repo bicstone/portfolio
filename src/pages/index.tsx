@@ -55,7 +55,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
           onLoad={() => {
             setTimeout(() => {
               try {
-                window?.LogRocket?.init("ftbhqt/bicstone");
+                window?.LogRocket?.init(logRocketId);
               } catch (e) {}
             }, 0);
           }}
