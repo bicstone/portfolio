@@ -47,13 +47,6 @@ const config: GatsbyConfig = {
   jsxImportSource: "@emotion/react",
 
   plugins: [
-    {
-      resolve: `gatsby-plugin-anchor-links`,
-      options: {
-        offset: 0,
-        duration: 0,
-      },
-    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-google-tagmanager`,
