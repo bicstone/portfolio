@@ -35,7 +35,7 @@ export const InarticleAd = ({ pubId, adId }: InarticleAdProps): JSX.Element => {
       <Script
         id="adsbygoogle.js"
         strategy="idle"
-        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${pubId}}`}
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${pubId}`}
         async={true}
         crossOrigin="anonymous"
       />
