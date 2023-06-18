@@ -1,6 +1,6 @@
 import CloseIcon from "@mui/icons-material/CloseRounded";
 import SearchIcon from "@mui/icons-material/SearchRounded";
-import Dialog from "@mui/material/Dialog";
+import Dialog, { dialogClasses } from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
@@ -65,7 +65,16 @@ export const TimelineSearchModal = (props: {
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Dialog open onClose={onClose} fullScreen={mobile}>
+    <Dialog
+      open
+      onClose={onClose}
+      fullScreen={mobile}
+      css={(theme) => ({
+        [`& .${dialogClasses.paper}`]: {
+          background: theme.vars.palette.background.paper,
+        },
+      })}
+    >
       <div
         css={(theme) => ({
           width: 600,
