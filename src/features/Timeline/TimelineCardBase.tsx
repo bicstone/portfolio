@@ -4,10 +4,16 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader, { cardHeaderClasses } from "@mui/material/CardHeader";
 import { Link as RouterLink } from "gatsby";
 
+import { CARD_HEIGHT } from "./constants";
+
 import type { ReactNode } from "react";
 
 import { ExternalLink } from "@/components/ExternalLink";
 import { isDefined } from "@/utils/typeguard";
+
+const StyledCard = styled(Card)(({ theme }) => ({
+  height: CARD_HEIGHT,
+})) as typeof Card;
 
 const StyledCardActionArea = styled(CardActionArea)({
   display: "flex",
@@ -67,7 +73,7 @@ export const TimelineCardBase = ({
       };
 
   return (
-    <Card component="article" {...props}>
+    <StyledCard component="article" {...props}>
       <StyledCardActionArea {...linkProps}>
         <StyledCardHeader
           avatar={avatar}
@@ -84,6 +90,6 @@ export const TimelineCardBase = ({
           subheader={subTitle}
         />
       </StyledCardActionArea>
-    </Card>
+    </StyledCard>
   );
 };
