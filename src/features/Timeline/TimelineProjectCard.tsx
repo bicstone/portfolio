@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { CodeIcon } from "@/components/logos/CodeIcon";
+import { CorpIcon } from "@/components/icons/CorpIcon";
 import { type TimelineProjectCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, projectColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -77,7 +77,7 @@ export const TimelineProjectCard = ({
 
   return (
     <StyledTimelineCard
-      avatar={<CodeIcon />}
+      avatar={<CorpIcon />}
       title={item.title}
       subTitle={subTitle}
       slug="me"

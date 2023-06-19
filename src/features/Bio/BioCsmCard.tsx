@@ -4,7 +4,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 
 import { ExternalLink } from "@/components/ExternalLink";
-import { CsmIcon } from "@/components/logos/CsmIcon";
+import { CsmIcon } from "@/components/icons/CsmIcon";
 
 const StyledCard = styled(Card)({
   paddingBottom: "100%",

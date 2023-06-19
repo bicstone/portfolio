@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { GitHubLogo } from "@/components/logos/GitHubLogo";
+import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { type TimelineOssCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, projectColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -54,7 +54,7 @@ export const TimelineOssCard = ({
 
   return (
     <StyledTimelineCard
-      avatar={<GitHubLogo aria-hidden="true" />}
+      avatar={<GitHubIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}

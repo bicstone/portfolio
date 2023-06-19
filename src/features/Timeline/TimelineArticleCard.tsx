@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { ZennLogo } from "@/components/logos/ZennLogo";
+import { ZennIcon } from "@/components/icons/ZennIcon";
 import { type TimelineArticleCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -54,7 +54,7 @@ export const TimelineArticleCard = ({
 
   return (
     <StyledTimelineCard
-      avatar={<ZennLogo aria-hidden="true" />}
+      avatar={<ZennIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}

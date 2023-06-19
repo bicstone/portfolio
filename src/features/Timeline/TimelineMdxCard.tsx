@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { DescriptionIcon } from "@/components/logos/DescriptionIcon";
+import { BlogIcon } from "@/components/icons/BlogIcon";
 import { type TimelineMdxCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -54,7 +54,7 @@ export const TimelineMdxCard = ({
 
   return (
     <StyledTimelineCard
-      avatar={<DescriptionIcon aria-hidden="true" />}
+      avatar={<BlogIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       slug={item.slug}

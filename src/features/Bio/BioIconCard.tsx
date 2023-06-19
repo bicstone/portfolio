@@ -5,9 +5,9 @@ import CardActionArea from "@mui/material/CardActionArea";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 import { type MouseEventHandler, useState } from "react";
 
-import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
+import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
 import { TRANSLATION } from "@/constants/TRANSLATION";
-const FukkiretaAnimationImg = styled(BicstoneLogo)<{
+const FukkiretaAnimationImg = styled(BicstoneIcon)<{
   activeAnimation: boolean;
 }>(({ activeAnimation }) => ({ theme }) => ({
   cursor: "pointer",

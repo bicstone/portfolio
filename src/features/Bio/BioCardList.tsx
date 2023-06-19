@@ -6,17 +6,17 @@ import { BioIcon } from "./BioIconCard";
 import { BioRissCard } from "./BioRissCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
-import { ConnpassLogo } from "@/components/logos/ConnpassLogo";
-import { FeedLogo } from "@/components/logos/FeedLogo";
-import { FindyLogo } from "@/components/logos/FindyLogo";
-import { GitHubLogo } from "@/components/logos/GitHubLogo";
-import { LaprasLogo } from "@/components/logos/LaprasLogo";
-import { LinkedInLogo } from "@/components/logos/LinkedInLogo";
-import { PaycareerLogo } from "@/components/logos/PaycareerLogo";
-import { SpeakerDeckLogo } from "@/components/logos/SpeakerDeckLogo";
-import { TwitterLogo } from "@/components/logos/TwitterLogo";
-import { YoutrustLogo } from "@/components/logos/YoutrustLogo";
-import { ZennLogo } from "@/components/logos/ZennLogo";
+import { ConnpassIcon } from "@/components/icons/ConnpassIcon";
+import { FeedIcon } from "@/components/icons/FeedIcon";
+import { FindyIcon } from "@/components/icons/FindyIcon";
+import { GitHubIcon } from "@/components/icons/GitHubIcon";
+import { LaprasIcon } from "@/components/icons/LaprasIcon";
+import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { PaycareerIcon } from "@/components/icons/PaycareerIcon";
+import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
+import { TwitterIcon } from "@/components/icons/TwitterIcon";
+import { YoutrustIcon } from "@/components/icons/YoutrustIcon";
+import { ZennIcon } from "@/components/icons/ZennIcon";
 
 export const BioCardList = (): JSX.Element => {
   return (
@@ -37,7 +37,7 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon variant="elevation" />
       <BioSocialLinkCard
-        avatar={<TwitterLogo aria-hidden="true" />}
+        avatar={<TwitterIcon aria-hidden="true" />}
         title="Twitter"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
@@ -45,7 +45,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<YoutrustLogo aria-hidden="true" />}
+        avatar={<YoutrustIcon aria-hidden="true" />}
         title="YOUTRUST"
         subTitle="@bicstone"
         actionTitle="つながる"
@@ -53,7 +53,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<LinkedInLogo aria-hidden="true" />}
+        avatar={<LinkedInIcon aria-hidden="true" />}
         title="LinkedIn"
         subTitle="@bicstone"
         actionTitle="つながる"
@@ -64,7 +64,7 @@ export const BioCardList = (): JSX.Element => {
       <BioRissCard variant="elevation" />
       <BioCsmCard variant="elevation" />
       <BioSocialLinkCard
-        avatar={<GitHubLogo aria-hidden="true" />}
+        avatar={<GitHubIcon aria-hidden="true" />}
         title="GitHub"
         subTitle="@bicstone"
         actionTitle="フォロー"
@@ -72,7 +72,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<ZennLogo aria-hidden="true" />}
+        avatar={<ZennIcon aria-hidden="true" />}
         title="Zenn"
         subTitle="@bicstone"
         actionTitle="フォロー"
@@ -80,7 +80,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<SpeakerDeckLogo aria-hidden="true" />}
+        avatar={<SpeakerDeckIcon aria-hidden="true" />}
         title="Speaker Deck"
         subTitle="@bicstone"
         actionTitle="フォロー"
@@ -88,7 +88,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<ConnpassLogo aria-hidden="true" />}
+        avatar={<ConnpassIcon aria-hidden="true" />}
         title="Connpass"
         subTitle="@bicstone"
         actionTitle="交流する"
@@ -96,7 +96,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<FindyLogo aria-hidden="true" />}
+        avatar={<FindyIcon aria-hidden="true" />}
         title="Findy"
         subTitle="AKvsozgldUI4i"
         actionTitle="スキル偏差値を見る"
@@ -104,7 +104,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<LaprasLogo aria-hidden="true" />}
+        avatar={<LaprasIcon aria-hidden="true" />}
         title="Lapras"
         subTitle="@bicstone"
         actionTitle="LAPRAS SCOREを見る"
@@ -112,7 +112,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<PaycareerLogo aria-hidden="true" />}
+        avatar={<PaycareerIcon aria-hidden="true" />}
         title="PayCareer"
         subTitle="2022249011"
         actionTitle="面接する"
@@ -120,7 +120,7 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<FeedLogo aria-hidden="true" />}
+        avatar={<FeedIcon aria-hidden="true" />}
         title="RSS"
         subTitle="rss.xml"
         actionTitle="購読する"
