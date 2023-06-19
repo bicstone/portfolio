@@ -2,6 +2,7 @@ import Link from "@mui/material/Link";
 import Typography, { type TypographyProps } from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import { slug } from "github-slugger";
+import { type ElementType } from "react";
 
 export const StyledTypography = styled(Typography)(({ theme, variant }) => ({
   display: "block",
@@ -35,7 +36,7 @@ const StyledAnchorLink = styled(Link)(({ theme }) => ({
   },
 }));
 
-export const Heading = <T extends React.ElementType>({
+export const Heading = <T extends ElementType>({
   children,
   ...props
 }: TypographyProps<T> & {

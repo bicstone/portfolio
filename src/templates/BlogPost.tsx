@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 // Mdx required "React"
 import * as React from "react";
+import { useMemo } from "react";
 
 import type { BlogPostTemplateQuery } from "@/generated/graphqlTypes";
 import type { HeadFC, PageProps } from "gatsby";
@@ -120,7 +121,7 @@ const BlogPostTemplate = ({
   children,
 }: PageProps<BlogPostTemplateQuery>): JSX.Element => {
   const post = data.post;
-  const relatedPosts = React.useMemo(() => {
+  const relatedPosts = useMemo(() => {
     const filteredPosts = data.relatedPosts.nodes.filter(
       (p) => p.id !== post.id
     );
@@ -141,11 +142,11 @@ const BlogPostTemplate = ({
     return [...newerPosts, ...olderPosts];
   }, [data.relatedPosts.nodes, post.frontmatter.date, post.id]);
 
-  const dateDate = React.useMemo(
+  const dateDate = useMemo(
     () => formatDateTime(post.frontmatter.date, "yyyy/MM/dd"),
     [post.frontmatter.date]
   );
-  const updateDateDate = React.useMemo(
+  const updateDateDate = useMemo(
     () => formatDateTime(post.frontmatter.updateDate, "yyyy/MM/dd"),
     [post.frontmatter.updateDate]
   );
