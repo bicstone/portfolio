@@ -7,8 +7,7 @@ import styled from "@emotion/styled";
  */
 
 export const LogoBase = styled("div")(({ theme }) => ({
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
+  display: "inline-block",
   width: theme.spacing(4),
   height: theme.spacing(4),
 }));

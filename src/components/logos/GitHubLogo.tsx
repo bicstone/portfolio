@@ -6,8 +6,8 @@ import logo from "@/content/logos/GitHubLogo.svg";
 import whiteLogo from "@/content/logos/GitHubWhiteLogo.svg";
 
 export const GitHubLogo = styled(LogoBase)(({ theme }) => ({
-  backgroundImage: `url(${logo})`,
+  content: `url(${logo})`,
   [theme.getColorSchemeSelector("dark")]: {
-    backgroundImage: `url(${whiteLogo})`,
+    content: `url(${whiteLogo})`,
   },
 }));

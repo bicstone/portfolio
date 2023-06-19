@@ -6,8 +6,8 @@ import logo from "@/content/logos/AutoAwesomeIcon.svg";
 import whiteLogo from "@/content/logos/AutoAwesomeWhiteIcon.svg";
 
 export const AutoAwesomeIcon = styled(LogoBase)(({ theme }) => ({
-  backgroundImage: `url(${logo})`,
+  content: `url(${logo})`,
   [theme.getColorSchemeSelector("dark")]: {
-    backgroundImage: `url(${whiteLogo})`,
+    content: `url(${whiteLogo})`,
   },
 }));

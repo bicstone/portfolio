@@ -6,8 +6,8 @@ import logo from "@/content/logos/VerifiedIcon.svg";
 import whiteLogo from "@/content/logos/VerifiedWhiteIcon.svg";
 
 export const VerifiedIcon = styled(LogoBase)(({ theme }) => ({
-  backgroundImage: `url(${logo})`,
+  content: `url(${logo})`,
   [theme.getColorSchemeSelector("dark")]: {
-    backgroundImage: `url(${whiteLogo})`,
+    content: `url(${whiteLogo})`,
   },
 }));
