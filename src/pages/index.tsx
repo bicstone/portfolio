@@ -70,11 +70,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
 
   return (
     <>
-      <Container
-        maxWidth="md"
-        fixed
-        sx={{marginY: 4, marginX: "auto"}}
-      >
+      <Container maxWidth="md" fixed sx={{ marginY: 4, marginX: "auto" }}>
         <BioCardList />
         <Spacer y={6} />
         <TimelineTabList />
