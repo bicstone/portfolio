@@ -48,7 +48,7 @@ export const HelloContent = ({
                   fontWeight="bold"
                   gutterBottom
                 >
-                  おおいし（@bicstone）
+                  おおいし (@bicstone)
                 </Typography>
               }
               subheader={

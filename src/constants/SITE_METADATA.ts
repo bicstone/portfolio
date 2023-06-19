@@ -1,9 +1,9 @@
 export const SITE_METADATA = {
-  title: "おおいし（@bicstone）",
+  title: "おおいし (@bicstone)",
   shortTitle: "bicstone",
   siteUrl: process.env.GATSBY_SITE_URL ?? "https://bicstone.me",
   description:
-    "Webエンジニア/機械エンジニア おおいし（@bicstone）のポートフォリオサイトです。",
+    "Webエンジニア/機械エンジニア おおいし (@bicstone) のポートフォリオサイトです。",
   author: "bicstone",
   image: "/android-chrome-512x512.png",
   firstName: "Takanori",
