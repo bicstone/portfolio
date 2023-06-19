@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { VerifiedIcon } from "@/components/logos/VerifiedIcon";
+import { VerifiedIcon } from "@/components/icons/VerifiedIcon";
 import { type TimelineCertificationCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, historyColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";

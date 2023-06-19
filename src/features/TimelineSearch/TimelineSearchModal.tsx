@@ -72,6 +72,9 @@ export const TimelineSearchModal = (props: {
       css={(theme) => ({
         [`& .${dialogClasses.paper}`]: {
           background: theme.vars.palette.background.paper,
+          [theme.getColorSchemeSelector("dark")]: {
+            background: theme.vars.palette.background.paper,
+          },
         },
       })}
     >

@@ -9,7 +9,7 @@ import { useColorScheme } from "@mui/material/styles/CssVarsProvider";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { Link as RouterLink } from "gatsby";
 
-import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
+import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
 import { TimelineSearchButton } from "@/features/TimelineSearch";
 
 /**
@@ -51,7 +51,7 @@ export const Header = (): JSX.Element => {
               gap: theme.spacing(1),
             })}
           >
-            <BicstoneLogo
+            <BicstoneIcon
               aria-hidden="true"
               css={(theme) => ({
                 display: "inline-flex",
@@ -65,7 +65,7 @@ export const Header = (): JSX.Element => {
               component="h1"
               fontWeight="bold"
             >
-              おおいし （@bicstone）
+              おおいし (@bicstone)
             </Typography>
           </div>
         </Link>

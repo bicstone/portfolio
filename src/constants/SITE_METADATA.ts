@@ -1,5 +1,5 @@
 export const SITE_METADATA = {
-  title: "おおいし （@bicstone）",
+  title: "おおいし (@bicstone)",
   shortTitle: "bicstone",
   siteUrl: process.env.GATSBY_SITE_URL ?? "https://bicstone.me",
   description:

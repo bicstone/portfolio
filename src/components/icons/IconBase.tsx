@@ -6,9 +6,8 @@ import styled from "@emotion/styled";
  * 固定のSVGやPNGを埋め込む場合はStyledのコンポーネントを定義して使用
  */
 
-export const LogoBase = styled("div")(({ theme }) => ({
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
+export const IconBase = styled("div")(({ theme }) => ({
+  display: "inline-block",
   width: theme.spacing(4),
   height: theme.spacing(4),
 }));

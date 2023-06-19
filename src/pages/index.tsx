@@ -7,18 +7,15 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
-import { TimelineList } from "@/features/Timeline";
+import { TimelineVirtualizedList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query IndexPage {
-    timelineGroups: allTimeline(sort: { date: DESC }) {
-      ...TimelineListTimeline
-    }
-    site {
-      buildTime
+    timelineItems: allTimeline(sort: { date: DESC }) {
+      ...TimelineVirtualizedListTimeline
     }
   }
 `;
@@ -66,7 +63,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
 };
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const timelineGroups = data.timelineGroups;
+  const timelineItems = data.timelineItems;
 
   return (
     <>
@@ -79,7 +76,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <Spacer y={6} />
         <TimelineTabList />
         <Spacer y={6} />
-        <TimelineList groups={timelineGroups} virtualized />
+        <TimelineVirtualizedList items={timelineItems} />
       </Container>
     </>
   );

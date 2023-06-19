@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "gatsby";
 
-import { BicstoneLogo } from "@/components/logos/BicstoneLogo";
+import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
 
 export const HelloContent = ({
   linkToHome = false,
@@ -22,7 +22,7 @@ export const HelloContent = ({
         component="aside"
         css={{ textAlign: "center" }}
       >
-        <BicstoneLogo
+        <BicstoneIcon
           aria-hidden="true"
           css={(theme) => ({
             margin: theme.spacing(0, 2),

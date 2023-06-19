@@ -4,7 +4,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 
 import { ExternalLink } from "@/components/ExternalLink";
-import { RissIcon } from "@/components/logos/RissIcon";
+import { RissIcon } from "@/components/icons/RissIcon";
 
 const StyledCard = styled(Card)({
   paddingBottom: "100%",

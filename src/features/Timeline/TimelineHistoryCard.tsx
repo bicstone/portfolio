@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { AutoAwesomeIcon } from "@/components/logos/AutoAwesomeIcon";
+import { AutoAwesomeIcon } from "@/components/icons/AutoAwesomeIcon";
 import { type TimelineHistoryCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, historyColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";

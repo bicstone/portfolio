@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 import { type ComponentProps, forwardRef, Fragment } from "react";
-import { VirtuosoGrid } from "react-virtuoso";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
 import { TimelineCertificationCard } from "./TimelineCertificationCard";
@@ -109,54 +108,36 @@ export const query = graphql`
 
 interface TimelineItemProps {
   item: TimelineListProps["groups"]["group"][number]["nodes"][number];
-  showYear?: boolean;
 }
 
-const TimelineItem = ({
-  item,
-  showYear = false,
-}: TimelineItemProps): JSX.Element | null => {
+const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
   switch (item.__typename) {
     case "ArticlesYaml": {
-      return (
-        <TimelineArticleCard key={item.id} item={item} showYear={showYear} />
-      );
+      return <TimelineArticleCard key={item.id} item={item} />;
     }
 
     case "CertificationsYaml": {
-      return (
-        <TimelineCertificationCard
-          key={item.id}
-          item={item}
-          showYear={showYear}
-        />
-      );
+      return <TimelineCertificationCard key={item.id} item={item} />;
     }
 
     case "HistoriesYaml": {
-      return (
-        <TimelineHistoryCard key={item.id} item={item} showYear={showYear} />
-      );
+      return <TimelineHistoryCard key={item.id} item={item} />;
     }
 
     case "OssesYaml": {
-      return <TimelineOssCard key={item.id} item={item} showYear={showYear} />;
+      return <TimelineOssCard key={item.id} item={item} />;
     }
 
     case "ProjectsYaml": {
-      return (
-        <TimelineProjectCard key={item.id} item={item} showYear={showYear} />
-      );
+      return <TimelineProjectCard key={item.id} item={item} />;
     }
 
     case "SlidesYaml": {
-      return (
-        <TimelineSlideCard key={item.id} item={item} showYear={showYear} />
-      );
+      return <TimelineSlideCard key={item.id} item={item} />;
     }
 
     case "Mdx": {
-      return <TimelineMdxCard key={item.id} item={item} showYear={showYear} />;
+      return <TimelineMdxCard key={item.id} item={item} />;
     }
 
     default: {
@@ -188,38 +169,12 @@ export interface TimelineListProps {
     | TimelineListHistoryFragment
     | TimelineListOutputFragment
     | TimelineListProjectFragment;
-  virtualized?: boolean;
 }
 
-export const TimelineList = ({
-  groups,
-  virtualized = false,
-}: TimelineListProps): JSX.Element => {
+export const TimelineList = ({ groups }: TimelineListProps): JSX.Element => {
   const sortedGroups = Array.from(groups.group).sort(
     (a, b) => Number(b.dateYear) - Number(a.dateYear)
   );
-  const flatNodes = sortedGroups.flatMap((group) => group.nodes);
-
-  if (virtualized) {
-    return (
-      <VirtuosoGrid
-        data={flatNodes}
-        components={{
-          List: Container,
-        }}
-        itemContent={(index, item) => (
-          <TimelineItem key={index} item={item} showYear />
-        )}
-        overscan={10}
-        style={{
-          height: "100%",
-          // prevent flickering caused by virtual scrolling
-          minHeight: "100vh",
-        }}
-        useWindowScroll
-      />
-    );
-  }
 
   return (
     <>

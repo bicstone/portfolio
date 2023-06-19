@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { SpeakerDeckLogo } from "@/components/logos/SpeakerDeckLogo";
+import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
 import { type TimelineSlideCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -54,7 +54,7 @@ export const TimelineSlideCard = ({
 
   return (
     <StyledTimelineCard
-      avatar={<SpeakerDeckLogo aria-hidden="true" />}
+      avatar={<SpeakerDeckIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}

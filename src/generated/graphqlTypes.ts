@@ -4669,6 +4669,30 @@ export type TimelineProjectCardFragment = (
 
 export type TimelineSlideCardFragment = Pick<SlidesYaml, 'title' | 'date' | 'url'>;
 
+export type TimelineVirtualizedListTimelineFragment = { readonly nodes: ReadonlyArray<(
+    { readonly __typename: 'ArticlesYaml' }
+    & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
+  ) | (
+    { readonly __typename: 'CertificationsYaml' }
+    & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+  ) | (
+    { readonly __typename: 'HistoriesYaml' }
+    & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+  ) | (
+    { readonly __typename: 'Mdx' }
+    & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
+  ) | (
+    { readonly __typename: 'OssesYaml' }
+    & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
+  ) | (
+    { readonly __typename: 'ProjectsYaml' }
+    & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+    & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
+  ) | (
+    { readonly __typename: 'SlidesYaml' }
+    & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
+  )> };
+
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4691,32 +4715,29 @@ export type HistoryPageQuery = { readonly histories: { readonly group: ReadonlyA
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { readonly timelineGroups: { readonly group: ReadonlyArray<(
-      { dateYear: TimelineGroupConnection['fieldValue'] }
-      & { readonly nodes: ReadonlyArray<(
-        { readonly __typename: 'ArticlesYaml' }
-        & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'CertificationsYaml' }
-        & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
-      ) | (
-        { readonly __typename: 'HistoriesYaml' }
-        & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
-      ) | (
-        { readonly __typename: 'Mdx' }
-        & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
-      ) | (
-        { readonly __typename: 'OssesYaml' }
-        & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'ProjectsYaml' }
-        & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
-        & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
-      ) | (
-        { readonly __typename: 'SlidesYaml' }
-        & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
-      )> }
-    )> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
+export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'ArticlesYaml' }
+      & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
+    ) | (
+      { readonly __typename: 'CertificationsYaml' }
+      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+    ) | (
+      { readonly __typename: 'HistoriesYaml' }
+      & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'Mdx' }
+      & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
+    ) | (
+      { readonly __typename: 'OssesYaml' }
+      & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
+    ) | (
+      { readonly __typename: 'ProjectsYaml' }
+      & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
+    ) | (
+      { readonly __typename: 'SlidesYaml' }
+      & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
+    )> } };
 
 export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
 
