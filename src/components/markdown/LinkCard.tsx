@@ -1,4 +1,5 @@
 import LinkIcon from "@mui/icons-material/LinkRounded";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
@@ -42,7 +43,7 @@ export const LinkCard = (
                   flexShrink: 0,
                 }}
               />
-              <div
+              <Box
                 sx={{
                   overflow: "hidden",
                   textOverflow: "ellipsis",
@@ -51,7 +52,7 @@ export const LinkCard = (
                 }}
               >
                 {href}
-              </div>
+              </Box>
             </Typography>
           }
           disableTypography
