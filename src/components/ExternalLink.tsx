@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import LaunchIcon from "@mui/icons-material/LaunchRounded";
+import { styled } from "@mui/material/styles";
 import { type ReactNode } from "react";
 
 const StyledLaunchIcon = styled(LaunchIcon)(({ theme }) => ({

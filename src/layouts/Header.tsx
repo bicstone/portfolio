@@ -1,6 +1,7 @@
 import DarkModeIcon from "@mui/icons-material/DarkModeRounded";
 import LightModeIcon from "@mui/icons-material/LightModeRounded";
 import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
 import Toolbar from "@mui/material/Toolbar";
@@ -28,7 +29,7 @@ export const Header = (): JSX.Element => {
       elevation={0}
       role="banner"
       enableColorOnDark
-      css={{
+      sx={{
         ...(!scrollTrigger && {
           "&&": {
             // && is required to override theme CSS specificity
@@ -37,15 +38,15 @@ export const Header = (): JSX.Element => {
         }),
       }}
     >
-      <Toolbar variant="dense" css={{ flexWrap: "wrap" }}>
+      <Toolbar variant="dense" sx={{ flexWrap: "wrap" }}>
         <Link
           component={RouterLink}
           to="/"
           title="ホームに移動"
           underline="hover"
         >
-          <div
-            css={(theme) => ({
+          <Box
+            sx={(theme) => ({
               display: "flex",
               alignItems: "center",
               gap: theme.spacing(1),
@@ -53,7 +54,7 @@ export const Header = (): JSX.Element => {
           >
             <BicstoneLogo
               aria-hidden="true"
-              css={(theme) => ({
+              sx={(theme) => ({
                 display: "inline-flex",
                 width: theme.spacing(3),
                 height: theme.spacing(3),
@@ -67,10 +68,13 @@ export const Header = (): JSX.Element => {
             >
               おおいし （@bicstone）
             </Typography>
-          </div>
+          </Box>
         </Link>
-        <div css={{ flexGrow: 1 }} />
-        <nav css={(theme) => ({ display: "flex", gap: theme.spacing(1) })}>
+        <Box sx={{ flexGrow: 1 }} />
+        <Box
+          component="nav"
+          sx={(theme) => ({ display: "flex", gap: theme.spacing(1) })}
+        >
           <TimelineSearchButton />
           <IconButton
             size="small"
@@ -81,7 +85,7 @@ export const Header = (): JSX.Element => {
           >
             {paletteMode === "light" ? <LightModeIcon /> : <DarkModeIcon />}
           </IconButton>
-        </nav>
+        </Box>
       </Toolbar>
     </AppBar>
   );

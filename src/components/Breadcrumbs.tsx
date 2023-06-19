@@ -19,7 +19,7 @@ export const Breadcrumbs = (
     <MuiBreadcrumbs
       separator={<NavigateNextIcon fontSize="small" />}
       aria-label="breadcrumb"
-      css={{ wordBreak: "break-all" }}
+      sx={{ wordBreak: "break-all" }}
       {...MuiBreadcrumbsProps}
     >
       <Link component={RouterLink} color="inherit" to="/">

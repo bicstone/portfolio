@@ -21,15 +21,11 @@ export const LinkCard = (
   }
 
   return (
-    <Card
-      component="figure"
-      css={(theme) => ({ margin: theme.spacing(2) })}
-      elevation={2}
-    >
+    <Card component="figure" sx={{ margin: 2 }} elevation={2}>
       <CardActionArea component="a" rel="external noopener nofollow" {...props}>
         <CardHeader
           title={
-            <Typography variant="subtitle1" css={{ wordBreak: "break-all" }}>
+            <Typography variant="subtitle1" sx={{ wordBreak: "break-all" }}>
               {title}
             </Typography>
           }
@@ -37,17 +33,17 @@ export const LinkCard = (
             <Typography
               variant="caption"
               color="text.secondary"
-              css={{ display: "flex", alignItems: "center", width: "100%" }}
+              sx={{ display: "flex", alignItems: "center", width: "100%" }}
             >
               <LinkIcon
                 color="inherit"
-                css={(theme) => ({
-                  marginRight: theme.spacing(0.5),
+                sx={{
+                  marginRight: 0.5,
                   flexShrink: 0,
-                })}
+                }}
               />
               <div
-                css={{
+                sx={{
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
@@ -59,7 +55,7 @@ export const LinkCard = (
             </Typography>
           }
           disableTypography
-          css={{ "& .MuiCardHeader-content": { overflow: "hidden" } }}
+          sx={{ "& .MuiCardHeader-content": { overflow: "hidden" } }}
         />
       </CardActionArea>
     </Card>

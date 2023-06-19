@@ -4,13 +4,14 @@ import DevicesIcon from "@mui/icons-material/DevicesRounded";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphoneRounded";
 import SecurityIcon from "@mui/icons-material/SecurityRounded";
 import WidgetsIcon from "@mui/icons-material/WidgetsRounded";
+import Box from "@mui/material/Box";
 
 import { WhatICanDoCard } from "./WhatICanDoCard";
 
 export const WhatICanDoList = (): JSX.Element => {
   return (
-    <div
-      css={(theme) => ({
+    <Box
+      sx={(theme) => ({
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
         gap: theme.spacing(2),
@@ -52,6 +53,6 @@ export const WhatICanDoList = (): JSX.Element => {
         subName="3D CAD, 2D CADなどを用いた機械設計や強度計算ができます。3Dプリンター、NC工作機械、旋盤など各種工作機械を使用することもできます。"
         avatar={<WidgetsIcon />}
       />
-    </div>
+    </Box>
   );
 };

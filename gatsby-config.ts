@@ -44,7 +44,6 @@ const config: GatsbyConfig = {
   },
 
   jsxRuntime: "automatic",
-  jsxImportSource: "@emotion/react",
 
   plugins: [
     `gatsby-plugin-emotion`,

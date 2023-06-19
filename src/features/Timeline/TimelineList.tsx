@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
 import { Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { graphql } from "gatsby";
 import { type ComponentProps, forwardRef, Fragment } from "react";
 import { VirtuosoGrid } from "react-virtuoso";
@@ -230,7 +230,7 @@ export const TimelineList = ({
             <Typography
               variant="h6"
               component="h2"
-              css={{ gridColumn: "1 / -1" }}
+              sx={{ gridColumn: "1 / -1" }}
             >
               {dateYear}
             </Typography>

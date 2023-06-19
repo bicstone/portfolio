@@ -1,4 +1,5 @@
 import SelfImprovementIcon from "@mui/icons-material/SelfImprovementRounded";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
@@ -20,11 +21,11 @@ export const Head: HeadFC = () => {
 const NotFound = (): JSX.Element => {
   return (
     <Container maxWidth="md">
-      <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
+      <Box sx={{ margin: 2, textAlign: "center" }}>
         {/* 見つかりませんでした */}
         <SelfImprovementIcon
           color="primary"
-          css={(theme) => ({
+          sx={(theme) => ({
             width: theme.spacing(20),
             height: theme.spacing(20),
           })}
@@ -35,14 +36,14 @@ const NotFound = (): JSX.Element => {
         <Typography variant="body1">
           {TRANSLATION.notFound.description}
         </Typography>
-      </div>
-      <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
+      </Box>
+      <Box sx={{ margin: 2, textAlign: "center" }}>
         <Button
           component={RouterLink}
           variant="contained"
           to="/"
           color="secondary"
-          css={(theme) => ({ marginRight: theme.spacing(2) })}
+          sx={{ marginRight: 2 }}
         >
           {TRANSLATION.notFound.backToTimeline}
         </Button>
@@ -52,7 +53,7 @@ const NotFound = (): JSX.Element => {
           to="/"
           color="secondary"
         ></Button>
-      </div>
+      </Box>
     </Container>
   );
 };

@@ -90,11 +90,7 @@ const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
   const outputGroups = data.outputs;
 
   return (
-    <Container
-      maxWidth="md"
-      fixed
-      css={(theme) => ({ margin: theme.spacing(4, "auto") })}
-    >
+    <Container maxWidth="md" fixed sx={{ marginY: 4, marginX: "auto" }}>
       <Breadcrumbs title={title} />
       <Spacer y={4} />
       <TimelineTabList />

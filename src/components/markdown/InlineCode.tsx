@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
 import { CONSOLE_FONT_FAMILY } from "./constants";
 

@@ -41,7 +41,7 @@ export const InarticleAd = ({ pubId, adId }: InarticleAdProps): JSX.Element => {
       />
       <ins
         className="adsbygoogle"
-        css={{ display: "block", textAlign: "center" }}
+        style={{ display: "block", textAlign: "center" }}
         data-ad-layout="in-article"
         data-ad-format="fluid"
         data-ad-client={pubId}

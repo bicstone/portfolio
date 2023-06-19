@@ -1,5 +1,6 @@
 import AccessTimeIcon from "@mui/icons-material/AccessTimeRounded";
 import UpdateIcon from "@mui/icons-material/UpdateRounded";
+import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
 import NoSsr from "@mui/material/NoSsr";
@@ -153,14 +154,14 @@ const BlogPostTemplate = ({
     <Container maxWidth="md">
       <Breadcrumbs
         title={post.frontmatter.title}
-        css={(theme) => ({
-          marginTop: theme.spacing(2),
-          marginBottom: theme.spacing(2),
-        })}
+        sx={{
+          marginTop: 2,
+          marginBottom: 2,
+        }}
       />
 
-      <div
-        css={{
+      <Box
+        sx={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -174,44 +175,42 @@ const BlogPostTemplate = ({
           variant="body2"
           color="textSecondary"
           component="div"
-          css={(theme) => ({
+          sx={(theme) => ({
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
-            marginTop: theme.spacing(1),
+            marginTop: 1,
           })}
         >
           {isDefined(post.frontmatter.updateDate) && (
             <>
-              <UpdateIcon
-                fontSize="inherit"
-                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-              />
-              <time
+              <UpdateIcon fontSize="inherit" sx={{ marginRight: 0.5 }} />
+              <Box
+                component="time"
                 dateTime={post.frontmatter.updateDate}
-                css={(theme) => ({ marginRight: theme.spacing(1) })}
+                sx={{ marginRight: 1 }}
               >
                 {updateDateDate}
-              </time>
+              </Box>
             </>
           )}
           {isDefined(post.frontmatter.date) && (
             <>
-              <AccessTimeIcon
-                fontSize="inherit"
-                css={(theme) => ({ marginRight: theme.spacing(0.5) })}
-              />
+              <AccessTimeIcon fontSize="inherit" sx={{ marginRight: 0.5 }} />
               <time dateTime={post.frontmatter.date}>{dateDate}</time>
             </>
           )}
         </Typography>
-      </div>
+      </Box>
 
       <Card
         variant="outlined"
-        css={(theme) => ({
-          margin: theme.spacing(3, 0),
-          padding: theme.spacing(0, 1, 3, 1),
+        sx={(theme) => ({
+          marginY: 3,
+          paddingTop: 0,
+          paddingRight: 1,
+          paddingBottom: 3,
+          paddingLeft: 1,
           borderRadius: theme.spacing(2),
           "&:hover": {
             background: "inherit",
@@ -231,7 +230,7 @@ const BlogPostTemplate = ({
         <BlogPostDetail>{children}</BlogPostDetail>
       </Card>
 
-      <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
+      <Box component="aside" sx={{ marginY: 4 }}>
         <Typography
           variant="h5"
           component="h2"
@@ -241,20 +240,21 @@ const BlogPostTemplate = ({
           {TRANSLATION.blog.authorTitle}
         </Typography>
 
-        <section
-          css={(theme) => ({
-            marginTop: theme.spacing(2),
-            marginBottom: theme.spacing(2),
-          })}
+        <Box
+          component="section"
+          sx={{
+            marginTop: 2,
+            marginBottom: 2,
+          }}
         >
           <HelloContent />
-        </section>
-      </aside>
+        </Box>
+      </Box>
 
       {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
         isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
           <NoSsr defer>
-            <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
+            <Box component="aside" sx={{ marginY: 4 }}>
               <Typography
                 variant="h5"
                 component="h2"
@@ -267,11 +267,11 @@ const BlogPostTemplate = ({
                 pubId={process.env.GATSBY_ADSENSE_PUB_ID}
                 adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
               />
-            </aside>
+            </Box>
           </NoSsr>
         )}
 
-      <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
+      <Box component="aside" sx={{ marginY: 4 }}>
         <Typography
           variant="h5"
           component="h2"
@@ -282,14 +282,14 @@ const BlogPostTemplate = ({
           {TRANSLATION.blog.relatedTitle}
         </Typography>
         <RelatedBlogPostList posts={relatedPosts} />
-      </aside>
+      </Box>
 
       <Breadcrumbs
         title={post.frontmatter.title}
-        css={(theme) => ({
-          marginTop: theme.spacing(2),
-          marginBottom: theme.spacing(2),
-        })}
+        sx={{
+          marginTop: 2,
+          marginBottom: 2,
+        }}
       />
     </Container>
   );

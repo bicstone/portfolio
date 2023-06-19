@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
 export const Video = styled("video")(({ theme }) => ({
   width: `calc(100% - ${theme.spacing(4)})`,

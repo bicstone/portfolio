@@ -31,13 +31,13 @@ export const OssCard = (props: {
         title={oss.title}
         href={oss.url}
         rel="external noopener"
-        css={{ height: "100%" }}
+        sx={{ height: "100%" }}
       >
         <CardHeader
           avatar={
             <GitHubIcon
               aria-hidden="true"
-              css={(theme) => ({
+              sx={(theme) => ({
                 width: theme.spacing(5),
                 height: theme.spacing(5),
               })}

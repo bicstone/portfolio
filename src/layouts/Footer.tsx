@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { Link as RouterLink } from "gatsby";
@@ -10,15 +11,16 @@ import { BackToTop } from "./BackToTop";
 export const Footer = (): JSX.Element => {
   const nowDate = new Date();
   return (
-    <footer
-      css={(theme) => ({
+    <Box
+      component="footer"
+      sx={(theme) => ({
         alignItems: "center",
         borderTop: `1px solid ${theme.vars.palette.divider}`,
         display: "flex",
         flexDirection: "column",
         marginBottom: `env(safe-area-inset-bottom, 0px)`,
         marginTop: "auto",
-        padding: theme.spacing(3),
+        padding: 3,
       })}
     >
       <Typography
@@ -26,7 +28,7 @@ export const Footer = (): JSX.Element => {
         color="textSecondary"
         align="center"
         paragraph
-        css={(theme) => ({ display: "inline-flex", gap: theme.spacing(1) })}
+        sx={(theme) => ({ display: "inline-flex", gap: theme.spacing(1) })}
       >
         <Link component={RouterLink} color="inherit" to="/">
           ホーム
@@ -47,7 +49,7 @@ export const Footer = (): JSX.Element => {
         {`© ${nowDate.getFullYear()} Oishi Takanori / Made with Gatsby.js`}
       </Typography>
       <BackToTop />
-    </footer>
+    </Box>
   );
 };
 

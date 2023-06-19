@@ -48,7 +48,7 @@ export const HistoryCard = memo(
           id={`${id}-header`}
         >
           <CardHeader
-            css={{ padding: 0 }}
+            sx={{ padding: 0 }}
             avatar={<SvgAvatar aria-hidden="true" svg={history.icon} />}
             title={
               <>
@@ -68,11 +68,7 @@ export const HistoryCard = memo(
           />
         </AccordionSummary>
         <AccordionDetails>
-          <Typography
-            variant="body2"
-            component="div"
-            css={(theme) => ({ margin: theme.spacing(2) })}
-          >
+          <Typography variant="body2" component="div" sx={{ margin: 2 }}>
             {history.excerpt}
           </Typography>
         </AccordionDetails>

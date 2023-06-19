@@ -50,11 +50,7 @@ export const Head: HeadFC = ({ location }) => {
 
 const MePage = ({ data }: PageProps<MePageQuery>): JSX.Element => {
   return (
-    <Container
-      maxWidth="lg"
-      fixed
-      css={(theme) => ({ margin: theme.spacing(4, "auto") })}
-    >
+    <Container maxWidth="lg" fixed sx={{ marginY: 4, marginX: "auto" }}>
       <Breadcrumbs title={title} />
       <Spacer y={8} />
       <section>

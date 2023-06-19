@@ -73,7 +73,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       <Container
         maxWidth="md"
         fixed
-        css={(theme) => ({ margin: theme.spacing(4, "auto") })}
+        sx={{marginY: 4, marginX: "auto"}}
       >
         <BioCardList />
         <Spacer y={6} />

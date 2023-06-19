@@ -40,11 +40,7 @@ const HistoryPage = ({ data }: PageProps<HistoryPageQuery>): JSX.Element => {
   const projectGroups = data.histories;
 
   return (
-    <Container
-      maxWidth="md"
-      fixed
-      css={(theme) => ({ margin: theme.spacing(4, "auto") })}
-    >
+    <Container maxWidth="md" fixed sx={{ marginY: 4, marginX: "auto" }}>
       <Breadcrumbs title={title} />
       <Spacer y={4} />
       <TimelineTabList />

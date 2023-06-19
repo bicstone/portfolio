@@ -29,7 +29,7 @@ export const ProjectCard = memo(
 
     return (
       <CardHeader
-        css={(theme) => ({
+        sx={(theme) => ({
           "&:not(:last-of-type)": {
             borderBottom: `1px solid ${theme.vars.palette.divider}`,
           },
@@ -59,7 +59,7 @@ export const ProjectCard = memo(
                 key={tag}
                 label={tag}
                 role="listitem"
-                css={(theme) => ({
+                sx={(theme) => ({
                   color: theme.vars.palette.text.secondary,
                 })}
               />

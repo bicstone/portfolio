@@ -1,6 +1,6 @@
-import styled, { type CSSObject } from "@emotion/styled";
 import CheckIcon from "@mui/icons-material/CheckRounded";
 import Button from "@mui/material/Button";
+import { styled, type CSSObject } from "@mui/material/styles";
 import { darken, lighten } from "@mui/material/styles";
 import { Link } from "gatsby";
 import { type HTMLAttributes } from "react";
@@ -131,7 +131,7 @@ export const TimelineTabList = (
         component={Link}
         to="/"
         activeClassName={activeClassName}
-        css={(theme) => {
+        sx={(theme) => {
           return {
             ...adoptColorTokens(defaultColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
@@ -147,7 +147,7 @@ export const TimelineTabList = (
         component={Link}
         to="/outputs"
         activeClassName={activeClassName}
-        css={(theme) => {
+        sx={(theme) => {
           return {
             ...adoptColorTokens(outputColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
@@ -163,7 +163,7 @@ export const TimelineTabList = (
         component={Link}
         to="/projects"
         activeClassName={activeClassName}
-        css={(theme) => {
+        sx={(theme) => {
           return {
             ...adoptColorTokens(projectColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
@@ -179,7 +179,7 @@ export const TimelineTabList = (
         component={Link}
         to="/histories"
         activeClassName={activeClassName}
-        css={(theme) => {
+        sx={(theme) => {
           return {
             ...adoptColorTokens(historyColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(

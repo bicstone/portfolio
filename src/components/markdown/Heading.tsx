@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
 import Link from "@mui/material/Link";
 import Typography, { type TypographyProps } from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
 import { slug } from "github-slugger";
 
 export const StyledTypography = styled(Typography)(({ theme, variant }) => ({

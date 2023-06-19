@@ -1,5 +1,4 @@
-import isPropValid from "@emotion/is-prop-valid";
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
 export type SpacerProps =
   | {
@@ -12,8 +11,7 @@ export type SpacerProps =
     };
 
 export const SpacerBase = styled("span", {
-  shouldForwardProp: (prop) =>
-    isPropValid(prop) && prop !== "x" && prop !== "y",
+  shouldForwardProp: (prop) => prop !== "x" && prop !== "y",
 })<SpacerProps>(({ x, y, theme }) => {
   const width = x ?? 1;
   const height = y ?? 1;

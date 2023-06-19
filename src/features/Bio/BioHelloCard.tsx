@@ -12,7 +12,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
       <CardActionArea
         component={RouterLink}
         to="/me"
-        css={{ height: "100%" }}
+        sx={{ height: "100%" }}
         title="もっと詳しく"
       >
         <CardHeader
@@ -33,16 +33,16 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
                 variant="body2"
                 component="h2"
                 color="text.secondary"
-                css={(theme) => ({
+                sx={{
                   display: "-webkit-box",
                   maxHeight: "5rem",
                   overflow: "hidden",
-                  marginBottom: theme.spacing(1),
+                  marginBottom: 1,
                   textOverflow: "ellipsis",
                   WebkitBoxOrient: "vertical",
                   WebkitLineClamp: 4,
                   wordBreak: "break-all",
-                })}
+                }}
               >
                 {TRANSLATION.hello.description}
               </Typography>
@@ -50,7 +50,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
               <Typography
                 variant="body2"
                 color="secondary"
-                css={{ textDecoration: "underline" }}
+                sx={{ textDecoration: "underline" }}
               >
                 もっと詳しく
               </Typography>

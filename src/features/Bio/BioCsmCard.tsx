@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
+import Box from "@mui/material/Box";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
+import { styled } from "@mui/material/styles";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 
 import { ExternalLink } from "@/components/ExternalLink";
@@ -38,11 +39,11 @@ export const BioCsmCard = (props: CardProps): JSX.Element => {
         <ExternalLink>
           <CsmIcon aria-hidden="true" />
         </ExternalLink>
-        <span css={{ ...visuallyHidden }}>Certified ScrumMaster®</span>
-        <span css={{ ...visuallyHidden }}>
+        <Box sx={visuallyHidden}>Certified ScrumMaster®</Box>
+        <Box sx={visuallyHidden}>
           Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc.
           Any unauthorized use is strictly prohibited.
-        </span>
+        </Box>
       </StyledCardActionArea>
     </StyledCard>
   );

@@ -1,6 +1,7 @@
-import styled from "@emotion/styled";
+import Box from "@mui/material/Box";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
+import { styled } from "@mui/material/styles";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 
 import { ExternalLink } from "@/components/ExternalLink";
@@ -38,9 +39,7 @@ export const BioRissCard = (props: CardProps): JSX.Element => {
         <ExternalLink>
           <RissIcon aria-hidden="true" />
         </ExternalLink>
-        <span css={{ ...visuallyHidden }}>
-          情報処理安全確保支援士 (第017758号)
-        </span>
+        <Box sx={visuallyHidden}>情報処理安全確保支援士 (第017758号)</Box>
       </StyledCardActionArea>
     </StyledCard>
   );

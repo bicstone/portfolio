@@ -1,10 +1,10 @@
-import styled from "@emotion/styled";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import MuiTimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import Link from "@mui/material/Link";
+import { styled } from "@mui/material/styles";
 
 import type { ReactNode } from "react";
 
@@ -42,11 +42,11 @@ export const TimelineItem = (props: {
     <StyledMuiTimelineItem>
       <TimelineSeparator>
         <TimelineConnector
-          css={{ visibility: isFirstItem ? "hidden" : "visible" }}
+          sx={{ visibility: isFirstItem ? "hidden" : "visible" }}
         />
         <StyledTimelineDot color="primary" />
         <TimelineConnector
-          css={{ visibility: isLastItem ? "hidden" : "visible" }}
+          sx={{ visibility: isLastItem ? "hidden" : "visible" }}
         />
       </TimelineSeparator>
       <StyledTimelineContent>

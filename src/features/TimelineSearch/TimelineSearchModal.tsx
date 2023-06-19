@@ -1,5 +1,6 @@
 import CloseIcon from "@mui/icons-material/CloseRounded";
 import SearchIcon from "@mui/icons-material/SearchRounded";
+import Box from "@mui/material/Box";
 import Dialog, { dialogClasses } from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import Divider from "@mui/material/Divider";
@@ -62,21 +63,21 @@ export const TimelineSearchModal = (props: {
   const { result } = useTimelineSearch({ keyword });
 
   const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("md"));
+  const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Dialog
       open
       onClose={onClose}
       fullScreen={mobile}
-      css={(theme) => ({
+      sx={(theme) => ({
         [`& .${dialogClasses.paper}`]: {
           background: theme.vars.palette.background.paper,
         },
       })}
     >
-      <div
-        css={(theme) => ({
+      <Box
+        sx={(theme) => ({
           width: 600,
           maxWidth: "100%",
           height: 500,
@@ -91,7 +92,7 @@ export const TimelineSearchModal = (props: {
         })}
       >
         <DialogTitle
-          css={{
+          sx={{
             display: "flex",
             justifyContent: "space-between",
             flexShrink: 0,
@@ -128,19 +129,22 @@ export const TimelineSearchModal = (props: {
             enterKeyHint: TRANSLATION.search.title,
           }}
           onChange={handleChange}
-          css={(theme) => ({ padding: theme.spacing(0, 3), flexShrink: 0 })}
+          sx={{ paddingX: 3, flexShrink: 0 }}
         />
         <Divider
-          css={(theme) => ({
-            margin: theme.spacing(2, -3, 0, -3),
+          sx={{
+            marginTop: 2,
+            marginRight: -3,
+            marginBottom: 0,
+            marginLeft: -3,
             flexShrink: 0,
-          })}
+          }}
         />
         <List
           role="listbox"
           id={listId}
           dense
-          css={{ overflowY: "auto", flexGrow: 1 }}
+          sx={{ overflowY: "auto", flexGrow: 1 }}
           aria-busy={filtering}
         >
           {isDefined(result) ? (
@@ -172,7 +176,7 @@ export const TimelineSearchModal = (props: {
             ))
           )}
         </List>
-      </div>
+      </Box>
     </Dialog>
   );
 };

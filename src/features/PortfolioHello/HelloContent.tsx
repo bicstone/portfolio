@@ -20,12 +20,12 @@ export const HelloContent = ({
         sm={3}
         md={2}
         component="aside"
-        css={{ textAlign: "center" }}
+        sx={{ textAlign: "center" }}
       >
         <BicstoneLogo
           aria-hidden="true"
-          css={(theme) => ({
-            margin: theme.spacing(0, 2),
+          sx={(theme) => ({
+            marginX: 2,
             width: theme.spacing(12),
             height: theme.spacing(12),
           })}
@@ -36,7 +36,7 @@ export const HelloContent = ({
           <CardActionArea
             component={RouterLink}
             to={linkToHome ? "/" : "/me"}
-            css={{ height: "100%" }}
+            sx={{ height: "100%" }}
             title={linkToHome ? "ホームに戻る" : "もっと詳しく"}
           >
             <CardHeader
@@ -68,7 +68,7 @@ export const HelloContent = ({
                   <Typography
                     variant="body2"
                     color="secondary"
-                    css={{ textDecoration: "underline" }}
+                    sx={{ textDecoration: "underline" }}
                   >
                     {linkToHome ? "ホームに戻る" : "もっと詳しく"}
                   </Typography>

@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
 /**
  * アイコンはBase64埋め込みのCSSが最もパフォーマンスがよい

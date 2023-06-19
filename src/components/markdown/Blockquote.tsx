@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
 
 export const Blockquote = styled("blockquote")(({ theme }) => ({
   margin: theme.spacing(2),

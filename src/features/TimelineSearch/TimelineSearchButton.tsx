@@ -43,7 +43,7 @@ export const TimelineSearchButton = (): JSX.Element => {
             fallback={
               <Backdrop
                 open
-                css={(theme) => ({ zIndex: theme.zIndex.modal })}
+                sx={(theme) => ({ zIndex: theme.zIndex.modal })}
                 onClick={handleClose}
               >
                 <Alert severity="error">{TRANSLATION.search.error}</Alert>
@@ -54,7 +54,7 @@ export const TimelineSearchButton = (): JSX.Element => {
               fallback={
                 <Backdrop
                   open
-                  css={(theme) => ({
+                  sx={(theme) => ({
                     color: theme.vars.palette.common.white,
                     zIndex: theme.zIndex.modal,
                   })}

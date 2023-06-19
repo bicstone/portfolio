@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader, { cardHeaderClasses } from "@mui/material/CardHeader";
+import { styled } from "@mui/material/styles";
 import { Link as RouterLink } from "gatsby";
 
 import type { ReactNode } from "react";

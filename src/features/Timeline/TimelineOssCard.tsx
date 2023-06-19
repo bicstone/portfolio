@@ -1,5 +1,5 @@
-import styled, { type CSSObject } from "@emotion/styled";
 import { type CardProps } from "@mui/material/Card";
+import { styled, type CSSObject } from "@mui/material/styles";
 import { alpha } from "@mui/material/styles";
 import { graphql } from "gatsby";
 

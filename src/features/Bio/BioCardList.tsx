@@ -1,3 +1,4 @@
+import Box from "@mui/material/Box";
 import { withPrefix } from "gatsby";
 
 import { BioCsmCard } from "./BioCsmCard";
@@ -20,8 +21,8 @@ import { ZennLogo } from "@/components/logos/ZennLogo";
 
 export const BioCardList = (): JSX.Element => {
   return (
-    <div
-      css={(theme) => ({
+    <Box
+      sx={(theme) => ({
         display: "grid",
         gap: theme.spacing(3),
         gridTemplateColumns: "repeat(4, 1fr)",
@@ -60,7 +61,7 @@ export const BioCardList = (): JSX.Element => {
         url="https://www.linkedin.com/in/bicstone"
         variant="elevation"
       />
-      <BioHelloCard variant="elevation" css={{ gridColumn: "1 / 3" }} />
+      <BioHelloCard variant="elevation" sx={{ gridColumn: "1 / 3" }} />
       <BioRissCard variant="elevation" />
       <BioCsmCard variant="elevation" />
       <BioSocialLinkCard
@@ -127,6 +128,6 @@ export const BioCardList = (): JSX.Element => {
         url={withPrefix("/rss.xml")}
         variant="elevation"
       />
-    </div>
+    </Box>
   );
 };

@@ -23,7 +23,7 @@ export const BackToTop = (): JSX.Element => {
         title={TRANSLATION.scrollToTop.title}
         aria-label={TRANSLATION.scrollToTop.title}
         onClick={handleClick}
-        css={(theme) => ({
+        sx={(theme) => ({
           position: "fixed",
           bottom: theme.spacing(3),
           marginBottom: `env(safe-area-inset-bottom, 0px)`,

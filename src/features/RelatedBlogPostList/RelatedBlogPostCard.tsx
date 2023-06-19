@@ -36,7 +36,7 @@ export const RelatedBlogPostCard = (props: {
               <Typography
                 component="div"
                 variant="subtitle2"
-                css={(theme) => {
+                sx={(theme) => {
                   const typography = theme.typography.subtitle2;
                   const fontSize = typography.fontSize;
                   const lineHeight = typography.lineHeight;

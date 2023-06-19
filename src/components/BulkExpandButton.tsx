@@ -12,7 +12,7 @@ export const BulkExpandButton = (props: {
 
   return (
     <Button
-      css={(theme) => ({
+      sx={(theme) => ({
         backgroundColor: theme.vars.palette.background.default,
         "&:hover": {
           backgroundColor: theme.vars.palette.background.default,

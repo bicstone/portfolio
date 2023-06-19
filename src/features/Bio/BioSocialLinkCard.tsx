@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
 import { type ReactNode } from "react";
 
 import { ExternalLink } from "@/components/ExternalLink";
