@@ -101,7 +101,7 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
               name: SITE_METADATA.title,
               logo: {
                 "@type": "ImageObject",
-                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
+                url: SITE_METADATA.logoImage,
               },
             },
             description: post.frontmatter.excerpt,

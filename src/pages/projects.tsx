@@ -27,8 +27,6 @@ export const Head: HeadFC<ProjectsPageQuery> = ({ location }) => {
     <HeadTemplate
       location={location}
       title={title}
-      description={SITE_METADATA.description}
-      image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
       imageAlt={title}
       type="blog"
     />

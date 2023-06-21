@@ -40,8 +40,6 @@ export const Head: HeadFC = ({ location }) => {
     <HeadTemplate
       location={location}
       title={`${title} - ${SITE_METADATA.title}`}
-      description={SITE_METADATA.description}
-      image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
       imageAlt={SITE_METADATA.title}
       type="profile"
     />
