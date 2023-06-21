@@ -7,6 +7,7 @@ export const InlineCode = styled("span")(({ theme }) => ({
   fontFamily: CONSOLE_FONT_FAMILY,
   paddingLeft: theme.spacing(0.5),
   paddingRight: theme.spacing(0.5),
-  backgroundColor: theme.vars.palette.divider,
+  backgroundColor: theme.vars.palette.surfaceVariant.main,
+  color: theme.vars.palette.onSurfaceVariant.main,
   borderRadius: theme.shape.borderRadius,
 }));

@@ -33,8 +33,6 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
       <HeadTemplate
         location={location}
         title={title}
-        description={SITE_METADATA.description}
-        image={`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`}
         imageAlt={title}
         type="blog"
       />
@@ -45,7 +43,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "Blog",
             headline: SITE_METADATA.title,
-            image: [`${SITE_METADATA.siteUrl}${SITE_METADATA.image}`],
+            image: [SITE_METADATA.logoImage],
             datePublished: buildTime,
             dateModified: buildTime,
             description: SITE_METADATA.description,
@@ -59,7 +57,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
               name: SITE_METADATA.title,
               logo: {
                 "@type": "ImageObject",
-                url: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
+                url: SITE_METADATA.logoImage,
               },
             },
             blogPost: [
@@ -69,7 +67,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
                 image:
                   item.__typename === "Mdx"
                     ? `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`
-                    : `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
+                    : SITE_METADATA.logoImage,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",

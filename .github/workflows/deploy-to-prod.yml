@@ -47,7 +47,6 @@ jobs:
           GTM_ID: ${{ vars.GTM_ID }}
           GATSBY_ADSENSE_PUB_ID: ${{ vars.GATSBY_ADSENSE_PUB_ID }}
           GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ vars.GATSBY_ADSENSE_INARTICLE_AD_ID }}
-          GATSBY_LOG_ROCKET_ID: ${{ vars.GATSBY_LOG_ROCKET_ID }}
 
       - uses: aws-actions/configure-aws-credentials@v2
         with:

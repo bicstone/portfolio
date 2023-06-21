@@ -1,3 +1,5 @@
+import { defaultColorTokens } from "./themes";
+
 import type { HeadProps } from "gatsby";
 
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
@@ -9,12 +11,19 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 export const HeadTemplate = (props: {
   location: HeadProps["location"];
   title: string;
-  description: string;
-  image: string;
+  description?: string;
+  image?: string;
   imageAlt: string;
   type: string;
 }): JSX.Element => {
-  const { location, title, description, image, imageAlt, type } = props;
+  const {
+    location,
+    title,
+    description = SITE_METADATA.description,
+    image = SITE_METADATA.ogpImage,
+    imageAlt,
+    type,
+  } = props;
 
   const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
   const canonical = `${SITE_METADATA.siteUrl}${location.pathname}`;
@@ -81,6 +90,16 @@ export const HeadTemplate = (props: {
       />
       <meta name="application-name" content={SITE_METADATA.shortTitle} />
       <meta name="msapplication-TileColor" content={SITE_METADATA.tileColor} />
+      <meta
+        name="theme-color"
+        media="(prefers-color-scheme: light)"
+        content={defaultColorTokens.lightColorTokens.surfaceVariant}
+      />
+      <meta
+        name="theme-color"
+        media="(prefers-color-scheme: dark)"
+        content={defaultColorTokens.darkColorTokens.surfaceVariant}
+      />
       {/* others */}
       <meta
         name="viewport"
@@ -145,7 +164,7 @@ export const HeadTemplate = (props: {
             "@context": "https://schema.org",
             "@type": "Organization",
             url: SITE_METADATA.siteUrl,
-            logo: `${SITE_METADATA.siteUrl}${SITE_METADATA.image}`,
+            logo: SITE_METADATA.logoImage,
           }),
         }}
       />

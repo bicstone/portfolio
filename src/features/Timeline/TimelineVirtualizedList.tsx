@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import NoSsr from "@mui/material/NoSsr";
 import { graphql } from "gatsby";
@@ -136,6 +137,17 @@ export const TimelineVirtualizedList = ({
         }}
         itemContent={(index, item) => <TimelineItem key={index} item={item} />}
         css={(theme) => ({
+          animationName: keyframes({
+            "0%": {
+              opacity: 0,
+            },
+            "100%": {
+              opacity: 1,
+            },
+          }),
+          animationDuration: ".3s",
+          animationTimingFunction: "ease-in",
+
           height: "100%",
           // prevent flickering caused by virtual scrolling
           minHeight: minHeightDoubleColumn,

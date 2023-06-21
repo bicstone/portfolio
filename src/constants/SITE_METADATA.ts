@@ -5,7 +5,8 @@ export const SITE_METADATA = {
   description:
     "Webエンジニア/機械エンジニア おおいし (@bicstone) のポートフォリオサイトです。",
   author: "bicstone",
-  image: "/android-chrome-512x512.png",
+  logoImage: "https://static.bicstone.me/icon_circular.png",
+  ogpImage: "https://static.bicstone.me/og_image.png",
   firstName: "Takanori",
   lastName: "Oishi",
   defaultLanguage: "ja",
