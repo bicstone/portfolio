@@ -4672,25 +4672,32 @@ export type TimelineSlideCardFragment = Pick<SlidesYaml, 'title' | 'date' | 'url
 export type TimelineVirtualizedListTimelineFragment = { readonly nodes: ReadonlyArray<(
     { readonly __typename: 'ArticlesYaml' }
     & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
+    & { dateX: ArticlesYaml['date'] }
   ) | (
     { readonly __typename: 'CertificationsYaml' }
     & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+    & { dateX: CertificationsYaml['date'] }
   ) | (
     { readonly __typename: 'HistoriesYaml' }
     & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+    & { dateX: HistoriesYaml['date'] }
   ) | (
     { readonly __typename: 'Mdx' }
     & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
+    & { dateX: Mdx['date'] }
   ) | (
     { readonly __typename: 'OssesYaml' }
     & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
+    & { dateX: OssesYaml['date'] }
   ) | (
     { readonly __typename: 'ProjectsYaml' }
     & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+    & { dateX: ProjectsYaml['date'] }
     & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
   ) | (
     { readonly __typename: 'SlidesYaml' }
     & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
+    & { dateX: SlidesYaml['date'] }
   )> };
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
@@ -4718,25 +4725,32 @@ export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
+      & { dateX: ArticlesYaml['date'] }
     ) | (
       { readonly __typename: 'CertificationsYaml' }
       & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & { dateX: CertificationsYaml['date'] }
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
+      & { dateX: HistoriesYaml['date'] }
     ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
+      & { dateX: Mdx['date'] }
     ) | (
       { readonly __typename: 'OssesYaml' }
       & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
+      & { dateX: OssesYaml['date'] }
     ) | (
       { readonly __typename: 'ProjectsYaml' }
       & Pick<ProjectsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & { dateX: ProjectsYaml['date'] }
       & { readonly fields: Pick<TimelineFields, 'dateYear' | 'endDateYear'> }
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
+      & { dateX: SlidesYaml['date'] }
     )> } };
 
 export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
