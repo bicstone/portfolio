@@ -21,6 +21,7 @@ export const query = graphql`
     nodes {
       __typename
       id
+      dateX: date(formatString: "X")
       ... on ArticlesYaml {
         ...TimelineArticleCard
       }
@@ -113,6 +114,13 @@ export const TimelineVirtualizedList = ({
   const minHeightSingleColumn = (CARD_HEIGHT + 24) * (items.nodes.length + 1);
   const minHeightDoubleColumn = minHeightSingleColumn / 2;
 
+  // XXX: Gatsby でなぜかソートされないことがあるため
+  // クライアント側でもう一回ソートする
+  // 重くなるため早めに原因特定したい
+  const sortedItems = Array.from(items.nodes).sort((a, b) => {
+    return Number(b.dateX) - Number(a.dateX);
+  });
+
   const FallBack = (): JSX.Element => (
     <div
       aria-busy="true"
@@ -131,7 +139,7 @@ export const TimelineVirtualizedList = ({
   return (
     <NoSsr defer fallback={<FallBack />}>
       <VirtuosoGrid
-        data={items.nodes}
+        data={sortedItems}
         components={{
           List: Container,
         }}

@@ -46,12 +46,6 @@ const NotFound = (): JSX.Element => {
         >
           {TRANSLATION.notFound.backToTimeline}
         </Button>
-        <Button
-          component={RouterLink}
-          variant="outlined"
-          to="/"
-          color="secondary"
-        ></Button>
       </div>
     </Container>
   );
