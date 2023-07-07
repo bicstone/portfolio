@@ -9,7 +9,9 @@ import { BioSocialLinkCard } from "./BioSocialLinkCard";
 import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
 import { ConnpassIcon } from "@/components/icons/ConnpassIcon";
 import { FeedIcon } from "@/components/icons/FeedIcon";
+import { FindyIcon } from "@/components/icons/FindyIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
+import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { PaycareerIcon } from "@/components/icons/PaycareerIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
@@ -109,6 +111,22 @@ export const BioCardList = (): JSX.Element => {
         subTitle="@bicstone"
         actionTitle="交流する"
         url="https://connpass.com/user/bicstone"
+        variant="elevation"
+      />
+      <BioSocialLinkCard
+        avatar={<FindyIcon aria-hidden="true" />}
+        title="Findy"
+        subTitle="AKvsozgldUI4i"
+        actionTitle="スキル偏差値を見る"
+        url="https://findy-code.io/share_profiles/AKvsozgldUI4i"
+        variant="elevation"
+      />
+      <BioSocialLinkCard
+        avatar={<LaprasIcon aria-hidden="true" />}
+        title="Lapras"
+        subTitle="@bicstone"
+        actionTitle="LAPRAS SCOREを見る"
+        url="https://lapras.com/public/bicstone"
         variant="elevation"
       />
       <BioSocialLinkCard
