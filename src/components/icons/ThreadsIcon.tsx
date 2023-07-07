@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 import { IconBase } from "./IconBase";
 
-import icon from "@/content/icons/FindyIcon.svg";
+import icon from "@/content/icons/ThreadsIcon.svg";
 
-export const FindyIcon = styled(IconBase)({
+export const ThreadsIcon = styled(IconBase)({
   content: `url(${icon})`,
 });

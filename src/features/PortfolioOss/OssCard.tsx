@@ -30,7 +30,7 @@ export const OssCard = (props: {
       <CardActionArea
         title={oss.title}
         href={oss.url}
-        rel="external noopener"
+        rel="external noopener follow me"
         css={{ height: "100%" }}
       >
         <CardHeader

@@ -68,7 +68,7 @@ export const TimelineCardBase = ({
     : {
         LinkComponent: "a" as const,
         href: url,
-        rel: "external noopener",
+        rel: "external noopener follow me",
         title,
       };
 

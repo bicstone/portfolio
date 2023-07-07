@@ -32,7 +32,7 @@ export const BioCsmCard = (props: CardProps): JSX.Element => {
     <StyledCard {...props} title="認証情報の表示" component="article">
       <StyledCardActionArea
         href="https://certification.scrumalliance.org/accounts/1448098-takanori-oishi/certifications/1691057-csm"
-        rel="external noopener"
+        rel="external noopener follow me"
         title="認証情報の表示"
       >
         <ExternalLink>
