@@ -37,7 +37,7 @@ export const useTimelineSearch = (props: {
         findAllMatches: true,
         ignoreLocation: true,
         keys: ["title", "excerpt", "url", "slug"],
-      })
+      }),
     );
   }, [searchItems]);
 

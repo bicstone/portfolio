@@ -83,7 +83,7 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
           ["background-color", "box-shadow", "color"],
           {
             duration: theme.transitions.duration.short,
-          }
+          },
         ),
       }),
       colorDefault: ({ theme }) => ({
@@ -93,7 +93,7 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
           ["background-color", "box-shadow", "color"],
           {
             duration: theme.transitions.duration.short,
-          }
+          },
         ),
       }),
       colorPrimary: ({ theme }) => ({
@@ -106,7 +106,7 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
           ["background-color", "box-shadow", "color"],
           {
             duration: theme.transitions.duration.short,
-          }
+          },
         ),
       }),
     },
@@ -176,7 +176,7 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
             ["background-color", "box-shadow", "border-color", "color"],
             {
               duration: theme.transitions.duration.short,
-            }
+            },
           ),
           "&:hover": {
             boxShadow: theme.shadows[2],
@@ -192,7 +192,7 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
             ["background-color", "box-shadow", "border-color", "color"],
             {
               duration: theme.transitions.duration.short,
-            }
+            },
           ),
           "&:hover": {
             boxShadow: theme.shadows[1],
@@ -209,7 +209,7 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
             ["background-color", "box-shadow", "border-color", "color"],
             {
               duration: theme.transitions.duration.short,
-            }
+            },
           ),
           "&:hover": {
             boxShadow: theme.shadows[1],

@@ -22,7 +22,7 @@ export const SvgAvatar = memo<ComponentProps<typeof Avatar> & SvgAvatarProps>(
         <SvgIcon>{parse(svg)}</SvgIcon>
       </Avatar>
     );
-  }
+  },
 );
 
 SvgAvatar.displayName = "SvgAvatar";

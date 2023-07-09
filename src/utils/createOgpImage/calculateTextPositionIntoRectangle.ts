@@ -84,6 +84,6 @@ export const calculateTextPositionIntoRectangle = ({
   }
 
   throw new Error(
-    "Failed draw title into a rectangle. Shorten title and retry."
+    "Failed draw title into a rectangle. Shorten title and retry.",
   );
 };

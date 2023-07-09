@@ -68,7 +68,7 @@ export const TimelineSearchButton = (): JSX.Element => {
               <SearchModal onClose={handleClose} />
             </Suspense>
           </ErrorBoundary>,
-          document.body
+          document.body,
         )}
     </>
   );

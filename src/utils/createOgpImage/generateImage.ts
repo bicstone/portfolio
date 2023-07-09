@@ -113,7 +113,7 @@ export const generateImage = async ({
   ctx.fillText(
     AUTHOR_TEXT,
     PADDING_LEFT + ICON_WIDTH + ICON_PADDING_RIGHT,
-    IMAGE_HEIGHT - ICON_PADDING_BOTTOM - 22
+    IMAGE_HEIGHT - ICON_PADDING_BOTTOM - 22,
   );
 
   // Draw a icon
@@ -125,7 +125,7 @@ export const generateImage = async ({
     PADDING_LEFT,
     IMAGE_HEIGHT - ICON_PADDING_BOTTOM - ICON_HEIGHT,
     ICON_WIDTH,
-    ICON_HEIGHT
+    ICON_HEIGHT,
   );
 
   // Write to file

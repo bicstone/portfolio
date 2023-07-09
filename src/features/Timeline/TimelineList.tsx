@@ -173,7 +173,7 @@ export interface TimelineListProps {
 
 export const TimelineList = ({ groups }: TimelineListProps): JSX.Element => {
   const sortedGroups = Array.from(groups.group).sort(
-    (a, b) => Number(b.dateYear) - Number(a.dateYear)
+    (a, b) => Number(b.dateYear) - Number(a.dateYear),
   );
 
   return (

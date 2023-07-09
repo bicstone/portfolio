@@ -40,8 +40,8 @@ export const BioCsmCard = (props: CardProps): JSX.Element => {
         </ExternalLink>
         <span css={{ ...visuallyHidden }}>Certified ScrumMaster®</span>
         <span css={{ ...visuallyHidden }}>
-          Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc.
-          Any unauthorized use is strictly prohibited.
+          Certified ScrumMaster® is a certification mark of Scrum Alliance,
+          Inc. Any unauthorized use is strictly prohibited.
         </span>
       </StyledCardActionArea>
     </StyledCard>

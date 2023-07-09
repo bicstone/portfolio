@@ -234,7 +234,7 @@ export interface M3ThemeScheme {
 export const getDesignTokens = (
   mode: M3ThemeMode,
   scheme: M3ColorTokens,
-  tones?: M3ThemeTones
+  tones?: M3ThemeTones,
 ): ThemeOptions => {
   // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
   return {

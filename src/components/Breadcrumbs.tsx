@@ -11,7 +11,7 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 export const Breadcrumbs = (
   props: {
     title: string;
-  } & MuiBreadcrumbsProps
+  } & MuiBreadcrumbsProps,
 ): JSX.Element => {
   const { title, ...MuiBreadcrumbsProps } = props;
 

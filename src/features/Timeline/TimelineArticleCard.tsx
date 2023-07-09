@@ -35,7 +35,7 @@ const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
   return {
     ...adoptColorTokens(outputColorTokens.lightColorTokens),
     [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      outputColorTokens.darkColorTokens
+      outputColorTokens.darkColorTokens,
     ),
   };
 });

@@ -9,14 +9,14 @@ import type { AnchorHTMLAttributes } from "react";
 import { isDefined } from "@/utils/typeguard";
 
 export const LinkCard = (
-  props: AnchorHTMLAttributes<HTMLAnchorElement>
+  props: AnchorHTMLAttributes<HTMLAnchorElement>,
 ): JSX.Element => {
   const { title, href } = props;
 
   if (!isDefined(title) || !isDefined(href)) {
     isDefined(window.Sentry) &&
       window.Sentry.captureException(
-        new Error(`LinkCard must provide both title and href`)
+        new Error(`LinkCard must provide both title and href`),
       );
   }
 
