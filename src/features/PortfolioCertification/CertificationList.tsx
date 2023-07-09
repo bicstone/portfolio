@@ -22,7 +22,7 @@ export const CertificationList = (props: {
   const { certifications } = props;
 
   const getFilteredCertifications = (
-    fieldValue: string
+    fieldValue: string,
   ): PortfolioCertificationListFragment["group"][number]["nodes"] => {
     return (
       certifications.group.find((group) => group.fieldValue === fieldValue)

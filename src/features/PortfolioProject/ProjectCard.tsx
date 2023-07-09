@@ -69,6 +69,6 @@ export const ProjectCard = memo(
         disableTypography
       />
     );
-  }
+  },
 );
 ProjectCard.displayName = "ProjectCard";

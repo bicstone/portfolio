@@ -121,7 +121,7 @@ const BlogPostTemplate = ({
   const post = data.post;
   const relatedPosts = React.useMemo(() => {
     const filteredPosts = data.relatedPosts.nodes.filter(
-      (p) => p.id !== post.id
+      (p) => p.id !== post.id,
     );
 
     // Pick up to 18 articles in the following order.
@@ -142,11 +142,11 @@ const BlogPostTemplate = ({
 
   const dateDate = React.useMemo(
     () => formatDateTime(post.frontmatter.date, "yyyy/MM/dd"),
-    [post.frontmatter.date]
+    [post.frontmatter.date],
   );
   const updateDateDate = React.useMemo(
     () => formatDateTime(post.frontmatter.updateDate, "yyyy/MM/dd"),
-    [post.frontmatter.updateDate]
+    [post.frontmatter.updateDate],
   );
 
   return (

@@ -44,7 +44,7 @@ const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
   return {
     ...adoptColorTokens(projectColorTokens.lightColorTokens),
     [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      projectColorTokens.darkColorTokens
+      projectColorTokens.darkColorTokens,
     ),
   };
 });
@@ -59,7 +59,7 @@ export const TimelineProjectCard = ({
   const dateFormatted = formatDateTime(item.date, showYear ? "yyyy/MM" : "M月");
   const endDateFormatted = formatDateTime(
     item.endDate,
-    showYear ? "yyyy/MM" : endDateFormat
+    showYear ? "yyyy/MM" : endDateFormat,
   );
   const subTitle =
     item.endDate !== "" ? (

@@ -123,7 +123,7 @@ const StyledCheckIcon = styled(CheckIcon)(({ theme }) => ({
 }));
 
 export const TimelineTabList = (
-  props: HTMLAttributes<HTMLElement>
+  props: HTMLAttributes<HTMLElement>,
 ): JSX.Element => {
   return (
     <StyledAnchorLinkGroup {...props}>
@@ -135,7 +135,7 @@ export const TimelineTabList = (
           return {
             ...adoptColorTokens(defaultColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
-              defaultColorTokens.darkColorTokens
+              defaultColorTokens.darkColorTokens,
             ),
           };
         }}
@@ -151,7 +151,7 @@ export const TimelineTabList = (
           return {
             ...adoptColorTokens(outputColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
-              outputColorTokens.darkColorTokens
+              outputColorTokens.darkColorTokens,
             ),
           };
         }}
@@ -167,7 +167,7 @@ export const TimelineTabList = (
           return {
             ...adoptColorTokens(projectColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
-              projectColorTokens.darkColorTokens
+              projectColorTokens.darkColorTokens,
             ),
           };
         }}
@@ -183,7 +183,7 @@ export const TimelineTabList = (
           return {
             ...adoptColorTokens(historyColorTokens.lightColorTokens),
             [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
-              historyColorTokens.darkColorTokens
+              historyColorTokens.darkColorTokens,
             ),
           };
         }}

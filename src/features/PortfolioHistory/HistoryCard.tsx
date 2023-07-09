@@ -78,6 +78,6 @@ export const HistoryCard = memo(
         </AccordionDetails>
       </Accordion>
     );
-  }
+  },
 );
 HistoryCard.displayName = "HistoryCard";

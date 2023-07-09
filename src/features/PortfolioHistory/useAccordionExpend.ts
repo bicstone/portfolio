@@ -29,7 +29,7 @@ const AccordionExpendReducer: Reducer<State, Action> = (state, action) => {
 };
 
 export const useAccordionExpend = (
-  allIds: State
+  allIds: State,
 ): {
   expandedIds: State;
   isAllExpanded: boolean;
@@ -38,12 +38,12 @@ export const useAccordionExpend = (
 } => {
   const [expandedIds, dispatchExpanded] = useReducer(
     AccordionExpendReducer,
-    initialState
+    initialState,
   );
 
   const isAllExpanded = useMemo(
     () => expandedIds.length === allIds.length,
-    [allIds.length, expandedIds.length]
+    [allIds.length, expandedIds.length],
   );
 
   const toggleBulkExpand = useCallback(() => {

@@ -12,7 +12,7 @@ const ZENN_FILE = path.resolve(CONTENT_DIR, "zenn", "articles.yml");
 const SPEAKER_DECK_FILE = path.resolve(
   CONTENT_DIR,
   "speakerdeck",
-  "slides.yml"
+  "slides.yml",
 );
 
 interface ZennArticle {
@@ -77,7 +77,7 @@ export const fetchLaprasActivity = async (): Promise<void> => {
         date: toDate(slide.presentation_date, { timeZone }),
         url: slide.url,
       };
-    }
+    },
   );
 
   await fs.writeFile(ZENN_FILE, dump(zennArticles));

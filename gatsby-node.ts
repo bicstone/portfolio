@@ -53,7 +53,7 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
   fs.cpSync(sourcePath, destPath, { recursive: true, force: true });
 
   reporter.success(
-    `onPreBootstrap: Copied assets from ${sourcePath} to ${destPath}`
+    `onPreBootstrap: Copied assets from ${sourcePath} to ${destPath}`,
   );
 
   /**
@@ -63,7 +63,7 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
   await fetchLaprasActivity();
 
   reporter.success(
-    `onPreBootstrap: Created Zenn articles and Speaker Deck Slides json`
+    `onPreBootstrap: Created Zenn articles and Speaker Deck Slides json`,
   );
 };
 
@@ -103,7 +103,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     process.cwd(),
     "src",
     "templates",
-    "BlogPost.tsx"
+    "BlogPost.tsx",
   );
 
   blogPostList.forEach((node) => {
@@ -119,7 +119,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   });
 
   reporter.success(
-    `createPages: Created ${blogPostList.length} blog post pages`
+    `createPages: Created ${blogPostList.length} blog post pages`,
   );
 };
 
@@ -239,11 +239,11 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
           },
         };
         await createNode(node);
-      })
+      }),
     );
 
     reporter.success(
-      `onCreatePagesStatefully: Created ${timelineList.length} search nodes`
+      `onCreatePagesStatefully: Created ${timelineList.length} search nodes`,
     );
 
     /**
@@ -266,7 +266,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     }
 
     reporter.success(
-      `onCreatePagesStatefully: Created ${blogPostList.length} blog ogp images`
+      `onCreatePagesStatefully: Created ${blogPostList.length} blog ogp images`,
     );
   };
 
