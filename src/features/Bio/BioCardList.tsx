@@ -1,5 +1,3 @@
-import { withPrefix } from "gatsby";
-
 import { BioCsmCard } from "./BioCsmCard";
 import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
@@ -8,12 +6,10 @@ import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
 import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
 import { ConnpassIcon } from "@/components/icons/ConnpassIcon";
-import { FeedIcon } from "@/components/icons/FeedIcon";
 import { FindyIcon } from "@/components/icons/FindyIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
-import { PaycareerIcon } from "@/components/icons/PaycareerIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
 import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
 import { TwitterIcon } from "@/components/icons/TwitterIcon";
@@ -127,22 +123,6 @@ export const BioCardList = (): JSX.Element => {
         subTitle="@bicstone"
         actionTitle="LAPRAS SCOREを見る"
         url="https://lapras.com/public/bicstone"
-        variant="elevation"
-      />
-      <BioSocialLinkCard
-        avatar={<PaycareerIcon aria-hidden="true" />}
-        title="PayCareer"
-        subTitle="2022249011"
-        actionTitle="面接する"
-        url="https://pay-career.com/spot_request/2022249011"
-        variant="elevation"
-      />
-      <BioSocialLinkCard
-        avatar={<FeedIcon aria-hidden="true" />}
-        title="RSS"
-        subTitle="rss.xml"
-        actionTitle="購読する"
-        url={withPrefix("/rss.xml")}
         variant="elevation"
       />
     </div>
