@@ -62,9 +62,9 @@ export const BioCardList = (): JSX.Element => {
       <BioSocialLinkCard
         avatar={<AlternateEmailIcon aria-hidden="true" />}
         title="Bluesky"
-        subTitle="@bicstone.bsky.social"
+        subTitle="@bicstone.me"
         actionTitle="フォロー"
-        url="https://bsky.app/profile/bicstone.bsky.social"
+        url="https://bsky.app/profile/bicstone.me"
         variant="elevation"
       />
       <BioSocialLinkCard
