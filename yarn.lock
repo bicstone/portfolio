@@ -4257,10 +4257,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.4.2":
-  version: 20.4.2
-  resolution: "@types/node@npm:20.4.2"
-  checksum: ca506e089737d54effabda5d6534fdf9fdbe22adbcc4864a170feea390389f38cbae6abcf89c2b1ce5c3e4ffc450b35341509a7619f850babf43106009f01b2d
+"@types/node@npm:20.4.4":
+  version: 20.4.4
+  resolution: "@types/node@npm:20.4.4"
+  checksum: 93748f53c7f34acde229436717408a0b8f88540647a4bacb863ee46a1545d53a056fa9b486721067b5a7bf0d5123fb1c13519e977b34aef1ddef9857a1c1e5fc
   languageName: node
   linkType: hard
 
@@ -5868,7 +5868,7 @@ __metadata:
     "@mui/material": "npm:5.13.7"
     "@sentry/browser": "npm:7.57.0"
     "@types/js-yaml": "npm:4.0.5"
-    "@types/node": "npm:20.4.2"
+    "@types/node": "npm:20.4.4"
     "@types/react": "npm:18.2.15"
     "@types/react-dom": "npm:18.2.7"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
@@ -5879,12 +5879,12 @@ __metadata:
     dotenv: "npm:16.3.1"
     eslint: "npm:8.45.0"
     eslint-config-prettier: "npm:8.8.0"
-    eslint-config-standard-with-typescript: "npm:36.1.0"
+    eslint-config-standard-with-typescript: "npm:36.1.1"
     eslint-plugin-import: "npm:2.27.5"
     eslint-plugin-jsx-a11y: "npm:6.7.1"
     eslint-plugin-n: "npm:16.0.1"
     eslint-plugin-promise: "npm:6.1.1"
-    eslint-plugin-react: "npm:7.32.2"
+    eslint-plugin-react: "npm:7.33.0"
     eslint-plugin-react-hooks: "npm:4.6.0"
     eslint-plugin-regexp: "npm:1.15.0"
     fuse.js: "npm:6.6.2"
@@ -8304,9 +8304,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-standard-with-typescript@npm:36.1.0":
-  version: 36.1.0
-  resolution: "eslint-config-standard-with-typescript@npm:36.1.0"
+"eslint-config-standard-with-typescript@npm:36.1.1":
+  version: 36.1.1
+  resolution: "eslint-config-standard-with-typescript@npm:36.1.1"
   dependencies:
     "@typescript-eslint/parser": "npm:^5.50.0"
     eslint-config-standard: "npm:17.1.0"
@@ -8317,7 +8317,7 @@ __metadata:
     eslint-plugin-n: "^15.0.0 || ^16.0.0 "
     eslint-plugin-promise: ^6.0.0
     typescript: "*"
-  checksum: dddad896b426cbfa49a30edb6b1b8c088d3fa5d58b8ab9ec9181b657de353641fb1cb98b6d52bd50ea459f359a407623eeb9fa797c9b18cfb9b4fa8204c4823f
+  checksum: e5228c8b6c31475d642e5a28ad5d40eec87cc4ee307853fe5f0cc2d7f33b80efbedaea285803472eb5a92deb538311c67c9639599f2eb13b13b0075824cb0a0e
   languageName: node
   linkType: hard
 
@@ -8467,7 +8467,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:7.32.2, eslint-plugin-react@npm:^7.32.2":
+"eslint-plugin-react@npm:7.33.0":
+  version: 7.33.0
+  resolution: "eslint-plugin-react@npm:7.33.0"
+  dependencies:
+    array-includes: "npm:^3.1.6"
+    array.prototype.flatmap: "npm:^1.3.1"
+    array.prototype.tosorted: "npm:^1.1.1"
+    doctrine: "npm:^2.1.0"
+    estraverse: "npm:^5.3.0"
+    jsx-ast-utils: "npm:^2.4.1 || ^3.0.0"
+    minimatch: "npm:^3.1.2"
+    object.entries: "npm:^1.1.6"
+    object.fromentries: "npm:^2.0.6"
+    object.hasown: "npm:^1.1.2"
+    object.values: "npm:^1.1.6"
+    prop-types: "npm:^15.8.1"
+    resolve: "npm:^2.0.0-next.4"
+    semver: "npm:^6.3.1"
+    string.prototype.matchall: "npm:^4.0.8"
+  peerDependencies:
+    eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
+  checksum: 015aaaa133bacd99bd1f82b91852d6fcca7e2b6c11d1ef96ed3c0dae0b5fe89230f66990e12898f237f3f67296234650130e0337db669c32e30132ccae66a696
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-react@npm:^7.32.2":
   version: 7.32.2
   resolution: "eslint-plugin-react@npm:7.32.2"
   dependencies:
@@ -16692,6 +16717,15 @@ __metadata:
   bin:
     semver: ./bin/semver.js
   checksum: 1f4959e15bcfbaf727e964a4920f9260141bb8805b399793160da4e7de128e42a7d1f79c1b7d5cd21a6073fba0d55feb9966f5fef3e5ccb8e1d7ead3d7527458
+  languageName: node
+  linkType: hard
+
+"semver@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "semver@npm:6.3.1"
+  bin:
+    semver: bin/semver.js
+  checksum: e3d79b609071caa78bcb6ce2ad81c7966a46a7431d9d58b8800cfa9cb6a63699b3899a0e4bcce36167a284578212d9ae6942b6929ba4aa5015c079a67751d42d
   languageName: node
   linkType: hard
 
