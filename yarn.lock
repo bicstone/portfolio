@@ -1841,9 +1841,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/eslintrc@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@eslint/eslintrc@npm:2.1.1"
+"@eslint/eslintrc@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "@eslint/eslintrc@npm:2.1.2"
   dependencies:
     ajv: "npm:^6.12.4"
     debug: "npm:^4.3.2"
@@ -1854,14 +1854,14 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     minimatch: "npm:^3.1.2"
     strip-json-comments: "npm:^3.1.1"
-  checksum: 104ec8997206eabc87de84b87a2852efce0ff98730d377061734da2554c79c9b6d417fbe66248ef5566a0501ef41fddec3a00f79b77731102903586a63b2ed34
+  checksum: 00efdc3797e6f05518060522b7788e5f5aff02f13facbd0c83b176c3dee86554023283a5f68542df379c5137685d2d29745c87f62bf2406a1d38d95471f44ce6
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:^8.46.0":
-  version: 8.46.0
-  resolution: "@eslint/js@npm:8.46.0"
-  checksum: 674c5800e4e9829322aa84195b23c59db326cb42190ac0284bdfe70b2442d544837f3006d8d8c166afaa86ab7072df1b77f7fdb43a60aa2bb1ede90d82e38540
+"@eslint/js@npm:^8.47.0":
+  version: 8.47.0
+  resolution: "@eslint/js@npm:8.47.0"
+  checksum: fb5b1377f0d7a8299c65baa856b23a7976165b0fc269b6220fd8e6dfb7fa29de83528b16226ccbe3625f24082a53ec8ca19d75d89f057478f17871b4fcdb32a0
   languageName: node
   linkType: hard
 
@@ -4362,10 +4362,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.4.8":
-  version: 20.4.8
-  resolution: "@types/node@npm:20.4.8"
-  checksum: 8b0c090a10f67ecb4ae9cbf0da4889570e8cf242f02eb4341d1011e9e552b32cc0de569079c2e8c6a43524e2b88df6ee30075249c8b63e72638d462a246bf71c
+"@types/node@npm:20.4.10":
+  version: 20.4.10
+  resolution: "@types/node@npm:20.4.10"
+  checksum: 203a930077cb02d91b8ca98a254667112b1f4c5828f94908078c126d22b71508069c3ef70c569b313d56752edcc692e62ee47c267dd0ad44a5c22ab7d128ab8c
   languageName: node
   linkType: hard
 
@@ -4444,14 +4444,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.18":
-  version: 18.2.18
-  resolution: "@types/react@npm:18.2.18"
+"@types/react@npm:18.2.20":
+  version: 18.2.20
+  resolution: "@types/react@npm:18.2.20"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 2f544da491f7fcfa91ef172945b9b0f3ed9aff48bdf644f557cdfbef363b5891e1b1b06f3510c8f361c72523b835ed72ef0320a0d03cddbdcc37ff198c212900
+  checksum: 42bab593f14b202a5ee98073ed579f147de9e4dd4dcdefcba19588cf06c0fff83f0a602db535e9ff0c0896a3aa25759841ebddb59a2c7c293cb6981ddee08fd0
   languageName: node
   linkType: hard
 
@@ -5829,8 +5829,8 @@ __metadata:
     "@mui/material": "npm:5.14.3"
     "@sentry/browser": "npm:7.61.1"
     "@types/js-yaml": "npm:4.0.5"
-    "@types/node": "npm:20.4.8"
-    "@types/react": "npm:18.2.18"
+    "@types/node": "npm:20.4.10"
+    "@types/react": "npm:18.2.20"
     "@types/react-dom": "npm:18.2.7"
     "@typescript-eslint/eslint-plugin": "npm:5.62.0"
     "@typescript-eslint/parser": "npm:5.62.0"
@@ -5838,7 +5838,7 @@ __metadata:
     date-fns: "npm:2.30.0"
     date-fns-tz: "npm:2.0.0"
     dotenv: "npm:16.3.1"
-    eslint: "npm:8.46.0"
+    eslint: "npm:8.47.0"
     eslint-config-prettier: "npm:9.0.0"
     eslint-config-standard-with-typescript: "npm:37.0.0"
     eslint-plugin-import: "npm:2.28.0"
@@ -8501,10 +8501,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-visitor-keys@npm:^3.4.2":
-  version: 3.4.2
-  resolution: "eslint-visitor-keys@npm:3.4.2"
-  checksum: 4521d1d470490c89fb613aec6fb2f0814b496a4618619ec8dfcc985640fe33c9c64f3dab882f50ebb401b4613f35f2601a9ef9a72b57739af5b0150fecdaf1f1
+"eslint-visitor-keys@npm:^3.4.3":
+  version: 3.4.3
+  resolution: "eslint-visitor-keys@npm:3.4.3"
+  checksum: 92708e882c0a5ffd88c23c0b404ac1628cf20104a108c745f240a13c332a11aac54f49a22d5762efbffc18ecbc9a580d1b7ad034bf5f3cc3307e5cbff2ec9820
   languageName: node
   linkType: hard
 
@@ -8525,14 +8525,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.46.0":
-  version: 8.46.0
-  resolution: "eslint@npm:8.46.0"
+"eslint@npm:8.47.0":
+  version: 8.47.0
+  resolution: "eslint@npm:8.47.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.6.1"
-    "@eslint/eslintrc": "npm:^2.1.1"
-    "@eslint/js": "npm:^8.46.0"
+    "@eslint/eslintrc": "npm:^2.1.2"
+    "@eslint/js": "npm:^8.47.0"
     "@humanwhocodes/config-array": "npm:^0.11.10"
     "@humanwhocodes/module-importer": "npm:^1.0.1"
     "@nodelib/fs.walk": "npm:^1.2.8"
@@ -8543,7 +8543,7 @@ __metadata:
     doctrine: "npm:^3.0.0"
     escape-string-regexp: "npm:^4.0.0"
     eslint-scope: "npm:^7.2.2"
-    eslint-visitor-keys: "npm:^3.4.2"
+    eslint-visitor-keys: "npm:^3.4.3"
     espree: "npm:^9.6.1"
     esquery: "npm:^1.4.2"
     esutils: "npm:^2.0.2"
@@ -8568,7 +8568,7 @@ __metadata:
     text-table: "npm:^0.2.0"
   bin:
     eslint: bin/eslint.js
-  checksum: 81abddb21e540dcd509ba08fdf524b494cbda69a62ffce2a61b5adfcdeb3cbf713f72c6cbb42932333decb4b067ae7a89e4cb5e908e0d42e4287d4f357576a72
+  checksum: b6c69f2ca34990027cfe7d46c956672583549b2a13d118791ee60ad1fa3e5057ab7781b27c9b0ea76dc67f7e980b33e106ad07d54c83464ab9ba03d2ec832f36
   languageName: node
   linkType: hard
 
