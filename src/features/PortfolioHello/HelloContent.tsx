@@ -4,14 +4,11 @@ import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
+import { ExternalLink } from "@/components/ExternalLink";
 import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 
-export const HelloContent = ({
-  linkToHome = false,
-}: {
-  linkToHome?: boolean;
-}): JSX.Element => {
+export const HelloContent = (): JSX.Element => {
   return (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
       <Grid
@@ -70,7 +67,7 @@ export const HelloContent = ({
                     color="secondary"
                     css={{ textDecoration: "underline" }}
                   >
-                    {linkToHome ? "ホームに戻る" : "もっと詳しく"}
+                    <ExternalLink>もっと詳しく</ExternalLink>
                   </Typography>
                 </>
               }

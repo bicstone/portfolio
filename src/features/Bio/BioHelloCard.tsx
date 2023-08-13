@@ -3,6 +3,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 
+import { ExternalLink } from "@/components/ExternalLink";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
@@ -52,7 +53,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
                 color="secondary"
                 css={{ textDecoration: "underline" }}
               >
-                もっと詳しく
+                <ExternalLink>もっと詳しく</ExternalLink>
               </Typography>
             </>
           }
