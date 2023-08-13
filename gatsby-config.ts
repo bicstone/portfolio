@@ -186,13 +186,6 @@ const config: GatsbyConfig = {
             priority: 1.0,
           };
 
-          const me = {
-            path: `/me`,
-            lastmod: site.buildTime,
-            changefreq: `daily`,
-            priority: 1.0,
-          };
-
           const posts = allMdx.nodes.map(({ frontmatter }) => {
             return {
               path: `/${frontmatter.slug}`,
@@ -209,7 +202,7 @@ const config: GatsbyConfig = {
             priority: 1.0,
           }));
 
-          return [home, me, ...posts, ...pages];
+          return [home, ...posts, ...pages];
         },
         serialize: ({
           path,

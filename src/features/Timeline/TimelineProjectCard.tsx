@@ -6,6 +6,7 @@ import { graphql } from "gatsby";
 import { TimelineCardBase } from "./TimelineCardBase";
 
 import { CorpIcon } from "@/components/icons/CorpIcon";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { type TimelineProjectCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, projectColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -80,7 +81,7 @@ export const TimelineProjectCard = ({
       avatar={<CorpIcon />}
       title={item.title}
       subTitle={subTitle}
-      slug="me"
+      url={SITE_METADATA.profileLink}
       {...props}
     />
   );

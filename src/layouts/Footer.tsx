@@ -4,6 +4,9 @@ import { Link as RouterLink } from "gatsby";
 
 import { BackToTop } from "./BackToTop";
 
+import { ExternalLink } from "@/components/ExternalLink";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
+
 /**
  * Footer Layout
  */
@@ -31,8 +34,13 @@ export const Footer = (): JSX.Element => {
         <Link component={RouterLink} color="inherit" to="/">
           ホーム
         </Link>
-        <Link component={RouterLink} color="inherit" to="/me">
-          プロフィール
+        <Link
+          color="inherit"
+          href={SITE_METADATA.profileLink}
+          rel="external noopener follow me"
+          target="_blank"
+        >
+          <ExternalLink>プロフィール</ExternalLink>
         </Link>
         <Link component={RouterLink} color="inherit" to="/privacy">
           プライバシーポリシー

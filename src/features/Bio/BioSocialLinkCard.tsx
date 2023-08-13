@@ -47,6 +47,7 @@ export const BioSocialLinkCard = ({
       <StyledCardActionArea
         href={url}
         rel="external noopener follow me"
+        target="_blank"
         title={actionTitle}
       >
         {avatar}
