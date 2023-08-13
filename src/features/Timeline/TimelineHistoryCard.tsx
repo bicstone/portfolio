@@ -6,6 +6,7 @@ import { graphql } from "gatsby";
 import { TimelineCardBase } from "./TimelineCardBase";
 
 import { AutoAwesomeIcon } from "@/components/icons/AutoAwesomeIcon";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { type TimelineHistoryCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, historyColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -56,7 +57,7 @@ export const TimelineHistoryCard = ({
       avatar={<AutoAwesomeIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
-      slug="me"
+      url={SITE_METADATA.profileLink}
       {...props}
     />
   );

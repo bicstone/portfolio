@@ -3,9 +3,9 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import { Link as RouterLink } from "gatsby";
 
 import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 
 export const HelloContent = ({
   linkToHome = false,
@@ -34,10 +34,10 @@ export const HelloContent = ({
       <Grid item xs={12} sm={9} md={10}>
         <Card variant="elevation">
           <CardActionArea
-            component={RouterLink}
-            to={linkToHome ? "/" : "/me"}
+            href={SITE_METADATA.profileLink}
+            rel="external noopener nofollow"
             css={{ height: "100%" }}
-            title={linkToHome ? "ホームに戻る" : "もっと詳しく"}
+            title="もっと詳しく"
           >
             <CardHeader
               disableTypography

@@ -2,16 +2,16 @@ import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
-import { Link as RouterLink } from "gatsby";
 
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const BioHelloCard = (props: CardProps): JSX.Element => {
   return (
     <Card component="aside" {...props}>
       <CardActionArea
-        component={RouterLink}
-        to="/me"
+        href={SITE_METADATA.profileLink}
+        rel="external noopener nofollow"
         css={{ height: "100%" }}
         title="もっと詳しく"
       >

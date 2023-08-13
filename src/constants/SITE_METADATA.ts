@@ -12,4 +12,5 @@ export const SITE_METADATA = {
   defaultLanguage: "ja",
   tileColor: "#81c784",
   maskColor: "#2d1e1e",
+  profileLink: "https://bicstone.notion.site/8d96378d367e4d61833cd01a5357b4bc",
 } as const satisfies Record<string, string>;

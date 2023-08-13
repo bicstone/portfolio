@@ -6,6 +6,7 @@ import { graphql } from "gatsby";
 import { TimelineCardBase } from "./TimelineCardBase";
 
 import { VerifiedIcon } from "@/components/icons/VerifiedIcon";
+import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { type TimelineCertificationCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, historyColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
@@ -77,7 +78,7 @@ export const TimelineCertificationCard = ({
       avatar={<VerifiedIcon />}
       title={item.title}
       subTitle={subTitle}
-      slug="me"
+      url={SITE_METADATA.profileLink}
       {...props}
     />
   );
