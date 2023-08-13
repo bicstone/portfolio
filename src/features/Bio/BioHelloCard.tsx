@@ -12,7 +12,8 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
     <Card component="aside" {...props}>
       <CardActionArea
         href={SITE_METADATA.profileLink}
-        rel="external noopener nofollow"
+        rel="external noopener follow me"
+        target="_blank"
         css={{ height: "100%" }}
         title="もっと詳しく"
       >

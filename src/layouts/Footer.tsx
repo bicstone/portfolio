@@ -37,7 +37,8 @@ export const Footer = (): JSX.Element => {
         <Link
           color="inherit"
           href={SITE_METADATA.profileLink}
-          rel="external noopener nofollow"
+          rel="external noopener follow me"
+          target="_blank"
         >
           <ExternalLink>プロフィール</ExternalLink>
         </Link>

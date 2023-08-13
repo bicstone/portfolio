@@ -33,6 +33,7 @@ export const BioRissCard = (props: CardProps): JSX.Element => {
       <StyledCardActionArea
         href="https://riss.ipa.go.jp/r?r=017758"
         rel="external noopener follow me"
+        target="_blank"
         title="認証情報の表示"
       >
         <ExternalLink>

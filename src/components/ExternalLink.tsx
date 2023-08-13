@@ -17,7 +17,10 @@ export const ExternalLink = ({ children }: ExternalLinkProps): JSX.Element => {
   return (
     <>
       {children}
-      <StyledLaunchIcon fontSize="inherit" titleAccess="外部リンク" />
+      <StyledLaunchIcon
+        fontSize="inherit"
+        titleAccess="外部リンクのため、別ウインドウで開きます"
+      />
     </>
   );
 };
