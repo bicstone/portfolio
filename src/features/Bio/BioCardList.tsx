@@ -12,7 +12,7 @@ import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
 import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
-import { TwitterIcon } from "@/components/icons/TwitterIcon";
+import { XIcon } from "@/components/icons/XIcon";
 import { YoutrustIcon } from "@/components/icons/YoutrustIcon";
 import { ZennIcon } from "@/components/icons/ZennIcon";
 
@@ -35,11 +35,11 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon variant="elevation" />
       <BioSocialLinkCard
-        avatar={<TwitterIcon aria-hidden="true" />}
-        title="Twitter"
+        avatar={<XIcon aria-hidden="true" />}
+        title="X.com"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
-        url="https://twitter.com/bicstone_me"
+        url="https://x.com/bicstone_me"
         variant="elevation"
       />
       <BioSocialLinkCard
