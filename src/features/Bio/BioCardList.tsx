@@ -36,7 +36,7 @@ export const BioCardList = (): JSX.Element => {
       <BioIcon variant="elevation" />
       <BioSocialLinkCard
         avatar={<XIcon aria-hidden="true" />}
-        title="X.com"
+        title="X"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
         url="https://x.com/bicstone_me"
