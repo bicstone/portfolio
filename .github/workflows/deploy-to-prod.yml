@@ -48,7 +48,7 @@ jobs:
           GATSBY_ADSENSE_PUB_ID: ${{ vars.GATSBY_ADSENSE_PUB_ID }}
           GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ vars.GATSBY_ADSENSE_INARTICLE_AD_ID }}
 
-      - uses: aws-actions/configure-aws-credentials@v2
+      - uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ secrets.AWS_REGION }}
