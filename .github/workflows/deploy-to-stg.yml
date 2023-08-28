@@ -18,6 +18,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: deploy-to-stg
+    timeout-minutes: 120
 
     steps:
       - uses: actions/checkout@v3
