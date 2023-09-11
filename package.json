@@ -22,14 +22,14 @@
     "@emotion/styled": "11.11.0",
     "@mdx-js/mdx": "2.3.0",
     "@mdx-js/react": "2.3.0",
-    "@mui/icons-material": "5.14.7",
-    "@mui/lab": "5.0.0-alpha.142",
-    "@mui/material": "5.14.7",
-    "@sentry/browser": "7.66.0",
+    "@mui/icons-material": "5.14.8",
+    "@mui/lab": "5.0.0-alpha.143",
+    "@mui/material": "5.14.8",
+    "@sentry/browser": "7.68.0",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.0",
     "fuse.js": "6.6.2",
-    "gatsby": "5.12.3",
+    "gatsby": "5.12.4",
     "gatsby-plugin-emotion": "8.12.0",
     "gatsby-plugin-feed": "5.12.0",
     "gatsby-plugin-fix-fouc": "1.0.4",
@@ -53,7 +53,7 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "4.0.11",
     "react-hotkeys-hook": "4.4.1",
-    "react-virtuoso": "4.5.0"
+    "react-virtuoso": "4.5.1"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.0",
