@@ -100,7 +100,7 @@
     "last 3 iOS major versions"
   ],
   "volta": {
-    "node": "20.7.0",
+    "node": "20.8.0",
     "yarn": "4.0.0-rc.52"
   },
   "packageManager": "yarn@4.0.0-rc.52"
