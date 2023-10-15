@@ -5,7 +5,7 @@ import { BioRissCard } from "./BioRissCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
 import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
-import { ConnpassIcon } from "@/components/icons/ConnpassIcon";
+import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { FindyIcon } from "@/components/icons/FindyIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LaprasIcon } from "@/components/icons/LaprasIcon";
@@ -35,19 +35,19 @@ export const BioCardList = (): JSX.Element => {
     >
       <BioIcon variant="elevation" />
       <BioSocialLinkCard
+        avatar={<FacebookIcon aria-hidden="true" />}
+        title="Facebook"
+        subTitle="@oishi.takanori"
+        actionTitle="友だちになる"
+        url="https://www.facebook.com/oishi.takanori/"
+        variant="elevation"
+      />
+      <BioSocialLinkCard
         avatar={<XIcon aria-hidden="true" />}
         title="X"
         subTitle="@bicstone_me"
         actionTitle="フォロー"
         url="https://x.com/bicstone_me"
-        variant="elevation"
-      />
-      <BioSocialLinkCard
-        avatar={<YoutrustIcon aria-hidden="true" />}
-        title="YOUTRUST"
-        subTitle="@bicstone"
-        actionTitle="つながる"
-        url="https://youtrust.jp/users/bicstone"
         variant="elevation"
       />
       <BioSocialLinkCard
@@ -102,11 +102,11 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<ConnpassIcon aria-hidden="true" />}
-        title="Connpass"
+        avatar={<YoutrustIcon aria-hidden="true" />}
+        title="YOUTRUST"
         subTitle="@bicstone"
-        actionTitle="交流する"
-        url="https://connpass.com/user/bicstone"
+        actionTitle="つながる"
+        url="https://youtrust.jp/users/bicstone"
         variant="elevation"
       />
       <BioSocialLinkCard
