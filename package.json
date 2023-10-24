@@ -103,5 +103,5 @@
     "node": "20.8.1",
     "yarn": "4.0.0-rc.53"
   },
-  "packageManager": "yarn@4.0.0-rc.53"
+  "packageManager": "yarn@4.0.0"
 }
