@@ -18,7 +18,7 @@ import { Virtuoso } from "react-virtuoso";
 
 import { useTimelineSearch } from "./useTimelineSearch";
 
-import type Fuse from "fuse.js";
+import type { Expression } from "fuse.js";
 import type { ChangeEvent } from "react";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
@@ -46,7 +46,7 @@ export const TimelineSearchModal = (props: {
     });
   };
 
-  const keyword: Fuse.Expression = {
+  const keyword: Expression = {
     $or: [
       { title: inputValue },
       { excerpt: inputValue },

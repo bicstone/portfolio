@@ -1,4 +1,4 @@
-import Fuse from "fuse.js";
+import Fuse, { type Expression, type FuseResult } from "fuse.js";
 import { useStaticQuery, graphql } from "gatsby";
 import { useEffect, useState } from "react";
 
@@ -10,9 +10,9 @@ export type SearchResult = Pick<Search, "title" | "slug" | "url" | "excerpt">;
  * Search using Fuse.
  */
 export const useTimelineSearch = (props: {
-  keyword: string | Fuse.Expression;
+  keyword: string | Expression;
 }): {
-  readonly result?: Array<Fuse.FuseResult<SearchResult>>;
+  readonly result?: Array<FuseResult<SearchResult>>;
 } => {
   const { keyword } = props;
   const [fuse, setFuse] = useState<Fuse<SearchResult>>();
