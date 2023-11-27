@@ -6076,7 +6076,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:4.6.0"
     eslint-plugin-regexp: "npm:2.1.1"
     fuse.js: "npm:7.0.0"
-    gatsby: "npm:5.12.10"
+    gatsby: "npm:5.12.11"
     gatsby-plugin-emotion: "npm:8.12.0"
     gatsby-plugin-feed: "npm:5.12.3"
     gatsby-plugin-fix-fouc: "npm:1.0.5"
@@ -10336,9 +10336,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:5.12.10":
-  version: 5.12.10
-  resolution: "gatsby@npm:5.12.10"
+"gatsby@npm:5.12.11":
+  version: 5.12.11
+  resolution: "gatsby@npm:5.12.11"
   dependencies:
     "@babel/code-frame": "npm:^7.18.6"
     "@babel/core": "npm:^7.20.12"
@@ -10515,7 +10515,7 @@ __metadata:
       optional: true
   bin:
     gatsby: ./cli.js
-  checksum: a25722880fd7c7ef130776d56038f0acc5e9c36eb753db9671dfa85c9f375685c05e21a93c54263f670254d4dd789dd577ebf3aaa2358989bd02c0aabbf2083b
+  checksum: cf758a3f4f38e980feb731b33857f4b4e3ed7e37aece45cd494228dea4b3c20476b6c227560fca7dbfaf740d855308431d160a9884c7314a3c4c1132e0765d6f
   languageName: node
   linkType: hard
 

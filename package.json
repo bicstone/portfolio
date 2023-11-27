@@ -29,7 +29,7 @@
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.0",
     "fuse.js": "7.0.0",
-    "gatsby": "5.12.10",
+    "gatsby": "5.12.11",
     "gatsby-plugin-emotion": "8.12.0",
     "gatsby-plugin-feed": "5.12.3",
     "gatsby-plugin-fix-fouc": "1.0.5",
