@@ -6061,6 +6061,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.17"
     "@typescript-eslint/eslint-plugin": "npm:6.12.0"
     "@typescript-eslint/parser": "npm:6.12.0"
+    bicstone: "npm:0.0.1"
     canvas: "npm:2.11.2"
     date-fns: "npm:2.30.0"
     date-fns-tz: "npm:2.0.0"
@@ -6107,6 +6108,15 @@ __metadata:
     typescript: "npm:5.3.2"
   languageName: unknown
   linkType: soft
+
+"bicstone@npm:0.0.1":
+  version: 0.0.1
+  resolution: "bicstone@npm:0.0.1"
+  bin:
+    bicstone: build/cli.js
+  checksum: 386043573a341ab93fff834ebc997bfb7dab5878937142bb433178f1c8046e9ec94552e6907b187e9279f1a31b936ea83882546999a420b4846c20367b5a6a85
+  languageName: node
+  linkType: hard
 
 "big.js@npm:^5.2.2":
   version: 5.2.2

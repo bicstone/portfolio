@@ -1,3 +1,5 @@
+import { bicstone } from "bicstone";
+
 import { BioCsmCard } from "./BioCsmCard";
 import { BioHelloCard } from "./BioHelloCard";
 import { BioIcon } from "./BioIconCard";
@@ -36,10 +38,10 @@ export const BioCardList = (): JSX.Element => {
       <BioIcon variant="elevation" />
       <BioSocialLinkCard
         avatar={<FacebookIcon aria-hidden="true" />}
-        title="Facebook"
-        subTitle="@oishi.takanori"
-        actionTitle="友だちになる"
-        url="https://www.facebook.com/oishi.takanori/"
+        title={bicstone.links.facebook.siteName}
+        subTitle={`@${bicstone.links.facebook.screenName}`}
+        actionTitle={`${bicstone.links.facebook.siteName}を見る`}
+        url={bicstone.links.facebook.url}
         variant="elevation"
       />
       <BioSocialLinkCard
