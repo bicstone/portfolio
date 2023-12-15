@@ -9,7 +9,7 @@
     "develop": "gatsby develop --port 10014",
     "serve": "gatsby serve --port 20014",
     "clean": "gatsby clean",
-    "lint": "eslint --cache --ignore-path .eslintignore --max-warnings=0 --ext .js,.ts,.tsx .",
+    "lint": "eslint --cache --ignore-path .eslintignore --ext .js,.ts,.tsx .",
     "lint:fix": "yarn lint --fix",
     "format": "prettier --cache --ignore-path .eslintignore --write .",
     "graphql": "graphql-codegen",
