@@ -63,6 +63,6 @@
       }
     ],
     // TODO: Remove this rule when the following issue is resolved.
-    "@typescript-eslint/no-unsafe-argument": "off"
+    "@typescript-eslint/no-unsafe-argument": "warn"
   }
 }
