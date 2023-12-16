@@ -11,7 +11,6 @@ import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
-import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { YoutrustIcon } from "@/components/icons/YoutrustIcon";
 import { ZennIcon } from "@/components/icons/ZennIcon";
@@ -68,11 +67,11 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<ThreadsIcon aria-hidden="true" />}
-        title="Threads"
-        subTitle="@bicstone_me"
-        actionTitle="フォロー"
-        url="https://www.threads.net/@bicstone_me"
+        avatar={<YoutrustIcon aria-hidden="true" />}
+        title="YOUTRUST"
+        subTitle="@bicstone"
+        actionTitle="つながる"
+        url="https://youtrust.jp/users/bicstone"
         variant="elevation"
       />
       <BioRissCard variant="elevation" />
@@ -99,14 +98,6 @@ export const BioCardList = (): JSX.Element => {
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
-        variant="elevation"
-      />
-      <BioSocialLinkCard
-        avatar={<YoutrustIcon aria-hidden="true" />}
-        title="YOUTRUST"
-        subTitle="@bicstone"
-        actionTitle="つながる"
-        url="https://youtrust.jp/users/bicstone"
         variant="elevation"
       />
       <BioSocialLinkCard
