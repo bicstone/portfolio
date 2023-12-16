@@ -11,7 +11,6 @@ import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
-import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { YoutrustIcon } from "@/components/icons/YoutrustIcon";
 import { ZennIcon } from "@/components/icons/ZennIcon";
