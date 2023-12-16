@@ -20,6 +20,7 @@ export const Footer = (): JSX.Element => {
         borderTop: `1px solid ${theme.vars.palette.divider}`,
         display: "flex",
         flexDirection: "column",
+        gap: theme.spacing(2),
         marginBottom: `env(safe-area-inset-bottom, 0px)`,
         marginTop: "auto",
         padding: theme.spacing(3),
@@ -29,7 +30,6 @@ export const Footer = (): JSX.Element => {
         variant="body2"
         color="textSecondary"
         align="center"
-        paragraph
         css={(theme) => ({ display: "inline-flex", gap: theme.spacing(1) })}
       >
         <Link component={RouterLink} color="inherit" to="/">
@@ -50,13 +50,17 @@ export const Footer = (): JSX.Element => {
       <a
         href="https://sites.google.com/view/happy-busy/"
         title="時間のないサイト運営者リング"
+        rel="external noopener noreferrer"
+        target="_blank"
       >
-        <img
-          alt="時間のないサイト運営者リング"
-          src={happyBusy}
-          width={200}
-          height={40}
-        />
+        <ExternalLink>
+          <img
+            alt="時間のないサイト運営者リング"
+            src={happyBusy}
+            width={200}
+            height={40}
+          />
+        </ExternalLink>
       </a>
       <Typography
         variant="caption"
