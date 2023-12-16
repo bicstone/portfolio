@@ -68,11 +68,11 @@ export const BioCardList = (): JSX.Element => {
         variant="elevation"
       />
       <BioSocialLinkCard
-        avatar={<ThreadsIcon aria-hidden="true" />}
-        title="Threads"
-        subTitle="@bicstone_me"
-        actionTitle="フォロー"
-        url="https://www.threads.net/@bicstone_me"
+        avatar={<YoutrustIcon aria-hidden="true" />}
+        title="YOUTRUST"
+        subTitle="@bicstone"
+        actionTitle="つながる"
+        url="https://youtrust.jp/users/bicstone"
         variant="elevation"
       />
       <BioRissCard variant="elevation" />
@@ -99,14 +99,6 @@ export const BioCardList = (): JSX.Element => {
         subTitle="@bicstone"
         actionTitle="フォロー"
         url="https://speakerdeck.com/bicstone"
-        variant="elevation"
-      />
-      <BioSocialLinkCard
-        avatar={<YoutrustIcon aria-hidden="true" />}
-        title="YOUTRUST"
-        subTitle="@bicstone"
-        actionTitle="つながる"
-        url="https://youtrust.jp/users/bicstone"
         variant="elevation"
       />
       <BioSocialLinkCard

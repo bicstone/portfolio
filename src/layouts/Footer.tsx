@@ -6,6 +6,7 @@ import { BackToTop } from "./BackToTop";
 
 import { ExternalLink } from "@/components/ExternalLink";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
+import happyBusy from "@/layouts/banners/happy-busy.png";
 
 /**
  * Footer Layout
@@ -46,6 +47,17 @@ export const Footer = (): JSX.Element => {
           プライバシーポリシー
         </Link>
       </Typography>
+      <a
+        href="https://sites.google.com/view/happy-busy/"
+        title="時間のないサイト運営者リング"
+      >
+        <img
+          alt="時間のないサイト運営者リング"
+          src={happyBusy}
+          width={200}
+          height={40}
+        />
+      </a>
       <Typography
         variant="caption"
         color="textSecondary"
