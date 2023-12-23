@@ -52,9 +52,9 @@ export const BioCardList = (): JSX.Element => {
       <BioHelloCard
         variant="elevation"
         css={(theme) => ({
-          gridColumn: "2 / 4",
+          gridColumn: "1 / 4",
           [theme.breakpoints.down("md")]: {
-            gridColumn: "2 / 3",
+            gridColumn: "1 / 3",
           },
         })}
       />
