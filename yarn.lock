@@ -6042,7 +6042,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.18"
     "@typescript-eslint/eslint-plugin": "npm:6.14.0"
     "@typescript-eslint/parser": "npm:6.14.0"
-    bicstone: "npm:0.0.3"
+    bicstone: "npm:0.0.4"
     canvas: "npm:2.11.2"
     date-fns: "npm:2.30.0"
     date-fns-tz: "npm:2.0.0"
@@ -6090,12 +6090,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"bicstone@npm:0.0.3":
-  version: 0.0.3
-  resolution: "bicstone@npm:0.0.3"
+"bicstone@npm:0.0.4":
+  version: 0.0.4
+  resolution: "bicstone@npm:0.0.4"
   bin:
     bicstone: dist/cli.js
-  checksum: 2427cc4787de69815f132f7ee0eed0cb866dd778ee831e937c3206c1852e7f35fc7b91e951e730e885f20dac30d2ea72541ce2f03023b515793d8802bb2473c9
+  checksum: e1368650a287914e8add51bd6615885eaea3e8d691b5613304d0b84ef4c8a65dd1fab80cf5e1c710d183d4f4212dda2f2da4be828030a49dac180f37ab6c5720
   languageName: node
   linkType: hard
 
