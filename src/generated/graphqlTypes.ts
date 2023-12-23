@@ -7,7 +7,7 @@ export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> =
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string | number; output: string; }
+  ID: { input: string; output: string; }
   String: { input: string; output: string; }
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
@@ -4557,27 +4557,6 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
 
 export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
-export type PortfolioCertificationCardFragment = Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>;
-
-export type PortfolioCertificationDetailFragment = Pick<CertificationsYaml, 'title' | 'date' | 'endDate'>;
-
-export type PortfolioCertificationListFragment = { readonly group: ReadonlyArray<(
-    Pick<CertificationsYamlGroupConnection, 'fieldValue'>
-    & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>> }
-  )> };
-
-export type PortfolioHistoryCardFragment = Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>;
-
-export type PortfolioHistoryListFragment = { readonly nodes: ReadonlyArray<Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>> };
-
-export type PortfolioOssCardFragment = Pick<OssesYaml, 'title' | 'tags' | 'date' | 'url'>;
-
-export type PortfolioOssListFragment = { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>> };
-
-export type PortfolioProjectCardFragment = Pick<ProjectsYaml, 'title' | 'tags' | 'icon' | 'date' | 'endDate'>;
-
-export type PortfolioProjectListFragment = { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> };
-
 export type RelatedBlogPostCardFragment = { readonly frontmatter: Pick<MdxFrontmatter, 'title' | 'slug'> };
 
 export type RelatedBlogPostListFragment = (
@@ -4751,14 +4730,6 @@ export type IndexPageQuery = { readonly timelineItems: { readonly nodes: Readonl
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       & { dateX: SlidesYaml['date'] }
-    )> } };
-
-export type MePageQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type MePageQuery = { readonly projects: { readonly nodes: ReadonlyArray<Pick<ProjectsYaml, 'id' | 'title' | 'tags' | 'icon' | 'date' | 'endDate'>> }, readonly histories: { readonly nodes: ReadonlyArray<Pick<HistoriesYaml, 'id' | 'title' | 'date' | 'excerpt' | 'icon'>> }, readonly osses: { readonly nodes: ReadonlyArray<Pick<OssesYaml, 'id' | 'title' | 'tags' | 'date' | 'url'>> }, readonly certifications: { readonly group: ReadonlyArray<(
-      Pick<CertificationsYamlGroupConnection, 'fieldValue'>
-      & { readonly nodes: ReadonlyArray<Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>> }
     )> } };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;

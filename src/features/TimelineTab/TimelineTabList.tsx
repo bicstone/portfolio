@@ -87,11 +87,13 @@ const StyledLink = styled(Button)(({ theme }) => ({
   whiteSpace: "nowrap",
   width: "100%",
 
-  ...(theme.typography.button as CSSObject),
+  // TODO: Fix type
+  ...(theme.typography.button as any),
 
   [theme.breakpoints.down("sm")]: {
     gap: theme.spacing(0.5),
-    ...(theme.typography.caption as CSSObject),
+    // TODO: Fix type
+    ...(theme.typography.caption as any),
   },
 
   textTransform: "none",
