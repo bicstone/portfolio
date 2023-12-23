@@ -1,7 +1,6 @@
 import { bicstone, type LinkKeys } from "bicstone";
 
 import { BioHelloCard } from "./BioHelloCard";
-import { BioIcon } from "./BioIconCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
 import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
@@ -46,15 +45,20 @@ export const BioCardList = (): JSX.Element => {
         [theme.breakpoints.down("md")]: {
           gridTemplateColumns: "repeat(3, 1fr)",
         },
+        [theme.breakpoints.down("sm")]: {
+          gridTemplateColumns: "repeat(2, 1fr)",
+        },
       })}
     >
-      <BioIcon variant="elevation" />
       <BioHelloCard
         variant="elevation"
         css={(theme) => ({
-          gridColumn: "2 / 5",
+          gridColumn: "1 / 5",
           [theme.breakpoints.down("md")]: {
-            gridColumn: "2 / 4",
+            gridColumn: "1 / 4",
+          },
+          [theme.breakpoints.down("sm")]: {
+            gridColumn: "1 / 3",
           },
         })}
       />
