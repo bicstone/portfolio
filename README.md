@@ -103,7 +103,6 @@ Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstac
 
 - Google Tag Manager
 - Google Analytics
-- Google AdSense
 - Sentry
 
 ## タスクランナー
