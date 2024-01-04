@@ -57,11 +57,10 @@ export const HelloContent = (): JSX.Element => {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Webエンジニア / Certified ScrumMaster® /
-                    情報処理安全確保支援士 (017758号) / 電気工事士 /
-                    機械エンジニアです。
-                    様々な分野の知見を活かしジェネラリストとしてプロダクトに幅広く携わり、
-                    相互成長し続けられるエンジニアを目指しています。
+                    Webプロダクトエンジニア、 情報処理安全確保支援士
+                    (017758号)、 認定スクラムマスター (CSM®)です。
+                    迅速かつ効果的にプロダクト価値を最大化し、
+                    社会やステークホルダーの課題解決に貢献できるエンジニアを目指しています。
                   </Typography>
                   <Typography
                     variant="body2"
