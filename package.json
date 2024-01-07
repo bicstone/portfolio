@@ -22,10 +22,10 @@
     "@emotion/styled": "11.11.0",
     "@mdx-js/mdx": "2.3.0",
     "@mdx-js/react": "2.3.0",
-    "@mui/icons-material": "5.15.2",
-    "@mui/lab": "5.0.0-alpha.158",
-    "@mui/material": "5.15.2",
-    "@sentry/browser": "7.91.0",
+    "@mui/icons-material": "5.15.3",
+    "@mui/lab": "5.0.0-alpha.159",
+    "@mui/material": "5.15.3",
+    "@sentry/browser": "7.92.0",
     "bicstone": "0.0.4",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.0",
@@ -53,7 +53,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-error-boundary": "4.0.12",
-    "react-hotkeys-hook": "4.4.1",
+    "react-hotkeys-hook": "4.4.3",
     "react-virtuoso": "4.6.2"
   },
   "devDependencies": {
