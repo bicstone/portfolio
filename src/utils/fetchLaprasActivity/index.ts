@@ -14,6 +14,7 @@ const SPEAKER_DECK_FILE = path.resolve(
   "speakerdeck",
   "slides.yml",
 );
+const NOTE_FILE = path.resolve(CONTENT_DIR, "note", "notes.yml");
 
 interface ZennArticle {
   title: string;
@@ -31,9 +32,18 @@ interface SpeakerDeckSlide {
   presentation_date: string;
 }
 
+interface NoteArticle {
+  title: string;
+  url: string;
+  tags: string[];
+  like_count: number;
+  published_at: string;
+}
+
 interface Response {
   zenn_articles: ZennArticle[];
   speaker_deck_slides: SpeakerDeckSlide[];
+  note_articles: NoteArticle[];
 }
 
 interface TimeLineItem {
@@ -80,7 +90,17 @@ export const fetchLaprasActivity = async (): Promise<void> => {
     },
   );
 
+  const noteArticles: TimeLineItem[] = response.note_articles.map((article) => {
+    return {
+      title: article.title,
+      date: toDate(article.published_at, { timeZone }),
+      url: article.url,
+    };
+  });
+
   await fs.writeFile(ZENN_FILE, dump(zennArticles));
 
   await fs.writeFile(SPEAKER_DECK_FILE, dump(speakerDeckSlides));
+
+  await fs.writeFile(NOTE_FILE, dump(noteArticles));
 };

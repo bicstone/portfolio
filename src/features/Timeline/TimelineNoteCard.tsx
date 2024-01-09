@@ -5,13 +5,13 @@ import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
-import { GitHubIcon } from "@/components/icons/GitHubIcon";
-import { type TimelineOssCardFragment } from "@/generated/graphqlTypes";
+import { NoteIcon } from "@/components/icons/NoteIcon";
+import { type TimelineNoteCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
-  fragment TimelineOssCard on OssesYaml {
+  fragment TimelineNoteCard on NotesYaml {
     title
     date
     url
@@ -40,21 +40,21 @@ const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
   };
 });
 
-export type TimelineOssCardProps = {
-  item: TimelineOssCardFragment;
+export type TimelineNoteCardProps = {
+  item: TimelineNoteCardFragment;
   showYear?: boolean;
 } & CardProps;
 
-export const TimelineOssCard = ({
+export const TimelineNoteCard = ({
   item,
   showYear = false,
   ...props
-}: TimelineOssCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, showYear ? "yyyy/MM" : "M月");
+}: TimelineNoteCardProps): JSX.Element => {
+  const date = formatDateTime(item.date, showYear ? "yyyy/MM/dd" : "M月d日");
 
   return (
     <StyledTimelineCard
-      avatar={<GitHubIcon aria-hidden="true" />}
+      avatar={<NoteIcon aria-hidden="true" />}
       title={item.title}
       subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}

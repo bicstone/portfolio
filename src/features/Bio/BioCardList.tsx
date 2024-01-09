@@ -7,7 +7,9 @@ import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
 import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
+import { NoteIcon } from "@/components/icons/NoteIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
+import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
 import { XIcon } from "@/components/icons/XIcon";
 import { YoutrustIcon } from "@/components/icons/YoutrustIcon";
 import { ZennIcon } from "@/components/icons/ZennIcon";
@@ -18,10 +20,12 @@ export const BioCardList = (): JSX.Element => {
     "facebook",
     "linkedin",
     "bluesky",
+    "threads",
     "youtrust",
-    "github",
     "zenn",
+    "note",
     "speakerdeck",
+    "github",
   ] as const satisfies LinkKeys[];
 
   const avatarMap = {
@@ -29,7 +33,9 @@ export const BioCardList = (): JSX.Element => {
     facebook: <FacebookIcon aria-hidden="true" />,
     github: <GitHubIcon aria-hidden="true" />,
     linkedin: <LinkedInIcon aria-hidden="true" />,
+    note: <NoteIcon aria-hidden="true" />,
     speakerdeck: <SpeakerDeckIcon aria-hidden="true" />,
+    threads: <ThreadsIcon aria-hidden="true" />,
     x: <XIcon aria-hidden="true" />,
     youtrust: <YoutrustIcon aria-hidden="true" />,
     zenn: <ZennIcon aria-hidden="true" />,
