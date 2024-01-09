@@ -31,6 +31,7 @@ const contentPaths = [
   "projects",
   "speakerdeck",
   "zenn",
+  "note",
 ];
 
 const config: GatsbyConfig = {
@@ -126,6 +127,9 @@ const config: GatsbyConfig = {
                       url
                     }
                     ... on OssesYaml {
+                      url
+                    }
+                    ... on NotesYaml {
                       url
                     }
                     ... on Mdx {

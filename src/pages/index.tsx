@@ -19,14 +19,6 @@ export const query = graphql`
   }
 `;
 
-// LogRocket
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    LogRocket?: any;
-  }
-}
-
 export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
   const title = SITE_METADATA.title;
 

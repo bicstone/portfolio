@@ -7,6 +7,7 @@ import { TimelineArticleCard } from "./TimelineArticleCard";
 import { TimelineCertificationCard } from "./TimelineCertificationCard";
 import { TimelineHistoryCard } from "./TimelineHistoryCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
+import { TimelineNoteCard } from "./TimelineNoteCard";
 import { TimelineOssCard } from "./TimelineOssCard";
 import { TimelineProjectCard } from "./TimelineProjectCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
@@ -43,6 +44,9 @@ export const query = graphql`
         }
         ... on SlidesYaml {
           ...TimelineSlideCard
+        }
+        ... on NotesYaml {
+          ...TimelineNoteCard
         }
         ... on Mdx {
           ...TimelineMdxCard
@@ -81,6 +85,9 @@ export const query = graphql`
         }
         ... on OssesYaml {
           ...TimelineOssCard
+        }
+        ... on NotesYaml {
+          ...TimelineNoteCard
         }
         ... on Mdx {
           ...TimelineMdxCard
@@ -126,6 +133,10 @@ const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
 
     case "OssesYaml": {
       return <TimelineOssCard key={item.id} item={item} />;
+    }
+
+    case "NotesYaml": {
+      return <TimelineNoteCard key={item.id} item={item} />;
     }
 
     case "ProjectsYaml": {

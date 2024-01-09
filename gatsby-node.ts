@@ -40,6 +40,7 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
  * Copy assets to public
  * Create Zenn articles json
  * Create Speaker Deck Slides json
+ * Create note articles json
  */
 export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
   reporter,
@@ -59,11 +60,12 @@ export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
   /**
    * Create Zenn articles json
    * Create Speaker Deck Slides json
+   * Create note articles json
    */
   await fetchLaprasActivity();
 
   reporter.success(
-    `onPreBootstrap: Created Zenn articles and Speaker Deck Slides json`,
+    `onPreBootstrap: Created Zenn articles, Speaker Deck Slides and note articles json`,
   );
 };
 
@@ -159,6 +161,9 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             ... on SlidesYaml {
               url
             }
+            ... on NotesYaml {
+              url
+            }
             ... on Mdx {
               slug
               frontmatter {
@@ -181,6 +186,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
         case "ArticlesYaml":
         case "OssesYaml":
         case "SlidesYaml":
+        case "NotesYaml":
           timelineList.push({
             title: node.title,
             // TODO nullable
@@ -317,6 +323,13 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         url: String!
         tags: [String!]!
+        fields: TimelineFields!
+      }
+
+      type NotesYaml implements Node & Timeline & Output @dontInfer {
+        title: String!
+        date: Date! @dateformat
+        url: String!
         fields: TimelineFields!
       }
 
