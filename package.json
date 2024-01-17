@@ -26,7 +26,7 @@
     "@mui/lab": "5.0.0-alpha.159",
     "@mui/material": "5.15.3",
     "@sentry/browser": "7.92.0",
-    "bicstone": "0.0.4",
+    "bicstone": "1.0.0",
     "date-fns": "2.30.0",
     "date-fns-tz": "2.0.0",
     "fuse.js": "7.0.0",
