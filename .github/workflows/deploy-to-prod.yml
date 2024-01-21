@@ -30,7 +30,7 @@ jobs:
           node-version-file: ".node-version"
           cache: "yarn"
 
-      - uses: actions/cache/restore@v3
+      - uses: actions/cache/restore@v4
         with:
           path: |
             public
@@ -64,7 +64,7 @@ jobs:
           --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
           --paths "/*"
 
-      - uses: actions/cache/save@v3
+      - uses: actions/cache/save@v4
         with:
           path: |
             public
