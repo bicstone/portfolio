@@ -15,7 +15,7 @@
     "graphql": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
     "deploy": "gatsby-plugin-s3 deploy",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@emotion/react": "11.11.3",
