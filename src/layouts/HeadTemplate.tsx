@@ -44,19 +44,6 @@ export const HeadTemplate = (props: {
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       <link rel="dns-prefetch" href="https://ssl.google-analytics.com" />
-      {/* adsense */}
-      <link rel="dns-prefetch" href="https://adservice.google.co.jp" />
-      <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
-      <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
-      <link rel="dns-prefetch" href="https://tpc.googlesyndication.com" />
-      <link rel="dns-prefetch" href="https://partner.googleadservices.com" />
-      <link rel="dns-prefetch" href="https://www.google.com" />
-      {/* logrokcet */}
-      <link rel="dns-prefetch" href="https://cdn.logrocket.io" />
-      <link rel="dns-prefetch" href="https://cdn.lr-ingest.io" />
-      <link rel="dns-prefetch" href="https://cdn.lr-in.com" />
-      <link rel="dns-prefetch" href="https://cdn.lr-in-prod.com" />
-      <link rel="dns-prefetch" href="https://cdn.lr-ingest.com" />
       {/* favicons, thanks to https://realfavicongenerator.net/ */}
       <link
         rel="apple-touch-icon"
