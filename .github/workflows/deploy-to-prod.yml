@@ -46,6 +46,8 @@ jobs:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
           GTM_ID: ${{ vars.GTM_ID }}
+          GATSBY_ADSENSE_PUB_ID: ${{ vars.GATSBY_ADSENSE_PUB_ID }}
+          GATSBY_ADSENSE_INARTICLE_AD_ID: ${{ vars.GATSBY_ADSENSE_INARTICLE_AD_ID }}
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:

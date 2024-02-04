@@ -2,6 +2,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTimeRounded";
 import UpdateIcon from "@mui/icons-material/UpdateRounded";
 import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
+import NoSsr from "@mui/material/NoSsr";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 // Mdx required "React"
@@ -11,6 +12,7 @@ import type { BlogPostTemplateQuery } from "@/generated/graphqlTypes";
 import type { HeadFC, PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { InarticleAd } from "@/components/InarticleAd";
 import { Heading } from "@/components/markdown/Heading";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
@@ -248,6 +250,26 @@ const BlogPostTemplate = ({
           <HelloContent />
         </section>
       </aside>
+
+      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
+        isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
+          <NoSsr defer>
+            <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
+              <Typography
+                variant="h5"
+                component="h2"
+                fontWeight="bold"
+                paragraph
+              >
+                {TRANSLATION.blog.adLabel}
+              </Typography>
+              <InarticleAd
+                pubId={process.env.GATSBY_ADSENSE_PUB_ID}
+                adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+              />
+            </aside>
+          </NoSsr>
+        )}
 
       <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
         <Typography
