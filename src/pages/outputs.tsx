@@ -1,16 +1,20 @@
 import Container from "@mui/material/Container";
+import NoSsr from "@mui/material/NoSsr";
+import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 
 import type { OutputsPageQuery } from "@/generated/graphqlTypes";
 import type { HeadFC, PageProps } from "gatsby";
 
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { InarticleAd } from "@/components/InarticleAd";
 import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineList } from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
+import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query OutputsPage {
@@ -100,6 +104,26 @@ const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
       <TimelineList groups={outputGroups} />
       <Spacer y={4} />
       <Breadcrumbs title={title} />
+      <Spacer y={2} />
+      {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
+        isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
+          <NoSsr defer>
+            <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
+              <Typography
+                variant="h5"
+                component="h3"
+                fontWeight="bold"
+                paragraph
+              >
+                広告
+              </Typography>
+              <InarticleAd
+                pubId={process.env.GATSBY_ADSENSE_PUB_ID}
+                adId={process.env.GATSBY_ADSENSE_INARTICLE_AD_ID}
+              />
+            </aside>
+          </NoSsr>
+        )}
     </Container>
   );
 };

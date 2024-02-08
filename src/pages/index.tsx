@@ -1,5 +1,5 @@
 import Container from "@mui/material/Container";
-import { NoSsr } from "@mui/material/NoSsr";
+import NoSsr from "@mui/material/NoSsr";
 import Typography from "@mui/material/Typography";
 import { graphql } from "gatsby";
 
@@ -53,6 +53,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <TimelineTabList />
         <Spacer y={6} />
         <TimelineVirtualizedList items={timelineItems} />
+        <Spacer y={2} />
         {isDefined(process.env.GATSBY_ADSENSE_PUB_ID) &&
           isDefined(process.env.GATSBY_ADSENSE_INARTICLE_AD_ID) && (
             <NoSsr defer>

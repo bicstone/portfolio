@@ -56,19 +56,19 @@ const config: GatsbyConfig = {
         includeInDevelopment: true,
       },
     },
-    `gatsby-plugin-image`,
+    // `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 600,
-              linkImagesToOriginal: true,
-              backgroundColor: "none",
-            },
-          },
+          // {
+          //   resolve: `gatsby-remark-images`,
+          //   options: {
+          //     maxWidth: 600,
+          //     linkImagesToOriginal: true,
+          //     backgroundColor: "none",
+          //   },
+          // },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -160,7 +160,7 @@ const config: GatsbyConfig = {
         acl: null,
       },
     },
-    `gatsby-plugin-sharp`,
+    // `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -237,7 +237,7 @@ const config: GatsbyConfig = {
         },
       };
     }),
-    `gatsby-transformer-sharp`,
+    // `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
   ],
 };
