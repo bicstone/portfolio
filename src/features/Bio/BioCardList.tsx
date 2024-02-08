@@ -3,7 +3,7 @@ import { bicstone, type LinkKeys } from "bicstone";
 import { BioHelloCard } from "./BioHelloCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
-import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
+import { BlueskyIcon } from "@/components/icons/BlueskyIcon";
 import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
@@ -29,7 +29,7 @@ export const BioCardList = (): JSX.Element => {
   ] as const satisfies LinkKeys[];
 
   const avatarMap = {
-    bluesky: <AlternateEmailIcon aria-hidden="true" />,
+    bluesky: <BlueskyIcon aria-hidden="true" />,
     facebook: <FacebookIcon aria-hidden="true" />,
     github: <GitHubIcon aria-hidden="true" />,
     linkedin: <LinkedInIcon aria-hidden="true" />,
