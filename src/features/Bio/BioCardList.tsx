@@ -3,7 +3,6 @@ import { bicstone, type LinkKeys } from "bicstone";
 import { BioHelloCard } from "./BioHelloCard";
 import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
-import { AlternateEmailIcon } from "@/components/icons/AlternateEmailIcon";
 import { BlueskyIcon } from "@/components/icons/BlueskyIcon";
 import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
