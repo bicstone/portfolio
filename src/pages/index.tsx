@@ -10,7 +10,10 @@ import { InarticleAd } from "@/components/InarticleAd";
 import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
-import { TimelineVirtualizedList } from "@/features/Timeline";
+import {
+  TimelineVirtualizedList,
+  TimelinePinnedList,
+} from "@/features/Timeline";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
@@ -49,6 +52,8 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         css={(theme) => ({ margin: theme.spacing(4, "auto") })}
       >
         <BioCardList />
+        <Spacer y={6} />
+        <TimelinePinnedList />
         <Spacer y={6} />
         <TimelineTabList />
         <Spacer y={6} />
