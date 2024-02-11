@@ -10,10 +10,8 @@ import { InarticleAd } from "@/components/InarticleAd";
 import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
-import {
-  TimelineVirtualizedList,
-  TimelinePinnedList,
-} from "@/features/Timeline";
+import { TimelineVirtualizedList } from "@/features/Timeline";
+import { FeaturedList } from "@/features/TimelineFeatured";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
@@ -22,6 +20,9 @@ export const query = graphql`
   query IndexPage {
     timelineItems: allTimeline(sort: { date: DESC }) {
       ...TimelineVirtualizedListTimeline
+    }
+    featuredTimelineItems: allFeaturedYaml {
+      ...FeaturedList
     }
   }
 `;
@@ -43,6 +44,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const timelineItems = data.timelineItems;
+  const featuredTimelineItems = data.featuredTimelineItems;
 
   return (
     <>
@@ -53,7 +55,15 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
       >
         <BioCardList />
         <Spacer y={6} />
-        <TimelinePinnedList />
+        <Typography variant="h5" component="h2" fontWeight="bold">
+          Featured
+        </Typography>
+        <Spacer y={6} />
+        <FeaturedList items={featuredTimelineItems} />
+        <Spacer y={6} />
+        <Typography variant="h5" component="h2" fontWeight="bold">
+          Timeline ({timelineItems.nodes.length})
+        </Typography>
         <Spacer y={6} />
         <TimelineTabList />
         <Spacer y={6} />
@@ -65,7 +75,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
               <aside css={(theme) => ({ margin: theme.spacing(4, 0) })}>
                 <Typography
                   variant="h5"
-                  component="h3"
+                  component="h2"
                   fontWeight="bold"
                   paragraph
                 >

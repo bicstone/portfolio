@@ -3,4 +3,3 @@ export {
   TimelineVirtualizedList,
   type TimelineVirtualizedListProps,
 } from "./TimelineVirtualizedList";
-export { TimelinePinnedList } from "./TimelinePinnedList";
