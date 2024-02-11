@@ -117,7 +117,9 @@ interface TimelineItemProps {
   item: TimelineListProps["groups"]["group"][number]["nodes"][number];
 }
 
-const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
+export const TimelineItem = ({
+  item,
+}: TimelineItemProps): JSX.Element | null => {
   switch (item.__typename) {
     case "ArticlesYaml": {
       return <TimelineArticleCard key={item.id} item={item} />;

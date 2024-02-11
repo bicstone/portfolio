@@ -59,6 +59,8 @@ export const Footer = (): JSX.Element => {
             src={happyBusy}
             width={200}
             height={40}
+            decoding="async"
+            loading="lazy"
           />
         </ExternalLink>
       </a>

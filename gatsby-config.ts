@@ -32,6 +32,7 @@ const contentPaths = [
   "speakerdeck",
   "zenn",
   "note",
+  "featured",
 ];
 
 const config: GatsbyConfig = {
