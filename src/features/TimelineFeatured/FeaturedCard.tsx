@@ -2,8 +2,6 @@ import styled from "@emotion/styled";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 
-import { type Feature } from "./constants";
-
 const StyledCard = styled(Card)(({ theme }) => ({
   width: "100%",
   height: 0,
@@ -25,8 +23,10 @@ export const FeaturedCard = ({
   url,
   children,
 }: {
+  title: string;
+  url: string;
   children: React.ReactNode;
-} & Feature): JSX.Element => {
+}): JSX.Element => {
   return (
     <StyledCard>
       <StyledCardActionArea
