@@ -21,9 +21,6 @@ export const query = graphql`
     timelineItems: allTimeline(sort: { date: DESC }) {
       ...TimelineVirtualizedListTimeline
     }
-    featuredTimelineItems: allFeaturedYaml {
-      ...FeaturedList
-    }
   }
 `;
 
@@ -44,7 +41,6 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const timelineItems = data.timelineItems;
-  const featuredTimelineItems = data.featuredTimelineItems;
 
   return (
     <>
@@ -59,7 +55,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
           Featured
         </Typography>
         <Spacer y={6} />
-        <FeaturedList items={featuredTimelineItems} />
+        <FeaturedList />
         <Spacer y={6} />
         <Typography variant="h5" component="h2" fontWeight="bold">
           Timeline ({timelineItems.nodes.length})
