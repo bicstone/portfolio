@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { StaticImage } from "gatsby-plugin-image";
-import { type IStaticImageProps } from "gatsby-plugin-image/dist/src/components/static-image.server";
+import { type ComponentProps } from "react";
 
 import { FeaturedCard } from "./FeaturedCard";
 
@@ -48,7 +48,7 @@ const staticImageProps = {
   height: 630,
   decoding: "async",
   loading: "eager",
-} as const satisfies Partial<IStaticImageProps>;
+} as const satisfies Partial<ComponentProps<typeof StaticImage>>;
 
 export const FeaturedList = (): JSX.Element => {
   return (
