@@ -21,7 +21,7 @@ export const FeaturedList = (): JSX.Element => {
       {FEATURES.map((item) => (
         <FeaturedCard key={item.url} {...item}>
           <StaticImage
-            src={item.url}
+            src={item.ogImage}
             alt={item.title}
             width={1200}
             height={630}
