@@ -1,22 +1,16 @@
 import styled from "@emotion/styled";
-import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 
-const StyledCard = styled(Card)(({ theme }) => ({
-  width: "100%",
+const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
+  borderRadius: theme.shape.borderRadius * 2,
+  boxShadow: theme.shadows[1],
+  display: "block",
   height: 0,
+  overflow: "hidden",
   paddingBottom: "52.5%" /* 1200:630 Aspect Ratio */,
   position: "relative",
-  borderRadius: theme.shape.borderRadius * 2,
-}));
-
-const StyledCardActionArea = styled(CardActionArea)({
-  position: "absolute",
-  top: 0,
-  left: 0,
   width: "100%",
-  height: "100%",
-}) as typeof CardActionArea;
+})) as typeof CardActionArea;
 
 export const FeaturedCard = ({
   title,
@@ -28,7 +22,7 @@ export const FeaturedCard = ({
   children: React.ReactNode;
 }): JSX.Element => {
   return (
-    <StyledCard>
+    <article>
       <StyledCardActionArea
         LinkComponent="a"
         href={url}
@@ -38,6 +32,6 @@ export const FeaturedCard = ({
       >
         {children}
       </StyledCardActionArea>
-    </StyledCard>
+    </article>
   );
 };

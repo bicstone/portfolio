@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { StaticImage } from "gatsby-plugin-image";
-import { type ComponentProps } from "react";
 
 import { FeaturedCard } from "./FeaturedCard";
 
@@ -14,42 +13,6 @@ const Container = styled("div")(({ theme }) => ({
   },
 }));
 
-export interface Feature {
-  title: string;
-  ogImage: string;
-  url: string;
-}
-
-export const FEATURES = [
-  {
-    title: "コードレビューにラベルを付けるだけでチームの心理的安全性を高めた話",
-    ogImage: "./assets/code-review-comment-prefix.png",
-    url: "https://zenn.dev/hacobell_dev/articles/code-review-comment-prefix",
-  },
-  {
-    title: "もうブロッカーにしない！コードレビューを爆速にするための組織づくり",
-    ogImage: "./assets/code-review-blocker.png",
-    url: "https://zenn.dev/hacobell_dev/articles/code-review-blocker",
-  },
-  {
-    title: "【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集",
-    ogImage: "./assets/graphql-error-response.png",
-    url: "https://zenn.dev/hacobell_dev/articles/graphql-error-response",
-  },
-  {
-    title: "backlog-notify",
-    ogImage: "./assets/backlog-notify.png",
-    url: "https://github.com/bicstone/backlog-notify",
-  },
-] as const satisfies Feature[];
-
-const staticImageProps = {
-  width: 1200,
-  height: 630,
-  decoding: "async",
-  loading: "eager",
-} as const satisfies Partial<ComponentProps<typeof StaticImage>>;
-
 export const FeaturedList = (): JSX.Element => {
   return (
     <Container as="section">
@@ -59,9 +22,43 @@ export const FeaturedList = (): JSX.Element => {
         url="https://zenn.dev/hacobell_dev/articles/code-review-comment-prefix"
       >
         <StaticImage
-          src="./assets/code-review-comment-prefix.png"
+          src="../../../content/featured/code-review-comment-prefix.png"
           alt="コードレビューにラベルを付けるだけでチームの心理的安全性を高めた話"
-          {...staticImageProps}
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="もうブロッカーにしない！コードレビューを爆速にするための組織づくり"
+        url="https://zenn.dev/hacobell_dev/articles/code-review-blocker"
+      >
+        <StaticImage
+          src="../../../content/featured/code-review-blocker.png"
+          alt="もうブロッカーにしない！コードレビューを爆速にするための組織づくり"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
+        url="https://zenn.dev/hacobell_dev/articles/graphql-error-response"
+      >
+        <StaticImage
+          src="../../../content/featured/graphql-error-response.png"
+          alt="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="backlog-notify"
+        url="https://github.com/bicstone/backlog-notify"
+      >
+        <StaticImage
+          src="../../../content/featured/backlog-notify.png"
+          alt="backlog-notify"
+          width={1200}
+          height={630}
         />
       </FeaturedCard>
     </Container>
