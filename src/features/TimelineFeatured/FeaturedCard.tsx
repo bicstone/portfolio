@@ -23,7 +23,6 @@ const StyledCardActionArea = styled(CardActionArea)({
 export const FeaturedCard = ({
   title,
   url,
-  ogImage,
   children,
 }: {
   children: React.ReactNode;
