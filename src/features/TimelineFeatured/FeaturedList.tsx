@@ -1,39 +1,34 @@
 import styled from "@emotion/styled";
-import { graphql } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
 
 import { FeaturedCard } from "./FeaturedCard";
-
-import { type FeaturedListFragment } from "@/generated/graphqlTypes";
-
-export const query = graphql`
-  fragment FeaturedList on FeaturedYamlConnection {
-    nodes {
-      __typename
-      id
-      ...FeaturedCard
-    }
-  }
-`;
+import { FEATURES } from "./constants";
 
 const Container = styled("div")(({ theme }) => ({
   display: "grid",
   gap: theme.spacing(3),
   gridTemplateColumns: "repeat(2, 1fr)",
   width: "100%",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("sm")]: {
     gridTemplateColumns: "repeat(1, 1fr)",
   },
 }));
 
-export const FeaturedList = ({
-  items,
-}: {
-  items: FeaturedListFragment;
-}): JSX.Element => {
+export const FeaturedList = (): JSX.Element => {
   return (
     <Container as="section">
-      {items.nodes.map((item) => (
-        <FeaturedCard key={item.id} item={item} />
+      {/* StaticImageを使用するためベタ書き */}
+      {FEATURES.map((item) => (
+        <FeaturedCard key={item.url} {...item}>
+          <StaticImage
+            src={item.url}
+            alt={item.title}
+            width={1200}
+            height={630}
+            decoding="async"
+            loading="eager"
+          />
+        </FeaturedCard>
       ))}
     </Container>
   );
