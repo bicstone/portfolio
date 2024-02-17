@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [update]
+  push:
+    branches: [main]
 
 permissions: {}
 
