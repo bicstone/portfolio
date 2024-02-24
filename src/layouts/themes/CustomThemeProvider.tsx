@@ -25,7 +25,11 @@ export const CustomThemeProvider = ({
 
   return (
     <EmotionThemeProvider theme={theme}>
-      <CssVarsProvider defaultMode="system" theme={theme}>
+      <CssVarsProvider
+        defaultMode="light"
+        modeStorageKey="mui-mode-disabled"
+        theme={theme}
+      >
         <Global
           styles={{
             html: {
@@ -47,7 +51,7 @@ export const CustomThemeProvider = ({
             },
           }}
         />
-        <CssBaseline enableColorScheme />
+        <CssBaseline />
         {children}
       </CssVarsProvider>
     </EmotionThemeProvider>
