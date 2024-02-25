@@ -18,7 +18,11 @@ import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query IndexPage {
-    timelineItems: allTimeline(sort: { date: DESC }) {
+    timelineItems: allTimeline(
+      sort: { date: DESC }
+      # XXX: Qiitaだけトップページから除外している
+      filter: { internal: { type: { ne: "ItemsYaml" } } }
+    ) {
       ...TimelineVirtualizedListTimeline
     }
   }
@@ -58,7 +62,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <FeaturedList />
         <Spacer y={6} />
         <Typography variant="h5" component="h2" fontWeight="bold">
-          Timeline ({timelineItems.nodes.length})
+          Timeline
         </Typography>
         <Spacer y={6} />
         <TimelineTabList />

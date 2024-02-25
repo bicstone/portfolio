@@ -32,6 +32,7 @@ const contentPaths = [
   "speakerdeck",
   "zenn",
   "note",
+  "qiita",
   "featured",
 ];
 
@@ -131,6 +132,9 @@ const config: GatsbyConfig = {
                       url
                     }
                     ... on NotesYaml {
+                      url
+                    }
+                    ... on ItemsYaml {
                       url
                     }
                     ... on Mdx {
