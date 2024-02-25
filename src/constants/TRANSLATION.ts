@@ -34,7 +34,7 @@ export const TRANSLATION = {
       normal:
         "ニコニコした Oishi Takanori の似顔絵。クリックするとアニメーションを開始します。",
     },
-    title: "おおいし (@bicstone)",
+    title: "大石 貴則 (@bicstone)",
   },
   home: {
     contactsTitle: "お問い合わせ",
