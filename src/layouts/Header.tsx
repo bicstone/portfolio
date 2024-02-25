@@ -60,7 +60,7 @@ export const Header = (): JSX.Element => {
               component="h1"
               fontWeight="bold"
             >
-              おおいし (@bicstone)
+              大石 貴則 (@bicstone)
             </Typography>
           </div>
         </Link>

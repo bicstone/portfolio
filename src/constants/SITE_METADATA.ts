@@ -1,11 +1,11 @@
 const siteUrl = process.env.GATSBY_SITE_URL ?? "https://bicstone.me";
 
 export const SITE_METADATA = {
-  title: "おおいし (@bicstone)",
+  title: "大石 貴則 (@bicstone)",
   shortTitle: "bicstone",
   siteUrl,
   description:
-    "Webエンジニア/機械エンジニア おおいし (@bicstone) のポートフォリオサイトです。",
+    "Webエンジニア/機械エンジニア 大石 貴則 (@bicstone) のポートフォリオサイトです。",
   author: "bicstone",
   logoImage: `${siteUrl}/images/icon_circular.png`,
   ogpImage: `${siteUrl}/images/og_image.png`,

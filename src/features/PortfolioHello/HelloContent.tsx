@@ -46,7 +46,7 @@ export const HelloContent = (): JSX.Element => {
                   fontWeight="bold"
                   gutterBottom
                 >
-                  おおいし (@bicstone)
+                  大石 貴則 (@bicstone)
                 </Typography>
               }
               subheader={
