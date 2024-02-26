@@ -51,6 +51,28 @@ export const FeaturedList = (): JSX.Element => {
         />
       </FeaturedCard>
       <FeaturedCard
+        title="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
+        url="https://zenn.dev/bicstone/articles/keep-you-motivated-to-output"
+      >
+        <StaticImage
+          src="../../../content/featured/keep-you-motivated-to-output.png"
+          alt="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
+        url="https://findy-code.io/engineer-lab/bicstone_me"
+      >
+        <StaticImage
+          src="../../../content/featured/ohishi_0222.png"
+          alt="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
         title="backlog-notify"
         url="https://github.com/bicstone/backlog-notify"
       >
