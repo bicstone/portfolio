@@ -63,7 +63,7 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
         location={location}
         title={title}
         description={post.frontmatter.excerpt}
-        image={`${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`}
+        image={SITE_METADATA.logoImage}
         imageAlt={SITE_METADATA.title}
         type="article"
       />
@@ -85,9 +85,7 @@ export const Head: HeadFC<BlogPostTemplateQuery> = ({ location, data }) => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: title,
-            image: [
-              `${SITE_METADATA.siteUrl}/ogp/${post.frontmatter.slug}.png`,
-            ],
+            image: [SITE_METADATA.logoImage],
             datePublished: post.frontmatter.date,
             dateModified: post.frontmatter.updateDate,
             dateCreated: post.frontmatter.date,

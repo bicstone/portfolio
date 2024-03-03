@@ -68,10 +68,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
               ...outputsItems.map((item) => ({
                 "@type": "BlogPosting",
                 headline: item.title,
-                image:
-                  item.__typename === "Mdx"
-                    ? `${SITE_METADATA.siteUrl}/ogp/${item.slug}.png`
-                    : SITE_METADATA.logoImage,
+                image: SITE_METADATA.logoImage,
                 datePublished: item.date,
                 author: {
                   "@type": "Person",
