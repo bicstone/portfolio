@@ -13,7 +13,14 @@ export type Scalars = {
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
   Date: { input: any; output: any; }
+  GatsbyImageData: { input: any; output: any; }
   JSON: { input: any; output: any; }
+};
+
+export type AvifOptions = {
+  readonly lossless: InputMaybe<Scalars['Boolean']['input']>;
+  readonly quality: InputMaybe<Scalars['Int']['input']>;
+  readonly speed: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type ArticlesYaml = Node & Output & Timeline & {
@@ -156,6 +163,13 @@ export type ArticlesYamlSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
+};
+
+export type BlurredOptions = {
+  /** Force the output format for the low-res preview. Default is to use the same format as the input. You should rarely need to change this */
+  readonly toFormat: InputMaybe<ImageFormat>;
+  /** Width of the generated low-res preview. Default is 20px */
+  readonly width: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type BooleanQueryOperatorInput = {
@@ -626,6 +640,12 @@ export type DirectorySortInput = {
   readonly uid: InputMaybe<SortOrderEnum>;
 };
 
+export type DuotoneGradient = {
+  readonly highlight: Scalars['String']['input'];
+  readonly opacity: InputMaybe<Scalars['Int']['input']>;
+  readonly shadow: Scalars['String']['input'];
+};
+
 export enum FieldSelectorEnum {
   Select = 0
 }
@@ -650,6 +670,8 @@ export type File = Node & {
   readonly childCertificationsYaml: Maybe<CertificationsYaml>;
   /** Returns the first child node of type HistoriesYaml or null if there are no children of given type on this node */
   readonly childHistoriesYaml: Maybe<HistoriesYaml>;
+  /** Returns the first child node of type ImageSharp or null if there are no children of given type on this node */
+  readonly childImageSharp: Maybe<ImageSharp>;
   /** Returns the first child node of type ItemsYaml or null if there are no children of given type on this node */
   readonly childItemsYaml: Maybe<ItemsYaml>;
   /** Returns the first child node of type Mdx or null if there are no children of given type on this node */
@@ -669,6 +691,8 @@ export type File = Node & {
   readonly childrenCertificationsYaml: Maybe<ReadonlyArray<Maybe<CertificationsYaml>>>;
   /** Returns all children nodes filtered by type HistoriesYaml */
   readonly childrenHistoriesYaml: Maybe<ReadonlyArray<Maybe<HistoriesYaml>>>;
+  /** Returns all children nodes filtered by type ImageSharp */
+  readonly childrenImageSharp: Maybe<ReadonlyArray<Maybe<ImageSharp>>>;
   /** Returns all children nodes filtered by type ItemsYaml */
   readonly childrenItemsYaml: Maybe<ReadonlyArray<Maybe<ItemsYaml>>>;
   /** Returns all children nodes filtered by type Mdx */
@@ -826,6 +850,7 @@ export type FileFieldSelector = {
   readonly childArticlesYaml: InputMaybe<ArticlesYamlFieldSelector>;
   readonly childCertificationsYaml: InputMaybe<CertificationsYamlFieldSelector>;
   readonly childHistoriesYaml: InputMaybe<HistoriesYamlFieldSelector>;
+  readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly childItemsYaml: InputMaybe<ItemsYamlFieldSelector>;
   readonly childMdx: InputMaybe<MdxFieldSelector>;
   readonly childNotesYaml: InputMaybe<NotesYamlFieldSelector>;
@@ -836,6 +861,7 @@ export type FileFieldSelector = {
   readonly childrenArticlesYaml: InputMaybe<ArticlesYamlFieldSelector>;
   readonly childrenCertificationsYaml: InputMaybe<CertificationsYamlFieldSelector>;
   readonly childrenHistoriesYaml: InputMaybe<HistoriesYamlFieldSelector>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
   readonly childrenItemsYaml: InputMaybe<ItemsYamlFieldSelector>;
   readonly childrenMdx: InputMaybe<MdxFieldSelector>;
   readonly childrenNotesYaml: InputMaybe<NotesYamlFieldSelector>;
@@ -885,6 +911,7 @@ export type FileFilterInput = {
   readonly childArticlesYaml: InputMaybe<ArticlesYamlFilterInput>;
   readonly childCertificationsYaml: InputMaybe<CertificationsYamlFilterInput>;
   readonly childHistoriesYaml: InputMaybe<HistoriesYamlFilterInput>;
+  readonly childImageSharp: InputMaybe<ImageSharpFilterInput>;
   readonly childItemsYaml: InputMaybe<ItemsYamlFilterInput>;
   readonly childMdx: InputMaybe<MdxFilterInput>;
   readonly childNotesYaml: InputMaybe<NotesYamlFilterInput>;
@@ -895,6 +922,7 @@ export type FileFilterInput = {
   readonly childrenArticlesYaml: InputMaybe<ArticlesYamlFilterListInput>;
   readonly childrenCertificationsYaml: InputMaybe<CertificationsYamlFilterListInput>;
   readonly childrenHistoriesYaml: InputMaybe<HistoriesYamlFilterListInput>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
   readonly childrenItemsYaml: InputMaybe<ItemsYamlFilterListInput>;
   readonly childrenMdx: InputMaybe<MdxFilterListInput>;
   readonly childrenNotesYaml: InputMaybe<NotesYamlFilterListInput>;
@@ -985,6 +1013,7 @@ export type FileSortInput = {
   readonly childArticlesYaml: InputMaybe<ArticlesYamlSortInput>;
   readonly childCertificationsYaml: InputMaybe<CertificationsYamlSortInput>;
   readonly childHistoriesYaml: InputMaybe<HistoriesYamlSortInput>;
+  readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly childItemsYaml: InputMaybe<ItemsYamlSortInput>;
   readonly childMdx: InputMaybe<MdxSortInput>;
   readonly childNotesYaml: InputMaybe<NotesYamlSortInput>;
@@ -995,6 +1024,7 @@ export type FileSortInput = {
   readonly childrenArticlesYaml: InputMaybe<ArticlesYamlSortInput>;
   readonly childrenCertificationsYaml: InputMaybe<CertificationsYamlSortInput>;
   readonly childrenHistoriesYaml: InputMaybe<HistoriesYamlSortInput>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
   readonly childrenItemsYaml: InputMaybe<ItemsYamlSortInput>;
   readonly childrenMdx: InputMaybe<MdxSortInput>;
   readonly childrenNotesYaml: InputMaybe<NotesYamlSortInput>;
@@ -1039,6 +1069,35 @@ export type FloatQueryOperatorInput = {
   readonly ne: InputMaybe<Scalars['Float']['input']>;
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
 };
+
+export type GatsbyImageDataQueryOperatorInput = {
+  readonly eq: InputMaybe<Scalars['GatsbyImageData']['input']>;
+  readonly in: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']['input']>>>;
+  readonly ne: InputMaybe<Scalars['GatsbyImageData']['input']>;
+  readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['GatsbyImageData']['input']>>>;
+};
+
+export enum GatsbyImageFormat {
+  Auto = 0,
+  Avif = 1,
+  Jpg = 2,
+  NoChange = 3,
+  Png = 4,
+  Webp = 5
+}
+
+export enum GatsbyImageLayout {
+  Constrained = 0,
+  Fixed = 1,
+  FullWidth = 2
+}
+
+export enum GatsbyImagePlaceholder {
+  Blurred = 0,
+  DominantColor = 1,
+  None = 2,
+  TracedSvg = 3
+}
 
 export type HistoriesYaml = History & Node & Timeline & {
   readonly children: ReadonlyArray<Node>;
@@ -1320,6 +1379,453 @@ export type HistorySortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
+export enum ImageCropFocus {
+  Attention = 0,
+  Center = 1,
+  East = 2,
+  Entropy = 3,
+  North = 4,
+  Northeast = 5,
+  Northwest = 6,
+  South = 7,
+  Southeast = 8,
+  Southwest = 9,
+  West = 10
+}
+
+export enum ImageFit {
+  Contain = 0,
+  Cover = 1,
+  Fill = 2,
+  Inside = 3,
+  Outside = 4
+}
+
+export enum ImageFormat {
+  Auto = 0,
+  Avif = 1,
+  Jpg = 2,
+  NoChange = 3,
+  Png = 4,
+  Webp = 5
+}
+
+export enum ImageLayout {
+  Constrained = 0,
+  Fixed = 1,
+  FullWidth = 2
+}
+
+export enum ImagePlaceholder {
+  Blurred = 0,
+  DominantColor = 1,
+  None = 2,
+  TracedSvg = 3
+}
+
+export type ImageSharp = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly fixed: Maybe<ImageSharpFixed>;
+  readonly fluid: Maybe<ImageSharpFluid>;
+  readonly gatsbyImageData: Scalars['GatsbyImageData']['output'];
+  readonly id: Scalars['ID']['output'];
+  readonly internal: Internal;
+  readonly original: Maybe<ImageSharpOriginal>;
+  readonly parent: Maybe<Node>;
+  readonly resize: Maybe<ImageSharpResize>;
+};
+
+
+export type ImageSharpFixedArgs = {
+  background?: InputMaybe<Scalars['String']['input']>;
+  base64Width: InputMaybe<Scalars['Int']['input']>;
+  cropFocus?: InputMaybe<ImageCropFocus>;
+  duotone: InputMaybe<DuotoneGradient>;
+  fit?: InputMaybe<ImageFit>;
+  grayscale?: InputMaybe<Scalars['Boolean']['input']>;
+  height: InputMaybe<Scalars['Int']['input']>;
+  jpegProgressive?: InputMaybe<Scalars['Boolean']['input']>;
+  jpegQuality: InputMaybe<Scalars['Int']['input']>;
+  pngCompressionSpeed?: InputMaybe<Scalars['Int']['input']>;
+  pngQuality: InputMaybe<Scalars['Int']['input']>;
+  quality: InputMaybe<Scalars['Int']['input']>;
+  rotate?: InputMaybe<Scalars['Int']['input']>;
+  toFormat?: InputMaybe<ImageFormat>;
+  toFormatBase64?: InputMaybe<ImageFormat>;
+  traceSVG: InputMaybe<Potrace>;
+  trim?: InputMaybe<Scalars['Float']['input']>;
+  webpQuality: InputMaybe<Scalars['Int']['input']>;
+  width: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageSharpFluidArgs = {
+  background?: InputMaybe<Scalars['String']['input']>;
+  base64Width: InputMaybe<Scalars['Int']['input']>;
+  cropFocus?: InputMaybe<ImageCropFocus>;
+  duotone: InputMaybe<DuotoneGradient>;
+  fit?: InputMaybe<ImageFit>;
+  grayscale?: InputMaybe<Scalars['Boolean']['input']>;
+  jpegProgressive?: InputMaybe<Scalars['Boolean']['input']>;
+  jpegQuality: InputMaybe<Scalars['Int']['input']>;
+  maxHeight: InputMaybe<Scalars['Int']['input']>;
+  maxWidth: InputMaybe<Scalars['Int']['input']>;
+  pngCompressionSpeed?: InputMaybe<Scalars['Int']['input']>;
+  pngQuality: InputMaybe<Scalars['Int']['input']>;
+  quality: InputMaybe<Scalars['Int']['input']>;
+  rotate?: InputMaybe<Scalars['Int']['input']>;
+  sizes?: InputMaybe<Scalars['String']['input']>;
+  srcSetBreakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  toFormat?: InputMaybe<ImageFormat>;
+  toFormatBase64?: InputMaybe<ImageFormat>;
+  traceSVG: InputMaybe<Potrace>;
+  trim?: InputMaybe<Scalars['Float']['input']>;
+  webpQuality: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageSharpGatsbyImageDataArgs = {
+  aspectRatio: InputMaybe<Scalars['Float']['input']>;
+  avifOptions: InputMaybe<AvifOptions>;
+  backgroundColor: InputMaybe<Scalars['String']['input']>;
+  blurredOptions: InputMaybe<BlurredOptions>;
+  breakpoints: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']['input']>>>;
+  formats: InputMaybe<ReadonlyArray<InputMaybe<ImageFormat>>>;
+  height: InputMaybe<Scalars['Int']['input']>;
+  jpgOptions: InputMaybe<JpgOptions>;
+  layout?: InputMaybe<ImageLayout>;
+  outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']['input']>>>;
+  placeholder: InputMaybe<ImagePlaceholder>;
+  pngOptions: InputMaybe<PngOptions>;
+  quality: InputMaybe<Scalars['Int']['input']>;
+  sizes: InputMaybe<Scalars['String']['input']>;
+  tracedSVGOptions: InputMaybe<Potrace>;
+  transformOptions: InputMaybe<TransformOptions>;
+  webpOptions: InputMaybe<WebPOptions>;
+  width: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageSharpResizeArgs = {
+  background?: InputMaybe<Scalars['String']['input']>;
+  base64?: InputMaybe<Scalars['Boolean']['input']>;
+  cropFocus?: InputMaybe<ImageCropFocus>;
+  duotone: InputMaybe<DuotoneGradient>;
+  fit?: InputMaybe<ImageFit>;
+  grayscale?: InputMaybe<Scalars['Boolean']['input']>;
+  height: InputMaybe<Scalars['Int']['input']>;
+  jpegProgressive?: InputMaybe<Scalars['Boolean']['input']>;
+  jpegQuality: InputMaybe<Scalars['Int']['input']>;
+  pngCompressionLevel?: InputMaybe<Scalars['Int']['input']>;
+  pngCompressionSpeed?: InputMaybe<Scalars['Int']['input']>;
+  pngQuality: InputMaybe<Scalars['Int']['input']>;
+  quality: InputMaybe<Scalars['Int']['input']>;
+  rotate?: InputMaybe<Scalars['Int']['input']>;
+  toFormat?: InputMaybe<ImageFormat>;
+  traceSVG: InputMaybe<Potrace>;
+  trim?: InputMaybe<Scalars['Float']['input']>;
+  webpQuality: InputMaybe<Scalars['Int']['input']>;
+  width: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ImageSharpConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<ImageSharpEdge>;
+  readonly group: ReadonlyArray<ImageSharpGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<ImageSharp>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type ImageSharpConnectionDistinctArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+
+export type ImageSharpConnectionGroupArgs = {
+  field: ImageSharpFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageSharpConnectionMaxArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+
+export type ImageSharpConnectionMinArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+
+export type ImageSharpConnectionSumArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+export type ImageSharpEdge = {
+  readonly next: Maybe<ImageSharp>;
+  readonly node: ImageSharp;
+  readonly previous: Maybe<ImageSharp>;
+};
+
+export type ImageSharpFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly fixed: InputMaybe<ImageSharpFixedFieldSelector>;
+  readonly fluid: InputMaybe<ImageSharpFluidFieldSelector>;
+  readonly gatsbyImageData: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly original: InputMaybe<ImageSharpOriginalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly resize: InputMaybe<ImageSharpResizeFieldSelector>;
+};
+
+export type ImageSharpFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly fixed: InputMaybe<ImageSharpFixedFilterInput>;
+  readonly fluid: InputMaybe<ImageSharpFluidFilterInput>;
+  readonly gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly original: InputMaybe<ImageSharpOriginalFilterInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly resize: InputMaybe<ImageSharpResizeFilterInput>;
+};
+
+export type ImageSharpFilterListInput = {
+  readonly elemMatch: InputMaybe<ImageSharpFilterInput>;
+};
+
+export type ImageSharpFixed = {
+  readonly aspectRatio: Maybe<Scalars['Float']['output']>;
+  readonly base64: Maybe<Scalars['String']['output']>;
+  readonly height: Scalars['Float']['output'];
+  readonly originalName: Maybe<Scalars['String']['output']>;
+  readonly src: Scalars['String']['output'];
+  readonly srcSet: Scalars['String']['output'];
+  readonly srcSetWebp: Maybe<Scalars['String']['output']>;
+  readonly srcWebp: Maybe<Scalars['String']['output']>;
+  readonly tracedSVG: Maybe<Scalars['String']['output']>;
+  readonly width: Scalars['Float']['output'];
+};
+
+export type ImageSharpFixedFieldSelector = {
+  readonly aspectRatio: InputMaybe<FieldSelectorEnum>;
+  readonly base64: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly originalName: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly srcSet: InputMaybe<FieldSelectorEnum>;
+  readonly srcSetWebp: InputMaybe<FieldSelectorEnum>;
+  readonly srcWebp: InputMaybe<FieldSelectorEnum>;
+  readonly tracedSVG: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+export type ImageSharpFixedFilterInput = {
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly base64: InputMaybe<StringQueryOperatorInput>;
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSet: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<FloatQueryOperatorInput>;
+};
+
+export type ImageSharpFixedSortInput = {
+  readonly aspectRatio: InputMaybe<SortOrderEnum>;
+  readonly base64: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly originalName: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly srcSet: InputMaybe<SortOrderEnum>;
+  readonly srcSetWebp: InputMaybe<SortOrderEnum>;
+  readonly srcWebp: InputMaybe<SortOrderEnum>;
+  readonly tracedSVG: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+export type ImageSharpFluid = {
+  readonly aspectRatio: Scalars['Float']['output'];
+  readonly base64: Maybe<Scalars['String']['output']>;
+  readonly originalImg: Maybe<Scalars['String']['output']>;
+  readonly originalName: Maybe<Scalars['String']['output']>;
+  readonly presentationHeight: Scalars['Int']['output'];
+  readonly presentationWidth: Scalars['Int']['output'];
+  readonly sizes: Scalars['String']['output'];
+  readonly src: Scalars['String']['output'];
+  readonly srcSet: Scalars['String']['output'];
+  readonly srcSetWebp: Maybe<Scalars['String']['output']>;
+  readonly srcWebp: Maybe<Scalars['String']['output']>;
+  readonly tracedSVG: Maybe<Scalars['String']['output']>;
+};
+
+export type ImageSharpFluidFieldSelector = {
+  readonly aspectRatio: InputMaybe<FieldSelectorEnum>;
+  readonly base64: InputMaybe<FieldSelectorEnum>;
+  readonly originalImg: InputMaybe<FieldSelectorEnum>;
+  readonly originalName: InputMaybe<FieldSelectorEnum>;
+  readonly presentationHeight: InputMaybe<FieldSelectorEnum>;
+  readonly presentationWidth: InputMaybe<FieldSelectorEnum>;
+  readonly sizes: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly srcSet: InputMaybe<FieldSelectorEnum>;
+  readonly srcSetWebp: InputMaybe<FieldSelectorEnum>;
+  readonly srcWebp: InputMaybe<FieldSelectorEnum>;
+  readonly tracedSVG: InputMaybe<FieldSelectorEnum>;
+};
+
+export type ImageSharpFluidFilterInput = {
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly base64: InputMaybe<StringQueryOperatorInput>;
+  readonly originalImg: InputMaybe<StringQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly presentationHeight: InputMaybe<IntQueryOperatorInput>;
+  readonly presentationWidth: InputMaybe<IntQueryOperatorInput>;
+  readonly sizes: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSet: InputMaybe<StringQueryOperatorInput>;
+  readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type ImageSharpFluidSortInput = {
+  readonly aspectRatio: InputMaybe<SortOrderEnum>;
+  readonly base64: InputMaybe<SortOrderEnum>;
+  readonly originalImg: InputMaybe<SortOrderEnum>;
+  readonly originalName: InputMaybe<SortOrderEnum>;
+  readonly presentationHeight: InputMaybe<SortOrderEnum>;
+  readonly presentationWidth: InputMaybe<SortOrderEnum>;
+  readonly sizes: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly srcSet: InputMaybe<SortOrderEnum>;
+  readonly srcSetWebp: InputMaybe<SortOrderEnum>;
+  readonly srcWebp: InputMaybe<SortOrderEnum>;
+  readonly tracedSVG: InputMaybe<SortOrderEnum>;
+};
+
+export type ImageSharpGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<ImageSharpEdge>;
+  readonly field: Scalars['String']['output'];
+  readonly fieldValue: Maybe<Scalars['String']['output']>;
+  readonly group: ReadonlyArray<ImageSharpGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<ImageSharp>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type ImageSharpGroupConnectionDistinctArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+
+export type ImageSharpGroupConnectionGroupArgs = {
+  field: ImageSharpFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type ImageSharpGroupConnectionMaxArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+
+export type ImageSharpGroupConnectionMinArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+
+export type ImageSharpGroupConnectionSumArgs = {
+  field: ImageSharpFieldSelector;
+};
+
+export type ImageSharpOriginal = {
+  readonly height: Maybe<Scalars['Float']['output']>;
+  readonly src: Maybe<Scalars['String']['output']>;
+  readonly width: Maybe<Scalars['Float']['output']>;
+};
+
+export type ImageSharpOriginalFieldSelector = {
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+export type ImageSharpOriginalFilterInput = {
+  readonly height: InputMaybe<FloatQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<FloatQueryOperatorInput>;
+};
+
+export type ImageSharpOriginalSortInput = {
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+export type ImageSharpResize = {
+  readonly aspectRatio: Maybe<Scalars['Float']['output']>;
+  readonly height: Maybe<Scalars['Int']['output']>;
+  readonly originalName: Maybe<Scalars['String']['output']>;
+  readonly src: Maybe<Scalars['String']['output']>;
+  readonly tracedSVG: Maybe<Scalars['String']['output']>;
+  readonly width: Maybe<Scalars['Int']['output']>;
+};
+
+export type ImageSharpResizeFieldSelector = {
+  readonly aspectRatio: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly originalName: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly tracedSVG: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+export type ImageSharpResizeFilterInput = {
+  readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly originalName: InputMaybe<StringQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type ImageSharpResizeSortInput = {
+  readonly aspectRatio: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly originalName: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly tracedSVG: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+export type ImageSharpSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly fixed: InputMaybe<ImageSharpFixedSortInput>;
+  readonly fluid: InputMaybe<ImageSharpFluidSortInput>;
+  readonly gatsbyImageData: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly original: InputMaybe<ImageSharpOriginalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly resize: InputMaybe<ImageSharpResizeSortInput>;
+};
+
 export type IntQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['Int']['input']>;
   readonly gt: InputMaybe<Scalars['Int']['input']>;
@@ -1379,15 +1885,15 @@ export type InternalSortInput = {
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
-export type ItemsYaml = Node & Output & Timeline & {
+export type ItemsYaml = Node & {
   readonly children: ReadonlyArray<Node>;
-  readonly date: Scalars['Date']['output'];
-  readonly fields: TimelineFields;
+  readonly date: Maybe<Scalars['Date']['output']>;
+  readonly fields: Maybe<ItemsYamlFields>;
   readonly id: Scalars['ID']['output'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
-  readonly title: Scalars['String']['output'];
-  readonly url: Scalars['String']['output'];
+  readonly title: Maybe<Scalars['String']['output']>;
+  readonly url: Maybe<Scalars['String']['output']>;
 };
 
 
@@ -1446,7 +1952,7 @@ export type ItemsYamlEdge = {
 export type ItemsYamlFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly date: InputMaybe<FieldSelectorEnum>;
-  readonly fields: InputMaybe<TimelineFieldsFieldSelector>;
+  readonly fields: InputMaybe<ItemsYamlFieldsFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly parent: InputMaybe<NodeFieldSelector>;
@@ -1454,10 +1960,26 @@ export type ItemsYamlFieldSelector = {
   readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
+export type ItemsYamlFields = {
+  readonly dateYear: Maybe<Scalars['Int']['output']>;
+};
+
+export type ItemsYamlFieldsFieldSelector = {
+  readonly dateYear: InputMaybe<FieldSelectorEnum>;
+};
+
+export type ItemsYamlFieldsFilterInput = {
+  readonly dateYear: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type ItemsYamlFieldsSortInput = {
+  readonly dateYear: InputMaybe<SortOrderEnum>;
+};
+
 export type ItemsYamlFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
-  readonly fields: InputMaybe<TimelineFieldsFilterInput>;
+  readonly fields: InputMaybe<ItemsYamlFieldsFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
@@ -1513,12 +2035,17 @@ export type ItemsYamlGroupConnectionSumArgs = {
 export type ItemsYamlSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly date: InputMaybe<SortOrderEnum>;
-  readonly fields: InputMaybe<TimelineFieldsSortInput>;
+  readonly fields: InputMaybe<ItemsYamlFieldsSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly title: InputMaybe<SortOrderEnum>;
   readonly url: InputMaybe<SortOrderEnum>;
+};
+
+export type JpgOptions = {
+  readonly progressive: InputMaybe<Scalars['Boolean']['input']>;
+  readonly quality: InputMaybe<Scalars['Int']['input']>;
 };
 
 export type JsonQueryOperatorInput = {
@@ -2224,6 +2751,11 @@ export type OutputSortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
+export type PngOptions = {
+  readonly compressionSpeed: InputMaybe<Scalars['Int']['input']>;
+  readonly quality: InputMaybe<Scalars['Int']['input']>;
+};
+
 export type PageInfo = {
   readonly currentPage: Scalars['Int']['output'];
   readonly hasNextPage: Scalars['Boolean']['output'];
@@ -2233,6 +2765,27 @@ export type PageInfo = {
   readonly perPage: Maybe<Scalars['Int']['output']>;
   readonly totalCount: Scalars['Int']['output'];
 };
+
+export type Potrace = {
+  readonly alphaMax: InputMaybe<Scalars['Float']['input']>;
+  readonly background: InputMaybe<Scalars['String']['input']>;
+  readonly blackOnWhite: InputMaybe<Scalars['Boolean']['input']>;
+  readonly color: InputMaybe<Scalars['String']['input']>;
+  readonly optCurve: InputMaybe<Scalars['Boolean']['input']>;
+  readonly optTolerance: InputMaybe<Scalars['Float']['input']>;
+  readonly threshold: InputMaybe<Scalars['Int']['input']>;
+  readonly turdSize: InputMaybe<Scalars['Float']['input']>;
+  readonly turnPolicy: InputMaybe<PotraceTurnPolicy>;
+};
+
+export enum PotraceTurnPolicy {
+  TurnpolicyBlack = 0,
+  TurnpolicyLeft = 1,
+  TurnpolicyMajority = 2,
+  TurnpolicyMinority = 3,
+  TurnpolicyRight = 4,
+  TurnpolicyWhite = 5
+}
 
 export type Project = {
   readonly children: ReadonlyArray<Node>;
@@ -2533,6 +3086,7 @@ export type Query = {
   readonly allFile: FileConnection;
   readonly allHistoriesYaml: HistoriesYamlConnection;
   readonly allHistory: HistoryConnection;
+  readonly allImageSharp: ImageSharpConnection;
   readonly allItemsYaml: ItemsYamlConnection;
   readonly allMdx: MdxConnection;
   readonly allNotesYaml: NotesYamlConnection;
@@ -2554,6 +3108,7 @@ export type Query = {
   readonly file: Maybe<File>;
   readonly historiesYaml: Maybe<HistoriesYaml>;
   readonly history: Maybe<History>;
+  readonly imageSharp: Maybe<ImageSharp>;
   readonly itemsYaml: Maybe<ItemsYaml>;
   readonly mdx: Maybe<Mdx>;
   readonly notesYaml: Maybe<NotesYaml>;
@@ -2617,6 +3172,14 @@ export type QueryAllHistoryArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   skip: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<HistorySortInput>>>;
+};
+
+
+export type QueryAllImageSharpArgs = {
+  filter: InputMaybe<ImageSharpFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpSortInput>>>;
 };
 
 
@@ -2819,6 +3382,7 @@ export type QueryFileArgs = {
   childArticlesYaml: InputMaybe<ArticlesYamlFilterInput>;
   childCertificationsYaml: InputMaybe<CertificationsYamlFilterInput>;
   childHistoriesYaml: InputMaybe<HistoriesYamlFilterInput>;
+  childImageSharp: InputMaybe<ImageSharpFilterInput>;
   childItemsYaml: InputMaybe<ItemsYamlFilterInput>;
   childMdx: InputMaybe<MdxFilterInput>;
   childNotesYaml: InputMaybe<NotesYamlFilterInput>;
@@ -2829,6 +3393,7 @@ export type QueryFileArgs = {
   childrenArticlesYaml: InputMaybe<ArticlesYamlFilterListInput>;
   childrenCertificationsYaml: InputMaybe<CertificationsYamlFilterListInput>;
   childrenHistoriesYaml: InputMaybe<HistoriesYamlFilterListInput>;
+  childrenImageSharp: InputMaybe<ImageSharpFilterListInput>;
   childrenItemsYaml: InputMaybe<ItemsYamlFilterListInput>;
   childrenMdx: InputMaybe<MdxFilterListInput>;
   childrenNotesYaml: InputMaybe<NotesYamlFilterListInput>;
@@ -2888,10 +3453,23 @@ export type QueryHistoryArgs = {
 };
 
 
+export type QueryImageSharpArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  fixed: InputMaybe<ImageSharpFixedFilterInput>;
+  fluid: InputMaybe<ImageSharpFluidFilterInput>;
+  gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  original: InputMaybe<ImageSharpOriginalFilterInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  resize: InputMaybe<ImageSharpResizeFilterInput>;
+};
+
+
 export type QueryItemsYamlArgs = {
   children: InputMaybe<NodeFilterListInput>;
   date: InputMaybe<DateQueryOperatorInput>;
-  fields: InputMaybe<TimelineFieldsFilterInput>;
+  fields: InputMaybe<ItemsYamlFieldsFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
@@ -4274,15 +4852,25 @@ export type TimelineSortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
+export type TransformOptions = {
+  readonly cropFocus: InputMaybe<ImageCropFocus>;
+  readonly duotone: InputMaybe<DuotoneGradient>;
+  readonly fit: InputMaybe<ImageFit>;
+  readonly grayscale: InputMaybe<Scalars['Boolean']['input']>;
+  readonly rotate: InputMaybe<Scalars['Int']['input']>;
+  readonly trim: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type WebPOptions = {
+  readonly quality: InputMaybe<Scalars['Int']['input']>;
+};
+
 export type GatsbyPluginFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GatsbyPluginFeedQuery = { readonly allOutput: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'ItemsYaml' }
-      & Pick<ItemsYaml, 'url' | 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'slug' | 'title' | 'date'>
@@ -4324,9 +4912,6 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'title' | 'date'>
     ) | (
-      { readonly __typename: 'ItemsYaml' }
-      & Pick<ItemsYaml, 'url' | 'title' | 'date'>
-    ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'slug' | 'title' | 'date'>
       & { readonly frontmatter: Pick<MdxFrontmatter, 'excerpt'> }
@@ -4342,7 +4927,7 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-    )> } };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'title' | 'date' | 'url'>> } };
 
 export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
@@ -4359,8 +4944,6 @@ export type TimelineCertificationCardFragment = Pick<CertificationsYaml, 'title'
 
 export type TimelineHistoryCardFragment = Pick<HistoriesYaml, 'title' | 'date'>;
 
-export type TimelineItemCardFragment = Pick<ItemsYaml, 'title' | 'date' | 'url'>;
-
 export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
     { dateYear: TimelineGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
@@ -4372,9 +4955,6 @@ export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'ItemsYaml' }
-      & Pick<ItemsYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
@@ -4410,9 +4990,6 @@ export type TimelineListOutputFragment = { readonly group: ReadonlyArray<(
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'ItemsYaml' }
-      & Pick<ItemsYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
@@ -4466,10 +5043,6 @@ export type TimelineVirtualizedListTimelineFragment = { readonly nodes: Readonly
     & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
     & { dateX: HistoriesYaml['date'] }
   ) | (
-    { readonly __typename: 'ItemsYaml' }
-    & Pick<ItemsYaml, 'id' | 'title' | 'date' | 'url'>
-    & { dateX: ItemsYaml['date'] }
-  ) | (
     { readonly __typename: 'Mdx' }
     & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
     & { dateX: Mdx['date'] }
@@ -4491,6 +5064,10 @@ export type TimelineVirtualizedListTimelineFragment = { readonly nodes: Readonly
     & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
     & { dateX: SlidesYaml['date'] }
   )> };
+
+export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'id' | 'title' | 'url'>> };
+
+export type TimelineItemCardFragment = Pick<ItemsYaml, 'title' | 'url'>;
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4527,10 +5104,6 @@ export type IndexPageQuery = { readonly timelineItems: { readonly nodes: Readonl
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
       & { dateX: HistoriesYaml['date'] }
     ) | (
-      { readonly __typename: 'ItemsYaml' }
-      & Pick<ItemsYaml, 'id' | 'title' | 'date' | 'url'>
-      & { dateX: ItemsYaml['date'] }
-    ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
       & { dateX: Mdx['date'] }
@@ -4551,7 +5124,7 @@ export type IndexPageQuery = { readonly timelineItems: { readonly nodes: Readonl
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       & { dateX: SlidesYaml['date'] }
-    )> } };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'id' | 'title' | 'url'>> } };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4561,9 +5134,6 @@ export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArr
       & { readonly nodes: ReadonlyArray<(
         { readonly __typename: 'ArticlesYaml' }
         & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'ItemsYaml' }
-        & Pick<ItemsYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'Mdx' }
         & Pick<Mdx, 'id' | 'title' | 'date' | 'slug'>
@@ -4577,7 +5147,7 @@ export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArr
         { readonly __typename: 'SlidesYaml' }
         & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       )> }
-    )> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'id' | 'title' | 'url'>> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
 

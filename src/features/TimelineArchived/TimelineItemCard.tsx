@@ -3,17 +3,15 @@ import { type CardProps } from "@mui/material/Card";
 import { alpha } from "@mui/material/styles";
 import { graphql } from "gatsby";
 
-import { TimelineCardBase } from "./TimelineCardBase";
+import { TimelineCardBase } from "../Timeline/TimelineCardBase";
 
 import { QiitaIcon } from "@/components/icons/QiitaIcon";
 import { type TimelineItemCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
-import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
   fragment TimelineItemCard on ItemsYaml {
     title
-    date
     url
   }
 `;
@@ -42,21 +40,16 @@ const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
 
 export type TimelineItemCardProps = {
   item: TimelineItemCardFragment;
-  showYear?: boolean;
 } & CardProps;
 
 export const TimelineItemCard = ({
   item,
-  showYear = false,
   ...props
 }: TimelineItemCardProps): JSX.Element => {
-  const date = formatDateTime(item.date, showYear ? "yyyy/MM/dd" : "M月d日");
-
   return (
     <StyledTimelineCard
       avatar={<QiitaIcon aria-hidden="true" />}
       title={item.title}
-      subTitle={<time dateTime={item.date}>{date}</time>}
       url={item.url}
       {...props}
     />

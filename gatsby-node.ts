@@ -164,15 +164,19 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             ... on NotesYaml {
               url
             }
-            ... on ItemsYaml {
-              url
-            }
             ... on Mdx {
               slug
               frontmatter {
                 excerpt
               }
             }
+          }
+        }
+        qiitaItems: allItemsYaml {
+          nodes {
+            title
+            date
+            url
           }
         }
       }
@@ -190,7 +194,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
         case "OssesYaml":
         case "SlidesYaml":
         case "NotesYaml":
-        case "ItemsYaml":
           timelineList.push({
             title: node.title,
             // TODO nullable
@@ -232,6 +235,15 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
           });
           break;
       }
+    });
+
+    result?.data?.qiitaItems?.nodes.forEach((node) => {
+      timelineList.push({
+        title: node.title,
+        slug: "",
+        url: node.url,
+        excerpt: "",
+      });
     });
 
     if (!isDefined(timelineList)) throw new Error("timelineList is undefined");
@@ -308,13 +320,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       }
 
       type NotesYaml implements Node & Timeline & Output @dontInfer {
-        title: String!
-        date: Date! @dateformat
-        url: String!
-        fields: TimelineFields!
-      }
-
-      type ItemsYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!

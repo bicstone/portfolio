@@ -11,6 +11,7 @@ import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
 import { TimelineVirtualizedList } from "@/features/Timeline";
+import { ArchivedList } from "@/features/TimelineArchived";
 import { FeaturedList } from "@/features/TimelineFeatured";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -18,12 +19,11 @@ import { isDefined } from "@/utils/typeguard";
 
 export const query = graphql`
   query IndexPage {
-    timelineItems: allTimeline(
-      sort: { date: DESC }
-      # XXX: Qiitaだけトップページから除外している
-      filter: { internal: { type: { ne: "ItemsYaml" } } }
-    ) {
+    timelineItems: allTimeline(sort: { date: DESC }) {
       ...TimelineVirtualizedListTimeline
+    }
+    qiitaItems: allItemsYaml(sort: { date: DESC }) {
+      ...TimelineArchivedList
     }
   }
 `;
@@ -45,6 +45,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
 
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
   const timelineItems = data.timelineItems;
+  const qiitaItems = data.qiitaItems;
 
   return (
     <>
@@ -88,6 +89,13 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
               </aside>
             </NoSsr>
           )}
+        <Spacer y={2} />
+        <Typography variant="h5" component="h2" fontWeight="bold">
+          Archived
+        </Typography>
+        <Spacer y={6} />
+        <ArchivedList items={qiitaItems} />
+        <Spacer y={6} />
       </Container>
     </>
   );

@@ -39,14 +39,14 @@ export type TimelineCardBaseProps =
   | {
       avatar: JSX.Element;
       title: string;
-      subTitle: ReactNode;
+      subTitle?: ReactNode;
       url: string;
       slug?: null;
     }
   | {
       avatar: JSX.Element;
       title: string;
-      subTitle: ReactNode;
+      subTitle?: ReactNode;
       url?: null;
       slug: string;
     };
