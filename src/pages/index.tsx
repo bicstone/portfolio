@@ -22,7 +22,7 @@ export const query = graphql`
     timelineItems: allTimeline(sort: { date: DESC }) {
       ...TimelineVirtualizedListTimeline
     }
-    qiitaItems: allItemsYaml(sort: { date: DESC }) {
+    qiitaItems: allQiitaJson(sort: { created_at: DESC }) {
       ...TimelineArchivedList
     }
   }

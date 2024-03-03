@@ -241,6 +241,7 @@ const config: GatsbyConfig = {
     }),
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
+    `gatsby-transformer-json`,
   ],
 };
 

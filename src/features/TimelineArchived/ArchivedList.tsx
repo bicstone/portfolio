@@ -7,7 +7,7 @@ import { TimelineItemCard } from "./TimelineItemCard";
 import { type TimelineArchivedListFragment } from "@/generated/graphqlTypes";
 
 export const query = graphql`
-  fragment TimelineArchivedList on ItemsYamlConnection {
+  fragment TimelineArchivedList on QiitaJsonConnection {
     nodes {
       id
       ...TimelineItemCard

@@ -44,6 +44,7 @@
     "gatsby-remark-images": "7.13.1",
     "gatsby-remark-prismjs": "7.13.1",
     "gatsby-source-filesystem": "5.13.1",
+    "gatsby-transformer-json": "5.13.1",
     "gatsby-transformer-sharp": "5.13.1",
     "gatsby-transformer-yaml": "5.13.1",
     "github-slugger": "2.0.0",
