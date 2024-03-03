@@ -3,7 +3,6 @@ import path from "path";
 
 import { formatInTimeZone } from "date-fns-tz";
 
-import { createOgpImage } from "./src/utils/createOgpImage";
 import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
 import { isDefined } from "./src/utils/typeguard";
 
@@ -129,7 +128,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
 /**
  * Add Search nodes
- * Create OGP images
  */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
   async ({ graphql, reporter, actions, createNodeId, createContentDigest }) => {
@@ -256,29 +254,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
 
     reporter.success(
       `onCreatePagesStatefully: Created ${timelineList.length} search nodes`,
-    );
-
-    /**
-     * Create OGP images
-     */
-
-    const blogPostList = result?.data?.blogPosts?.nodes.map((node) => ({
-      title: node.frontmatter.title,
-      slug: node.frontmatter.slug,
-      excerpt: node.frontmatter.excerpt,
-    }));
-
-    if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
-
-    for (const blogPost of blogPostList) {
-      await createOgpImage({
-        title: blogPost.title,
-        slug: blogPost.slug,
-      });
-    }
-
-    reporter.success(
-      `onCreatePagesStatefully: Created ${blogPostList.length} blog ogp images`,
     );
   };
 
