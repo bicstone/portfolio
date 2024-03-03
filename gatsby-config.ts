@@ -134,9 +134,6 @@ const config: GatsbyConfig = {
                     ... on NotesYaml {
                       url
                     }
-                    ... on ItemsYaml {
-                      url
-                    }
                     ... on Mdx {
                       slug
                       frontmatter {

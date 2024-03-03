@@ -12,6 +12,7 @@ import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineList } from "@/features/Timeline";
+import { ArchivedList } from "@/features/TimelineArchived";
 import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 import { isDefined } from "@/utils/typeguard";
@@ -20,6 +21,9 @@ export const query = graphql`
   query OutputsPage {
     outputs: allOutput(sort: { date: DESC }) {
       ...TimelineListOutput
+    }
+    qiitaItems: allItemsYaml(sort: { date: DESC }) {
+      ...TimelineArchivedList
     }
     site {
       buildTime
@@ -87,6 +91,7 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
 const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
   const title = TRANSLATION.outputs.title;
   const outputGroups = data.outputs;
+  const qiitaItems = data.qiitaItems;
 
   return (
     <Container
@@ -121,6 +126,13 @@ const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
             </aside>
           </NoSsr>
         )}
+      <Spacer y={2} />
+      <Typography variant="h5" component="h2" fontWeight="bold">
+        Archived
+      </Typography>
+      <Spacer y={6} />
+      <ArchivedList items={qiitaItems} />
+      <Spacer y={6} />
     </Container>
   );
 };

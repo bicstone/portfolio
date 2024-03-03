@@ -18,6 +18,28 @@ export const FeaturedList = (): JSX.Element => {
     <Container as="section">
       {/* StaticImageを使用するためベタ書き :-/ */}
       <FeaturedCard
+        title="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
+        url="https://findy-code.io/engineer-lab/bicstone_me"
+      >
+        <StaticImage
+          src="../../../content/featured/ohishi_0222.png"
+          alt="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="backlog-notify"
+        url="https://github.com/bicstone/backlog-notify"
+      >
+        <StaticImage
+          src="../../../content/featured/backlog-notify.png"
+          alt="backlog-notify"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
         title="コードレビューにラベルを付けるだけでチームの心理的安全性を高めた話"
         url="https://zenn.dev/hacobell_dev/articles/code-review-comment-prefix"
       >
@@ -57,28 +79,6 @@ export const FeaturedList = (): JSX.Element => {
         <StaticImage
           src="../../../content/featured/keep-you-motivated-to-output.png"
           alt="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard>
-      <FeaturedCard
-        title="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
-        url="https://findy-code.io/engineer-lab/bicstone_me"
-      >
-        <StaticImage
-          src="../../../content/featured/ohishi_0222.png"
-          alt="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard>
-      <FeaturedCard
-        title="backlog-notify"
-        url="https://github.com/bicstone/backlog-notify"
-      >
-        <StaticImage
-          src="../../../content/featured/backlog-notify.png"
-          alt="backlog-notify"
           width={1200}
           height={630}
         />
