@@ -682,6 +682,8 @@ export type File = Node & {
   readonly childOssesYaml: Maybe<OssesYaml>;
   /** Returns the first child node of type ProjectsYaml or null if there are no children of given type on this node */
   readonly childProjectsYaml: Maybe<ProjectsYaml>;
+  /** Returns the first child node of type QiitaJson or null if there are no children of given type on this node */
+  readonly childQiitaJson: Maybe<QiitaJson>;
   /** Returns the first child node of type SlidesYaml or null if there are no children of given type on this node */
   readonly childSlidesYaml: Maybe<SlidesYaml>;
   readonly children: ReadonlyArray<Node>;
@@ -703,6 +705,8 @@ export type File = Node & {
   readonly childrenOssesYaml: Maybe<ReadonlyArray<Maybe<OssesYaml>>>;
   /** Returns all children nodes filtered by type ProjectsYaml */
   readonly childrenProjectsYaml: Maybe<ReadonlyArray<Maybe<ProjectsYaml>>>;
+  /** Returns all children nodes filtered by type QiitaJson */
+  readonly childrenQiitaJson: Maybe<ReadonlyArray<Maybe<QiitaJson>>>;
   /** Returns all children nodes filtered by type SlidesYaml */
   readonly childrenSlidesYaml: Maybe<ReadonlyArray<Maybe<SlidesYaml>>>;
   readonly ctime: Scalars['Date']['output'];
@@ -856,6 +860,7 @@ export type FileFieldSelector = {
   readonly childNotesYaml: InputMaybe<NotesYamlFieldSelector>;
   readonly childOssesYaml: InputMaybe<OssesYamlFieldSelector>;
   readonly childProjectsYaml: InputMaybe<ProjectsYamlFieldSelector>;
+  readonly childQiitaJson: InputMaybe<QiitaJsonFieldSelector>;
   readonly childSlidesYaml: InputMaybe<SlidesYamlFieldSelector>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly childrenArticlesYaml: InputMaybe<ArticlesYamlFieldSelector>;
@@ -867,6 +872,7 @@ export type FileFieldSelector = {
   readonly childrenNotesYaml: InputMaybe<NotesYamlFieldSelector>;
   readonly childrenOssesYaml: InputMaybe<OssesYamlFieldSelector>;
   readonly childrenProjectsYaml: InputMaybe<ProjectsYamlFieldSelector>;
+  readonly childrenQiitaJson: InputMaybe<QiitaJsonFieldSelector>;
   readonly childrenSlidesYaml: InputMaybe<SlidesYamlFieldSelector>;
   readonly ctime: InputMaybe<FieldSelectorEnum>;
   readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
@@ -917,6 +923,7 @@ export type FileFilterInput = {
   readonly childNotesYaml: InputMaybe<NotesYamlFilterInput>;
   readonly childOssesYaml: InputMaybe<OssesYamlFilterInput>;
   readonly childProjectsYaml: InputMaybe<ProjectsYamlFilterInput>;
+  readonly childQiitaJson: InputMaybe<QiitaJsonFilterInput>;
   readonly childSlidesYaml: InputMaybe<SlidesYamlFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly childrenArticlesYaml: InputMaybe<ArticlesYamlFilterListInput>;
@@ -928,6 +935,7 @@ export type FileFilterInput = {
   readonly childrenNotesYaml: InputMaybe<NotesYamlFilterListInput>;
   readonly childrenOssesYaml: InputMaybe<OssesYamlFilterListInput>;
   readonly childrenProjectsYaml: InputMaybe<ProjectsYamlFilterListInput>;
+  readonly childrenQiitaJson: InputMaybe<QiitaJsonFilterListInput>;
   readonly childrenSlidesYaml: InputMaybe<SlidesYamlFilterListInput>;
   readonly ctime: InputMaybe<DateQueryOperatorInput>;
   readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
@@ -1019,6 +1027,7 @@ export type FileSortInput = {
   readonly childNotesYaml: InputMaybe<NotesYamlSortInput>;
   readonly childOssesYaml: InputMaybe<OssesYamlSortInput>;
   readonly childProjectsYaml: InputMaybe<ProjectsYamlSortInput>;
+  readonly childQiitaJson: InputMaybe<QiitaJsonSortInput>;
   readonly childSlidesYaml: InputMaybe<SlidesYamlSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly childrenArticlesYaml: InputMaybe<ArticlesYamlSortInput>;
@@ -1030,6 +1039,7 @@ export type FileSortInput = {
   readonly childrenNotesYaml: InputMaybe<NotesYamlSortInput>;
   readonly childrenOssesYaml: InputMaybe<OssesYamlSortInput>;
   readonly childrenProjectsYaml: InputMaybe<ProjectsYamlSortInput>;
+  readonly childrenQiitaJson: InputMaybe<QiitaJsonSortInput>;
   readonly childrenSlidesYaml: InputMaybe<SlidesYamlSortInput>;
   readonly ctime: InputMaybe<SortOrderEnum>;
   readonly ctimeMs: InputMaybe<SortOrderEnum>;
@@ -3079,6 +3089,300 @@ export type ProjectsYamlSortInput = {
   readonly title: InputMaybe<SortOrderEnum>;
 };
 
+export type QiitaJson = Node & {
+  readonly body: Maybe<Scalars['String']['output']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly coediting: Maybe<Scalars['Boolean']['output']>;
+  readonly comments_count: Maybe<Scalars['Int']['output']>;
+  readonly created_at: Maybe<Scalars['Date']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly internal: Internal;
+  readonly jsonId: Maybe<Scalars['String']['output']>;
+  readonly likes_count: Maybe<Scalars['Int']['output']>;
+  readonly parent: Maybe<Node>;
+  readonly private: Maybe<Scalars['Boolean']['output']>;
+  readonly reactions_count: Maybe<Scalars['Int']['output']>;
+  readonly rendered_body: Maybe<Scalars['String']['output']>;
+  readonly slide: Maybe<Scalars['Boolean']['output']>;
+  readonly stocks_count: Maybe<Scalars['Int']['output']>;
+  readonly tags: Maybe<ReadonlyArray<Maybe<QiitaJsonTags>>>;
+  readonly title: Maybe<Scalars['String']['output']>;
+  readonly updated_at: Maybe<Scalars['Date']['output']>;
+  readonly url: Maybe<Scalars['String']['output']>;
+  readonly user: Maybe<QiitaJsonUser>;
+};
+
+
+export type QiitaJsonCreated_AtArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type QiitaJsonUpdated_AtArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+export type QiitaJsonConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<QiitaJsonEdge>;
+  readonly group: ReadonlyArray<QiitaJsonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<QiitaJson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type QiitaJsonConnectionDistinctArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+
+export type QiitaJsonConnectionGroupArgs = {
+  field: QiitaJsonFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QiitaJsonConnectionMaxArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+
+export type QiitaJsonConnectionMinArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+
+export type QiitaJsonConnectionSumArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+export type QiitaJsonEdge = {
+  readonly next: Maybe<QiitaJson>;
+  readonly node: QiitaJson;
+  readonly previous: Maybe<QiitaJson>;
+};
+
+export type QiitaJsonFieldSelector = {
+  readonly body: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly coediting: InputMaybe<FieldSelectorEnum>;
+  readonly comments_count: InputMaybe<FieldSelectorEnum>;
+  readonly created_at: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly jsonId: InputMaybe<FieldSelectorEnum>;
+  readonly likes_count: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly private: InputMaybe<FieldSelectorEnum>;
+  readonly reactions_count: InputMaybe<FieldSelectorEnum>;
+  readonly rendered_body: InputMaybe<FieldSelectorEnum>;
+  readonly slide: InputMaybe<FieldSelectorEnum>;
+  readonly stocks_count: InputMaybe<FieldSelectorEnum>;
+  readonly tags: InputMaybe<QiitaJsonTagsFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updated_at: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly user: InputMaybe<QiitaJsonUserFieldSelector>;
+};
+
+export type QiitaJsonFilterInput = {
+  readonly body: InputMaybe<StringQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly coediting: InputMaybe<BooleanQueryOperatorInput>;
+  readonly comments_count: InputMaybe<IntQueryOperatorInput>;
+  readonly created_at: InputMaybe<DateQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly jsonId: InputMaybe<StringQueryOperatorInput>;
+  readonly likes_count: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly private: InputMaybe<BooleanQueryOperatorInput>;
+  readonly reactions_count: InputMaybe<IntQueryOperatorInput>;
+  readonly rendered_body: InputMaybe<StringQueryOperatorInput>;
+  readonly slide: InputMaybe<BooleanQueryOperatorInput>;
+  readonly stocks_count: InputMaybe<IntQueryOperatorInput>;
+  readonly tags: InputMaybe<QiitaJsonTagsFilterListInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updated_at: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly user: InputMaybe<QiitaJsonUserFilterInput>;
+};
+
+export type QiitaJsonFilterListInput = {
+  readonly elemMatch: InputMaybe<QiitaJsonFilterInput>;
+};
+
+export type QiitaJsonGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<QiitaJsonEdge>;
+  readonly field: Scalars['String']['output'];
+  readonly fieldValue: Maybe<Scalars['String']['output']>;
+  readonly group: ReadonlyArray<QiitaJsonGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<QiitaJson>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type QiitaJsonGroupConnectionDistinctArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+
+export type QiitaJsonGroupConnectionGroupArgs = {
+  field: QiitaJsonFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type QiitaJsonGroupConnectionMaxArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+
+export type QiitaJsonGroupConnectionMinArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+
+export type QiitaJsonGroupConnectionSumArgs = {
+  field: QiitaJsonFieldSelector;
+};
+
+export type QiitaJsonSortInput = {
+  readonly body: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly coediting: InputMaybe<SortOrderEnum>;
+  readonly comments_count: InputMaybe<SortOrderEnum>;
+  readonly created_at: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly jsonId: InputMaybe<SortOrderEnum>;
+  readonly likes_count: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly private: InputMaybe<SortOrderEnum>;
+  readonly reactions_count: InputMaybe<SortOrderEnum>;
+  readonly rendered_body: InputMaybe<SortOrderEnum>;
+  readonly slide: InputMaybe<SortOrderEnum>;
+  readonly stocks_count: InputMaybe<SortOrderEnum>;
+  readonly tags: InputMaybe<QiitaJsonTagsSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly updated_at: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly user: InputMaybe<QiitaJsonUserSortInput>;
+};
+
+export type QiitaJsonTags = {
+  readonly name: Maybe<Scalars['String']['output']>;
+};
+
+export type QiitaJsonTagsFieldSelector = {
+  readonly name: InputMaybe<FieldSelectorEnum>;
+};
+
+export type QiitaJsonTagsFilterInput = {
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type QiitaJsonTagsFilterListInput = {
+  readonly elemMatch: InputMaybe<QiitaJsonTagsFilterInput>;
+};
+
+export type QiitaJsonTagsSortInput = {
+  readonly name: InputMaybe<SortOrderEnum>;
+};
+
+export type QiitaJsonUser = {
+  readonly description: Maybe<Scalars['String']['output']>;
+  readonly facebook_id: Maybe<Scalars['String']['output']>;
+  readonly followees_count: Maybe<Scalars['Int']['output']>;
+  readonly followers_count: Maybe<Scalars['Int']['output']>;
+  readonly github_login_name: Maybe<Scalars['String']['output']>;
+  readonly id: Maybe<Scalars['String']['output']>;
+  readonly items_count: Maybe<Scalars['Int']['output']>;
+  readonly linkedin_id: Maybe<Scalars['String']['output']>;
+  readonly location: Maybe<Scalars['String']['output']>;
+  readonly name: Maybe<Scalars['String']['output']>;
+  readonly organization: Maybe<Scalars['String']['output']>;
+  readonly permanent_id: Maybe<Scalars['Int']['output']>;
+  readonly profile_image_url: Maybe<Scalars['String']['output']>;
+  readonly team_only: Maybe<Scalars['Boolean']['output']>;
+  readonly twitter_screen_name: Maybe<Scalars['String']['output']>;
+  readonly website_url: Maybe<Scalars['String']['output']>;
+};
+
+export type QiitaJsonUserFieldSelector = {
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly facebook_id: InputMaybe<FieldSelectorEnum>;
+  readonly followees_count: InputMaybe<FieldSelectorEnum>;
+  readonly followers_count: InputMaybe<FieldSelectorEnum>;
+  readonly github_login_name: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly items_count: InputMaybe<FieldSelectorEnum>;
+  readonly linkedin_id: InputMaybe<FieldSelectorEnum>;
+  readonly location: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly organization: InputMaybe<FieldSelectorEnum>;
+  readonly permanent_id: InputMaybe<FieldSelectorEnum>;
+  readonly profile_image_url: InputMaybe<FieldSelectorEnum>;
+  readonly team_only: InputMaybe<FieldSelectorEnum>;
+  readonly twitter_screen_name: InputMaybe<FieldSelectorEnum>;
+  readonly website_url: InputMaybe<FieldSelectorEnum>;
+};
+
+export type QiitaJsonUserFilterInput = {
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly facebook_id: InputMaybe<StringQueryOperatorInput>;
+  readonly followees_count: InputMaybe<IntQueryOperatorInput>;
+  readonly followers_count: InputMaybe<IntQueryOperatorInput>;
+  readonly github_login_name: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly items_count: InputMaybe<IntQueryOperatorInput>;
+  readonly linkedin_id: InputMaybe<StringQueryOperatorInput>;
+  readonly location: InputMaybe<StringQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly organization: InputMaybe<StringQueryOperatorInput>;
+  readonly permanent_id: InputMaybe<IntQueryOperatorInput>;
+  readonly profile_image_url: InputMaybe<StringQueryOperatorInput>;
+  readonly team_only: InputMaybe<BooleanQueryOperatorInput>;
+  readonly twitter_screen_name: InputMaybe<StringQueryOperatorInput>;
+  readonly website_url: InputMaybe<StringQueryOperatorInput>;
+};
+
+export type QiitaJsonUserSortInput = {
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly facebook_id: InputMaybe<SortOrderEnum>;
+  readonly followees_count: InputMaybe<SortOrderEnum>;
+  readonly followers_count: InputMaybe<SortOrderEnum>;
+  readonly github_login_name: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly items_count: InputMaybe<SortOrderEnum>;
+  readonly linkedin_id: InputMaybe<SortOrderEnum>;
+  readonly location: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly organization: InputMaybe<SortOrderEnum>;
+  readonly permanent_id: InputMaybe<SortOrderEnum>;
+  readonly profile_image_url: InputMaybe<SortOrderEnum>;
+  readonly team_only: InputMaybe<SortOrderEnum>;
+  readonly twitter_screen_name: InputMaybe<SortOrderEnum>;
+  readonly website_url: InputMaybe<SortOrderEnum>;
+};
+
 export type Query = {
   readonly allArticlesYaml: ArticlesYamlConnection;
   readonly allCertificationsYaml: CertificationsYamlConnection;
@@ -3094,6 +3398,7 @@ export type Query = {
   readonly allOutput: OutputConnection;
   readonly allProject: ProjectConnection;
   readonly allProjectsYaml: ProjectsYamlConnection;
+  readonly allQiitaJson: QiitaJsonConnection;
   readonly allSearch: SearchConnection;
   readonly allSite: SiteConnection;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
@@ -3101,6 +3406,7 @@ export type Query = {
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
   readonly allSlidesYaml: SlidesYamlConnection;
+  readonly allStaticImage: StaticImageConnection;
   readonly allTimeline: TimelineConnection;
   readonly articlesYaml: Maybe<ArticlesYaml>;
   readonly certificationsYaml: Maybe<CertificationsYaml>;
@@ -3116,6 +3422,7 @@ export type Query = {
   readonly output: Maybe<Output>;
   readonly project: Maybe<Project>;
   readonly projectsYaml: Maybe<ProjectsYaml>;
+  readonly qiitaJson: Maybe<QiitaJson>;
   readonly search: Maybe<Search>;
   readonly site: Maybe<Site>;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
@@ -3123,6 +3430,7 @@ export type Query = {
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
   readonly slidesYaml: Maybe<SlidesYaml>;
+  readonly staticImage: Maybe<StaticImage>;
   readonly timeline: Maybe<Timeline>;
 };
 
@@ -3239,6 +3547,14 @@ export type QueryAllProjectsYamlArgs = {
 };
 
 
+export type QueryAllQiitaJsonArgs = {
+  filter: InputMaybe<QiitaJsonFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<QiitaJsonSortInput>>>;
+};
+
+
 export type QueryAllSearchArgs = {
   filter: InputMaybe<SearchFilterInput>;
   limit: InputMaybe<Scalars['Int']['input']>;
@@ -3292,6 +3608,14 @@ export type QueryAllSlidesYamlArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   skip: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SlidesYamlSortInput>>>;
+};
+
+
+export type QueryAllStaticImageArgs = {
+  filter: InputMaybe<StaticImageFilterInput>;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<StaticImageSortInput>>>;
 };
 
 
@@ -3388,6 +3712,7 @@ export type QueryFileArgs = {
   childNotesYaml: InputMaybe<NotesYamlFilterInput>;
   childOssesYaml: InputMaybe<OssesYamlFilterInput>;
   childProjectsYaml: InputMaybe<ProjectsYamlFilterInput>;
+  childQiitaJson: InputMaybe<QiitaJsonFilterInput>;
   childSlidesYaml: InputMaybe<SlidesYamlFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
   childrenArticlesYaml: InputMaybe<ArticlesYamlFilterListInput>;
@@ -3399,6 +3724,7 @@ export type QueryFileArgs = {
   childrenNotesYaml: InputMaybe<NotesYamlFilterListInput>;
   childrenOssesYaml: InputMaybe<OssesYamlFilterListInput>;
   childrenProjectsYaml: InputMaybe<ProjectsYamlFilterListInput>;
+  childrenQiitaJson: InputMaybe<QiitaJsonFilterListInput>;
   childrenSlidesYaml: InputMaybe<SlidesYamlFilterListInput>;
   ctime: InputMaybe<DateQueryOperatorInput>;
   ctimeMs: InputMaybe<FloatQueryOperatorInput>;
@@ -3558,6 +3884,30 @@ export type QueryProjectsYamlArgs = {
 };
 
 
+export type QueryQiitaJsonArgs = {
+  body: InputMaybe<StringQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  coediting: InputMaybe<BooleanQueryOperatorInput>;
+  comments_count: InputMaybe<IntQueryOperatorInput>;
+  created_at: InputMaybe<DateQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  jsonId: InputMaybe<StringQueryOperatorInput>;
+  likes_count: InputMaybe<IntQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  private: InputMaybe<BooleanQueryOperatorInput>;
+  reactions_count: InputMaybe<IntQueryOperatorInput>;
+  rendered_body: InputMaybe<StringQueryOperatorInput>;
+  slide: InputMaybe<BooleanQueryOperatorInput>;
+  stocks_count: InputMaybe<IntQueryOperatorInput>;
+  tags: InputMaybe<QiitaJsonTagsFilterListInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  updated_at: InputMaybe<DateQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
+  user: InputMaybe<QiitaJsonUserFilterInput>;
+};
+
+
 export type QuerySearchArgs = {
   children: InputMaybe<NodeFilterListInput>;
   excerpt: InputMaybe<StringQueryOperatorInput>;
@@ -3653,6 +4003,46 @@ export type QuerySlidesYamlArgs = {
   parent: InputMaybe<NodeFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
   url: InputMaybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryStaticImageArgs = {
+  absolutePath: InputMaybe<StringQueryOperatorInput>;
+  accessTime: InputMaybe<DateQueryOperatorInput>;
+  atime: InputMaybe<DateQueryOperatorInput>;
+  atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  base: InputMaybe<StringQueryOperatorInput>;
+  birthTime: InputMaybe<DateQueryOperatorInput>;
+  birthtime: InputMaybe<DateQueryOperatorInput>;
+  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  blksize: InputMaybe<IntQueryOperatorInput>;
+  blocks: InputMaybe<IntQueryOperatorInput>;
+  changeTime: InputMaybe<DateQueryOperatorInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  ctime: InputMaybe<DateQueryOperatorInput>;
+  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  dev: InputMaybe<IntQueryOperatorInput>;
+  dir: InputMaybe<StringQueryOperatorInput>;
+  ext: InputMaybe<StringQueryOperatorInput>;
+  extension: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  ino: InputMaybe<FloatQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  mode: InputMaybe<IntQueryOperatorInput>;
+  modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  mtime: InputMaybe<DateQueryOperatorInput>;
+  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  nlink: InputMaybe<IntQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  prettySize: InputMaybe<StringQueryOperatorInput>;
+  rdev: InputMaybe<IntQueryOperatorInput>;
+  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  relativePath: InputMaybe<StringQueryOperatorInput>;
+  root: InputMaybe<StringQueryOperatorInput>;
+  size: InputMaybe<IntQueryOperatorInput>;
+  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -4689,6 +5079,312 @@ export enum SortOrderEnum {
   Desc = 1
 }
 
+export type StaticImage = Node & {
+  readonly absolutePath: Maybe<Scalars['String']['output']>;
+  readonly accessTime: Maybe<Scalars['Date']['output']>;
+  readonly atime: Maybe<Scalars['Date']['output']>;
+  readonly atimeMs: Maybe<Scalars['Float']['output']>;
+  readonly base: Maybe<Scalars['String']['output']>;
+  readonly birthTime: Maybe<Scalars['Date']['output']>;
+  readonly birthtime: Maybe<Scalars['Date']['output']>;
+  readonly birthtimeMs: Maybe<Scalars['Float']['output']>;
+  readonly blksize: Maybe<Scalars['Int']['output']>;
+  readonly blocks: Maybe<Scalars['Int']['output']>;
+  readonly changeTime: Maybe<Scalars['Date']['output']>;
+  readonly children: ReadonlyArray<Node>;
+  readonly ctime: Maybe<Scalars['Date']['output']>;
+  readonly ctimeMs: Maybe<Scalars['Float']['output']>;
+  readonly dev: Maybe<Scalars['Int']['output']>;
+  readonly dir: Maybe<Scalars['String']['output']>;
+  readonly ext: Maybe<Scalars['String']['output']>;
+  readonly extension: Maybe<Scalars['String']['output']>;
+  readonly id: Scalars['ID']['output'];
+  readonly ino: Maybe<Scalars['Float']['output']>;
+  readonly internal: Internal;
+  readonly mode: Maybe<Scalars['Int']['output']>;
+  readonly modifiedTime: Maybe<Scalars['Date']['output']>;
+  readonly mtime: Maybe<Scalars['Date']['output']>;
+  readonly mtimeMs: Maybe<Scalars['Float']['output']>;
+  readonly name: Maybe<Scalars['String']['output']>;
+  readonly nlink: Maybe<Scalars['Int']['output']>;
+  readonly parent: Maybe<Node>;
+  readonly prettySize: Maybe<Scalars['String']['output']>;
+  readonly rdev: Maybe<Scalars['Int']['output']>;
+  readonly relativeDirectory: Maybe<Scalars['String']['output']>;
+  readonly relativePath: Maybe<Scalars['String']['output']>;
+  readonly root: Maybe<Scalars['String']['output']>;
+  readonly size: Maybe<Scalars['Int']['output']>;
+  readonly sourceInstanceName: Maybe<Scalars['String']['output']>;
+  readonly uid: Maybe<Scalars['Int']['output']>;
+};
+
+
+export type StaticImageAccessTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageAtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageBirthTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageBirthtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageChangeTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageCtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageModifiedTimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type StaticImageMtimeArgs = {
+  difference: InputMaybe<Scalars['String']['input']>;
+  formatString: InputMaybe<Scalars['String']['input']>;
+  fromNow: InputMaybe<Scalars['Boolean']['input']>;
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+export type StaticImageConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<StaticImageEdge>;
+  readonly group: ReadonlyArray<StaticImageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<StaticImage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type StaticImageConnectionDistinctArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageConnectionGroupArgs = {
+  field: StaticImageFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StaticImageConnectionMaxArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageConnectionMinArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageConnectionSumArgs = {
+  field: StaticImageFieldSelector;
+};
+
+export type StaticImageEdge = {
+  readonly next: Maybe<StaticImage>;
+  readonly node: StaticImage;
+  readonly previous: Maybe<StaticImage>;
+};
+
+export type StaticImageFieldSelector = {
+  readonly absolutePath: InputMaybe<FieldSelectorEnum>;
+  readonly accessTime: InputMaybe<FieldSelectorEnum>;
+  readonly atime: InputMaybe<FieldSelectorEnum>;
+  readonly atimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly base: InputMaybe<FieldSelectorEnum>;
+  readonly birthTime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly blksize: InputMaybe<FieldSelectorEnum>;
+  readonly blocks: InputMaybe<FieldSelectorEnum>;
+  readonly changeTime: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly ctime: InputMaybe<FieldSelectorEnum>;
+  readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly dev: InputMaybe<FieldSelectorEnum>;
+  readonly dir: InputMaybe<FieldSelectorEnum>;
+  readonly ext: InputMaybe<FieldSelectorEnum>;
+  readonly extension: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ino: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly mode: InputMaybe<FieldSelectorEnum>;
+  readonly modifiedTime: InputMaybe<FieldSelectorEnum>;
+  readonly mtime: InputMaybe<FieldSelectorEnum>;
+  readonly mtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly nlink: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly prettySize: InputMaybe<FieldSelectorEnum>;
+  readonly rdev: InputMaybe<FieldSelectorEnum>;
+  readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
+  readonly relativePath: InputMaybe<FieldSelectorEnum>;
+  readonly root: InputMaybe<FieldSelectorEnum>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
+  readonly uid: InputMaybe<FieldSelectorEnum>;
+};
+
+export type StaticImageFilterInput = {
+  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
+  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
+  readonly atime: InputMaybe<DateQueryOperatorInput>;
+  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly base: InputMaybe<StringQueryOperatorInput>;
+  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
+  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly blksize: InputMaybe<IntQueryOperatorInput>;
+  readonly blocks: InputMaybe<IntQueryOperatorInput>;
+  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly ctime: InputMaybe<DateQueryOperatorInput>;
+  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly dev: InputMaybe<IntQueryOperatorInput>;
+  readonly dir: InputMaybe<StringQueryOperatorInput>;
+  readonly ext: InputMaybe<StringQueryOperatorInput>;
+  readonly extension: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly ino: InputMaybe<FloatQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mode: InputMaybe<IntQueryOperatorInput>;
+  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtime: InputMaybe<DateQueryOperatorInput>;
+  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly nlink: InputMaybe<IntQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
+  readonly rdev: InputMaybe<IntQueryOperatorInput>;
+  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
+  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
+  readonly root: InputMaybe<StringQueryOperatorInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
+  readonly uid: InputMaybe<IntQueryOperatorInput>;
+};
+
+export type StaticImageGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
+  readonly edges: ReadonlyArray<StaticImageEdge>;
+  readonly field: Scalars['String']['output'];
+  readonly fieldValue: Maybe<Scalars['String']['output']>;
+  readonly group: ReadonlyArray<StaticImageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']['output']>;
+  readonly min: Maybe<Scalars['Float']['output']>;
+  readonly nodes: ReadonlyArray<StaticImage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']['output']>;
+  readonly totalCount: Scalars['Int']['output'];
+};
+
+
+export type StaticImageGroupConnectionDistinctArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageGroupConnectionGroupArgs = {
+  field: StaticImageFieldSelector;
+  limit: InputMaybe<Scalars['Int']['input']>;
+  skip: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+export type StaticImageGroupConnectionMaxArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageGroupConnectionMinArgs = {
+  field: StaticImageFieldSelector;
+};
+
+
+export type StaticImageGroupConnectionSumArgs = {
+  field: StaticImageFieldSelector;
+};
+
+export type StaticImageSortInput = {
+  readonly absolutePath: InputMaybe<SortOrderEnum>;
+  readonly accessTime: InputMaybe<SortOrderEnum>;
+  readonly atime: InputMaybe<SortOrderEnum>;
+  readonly atimeMs: InputMaybe<SortOrderEnum>;
+  readonly base: InputMaybe<SortOrderEnum>;
+  readonly birthTime: InputMaybe<SortOrderEnum>;
+  readonly birthtime: InputMaybe<SortOrderEnum>;
+  readonly birthtimeMs: InputMaybe<SortOrderEnum>;
+  readonly blksize: InputMaybe<SortOrderEnum>;
+  readonly blocks: InputMaybe<SortOrderEnum>;
+  readonly changeTime: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly ctime: InputMaybe<SortOrderEnum>;
+  readonly ctimeMs: InputMaybe<SortOrderEnum>;
+  readonly dev: InputMaybe<SortOrderEnum>;
+  readonly dir: InputMaybe<SortOrderEnum>;
+  readonly ext: InputMaybe<SortOrderEnum>;
+  readonly extension: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ino: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly mode: InputMaybe<SortOrderEnum>;
+  readonly modifiedTime: InputMaybe<SortOrderEnum>;
+  readonly mtime: InputMaybe<SortOrderEnum>;
+  readonly mtimeMs: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly nlink: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly prettySize: InputMaybe<SortOrderEnum>;
+  readonly rdev: InputMaybe<SortOrderEnum>;
+  readonly relativeDirectory: InputMaybe<SortOrderEnum>;
+  readonly relativePath: InputMaybe<SortOrderEnum>;
+  readonly root: InputMaybe<SortOrderEnum>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
+  readonly uid: InputMaybe<SortOrderEnum>;
+};
+
 export type StringQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['String']['input']>;
   readonly glob: InputMaybe<Scalars['String']['input']>;
@@ -4927,7 +5623,7 @@ export type OnCreatePagesStatefullyQuery = { readonly blogPosts: { readonly node
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'title' | 'date' | 'url'>> } };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'title' | 'url'>> } };
 
 export type BlogPostTableOfContentFragment = Pick<Mdx, 'tableOfContents'>;
 
@@ -5065,9 +5761,9 @@ export type TimelineVirtualizedListTimelineFragment = { readonly nodes: Readonly
     & { dateX: SlidesYaml['date'] }
   )> };
 
-export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'id' | 'title' | 'url'>> };
+export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> };
 
-export type TimelineItemCardFragment = Pick<ItemsYaml, 'title' | 'url'>;
+export type TimelineItemCardFragment = Pick<QiitaJson, 'title' | 'url'>;
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5124,7 +5820,7 @@ export type IndexPageQuery = { readonly timelineItems: { readonly nodes: Readonl
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       & { dateX: SlidesYaml['date'] }
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'id' | 'title' | 'url'>> } };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> } };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5147,7 +5843,7 @@ export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArr
         { readonly __typename: 'SlidesYaml' }
         & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       )> }
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<ItemsYaml, 'id' | 'title' | 'url'>> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
 export type ProjectsPageQueryVariables = Exact<{ [key: string]: never; }>;
 

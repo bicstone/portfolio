@@ -10,7 +10,7 @@ import { type TimelineItemCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 
 export const query = graphql`
-  fragment TimelineItemCard on ItemsYaml {
+  fragment TimelineItemCard on QiitaJson {
     title
     url
   }

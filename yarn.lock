@@ -6214,6 +6214,7 @@ __metadata:
     gatsby-remark-images: "npm:7.13.1"
     gatsby-remark-prismjs: "npm:7.13.1"
     gatsby-source-filesystem: "npm:5.13.1"
+    gatsby-transformer-json: "npm:5.13.1"
     gatsby-transformer-sharp: "npm:5.13.1"
     gatsby-transformer-yaml: "npm:5.13.1"
     github-slugger: "npm:2.0.0"
@@ -10368,6 +10369,18 @@ __metadata:
     lodash: "npm:^4.17.21"
     node-fetch: "npm:^2.6.11"
   checksum: 10c0/36af56dbd2f72f8e3327f7c2b0e8e65090ebef09e302fd5a999641812b37e810fb12b4a4ec0de833abf34b69c16f1c2061c5fbaad34d52ab6f68ec1ac75bf450
+  languageName: node
+  linkType: hard
+
+"gatsby-transformer-json@npm:5.13.1":
+  version: 5.13.1
+  resolution: "gatsby-transformer-json@npm:5.13.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    bluebird: "npm:^3.7.2"
+  peerDependencies:
+    gatsby: ^5.0.0-next
+  checksum: 10c0/5c26b08a161a1d98bff74b8b03a7786e1cf357bf5022b84008d3bbfada89e45b696c01e610cfe9b9a566aecd8c82c935c2bba0ec79d5ce018b6cd970a23d8558
   languageName: node
   linkType: hard
 

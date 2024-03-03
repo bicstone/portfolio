@@ -1,0 +1,2 @@
+TODO: Lapras APIが動作しないため、下記の結果をコピペで一時しのぎ中
+https://qiita.com/api/v2/items?page=1&per_page=100&query=user%3Abicstone

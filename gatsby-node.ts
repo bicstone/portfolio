@@ -172,10 +172,9 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             }
           }
         }
-        qiitaItems: allItemsYaml {
+        qiitaItems: allQiitaJson {
           nodes {
             title
-            date
             url
           }
         }
