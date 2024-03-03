@@ -6186,7 +6186,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:7.0.2"
     "@typescript-eslint/parser": "npm:7.0.2"
     bicstone: "npm:1.2.0"
-    date-fns: "npm:2.30.0"
+    date-fns: "npm:3.3.1"
     date-fns-tz: "npm:2.0.0"
     dotenv: "npm:16.4.5"
     eslint: "npm:8.57.0"
@@ -7620,7 +7620,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:2.30.0, date-fns@npm:^2.30.0":
+"date-fns@npm:3.3.1":
+  version: 3.3.1
+  resolution: "date-fns@npm:3.3.1"
+  checksum: 10c0/e04ff79244010e03b912d791cd3250af5f18866ce868604958d76bd87e5fb0b79f0a810b8e7066248452b41779b288c4fd21de1cac2cd4b6d384e9dd931c9674
+  languageName: node
+  linkType: hard
+
+"date-fns@npm:^2.30.0":
   version: 2.30.0
   resolution: "date-fns@npm:2.30.0"
   dependencies:
