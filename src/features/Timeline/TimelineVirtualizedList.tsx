@@ -149,7 +149,8 @@ export const TimelineVirtualizedList = ({
       <VirtuosoGrid
         data={sortedItems}
         components={{
-          List: Container,
+          // XXX: override type definition
+          List: Container as React.FunctionComponent,
         }}
         itemContent={(index, item) => <TimelineItem key={index} item={item} />}
         css={(theme) => ({
