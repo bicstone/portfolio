@@ -6171,7 +6171,7 @@ __metadata:
     eslint-plugin-promise: "npm:6.1.1"
     eslint-plugin-react: "npm:7.34.0"
     eslint-plugin-react-hooks: "npm:4.6.0"
-    eslint-plugin-regexp: "npm:2.2.0"
+    eslint-plugin-regexp: "npm:2.3.0"
     fuse.js: "npm:7.0.0"
     gatsby: "npm:5.13.3"
     gatsby-plugin-emotion: "npm:8.13.1"
@@ -8825,9 +8825,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-regexp@npm:2.2.0":
-  version: 2.2.0
-  resolution: "eslint-plugin-regexp@npm:2.2.0"
+"eslint-plugin-regexp@npm:2.3.0":
+  version: 2.3.0
+  resolution: "eslint-plugin-regexp@npm:2.3.0"
   dependencies:
     "@eslint-community/eslint-utils": "npm:^4.2.0"
     "@eslint-community/regexpp": "npm:^4.9.1"
@@ -8838,7 +8838,7 @@ __metadata:
     scslre: "npm:^0.3.0"
   peerDependencies:
     eslint: ">=8.44.0"
-  checksum: 10c0/31b1fc66556998377e4f4a6f31fbdeef07a0fe5f3d35e3ed437dfee31e75d0a808f2713c2d29fb177dd182e81f73ad2e49e4fad45a6fd4765d19e1c613da165c
+  checksum: 10c0/b598b522038ade15e788a318d6f82588a57edc3050fd3dd82e9ab7e3bf94070534611cd7a263eb4576e40726a5f658557fca25a1024528aa33af70fea5ed4785
   languageName: node
   linkType: hard
 
