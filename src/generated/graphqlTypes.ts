@@ -2481,7 +2481,7 @@ export type NotesYamlSortInput = {
   readonly url: InputMaybe<SortOrderEnum>;
 };
 
-export type OssesYaml = Node & Output & Project & Timeline & {
+export type OssesYaml = Node & Project & Timeline & {
   readonly children: ReadonlyArray<Node>;
   readonly date: Scalars['Date']['output'];
   readonly fields: TimelineFields;
@@ -5208,9 +5208,15 @@ export type WebPOptions = {
 export type GatsbyPluginFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GatsbyPluginFeedQuery = { readonly allOutput: { readonly nodes: ReadonlyArray<(
+export type GatsbyPluginFeedQuery = { readonly allTimeline: { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'ArticlesYaml' }
       & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'CertificationsYaml' }
+      & Pick<CertificationsYaml, 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'HistoriesYaml' }
+      & Pick<HistoriesYaml, 'title' | 'date'>
     ) | (
       { readonly __typename: 'Mdx' }
       & Pick<Mdx, 'slug' | 'title' | 'date'>
@@ -5221,6 +5227,9 @@ export type GatsbyPluginFeedQuery = { readonly allOutput: { readonly nodes: Read
     ) | (
       { readonly __typename: 'OssesYaml' }
       & Pick<OssesYaml, 'url' | 'title' | 'date'>
+    ) | (
+      { readonly __typename: 'ProjectsYaml' }
+      & Pick<ProjectsYaml, 'title' | 'date'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'url' | 'title' | 'date'>
@@ -5336,9 +5345,6 @@ export type TimelineListOutputFragment = { readonly group: ReadonlyArray<(
     ) | (
       { readonly __typename: 'NotesYaml' }
       & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'OssesYaml' }
-      & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
@@ -5480,9 +5486,6 @@ export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArr
       ) | (
         { readonly __typename: 'NotesYaml' }
         & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'OssesYaml' }
-        & Pick<OssesYaml, 'id' | 'title' | 'date' | 'url'>
       ) | (
         { readonly __typename: 'SlidesYaml' }
         & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>

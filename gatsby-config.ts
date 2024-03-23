@@ -90,11 +90,11 @@ const config: GatsbyConfig = {
         feeds: [
           {
             serialize: ({
-              query: { allOutput },
+              query: { allTimeline },
             }: {
               query: GatsbyPluginFeedQuery;
             }) => {
-              return allOutput.nodes.map((node) => {
+              return allTimeline.nodes.map((node) => {
                 switch (node.__typename) {
                   case "Mdx":
                     return {
@@ -104,11 +104,22 @@ const config: GatsbyConfig = {
                       description: node.frontmatter.excerpt,
                       date: node.date,
                     };
+                  case "ArticlesYaml":
+                  case "SlidesYaml":
+                  case "OssesYaml":
+                  case "NotesYaml":
+                    return {
+                      guid: node.url ?? "",
+                      title: node.title,
+                      url: node.url ?? "",
+                      description: "",
+                      date: node.date,
+                    };
                   default:
                     return {
-                      guid: node.url,
+                      guid: node.title,
                       title: node.title,
-                      url: node.url,
+                      url: SITE_METADATA.siteUrl,
                       description: "",
                       date: node.date,
                     };
@@ -117,7 +128,7 @@ const config: GatsbyConfig = {
             },
             query: /* GraphQL */ `
               query GatsbyPluginFeed {
-                allOutput(sort: { date: DESC }) {
+                allTimeline(sort: { date: DESC }) {
                   nodes {
                     __typename
                     title
