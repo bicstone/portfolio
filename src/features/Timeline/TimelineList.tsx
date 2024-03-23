@@ -83,9 +83,6 @@ export const query = graphql`
         ... on SlidesYaml {
           ...TimelineSlideCard
         }
-        ... on OssesYaml {
-          ...TimelineOssCard
-        }
         ... on NotesYaml {
           ...TimelineNoteCard
         }

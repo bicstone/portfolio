@@ -7,7 +7,7 @@ import { TimelineCardBase } from "./TimelineCardBase";
 
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { type TimelineOssCardFragment } from "@/generated/graphqlTypes";
-import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
+import { type M3ColorTokens, projectColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
 
 export const query = graphql`
@@ -33,9 +33,9 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
 
 const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
   return {
-    ...adoptColorTokens(outputColorTokens.lightColorTokens),
+    ...adoptColorTokens(projectColorTokens.lightColorTokens),
     [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      outputColorTokens.darkColorTokens,
+      projectColorTokens.darkColorTokens,
     ),
   };
 });
