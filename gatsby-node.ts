@@ -3,7 +3,6 @@ import path from "path";
 
 import { formatInTimeZone } from "date-fns-tz";
 
-import { fetchLaprasActivity } from "./src/utils/fetchLaprasActivity";
 import { isDefined } from "./src/utils/typeguard";
 
 import type {
@@ -33,41 +32,6 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
       },
     },
   });
-};
-
-/**
- * Copy assets to public
- * Create Zenn articles json
- * Create Speaker Deck Slides json
- * Create note articles json
- * Create Qiita items json
- */
-export const onPreBootstrap: GatsbyNode["onPreBootstrap"] = async ({
-  reporter,
-}) => {
-  /**
-   *  Copy assets to public
-   */
-  const sourcePath = path.resolve(process.cwd(), "content", "assets");
-  const destPath = path.resolve(process.cwd(), "public", "assets");
-
-  fs.cpSync(sourcePath, destPath, { recursive: true, force: true });
-
-  reporter.success(
-    `onPreBootstrap: Copied assets from ${sourcePath} to ${destPath}`,
-  );
-
-  /**
-   * Create Zenn articles json
-   * Create Speaker Deck Slides json
-   * Create note articles json
-   * Create Qiita items json
-   */
-  await fetchLaprasActivity();
-
-  reporter.success(
-    `onPreBootstrap: Created Zenn articles, Speaker Deck Slides, note articles and Qiita items json`,
-  );
 };
 
 /**
