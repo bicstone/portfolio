@@ -28,7 +28,7 @@
     "@sentry/browser": "7.109.0",
     "bicstone": "1.2.0",
     "date-fns": "2.30.0",
-    "date-fns-tz": "2.0.1",
+    "date-fns-tz": "3.0.0",
     "fuse.js": "7.0.0",
     "gatsby": "5.13.3",
     "gatsby-plugin-emotion": "8.13.1",

@@ -6192,7 +6192,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:7.5.0"
     bicstone: "npm:1.2.0"
     date-fns: "npm:2.30.0"
-    date-fns-tz: "npm:2.0.1"
+    date-fns-tz: "npm:3.0.0"
     dotenv: "npm:16.4.5"
     eslint: "npm:8.57.0"
     eslint-config-prettier: "npm:9.1.0"
@@ -7670,12 +7670,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns-tz@npm:2.0.1":
-  version: 2.0.1
-  resolution: "date-fns-tz@npm:2.0.1"
+"date-fns-tz@npm:3.0.0":
+  version: 3.0.0
+  resolution: "date-fns-tz@npm:3.0.0"
+  dependencies:
+    lodash.clonedeep: "npm:^4.5.0"
   peerDependencies:
-    date-fns: 2.x
-  checksum: 10c0/f860dda9e3d38bc99dc325c678cafb94b3a18c12b1fea0e2f4e451396ea6c4cacced683066c669a67ec380f64fdda83aa4c414a207029b647faa2b76b2a5c6e3
+    date-fns: ^3.0.0
+  checksum: 10c0/11389df22d1084d6fdcfadc7357b991707233eabe51250237dbded51089200e88d953379ef8e1dfc611ff7a2e879a84d59a94252b4cf04ec4c75a6215267b4f1
   languageName: node
   linkType: hard
 
@@ -13154,7 +13156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.clonedeep@npm:4.5.0":
+"lodash.clonedeep@npm:4.5.0, lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
   checksum: 10c0/2caf0e4808f319d761d2939ee0642fa6867a4bbf2cfce43276698828380756b99d4c4fa226d881655e6ac298dd453fe12a5ec8ba49861777759494c534936985
