@@ -22,13 +22,13 @@
     "@emotion/styled": "11.11.5",
     "@mdx-js/mdx": "2.3.0",
     "@mdx-js/react": "2.3.0",
-    "@mui/icons-material": "5.15.14",
-    "@mui/lab": "5.0.0-alpha.169",
-    "@mui/material": "5.15.14",
+    "@mui/icons-material": "5.15.15",
+    "@mui/lab": "5.0.0-alpha.170",
+    "@mui/material": "5.15.15",
     "@sentry/browser": "7.109.0",
     "bicstone": "1.2.0",
-    "date-fns": "2.30.0",
-    "date-fns-tz": "2.0.1",
+    "date-fns": "3.6.0",
+    "date-fns-tz": "3.0.0",
     "fuse.js": "7.0.0",
     "gatsby": "5.13.3",
     "gatsby-plugin-emotion": "8.13.1",
@@ -55,7 +55,7 @@
     "react-dom": "18.2.0",
     "react-error-boundary": "4.0.13",
     "react-hotkeys-hook": "4.5.0",
-    "react-virtuoso": "4.7.7"
+    "react-virtuoso": "4.7.8"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.2",
@@ -78,7 +78,7 @@
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-react": "7.34.1",
     "eslint-plugin-react-hooks": "4.6.0",
-    "eslint-plugin-regexp": "2.4.0",
+    "eslint-plugin-regexp": "2.5.0",
     "husky": "9.0.11",
     "prettier": "3.2.5",
     "typescript": "5.4.4"
