@@ -63,11 +63,11 @@
     "@graphql-codegen/typescript": "4.0.6",
     "@graphql-codegen/typescript-operations": "4.2.0",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.12.5",
-    "@types/react": "18.2.74",
-    "@types/react-dom": "18.2.24",
-    "@typescript-eslint/eslint-plugin": "7.5.0",
-    "@typescript-eslint/parser": "7.5.0",
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.78",
+    "@types/react-dom": "18.2.25",
+    "@typescript-eslint/eslint-plugin": "7.6.0",
+    "@typescript-eslint/parser": "7.6.0",
     "dotenv": "16.4.5",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
@@ -81,7 +81,7 @@
     "eslint-plugin-regexp": "2.5.0",
     "husky": "9.0.11",
     "prettier": "3.2.5",
-    "typescript": "5.4.4"
+    "typescript": "5.4.5"
   },
   "repository": {
     "type": "git",
