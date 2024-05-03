@@ -1,6 +1,6 @@
 {
   "extends": [
-    "standard-with-typescript",
+    "love",
     "plugin:jsx-a11y/recommended",
     "plugin:jsx-a11y/strict",
     "plugin:regexp/recommended",
