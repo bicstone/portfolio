@@ -6278,7 +6278,7 @@ __metadata:
     react-dom: "npm:18.3.1"
     react-error-boundary: "npm:4.0.13"
     react-hotkeys-hook: "npm:4.5.0"
-    react-virtuoso: "npm:4.7.10"
+    react-virtuoso: "npm:4.7.11"
     typescript: "npm:5.4.5"
   languageName: unknown
   linkType: soft
@@ -16520,13 +16520,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-virtuoso@npm:4.7.10":
-  version: 4.7.10
-  resolution: "react-virtuoso@npm:4.7.10"
+"react-virtuoso@npm:4.7.11":
+  version: 4.7.11
+  resolution: "react-virtuoso@npm:4.7.11"
   peerDependencies:
     react: ">=16 || >=17 || >= 18"
     react-dom: ">=16 || >=17 || >= 18"
-  checksum: 10c0/41457c6ab007563b6ea31b1e873f05fc74f7e5b75361fc1dd08b6e72bbaedcdaef04d69773afe99dc28361a1c8546690e914fced2aaf7dd436cd076e52a1b0f6
+  checksum: 10c0/dec544c26f958ea9669016c9c46213fda129d5f79ad51e7fa89a0244214a86e6182de3d11519a8ebc615f796206d856d06308228f663203677f0c538be21905e
   languageName: node
   linkType: hard
 

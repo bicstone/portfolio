@@ -55,7 +55,7 @@
     "react-dom": "18.3.1",
     "react-error-boundary": "4.0.13",
     "react-hotkeys-hook": "4.5.0",
-    "react-virtuoso": "4.7.10"
+    "react-virtuoso": "4.7.11"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.2",
