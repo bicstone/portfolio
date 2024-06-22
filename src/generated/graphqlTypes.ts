@@ -5289,8 +5289,6 @@ export type RelatedBlogPostListFragment = (
 
 export type TimelineArticleCardFragment = Pick<ArticlesYaml, 'title' | 'date' | 'url'>;
 
-export type TimelineCertificationCardFragment = Pick<CertificationsYaml, 'title' | 'date' | 'endDate'>;
-
 export type TimelineHistoryCardFragment = Pick<HistoriesYaml, 'title' | 'date'>;
 
 export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
@@ -5300,7 +5298,7 @@ export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
       & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
     ) | (
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & Pick<CertificationsYaml, 'id'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
@@ -5327,7 +5325,7 @@ export type TimelineListHistoryFragment = { readonly group: ReadonlyArray<(
     { dateYear: HistoryGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & Pick<CertificationsYaml, 'id'>
     ) | (
       { readonly __typename: 'HistoriesYaml' }
       & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
@@ -5382,7 +5380,7 @@ export type TimelineVirtualizedListTimelineFragment = { readonly nodes: Readonly
     & { dateX: ArticlesYaml['date'] }
   ) | (
     { readonly __typename: 'CertificationsYaml' }
-    & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+    & Pick<CertificationsYaml, 'id'>
     & { dateX: CertificationsYaml['date'] }
   ) | (
     { readonly __typename: 'HistoriesYaml' }
@@ -5427,7 +5425,7 @@ export type HistoryPageQuery = { readonly histories: { readonly group: ReadonlyA
       { dateYear: HistoryGroupConnection['fieldValue'] }
       & { readonly nodes: ReadonlyArray<(
         { readonly __typename: 'CertificationsYaml' }
-        & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+        & Pick<CertificationsYaml, 'id'>
       ) | (
         { readonly __typename: 'HistoriesYaml' }
         & Pick<HistoriesYaml, 'id' | 'title' | 'date'>
@@ -5443,7 +5441,7 @@ export type IndexPageQuery = { readonly timelineItems: { readonly nodes: Readonl
       & { dateX: ArticlesYaml['date'] }
     ) | (
       { readonly __typename: 'CertificationsYaml' }
-      & Pick<CertificationsYaml, 'id' | 'title' | 'date' | 'endDate'>
+      & Pick<CertificationsYaml, 'id'>
       & { dateX: CertificationsYaml['date'] }
     ) | (
       { readonly __typename: 'HistoriesYaml' }

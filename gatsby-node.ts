@@ -172,14 +172,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             excerpt: node.frontmatter.excerpt,
           });
           break;
-        case "CertificationsYaml":
-          timelineList.push({
-            title: node.title,
-            slug: "histories",
-            url: "/histories",
-            excerpt: "",
-          });
-          break;
         case "HistoriesYaml":
           timelineList.push({
             title: node.title,
@@ -333,14 +325,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         id: ID!
         title: String!
         date: Date! @dateformat
-        fields: TimelineFields!
-      }
-
-      type CertificationsYaml implements Node & Timeline & History @dontInfer {
-        title: String!
-        date: Date! @dateformat
-        endDate: Date @dateformat
-        category: String!
         fields: TimelineFields!
       }
 

@@ -25,7 +25,6 @@ const trailingSlash = "never";
 const contentPaths = [
   "articles",
   "images",
-  "certifications",
   "histories",
   "osses",
   "projects",

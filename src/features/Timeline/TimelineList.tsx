@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { type ComponentProps, forwardRef, Fragment } from "react";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
-import { TimelineCertificationCard } from "./TimelineCertificationCard";
 import { TimelineHistoryCard } from "./TimelineHistoryCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
@@ -29,9 +28,6 @@ export const query = graphql`
         id
         ... on ArticlesYaml {
           ...TimelineArticleCard
-        }
-        ... on CertificationsYaml {
-          ...TimelineCertificationCard
         }
         ... on HistoriesYaml {
           ...TimelineHistoryCard
@@ -61,9 +57,6 @@ export const query = graphql`
       nodes {
         __typename
         id
-        ... on CertificationsYaml {
-          ...TimelineCertificationCard
-        }
         ... on HistoriesYaml {
           ...TimelineHistoryCard
         }
@@ -120,10 +113,6 @@ export const TimelineItem = ({
   switch (item.__typename) {
     case "ArticlesYaml": {
       return <TimelineArticleCard key={item.id} item={item} />;
-    }
-
-    case "CertificationsYaml": {
-      return <TimelineCertificationCard key={item.id} item={item} />;
     }
 
     case "HistoriesYaml": {
