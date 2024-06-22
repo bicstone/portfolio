@@ -3,7 +3,6 @@ import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import visuallyHidden from "@mui/utils/visuallyHidden";
 
-import { ExternalLink } from "@/components/ExternalLink";
 import { RissIcon } from "@/components/icons/RissIcon";
 
 const StyledCard = styled(Card)({
@@ -34,11 +33,9 @@ export const BioRissCard = (props: CardProps): JSX.Element => {
         href="https://riss.ipa.go.jp/r?r=017758"
         rel="external noopener follow me"
         target="_blank"
-        title="認証情報の表示"
+        title="外部リンクのため、別ウインドウで開きます"
       >
-        <ExternalLink>
-          <RissIcon aria-hidden="true" />
-        </ExternalLink>
+        <RissIcon aria-hidden="true" />
         <span css={{ ...visuallyHidden }}>
           情報処理安全確保支援士 (第017758号)
         </span>

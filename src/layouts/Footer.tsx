@@ -4,7 +4,6 @@ import { Link as RouterLink } from "gatsby";
 
 import { BackToTop } from "./BackToTop";
 
-import { ExternalLink } from "@/components/ExternalLink";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import happyBusy from "@/layouts/banners/happy-busy.png";
 
@@ -43,8 +42,9 @@ export const Footer = (): JSX.Element => {
           href={SITE_METADATA.profileLink}
           rel="external noopener follow me"
           target="_blank"
+          title="外部リンクのため、別ウインドウで開きます"
         >
-          <ExternalLink>プロフィール</ExternalLink>
+          プロフィール
         </Link>
         <Link component={RouterLink} color="inherit" to="/privacy">
           プライバシーポリシー
@@ -52,20 +52,18 @@ export const Footer = (): JSX.Element => {
       </Typography>
       <a
         href="https://sites.google.com/view/happy-busy/"
-        title="時間のないサイト運営者リング"
         rel="external noopener noreferrer"
         target="_blank"
+        title="外部リンクのため、別ウインドウで開きます"
       >
-        <ExternalLink>
-          <img
-            alt="時間のないサイト運営者リング"
-            src={happyBusy}
-            width={200}
-            height={40}
-            decoding="async"
-            loading="lazy"
-          />
-        </ExternalLink>
+        <img
+          alt="時間のないサイト運営者リング"
+          src={happyBusy}
+          width={200}
+          height={40}
+          decoding="async"
+          loading="lazy"
+        />
       </a>
       <Typography
         variant="caption"
