@@ -111,11 +111,6 @@ export const TimelineVirtualizedList = ({
   const minHeightSingleColumn = (CARD_HEIGHT + 24) * (items.nodes.length + 1);
   const minHeightDoubleColumn = minHeightSingleColumn / 2;
 
-  // XXX: Gatsby でなぜかソートされないことがあるため
-  // クライアント側でもう一回ソートする
-  // 重くなるため早めに原因特定したい
-  const sortedItems = [...items.nodes];
-
   const FallBack = (): JSX.Element => (
     <div
       aria-busy="true"
@@ -134,10 +129,9 @@ export const TimelineVirtualizedList = ({
   return (
     <NoSsr defer fallback={<FallBack />}>
       <VirtuosoGrid
-        data={sortedItems}
+        data={[...items.nodes]}
         components={{
-          // XXX: override type definition
-          List: Container as React.FunctionComponent,
+          List: Container,
         }}
         itemContent={(index, item) => <TimelineItem key={index} item={item} />}
         css={(theme) => ({
