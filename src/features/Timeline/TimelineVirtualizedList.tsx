@@ -9,6 +9,8 @@ import { TimelineArticleCard } from "./TimelineArticleCard";
 import { TimelineItemCard } from "./TimelineItemCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
+import { TimelineOtherCard } from "./TimelineOtherCard";
+import { TimelinePresentationCard } from "./TimelinePresentationCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 import { CARD_HEIGHT } from "./constants";
 
@@ -31,6 +33,12 @@ export const query = graphql`
       }
       ... on NotesYaml {
         ...TimelineNoteCard
+      }
+      ... on PresentationsYaml {
+        ...TimelinePresentationCard
+      }
+      ... on OthersYaml {
+        ...TimelineOtherCard
       }
       ... on Mdx {
         ...TimelineMdxCard
@@ -66,6 +74,14 @@ const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
 
     case "SlidesYaml": {
       return <TimelineSlideCard key={item.id} item={item} showYear />;
+    }
+
+    case "PresentationsYaml": {
+      return <TimelinePresentationCard key={item.id} item={item} showYear />;
+    }
+
+    case "OthersYaml": {
+      return <TimelineOtherCard key={item.id} item={item} showYear />;
     }
 
     case "Mdx": {
