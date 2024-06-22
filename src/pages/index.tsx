@@ -59,7 +59,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <FeaturedList />
         <Spacer y={6} />
         <Typography variant="h5" component="h2" fontWeight="bold">
-          Timeline
+          Outputs
         </Typography>
         <Spacer y={6} />
         <TimelineVirtualizedList items={timelineItems} />
