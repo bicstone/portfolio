@@ -8,7 +8,6 @@ import { CARD_HEIGHT } from "./constants";
 
 import type { ReactNode } from "react";
 
-import { ExternalLink } from "@/components/ExternalLink";
 import { isDefined } from "@/utils/typeguard";
 
 const StyledCard = styled(Card)(({ theme }) => ({
@@ -70,7 +69,7 @@ export const TimelineCardBase = ({
         href: url,
         rel: "external noopener follow me",
         target: "_blank",
-        title,
+        title: "外部リンクのため、別ウインドウで開きます",
       };
 
   return (
@@ -83,7 +82,7 @@ export const TimelineCardBase = ({
             component: "h3",
             fontWeight: "bold",
           }}
-          title={isDefined(slug) ? title : <ExternalLink>{title}</ExternalLink>}
+          title={title}
           subheaderTypographyProps={{
             variant: "caption",
             color: "text.secondary",

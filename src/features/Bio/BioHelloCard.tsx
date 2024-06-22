@@ -3,7 +3,6 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardHeader from "@mui/material/CardHeader";
 import Typography from "@mui/material/Typography";
 
-import { ExternalLink } from "@/components/ExternalLink";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
@@ -15,7 +14,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
         rel="external noopener follow me"
         target="_blank"
         css={{ height: "100%" }}
-        title="もっと詳しく"
+        title="外部リンクのため、別ウインドウで開きます"
       >
         <CardHeader
           disableTypography
@@ -57,7 +56,7 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
                 color="secondary"
                 css={{ textDecoration: "underline" }}
               >
-                <ExternalLink>もっと詳しく</ExternalLink>
+                もっと詳しく
               </Typography>
             </>
           }

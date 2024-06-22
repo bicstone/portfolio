@@ -4,8 +4,6 @@ import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
 import { type ReactNode } from "react";
 
-import { ExternalLink } from "@/components/ExternalLink";
-
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
   position: "relative",
@@ -48,12 +46,12 @@ export const BioSocialLinkCard = ({
         href={url}
         rel="external noopener follow me"
         target="_blank"
-        title={actionTitle}
+        title="外部リンクのため、別ウインドウで開きます"
       >
         {avatar}
         <div>
           <Typography variant="body1" component="h2" fontWeight="bold">
-            <ExternalLink>{title}</ExternalLink>
+            {title}
           </Typography>
           <Typography variant="caption" color="text.secondary">
             {subTitle}
