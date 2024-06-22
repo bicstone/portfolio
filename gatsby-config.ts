@@ -30,6 +30,8 @@ const contentPaths = [
   "note",
   "qiita",
   "featured",
+  "presentations",
+  "others",
 ];
 
 const config: GatsbyConfig = {
@@ -103,6 +105,8 @@ const config: GatsbyConfig = {
                   case "ArticlesYaml":
                   case "SlidesYaml":
                   case "NotesYaml":
+                  case "PresentationsYaml":
+                  case "OthersYaml":
                   default:
                     return {
                       guid: node.url ?? "",
@@ -128,6 +132,12 @@ const config: GatsbyConfig = {
                       url
                     }
                     ... on NotesYaml {
+                      url
+                    }
+                    ... on PresentationsYaml {
+                      url
+                    }
+                    ... on OthersYaml {
                       url
                     }
                     ... on Mdx {

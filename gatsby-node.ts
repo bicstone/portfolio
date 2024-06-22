@@ -124,6 +124,12 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             ... on NotesYaml {
               url
             }
+            ... on PresentationsYaml {
+              url
+            }
+            ... on OthersYaml {
+              url
+            }
             ... on Mdx {
               slug
               frontmatter {
@@ -152,6 +158,8 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
         case "ArticlesYaml":
         case "SlidesYaml":
         case "NotesYaml":
+        case "PresentationsYaml":
+        case "OthersYaml":
           timelineList.push({
             title: node.title,
             // TODO nullable
@@ -246,6 +254,20 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
       }
 
       type NotesYaml implements Node & Timeline & Output @dontInfer {
+        title: String!
+        date: Date! @dateformat
+        url: String!
+        fields: TimelineFields!
+      }
+
+      type PresentationsYaml implements Node & Timeline & Output @dontInfer {
+        title: String!
+        date: Date! @dateformat
+        url: String!
+        fields: TimelineFields!
+      }
+
+      type OthersYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
         url: String!

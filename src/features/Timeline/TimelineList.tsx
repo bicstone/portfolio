@@ -6,6 +6,8 @@ import { type ComponentProps, forwardRef, Fragment } from "react";
 import { TimelineArticleCard } from "./TimelineArticleCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
+import { TimelineOtherCard } from "./TimelineOtherCard";
+import { TimelinePresentationCard } from "./TimelinePresentationCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 
 import { Spacer } from "@/components/Spacer";
@@ -30,6 +32,12 @@ export const query = graphql`
         ... on NotesYaml {
           ...TimelineNoteCard
         }
+        ... on PresentationsYaml {
+          ...TimelinePresentationCard
+        }
+        ... on OthersYaml {
+          ...TimelineOtherCard
+        }
         ... on Mdx {
           ...TimelineMdxCard
         }
@@ -51,6 +59,12 @@ export const query = graphql`
         }
         ... on NotesYaml {
           ...TimelineNoteCard
+        }
+        ... on PresentationsYaml {
+          ...TimelinePresentationCard
+        }
+        ... on OthersYaml {
+          ...TimelineOtherCard
         }
         ... on Mdx {
           ...TimelineMdxCard
@@ -78,6 +92,14 @@ export const TimelineItem = ({
 
     case "SlidesYaml": {
       return <TimelineSlideCard key={item.id} item={item} />;
+    }
+
+    case "PresentationsYaml": {
+      return <TimelinePresentationCard key={item.id} item={item} />;
+    }
+
+    case "OthersYaml": {
+      return <TimelineOtherCard key={item.id} item={item} />;
     }
 
     case "Mdx": {
