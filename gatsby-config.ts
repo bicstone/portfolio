@@ -25,8 +25,6 @@ const trailingSlash = "never";
 const contentPaths = [
   "articles",
   "images",
-  "osses",
-  "projects",
   "speakerdeck",
   "zenn",
   "note",
@@ -104,7 +102,6 @@ const config: GatsbyConfig = {
                     };
                   case "ArticlesYaml":
                   case "SlidesYaml":
-                  case "OssesYaml":
                   case "NotesYaml":
                     return {
                       guid: node.url ?? "",
@@ -135,9 +132,6 @@ const config: GatsbyConfig = {
                       url
                     }
                     ... on SlidesYaml {
-                      url
-                    }
-                    ... on OssesYaml {
                       url
                     }
                     ... on NotesYaml {
@@ -210,7 +204,7 @@ const config: GatsbyConfig = {
             };
           });
 
-          const pages = ["outputs", "projects"].map((page) => ({
+          const pages = ["outputs"].map((page) => ({
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,

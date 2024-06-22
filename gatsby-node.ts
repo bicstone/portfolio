@@ -118,9 +118,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             ... on ArticlesYaml {
               url
             }
-            ... on OssesYaml {
-              url
-            }
             ... on SlidesYaml {
               url
             }
@@ -153,7 +150,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     result?.data?.timelineItems?.nodes.forEach((node) => {
       switch (node.__typename) {
         case "ArticlesYaml":
-        case "OssesYaml":
         case "SlidesYaml":
         case "NotesYaml":
           timelineList.push({
@@ -170,14 +166,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             slug: node.slug,
             url: `/${node.slug}`,
             excerpt: node.frontmatter.excerpt,
-          });
-          break;
-        case "ProjectsYaml":
-          timelineList.push({
-            title: node.title,
-            slug: "projects",
-            url: "/projects",
-            excerpt: "",
           });
           break;
       }
@@ -287,30 +275,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         tags: [String!]
         title: String!
         updateDate: Date @dateformat
-      }
-
-      interface Project implements Node & Timeline @dontInfer {
-        id: ID!
-        title: String!
-        date: Date! @dateformat
-        fields: TimelineFields!
-      }
-
-      type OssesYaml implements Node & Timeline & Project @dontInfer {
-        title: String!
-        date: Date! @dateformat
-        url: String!
-        tags: [String!]!
-        fields: TimelineFields!
-      }
-
-      type ProjectsYaml implements Node & Timeline & Project @dontInfer {
-        title: String!
-        date: Date! @dateformat
-        endDate: Date @dateformat
-        tags: [String!]!
-        icon: String!
-        fields: TimelineFields!
       }
 
       type Search implements Node @dontInfer {

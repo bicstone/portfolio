@@ -11,7 +11,6 @@ import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 import { TimelineList } from "@/features/Timeline";
 import { ArchivedList } from "@/features/TimelineArchived";
-import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
@@ -98,8 +97,6 @@ const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
     >
       <Breadcrumbs title={title} />
       <Spacer y={4} />
-      <TimelineTabList />
-      <Spacer y={2} />
       <TimelineList groups={outputGroups} />
       <Spacer y={4} />
       <Breadcrumbs title={title} />
