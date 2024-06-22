@@ -4,20 +4,14 @@ import { graphql } from "gatsby";
 import { type ComponentProps, forwardRef, Fragment } from "react";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
-import { TimelineCertificationCard } from "./TimelineCertificationCard";
-import { TimelineHistoryCard } from "./TimelineHistoryCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
-import { TimelineOssCard } from "./TimelineOssCard";
-import { TimelineProjectCard } from "./TimelineProjectCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 
 import { Spacer } from "@/components/Spacer";
 import {
   type TimelineListOutputFragment,
-  type TimelineListHistoryFragment,
   type TimelineListTimelineFragment,
-  type TimelineListProjectFragment,
 } from "@/generated/graphqlTypes";
 
 export const query = graphql`
@@ -30,18 +24,6 @@ export const query = graphql`
         ... on ArticlesYaml {
           ...TimelineArticleCard
         }
-        ... on CertificationsYaml {
-          ...TimelineCertificationCard
-        }
-        ... on HistoriesYaml {
-          ...TimelineHistoryCard
-        }
-        ... on OssesYaml {
-          ...TimelineOssCard
-        }
-        ... on ProjectsYaml {
-          ...TimelineProjectCard
-        }
         ... on SlidesYaml {
           ...TimelineSlideCard
         }
@@ -50,22 +32,6 @@ export const query = graphql`
         }
         ... on Mdx {
           ...TimelineMdxCard
-        }
-      }
-    }
-  }
-
-  fragment TimelineListHistory on HistoryConnection {
-    group(field: { fields: { dateYear: SELECT } }) {
-      dateYear: fieldValue
-      nodes {
-        __typename
-        id
-        ... on CertificationsYaml {
-          ...TimelineCertificationCard
-        }
-        ... on HistoriesYaml {
-          ...TimelineHistoryCard
         }
       }
     }
@@ -92,22 +58,6 @@ export const query = graphql`
       }
     }
   }
-
-  fragment TimelineListProject on ProjectConnection {
-    group(field: { fields: { dateYear: SELECT } }) {
-      dateYear: fieldValue
-      nodes {
-        __typename
-        id
-        ... on ProjectsYaml {
-          ...TimelineProjectCard
-        }
-        ... on OssesYaml {
-          ...TimelineOssCard
-        }
-      }
-    }
-  }
 `;
 
 interface TimelineItemProps {
@@ -122,24 +72,8 @@ export const TimelineItem = ({
       return <TimelineArticleCard key={item.id} item={item} />;
     }
 
-    case "CertificationsYaml": {
-      return <TimelineCertificationCard key={item.id} item={item} />;
-    }
-
-    case "HistoriesYaml": {
-      return <TimelineHistoryCard key={item.id} item={item} />;
-    }
-
-    case "OssesYaml": {
-      return <TimelineOssCard key={item.id} item={item} />;
-    }
-
     case "NotesYaml": {
       return <TimelineNoteCard key={item.id} item={item} />;
-    }
-
-    case "ProjectsYaml": {
-      return <TimelineProjectCard key={item.id} item={item} />;
     }
 
     case "SlidesYaml": {
@@ -174,11 +108,7 @@ const Container = forwardRef<
 Container.displayName = "Container";
 
 export interface TimelineListProps {
-  groups:
-    | TimelineListTimelineFragment
-    | TimelineListHistoryFragment
-    | TimelineListOutputFragment
-    | TimelineListProjectFragment;
+  groups: TimelineListTimelineFragment | TimelineListOutputFragment;
 }
 
 export const TimelineList = ({ groups }: TimelineListProps): JSX.Element => {

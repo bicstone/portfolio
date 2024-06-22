@@ -56,7 +56,7 @@ export const TRANSLATION = {
   },
   notFound: {
     backToHome: "ポートフォリオに移動",
-    backToTimeline: "タイムラインに移動",
+    backToTimeline: "アウトプット一覧に移動",
     description: "ページが見つかりませんでした。",
     title: "Not Found",
   },
@@ -78,7 +78,7 @@ export const TRANSLATION = {
     loading: "読み込み中",
     error:
       "インデックスの取得に失敗しました。お手数をおかけしますが、 Google などの検索エンジンを用いて検索お願いします。",
-    hint: "タイムラインを検索",
+    hint: "アウトプットを検索",
     title: "検索",
   },
   outputs: {

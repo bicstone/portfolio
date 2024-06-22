@@ -11,7 +11,6 @@ import { BioCardList } from "@/features/Bio";
 import { TimelineVirtualizedList } from "@/features/Timeline";
 import { ArchivedList } from "@/features/TimelineArchived";
 import { FeaturedList } from "@/features/TimelineFeatured";
-import { TimelineTabList } from "@/features/TimelineTab";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
 export const query = graphql`
@@ -60,10 +59,8 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
         <FeaturedList />
         <Spacer y={6} />
         <Typography variant="h5" component="h2" fontWeight="bold">
-          Timeline
+          Outputs
         </Typography>
-        <Spacer y={6} />
-        <TimelineTabList />
         <Spacer y={6} />
         <TimelineVirtualizedList items={timelineItems} />
         <Spacer y={2} />
