@@ -18,7 +18,7 @@ export const query = graphql`
     outputs: allOutput(sort: { date: DESC }) {
       ...TimelineListOutput
     }
-    qiitaItems: allQiitaJson(sort: { created_at: DESC }) {
+    qiitaItems: allQiitaJson(sort: { title: ASC }) {
       ...TimelineArchivedList
     }
     site {
@@ -96,16 +96,19 @@ const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
       css={(theme) => ({ margin: theme.spacing(4, "auto") })}
     >
       <Breadcrumbs title={title} />
-      <Spacer y={4} />
+      <Spacer y={6} />
+      <Typography variant="h5" component="h2" fontWeight="bold">
+        Outputs
+      </Typography>
       <TimelineList groups={outputGroups} />
-      <Spacer y={4} />
-      <Breadcrumbs title={title} />
-      <Spacer y={2} />
+      <Spacer y={6} />
       <Typography variant="h5" component="h2" fontWeight="bold">
         Archived
       </Typography>
-      <Spacer y={6} />
+      <Spacer y={4} />
       <ArchivedList items={qiitaItems} />
+      <Spacer y={6} />
+      <Breadcrumbs title={title} />
       <Spacer y={6} />
     </Container>
   );

@@ -9,7 +9,6 @@ import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
 import { TimelineVirtualizedList } from "@/features/Timeline";
-import { ArchivedList } from "@/features/TimelineArchived";
 import { FeaturedList } from "@/features/TimelineFeatured";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
 
@@ -18,8 +17,8 @@ export const query = graphql`
     timelineItems: allTimeline(sort: { date: DESC }) {
       ...TimelineVirtualizedListTimeline
     }
-    qiitaItems: allQiitaJson(sort: { created_at: DESC }) {
-      ...TimelineArchivedList
+    qiitaItems: allQiitaJson(sort: { title: ASC }) {
+      ...TimelineVirtualizedListArchived
     }
   }
 `;
@@ -68,7 +67,7 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
           Archived
         </Typography>
         <Spacer y={6} />
-        <ArchivedList items={qiitaItems} />
+        <TimelineVirtualizedList items={qiitaItems} />
         <Spacer y={6} />
       </Container>
     </>
