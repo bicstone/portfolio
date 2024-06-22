@@ -103,18 +103,11 @@ const config: GatsbyConfig = {
                   case "ArticlesYaml":
                   case "SlidesYaml":
                   case "NotesYaml":
+                  default:
                     return {
                       guid: node.url ?? "",
                       title: node.title,
                       url: node.url ?? "",
-                      description: "",
-                      date: node.date,
-                    };
-                  default:
-                    return {
-                      guid: node.title,
-                      title: node.title,
-                      url: SITE_METADATA.siteUrl,
                       description: "",
                       date: node.date,
                     };
