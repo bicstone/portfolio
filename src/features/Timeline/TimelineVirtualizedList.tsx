@@ -114,9 +114,7 @@ export const TimelineVirtualizedList = ({
   // XXX: Gatsby でなぜかソートされないことがあるため
   // クライアント側でもう一回ソートする
   // 重くなるため早めに原因特定したい
-  const sortedItems = [...items.nodes].sort((a, b) => {
-    return Number(b.dateX) - Number(a.dateX);
-  });
+  const sortedItems = [...items.nodes];
 
   const FallBack = (): JSX.Element => (
     <div
