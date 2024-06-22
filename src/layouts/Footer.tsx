@@ -35,6 +35,9 @@ export const Footer = (): JSX.Element => {
         <Link component={RouterLink} color="inherit" to="/">
           ホーム
         </Link>
+        <Link component={RouterLink} color="inherit" to="/outputs">
+          アウトプット
+        </Link>
         <Link
           color="inherit"
           href={SITE_METADATA.profileLink}

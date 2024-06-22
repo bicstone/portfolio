@@ -6,12 +6,16 @@ import { type ComponentProps, forwardRef } from "react";
 import { VirtuosoGrid } from "react-virtuoso";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
+import { TimelineItemCard } from "./TimelineItemCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 import { CARD_HEIGHT } from "./constants";
 
-import { type TimelineVirtualizedListTimelineFragment } from "@/generated/graphqlTypes";
+import {
+  type TimelineVirtualizedListArchivedFragment,
+  type TimelineVirtualizedListTimelineFragment,
+} from "@/generated/graphqlTypes";
 
 export const query = graphql`
   fragment TimelineVirtualizedListTimeline on TimelineConnection {
@@ -33,10 +37,21 @@ export const query = graphql`
       }
     }
   }
+
+  fragment TimelineVirtualizedListArchived on QiitaJsonConnection {
+    nodes {
+      __typename
+      id
+      dateX: created_at
+      ...TimelineItemCard
+    }
+  }
 `;
 
 interface TimelineItemProps {
-  item: TimelineVirtualizedListTimelineFragment["nodes"][number];
+  item:
+    | TimelineVirtualizedListTimelineFragment["nodes"][number]
+    | TimelineVirtualizedListArchivedFragment["nodes"][number];
 }
 
 const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
@@ -55,6 +70,10 @@ const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
 
     case "Mdx": {
       return <TimelineMdxCard key={item.id} item={item} showYear />;
+    }
+
+    case "QiitaJson": {
+      return <TimelineItemCard key={item.id} item={item} />;
     }
 
     default: {
@@ -81,7 +100,9 @@ const Container = forwardRef<
 Container.displayName = "Container";
 
 export interface TimelineVirtualizedListProps {
-  items: TimelineVirtualizedListTimelineFragment;
+  items:
+    | TimelineVirtualizedListTimelineFragment
+    | TimelineVirtualizedListArchivedFragment;
 }
 
 export const TimelineVirtualizedList = ({
@@ -89,13 +110,6 @@ export const TimelineVirtualizedList = ({
 }: TimelineVirtualizedListProps): JSX.Element => {
   const minHeightSingleColumn = (CARD_HEIGHT + 24) * (items.nodes.length + 1);
   const minHeightDoubleColumn = minHeightSingleColumn / 2;
-
-  // XXX: Gatsby でなぜかソートされないことがあるため
-  // クライアント側でもう一回ソートする
-  // 重くなるため早めに原因特定したい
-  const sortedItems = Array.from(items.nodes).sort((a, b) => {
-    return Number(b.dateX) - Number(a.dateX);
-  });
 
   const FallBack = (): JSX.Element => (
     <div
@@ -115,10 +129,9 @@ export const TimelineVirtualizedList = ({
   return (
     <NoSsr defer fallback={<FallBack />}>
       <VirtuosoGrid
-        data={sortedItems}
+        data={[...items.nodes]}
         components={{
-          // XXX: override type definition
-          List: Container as React.FunctionComponent,
+          List: Container,
         }}
         itemContent={(index, item) => <TimelineItem key={index} item={item} />}
         css={(theme) => ({

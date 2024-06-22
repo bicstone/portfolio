@@ -4210,6 +4210,8 @@ export type RelatedBlogPostListFragment = (
 
 export type TimelineArticleCardFragment = Pick<ArticlesYaml, 'title' | 'date' | 'url'>;
 
+export type TimelineItemCardFragment = Pick<QiitaJson, 'title' | 'url'>;
+
 export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
     { dateYear: TimelineGroupConnection['fieldValue'] }
     & { readonly nodes: ReadonlyArray<(
@@ -4268,9 +4270,13 @@ export type TimelineVirtualizedListTimelineFragment = { readonly nodes: Readonly
     & { dateX: SlidesYaml['date'] }
   )> };
 
-export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> };
+export type TimelineVirtualizedListArchivedFragment = { readonly nodes: ReadonlyArray<(
+    { readonly __typename: 'QiitaJson' }
+    & Pick<QiitaJson, 'id' | 'title' | 'url'>
+    & { dateX: QiitaJson['created_at'] }
+  )> };
 
-export type TimelineItemCardFragment = Pick<QiitaJson, 'title' | 'url'>;
+export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> };
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4296,7 +4302,11 @@ export type IndexPageQuery = { readonly timelineItems: { readonly nodes: Readonl
       { readonly __typename: 'SlidesYaml' }
       & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
       & { dateX: SlidesYaml['date'] }
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> } };
+    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<(
+      { readonly __typename: 'QiitaJson' }
+      & Pick<QiitaJson, 'id' | 'title' | 'url'>
+      & { dateX: QiitaJson['created_at'] }
+    )> } };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
