@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { type ComponentProps, forwardRef, Fragment } from "react";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
-import { TimelineHistoryCard } from "./TimelineHistoryCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
 import { TimelineOssCard } from "./TimelineOssCard";
@@ -14,7 +13,6 @@ import { TimelineSlideCard } from "./TimelineSlideCard";
 import { Spacer } from "@/components/Spacer";
 import {
   type TimelineListOutputFragment,
-  type TimelineListHistoryFragment,
   type TimelineListTimelineFragment,
   type TimelineListProjectFragment,
 } from "@/generated/graphqlTypes";
@@ -28,9 +26,6 @@ export const query = graphql`
         id
         ... on ArticlesYaml {
           ...TimelineArticleCard
-        }
-        ... on HistoriesYaml {
-          ...TimelineHistoryCard
         }
         ... on OssesYaml {
           ...TimelineOssCard
@@ -46,19 +41,6 @@ export const query = graphql`
         }
         ... on Mdx {
           ...TimelineMdxCard
-        }
-      }
-    }
-  }
-
-  fragment TimelineListHistory on HistoryConnection {
-    group(field: { fields: { dateYear: SELECT } }) {
-      dateYear: fieldValue
-      nodes {
-        __typename
-        id
-        ... on HistoriesYaml {
-          ...TimelineHistoryCard
         }
       }
     }
@@ -115,10 +97,6 @@ export const TimelineItem = ({
       return <TimelineArticleCard key={item.id} item={item} />;
     }
 
-    case "HistoriesYaml": {
-      return <TimelineHistoryCard key={item.id} item={item} />;
-    }
-
     case "OssesYaml": {
       return <TimelineOssCard key={item.id} item={item} />;
     }
@@ -165,7 +143,6 @@ Container.displayName = "Container";
 export interface TimelineListProps {
   groups:
     | TimelineListTimelineFragment
-    | TimelineListHistoryFragment
     | TimelineListOutputFragment
     | TimelineListProjectFragment;
 }

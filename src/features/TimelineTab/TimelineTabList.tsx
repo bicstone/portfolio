@@ -8,7 +8,6 @@ import { type HTMLAttributes } from "react";
 import {
   defaultColorTokens,
   outputColorTokens,
-  historyColorTokens,
   projectColorTokens,
   type M3ColorTokens,
 } from "@/layouts/themes";
@@ -176,22 +175,6 @@ export const TimelineTabList = (
       >
         <StyledCheckIcon />
         Projects
-      </StyledLink>
-      <StyledLink
-        component={Link}
-        to="/histories"
-        activeClassName={activeClassName}
-        css={(theme) => {
-          return {
-            ...adoptColorTokens(historyColorTokens.lightColorTokens),
-            [theme.getColorSchemeSelector("dark")]: adoptDarkColorTokens(
-              historyColorTokens.darkColorTokens,
-            ),
-          };
-        }}
-      >
-        <StyledCheckIcon />
-        Histories
       </StyledLink>
     </StyledAnchorLinkGroup>
   );

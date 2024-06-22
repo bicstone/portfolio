@@ -172,14 +172,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             excerpt: node.frontmatter.excerpt,
           });
           break;
-        case "HistoriesYaml":
-          timelineList.push({
-            title: node.title,
-            slug: "histories",
-            url: "/histories",
-            excerpt: "",
-          });
-          break;
         case "ProjectsYaml":
           timelineList.push({
             title: node.title,
@@ -317,21 +309,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         endDate: Date @dateformat
         tags: [String!]!
-        icon: String!
-        fields: TimelineFields!
-      }
-
-      interface History implements Node & Timeline @dontInfer {
-        id: ID!
-        title: String!
-        date: Date! @dateformat
-        fields: TimelineFields!
-      }
-
-      type HistoriesYaml implements Node & Timeline & History @dontInfer {
-        title: String!
-        date: Date! @dateformat
-        excerpt: String!
         icon: String!
         fields: TimelineFields!
       }

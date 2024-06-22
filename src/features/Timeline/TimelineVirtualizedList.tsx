@@ -6,7 +6,6 @@ import { type ComponentProps, forwardRef } from "react";
 import { VirtuosoGrid } from "react-virtuoso";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
-import { TimelineHistoryCard } from "./TimelineHistoryCard";
 import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
 import { TimelineOssCard } from "./TimelineOssCard";
@@ -24,9 +23,6 @@ export const query = graphql`
       dateX: date(formatString: "X")
       ... on ArticlesYaml {
         ...TimelineArticleCard
-      }
-      ... on HistoriesYaml {
-        ...TimelineHistoryCard
       }
       ... on OssesYaml {
         ...TimelineOssCard
@@ -55,10 +51,6 @@ const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
   switch (item.__typename) {
     case "ArticlesYaml": {
       return <TimelineArticleCard key={item.id} item={item} showYear />;
-    }
-
-    case "HistoriesYaml": {
-      return <TimelineHistoryCard key={item.id} item={item} showYear />;
     }
 
     case "OssesYaml": {

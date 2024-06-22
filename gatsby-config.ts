@@ -25,7 +25,6 @@ const trailingSlash = "never";
 const contentPaths = [
   "articles",
   "images",
-  "histories",
   "osses",
   "projects",
   "speakerdeck",
@@ -211,7 +210,7 @@ const config: GatsbyConfig = {
             };
           });
 
-          const pages = ["histories", "outputs", "projects"].map((page) => ({
+          const pages = ["outputs", "projects"].map((page) => ({
             path: `/${page}`,
             lastmod: site.buildTime,
             changefreq: `daily`,
