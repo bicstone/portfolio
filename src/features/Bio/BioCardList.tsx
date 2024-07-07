@@ -32,11 +32,11 @@ export const BioCardList = (): JSX.Element => {
 
   const linkKeys = [
     "x",
-    "npm",
     "facebook",
     "linkedin",
     "youtrust",
     "github",
+    "npm",
     "zenn",
     "note",
   ] as const satisfies LinkKeys[];
