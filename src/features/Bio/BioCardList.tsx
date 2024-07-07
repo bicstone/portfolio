@@ -15,6 +15,7 @@ import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { MisskeyIcon } from "@/components/icons/MisskeyIcon";
 import { MstdnIcon } from "@/components/icons/MstdnIcon";
 import { NoteIcon } from "@/components/icons/NoteIcon";
+import { NpmIcon } from "@/components/icons/NpmIcon";
 import { QiitaIcon } from "@/components/icons/QiitaIcon";
 import { SpeakerDeckIcon } from "@/components/icons/SpeakerDeckIcon";
 import { ThreadsIcon } from "@/components/icons/ThreadsIcon";
@@ -31,11 +32,11 @@ export const BioCardList = (): JSX.Element => {
 
   const linkKeys = [
     "x",
-    "bluesky",
     "facebook",
     "linkedin",
     "youtrust",
     "github",
+    "npm",
     "zenn",
     "note",
   ] as const satisfies LinkKeys[];
@@ -47,6 +48,7 @@ export const BioCardList = (): JSX.Element => {
     "forkwell",
     "lapras",
     "wantedly",
+    "bluesky",
     "misskey",
     "mstdn",
     "threads",
@@ -63,6 +65,7 @@ export const BioCardList = (): JSX.Element => {
     misskey: <MisskeyIcon aria-hidden="true" />,
     mstdn: <MstdnIcon aria-hidden="true" />,
     note: <NoteIcon aria-hidden="true" />,
+    npm: <NpmIcon area-hidden="true" />,
     qiita: <QiitaIcon aria-hidden="true" />,
     speakerdeck: <SpeakerDeckIcon aria-hidden="true" />,
     threads: <ThreadsIcon aria-hidden="true" />,
