@@ -38,12 +38,12 @@ export const BioCardList = (): JSX.Element => {
     "github",
     "npm",
     "zenn",
-    "note",
+    "speakerdeck",
   ] as const satisfies LinkKeys[];
 
   const moreLinkKeys = [
+    "note",
     "qiita",
-    "speakerdeck",
     "findy",
     "forkwell",
     "lapras",
