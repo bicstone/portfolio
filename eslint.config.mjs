@@ -1,87 +1,87 @@
 // @ts-check
 
-import { FlatCompat } from "@eslint/eslintrc";
-import path from "path";
-import { fileURLToPath } from "url";
-import js from "@eslint/js";
-import globals from "globals";
-import love from "eslint-config-love";
-import a11y from "eslint-plugin-jsx-a11y";
-import regexp from "eslint-plugin-regexp";
-import react from "eslint-plugin-react";
+import { FlatCompat } from '@eslint/eslintrc'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import js from '@eslint/js'
+import globals from 'globals'
+import love from 'eslint-config-love'
+import a11y from 'eslint-plugin-jsx-a11y'
+import regexp from 'eslint-plugin-regexp'
+import react from 'eslint-plugin-react'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+  baseDirectory: __dirname
+})
 
 /** @type {import("eslint").Linter.Config["files"]} */
-const files = ["**/*.{js,mjs,cjs,ts,tsx}"],
-  /** @type {import("eslint").Linter.Config["ignores"]} */
-  ignores = [
-    "/.cache",
-    "/.yarn",
-    "/content",
-    "/public",
-    "/static",
-    "src/generated",
-  ],
-  /** @type {import("eslint").Linter.Config["languageOptions"]} */
-  languageOptions = {
-    parserOptions: {
-      project: "./tsconfig.json",
-      ecmaFeatures: {
-        jsx: true,
-      },
-    },
-    globals: {
-      ...globals.browser,
-    },
+const files = ['**/*.{js,mjs,cjs,ts,tsx}']
+/** @type {import("eslint").Linter.Config["ignores"]} */
+const ignores = [
+  '/.cache',
+  '/.yarn',
+  '/content',
+  '/public',
+  '/static',
+  'src/generated'
+]
+/** @type {import("eslint").Linter.Config["languageOptions"]} */
+const languageOptions = {
+  parserOptions: {
+    project: './tsconfig.json',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
-  /** @type {import("eslint").Linter.Config["rules"]} */
-  rules = {
-    "import/order": [
-      "error",
-      {
-        groups: [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling",
-          "index",
-          "object",
-          "type",
-        ],
-        alphabetize: {
-          order: "asc",
-        },
-        "newlines-between": "always",
+  globals: {
+    ...globals.browser
+  }
+}
+/** @type {import("eslint").Linter.Config["rules"]} */
+const rules = {
+  'import/order': [
+    'error',
+    {
+      groups: [
+        'builtin',
+        'external',
+        'internal',
+        'parent',
+        'sibling',
+        'index',
+        'object',
+        'type'
+      ],
+      alphabetize: {
+        order: 'asc'
       },
-    ],
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        max: 1,
-        maxEOF: 1,
-        maxBOF: 0,
-      },
-    ],
-    "no-restricted-imports": [
-      "error",
-      {
-        patterns: ["@/features/*/*"],
-      },
-    ],
-    "@typescript-eslint/consistent-type-imports": "error",
-    "@typescript-eslint/consistent-type-exports": "error",
-    "@typescript-eslint/no-unsafe-argument": "warn",
-    "react/prop-types": "off",
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/no-unknown-property": "off",
-  };
+      'newlines-between': 'always'
+    }
+  ],
+  'no-multiple-empty-lines': [
+    'error',
+    {
+      max: 1,
+      maxEOF: 1,
+      maxBOF: 0
+    }
+  ],
+  'no-restricted-imports': [
+    'error',
+    {
+      patterns: ['@/features/*/*']
+    }
+  ],
+  '@typescript-eslint/consistent-type-imports': 'error',
+  '@typescript-eslint/consistent-type-exports': 'error',
+  '@typescript-eslint/no-unsafe-argument': 'warn',
+  'react/prop-types': 'off',
+  'react/jsx-uses-react': 'off',
+  'react/react-in-jsx-scope': 'off',
+  'react/no-unknown-property': 'off'
+}
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [
@@ -90,14 +90,14 @@ export default [
   // love,
   a11y.flatConfigs.recommended,
   a11y.flatConfigs.strict,
-  regexp.configs["flat/recommended"],
+  regexp.configs['flat/recommended'],
   react.configs.flat.recommended,
-  compat.extends("eslint-plugin-react-hooks/recommended"),
-  compat.extends("eslint-plugin-import/errors"),
+  compat.extends('eslint-plugin-react-hooks/recommended'),
+  compat.extends('eslint-plugin-import/errors'),
   {
     files,
     ignores,
     languageOptions,
-    rules,
-  },
-];
+    rules
+  }
+]
