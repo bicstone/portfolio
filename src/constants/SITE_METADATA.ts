@@ -7,13 +7,12 @@ export const SITE_METADATA = {
   description:
     "Webエンジニア/機械エンジニア 大石 貴則 (@bicstone) のポートフォリオサイトです。",
   author: "bicstone",
-  logoImage: `${siteUrl}/images/icon_circular.png`,
-  ogpImage: `${siteUrl}/images/og_image.png`,
+  logoImage: "https://static.bicstone.me/icon_circular.png",
+  ogpImage: "https://static.bicstone.me/og_image.png",
   firstName: "Takanori",
   lastName: "Oishi",
   defaultLanguage: "ja",
   tileColor: "#81c784",
   maskColor: "#2d1e1e",
-  profileLink:
-    "https://bicstone.notion.site/Oishi-Takanori-8d96378d367e4d61833cd01a5357b4bc",
+  profileLink: "https://bicstone.me/cv",
 } as const satisfies Record<string, string>;
