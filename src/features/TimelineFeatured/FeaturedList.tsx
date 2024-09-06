@@ -29,17 +29,6 @@ export const FeaturedList = (): JSX.Element => {
         />
       </FeaturedCard>
       <FeaturedCard
-        title="0→1開発における技術選定において一番大切なこと"
-        url="https://speakerdeck.com/bicstone/technology-selection-key-points"
-      >
-        <StaticImage
-          src="../../../content/featured/slide_0.jpg"
-          alt="0→1開発における技術選定において一番大切なこと"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard>
-      <FeaturedCard
         title="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
         url="https://findy-code.io/engineer-lab/bicstone_me"
       >
@@ -57,6 +46,17 @@ export const FeaturedList = (): JSX.Element => {
         <StaticImage
           src="../../../content/featured/backlog-notify.png"
           alt="backlog-notify"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="0→1開発における技術選定において一番大切なこと"
+        url="https://speakerdeck.com/bicstone/technology-selection-key-points"
+      >
+        <StaticImage
+          src="../../../content/featured/slide_0.jpg"
+          alt="0→1開発における技術選定において一番大切なこと"
           width={1200}
           height={630}
         />
