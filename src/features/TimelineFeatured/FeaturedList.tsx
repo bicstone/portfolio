@@ -18,6 +18,29 @@ export const FeaturedList = (): JSX.Element => {
     <Container as="section">
       {/* StaticImageを使用するためベタ書き :-/ */}
       <FeaturedCard
+        title="2024年、GraphQLにどう向き合う？導入と活用の実際"
+        url="https://findy-code.io/engineer-lab/bicstone_me"
+      >
+        <StaticImage
+          src="../../../content/featured/j0BfD2l9.jpg"
+          alt="2024年、GraphQLにどう向き合う？導入と活用の実際"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
+        title="0→1開発における技術選定において一番大切なこと
+"
+        url="https://speakerdeck.com/bicstone/technology-selection-key-points"
+      >
+        <StaticImage
+          src="../../../content/featured/ohishi_0222.png"
+          alt="0→1開発における技術選定において一番大切なこと"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
         title="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
         url="https://findy-code.io/engineer-lab/bicstone_me"
       >
@@ -61,7 +84,7 @@ export const FeaturedList = (): JSX.Element => {
           height={630}
         />
       </FeaturedCard>
-      <FeaturedCard
+      {/* <FeaturedCard
         title="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
         url="https://zenn.dev/hacobell_dev/articles/graphql-error-response"
       >
@@ -82,7 +105,7 @@ export const FeaturedList = (): JSX.Element => {
           width={1200}
           height={630}
         />
-      </FeaturedCard>
+      </FeaturedCard> */}
     </Container>
   );
 };
