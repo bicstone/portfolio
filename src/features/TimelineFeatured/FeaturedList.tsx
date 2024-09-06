@@ -18,6 +18,17 @@ export const FeaturedList = (): JSX.Element => {
     <Container as="section">
       {/* StaticImageを使用するためベタ書き :-/ */}
       <FeaturedCard
+        title="2024年、GraphQLにどう向き合う？導入と活用の実際"
+        url="https://findy-code.io/engineer-lab/bicstone_me"
+      >
+        <StaticImage
+          src="../../../content/featured/j0BfD2l9.jpg"
+          alt="2024年、GraphQLにどう向き合う？導入と活用の実際"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
         title="「モノづくり」への憧れがアウトプットの原動力 - Findy Engineer Lab - ファインディエンジニアラボ"
         url="https://findy-code.io/engineer-lab/bicstone_me"
       >
@@ -40,6 +51,17 @@ export const FeaturedList = (): JSX.Element => {
         />
       </FeaturedCard>
       <FeaturedCard
+        title="0→1開発における技術選定において一番大切なこと"
+        url="https://speakerdeck.com/bicstone/technology-selection-key-points"
+      >
+        <StaticImage
+          src="../../../content/featured/slide_0.jpg"
+          alt="0→1開発における技術選定において一番大切なこと"
+          width={1200}
+          height={630}
+        />
+      </FeaturedCard>
+      <FeaturedCard
         title="コードレビューにラベルを付けるだけでチームの心理的安全性を高めた話"
         url="https://zenn.dev/hacobell_dev/articles/code-review-comment-prefix"
       >
@@ -57,28 +79,6 @@ export const FeaturedList = (): JSX.Element => {
         <StaticImage
           src="../../../content/featured/code-review-blocker.png"
           alt="もうブロッカーにしない！コードレビューを爆速にするための組織づくり"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard>
-      <FeaturedCard
-        title="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
-        url="https://zenn.dev/hacobell_dev/articles/graphql-error-response"
-      >
-        <StaticImage
-          src="../../../content/featured/graphql-error-response.png"
-          alt="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard>
-      <FeaturedCard
-        title="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
-        url="https://zenn.dev/bicstone/articles/keep-you-motivated-to-output"
-      >
-        <StaticImage
-          src="../../../content/featured/keep-you-motivated-to-output.png"
-          alt="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
           width={1200}
           height={630}
         />
