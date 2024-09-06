@@ -83,28 +83,6 @@ export const FeaturedList = (): JSX.Element => {
           height={630}
         />
       </FeaturedCard>
-      {/* <FeaturedCard
-        title="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
-        url="https://zenn.dev/hacobell_dev/articles/graphql-error-response"
-      >
-        <StaticImage
-          src="../../../content/featured/graphql-error-response.png"
-          alt="【GraphQL】スキーマ駆動開発におけるエラーレスポンス設計パターン集"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard>
-      <FeaturedCard
-        title="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
-        url="https://zenn.dev/bicstone/articles/keep-you-motivated-to-output"
-      >
-        <StaticImage
-          src="../../../content/featured/keep-you-motivated-to-output.png"
-          alt="アウトプットはどうして続かないのか？「モチベの泉」を枯らさない5つの掟"
-          width={1200}
-          height={630}
-        />
-      </FeaturedCard> */}
     </Container>
   );
 };
