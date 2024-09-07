@@ -19,7 +19,7 @@ export const FeaturedList = (): JSX.Element => {
       {/* StaticImageを使用するためベタ書き :-/ */}
       <FeaturedCard
         title="2024年、GraphQLにどう向き合う？導入と活用の実際"
-        url="https://findy-code.io/engineer-lab/bicstone_me"
+        url="https://findy.connpass.com/event/328076/"
       >
         <StaticImage
           src="../../../content/featured/j0BfD2l9.jpg"
