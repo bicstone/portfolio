@@ -6,7 +6,6 @@ import { isDefined } from "./src/utils/typeguard";
 
 import type {
   Search,
-  OnCreatePagesQuery,
   OnCreatePagesStatefullyQuery,
 } from "./src/generated/graphqlTypes";
 import type { GatsbyNode } from "gatsby";
@@ -34,62 +33,6 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
 };
 
 /**
- * Create blog post pages
- */
-export const createPages: GatsbyNode["createPages"] = async ({
-  graphql,
-  actions,
-  reporter,
-}) => {
-  const result = await graphql<OnCreatePagesQuery>(/* GraphQL */ `
-    query OnCreatePages {
-      allMdx {
-        nodes {
-          id
-          frontmatter {
-            slug
-            # for relatedPosts
-            tags
-          }
-          internal {
-            contentFilePath
-          }
-        }
-      }
-    }
-  `);
-
-  if (isDefined(result?.errors)) throw result.errors;
-
-  const blogPostList = result?.data?.allMdx?.nodes;
-
-  if (!isDefined(blogPostList)) throw new Error("blogPostList is undefined");
-
-  const TemplatePath = path.resolve(
-    process.cwd(),
-    "src",
-    "templates",
-    "BlogPost.tsx",
-  );
-
-  blogPostList.forEach((node) => {
-    actions.createPage({
-      path: node.frontmatter.slug,
-      component: `${TemplatePath}?__contentFilePath=${node.internal.contentFilePath}`,
-      context: {
-        id: node.id,
-        // for relatedPosts
-        tags: node.frontmatter.tags,
-      },
-    });
-  });
-
-  reporter.success(
-    `createPages: Created ${blogPostList.length} blog post pages`,
-  );
-};
-
-/**
  * Add Search nodes
  */
 export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
@@ -101,15 +44,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
      */
     const result = await graphql<OnCreatePagesStatefullyQuery>(/* GraphQL */ `
       query OnCreatePagesStatefully {
-        blogPosts: allMdx {
-          nodes {
-            frontmatter {
-              title
-              slug
-              excerpt
-            }
-          }
-        }
         timelineItems: allTimeline {
           nodes {
             __typename
@@ -130,12 +64,6 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
             ... on OthersYaml {
               url
             }
-            ... on Mdx {
-              slug
-              frontmatter {
-                excerpt
-              }
-            }
           }
         }
         qiitaItems: allQiitaJson {
@@ -154,29 +82,12 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
     > = [];
 
     result?.data?.timelineItems?.nodes.forEach((node) => {
-      switch (node.__typename) {
-        case "ArticlesYaml":
-        case "SlidesYaml":
-        case "NotesYaml":
-        case "PresentationsYaml":
-        case "OthersYaml":
-          timelineList.push({
-            title: node.title,
-            // TODO nullable
-            slug: "",
-            url: node.url,
-            excerpt: "",
-          });
-          break;
-        case "Mdx":
-          timelineList.push({
-            title: node.title,
-            slug: node.slug,
-            url: `/${node.slug}`,
-            excerpt: node.frontmatter.excerpt,
-          });
-          break;
-      }
+      timelineList.push({
+        title: node.title,
+        slug: "",
+        url: node.url,
+        excerpt: "",
+      });
     });
 
     result?.data?.qiitaItems?.nodes.forEach((node) => {
@@ -272,31 +183,6 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         date: Date! @dateformat
         url: String!
         fields: TimelineFields!
-      }
-
-      type Mdx implements Node & Timeline & Output @dontInfer {
-        frontmatter: MdxFrontmatter!
-        body: String!
-        tableOfContents: JSON!
-        category: String! @proxy(from: "frontmatter.category")
-        date: Date! @dateformat @proxy(from: "frontmatter.date")
-        # Conflicts with plugin fields
-        # excerpt: String! @proxy(from: "frontmatter.excerpt")
-        slug: String! @proxy(from: "frontmatter.slug")
-        tags: [String!] @proxy(from: "frontmatter.tags")
-        title: String! @proxy(from: "frontmatter.title")
-        updateDate: Date @dateformat @proxy(from: "frontmatter.updateDate")
-        fields: TimelineFields!
-      }
-
-      type MdxFrontmatter {
-        category: String!
-        date: Date! @dateformat
-        excerpt: String!
-        slug: String!
-        tags: [String!]
-        title: String!
-        updateDate: Date @dateformat
       }
 
       type Search implements Node @dontInfer {

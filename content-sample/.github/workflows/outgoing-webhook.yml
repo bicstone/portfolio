@@ -1,0 +1,20 @@
+name: Outgoing Webhook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Outgoing Webhook
+        run: |
+          curl \
+          -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.WEBHOOK_PAT }}" \
+          https://api.github.com/repos/bicstone/portfolio/dispatches \
+          -d "{\"event_type\": \"update\"}"

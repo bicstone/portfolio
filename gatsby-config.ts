@@ -23,8 +23,6 @@ dotenv.config({ path: `.env` });
 const pathPrefix = process.env.PATH_PREFIX ?? "/";
 const trailingSlash = "never";
 const contentPaths = [
-  "articles",
-  "images",
   "speakerdeck",
   "zenn",
   "note",
@@ -58,31 +56,6 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-image`,
     {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 600,
-              linkImagesToOriginal: true,
-              backgroundColor: "none",
-            },
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              noInlineHighlight: true,
-              aliases: {
-                sh: "bash",
-                bat: "batch",
-              },
-            },
-          },
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-feed`,
       options: {
         feeds: [
@@ -92,31 +65,13 @@ const config: GatsbyConfig = {
             }: {
               query: GatsbyPluginFeedQuery;
             }) => {
-              return allTimeline.nodes.map((node) => {
-                switch (node.__typename) {
-                  case "Mdx":
-                    return {
-                      guid: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                      title: node.title,
-                      url: `${SITE_METADATA.siteUrl}/${node.slug}`,
-                      description: node.frontmatter.excerpt,
-                      date: node.date,
-                    };
-                  case "ArticlesYaml":
-                  case "SlidesYaml":
-                  case "NotesYaml":
-                  case "PresentationsYaml":
-                  case "OthersYaml":
-                  default:
-                    return {
-                      guid: node.url ?? "",
-                      title: node.title,
-                      url: node.url ?? "",
-                      description: "",
-                      date: node.date,
-                    };
-                }
-              });
+              return allTimeline.nodes.map((node) => ({
+                guid: node.url ?? "",
+                title: node.title,
+                url: node.url ?? "",
+                description: "",
+                date: node.date,
+              }));
             },
             query: /* GraphQL */ `
               query GatsbyPluginFeed {
@@ -139,12 +94,6 @@ const config: GatsbyConfig = {
                     }
                     ... on OthersYaml {
                       url
-                    }
-                    ... on Mdx {
-                      slug
-                      frontmatter {
-                        excerpt
-                      }
                     }
                   }
                 }
@@ -179,33 +128,15 @@ const config: GatsbyConfig = {
             site {
               buildTime
             }
-            allMdx(sort: { frontmatter: { date: DESC } }) {
-              nodes {
-                frontmatter {
-                  slug
-                  date
-                  updateDate
-                }
-              }
-            }
           }
         `,
-        resolvePages: ({ allMdx, site }: GatsbyPluginSitemapQuery) => {
+        resolvePages: ({ site }: GatsbyPluginSitemapQuery) => {
           const home = {
             path: `/`,
             lastmod: site.buildTime,
             changefreq: `daily`,
             priority: 1.0,
           };
-
-          const posts = allMdx.nodes.map(({ frontmatter }) => {
-            return {
-              path: `/${frontmatter.slug}`,
-              lastmod: frontmatter.updateDate ?? frontmatter.date,
-              changefreq: `weekly`,
-              priority: 0.6,
-            };
-          });
 
           const pages = ["outputs"].map((page) => ({
             path: `/${page}`,
@@ -214,7 +145,7 @@ const config: GatsbyConfig = {
             priority: 1.0,
           }));
 
-          return [home, ...posts, ...pages];
+          return [home, ...pages];
         },
         serialize: ({
           path,

@@ -9,7 +9,7 @@
 [![Javascript Standard Style を採用しています](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 2020 年に作成したポートフォリオサイトです。  
-2022 年には、ブログ機能を追加しました。
+~~2022 年には、ブログ機能を追加しました。~~ 2024 年に削除
 
 ![PC・タブレット・スマホでポートフォリオサイトを表示した写真、マルチプラットフォームに対応したことを示す図](./docs/readme-images/portfolio.jpg)
 
@@ -36,14 +36,14 @@ Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstac
 
 - SSG で構築しており、ビルド後の資産は完全に静的であるため、脆弱性による改ざん等のリスクが軽減されます。
 - セキュリティを強化する HTTP ヘッダを設定しています。 (ただし広告配信のため CSP は最小限度の設定)
-- 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2022 年現在判明している脆弱なプロトコルをブロックしています。
+- 利用可能な暗号スイートを TLSv1.3 と TLSv1.2 に限定し、2024 年現在判明している脆弱なプロトコルをブロックしています。
 - Mozilla Observatory, DeepSource, SonarCloud を使用し、レビューを受けています。
 - 使用ツールは二要素認証を用いたアカウント保護を行っています。
 - GitHub の Environments や Protection rule などを活用し、ブランチやシークレットの保護を行っています。
 - Personal access token が必要な場面では、すべて Fine-grained PAT を用いて最小限度の権限を与えています。
 - AWS への認証において OpenID Connect を活用しています。短命の認証情報を用いることで、リポジトリにシークレットを保持せずにデプロイをしています。
 - Renovate を用いて依存関係を定期的にアップデートしています。
-- 2023 年まで DNSSEC を構成し、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクを軽減していました。2023 年に廃止しました。
+- 2023 年まで DNSSEC を構成し、DNS キャッシュ ポイズニング攻撃や DNS スプーフィングなどのリスクを軽減していました。2023 年に削除しました。
 
 ### アクセシビリティ
 
@@ -78,8 +78,8 @@ Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstac
 - Gatsby.js (プラグインを活用し高速に構築ができるため選定)
 - MUI material (一覧性の高いダッシュボード風のデザインにするため選定)
 - Emotion
-- MDX
-- Prism.js
+- ~~MDX~~ 2024年に削除
+- ~~Prism.js~~ 2024年に削除
 - React Virtuoso
 
 ### ツール
