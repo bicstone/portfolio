@@ -1,5 +1,5 @@
 .cache
-.yarn
+pnpm-lock.yaml
 public
 src/generated
 static

@@ -110,56 +110,56 @@ Gatsby.js + Amazon CloudFront (Cloud Functions) + Amazon S3 を用いた Jamstac
 ### ローカルサーバーを立ち上げ
 
 ```shell
-yarn develop
+pnpm run develop
 ```
 
 ### プロダクションビルド
 
 ```shell
-yarn build
+pnpm run build
 ```
 
 ### プロダクションとしてサーバーを立ち上げ
 
 ```shell
-yarn build
-yarn serve
+pnpm run build
+pnpm run serve
 ```
 
 ### キャッシュのクリア
 
 ```shell
-yarn clean
+pnpm run clean
 ```
 
 ### リンターによる静的解析
 
 ```shell
-yarn lint
+pnpm run lint
 ```
 
 ### リンターによる静的解析(自動修正モード)
 
 ```shell
-yarn lint:fix
+pnpm run lint:fix
 ```
 
 ### TypeScript による型検証
 
 ```shell
-yarn typecheck
+pnpm run typecheck
 ```
 
 ### GraphQL の型情報を取り込む
 
 ```shell
-yarn graphql
+pnpm run graphql
 ```
 
 ### amazon s3 への deploy
 
 ```shell
-yarn deploy
+pnpm run deploy
 ```
 
 ## 動作対象ブラウザ
