@@ -3,3 +3,4 @@ public
 src/generated
 static
 content
+pnpm-lock.yaml
