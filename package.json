@@ -10,12 +10,13 @@
     "serve": "gatsby serve --port 20014",
     "clean": "gatsby clean",
     "lint": "eslint --cache --ignore-path .eslintignore --ext .js,.ts,.tsx .",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "pnpm run lint --fix",
     "format": "prettier --cache --ignore-path .eslintignore --write .",
     "graphql": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
     "deploy": "gatsby-plugin-s3 deploy",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@emotion/react": "11.13.3",
@@ -91,8 +92,11 @@
     "last 3 iOS major versions"
   ],
   "volta": {
-    "node": "20.17.0",
-    "yarn": "4.5.0"
+    "node": "20.17.0"
   },
-  "packageManager": "yarn@4.5.0"
+  "engines": {
+    "node": "20.17.0",
+    "pnpm": "9.7.0"
+  },
+  "packageManager": "pnpm@9.7.0"
 }

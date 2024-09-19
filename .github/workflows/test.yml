@@ -18,13 +18,17 @@ jobs:
           token: ${{ secrets.GH_PAT_CHECKOUT }}
           submodules: "recursive"
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
-          cache: "yarn"
+          cache: "pnpm"
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
-      - run: yarn typecheck
+      - run: pnpm run typecheck
 
-      - run: yarn lint
+      - run: pnpm run lint

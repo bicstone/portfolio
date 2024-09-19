@@ -1,6 +1,6 @@
 version = 1
 
-exclude_patterns = ["/.cache/**/*", "/.yarn/**/*", "/public/**/*", "/src/generated/**/*"]
+exclude_patterns = ["/.cache/**/*", "/public/**/*", "/src/generated/**/*"]
 
 [[analyzers]]
 name = "shell"

@@ -26,10 +26,14 @@ jobs:
           token: ${{ secrets.GH_PAT_CHECKOUT }}
           submodules: "recursive"
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
-          cache: "yarn"
+          cache: "pnpm"
 
       - uses: actions/cache/restore@v4
         with:
@@ -40,9 +44,9 @@ jobs:
           restore-keys: |
             gatsby-v1-
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
-      - run: yarn build
+      - run: pnpm build
         env:
           # "bucketName" is a required option for gatsby-plugin-s3
           AWS_S3_BUCKET_NAME: "example"
