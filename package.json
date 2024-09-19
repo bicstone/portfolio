@@ -25,6 +25,7 @@
     "@mui/icons-material": "5.16.7",
     "@mui/lab": "5.0.0-alpha.173",
     "@mui/material": "5.16.7",
+    "@mui/utils": "6.1.0",
     "@sentry/browser": "8.30.0",
     "bicstone": "1.4.0",
     "date-fns": "3.6.0",

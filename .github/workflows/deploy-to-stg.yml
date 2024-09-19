@@ -46,7 +46,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm build
+      - run: pnpm run build
         env:
           # "bucketName" is a required option for gatsby-plugin-s3
           AWS_S3_BUCKET_NAME: "example"
