@@ -3,11 +3,10 @@ import { useMemo } from "react";
 
 import { m3Components } from "./M3Components";
 import { getDesignTokens } from "./M3Theme";
+import { FONT_FAMILY } from "./constants";
 import { darkColorTokens, lightColorTokens } from "./defaultColorTokens";
 
 import type { CssVarsTheme, Theme } from "@mui/material/styles";
-
-import { FONT_FAMILY } from "@/components/markdown/constants";
 
 // css vars types
 import type {} from "@mui/material/themeCssVarsAugmentation";

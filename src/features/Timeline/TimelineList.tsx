@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import { type ComponentProps, forwardRef, Fragment } from "react";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
-import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
 import { TimelineOtherCard } from "./TimelineOtherCard";
 import { TimelinePresentationCard } from "./TimelinePresentationCard";
@@ -38,9 +37,6 @@ export const query = graphql`
         ... on OthersYaml {
           ...TimelineOtherCard
         }
-        ... on Mdx {
-          ...TimelineMdxCard
-        }
       }
     }
   }
@@ -65,9 +61,6 @@ export const query = graphql`
         }
         ... on OthersYaml {
           ...TimelineOtherCard
-        }
-        ... on Mdx {
-          ...TimelineMdxCard
         }
       }
     }
@@ -100,10 +93,6 @@ export const TimelineItem = ({
 
     case "OthersYaml": {
       return <TimelineOtherCard key={item.id} item={item} />;
-    }
-
-    case "Mdx": {
-      return <TimelineMdxCard key={item.id} item={item} />;
     }
 
     default: {

@@ -7,7 +7,6 @@ import { VirtuosoGrid } from "react-virtuoso";
 
 import { TimelineArticleCard } from "./TimelineArticleCard";
 import { TimelineItemCard } from "./TimelineItemCard";
-import { TimelineMdxCard } from "./TimelineMdxCard";
 import { TimelineNoteCard } from "./TimelineNoteCard";
 import { TimelineOtherCard } from "./TimelineOtherCard";
 import { TimelinePresentationCard } from "./TimelinePresentationCard";
@@ -39,9 +38,6 @@ export const query = graphql`
       }
       ... on OthersYaml {
         ...TimelineOtherCard
-      }
-      ... on Mdx {
-        ...TimelineMdxCard
       }
     }
   }
@@ -82,10 +78,6 @@ const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
 
     case "OthersYaml": {
       return <TimelineOtherCard key={item.id} item={item} showYear />;
-    }
-
-    case "Mdx": {
-      return <TimelineMdxCard key={item.id} item={item} showYear />;
     }
 
     case "QiitaJson": {
