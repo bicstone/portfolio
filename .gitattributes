@@ -1,3 +1,4 @@
 /.cache linguist-generated=true
 /public/* linguist-generated=true
 /src/generated/* linguist-generated=true
+/pnpm-lock.yaml linguist-generated=true
