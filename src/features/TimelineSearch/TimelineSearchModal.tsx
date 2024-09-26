@@ -128,7 +128,7 @@ export const TimelineSearchModal = (props: {
           inputProps={{
             autoComplete: "off",
             "aria-controls": listId,
-            enterKeyHint: TRANSLATION.search.title,
+            enterKeyHint: "search",
           }}
           onChange={handleChange}
           css={(theme) => ({ padding: theme.spacing(0, 3), flexShrink: 0 })}
