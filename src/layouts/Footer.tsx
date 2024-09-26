@@ -46,7 +46,13 @@ export const Footer = (): JSX.Element => {
         >
           プロフィール
         </Link>
-        <Link component={RouterLink} color="inherit" to="/privacy">
+        <Link
+          color="inherit"
+          href="https://bicstone.notion.site/106009431fdc809c87c3f4fee24b7dfe"
+          rel="external noopener follow me"
+          target="_blank"
+          title="外部リンクのため、別ウインドウで開きます"
+        >
           プライバシーポリシー
         </Link>
       </Typography>

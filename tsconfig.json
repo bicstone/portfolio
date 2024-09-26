@@ -81,6 +81,6 @@
     "resolveJsonModule": true,
     "jsxImportSource": "@emotion/react"
   },
-  "exclude": [".cache", ".yarn", "node_modules", "public"],
+  "exclude": [".cache", "node_modules", "public"],
   "include": ["src/**/*.ts", "src/**/*.tsx", "*.ts", "*.tsx"]
 }

@@ -11,16 +11,6 @@
       "groupName": "dependencies",
       "matchPackagePrefixes": ["@mui/lab"],
       "matchUpdateTypes": ["major", "minor", "patch"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePrefixes": ["@mdx-js"],
-      "matchUpdateTypes": ["major"]
-    },
-    {
-      "enabled": false,
-      "matchPackagePrefixes": ["gatsby-plugin-mdx"],
-      "matchUpdateTypes": ["major"]
     }
   ]
 }

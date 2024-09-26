@@ -25,10 +25,12 @@ jobs:
           token: ${{ secrets.GH_PAT_CHECKOUT }}
           submodules: "recursive"
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version-file: ".node-version"
-          cache: "yarn"
+          cache: "pnpm"
 
       - uses: actions/cache/restore@v4
         with:
@@ -39,9 +41,9 @@ jobs:
           restore-keys: |
             gatsby-v1-
 
-      - run: yarn install --immutable
+      - run: pnpm install --frozen-lockfile
 
-      - run: yarn build
+      - run: pnpm run build
         env:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -54,7 +56,7 @@ jobs:
           role-duration-seconds: 7200
           mask-aws-account-id: true
 
-      - run: yarn deploy
+      - run: pnpm run deploy
         env:
           AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
