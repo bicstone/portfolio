@@ -64,7 +64,7 @@
     "@typescript-eslint/parser": "7.18.0",
     "dotenv": "16.4.5",
     "eslint": "8.57.1",
-    "eslint-config-love": "43.1.0",
+    "eslint-config-love": "83.0.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.30.0",
     "eslint-plugin-jsx-a11y": "6.10.0",
