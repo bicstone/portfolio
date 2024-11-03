@@ -203,9 +203,13 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
  */
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
   const { createNodeField } = actions;
-  const date = node.date ?? (node.frontmatter as Record<string, unknown>).date;
+  const date =
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- date is nullable
+    node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
+
   const endDate =
-    node.endDate ?? (node.frontmatter as Record<string, unknown>).endDate;
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- endDate is nullable
+    node?.endDate ?? (node?.frontmatter as Record<string, unknown>)?.endDate;
 
   if (typeof date === "string" || date instanceof Date) {
     const dateYear = formatInTimeZone(date, "Asia/Tokyo", "yyyy");
