@@ -1,0 +1,68 @@
+{
+  "extends": [
+    "love",
+    "plugin:jsx-a11y/recommended",
+    "plugin:jsx-a11y/strict",
+    "plugin:regexp/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    // import order
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object",
+          "type"
+        ],
+        "alphabetize": {
+          "order": "asc"
+        },
+        "newlines-between": "always"
+      }
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      { "max": 1, "maxEOF": 1, "maxBOF": 0 }
+    ],
+    // prop-types is not used because use typescript
+    "react/prop-types": "off",
+    // unnecessary import react because use new JSX transform
+    // https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html#eslint
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    // prefer import type / export type
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-exports": "error",
+    // Disabled for guarding in Typescript.
+    "react/no-unknown-property": "off",
+    // Feature should be imported from the index.ts file
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@/features/*/*"]
+      }
+    ],
+    // TODO: Remove this rule when the following issue is resolved.
+    "@typescript-eslint/no-unsafe-argument": "warn",
+    "@typescript-eslint/unbound-method": "warn"
+  }
+}
