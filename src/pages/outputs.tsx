@@ -30,7 +30,7 @@ export const query = graphql`
 export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
   const title = `${TRANSLATION.outputs.title} - ${SITE_METADATA.title}`;
   const outputsItems = data.outputs.group.flatMap(({ nodes }) => nodes);
-  const {buildTime} = data.site;
+  const { buildTime } = data.site;
 
   return (
     <>
@@ -84,10 +84,12 @@ export const Head: HeadFC<OutputsPageQuery> = ({ location, data }) => {
   );
 };
 
-const OutputsPage = ({ data }: PageProps<OutputsPageQuery>): JSX.Element => {
-  const {title} = TRANSLATION.outputs;
+const OutputsPage = ({
+  data,
+}: PageProps<OutputsPageQuery>): React.JSX.Element => {
+  const { title } = TRANSLATION.outputs;
   const outputGroups = data.outputs;
-  const {qiitaItems} = data;
+  const { qiitaItems } = data;
 
   return (
     <Container

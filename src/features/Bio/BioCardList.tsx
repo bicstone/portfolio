@@ -24,7 +24,7 @@ import { XIcon } from "@/components/icons/XIcon";
 import { YoutrustIcon } from "@/components/icons/YoutrustIcon";
 import { ZennIcon } from "@/components/icons/ZennIcon";
 
-export const BioCardList = (): JSX.Element => {
+export const BioCardList = (): React.JSX.Element => {
   const [expend, setExpend] = useState(false);
   const handleExpendButtonClick = (): void => {
     setExpend(true);
@@ -75,7 +75,7 @@ export const BioCardList = (): JSX.Element => {
     zenn: <ZennIcon aria-hidden="true" />,
   } as const satisfies Record<
     (typeof linkKeys)[number] | (typeof moreLinkKeys)[number],
-    JSX.Element
+    React.JSX.Element
   >;
 
   return (

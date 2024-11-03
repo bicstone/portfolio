@@ -26,18 +26,18 @@ const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
   alignItems: "center",
 })) as typeof CardActionArea;
 
-export const BioRissCard = (props: CardProps): JSX.Element => (
-    <StyledCard {...props} title="認証情報の表示" component="article">
-      <StyledCardActionArea
-        href="https://riss.ipa.go.jp/r?r=017758"
-        rel="external noopener follow me"
-        target="_blank"
-        title="外部リンクのため、別ウインドウで開きます"
-      >
-        <RissIcon aria-hidden="true" />
-        <span css={{ ...visuallyHidden }}>
-          情報処理安全確保支援士 (第017758号)
-        </span>
-      </StyledCardActionArea>
-    </StyledCard>
-  );
+export const BioRissCard = (props: CardProps): React.JSX.Element => (
+  <StyledCard {...props} title="認証情報の表示" component="article">
+    <StyledCardActionArea
+      href="https://riss.ipa.go.jp/r?r=017758"
+      rel="external noopener follow me"
+      target="_blank"
+      title="外部リンクのため、別ウインドウで開きます"
+    >
+      <RissIcon aria-hidden="true" />
+      <span css={{ ...visuallyHidden }}>
+        情報処理安全確保支援士 (第017758号)
+      </span>
+    </StyledCardActionArea>
+  </StyledCard>
+);

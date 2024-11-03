@@ -33,11 +33,11 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
 };
 
 const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => ({
-    ...adoptColorTokens(othersColorTokens.lightColorTokens),
-    [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      othersColorTokens.darkColorTokens,
-    ),
-  }));
+  ...adoptColorTokens(othersColorTokens.lightColorTokens),
+  [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
+    othersColorTokens.darkColorTokens,
+  ),
+}));
 
 export type TimelineOtherCardProps = {
   item: TimelineOtherCardFragment;
@@ -48,7 +48,7 @@ export const TimelineOtherCard = ({
   item,
   showYear = false,
   ...props
-}: TimelineOtherCardProps): JSX.Element => {
+}: TimelineOtherCardProps): React.JSX.Element => {
   const date = formatDateTime(item.date, showYear ? "yyyy/MM/dd" : "M月d日");
 
   return (

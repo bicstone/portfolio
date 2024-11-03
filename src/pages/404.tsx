@@ -9,42 +9,42 @@ import type { HeadFC } from "gatsby";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
 export const Head: HeadFC = () => (
-    <>
-      <meta name="robots" content="noindex,follow" />
-      <meta name="googlebot" content="noindex,follow" />
-    </>
-  );
+  <>
+    <meta name="robots" content="noindex,follow" />
+    <meta name="googlebot" content="noindex,follow" />
+  </>
+);
 
-const NotFound = (): JSX.Element => (
-    <Container maxWidth="md">
-      <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
-        {/* 見つかりませんでした */}
-        <SelfImprovementIcon
-          color="primary"
-          css={(theme) => ({
-            width: theme.spacing(20),
-            height: theme.spacing(20),
-          })}
-        />
-        <Typography variant="h4" component="h1" paragraph>
-          {TRANSLATION.notFound.title}
-        </Typography>
-        <Typography variant="body1">
-          {TRANSLATION.notFound.description}
-        </Typography>
-      </div>
-      <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
-        <Button
-          component={RouterLink}
-          variant="contained"
-          to="/"
-          color="secondary"
-          css={(theme) => ({ marginRight: theme.spacing(2) })}
-        >
-          {TRANSLATION.notFound.backToTimeline}
-        </Button>
-      </div>
-    </Container>
-  );
+const NotFound = (): React.JSX.Element => (
+  <Container maxWidth="md">
+    <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
+      {/* 見つかりませんでした */}
+      <SelfImprovementIcon
+        color="primary"
+        css={(theme) => ({
+          width: theme.spacing(20),
+          height: theme.spacing(20),
+        })}
+      />
+      <Typography variant="h4" component="h1" paragraph>
+        {TRANSLATION.notFound.title}
+      </Typography>
+      <Typography variant="body1">
+        {TRANSLATION.notFound.description}
+      </Typography>
+    </div>
+    <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
+      <Button
+        component={RouterLink}
+        variant="contained"
+        to="/"
+        color="secondary"
+        css={(theme) => ({ marginRight: theme.spacing(2) })}
+      >
+        {TRANSLATION.notFound.backToTimeline}
+      </Button>
+    </div>
+  </Container>
+);
 
 export default NotFound;

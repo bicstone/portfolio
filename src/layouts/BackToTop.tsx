@@ -5,7 +5,7 @@ import useScrollTrigger from "@mui/material/useScrollTrigger";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
-export const BackToTop = (): JSX.Element => {
+export const BackToTop = (): React.JSX.Element => {
   const isShow = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,

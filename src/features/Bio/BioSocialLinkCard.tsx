@@ -40,23 +40,23 @@ export const BioSocialLinkCard = ({
   actionTitle,
   url,
   ...props
-}: BioHelloCardProps): JSX.Element => (
-    <StyledCard {...props} component="article">
-      <StyledCardActionArea
-        href={url}
-        rel="external noopener follow me"
-        target="_blank"
-        title="外部リンクのため、別ウインドウで開きます"
-      >
-        {avatar}
-        <div>
-          <Typography variant="body1" component="h2" fontWeight="bold">
-            {title}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            {subTitle}
-          </Typography>
-        </div>
-      </StyledCardActionArea>
-    </StyledCard>
-  );
+}: BioHelloCardProps): React.JSX.Element => (
+  <StyledCard {...props} component="article">
+    <StyledCardActionArea
+      href={url}
+      rel="external noopener follow me"
+      target="_blank"
+      title="外部リンクのため、別ウインドウで開きます"
+    >
+      {avatar}
+      <div>
+        <Typography variant="body1" component="h2" fontWeight="bold">
+          {title}
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          {subTitle}
+        </Typography>
+      </div>
+    </StyledCardActionArea>
+  </StyledCard>
+);

@@ -19,7 +19,7 @@ interface CustomThemeProviderProps {
 
 export const CustomThemeProvider = ({
   children,
-}: CustomThemeProviderProps): JSX.Element => {
+}: CustomThemeProviderProps): React.JSX.Element => {
   const theme = useTheme();
 
   return (

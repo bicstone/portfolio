@@ -74,7 +74,7 @@ interface TimelineItemProps {
 
 export const TimelineItem = ({
   item,
-}: TimelineItemProps): JSX.Element | null => {
+}: TimelineItemProps): React.JSX.Element | null => {
   switch (item.__typename) {
     case "ArticlesYaml": {
       return <TimelineArticleCard key={item.id} item={item} />;
@@ -123,7 +123,9 @@ export interface TimelineListProps {
   groups: TimelineListTimelineFragment | TimelineListOutputFragment;
 }
 
-export const TimelineList = ({ groups }: TimelineListProps): JSX.Element => {
+export const TimelineList = ({
+  groups,
+}: TimelineListProps): React.JSX.Element => {
   const sortedGroups = Array.from(groups.group).sort(
     (a, b) => Number(b.dateYear) - Number(a.dateYear),
   );

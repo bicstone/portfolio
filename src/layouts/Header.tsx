@@ -11,7 +11,7 @@ import { TimelineSearchButton } from "@/features/TimelineSearch";
 /**
  * Header Layout
  */
-export const Header = (): JSX.Element => {
+export const Header = (): React.JSX.Element => {
   const scrollTrigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,

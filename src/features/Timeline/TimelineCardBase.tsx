@@ -36,14 +36,14 @@ const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
 
 export type TimelineCardBaseProps =
   | {
-      avatar: JSX.Element;
+      avatar: React.JSX.Element;
       title: string;
       subTitle?: ReactNode;
       url: string;
       slug?: null;
     }
   | {
-      avatar: JSX.Element;
+      avatar: React.JSX.Element;
       title: string;
       subTitle?: ReactNode;
       url?: null;
@@ -57,7 +57,7 @@ export const TimelineCardBase = ({
   slug,
   url,
   ...props
-}: TimelineCardBaseProps & CardProps): JSX.Element => {
+}: TimelineCardBaseProps & CardProps): React.JSX.Element => {
   const linkProps = isDefined(slug)
     ? {
         component: RouterLink,

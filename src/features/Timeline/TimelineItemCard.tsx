@@ -31,11 +31,11 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
 };
 
 const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => ({
-    ...adoptColorTokens(outputColorTokens.lightColorTokens),
-    [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      outputColorTokens.darkColorTokens,
-    ),
-  }));
+  ...adoptColorTokens(outputColorTokens.lightColorTokens),
+  [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
+    outputColorTokens.darkColorTokens,
+  ),
+}));
 
 export type TimelineItemCardProps = {
   item: TimelineItemCardFragment;
@@ -44,11 +44,11 @@ export type TimelineItemCardProps = {
 export const TimelineItemCard = ({
   item,
   ...props
-}: TimelineItemCardProps): JSX.Element => (
-    <StyledTimelineCard
-      avatar={<QiitaIcon aria-hidden="true" />}
-      title={item.title}
-      url={item.url}
-      {...props}
-    />
-  );
+}: TimelineItemCardProps): React.JSX.Element => (
+  <StyledTimelineCard
+    avatar={<QiitaIcon aria-hidden="true" />}
+    title={item.title}
+    url={item.url}
+    {...props}
+  />
+);

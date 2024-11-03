@@ -36,10 +36,12 @@ export interface ArchivedListProps {
   items: TimelineArchivedListFragment;
 }
 
-export const ArchivedList = ({ items }: ArchivedListProps): JSX.Element => (
-    <Container as="section">
-      {items.nodes.map((item) => (
-        <TimelineItemCard key={item.id} item={item} />
-      ))}
-    </Container>
-  );
+export const ArchivedList = ({
+  items,
+}: ArchivedListProps): React.JSX.Element => (
+  <Container as="section">
+    {items.nodes.map((item) => (
+      <TimelineItemCard key={item.id} item={item} />
+    ))}
+  </Container>
+);

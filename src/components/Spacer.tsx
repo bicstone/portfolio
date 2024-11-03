@@ -29,4 +29,4 @@ export const SpacerBase = styled("span", {
 
 export const Spacer = (
   props: SpacerProps & React.HTMLAttributes<HTMLSpanElement>,
-): JSX.Element => <SpacerBase {...props} aria-hidden="true" />;
+): React.JSX.Element => <SpacerBase {...props} aria-hidden="true" />;

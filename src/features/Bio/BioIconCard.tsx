@@ -36,7 +36,7 @@ const StyledCardActionArea = styled(CardActionArea)({
   alignItems: "center",
 }) as typeof CardActionArea;
 
-export const BioIcon = (props: CardProps): JSX.Element => {
+export const BioIcon = (props: CardProps): React.JSX.Element => {
   const [activeAnimation, setActiveAnimation] = useState<boolean>(false);
 
   const alt = activeAnimation

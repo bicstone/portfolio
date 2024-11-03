@@ -12,7 +12,7 @@ import { TRANSLATION } from "@/constants/TRANSLATION";
 
 const SearchModal = lazy(async () => await import("./TimelineSearchModal"));
 
-export const TimelineSearchButton = (): JSX.Element => {
+export const TimelineSearchButton = (): React.JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = useCallback(() => {
