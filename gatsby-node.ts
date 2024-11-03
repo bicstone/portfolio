@@ -203,8 +203,7 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
  */
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
   const { createNodeField } = actions;
-  const date =
-    node.date ?? (node.frontmatter as Record<string, unknown>).date;
+  const date = node.date ?? (node.frontmatter as Record<string, unknown>).date;
   const endDate =
     node.endDate ?? (node.frontmatter as Record<string, unknown>).endDate;
 
