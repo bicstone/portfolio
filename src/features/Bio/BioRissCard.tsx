@@ -26,8 +26,7 @@ const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
   alignItems: "center",
 })) as typeof CardActionArea;
 
-export const BioRissCard = (props: CardProps): JSX.Element => {
-  return (
+export const BioRissCard = (props: CardProps): JSX.Element => (
     <StyledCard {...props} title="認証情報の表示" component="article">
       <StyledCardActionArea
         href="https://riss.ipa.go.jp/r?r=017758"
@@ -42,4 +41,3 @@ export const BioRissCard = (props: CardProps): JSX.Element => {
       </StyledCardActionArea>
     </StyledCard>
   );
-};

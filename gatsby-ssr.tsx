@@ -24,10 +24,6 @@ export const onRenderBody: GatsbySSR["onRenderBody"] = ({
   ]);
 };
 
-export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => {
-  return <WrapRootElement>{element}</WrapRootElement>;
-};
+export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({ element }) => <WrapRootElement>{element}</WrapRootElement>;
 
-export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => {
-  return <WrapPageElement>{element}</WrapPageElement>;
-};
+export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => <WrapPageElement>{element}</WrapPageElement>;

@@ -39,7 +39,7 @@ export const TimelineSearchModal = (props: {
   const listId = useId();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const value = event.target.value;
+    const {value} = event.target;
     setInputValueSync(value);
     startTransition(() => {
       setInputValue(value);

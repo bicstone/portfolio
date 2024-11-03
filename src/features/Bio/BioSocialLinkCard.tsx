@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
-import { type ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
@@ -39,8 +40,7 @@ export const BioSocialLinkCard = ({
   actionTitle,
   url,
   ...props
-}: BioHelloCardProps): JSX.Element => {
-  return (
+}: BioHelloCardProps): JSX.Element => (
     <StyledCard {...props} component="article">
       <StyledCardActionArea
         href={url}
@@ -60,4 +60,3 @@ export const BioSocialLinkCard = ({
       </StyledCardActionArea>
     </StyledCard>
   );
-};

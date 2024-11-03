@@ -9,11 +9,12 @@ import { TimelineOtherCard } from "./TimelineOtherCard";
 import { TimelinePresentationCard } from "./TimelinePresentationCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 
-import { Spacer } from "@/components/Spacer";
-import {
-  type TimelineListOutputFragment,
-  type TimelineListTimelineFragment,
+import type {
+  TimelineListOutputFragment,
+  TimelineListTimelineFragment,
 } from "@/generated/graphqlTypes";
+
+import { Spacer } from "@/components/Spacer";
 
 export const query = graphql`
   fragment TimelineListTimeline on TimelineConnection {

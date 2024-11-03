@@ -6,8 +6,7 @@ import Typography from "@mui/material/Typography";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
-export const BioHelloCard = (props: CardProps): JSX.Element => {
-  return (
+export const BioHelloCard = (props: CardProps): JSX.Element => (
     <Card component="aside" {...props}>
       <CardActionArea
         href={SITE_METADATA.profileLink}
@@ -64,4 +63,3 @@ export const BioHelloCard = (props: CardProps): JSX.Element => {
       </CardActionArea>
     </Card>
   );
-};

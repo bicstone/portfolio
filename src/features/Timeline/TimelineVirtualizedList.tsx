@@ -13,9 +13,9 @@ import { TimelinePresentationCard } from "./TimelinePresentationCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 import { CARD_HEIGHT } from "./constants";
 
-import {
-  type TimelineVirtualizedListArchivedFragment,
-  type TimelineVirtualizedListTimelineFragment,
+import type {
+  TimelineVirtualizedListArchivedFragment,
+  TimelineVirtualizedListTimelineFragment,
 } from "@/generated/graphqlTypes";
 
 export const query = graphql`

@@ -20,8 +20,7 @@ export const FeaturedCard = ({
   title: string;
   url: string;
   children: React.ReactNode;
-}): JSX.Element => {
-  return (
+}): JSX.Element => (
     <article>
       <StyledCardActionArea
         LinkComponent="a"
@@ -34,4 +33,3 @@ export const FeaturedCard = ({
       </StyledCardActionArea>
     </article>
   );
-};

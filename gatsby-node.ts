@@ -75,13 +75,13 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
       }
     `);
 
-    if (isDefined(result?.errors)) throw result.errors;
+    if (isDefined(result.errors)) throw result.errors;
 
     const timelineList: Array<
       Pick<Search, "title" | "slug" | "url" | "excerpt">
     > = [];
 
-    result?.data?.timelineItems?.nodes.forEach((node) => {
+    result.data?.timelineItems.nodes.forEach((node) => {
       timelineList.push({
         title: node.title,
         slug: "",
@@ -90,7 +90,7 @@ export const createPagesStatefully: GatsbyNode["createPagesStatefully"] =
       });
     });
 
-    result?.data?.qiitaItems?.nodes.forEach((node) => {
+    result.data?.qiitaItems.nodes.forEach((node) => {
       timelineList.push({
         title: node.title,
         slug: "",
@@ -204,9 +204,9 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
   const { createNodeField } = actions;
   const date =
-    node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
+    node.date ?? (node.frontmatter as Record<string, unknown>).date;
   const endDate =
-    node?.endDate ?? (node?.frontmatter as Record<string, unknown>)?.endDate;
+    node.endDate ?? (node.frontmatter as Record<string, unknown>).endDate;
 
   if (typeof date === "string" || date instanceof Date) {
     const dateYear = formatInTimeZone(date, "Asia/Tokyo", "yyyy");

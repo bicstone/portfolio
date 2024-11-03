@@ -12,6 +12,4 @@ interface WrapRootElementProps {
  */
 export const WrapRootElement = ({
   children,
-}: WrapRootElementProps): JSX.Element => {
-  return <CustomThemeProvider>{children}</CustomThemeProvider>;
-};
+}: WrapRootElementProps): JSX.Element => <CustomThemeProvider>{children}</CustomThemeProvider>;

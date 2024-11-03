@@ -8,17 +8,14 @@ import type { HeadFC } from "gatsby";
 
 import { TRANSLATION } from "@/constants/TRANSLATION";
 
-export const Head: HeadFC = () => {
-  return (
+export const Head: HeadFC = () => (
     <>
       <meta name="robots" content="noindex,follow" />
       <meta name="googlebot" content="noindex,follow" />
     </>
   );
-};
 
-const NotFound = (): JSX.Element => {
-  return (
+const NotFound = (): JSX.Element => (
     <Container maxWidth="md">
       <div css={(theme) => ({ margin: theme.spacing(2), textAlign: "center" })}>
         {/* 見つかりませんでした */}
@@ -49,6 +46,5 @@ const NotFound = (): JSX.Element => {
       </div>
     </Container>
   );
-};
 
 export default NotFound;

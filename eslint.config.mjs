@@ -88,6 +88,7 @@ export default [
       "@typescript-eslint/no-unsafe-argument": "warn",
       "@typescript-eslint/unbound-method": "warn",
       // Tentatively changed from error to warn due to migration
+      "@typescript-eslint/no-magic-numbers": "off",
     },
     settings: {
       react: {
@@ -95,5 +96,15 @@ export default [
       },
     },
     files,
+  },
+  {
+    ignores: [
+      ".cache/",
+      "pnpm-lock.yaml",
+      "public/",
+      "src/generated/",
+      "static/",
+      "content/",
+    ],
   },
 ];

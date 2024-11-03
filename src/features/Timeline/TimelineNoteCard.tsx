@@ -1,12 +1,13 @@
 import styled, { type CSSObject } from "@emotion/styled";
-import { type CardProps } from "@mui/material/Card";
 import { alpha } from "@mui/material/styles";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import type { TimelineNoteCardFragment } from "@/generated/graphqlTypes";
+import type { CardProps } from "@mui/material/Card";
+
 import { NoteIcon } from "@/components/icons/NoteIcon";
-import { type TimelineNoteCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
 
@@ -31,14 +32,12 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
   };
 };
 
-const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
-  return {
+const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => ({
     ...adoptColorTokens(outputColorTokens.lightColorTokens),
     [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
       outputColorTokens.darkColorTokens,
     ),
-  };
-});
+  }));
 
 export type TimelineNoteCardProps = {
   item: TimelineNoteCardFragment;

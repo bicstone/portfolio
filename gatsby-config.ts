@@ -64,15 +64,13 @@ const config: GatsbyConfig = {
               query: { allTimeline },
             }: {
               query: GatsbyPluginFeedQuery;
-            }) => {
-              return allTimeline.nodes.map((node) => ({
+            }) => allTimeline.nodes.map((node) => ({
                 guid: node.url ?? "",
                 title: node.title,
                 url: node.url ?? "",
                 description: "",
                 date: node.date,
-              }));
-            },
+              })),
             query: /* GraphQL */ `
               query GatsbyPluginFeed {
                 allTimeline(sort: { date: DESC }) {
@@ -157,25 +155,21 @@ const config: GatsbyConfig = {
           lastmod: string;
           changefreq: string;
           priority: number;
-        }) => {
-          return {
+        }) => ({
             url: path,
             lastmod,
             changefreq,
             priority,
-          };
-        },
+          }),
       },
     },
-    ...contentPaths.map((contentPath) => {
-      return {
+    ...contentPaths.map((contentPath) => ({
         resolve: `gatsby-source-filesystem`,
         options: {
           path: path.resolve("content", contentPath),
           name: contentPath,
         },
-      };
-    }),
+      })),
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-json`,

@@ -7,8 +7,7 @@ import Typography from "@mui/material/Typography";
 import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 
-export const HelloContent = (): JSX.Element => {
-  return (
+export const HelloContent = (): JSX.Element => (
     <Grid container spacing={2} justifyContent="center" alignItems="center">
       <Grid
         item
@@ -76,4 +75,3 @@ export const HelloContent = (): JSX.Element => {
       </Grid>
     </Grid>
   );
-};

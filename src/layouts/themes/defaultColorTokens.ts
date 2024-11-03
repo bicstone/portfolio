@@ -1,4 +1,4 @@
-import { type M3ColorTokens, type M3ThemeTones } from "./M3Theme";
+import type { M3ColorTokens, M3ThemeTones } from "./M3Theme";
 
 // https://m3.material.io/theme-builder#/custom
 // core primary: `#81c784`

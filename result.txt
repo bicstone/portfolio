@@ -1,0 +1,434 @@
+
+> bicstone.me@0.1.0 lint A:\src\portfolio
+> eslint --cache
+
+
+A:\src\portfolio\gatsby-browser.tsx
+   9:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  15:7   error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  20:25  error  Unnecessary optional chain on a non-nullish value                                                      @typescript-eslint/no-unnecessary-condition
+
+A:\src\portfolio\gatsby-config.ts
+   67:19  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                      arrow-body-style
+   69:23  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+   71:22  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+   73:17  error  Unsafe assignment of an `any` value                                                                                        @typescript-eslint/no-unsafe-assignment
+  136:13  error  Unsafe assignment of an `any` value                                                                                        @typescript-eslint/no-unsafe-assignment
+  138:23  error  No magic number: 1.0                                                                                                       @typescript-eslint/no-magic-numbers
+  143:13  error  Unsafe assignment of an `any` value                                                                                        @typescript-eslint/no-unsafe-assignment
+  145:23  error  No magic number: 1.0                                                                                                       @typescript-eslint/no-magic-numbers
+  160:15  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  170:42  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\gatsby-node.ts
+   39:12  warning  Avoid referencing unbound methods which may cause unintentional scoping of `this`.
+If your function does not access `this`, you can annotate it with `this: void`, or consider using an arrow function instead  @typescript-eslint/unbound-method
+   78:25  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+   78:42  error    Expected an error object to be thrown                                                                                                                                                                           @typescript-eslint/only-throw-error
+   84:11  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+   84:32  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+   93:11  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+   93:29  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+  207:9   error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+  207:24  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+  207:65  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+  209:9   error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+  209:27  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+  209:68  error    Unnecessary optional chain on a non-nullish value                                                                                                                                                               @typescript-eslint/no-unnecessary-condition
+
+A:\src\portfolio\gatsby-ssr.tsx
+  19:8   warning  `getInitColorSchemeScript` is deprecated. Use `InitColorSchemeScript` instead
+```diff
+- import { getInitColorSchemeScript } from '@mui/material/styles';
++ import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
+
+- getInitColorSchemeScript();
++ <InitColorSchemeScript />;
+```  @typescript-eslint/no-deprecated
+  27:79  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                                                                                                                                                                                                arrow-body-style
+  31:79  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                                                                                                                                                                                                arrow-body-style
+
+A:\src\portfolio\src\components\Breadcrumbs.tsx
+  15:4  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\components\Spacer.tsx
+  18:22  error    No magic number: 1                                                                                     @typescript-eslint/no-magic-numbers
+  19:23  error    No magic number: 1                                                                                     @typescript-eslint/no-magic-numbers
+  32:4   warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  32:19  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\src\components\icons\CsmIcon.tsx
+   9:24  error  No magic number: 12  @typescript-eslint/no-magic-numbers
+  10:25  error  No magic number: 12  @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\components\icons\IconBase.tsx
+  11:24  error  No magic number: 4  @typescript-eslint/no-magic-numbers
+  12:25  error  No magic number: 4  @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\components\icons\RissIcon.tsx
+   9:24  error  No magic number: 12  @typescript-eslint/no-magic-numbers
+  10:25  error  No magic number: 12  @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\features\Bio\BioCardList.tsx
+   27:32  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+   78:5   warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+   85:28  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+   98:15  error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  114:30  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  117:54  error    No magic number: 10                                                         @typescript-eslint/no-magic-numbers
+  119:40  error    No magic number: 10                                                         @typescript-eslint/no-magic-numbers
+  131:17  error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  150:23  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  152:37  error    No magic number: 10                                                         @typescript-eslint/no-magic-numbers
+  154:21  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\features\Bio\BioCsmCard.tsx
+  14:26  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+  17:11  error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  18:9   error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  19:10  error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  20:8   error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  29:47  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  29:62  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\src\features\Bio\BioHelloCard.tsx
+   9:49  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+   9:64  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  41:47  error    No magic number: 1                                                                                     @typescript-eslint/no-magic-numbers
+  44:36  error    No magic number: 4                                                                                     @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\features\Bio\BioIconCard.tsx
+  14:25  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  14:28  error    No magic number: 2                                                          @typescript-eslint/no-magic-numbers
+  15:24  error    No magic number: 12                                                         @typescript-eslint/no-magic-numbers
+  16:25  error    No magic number: 12                                                         @typescript-eslint/no-magic-numbers
+  39:44  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\features\Bio\BioRissCard.tsx
+  14:26  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+  17:11  error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  18:9   error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  19:10  error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  20:8   error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  29:48  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  29:63  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\src\features\Bio\BioSocialLinkCard.tsx
+   5:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  13:26  error    No magic number: 2                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  16:11  error    No magic number: 0                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  17:9   error    No magic number: 0                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  18:10  error    No magic number: 0                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  19:8   error    No magic number: 0                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  42:24  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  42:39  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                                                                                            arrow-body-style
+
+A:\src\portfolio\src\features\PortfolioHello\HelloContent.tsx
+  10:33  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  10:48  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  24:35  error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  24:38  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+  25:34  error    No magic number: 12                                                                                    @typescript-eslint/no-magic-numbers
+  26:35  error    No magic number: 12                                                                                    @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\features\TimelineArchived\ArchivedList.tsx
+   7:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  20:22  error    No magic number: 3                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  39:61  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  39:76  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                                                                                            arrow-body-style
+
+A:\src\portfolio\src\features\TimelineArchived\TimelineItemCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  20:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  21:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  27:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  32:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  48:28  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  48:43  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                                                                                            arrow-body-style
+
+A:\src\portfolio\src\features\TimelineFeatured\FeaturedCard.tsx
+   5:44  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+   6:28  error    No magic number: 1                                                                                     @typescript-eslint/no-magic-numbers
+   8:11  error    No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  23:5   warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  23:20  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\src\features\TimelineFeatured\FeaturedList.tsx
+   8:22  error    No magic number: 3                                                                                     @typescript-eslint/no-magic-numbers
+  16:33  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  16:48  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\src\features\TimelineSearch\TimelineSearchButton.tsx
+  15:41  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\features\TimelineSearch\TimelineSearchModal.tsx
+   33:5   warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+   42:11  error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+   83:18  error    No magic number: 600                                                        @typescript-eslint/no-magic-numbers
+   85:19  error    No magic number: 500                                                        @typescript-eslint/no-magic-numbers
+  100:25  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  134:53  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  134:56  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  134:72  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  138:35  error    No magic number: 2                                                          @typescript-eslint/no-magic-numbers
+  138:38  error    No magic number: -3                                                         @typescript-eslint/no-magic-numbers
+  138:42  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  138:45  error    No magic number: -3                                                         @typescript-eslint/no-magic-numbers
+  139:25  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  146:47  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+  163:14  error    Unsafe spread of an `any` value in an array                                 @typescript-eslint/no-unsafe-assignment
+  163:23  error    No magic number: 5                                                          @typescript-eslint/no-magic-numbers
+  168:45  error    No magic number: 0.5                                                        @typescript-eslint/no-magic-numbers
+  168:50  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\features\TimelineSearch\useTimelineSearch.ts
+  32:9  error  Use object destructuring  @typescript-eslint/prefer-destructuring
+
+A:\src\portfolio\src\features\Timeline\TimelineArticleCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  22:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  23:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  29:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  34:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  52:31  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  53:31  warning  Unsafe argument of type `any` assigned to a parameter of type `string`                                                                                                                           @typescript-eslint/no-unsafe-argument
+  59:33  error    Unsafe assignment of an `any` value                                                                                                                                                              @typescript-eslint/no-unsafe-assignment
+
+A:\src\portfolio\src\features\Timeline\TimelineCardBase.tsx
+  28:33  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+  32:22  error    No magic number: 2                                                          @typescript-eslint/no-magic-numbers
+  39:15  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  46:15  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  60:40  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\features\Timeline\TimelineItemCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  20:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  21:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  27:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  32:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  48:28  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  48:43  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`                                                                                            arrow-body-style
+
+A:\src\portfolio\src\features\Timeline\TimelineList.tsx
+   13:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   76:24  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  106:22  error    No magic number: 3                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  125:62  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\features\Timeline\TimelineNoteCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  22:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  23:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  29:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  34:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  52:28  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  53:31  warning  Unsafe argument of type `any` assigned to a parameter of type `string`                                                                                                                           @typescript-eslint/no-unsafe-argument
+  59:33  error    Unsafe assignment of an `any` value                                                                                                                                                              @typescript-eslint/no-unsafe-assignment
+
+A:\src\portfolio\src\features\Timeline\TimelineOtherCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  22:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  23:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  29:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  34:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  52:29  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  53:31  warning  Unsafe argument of type `any` assigned to a parameter of type `string`                                                                                                                           @typescript-eslint/no-unsafe-argument
+  59:33  error    Unsafe assignment of an `any` value                                                                                                                                                              @typescript-eslint/no-unsafe-assignment
+
+A:\src\portfolio\src\features\Timeline\TimelinePresentationCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  22:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  23:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  29:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  34:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  52:36  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  53:31  warning  Unsafe argument of type `any` assigned to a parameter of type `string`                                                                                                                           @typescript-eslint/no-unsafe-argument
+  59:33  error    Unsafe assignment of an `any` value                                                                                                                                                              @typescript-eslint/no-unsafe-assignment
+
+A:\src\portfolio\src\features\Timeline\TimelineSlideCard.tsx
+   2:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   9:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+  22:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  23:9   error    Use object destructuring                                                                                                                                                                         @typescript-eslint/prefer-destructuring
+  29:37  error    No magic number: 0.8                                                                                                                                                                             @typescript-eslint/no-magic-numbers
+  34:68  error    Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`                                                                        arrow-body-style
+  52:29  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  53:31  warning  Unsafe argument of type `any` assigned to a parameter of type `string`                                                                                                                           @typescript-eslint/no-unsafe-argument
+  59:33  error    Unsafe assignment of an `any` value                                                                                                                                                              @typescript-eslint/no-unsafe-assignment
+
+A:\src\portfolio\src\features\Timeline\TimelineVirtualizedList.tsx
+   16:1   error    TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+   61:53  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+   95:22  error    No magic number: 3                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  118:35  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  119:48  error    No magic number: 24                                                                                                                                                                              @typescript-eslint/no-magic-numbers
+  119:76  error    No magic number: 1                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  120:57  error    No magic number: 2                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  122:24  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                                                                                                                       @typescript-eslint/no-deprecated
+  148:24  error    No magic number: 0                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+  151:24  error    No magic number: 1                                                                                                                                                                               @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\BackToTop.tsx
+   8:30  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  11:16  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  15:28  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  28:33  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  30:32  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  33:39  error    No magic number: 2                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\Footer.tsx
+  13:27  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  22:28  error    No magic number: 2                                                          @typescript-eslint/no-magic-numbers
+  25:32  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  32:71  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\HeadTemplate.tsx
+   18:5   warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  168:27  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+  177:27  error    No magic number: 2                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\Header.tsx
+  14:27  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  17:16  error    No magic number: 0                                                          @typescript-eslint/no-magic-numbers
+  46:34  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+  53:38  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  54:39  error    No magic number: 3                                                          @typescript-eslint/no-magic-numbers
+  67:31  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+  68:69  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\WrapPageElement.tsx
+   9:28  error    No magic number: 8                                                          @typescript-eslint/no-magic-numbers
+  10:13  error    No magic number: 1                                                          @typescript-eslint/no-magic-numbers
+  19:5   warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\layouts\WrapRootElement.tsx
+  15:27  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  15:42  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+
+A:\src\portfolio\src\layouts\themes\CustomThemeProvider.tsx
+  22:31  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+
+A:\src\portfolio\src\layouts\themes\M3Components.ts
+   47:32  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+   54:35  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+   57:17  error  No magic number: 3   @typescript-eslint/no-magic-numbers
+   58:30  error  No magic number: 3   @typescript-eslint/no-magic-numbers
+   59:31  error  No magic number: 3   @typescript-eslint/no-magic-numbers
+   68:19  error  No magic number: 0   @typescript-eslint/no-magic-numbers
+   69:18  error  No magic number: 0   @typescript-eslint/no-magic-numbers
+   71:20  error  No magic number: 0   @typescript-eslint/no-magic-numbers
+   72:21  error  No magic number: 0   @typescript-eslint/no-magic-numbers
+  130:36  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  144:38  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  155:38  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  173:36  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  182:38  error  No magic number: 2   @typescript-eslint/no-magic-numbers
+  198:38  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  215:38  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  255:21  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  256:24  error  No magic number: 1   @typescript-eslint/no-magic-numbers
+  258:23  error  No magic number: 8   @typescript-eslint/no-magic-numbers
+  259:26  error  No magic number: 8   @typescript-eslint/no-magic-numbers
+  267:23  error  No magic number: 50  @typescript-eslint/no-magic-numbers
+  282:19  error  No magic number: 32  @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\themes\M3Theme.ts
+  159:3   error  No magic number: 0                                                                                                         @typescript-eslint/no-magic-numbers
+  160:3   error  No magic number: 10                                                                                                        @typescript-eslint/no-magic-numbers
+  161:3   error  No magic number: 20                                                                                                        @typescript-eslint/no-magic-numbers
+  162:3   error  No magic number: 30                                                                                                        @typescript-eslint/no-magic-numbers
+  163:3   error  No magic number: 40                                                                                                        @typescript-eslint/no-magic-numbers
+  164:3   error  No magic number: 50                                                                                                        @typescript-eslint/no-magic-numbers
+  165:3   error  No magic number: 60                                                                                                        @typescript-eslint/no-magic-numbers
+  166:3   error  No magic number: 70                                                                                                        @typescript-eslint/no-magic-numbers
+  167:3   error  No magic number: 80                                                                                                        @typescript-eslint/no-magic-numbers
+  168:3   error  No magic number: 90                                                                                                        @typescript-eslint/no-magic-numbers
+  169:3   error  No magic number: 95                                                                                                        @typescript-eslint/no-magic-numbers
+  170:3   error  No magic number: 99                                                                                                        @typescript-eslint/no-magic-numbers
+  171:3   error  No magic number: 100                                                                                                       @typescript-eslint/no-magic-numbers
+  238:20  error  Unexpected block statement surrounding arrow body; parenthesize the returned value and move it immediately after the `=>`  arrow-body-style
+  239:0   error  Unexpected undescribed directive comment. Include descriptions to explain why the comment is necessary                     eslint-comments/require-description
+  333:11  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+  334:46  error  No magic number: 20                                                                                                        @typescript-eslint/no-magic-numbers
+  334:67  error  No magic number: 90                                                                                                        @typescript-eslint/no-magic-numbers
+  336:11  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+  337:46  error  No magic number: 95                                                                                                        @typescript-eslint/no-magic-numbers
+  337:67  error  No magic number: 20                                                                                                        @typescript-eslint/no-magic-numbers
+  341:11  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+  342:46  error  No magic number: 95                                                                                                        @typescript-eslint/no-magic-numbers
+  342:67  error  No magic number: 20                                                                                                        @typescript-eslint/no-magic-numbers
+  344:11  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+  345:46  error  No magic number: 20                                                                                                        @typescript-eslint/no-magic-numbers
+  345:67  error  No magic number: 90                                                                                                        @typescript-eslint/no-magic-numbers
+  349:11  error  Unnecessary conditional, expected left-hand side of `??` operator to be possibly null or undefined                         @typescript-eslint/no-unnecessary-condition
+  350:46  error  No magic number: 80                                                                                                        @typescript-eslint/no-magic-numbers
+  350:67  error  No magic number: 40                                                                                                        @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\layouts\themes\defaultColorTokens.ts
+  1:1  error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+
+A:\src\portfolio\src\layouts\themes\othersColorTokens.ts
+  1:1  error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+
+A:\src\portfolio\src\layouts\themes\outputColorTokens.ts
+  1:1  error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+
+A:\src\portfolio\src\layouts\themes\presentationsColorTokens.ts
+  1:1  error  TypeScript will only remove the inline type specifiers which will leave behind a side effect import at runtime. Convert this to a top-level type qualifier to properly remove the entire import  @typescript-eslint/no-import-type-side-effects
+
+A:\src\portfolio\src\layouts\themes\useTheme.ts
+  20:31  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  44:23  error  No magic number: 8                                                                                     @typescript-eslint/no-magic-numbers
+  70:52  error  No magic number: 2.5                                                                                   @typescript-eslint/no-magic-numbers
+  71:53  error  No magic number: 2.5                                                                                   @typescript-eslint/no-magic-numbers
+  74:55  error  No magic number: 2.5                                                                                   @typescript-eslint/no-magic-numbers
+  75:56  error  No magic number: 2.5                                                                                   @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\pages\404.tsx
+  11:35  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  20:22  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace                             @typescript-eslint/no-deprecated
+  20:37  error    Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  23:53  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+  28:34  error    No magic number: 20                                                                                    @typescript-eslint/no-magic-numbers
+  29:35  error    No magic number: 20                                                                                    @typescript-eslint/no-magic-numbers
+  39:53  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+  45:57  error    No magic number: 2                                                                                     @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\pages\index.tsx
+  27:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  41:58  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  42:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  43:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  50:50  error    No magic number: 4                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\pages\outputs.tsx
+  33:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  33:9   error    Unsafe assignment of an `any` value                                         @typescript-eslint/no-unsafe-assignment
+  51:13  error    Unsafe assignment of an `any` value                                         @typescript-eslint/no-unsafe-assignment
+  52:13  error    Unsafe assignment of an `any` value                                         @typescript-eslint/no-unsafe-assignment
+  72:17  error    Unsafe assignment of an `any` value                                         @typescript-eslint/no-unsafe-assignment
+  87:62  warning  `JSX` is deprecated. Use `React.JSX` instead of the global `JSX` namespace  @typescript-eslint/no-deprecated
+  88:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  89:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  90:9   error    Use object destructuring                                                    @typescript-eslint/prefer-destructuring
+  96:48  error    No magic number: 4                                                          @typescript-eslint/no-magic-numbers
+
+A:\src\portfolio\src\utils\convert.ts
+   5:67  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+   7:34  error  No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+   7:39  error  No magic number: 0x60                                                                                  @typescript-eslint/no-magic-numbers
+  16:67  error  Unexpected block statement surrounding arrow body; move the returned value immediately after the `=>`  arrow-body-style
+  18:34  error  No magic number: 0                                                                                     @typescript-eslint/no-magic-numbers
+  18:39  error  No magic number: 0x60                                                                                  @typescript-eslint/no-magic-numbers
+
+✖ 317 problems (270 errors, 47 warnings)
+  73 errors and 0 warnings potentially fixable with the `--fix` option.
+
+ ELIFECYCLE  Command failed with exit code 1.

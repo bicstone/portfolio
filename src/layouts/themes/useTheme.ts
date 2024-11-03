@@ -17,8 +17,7 @@ export const useTheme = (): CustomTheme => {
   const lightTheme = getDesignTokens("light", lightColorTokens);
   const darkTheme = getDesignTokens("dark", darkColorTokens);
 
-  const theme = useMemo(() => {
-    return createExtendTheme({
+  const theme = useMemo(() => createExtendTheme({
       colorSchemes: {
         light: {
           palette: {
@@ -78,8 +77,7 @@ export const useTheme = (): CustomTheme => {
           },
         },
       },
-    });
-  }, [darkTheme.palette, lightTheme.palette]);
+    }), [darkTheme.palette, lightTheme.palette]);
 
   return theme;
 };

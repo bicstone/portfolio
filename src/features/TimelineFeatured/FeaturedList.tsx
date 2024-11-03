@@ -13,8 +13,7 @@ const Container = styled("div")(({ theme }) => ({
   },
 }));
 
-export const FeaturedList = (): JSX.Element => {
-  return (
+export const FeaturedList = (): JSX.Element => (
     <Container as="section">
       {/* StaticImageを使用するためベタ書き :-/ */}
       <FeaturedCard
@@ -85,4 +84,3 @@ export const FeaturedList = (): JSX.Element => {
       </FeaturedCard>
     </Container>
   );
-};
