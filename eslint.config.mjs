@@ -89,6 +89,9 @@ export default [
       "@typescript-eslint/unbound-method": "warn",
       // Tentatively changed from error to warn due to migration
       "@typescript-eslint/no-magic-numbers": "off",
+      "@typescript-eslint/no-unsafe-assignment": "warn",
+      "@typescript-eslint/only-throw-error": "warn",
+      "@typescript-eslint/prefer-destructuring": "warn",
     },
     settings: {
       react: {

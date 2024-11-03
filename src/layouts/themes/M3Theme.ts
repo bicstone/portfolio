@@ -235,9 +235,9 @@ export const getDesignTokens = (
   mode: M3ThemeMode,
   scheme: M3ColorTokens,
   tones?: M3ThemeTones,
-): ThemeOptions => 
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-   ({
+): ThemeOptions =>
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- TODO
+  ({
     palette: {
       mode,
       primary: {
@@ -329,25 +329,15 @@ export const getDesignTokens = (
         contrastText: scheme.surfaceVariant,
       },
       inverseSurface: {
-        main:
-          scheme.inverseSurface ??
-          (mode === "light" ? tones?.neutral[20] : tones?.neutral[90]),
-        contrastText:
-          scheme.inverseOnSurface ??
-          (mode === "light" ? tones?.neutral[95] : tones?.neutral[20]),
+        main: scheme.inverseSurface,
+        contrastText: scheme.inverseOnSurface,
       },
       inverseOnSurface: {
-        main:
-          scheme.inverseOnSurface ??
-          (mode === "light" ? tones?.neutral[95] : tones?.neutral[20]),
-        contrastText:
-          scheme.inverseSurface ??
-          (mode === "light" ? tones?.neutral[20] : tones?.neutral[90]),
+        main: scheme.inverseOnSurface,
+        contrastText: scheme.inverseSurface,
       },
       inversePrimary: {
-        main:
-          scheme.inversePrimary ??
-          (mode === "light" ? tones?.neutral[80] : tones?.neutral[40]),
+        main: scheme.inversePrimary,
         contrastText: scheme.primary,
       },
 
@@ -370,5 +360,4 @@ export const getDesignTokens = (
       divider: scheme.outline,
     },
     tones,
-  } as ThemeOptions)
-;
+  }) as ThemeOptions;

@@ -64,10 +64,11 @@ const config: GatsbyConfig = {
               query: { allTimeline },
             }: {
               query: GatsbyPluginFeedQuery;
-            }) => allTimeline.nodes.map((node) => ({
-                guid: node.url ?? "",
+            }) =>
+              allTimeline.nodes.map((node) => ({
+                guid: node.url,
                 title: node.title,
-                url: node.url ?? "",
+                url: node.url,
                 description: "",
                 date: node.date,
               })),
@@ -156,20 +157,20 @@ const config: GatsbyConfig = {
           changefreq: string;
           priority: number;
         }) => ({
-            url: path,
-            lastmod,
-            changefreq,
-            priority,
-          }),
+          url: path,
+          lastmod,
+          changefreq,
+          priority,
+        }),
       },
     },
     ...contentPaths.map((contentPath) => ({
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          path: path.resolve("content", contentPath),
-          name: contentPath,
-        },
-      })),
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: path.resolve("content", contentPath),
+        name: contentPath,
+      },
+    })),
     `gatsby-transformer-sharp`,
     `gatsby-transformer-yaml`,
     `gatsby-transformer-json`,
