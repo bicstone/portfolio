@@ -13,9 +13,9 @@ import { TimelinePresentationCard } from "./TimelinePresentationCard";
 import { TimelineSlideCard } from "./TimelineSlideCard";
 import { CARD_HEIGHT } from "./constants";
 
-import {
-  type TimelineVirtualizedListArchivedFragment,
-  type TimelineVirtualizedListTimelineFragment,
+import type {
+  TimelineVirtualizedListArchivedFragment,
+  TimelineVirtualizedListTimelineFragment,
 } from "@/generated/graphqlTypes";
 
 export const query = graphql`
@@ -58,7 +58,9 @@ interface TimelineItemProps {
     | TimelineVirtualizedListArchivedFragment["nodes"][number];
 }
 
-const TimelineItem = ({ item }: TimelineItemProps): JSX.Element | null => {
+const TimelineItem = ({
+  item,
+}: TimelineItemProps): React.JSX.Element | null => {
   switch (item.__typename) {
     case "ArticlesYaml": {
       return <TimelineArticleCard key={item.id} item={item} showYear />;
@@ -115,11 +117,11 @@ export interface TimelineVirtualizedListProps {
 
 export const TimelineVirtualizedList = ({
   items,
-}: TimelineVirtualizedListProps): JSX.Element => {
+}: TimelineVirtualizedListProps): React.JSX.Element => {
   const minHeightSingleColumn = (CARD_HEIGHT + 24) * (items.nodes.length + 1);
   const minHeightDoubleColumn = minHeightSingleColumn / 2;
 
-  const FallBack = (): JSX.Element => (
+  const FallBack = (): React.JSX.Element => (
     <div
       aria-busy="true"
       css={(theme) => ({

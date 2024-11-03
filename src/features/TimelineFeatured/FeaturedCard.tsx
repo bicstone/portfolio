@@ -20,18 +20,16 @@ export const FeaturedCard = ({
   title: string;
   url: string;
   children: React.ReactNode;
-}): JSX.Element => {
-  return (
-    <article>
-      <StyledCardActionArea
-        LinkComponent="a"
-        href={url}
-        rel="external noopener follow me"
-        target="_blank"
-        title={title}
-      >
-        {children}
-      </StyledCardActionArea>
-    </article>
-  );
-};
+}): React.JSX.Element => (
+  <article>
+    <StyledCardActionArea
+      LinkComponent="a"
+      href={url}
+      rel="external noopener follow me"
+      target="_blank"
+      title={title}
+    >
+      {children}
+    </StyledCardActionArea>
+  </article>
+);

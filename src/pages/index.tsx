@@ -24,7 +24,7 @@ export const query = graphql`
 `;
 
 export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
-  const title = SITE_METADATA.title;
+  const { title } = SITE_METADATA;
 
   return (
     <>
@@ -38,9 +38,9 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
   );
 };
 
-const IndexPage = ({ data }: PageProps<IndexPageQuery>): JSX.Element => {
-  const timelineItems = data.timelineItems;
-  const qiitaItems = data.qiitaItems;
+const IndexPage = ({ data }: PageProps<IndexPageQuery>): React.JSX.Element => {
+  const { timelineItems } = data;
+  const { qiitaItems } = data;
 
   return (
     <>

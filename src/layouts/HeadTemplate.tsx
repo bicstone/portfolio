@@ -15,7 +15,7 @@ export const HeadTemplate = (props: {
   image?: string;
   imageAlt: string;
   type: string;
-}): JSX.Element => {
+}): React.JSX.Element => {
   const {
     location,
     title,

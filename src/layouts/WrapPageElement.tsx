@@ -16,7 +16,7 @@ const StyledMain = styled("main")(({ theme }) => ({
  */
 export const WrapPageElement = (props: {
   children: ReactNode;
-}): JSX.Element => {
+}): React.JSX.Element => {
   const { children } = props;
 
   return (

@@ -1,12 +1,13 @@
 import styled, { type CSSObject } from "@emotion/styled";
-import { type CardProps } from "@mui/material/Card";
 import { alpha } from "@mui/material/styles";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "./TimelineCardBase";
 
+import type { TimelineOtherCardFragment } from "@/generated/graphqlTypes";
+import type { CardProps } from "@mui/material/Card";
+
 import { AutoAwesomeIcon } from "@/components/icons/AutoAwesomeIcon";
-import { type TimelineOtherCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, othersColorTokens } from "@/layouts/themes";
 import { formatDateTime } from "@/utils/format";
 
@@ -31,14 +32,12 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
   };
 };
 
-const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
-  return {
-    ...adoptColorTokens(othersColorTokens.lightColorTokens),
-    [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      othersColorTokens.darkColorTokens,
-    ),
-  };
-});
+const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => ({
+  ...adoptColorTokens(othersColorTokens.lightColorTokens),
+  [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
+    othersColorTokens.darkColorTokens,
+  ),
+}));
 
 export type TimelineOtherCardProps = {
   item: TimelineOtherCardFragment;
@@ -49,7 +48,7 @@ export const TimelineOtherCard = ({
   item,
   showYear = false,
   ...props
-}: TimelineOtherCardProps): JSX.Element => {
+}: TimelineOtherCardProps): React.JSX.Element => {
   const date = formatDateTime(item.date, showYear ? "yyyy/MM/dd" : "M月d日");
 
   return (

@@ -6,18 +6,14 @@ import { isDefined } from "@/utils/typeguard";
 
 export const wrapRootElement: GatsbyBrowser["wrapRootElement"] = ({
   element,
-}) => {
-  return <WrapRootElement>{element}</WrapRootElement>;
-};
+}) => <WrapRootElement>{element}</WrapRootElement>;
 
 export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
   element,
-}) => {
-  return <WrapPageElement>{element}</WrapPageElement>;
-};
+}) => <WrapPageElement>{element}</WrapPageElement>;
 
 export const onRouteUpdate: GatsbyBrowser["onRouteUpdate"] = ({ location }) => {
-  if (isDefined(location?.hash)) {
+  if (isDefined(location.hash)) {
     const id = location.hash.replace("#", "");
     const element = document.getElementById(id);
     if (isDefined(element)) {

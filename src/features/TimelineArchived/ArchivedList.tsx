@@ -4,7 +4,7 @@ import { type ComponentProps, forwardRef } from "react";
 
 import { TimelineItemCard } from "./TimelineItemCard";
 
-import { type TimelineArchivedListFragment } from "@/generated/graphqlTypes";
+import type { TimelineArchivedListFragment } from "@/generated/graphqlTypes";
 
 export const query = graphql`
   fragment TimelineArchivedList on QiitaJsonConnection {
@@ -36,12 +36,12 @@ export interface ArchivedListProps {
   items: TimelineArchivedListFragment;
 }
 
-export const ArchivedList = ({ items }: ArchivedListProps): JSX.Element => {
-  return (
-    <Container as="section">
-      {items.nodes.map((item) => (
-        <TimelineItemCard key={item.id} item={item} />
-      ))}
-    </Container>
-  );
-};
+export const ArchivedList = ({
+  items,
+}: ArchivedListProps): React.JSX.Element => (
+  <Container as="section">
+    {items.nodes.map((item) => (
+      <TimelineItemCard key={item.id} item={item} />
+    ))}
+  </Container>
+);

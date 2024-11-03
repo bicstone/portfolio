@@ -12,7 +12,7 @@ export const Breadcrumbs = (
   props: {
     title: string;
   } & MuiBreadcrumbsProps,
-): JSX.Element => {
+): React.JSX.Element => {
   const { title, ...MuiBreadcrumbsProps } = props;
 
   return (

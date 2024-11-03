@@ -1,12 +1,13 @@
 import styled, { type CSSObject } from "@emotion/styled";
-import { type CardProps } from "@mui/material/Card";
 import { alpha } from "@mui/material/styles";
 import { graphql } from "gatsby";
 
 import { TimelineCardBase } from "../Timeline/TimelineCardBase";
 
+import type { TimelineItemCardFragment } from "@/generated/graphqlTypes";
+import type { CardProps } from "@mui/material/Card";
+
 import { QiitaIcon } from "@/components/icons/QiitaIcon";
-import { type TimelineItemCardFragment } from "@/generated/graphqlTypes";
 import { type M3ColorTokens, outputColorTokens } from "@/layouts/themes";
 
 export const query = graphql`
@@ -29,14 +30,12 @@ const adoptColorTokens = (colorTokens: M3ColorTokens): CSSObject => {
   };
 };
 
-const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => {
-  return {
-    ...adoptColorTokens(outputColorTokens.lightColorTokens),
-    [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
-      outputColorTokens.darkColorTokens,
-    ),
-  };
-});
+const StyledTimelineCard = styled(TimelineCardBase)(({ theme }) => ({
+  ...adoptColorTokens(outputColorTokens.lightColorTokens),
+  [theme.getColorSchemeSelector("dark")]: adoptColorTokens(
+    outputColorTokens.darkColorTokens,
+  ),
+}));
 
 export type TimelineItemCardProps = {
   item: TimelineItemCardFragment;
@@ -45,13 +44,11 @@ export type TimelineItemCardProps = {
 export const TimelineItemCard = ({
   item,
   ...props
-}: TimelineItemCardProps): JSX.Element => {
-  return (
-    <StyledTimelineCard
-      avatar={<QiitaIcon aria-hidden="true" />}
-      title={item.title}
-      url={item.url}
-      {...props}
-    />
-  );
-};
+}: TimelineItemCardProps): React.JSX.Element => (
+  <StyledTimelineCard
+    avatar={<QiitaIcon aria-hidden="true" />}
+    title={item.title}
+    url={item.url}
+    {...props}
+  />
+);

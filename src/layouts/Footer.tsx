@@ -10,7 +10,7 @@ import happyBusy from "@/layouts/banners/happy-busy.png";
 /**
  * Footer Layout
  */
-export const Footer = (): JSX.Element => {
+export const Footer = (): React.JSX.Element => {
   const nowDate = new Date();
   return (
     <footer

@@ -26,22 +26,20 @@ const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
   alignItems: "center",
 })) as typeof CardActionArea;
 
-export const BioCsmCard = (props: CardProps): JSX.Element => {
-  return (
-    <StyledCard {...props} title="認証情報の表示" component="article">
-      <StyledCardActionArea
-        href="https://certification.scrumalliance.org/accounts/1448098-takanori-oishi/certifications/1691057-csm"
-        rel="external noopener follow me"
-        target="_blank"
-        title="外部リンクのため、別ウインドウで開きます"
-      >
-        <CsmIcon aria-hidden="true" />
-        <span css={{ ...visuallyHidden }}>Certified ScrumMaster®</span>
-        <span css={{ ...visuallyHidden }}>
-          Certified ScrumMaster® is a certification mark of Scrum Alliance,
-          Inc. Any unauthorized use is strictly prohibited.
-        </span>
-      </StyledCardActionArea>
-    </StyledCard>
-  );
-};
+export const BioCsmCard = (props: CardProps): React.JSX.Element => (
+  <StyledCard {...props} title="認証情報の表示" component="article">
+    <StyledCardActionArea
+      href="https://certification.scrumalliance.org/accounts/1448098-takanori-oishi/certifications/1691057-csm"
+      rel="external noopener follow me"
+      target="_blank"
+      title="外部リンクのため、別ウインドウで開きます"
+    >
+      <CsmIcon aria-hidden="true" />
+      <span css={{ ...visuallyHidden }}>Certified ScrumMaster®</span>
+      <span css={{ ...visuallyHidden }}>
+        Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc.
+        Any unauthorized use is strictly prohibited.
+      </span>
+    </StyledCardActionArea>
+  </StyledCard>
+);

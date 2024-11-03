@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 import Card, { type CardProps } from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
-import { type ReactNode } from "react";
+
+import type { ReactNode } from "react";
 
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
@@ -39,25 +40,23 @@ export const BioSocialLinkCard = ({
   actionTitle,
   url,
   ...props
-}: BioHelloCardProps): JSX.Element => {
-  return (
-    <StyledCard {...props} component="article">
-      <StyledCardActionArea
-        href={url}
-        rel="external noopener follow me"
-        target="_blank"
-        title="外部リンクのため、別ウインドウで開きます"
-      >
-        {avatar}
-        <div>
-          <Typography variant="body1" component="h2" fontWeight="bold">
-            {title}
-          </Typography>
-          <Typography variant="caption" color="text.secondary">
-            {subTitle}
-          </Typography>
-        </div>
-      </StyledCardActionArea>
-    </StyledCard>
-  );
-};
+}: BioHelloCardProps): React.JSX.Element => (
+  <StyledCard {...props} component="article">
+    <StyledCardActionArea
+      href={url}
+      rel="external noopener follow me"
+      target="_blank"
+      title="外部リンクのため、別ウインドウで開きます"
+    >
+      {avatar}
+      <div>
+        <Typography variant="body1" component="h2" fontWeight="bold">
+          {title}
+        </Typography>
+        <Typography variant="caption" color="text.secondary">
+          {subTitle}
+        </Typography>
+      </div>
+    </StyledCardActionArea>
+  </StyledCard>
+);

@@ -30,7 +30,7 @@ import { isDefined } from "@/utils/typeguard";
 
 export const TimelineSearchModal = (props: {
   onClose: () => void;
-}): JSX.Element => {
+}): React.JSX.Element => {
   const { onClose } = props;
 
   const [filtering, startTransition] = useTransition();
@@ -39,7 +39,7 @@ export const TimelineSearchModal = (props: {
   const listId = useId();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const value = event.target.value;
+    const { value } = event.target;
     setInputValueSync(value);
     startTransition(() => {
       setInputValue(value);
