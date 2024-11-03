@@ -44,10 +44,11 @@ export const BioHelloCard = (props: CardProps): React.JSX.Element => (
                 wordBreak: "break-all",
               })}
             >
-              Webプロダクトエンジニア、 情報処理安全確保支援士 (017758号)、
-              認定スクラムマスター (CSM®)です。
-              迅速かつ効果的にプロダクト価値を最大化し、
-              社会やステークホルダーの課題解決に貢献できるエンジニアを目指しています。
+              Webエンジニア ･ Certified ScrumMaster ･ アマチュア技術広報 ･
+              電気工事士 ･
+              機械エンジニアです。技術だけにこだわらずに広い視野を持ち、
+              多角的なアプローチで迅速かつ効果的にプロダクトの価値を最大化し、
+              社会やステークホルダーの課題解決に貢献します。
             </Typography>
 
             <Typography
