@@ -142,8 +142,8 @@ importers:
         specifier: 9.15.0
         version: 9.15.0(jiti@1.21.6)
       eslint-config-love:
-        specifier: 97.0.0
-        version: 97.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3)
+        specifier: 99.0.0
+        version: 99.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3)
       eslint-plugin-flowtype:
         specifier: 8.0.3
         version: 8.0.3(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(eslint@9.15.0(jiti@1.21.6))
@@ -3541,8 +3541,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-config-love@97.0.0:
-    resolution: {integrity: sha512-q7lOivhiAkABRueLZne9DOXFtrb7JClTLjubeKzGRz7EAJUpS0E/HbQLYD/3TWn6/veILjSJCaxHw85ikWEOxQ==}
+  eslint-config-love@99.0.0:
+    resolution: {integrity: sha512-GGNNMdPmw069mbQeTzYFkCKt7zZaeBdakupQ0zJm/m+EdaVUz+qituoBx9bRI1so9O2jYbnII9Tb7Lx13PG9Kg==}
     peerDependencies:
       eslint: ^9.0.0
       typescript: '*'
@@ -11768,7 +11768,7 @@ snapshots:
       eslint: 9.15.0(jiti@1.21.6)
       semver: 7.6.3
 
-  eslint-config-love@97.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3):
+  eslint-config-love@99.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.6.3))(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3):
     dependencies:
       '@typescript-eslint/utils': 8.12.2(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3)
       eslint: 9.15.0(jiti@1.21.6)
