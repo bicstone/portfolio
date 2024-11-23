@@ -85,10 +85,6 @@ const TimelineItem = ({
     case "QiitaJson": {
       return <TimelineItemCard key={item.id} item={item} />;
     }
-
-    default: {
-      return null;
-    }
   }
 };
 

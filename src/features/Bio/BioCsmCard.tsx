@@ -5,11 +5,13 @@ import visuallyHidden from "@mui/utils/visuallyHidden";
 
 import { CsmIcon } from "@/components/icons/CsmIcon";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCard = styled(Card)({
   paddingBottom: "100%",
   position: "relative",
 }) as typeof Card;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
   padding: theme.spacing(2),
 

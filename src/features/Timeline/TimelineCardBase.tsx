@@ -10,10 +10,12 @@ import type { ReactNode } from "react";
 
 import { isDefined } from "@/utils/typeguard";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCard = styled(Card)(({ theme }) => ({
   height: CARD_HEIGHT,
 })) as typeof Card;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCardActionArea = styled(CardActionArea)({
   display: "flex",
   height: "100%",
@@ -21,6 +23,7 @@ const StyledCardActionArea = styled(CardActionArea)({
   alignItems: "stretch",
 }) as typeof CardActionArea;
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCardHeader = styled(CardHeader)(({ theme }) => ({
   [`& .${cardHeaderClasses.title}`]: {
     display: "-webkit-box",

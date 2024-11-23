@@ -95,10 +95,6 @@ export const TimelineItem = ({
     case "OthersYaml": {
       return <TimelineOtherCard key={item.id} item={item} />;
     }
-
-    default: {
-      return null;
-    }
   }
 };
 

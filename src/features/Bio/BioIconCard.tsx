@@ -28,6 +28,7 @@ const FukkiretaAnimationImg = styled(BicstoneIcon)<{
   }),
 }));
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCardActionArea = styled(CardActionArea)({
   display: "flex",
   width: "100%",
