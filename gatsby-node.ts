@@ -201,15 +201,17 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
  * Add `dateYear` field to nodes
  * Add `endDateYear` field to nodes
  */
-export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, actions }) => {
+export const onCreateNode: GatsbyNode<{
+  frontmatter: Record<string, unknown>;
+}>["onCreateNode"] = ({ node, actions }) => {
   const { createNodeField } = actions;
   const date =
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- date is nullable
-    node?.date ?? (node?.frontmatter as Record<string, unknown>)?.date;
+    node?.date ?? node?.frontmatter?.date;
 
   const endDate =
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- endDate is nullable
-    node?.endDate ?? (node?.frontmatter as Record<string, unknown>)?.endDate;
+    node?.endDate ?? node?.frontmatter?.endDate;
 
   if (typeof date === "string" || date instanceof Date) {
     const dateYear = formatInTimeZone(date, "Asia/Tokyo", "yyyy");

@@ -236,7 +236,7 @@ export const getDesignTokens = (
   scheme: M3ColorTokens,
   tones?: M3ThemeTones,
 ): ThemeOptions =>
-  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- TODO
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, @typescript-eslint/no-unsafe-type-assertion -- TODO
   ({
     palette: {
       mode,
