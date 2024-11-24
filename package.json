@@ -93,11 +93,11 @@
     "last 3 iOS major versions"
   ],
   "volta": {
-    "node": "20.18.0",
+    "node": "20.18.1",
     "pnpm": "9.13.2"
   },
   "engines": {
-    "node": "20.18.0",
+    "node": "20.18.1",
     "pnpm": "9.13.2"
   },
   "packageManager": "pnpm@9.13.2"
