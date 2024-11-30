@@ -142,8 +142,8 @@ importers:
         specifier: 9.15.0
         version: 9.15.0(jiti@1.21.6)
       eslint-config-love:
-        specifier: 107.0.0
-        version: 107.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)
+        specifier: 109.0.0
+        version: 109.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)
       eslint-plugin-flowtype:
         specifier: 8.0.3
         version: 8.0.3(@babel/plugin-syntax-flow@7.24.7(@babel/core@7.25.2))(@babel/plugin-transform-react-jsx@7.25.2(@babel/core@7.25.2))(eslint@9.15.0(jiti@1.21.6))
@@ -3527,10 +3527,10 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-config-love@107.0.0:
-    resolution: {integrity: sha512-cuee9Did2bL0cLM7sgkxpeOkEABmA+YkS1sf2vTxIf9XdkPBrYIr+eJDKc4vqZyrY8yCgU+lvBGqRBYOrD8klQ==}
+  eslint-config-love@109.0.0:
+    resolution: {integrity: sha512-svveEhFauG7DynZYNjfbE8QgjzyZiJH7YP9PnrrIKL/SpF5uPecWKf5EM7TxdmJjLl4qXKNs0+9Z5ocHe4JJCQ==}
     peerDependencies:
-      eslint: ^9.0.0
+      eslint: ^9.12.0
       typescript: '*'
 
   eslint-config-react-app@6.0.0:
@@ -11697,7 +11697,7 @@ snapshots:
       eslint: 9.15.0(jiti@1.21.6)
       semver: 7.6.3
 
-  eslint-config-love@107.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2):
+  eslint-config-love@109.0.0(@typescript-eslint/parser@5.62.0(eslint@7.32.0)(typescript@5.7.2))(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2):
     dependencies:
       '@typescript-eslint/utils': 8.15.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.7.2)
       eslint: 9.15.0(jiti@1.21.6)
