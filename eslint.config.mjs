@@ -92,6 +92,7 @@ export default [
       "@typescript-eslint/no-unsafe-assignment": "warn",
       "@typescript-eslint/only-throw-error": "warn",
       "@typescript-eslint/prefer-destructuring": "warn",
+      complexity: ["warn", 5],
     },
     settings: {
       react: {
