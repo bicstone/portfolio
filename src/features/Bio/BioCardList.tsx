@@ -10,6 +10,7 @@ import { FacebookIcon } from "@/components/icons/FacebookIcon";
 import { FindyIcon } from "@/components/icons/FindyIcon";
 import { ForkwellIcon } from "@/components/icons/ForkwellIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
+import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { MisskeyIcon } from "@/components/icons/MisskeyIcon";
@@ -32,26 +33,27 @@ export const BioCardList = (): React.JSX.Element => {
 
   const linkKeys = [
     "x",
+    "instagram",
     "facebook",
     "linkedin",
     "youtrust",
-    "github",
-    "npm",
     "zenn",
+    "note",
     "speakerdeck",
   ] as const satisfies LinkKeys[];
 
   const moreLinkKeys = [
-    "note",
+    "github",
+    "npm",
     "qiita",
     "findy",
     "forkwell",
     "lapras",
     "wantedly",
+    "threads",
     "bluesky",
     "misskey",
     "mstdn",
-    "threads",
   ] as const satisfies LinkKeys[];
 
   const avatarMap = {
@@ -60,6 +62,7 @@ export const BioCardList = (): React.JSX.Element => {
     findy: <FindyIcon aria-hidden="true" />,
     forkwell: <ForkwellIcon aria-hidden="true" />,
     github: <GitHubIcon aria-hidden="true" />,
+    instagram: <InstagramIcon aria-hidden="true" />,
     lapras: <LaprasIcon aria-hidden="true" />,
     linkedin: <LinkedInIcon aria-hidden="true" />,
     misskey: <MisskeyIcon aria-hidden="true" />,

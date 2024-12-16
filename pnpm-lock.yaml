@@ -33,8 +33,8 @@ importers:
         specifier: 8.42.0
         version: 8.42.0
       bicstone:
-        specifier: 1.4.0
-        version: 1.4.0
+        specifier: 1.5.0
+        version: 1.5.0
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -2659,8 +2659,8 @@ packages:
     resolution: {integrity: sha512-kIPXZS5qwyKiX/HcRvDYfmBQUa8XP17I0mYZZ0y4UhpYOSvtsLHDYqmomS+Mj20aDvD3knEiQ0ecQy2nhio3yA==}
     engines: {node: '>8.0.0'}
 
-  bicstone@1.4.0:
-    resolution: {integrity: sha512-Ie2uxb7/vgxLnJGe4ypQh1Pji/JhADRGUeZ/cItonfxNGYuCijyE6DYCZ1aG0A+ftdgp3eqN9vBc3N9r1vPp8Q==}
+  bicstone@1.5.0:
+    resolution: {integrity: sha512-QWyL3XLxdbi37vvUQxY2s7mzy0cy9fZmU1gfdGUm3+/XiPIS9tbeYUIrpL/p4bYh4aXTO0gf8ukcZ6068j2eYg==}
     engines: {node: '>=16.0.0'}
     hasBin: true
 
@@ -10626,7 +10626,7 @@ snapshots:
     dependencies:
       open: 7.4.2
 
-  bicstone@1.4.0: {}
+  bicstone@1.5.0: {}
 
   big.js@5.2.2: {}
 
