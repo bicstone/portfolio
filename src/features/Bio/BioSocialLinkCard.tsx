@@ -51,11 +51,36 @@ export const BioSocialLinkCard = ({
       title="外部リンクのため、別ウインドウで開きます"
     >
       {avatar}
-      <div>
-        <Typography variant="body1" component="h2" fontWeight="bold">
+      <div
+        css={{
+          overflow: "hidden",
+          width: "100%",
+        }}
+      >
+        <Typography
+          variant="body2"
+          component="h2"
+          fontWeight="bold"
+          css={(theme) => ({
+            [theme.breakpoints.down("sm")]: {
+              fontSize: theme.typography.caption.fontSize,
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            },
+          })}
+        >
           {title}
         </Typography>
-        <Typography variant="caption" color="text.secondary">
+        <Typography
+          variant="caption"
+          color="text.secondary"
+          css={(theme) => ({
+            [theme.breakpoints.down("sm")]: {
+              display: "none",
+            },
+          })}
+        >
           {subTitle}
         </Typography>
       </div>
