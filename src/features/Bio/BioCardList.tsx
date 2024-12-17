@@ -14,6 +14,7 @@ import { InstagramIcon } from "@/components/icons/InstagramIcon";
 import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
 import { MisskeyIcon } from "@/components/icons/MisskeyIcon";
+import { Mixi2Icon } from "@/components/icons/Mixi2Icon";
 import { MstdnIcon } from "@/components/icons/MstdnIcon";
 import { NoteIcon } from "@/components/icons/NoteIcon";
 import { NpmIcon } from "@/components/icons/NpmIcon";
@@ -37,15 +38,13 @@ export const BioCardList = (): React.JSX.Element => {
     "facebook",
     "linkedin",
     "youtrust",
+    "mixi2",
     "zenn",
-    "note",
     "speakerdeck",
-  ] as const satisfies LinkKeys[];
-
-  const moreLinkKeys = [
+    "note",
+    "qiita",
     "github",
     "npm",
-    "qiita",
     "findy",
     "forkwell",
     "lapras",
@@ -66,6 +65,7 @@ export const BioCardList = (): React.JSX.Element => {
     lapras: <LaprasIcon aria-hidden="true" />,
     linkedin: <LinkedInIcon aria-hidden="true" />,
     misskey: <MisskeyIcon aria-hidden="true" />,
+    mixi2: <Mixi2Icon aria-hidden="true" />,
     mstdn: <MstdnIcon aria-hidden="true" />,
     note: <NoteIcon aria-hidden="true" />,
     npm: <NpmIcon area-hidden="true" />,
@@ -76,23 +76,34 @@ export const BioCardList = (): React.JSX.Element => {
     x: <XIcon aria-hidden="true" />,
     youtrust: <YoutrustIcon aria-hidden="true" />,
     zenn: <ZennIcon aria-hidden="true" />,
-  } as const satisfies Record<
-    (typeof linkKeys)[number] | (typeof moreLinkKeys)[number],
-    React.JSX.Element
-  >;
+  } as const satisfies Record<(typeof linkKeys)[number], React.JSX.Element>;
 
   return (
     <div
       css={(theme) => ({
         display: "grid",
         gap: theme.spacing(3),
-        gridTemplateColumns: "repeat(4, 1fr)",
+        gridTemplateColumns: "repeat(5, 1fr)",
+        maxHeight: expend ? "none" : theme.spacing(76),
+        overflow: "hidden",
+        paddingBottom: theme.spacing(10),
+        position: "relative",
         width: "100%",
         [theme.breakpoints.down("md")]: {
           gridTemplateColumns: "repeat(3, 1fr)",
+          maxHeight: expend ? "none" : theme.spacing(106),
         },
-        [theme.breakpoints.down("sm")]: {
-          gridTemplateColumns: "repeat(2, 1fr)",
+        // HACK: ブレークポイントの定義
+        "@media (max-width: 500.95px) {": {
+          maxHeight: expend ? "none" : theme.spacing(94),
+        },
+        // HACK: ブレークポイントの定義
+        "@media (max-width: 550.95px) {": {
+          maxHeight: expend ? "none" : theme.spacing(91),
+        },
+        // HACK: ブレークポイントの定義
+        "@media (max-width: 400.95px) {": {
+          maxHeight: expend ? "none" : theme.spacing(82),
         },
       })}
     >
@@ -111,60 +122,26 @@ export const BioCardList = (): React.JSX.Element => {
           />
         );
       })}
-      <div
-        css={(theme) => ({
-          display: "grid",
-          gap: theme.spacing(3),
-          gridColumn: "1 / -1",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          maxHeight: expend ? "none" : theme.spacing(10),
-          overflow: "hidden",
-          paddingBottom: theme.spacing(10),
-          position: "relative",
-          width: "100%",
-          [theme.breakpoints.down("md")]: {
-            gridTemplateColumns: "repeat(3, 1fr)",
-          },
-          [theme.breakpoints.down("sm")]: {
-            gridTemplateColumns: "repeat(2, 1fr)",
-          },
-        })}
-      >
-        {moreLinkKeys.map((linkKey) => {
-          const link = bicstone.links[linkKey];
-          return (
-            <BioSocialLinkCard
-              key={link.siteName}
-              avatar={avatarMap[linkKey]}
-              title={link.siteName}
-              subTitle={`@${link.screenName}`}
-              actionTitle={link.siteName}
-              url={link.url}
-              variant="elevation"
-            />
-          );
-        })}
-        {!expend && (
-          <div
-            css={(theme) => ({
-              alignItems: "end",
-              background:
-                "linear-gradient(0, #fff, #fff 20%, hsla(0, 0%, 100%, 0));",
-              bottom: 0,
-              display: "flex",
-              height: theme.spacing(10),
-              justifyContent: "center",
-              left: 0,
-              position: "absolute",
-              width: "100%",
-            })}
-          >
-            <Button variant="outlined" onClick={handleExpendButtonClick}>
-              もっと見る
-            </Button>
-          </div>
-        )}
-      </div>
+      {!expend && (
+        <div
+          css={(theme) => ({
+            alignItems: "end",
+            background:
+              "linear-gradient(0, #fff, #fff 20%, hsla(0, 0%, 100%, 0));",
+            bottom: 0,
+            display: "flex",
+            height: theme.spacing(11),
+            justifyContent: "center",
+            left: 0,
+            position: "absolute",
+            width: "100%",
+          })}
+        >
+          <Button variant="outlined" onClick={handleExpendButtonClick}>
+            もっと見る
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

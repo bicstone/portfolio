@@ -8,6 +8,6 @@ import styled from "@emotion/styled";
 
 export const IconBase = styled("div")(({ theme }) => ({
   display: "inline-block",
-  width: theme.spacing(4),
-  height: theme.spacing(4),
+  width: theme.spacing(3),
+  height: theme.spacing(3),
 }));
