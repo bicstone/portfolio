@@ -93,8 +93,17 @@ export const BioCardList = (): React.JSX.Element => {
           gridTemplateColumns: "repeat(3, 1fr)",
           maxHeight: expend ? "none" : theme.spacing(106),
         },
-        [theme.breakpoints.down("sm")]: {
-          maxHeight: expend ? "none" : theme.spacing(88),
+        // HACK: ブレークポイントの定義
+        "@media (max-width: 500.95px) {": {
+          maxHeight: expend ? "none" : theme.spacing(94),
+        },
+        // HACK: ブレークポイントの定義
+        "@media (max-width: 550.95px) {": {
+          maxHeight: expend ? "none" : theme.spacing(91),
+        },
+        // HACK: ブレークポイントの定義
+        "@media (max-width: 400.95px) {": {
+          maxHeight: expend ? "none" : theme.spacing(82),
         },
       })}
     >
