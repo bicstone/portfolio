@@ -27,8 +27,8 @@ importers:
         specifier: 5.16.14
         version: 5.16.14(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@mui/utils':
-        specifier: 6.4.2
-        version: 6.4.2(@types/react@18.3.18)(react@18.3.1)
+        specifier: 6.4.3
+        version: 6.4.3(@types/react@18.3.18)(react@18.3.1)
       '@sentry/browser':
         specifier: 8.54.0
         version: 8.54.0
@@ -1620,8 +1620,8 @@ packages:
       '@types/react':
         optional: true
 
-  '@mui/utils@6.4.2':
-    resolution: {integrity: sha512-5NkhzlJkmR5+5RSs/Irqin1GPy2Z8vbLk/UzQrH9FEAnm6OA9SvuXjzgklxUs7N65VwEkGpKK1jMZ5K84hRdzQ==}
+  '@mui/utils@6.4.3':
+    resolution: {integrity: sha512-jxHRHh3BqVXE9ABxDm+Tc3wlBooYz/4XPa0+4AI+iF38rV1/+btJmSUgG4shDtSWVs/I97aDn5jBCt6SF2Uq2A==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -9512,7 +9512,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.18
 
-  '@mui/utils@6.4.2(@types/react@18.3.18)(react@18.3.1)':
+  '@mui/utils@6.4.3(@types/react@18.3.18)(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.26.0
       '@mui/types': 7.2.21(@types/react@18.3.18)
