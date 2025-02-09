@@ -50,12 +50,12 @@ export const FeaturedList = (): React.JSX.Element => (
       />
     </FeaturedCard>
     <FeaturedCard
-      title="0→1開発における技術選定において一番大切なこと"
-      url="https://speakerdeck.com/bicstone/technology-selection-key-points"
+      title="アウトプットのモチベーションを維持する4つの掟"
+      url="https://speakerdeck.com/bicstone/keep-you-motivated-to-output"
     >
       <StaticImage
         src="../../../content/featured/slide_0.jpg"
-        alt="0→1開発における技術選定において一番大切なこと"
+        alt="アウトプットのモチベーションを維持する4つの掟"
         width={1200}
         height={630}
       />
