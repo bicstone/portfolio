@@ -7,15 +7,10 @@ import { BioSocialLinkCard } from "./BioSocialLinkCard";
 
 import { BlueskyIcon } from "@/components/icons/BlueskyIcon";
 import { FacebookIcon } from "@/components/icons/FacebookIcon";
-import { FindyIcon } from "@/components/icons/FindyIcon";
-import { ForkwellIcon } from "@/components/icons/ForkwellIcon";
 import { GitHubIcon } from "@/components/icons/GitHubIcon";
 import { InstagramIcon } from "@/components/icons/InstagramIcon";
-import { LaprasIcon } from "@/components/icons/LaprasIcon";
 import { LinkedInIcon } from "@/components/icons/LinkedInIcon";
-import { MisskeyIcon } from "@/components/icons/MisskeyIcon";
 import { Mixi2Icon } from "@/components/icons/Mixi2Icon";
-import { MstdnIcon } from "@/components/icons/MstdnIcon";
 import { NoteIcon } from "@/components/icons/NoteIcon";
 import { NpmIcon } from "@/components/icons/NpmIcon";
 import { QiitaIcon } from "@/components/icons/QiitaIcon";
@@ -37,36 +32,26 @@ export const BioCardList = (): React.JSX.Element => {
     "instagram",
     "facebook",
     "linkedin",
-    "youtrust",
     "mixi2",
+    "youtrust",
     "zenn",
     "speakerdeck",
     "note",
     "qiita",
     "github",
     "npm",
-    "findy",
-    "forkwell",
-    "lapras",
-    "wantedly",
-    "threads",
     "bluesky",
-    "misskey",
-    "mstdn",
+    "threads",
+    "wantedly",
   ] as const satisfies LinkKeys[];
 
   const avatarMap = {
     bluesky: <BlueskyIcon aria-hidden="true" />,
     facebook: <FacebookIcon aria-hidden="true" />,
-    findy: <FindyIcon aria-hidden="true" />,
-    forkwell: <ForkwellIcon aria-hidden="true" />,
     github: <GitHubIcon aria-hidden="true" />,
     instagram: <InstagramIcon aria-hidden="true" />,
-    lapras: <LaprasIcon aria-hidden="true" />,
     linkedin: <LinkedInIcon aria-hidden="true" />,
-    misskey: <MisskeyIcon aria-hidden="true" />,
     mixi2: <Mixi2Icon aria-hidden="true" />,
-    mstdn: <MstdnIcon aria-hidden="true" />,
     note: <NoteIcon aria-hidden="true" />,
     npm: <NpmIcon area-hidden="true" />,
     qiita: <QiitaIcon aria-hidden="true" />,
