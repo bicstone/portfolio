@@ -99,8 +99,8 @@ importers:
         specifier: 4.6.1
         version: 4.6.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-virtuoso:
-        specifier: 4.12.3
-        version: 4.12.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 4.12.5
+        version: 4.12.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@eslint/eslintrc':
         specifier: 3.2.0
@@ -6230,12 +6230,11 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
 
-  react-virtuoso@4.12.3:
-    resolution: {integrity: sha512-6X1p/sU7hecmjDZMAwN+r3go9EVjofKhwkUbVlL8lXhBZecPv9XVCkZ/kBPYOr0Mv0Vl5+Ziwgexg9Kh7+NNXQ==}
-    engines: {node: '>=10'}
+  react-virtuoso@4.12.5:
+    resolution: {integrity: sha512-YeCbRRsC9CLf0buD0Rct7WsDbzf+yBU1wGbo05/XjbcN2nJuhgh040m3y3+6HVogTZxEqVm45ac9Fpae4/MxRQ==}
     peerDependencies:
-      react: '>=16 || >=17 || >= 18'
-      react-dom: '>=16 || >=17 || >= 18'
+      react: '>=16 || >=17 || >= 18 || >= 19'
+      react-dom: '>=16 || >=17 || >= 18 || >=19'
 
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
@@ -15291,7 +15290,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-virtuoso@4.12.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-virtuoso@4.12.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
