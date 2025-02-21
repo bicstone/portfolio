@@ -34,7 +34,7 @@
     "gatsby": "5.14.1",
     "gatsby-plugin-emotion": "8.14.0",
     "gatsby-plugin-feed": "5.14.0",
-    "gatsby-plugin-fix-fouc": "1.1.1",
+    "gatsby-plugin-fix-fouc": "1.1.2",
     "gatsby-plugin-google-tagmanager": "5.14.0",
     "gatsby-plugin-image": "3.14.0",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
