@@ -54,8 +54,8 @@ importers:
         specifier: 5.14.0
         version: 5.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3))(graphql@16.10.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       gatsby-plugin-fix-fouc:
-        specifier: 1.1.1
-        version: 1.1.1(gatsby@5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3))
+        specifier: 1.1.2
+        version: 1.1.2(gatsby@5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3))
       gatsby-plugin-google-tagmanager:
         specifier: 5.14.0
         version: 5.14.0(gatsby@5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4052,8 +4052,8 @@ packages:
       react: ^18.0.0 || ^0.0.0
       react-dom: ^18.0.0 || ^0.0.0
 
-  gatsby-plugin-fix-fouc@1.1.1:
-    resolution: {integrity: sha512-ZFqZk/LpXwuicLhoUArkm+U/0GpRz0APY/xAzHri6NdclfLPcBUII0ymmLEpWua7XkSQm20f5CGBbzTY8CdShA==}
+  gatsby-plugin-fix-fouc@1.1.2:
+    resolution: {integrity: sha512-hsykXNAFupzV3G2KDRLaZ6Xq0iof0xxzr5FVgJh3Qk6QEMqs+t7ndt8fmGiby4brh8uqjfPdGSa/TcdN8Vtm5w==}
     peerDependencies:
       gatsby: ^3 || ^4 || ^5
 
@@ -12505,7 +12505,7 @@ snapshots:
       - bare-buffer
       - graphql
 
-  gatsby-plugin-fix-fouc@1.1.1(gatsby@5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3)):
+  gatsby-plugin-fix-fouc@1.1.2(gatsby@5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3)):
     dependencies:
       gatsby: 5.14.1(babel-eslint@10.1.0(eslint@9.20.1(jiti@2.4.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(type-fest@0.21.3)(typescript@5.7.3)
 
