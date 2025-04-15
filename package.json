@@ -60,7 +60,7 @@
     "@graphql-codegen/typescript-operations": "4.6.0",
     "@types/eslint": "9.6.1",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.17.30",
+    "@types/node": "22.14.1",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.6",
     "dotenv": "16.5.0",
@@ -93,11 +93,11 @@
     "last 3 iOS major versions"
   ],
   "volta": {
-    "node": "20.19.0",
+    "node": "22.14.0",
     "pnpm": "10.8.0"
   },
   "engines": {
-    "node": "20.19.0",
+    "node": "22.14.0",
     "pnpm": "10.8.0"
   },
   "packageManager": "pnpm@10.8.0",
