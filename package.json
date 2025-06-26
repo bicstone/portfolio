@@ -26,12 +26,12 @@
     "@mui/lab": "5.0.0-alpha.176",
     "@mui/material": "5.17.1",
     "@mui/utils": "6.4.9",
-    "@sentry/browser": "9.29.0",
+    "@sentry/browser": "9.32.0",
     "bicstone": "1.6.2",
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
     "fuse.js": "7.1.0",
-    "gatsby": "5.14.4",
+    "gatsby": "5.14.5",
     "gatsby-plugin-emotion": "8.14.0",
     "gatsby-plugin-feed": "5.14.0",
     "gatsby-plugin-fix-fouc": "1.1.2",
@@ -49,7 +49,7 @@
     "react-dom": "18.3.1",
     "react-error-boundary": "6.0.0",
     "react-hotkeys-hook": "5.1.0",
-    "react-virtuoso": "4.12.8"
+    "react-virtuoso": "4.13.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "3.3.1",
