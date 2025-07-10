@@ -30,8 +30,8 @@ importers:
         specifier: 6.4.9
         version: 6.4.9(@types/react@18.3.23)(react@18.3.1)
       '@sentry/browser':
-        specifier: 9.35.0
-        version: 9.35.0
+        specifier: 9.37.0
+        version: 9.37.0
       bicstone:
         specifier: 1.6.2
         version: 1.6.2
@@ -1863,28 +1863,28 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
-  '@sentry-internal/browser-utils@9.35.0':
-    resolution: {integrity: sha512-75/zOArDQ4ASgndKGQo0m0v8P921eq/Q/sJvR14NopzwuwAchBhjziixWCwxKgvoA20eg3OGwMIkzztxmdp2Tw==}
+  '@sentry-internal/browser-utils@9.37.0':
+    resolution: {integrity: sha512-thn6LSsdAWDeU5bjfyK2Vf9fLbIWYdRfzSIxyeV+HDL5fdck3bozS3dfTd8Q5yoI1+8wo5gQ9WHQbcDUxtcRHQ==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/feedback@9.35.0':
-    resolution: {integrity: sha512-IKaZWUmqqqLucuJ5EGgwdrBdvP3l3STXvgKsLmW2l+s9WYbvfPPHukZhUULYRsXleQKXnOuz44WQmwNeZYQutw==}
+  '@sentry-internal/feedback@9.37.0':
+    resolution: {integrity: sha512-rMd+le0G7HTiWrzGTh5UpEKqymWqdneX8runnDARAoSVI2IJmthMGaoIdAQ34t4C/Trvoj27BWNUjmvQY5HYzQ==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/replay-canvas@9.35.0':
-    resolution: {integrity: sha512-nXxrEIkpn+FBxYsD4JPQStEGQWF0j0Rs0LoCyuB1e2QeEg6Pipqg4DIjWDjZyeUAsdoaUsIRhWbMK5OBWUuudw==}
+  '@sentry-internal/replay-canvas@9.37.0':
+    resolution: {integrity: sha512-R9CckTfbuUEIZQ8DXFcVbQCE39OzzaNR9x0uFD4yOCbjE4Bpup4FC43Wfm15/8LjhgziTMSBZi5VMFxocR/3SA==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/replay@9.35.0':
-    resolution: {integrity: sha512-veGNAXeHXULzkGPudMg5iFqkW4wFD/qVbQSr+s0q3+IZ7vJ+Eql+eBDZEKrfKYIBdNOf5POr+KaEBMpMGCbEkQ==}
+  '@sentry-internal/replay@9.37.0':
+    resolution: {integrity: sha512-jPWRLViatk++UVzKNtW12wEYcZqvoD3T8vS1qqya3UQyteD1Toc818O8kC13eTOFgFAY7pjIma6fXSHghFEJcQ==}
     engines: {node: '>=18'}
 
-  '@sentry/browser@9.35.0':
-    resolution: {integrity: sha512-m1fRwMa1vik6VFAAz6RlJUUU+0+Uo+QIKJWWOx9calb11Zt4wIg9wvox7TOgMd8KPt3sefPXIPM38A+uixyXYw==}
+  '@sentry/browser@9.37.0':
+    resolution: {integrity: sha512-ZJJjFNcsTirgBCULpds5/I0OZaFrOR5FQ59IMsfjjBCwzMQ6uF5prtzb8zNL3JXUF502290dnOPSKRJKL4snAw==}
     engines: {node: '>=18'}
 
-  '@sentry/core@9.35.0':
-    resolution: {integrity: sha512-bdAtzVQZ/wn4L/m8r2OUCCG/NWr0Q8dyZDwdwvINJaMbyhDRUdQh/MWjrz+id/3JoOL1LigAyTV1h4FJDGuwUQ==}
+  '@sentry/core@9.37.0':
+    resolution: {integrity: sha512-RyIsIIcIzEngvvNRr+0oAHJpeAgT5sP12qQXAY6DpeBfFJc9tRTdvxaTURNTkfh+WWO35eIqr4XEB4Hp7Q81IA==}
     engines: {node: '>=18'}
 
   '@sideway/address@4.1.5':
@@ -9717,33 +9717,33 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
-  '@sentry-internal/browser-utils@9.35.0':
+  '@sentry-internal/browser-utils@9.37.0':
     dependencies:
-      '@sentry/core': 9.35.0
+      '@sentry/core': 9.37.0
 
-  '@sentry-internal/feedback@9.35.0':
+  '@sentry-internal/feedback@9.37.0':
     dependencies:
-      '@sentry/core': 9.35.0
+      '@sentry/core': 9.37.0
 
-  '@sentry-internal/replay-canvas@9.35.0':
+  '@sentry-internal/replay-canvas@9.37.0':
     dependencies:
-      '@sentry-internal/replay': 9.35.0
-      '@sentry/core': 9.35.0
+      '@sentry-internal/replay': 9.37.0
+      '@sentry/core': 9.37.0
 
-  '@sentry-internal/replay@9.35.0':
+  '@sentry-internal/replay@9.37.0':
     dependencies:
-      '@sentry-internal/browser-utils': 9.35.0
-      '@sentry/core': 9.35.0
+      '@sentry-internal/browser-utils': 9.37.0
+      '@sentry/core': 9.37.0
 
-  '@sentry/browser@9.35.0':
+  '@sentry/browser@9.37.0':
     dependencies:
-      '@sentry-internal/browser-utils': 9.35.0
-      '@sentry-internal/feedback': 9.35.0
-      '@sentry-internal/replay': 9.35.0
-      '@sentry-internal/replay-canvas': 9.35.0
-      '@sentry/core': 9.35.0
+      '@sentry-internal/browser-utils': 9.37.0
+      '@sentry-internal/feedback': 9.37.0
+      '@sentry-internal/replay': 9.37.0
+      '@sentry-internal/replay-canvas': 9.37.0
+      '@sentry/core': 9.37.0
 
-  '@sentry/core@9.35.0': {}
+  '@sentry/core@9.37.0': {}
 
   '@sideway/address@4.1.5':
     dependencies:
