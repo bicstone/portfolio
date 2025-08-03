@@ -70,11 +70,11 @@
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
-    "eslint-plugin-regexp": "2.9.0",
+    "eslint-plugin-regexp": "2.9.1",
     "globals": "16.3.0",
     "husky": "9.1.7",
     "prettier": "3.6.2",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "repository": {
     "type": "git",
