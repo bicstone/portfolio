@@ -1,17 +1,12 @@
 # Oishi Takanori (@bicstone) ポートフォリオ & ブログ
 
-![GitHub Actions による CI check の結果](https://github.com/bicstone/portfolio/actions/workflows/test.yml/badge.svg?branch=main)
 ![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-prod.yml/badge.svg?branch=main)
 ![GitHub Actions による検証環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-stg.yml/badge.svg?branch=stg)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)
-[![sonarcloudによる静的スキャンの結果](https://sonarcloud.io/api/project_badges/measure?project=bicstone_masshiro.me&metric=alert_status)](https://sonarcloud.io/dashboard?id=bicstone_masshiro.me)
-[![DeepSourceによる静的スキャンの結果](https://deepsource.io/gh/bicstone/portfolio.svg/?label=active+issues&token=YEW43yfxCIzfiws5kGiZjSN0)](https://deepsource.io/gh/bicstone/portfolio/?ref=repository-badge)
 [![Javascript Standard Style を採用しています](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 2020 年に作成したポートフォリオサイトです。  
 ~~2022 年には、ブログ機能を追加しました。~~ 2024 年に削除
-
-現在 Next.js にリプレイス中です。
 
 ![PC・タブレット・スマホでポートフォリオサイトを表示した写真、マルチプラットフォームに対応したことを示す図](./docs/readme-images/portfolio.jpg)
 
