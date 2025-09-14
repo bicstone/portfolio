@@ -94,13 +94,13 @@
   ],
   "volta": {
     "node": "22.19.0",
-    "pnpm": "10.15.1"
+    "pnpm": "10.16.1"
   },
   "engines": {
     "node": "22.19.0",
-    "pnpm": "10.15.1"
+    "pnpm": "10.16.1"
   },
-  "packageManager": "pnpm@10.15.1",
+  "packageManager": "pnpm@10.16.1",
   "pnpm": {
     "neverBuiltDependencies": []
   }
