@@ -30,8 +30,8 @@ importers:
         specifier: 6.4.9
         version: 6.4.9(@types/react@18.3.24)(react@18.3.1)
       '@sentry/browser':
-        specifier: 10.15.0
-        version: 10.15.0
+        specifier: 10.17.0
+        version: 10.17.0
       bicstone:
         specifier: 1.6.2
         version: 1.6.2
@@ -2047,28 +2047,28 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
-  '@sentry-internal/browser-utils@10.15.0':
-    resolution: {integrity: sha512-hJxo6rj3cMqiYlZd6PC8o/i2FG6hRnZdHcJkfm1HXgWCRgdCPilKghL6WU+B2H5dLyRKJ17nWjDAVQPRdCxO9w==}
+  '@sentry-internal/browser-utils@10.17.0':
+    resolution: {integrity: sha512-jXC7dtItZYNGP+K9Lo+3MWaWaGVI6uDIPGB9BAZkZntc/1lGfhMPm7Fo2qb1N1bUP0vOTJ2TmSUA8GNxyxgekQ==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/feedback@10.15.0':
-    resolution: {integrity: sha512-EP+NvdU9yfmepGzQwz0jnqhd0DBxHzrP16TsJIVXJe93QJ+gumdN3XQ0lvYtEC9zHuU08DghRLjfI1kLRfGzdQ==}
+  '@sentry-internal/feedback@10.17.0':
+    resolution: {integrity: sha512-KIIF/dDQqYENbx4vn6B0evy/qx1QtEZsSZRvXNX6tUm14CCyrZeDymBMyEzu8RQ5PeZXibbPEkz7xOXiG3q+eQ==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/replay-canvas@10.15.0':
-    resolution: {integrity: sha512-SXgUWArk+haUJ24W6pIm9IiwmIk3WxeQyFUxFfMUetSRb06CVAoNjPb0YuzKIeuFYJb6hDPGQ9UWhShnQpTmkw==}
+  '@sentry-internal/replay-canvas@10.17.0':
+    resolution: {integrity: sha512-GXKZIraXrboP03+XS+KwkkKVJO+cSlM0HrfjePSfFqiNbbnjRhOLekoLuDvvH/ZEXPUoUJD1We5IPBg+sZZQfQ==}
     engines: {node: '>=18'}
 
-  '@sentry-internal/replay@10.15.0':
-    resolution: {integrity: sha512-vHBAFVdDfa51oqPWyRCK4fOIFhFeE2mVlqBWrBb+S3vCNcmtpvqJUq6o4sjSYcQzdZQpMSp5/Lj8Y3a8x/ed7w==}
+  '@sentry-internal/replay@10.17.0':
+    resolution: {integrity: sha512-9kirOPp3wbf+TMyHmA8iStKAysklZPcrPlB0v2zh0qRj1zNFY0xAD2WSgxuCvD9rEo5qKhmAKcaT7Ujin64uSw==}
     engines: {node: '>=18'}
 
-  '@sentry/browser@10.15.0':
-    resolution: {integrity: sha512-YV42VgW7xdmY23u7+nQLNJXDVilNTP0d5WWkHDxeI/uD6AAvn3GyKjx1YMG/KCulxva3dPDPEUunzDm3al26Sw==}
+  '@sentry/browser@10.17.0':
+    resolution: {integrity: sha512-X4OiGECzkp6tIyAKXB/9beBC2oX1xKOEkDo4v/phIKGPzrmQ4o55j2a6/V20jSfSN7w+kfZ56ILE71SzC9w1aQ==}
     engines: {node: '>=18'}
 
-  '@sentry/core@10.15.0':
-    resolution: {integrity: sha512-J7WsQvb9G6nsVgWkTHwyX7wR2djtEACYCx19hAnRbSGIg+ysVG+7Ti3RL4bz9/VXfcxsz346cleKc7ljhynYlQ==}
+  '@sentry/core@10.17.0':
+    resolution: {integrity: sha512-UVIvxSzS0n5QbIDPyFf0WX9I77Of1bcr6a0sCEKfjhJGmGQ8mFWoWgR2gF4wcPw60XUrzbryCr79eOsIHLQ5cw==}
     engines: {node: '>=18'}
 
   '@sideway/address@4.1.5':
@@ -10066,33 +10066,33 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
-  '@sentry-internal/browser-utils@10.15.0':
+  '@sentry-internal/browser-utils@10.17.0':
     dependencies:
-      '@sentry/core': 10.15.0
+      '@sentry/core': 10.17.0
 
-  '@sentry-internal/feedback@10.15.0':
+  '@sentry-internal/feedback@10.17.0':
     dependencies:
-      '@sentry/core': 10.15.0
+      '@sentry/core': 10.17.0
 
-  '@sentry-internal/replay-canvas@10.15.0':
+  '@sentry-internal/replay-canvas@10.17.0':
     dependencies:
-      '@sentry-internal/replay': 10.15.0
-      '@sentry/core': 10.15.0
+      '@sentry-internal/replay': 10.17.0
+      '@sentry/core': 10.17.0
 
-  '@sentry-internal/replay@10.15.0':
+  '@sentry-internal/replay@10.17.0':
     dependencies:
-      '@sentry-internal/browser-utils': 10.15.0
-      '@sentry/core': 10.15.0
+      '@sentry-internal/browser-utils': 10.17.0
+      '@sentry/core': 10.17.0
 
-  '@sentry/browser@10.15.0':
+  '@sentry/browser@10.17.0':
     dependencies:
-      '@sentry-internal/browser-utils': 10.15.0
-      '@sentry-internal/feedback': 10.15.0
-      '@sentry-internal/replay': 10.15.0
-      '@sentry-internal/replay-canvas': 10.15.0
-      '@sentry/core': 10.15.0
+      '@sentry-internal/browser-utils': 10.17.0
+      '@sentry-internal/feedback': 10.17.0
+      '@sentry-internal/replay': 10.17.0
+      '@sentry-internal/replay-canvas': 10.17.0
+      '@sentry/core': 10.17.0
 
-  '@sentry/core@10.15.0': {}
+  '@sentry/core@10.17.0': {}
 
   '@sideway/address@4.1.5':
     dependencies:
