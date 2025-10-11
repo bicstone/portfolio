@@ -4225,22 +4225,28 @@ export type WebPOptions = {
 export type GatsbyPluginFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GatsbyPluginFeedQuery = { readonly allTimeline: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'NotesYaml' }
-      & Pick<NotesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'OthersYaml' }
-      & Pick<OthersYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'PresentationsYaml' }
-      & Pick<PresentationsYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-    )> } };
+export type GatsbyPluginFeedQuery = { readonly allTimeline: { readonly nodes: ReadonlyArray<
+      | (
+        { readonly __typename: 'ArticlesYaml' }
+        & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+      )
+      | (
+        { readonly __typename: 'NotesYaml' }
+        & Pick<NotesYaml, 'url' | 'title' | 'date'>
+      )
+      | (
+        { readonly __typename: 'OthersYaml' }
+        & Pick<OthersYaml, 'url' | 'title' | 'date'>
+      )
+      | (
+        { readonly __typename: 'PresentationsYaml' }
+        & Pick<PresentationsYaml, 'url' | 'title' | 'date'>
+      )
+      | (
+        { readonly __typename: 'SlidesYaml' }
+        & Pick<SlidesYaml, 'url' | 'title' | 'date'>
+      )
+    > } };
 
 export type GatsbyPluginSitemapQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4250,22 +4256,31 @@ export type GatsbyPluginSitemapQuery = { readonly site: Maybe<Pick<Site, 'buildT
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnCreatePagesStatefullyQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'NotesYaml' }
-      & Pick<NotesYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'OthersYaml' }
-      & Pick<OthersYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'PresentationsYaml' }
-      & Pick<PresentationsYaml, 'url' | 'title' | 'date'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'title' | 'url'>> } };
+export type OnCreatePagesStatefullyQuery = {
+    readonly timelineItems: { readonly nodes: ReadonlyArray<
+        | (
+          { readonly __typename: 'ArticlesYaml' }
+          & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
+        )
+        | (
+          { readonly __typename: 'NotesYaml' }
+          & Pick<NotesYaml, 'url' | 'title' | 'date'>
+        )
+        | (
+          { readonly __typename: 'OthersYaml' }
+          & Pick<OthersYaml, 'url' | 'title' | 'date'>
+        )
+        | (
+          { readonly __typename: 'PresentationsYaml' }
+          & Pick<PresentationsYaml, 'url' | 'title' | 'date'>
+        )
+        | (
+          { readonly __typename: 'SlidesYaml' }
+          & Pick<SlidesYaml, 'url' | 'title' | 'date'>
+        )
+      > },
+    readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'title' | 'url'>> },
+  };
 
 export type TimelineArticleCardFragment = Pick<ArticlesYaml, 'title' | 'date' | 'url'>;
 
@@ -4273,42 +4288,114 @@ export type TimelineItemCardFragment = Pick<QiitaJson, 'title' | 'url'>;
 
 export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
     { dateYear: TimelineGroupConnection['fieldValue'] }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'NotesYaml' }
-      & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'OthersYaml' }
-      & Pick<OthersYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'PresentationsYaml' }
-      & Pick<PresentationsYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
-    )> }
+    & { readonly nodes: ReadonlyArray<
+      | (
+        { readonly __typename: 'ArticlesYaml' }
+        & Pick<
+          ArticlesYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'NotesYaml' }
+        & Pick<
+          NotesYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'OthersYaml' }
+        & Pick<
+          OthersYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'PresentationsYaml' }
+        & Pick<
+          PresentationsYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'SlidesYaml' }
+        & Pick<
+          SlidesYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+    > }
   )> };
 
 export type TimelineListOutputFragment = { readonly group: ReadonlyArray<(
     { dateYear: OutputGroupConnection['fieldValue'] }
-    & { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'NotesYaml' }
-      & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'OthersYaml' }
-      & Pick<OthersYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'PresentationsYaml' }
-      & Pick<PresentationsYaml, 'id' | 'title' | 'date' | 'url'>
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
-    )> }
+    & { readonly nodes: ReadonlyArray<
+      | (
+        { readonly __typename: 'ArticlesYaml' }
+        & Pick<
+          ArticlesYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'NotesYaml' }
+        & Pick<
+          NotesYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'OthersYaml' }
+        & Pick<
+          OthersYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'PresentationsYaml' }
+        & Pick<
+          PresentationsYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+      | (
+        { readonly __typename: 'SlidesYaml' }
+        & Pick<
+          SlidesYaml,
+          | 'id'
+          | 'title'
+          | 'date'
+          | 'url'
+        >
+      )
+    > }
   )> };
 
 export type TimelineNoteCardFragment = Pick<NotesYaml, 'title' | 'date' | 'url'>;
@@ -4319,27 +4406,63 @@ export type TimelinePresentationCardFragment = Pick<PresentationsYaml, 'title' |
 
 export type TimelineSlideCardFragment = Pick<SlidesYaml, 'title' | 'date' | 'url'>;
 
-export type TimelineVirtualizedListTimelineFragment = { readonly nodes: ReadonlyArray<(
-    { readonly __typename: 'ArticlesYaml' }
-    & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-    & { dateX: ArticlesYaml['date'] }
-  ) | (
-    { readonly __typename: 'NotesYaml' }
-    & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-    & { dateX: NotesYaml['date'] }
-  ) | (
-    { readonly __typename: 'OthersYaml' }
-    & Pick<OthersYaml, 'id' | 'title' | 'date' | 'url'>
-    & { dateX: OthersYaml['date'] }
-  ) | (
-    { readonly __typename: 'PresentationsYaml' }
-    & Pick<PresentationsYaml, 'id' | 'title' | 'date' | 'url'>
-    & { dateX: PresentationsYaml['date'] }
-  ) | (
-    { readonly __typename: 'SlidesYaml' }
-    & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
-    & { dateX: SlidesYaml['date'] }
-  )> };
+export type TimelineVirtualizedListTimelineFragment = { readonly nodes: ReadonlyArray<
+    | (
+      { readonly __typename: 'ArticlesYaml' }
+      & Pick<
+        ArticlesYaml,
+        | 'id'
+        | 'title'
+        | 'date'
+        | 'url'
+      >
+      & { dateX: ArticlesYaml['date'] }
+    )
+    | (
+      { readonly __typename: 'NotesYaml' }
+      & Pick<
+        NotesYaml,
+        | 'id'
+        | 'title'
+        | 'date'
+        | 'url'
+      >
+      & { dateX: NotesYaml['date'] }
+    )
+    | (
+      { readonly __typename: 'OthersYaml' }
+      & Pick<
+        OthersYaml,
+        | 'id'
+        | 'title'
+        | 'date'
+        | 'url'
+      >
+      & { dateX: OthersYaml['date'] }
+    )
+    | (
+      { readonly __typename: 'PresentationsYaml' }
+      & Pick<
+        PresentationsYaml,
+        | 'id'
+        | 'title'
+        | 'date'
+        | 'url'
+      >
+      & { dateX: PresentationsYaml['date'] }
+    )
+    | (
+      { readonly __typename: 'SlidesYaml' }
+      & Pick<
+        SlidesYaml,
+        | 'id'
+        | 'title'
+        | 'date'
+        | 'url'
+      >
+      & { dateX: SlidesYaml['date'] }
+    )
+  > };
 
 export type TimelineVirtualizedListArchivedFragment = { readonly nodes: ReadonlyArray<(
     { readonly __typename: 'QiitaJson' }
@@ -4352,56 +4475,141 @@ export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<Search, 'title' | 'excerpt' | 'url' | 'slug'>> } };
+export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<
+        Search,
+        | 'title'
+        | 'excerpt'
+        | 'url'
+        | 'slug'
+      >> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-      & { dateX: ArticlesYaml['date'] }
-    ) | (
-      { readonly __typename: 'NotesYaml' }
-      & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-      & { dateX: NotesYaml['date'] }
-    ) | (
-      { readonly __typename: 'OthersYaml' }
-      & Pick<OthersYaml, 'id' | 'title' | 'date' | 'url'>
-      & { dateX: OthersYaml['date'] }
-    ) | (
-      { readonly __typename: 'PresentationsYaml' }
-      & Pick<PresentationsYaml, 'id' | 'title' | 'date' | 'url'>
-      & { dateX: PresentationsYaml['date'] }
-    ) | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
-      & { dateX: SlidesYaml['date'] }
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<(
-      { readonly __typename: 'QiitaJson' }
-      & Pick<QiitaJson, 'id' | 'title' | 'url'>
-      & { dateX: QiitaJson['created_at'] }
-    )> } };
+export type IndexPageQuery = {
+    readonly timelineItems: { readonly nodes: ReadonlyArray<
+        | (
+          { readonly __typename: 'ArticlesYaml' }
+          & Pick<
+            ArticlesYaml,
+            | 'id'
+            | 'title'
+            | 'date'
+            | 'url'
+          >
+          & { dateX: ArticlesYaml['date'] }
+        )
+        | (
+          { readonly __typename: 'NotesYaml' }
+          & Pick<
+            NotesYaml,
+            | 'id'
+            | 'title'
+            | 'date'
+            | 'url'
+          >
+          & { dateX: NotesYaml['date'] }
+        )
+        | (
+          { readonly __typename: 'OthersYaml' }
+          & Pick<
+            OthersYaml,
+            | 'id'
+            | 'title'
+            | 'date'
+            | 'url'
+          >
+          & { dateX: OthersYaml['date'] }
+        )
+        | (
+          { readonly __typename: 'PresentationsYaml' }
+          & Pick<
+            PresentationsYaml,
+            | 'id'
+            | 'title'
+            | 'date'
+            | 'url'
+          >
+          & { dateX: PresentationsYaml['date'] }
+        )
+        | (
+          { readonly __typename: 'SlidesYaml' }
+          & Pick<
+            SlidesYaml,
+            | 'id'
+            | 'title'
+            | 'date'
+            | 'url'
+          >
+          & { dateX: SlidesYaml['date'] }
+        )
+      > },
+    readonly qiitaItems: { readonly nodes: ReadonlyArray<(
+        { readonly __typename: 'QiitaJson' }
+        & Pick<QiitaJson, 'id' | 'title' | 'url'>
+        & { dateX: QiitaJson['created_at'] }
+      )> },
+  };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArray<(
-      { dateYear: OutputGroupConnection['fieldValue'] }
-      & { readonly nodes: ReadonlyArray<(
-        { readonly __typename: 'ArticlesYaml' }
-        & Pick<ArticlesYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'NotesYaml' }
-        & Pick<NotesYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'OthersYaml' }
-        & Pick<OthersYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'PresentationsYaml' }
-        & Pick<PresentationsYaml, 'id' | 'title' | 'date' | 'url'>
-      ) | (
-        { readonly __typename: 'SlidesYaml' }
-        & Pick<SlidesYaml, 'id' | 'title' | 'date' | 'url'>
-      )> }
-    )> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> }, readonly site: Maybe<Pick<Site, 'buildTime'>> };
+export type OutputsPageQuery = {
+    readonly outputs: { readonly group: ReadonlyArray<(
+        { dateYear: OutputGroupConnection['fieldValue'] }
+        & { readonly nodes: ReadonlyArray<
+          | (
+            { readonly __typename: 'ArticlesYaml' }
+            & Pick<
+              ArticlesYaml,
+              | 'id'
+              | 'title'
+              | 'date'
+              | 'url'
+            >
+          )
+          | (
+            { readonly __typename: 'NotesYaml' }
+            & Pick<
+              NotesYaml,
+              | 'id'
+              | 'title'
+              | 'date'
+              | 'url'
+            >
+          )
+          | (
+            { readonly __typename: 'OthersYaml' }
+            & Pick<
+              OthersYaml,
+              | 'id'
+              | 'title'
+              | 'date'
+              | 'url'
+            >
+          )
+          | (
+            { readonly __typename: 'PresentationsYaml' }
+            & Pick<
+              PresentationsYaml,
+              | 'id'
+              | 'title'
+              | 'date'
+              | 'url'
+            >
+          )
+          | (
+            { readonly __typename: 'SlidesYaml' }
+            & Pick<
+              SlidesYaml,
+              | 'id'
+              | 'title'
+              | 'date'
+              | 'url'
+            >
+          )
+        > }
+      )> },
+    readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> },
+    readonly site: Maybe<Pick<Site, 'buildTime'>>,
+  };
