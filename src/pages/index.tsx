@@ -8,6 +8,7 @@ import type { PageProps, HeadFC } from "gatsby";
 import { Spacer } from "@/components/Spacer";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import { BioCardList } from "@/features/Bio";
+import { TalksList } from "@/features/Talks";
 import { TimelineVirtualizedList } from "@/features/Timeline";
 import { FeaturedList } from "@/features/TimelineFeatured";
 import { HeadTemplate } from "@/layouts/HeadTemplate";
@@ -19,6 +20,9 @@ export const query = graphql`
     }
     qiitaItems: allQiitaJson(sort: { title: ASC }) {
       ...TimelineVirtualizedListArchived
+    }
+    speakerDecksItems: allSpeakerDecksYaml(sort: { date: DESC }) {
+      ...TalksList
     }
   }
 `;
@@ -41,6 +45,7 @@ export const Head: HeadFC<IndexPageQuery> = ({ location }) => {
 const IndexPage = ({ data }: PageProps<IndexPageQuery>): React.JSX.Element => {
   const { timelineItems } = data;
   const { qiitaItems } = data;
+  const { speakerDecksItems } = data;
 
   return (
     <>
@@ -56,6 +61,12 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): React.JSX.Element => {
         </Typography>
         <Spacer y={6} />
         <FeaturedList />
+        <Spacer y={6} />
+        <Typography variant="h5" component="h2" fontWeight="bold">
+          Talks
+        </Typography>
+        <Spacer y={6} />
+        <TalksList items={speakerDecksItems} />
         <Spacer y={6} />
         <Typography variant="h5" component="h2" fontWeight="bold">
           Outputs
