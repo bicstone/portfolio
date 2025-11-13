@@ -39,17 +39,6 @@ export const FeaturedList = (): React.JSX.Element => (
       />
     </FeaturedCard>
     <FeaturedCard
-      title="アウトプットのモチベーションを維持する4つの掟"
-      url="https://speakerdeck.com/bicstone/keep-you-motivated-to-output"
-    >
-      <StaticImage
-        src="../../../content/featured/slide_0.jpg"
-        alt="アウトプットのモチベーションを維持する4つの掟"
-        width={1200}
-        height={630}
-      />
-    </FeaturedCard>
-    <FeaturedCard
       title="backlog-notify"
       url="https://github.com/bicstone/backlog-notify"
     >
@@ -67,17 +56,6 @@ export const FeaturedList = (): React.JSX.Element => (
       <StaticImage
         src="../../../content/featured/code-review-comment-prefix.png"
         alt="コードレビューにラベルを付けるだけでチームの心理的安全性を高めた話"
-        width={1200}
-        height={630}
-      />
-    </FeaturedCard>
-    <FeaturedCard
-      title="もうブロッカーにしない！コードレビューを爆速にするための組織づくり"
-      url="https://zenn.dev/hacobell_dev/articles/code-review-blocker"
-    >
-      <StaticImage
-        src="../../../content/featured/code-review-blocker.png"
-        alt="もうブロッカーにしない！コードレビューを爆速にするための組織づくり"
         width={1200}
         height={630}
       />

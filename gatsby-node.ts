@@ -164,6 +164,12 @@ export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] 
         fields: TimelineFields!
       }
 
+      type SpeakerDecksYaml implements Node @dontInfer {
+        title: String!
+        date: Date! @dateformat
+        playerId: String!
+      }
+
       type NotesYaml implements Node & Timeline & Output @dontInfer {
         title: String!
         date: Date! @dateformat
