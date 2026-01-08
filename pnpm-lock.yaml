@@ -93,14 +93,14 @@ importers:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
       react-error-boundary:
-        specifier: 6.0.0
-        version: 6.0.0(react@18.3.1)
+        specifier: 6.0.1
+        version: 6.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-hotkeys-hook:
         specifier: 5.2.1
         version: 5.2.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-virtuoso:
-        specifier: 4.17.0
-        version: 4.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: 4.18.1
+        version: 4.18.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@eslint/eslintrc':
         specifier: 3.3.1
@@ -6431,10 +6431,11 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-error-boundary@6.0.0:
-    resolution: {integrity: sha512-gdlJjD7NWr0IfkPlaREN2d9uUZUlksrfOx7SX62VRerwXbMY6ftGCIZua1VG1aXFNOimhISsTq+Owp725b9SiA==}
+  react-error-boundary@6.0.1:
+    resolution: {integrity: sha512-zArgQpjJUN1ZLMEKWtifxQweW3yfvwL5j2nh3Pesze1qG6r5oCDMy/TA97bUF01wy4xCeeL4/pd8GHmvEsP3Bg==}
     peerDependencies:
-      react: '>=16.13.1'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   react-error-overlay@6.1.0:
     resolution: {integrity: sha512-SN/U6Ytxf1QGkw/9ve5Y+NxBbZM6Ht95tuXNMKs8EJyFa/Vy/+Co3stop3KBHARfn/giv+Lj1uUnTfOJ3moFEQ==}
@@ -6468,8 +6469,8 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
 
-  react-virtuoso@4.17.0:
-    resolution: {integrity: sha512-od3pi2v13v31uzn5zPXC2u3ouISFCVhjFVFch2VvS2Cx7pWA2F1aJa3XhNTN2F07M3lhfnMnsmGeH+7wZICr7w==}
+  react-virtuoso@4.18.1:
+    resolution: {integrity: sha512-KF474cDwaSb9+SJ380xruBB4P+yGWcVkcu26HtMqYNMTYlYbrNy8vqMkE+GpAApPPufJqgOLMoWMFG/3pJMXUA==}
     peerDependencies:
       react: '>=16 || >=17 || >= 18 || >= 19'
       react-dom: '>=16 || >=17 || >= 18 || >=19'
@@ -15624,10 +15625,10 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-error-boundary@6.0.0(react@18.3.1):
+  react-error-boundary@6.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@babel/runtime': 7.28.3
       react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-error-overlay@6.1.0: {}
 
@@ -15659,7 +15660,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  react-virtuoso@4.17.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-virtuoso@4.18.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
