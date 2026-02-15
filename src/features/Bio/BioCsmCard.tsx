@@ -37,8 +37,8 @@ export const BioCsmCard = (props: CardProps): React.JSX.Element => (
       title="外部リンクのため、別ウインドウで開きます"
     >
       <CsmIcon aria-hidden="true" />
-      <span css={{ ...visuallyHidden }}>Certified ScrumMaster®</span>
-      <span css={{ ...visuallyHidden }}>
+      <span style={visuallyHidden}>Certified ScrumMaster®</span>
+      <span style={visuallyHidden}>
         Certified ScrumMaster® is a certification mark of Scrum Alliance, Inc.
         Any unauthorized use is strictly prohibited.
       </span>

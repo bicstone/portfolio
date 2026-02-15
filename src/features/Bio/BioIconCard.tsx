@@ -55,7 +55,7 @@ export const BioIcon = (props: CardProps): React.JSX.Element => {
           activeAnimation={activeAnimation}
           aria-hidden="true"
         />
-        <span css={{ ...visuallyHidden }}>{alt}</span>
+        <span style={visuallyHidden}>{alt}</span>
       </StyledCardActionArea>
     </Card>
   );
