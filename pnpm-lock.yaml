@@ -109,8 +109,8 @@ importers:
         specifier: 9.39.4
         version: 9.39.4
       '@graphql-codegen/cli':
-        specifier: 6.1.3
-        version: 6.1.3(@parcel/watcher@2.5.1)(@types/node@22.19.15)(graphql@16.11.0)(typescript@5.9.3)
+        specifier: 6.2.1
+        version: 6.2.1(@parcel/watcher@2.5.1)(@types/node@22.19.15)(graphql@16.11.0)(typescript@5.9.3)
       '@graphql-codegen/introspection':
         specifier: 5.0.1
         version: 5.0.1(graphql@16.11.0)
@@ -157,8 +157,8 @@ importers:
         specifier: 5.2.0
         version: 5.2.0(eslint@9.39.4(jiti@2.5.1))
       eslint-plugin-regexp:
-        specifier: 3.0.0
-        version: 3.0.0(eslint@9.39.4(jiti@2.5.1))
+        specifier: 3.1.0
+        version: 3.1.0(eslint@9.39.4(jiti@2.5.1))
       globals:
         specifier: 17.4.0
         version: 17.4.0
@@ -1010,8 +1010,8 @@ packages:
     peerDependencies:
       graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
 
-  '@graphql-codegen/cli@6.1.3':
-    resolution: {integrity: sha512-fkPJiOEjHndK5hWH1O1vq8+Y0c2zYYzS79Mz/wVpcv9koz5hnkB0UsdXVtK2UYorh2gLvQfNr7NByX1TUmPibg==}
+  '@graphql-codegen/cli@6.2.1':
+    resolution: {integrity: sha512-E1B+5nBda2l89Pci5M0HcEj2Hmx2yhORFX+1T3rmwpQjdOiulo+h9JifWxKomUpjfbmU1YkBSd47CCGLFPU10A==}
     engines: {node: '>=16'}
     hasBin: true
     peerDependencies:
@@ -1250,12 +1250,6 @@ packages:
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
 
-  '@graphql-tools/merge@9.1.5':
-    resolution: {integrity: sha512-eVcir6nCcOC/Wzv7ZAng3xec3dj6FehE8+h9TvgvUyrDEKVMdFfrO6etRFZ2hucWVcY8S6drx7zQx04N4lPM8Q==}
-    engines: {node: '>=16.0.0'}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-
   '@graphql-tools/merge@9.1.7':
     resolution: {integrity: sha512-Y5E1vTbTabvcXbkakdFUt4zUIzB1fyaEnVmIWN0l0GMed2gdD01TpZWLUm4RNAxpturvolrb24oGLQrBbPLSoQ==}
     engines: {node: '>=16.0.0'}
@@ -1280,12 +1274,6 @@ packages:
 
   '@graphql-tools/relay-operation-optimizer@7.1.1':
     resolution: {integrity: sha512-va+ZieMlz6Fj18xUbwyQkZ34PsnzIdPT6Ccy1BNOQw1iclQwk52HejLMZeE/4fH+4cu80Q2HXi5+FjCKpmnJCg==}
-    engines: {node: '>=16.0.0'}
-    peerDependencies:
-      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
-
-  '@graphql-tools/schema@10.0.29':
-    resolution: {integrity: sha512-+Htiupnq6U/AWOEAJerIOGT1pAf4u43Q3n2JmFpqFfYJchz6sKWZ7L9Lpe/NusaaUQty/IOF+eQlNFypEaWxhg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
@@ -3831,8 +3819,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9.7
 
-  eslint-plugin-regexp@3.0.0:
-    resolution: {integrity: sha512-iW7hgAV8NOG6E2dz+VeKpq67YLQ9jaajOKYpoOSic2/q8y9BMdXBKkSR9gcMtbqEhNQzdW41E3wWzvhp8ExYwQ==}
+  eslint-plugin-regexp@3.1.0:
+    resolution: {integrity: sha512-qGXIC3DIKZHcK1H9A9+Byz9gmndY6TTSRkSMTZpNXdyCw2ObSehRgccJv35n9AdUakEjQp5VFNLas6BMXizCZg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -8772,7 +8760,7 @@ snapshots:
       graphql: 16.11.0
       tslib: 2.6.3
 
-  '@graphql-codegen/cli@6.1.3(@parcel/watcher@2.5.1)(@types/node@22.19.15)(graphql@16.11.0)(typescript@5.9.3)':
+  '@graphql-codegen/cli@6.2.1(@parcel/watcher@2.5.1)(@types/node@22.19.15)(graphql@16.11.0)(typescript@5.9.3)':
     dependencies:
       '@babel/generator': 7.28.3
       '@babel/template': 7.27.2
@@ -8787,6 +8775,7 @@ snapshots:
       '@graphql-tools/graphql-file-loader': 8.1.12(graphql@16.11.0)
       '@graphql-tools/json-file-loader': 8.0.26(graphql@16.11.0)
       '@graphql-tools/load': 8.1.8(graphql@16.11.0)
+      '@graphql-tools/merge': 9.1.7(graphql@16.11.0)
       '@graphql-tools/url-loader': 9.0.6(@types/node@22.19.15)(graphql@16.11.0)
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
       '@inquirer/prompts': 7.8.6(@types/node@22.19.15)
@@ -8851,7 +8840,7 @@ snapshots:
   '@graphql-codegen/core@5.0.1(graphql@16.11.0)':
     dependencies:
       '@graphql-codegen/plugin-helpers': 6.2.0(graphql@16.11.0)
-      '@graphql-tools/schema': 10.0.29(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.11.0)
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.6.3
@@ -9043,7 +9032,7 @@ snapshots:
     dependencies:
       '@graphql-tools/batch-execute': 10.0.5(graphql@16.11.0)
       '@graphql-tools/executor': 1.4.13(graphql@16.11.0)
-      '@graphql-tools/schema': 10.0.29(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.11.0)
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
       '@repeaterjs/repeater': 3.0.6
       '@whatwg-node/promise-helpers': 1.3.2
@@ -9215,12 +9204,6 @@ snapshots:
       graphql: 16.11.0
       tslib: 2.8.1
 
-  '@graphql-tools/merge@9.1.5(graphql@16.11.0)':
-    dependencies:
-      '@graphql-tools/utils': 10.10.3(graphql@16.11.0)
-      graphql: 16.11.0
-      tslib: 2.8.1
-
   '@graphql-tools/merge@9.1.7(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
@@ -9251,13 +9234,6 @@ snapshots:
     dependencies:
       '@ardatan/relay-compiler': 13.0.0(graphql@16.11.0)
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
-      graphql: 16.11.0
-      tslib: 2.8.1
-
-  '@graphql-tools/schema@10.0.29(graphql@16.11.0)':
-    dependencies:
-      '@graphql-tools/merge': 9.1.5(graphql@16.11.0)
-      '@graphql-tools/utils': 10.10.3(graphql@16.11.0)
       graphql: 16.11.0
       tslib: 2.8.1
 
@@ -9329,7 +9305,7 @@ snapshots:
   '@graphql-tools/wrap@11.1.9(graphql@16.11.0)':
     dependencies:
       '@graphql-tools/delegate': 12.0.9(graphql@16.11.0)
-      '@graphql-tools/schema': 10.0.29(graphql@16.11.0)
+      '@graphql-tools/schema': 10.0.31(graphql@16.11.0)
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
       '@whatwg-node/promise-helpers': 1.3.2
       graphql: 16.11.0
@@ -12271,7 +12247,7 @@ snapshots:
       string.prototype.matchall: 4.0.12
       string.prototype.repeat: 1.0.0
 
-  eslint-plugin-regexp@3.0.0(eslint@9.39.4(jiti@2.5.1)):
+  eslint-plugin-regexp@3.1.0(eslint@9.39.4(jiti@2.5.1)):
     dependencies:
       '@eslint-community/eslint-utils': 4.8.0(eslint@9.39.4(jiti@2.5.1))
       '@eslint-community/regexpp': 4.12.1
@@ -13556,7 +13532,7 @@ snapshots:
       '@graphql-tools/graphql-file-loader': 8.1.12(graphql@16.11.0)
       '@graphql-tools/json-file-loader': 8.0.26(graphql@16.11.0)
       '@graphql-tools/load': 8.1.8(graphql@16.11.0)
-      '@graphql-tools/merge': 9.1.5(graphql@16.11.0)
+      '@graphql-tools/merge': 9.1.7(graphql@16.11.0)
       '@graphql-tools/url-loader': 9.0.6(@types/node@22.19.15)(graphql@16.11.0)
       '@graphql-tools/utils': 11.0.0(graphql@16.11.0)
       cosmiconfig: 8.3.6(typescript@5.9.3)
