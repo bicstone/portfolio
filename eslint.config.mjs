@@ -34,7 +34,6 @@ export default [
   {
     languageOptions: {
       parserOptions: {
-        project: "./tsconfig.json",
         ecmaFeatures: {
           jsx: true,
         },

@@ -3,7 +3,7 @@
  */
 
 export const convertKatakanaToHiragana = (src: string): string =>
-  src.replace(/[\u30a1-\u30f6]/g, (match) => {
+  src.replace(/[\u30a1-\u30f6]/gv, (match) => {
     const chr = match.charCodeAt(0) - 0x60;
     return String.fromCharCode(chr);
   });
@@ -13,7 +13,7 @@ export const convertKatakanaToHiragana = (src: string): string =>
  */
 
 export const convertHiraganaToKatakana = (src: string): string =>
-  src.replace(/[\u3041-\u3096]/g, (match) => {
+  src.replace(/[\u3041-\u3096]/gv, (match) => {
     const chr = match.charCodeAt(0) + 0x60;
     return String.fromCharCode(chr);
   });
