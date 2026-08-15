@@ -111,8 +111,7 @@ export const BioCardList = (): React.JSX.Element => {
         <div
           css={(theme) => ({
             alignItems: "end",
-            background:
-              "linear-gradient(0, #fff, #fff 20%, hsla(0, 0%, 100%, 0));",
+            background: `linear-gradient(0, ${theme.vars.palette.background.default}, ${theme.vars.palette.background.default} 20%, transparent)`,
             bottom: 0,
             display: "flex",
             height: theme.spacing(11),

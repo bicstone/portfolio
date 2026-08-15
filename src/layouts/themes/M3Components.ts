@@ -97,10 +97,10 @@ export const m3Components: Components<Omit<Theme, "palette">> = {
         ),
       }),
       colorPrimary: ({ theme }) => ({
-        background: theme.vars.palette.surfaceVariant.main,
-        [theme.getColorSchemeSelector("dark")]: {
-          background: theme.vars.palette.surfaceVariant.main,
-        },
+        // M3 の Top app bar はスクロール時に surfaceContainer へ変化する。
+        // surfaceContainer は surface に surfaceTint (= primary) を重ねた色に相当する。
+        backgroundColor: theme.vars.palette.surface.main,
+        backgroundImage: `linear-gradient(rgba(${theme.vars.palette.primary.mainChannel} / 0.08), rgba(${theme.vars.palette.primary.mainChannel} / 0.08))`,
         color: theme.vars.palette.surface.contrastText,
         transition: theme.transitions.create(
           ["background-color", "box-shadow", "color"],

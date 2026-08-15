@@ -118,20 +118,23 @@ export const TimelineSearchModal = (props: {
           value={inputValueSync}
           margin="dense"
           color="secondary"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-          inputProps={{
-            autoComplete: "off",
-            "aria-controls": listId,
-            enterKeyHint: "search",
-          }}
           onChange={handleChange}
           css={(theme) => ({ padding: theme.spacing(0, 3), flexShrink: 0 })}
+          slotProps={{
+            input: {
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            },
+
+            htmlInput: {
+              autoComplete: "off",
+              "aria-controls": listId,
+              enterKeyHint: "search",
+            },
+          }}
         />
         <Divider
           css={(theme) => ({

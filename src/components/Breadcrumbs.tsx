@@ -25,7 +25,12 @@ export const Breadcrumbs = (
       <Link component={RouterLink} color="inherit" to="/">
         <Typography variant="body2">{SITE_METADATA.title}</Typography>
       </Link>
-      <Typography variant="body2" color="text.primary">
+      <Typography
+        variant="body2"
+        sx={{
+          color: "text.primary",
+        }}
+      >
         {title}
       </Typography>
     </MuiBreadcrumbs>

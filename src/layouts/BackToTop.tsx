@@ -29,16 +29,15 @@ export const BackToTop = (): React.JSX.Element => {
           marginBottom: `env(safe-area-inset-bottom, 0px)`,
           right: theme.spacing(3),
           zIndex: theme.zIndex.tooltip,
-          border: `1px solid ${theme.vars.palette.divider}`,
+          // background.paper はページ背景 (background.default) と同色のため、
+          // surfaceTint を重ねた surfaceContainer 相当の色で背景から浮かせる
+          border: `1px solid color-mix(in srgb, ${theme.vars.palette.outline} 40%, transparent)`,
           borderRadius: theme.spacing(2),
-          color: theme.vars.palette.text.secondary,
-          backgroundColor: theme.vars.palette.background.paper,
-          [theme.getColorSchemeSelector("dark")]: {
-            border: `1px solid ${theme.vars.palette.common.white}`,
-            color: theme.vars.palette.text.primary,
-          },
+          color: theme.vars.palette.onSurfaceVariant.main,
+          backgroundColor: theme.vars.palette.surface.main,
+          backgroundImage: `linear-gradient(rgba(${theme.vars.palette.primary.mainChannel} / 0.08), rgba(${theme.vars.palette.primary.mainChannel} / 0.08))`,
           "&:hover": {
-            backgroundColor: theme.vars.palette.background.paper,
+            backgroundColor: theme.vars.palette.surface.main,
           },
         })}
       >
