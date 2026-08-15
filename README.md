@@ -1,13 +1,10 @@
-# Oishi Takanori (@bicstone) ポートフォリオ & ブログ
+# Oishi Takanori (@bicstone) ポートフォリオ
 
 ![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-cloudflare.yml/badge.svg?branch=main)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)
 [![Javascript Standard Style を採用しています](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-2020 年に作成したポートフォリオサイトです。  
-~~2022 年には、ブログ機能を追加しました。~~ 2024 年に削除
-
-![PC・タブレット・スマホでポートフォリオサイトを表示した写真、マルチプラットフォームに対応したことを示す図](./docs/readme-images/portfolio.jpg)
+2020 年に作成したポートフォリオサイトです。
 
 ## 構成
 
