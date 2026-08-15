@@ -23,7 +23,6 @@ export const HeadTemplate = (props: {
     type,
   } = props;
 
-  const isAllPagesToNoIndex = process.env.ALL_PAGES_TO_NO_INDEX === "true";
   const canonical = `${SITE_METADATA.siteUrl}${location.pathname}`;
 
   return (
@@ -74,17 +73,8 @@ export const HeadTemplate = (props: {
       {/* SEO */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      {isAllPagesToNoIndex ? (
-        <>
-          <meta name="robots" content="noindex,follow" />
-          <meta name="googlebot" content="noindex,follow" />
-        </>
-      ) : (
-        <>
-          <meta name="robots" content="index,follow" />
-          <meta name="googlebot" content="index,follow" />
-        </>
-      )}
+      <meta name="robots" content="index,follow" />
+      <meta name="googlebot" content="index,follow" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
