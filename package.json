@@ -101,8 +101,5 @@
     "node": "24.19.0",
     "pnpm": "10.34.3"
   },
-  "packageManager": "pnpm@10.34.3",
-  "pnpm": {
-    "neverBuiltDependencies": []
-  }
+  "packageManager": "pnpm@10.34.3"
 }
