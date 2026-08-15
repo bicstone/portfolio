@@ -1,17 +1,15 @@
-# pnpm 11 以降、設定は package.json の pnpm フィールドではなく本ファイルから読み込まれる
-# see https://pnpm.io/settings
-
-# 依存パッケージのライフサイクルスクリプトはいずれも不要なため、実行を許可しない
-ignoredBuiltDependencies:
+onlyBuiltDependencies:
   - "@parcel/watcher"
-  - core-js
-  - core-js-pure
-  - es5-ext
   - esbuild
-  - gatsby
-  - gatsby-cli
-  - gatsby-plugin-fix-fouc
   - lmdb
   - msgpackr-extract
   - sharp
   - workerd
+
+ignoredBuiltDependencies:
+  - core-js
+  - core-js-pure
+  - es5-ext
+  - gatsby
+  - gatsby-cli
+  - gatsby-plugin-fix-fouc
