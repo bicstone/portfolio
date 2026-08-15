@@ -80,17 +80,19 @@ export const TimelineCardBase = ({
       <StyledCardActionArea {...linkProps}>
         <StyledCardHeader
           avatar={avatar}
-          titleTypographyProps={{
-            variant: "body1",
-            component: "h3",
-            fontWeight: "bold",
-          }}
           title={title}
-          subheaderTypographyProps={{
-            variant: "caption",
-            color: "text.secondary",
-          }}
           subheader={subTitle}
+          slotProps={{
+            title: {
+              variant: "body1",
+              component: "h3",
+              sx: { fontWeight: "bold" },
+            },
+            subheader: {
+              variant: "caption",
+              sx: { color: "text.secondary" },
+            },
+          }}
         />
       </StyledCardActionArea>
     </StyledCard>
