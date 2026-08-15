@@ -56,25 +56,49 @@ const IndexPage = ({ data }: PageProps<IndexPageQuery>): React.JSX.Element => {
       >
         <BioCardList />
         <Spacer y={6} />
-        <Typography variant="h5" component="h2" fontWeight="bold">
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
           Featured
         </Typography>
         <Spacer y={6} />
         <FeaturedList />
         <Spacer y={6} />
-        <Typography variant="h5" component="h2" fontWeight="bold">
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
           Talks
         </Typography>
         <Spacer y={6} />
         <TalksList items={speakerDecksItems} />
         <Spacer y={6} />
-        <Typography variant="h5" component="h2" fontWeight="bold">
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
           Outputs
         </Typography>
         <Spacer y={6} />
         <TimelineVirtualizedList items={timelineItems} />
         <Spacer y={2} />
-        <Typography variant="h5" component="h2" fontWeight="bold">
+        <Typography
+          variant="h5"
+          component="h2"
+          sx={{
+            fontWeight: "bold",
+          }}
+        >
           Archived
         </Typography>
         <Spacer y={6} />

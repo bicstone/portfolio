@@ -25,46 +25,69 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-import type { ThemeOptions } from "@mui/material/styles";
+import type {
+  PaletteColor,
+  PaletteColorChannel,
+  ThemeOptions,
+} from "@mui/material/styles";
+
+/**
+ * cssVariables を有効にすると、MUI が palette の各色に mainChannel などの
+ * チャンネル値を生成する。theme.vars 経由で参照するために型にも含める。
+ */
+type M3PaletteColor = PaletteColor & PaletteColorChannel;
 
 declare module "@mui/material/styles" {
+  // useTheme.ts で createTheme({ cssVariables: true }) を使うため、
+  // theme.vars と theme.getColorSchemeSelector を型に含める
+  interface CssThemeVariables {
+    enabled: true;
+  }
+
+  interface ThemeOptions {
+    tones?: M3ThemeTones;
+  }
+  interface Theme {
+    tones?: M3ThemeTones;
+  }
+
   interface Palette {
     // primary: string,
-    onPrimary: PaletteColor;
+    onPrimary: M3PaletteColor;
 
-    primaryContainer: PaletteColor;
-    onPrimaryContainer: PaletteColor;
+    primaryContainer: M3PaletteColor;
+    onPrimaryContainer: M3PaletteColor;
 
     // secondary: string,
-    onSecondary: PaletteColor;
+    onSecondary: M3PaletteColor;
 
-    secondaryContainer: PaletteColor;
-    onSecondaryContainer: PaletteColor;
+    secondaryContainer: M3PaletteColor;
+    onSecondaryContainer: M3PaletteColor;
 
-    tertiary: PaletteColor;
-    onTertiary: PaletteColor;
+    tertiary: M3PaletteColor;
+    onTertiary: M3PaletteColor;
 
-    tertiaryContainer: PaletteColor;
-    onTertiaryContainer: PaletteColor;
+    tertiaryContainer: M3PaletteColor;
+    onTertiaryContainer: M3PaletteColor;
 
     // error: string,
-    onError: PaletteColor;
+    onError: M3PaletteColor;
 
-    errorContainer: PaletteColor;
-    onErrorContainer: PaletteColor;
+    errorContainer: M3PaletteColor;
+    onErrorContainer: M3PaletteColor;
 
-    background2: PaletteColor;
-    onBackground: PaletteColor;
+    background2: M3PaletteColor;
+    onBackground: M3PaletteColor;
 
-    surface: PaletteColor;
-    onSurface: PaletteColor;
+    surface: M3PaletteColor;
+    onSurface: M3PaletteColor;
 
-    surfaceVariant: PaletteColor;
-    onSurfaceVariant: PaletteColor;
+    surfaceVariant: M3PaletteColor;
+    onSurfaceVariant: M3PaletteColor;
 
-    inverseSurface: PaletteColor;
-    inverseOnSurface: PaletteColor;
-    inversePrimary: PaletteColor;
+    inverseSurface: M3PaletteColor;
+    inverseOnSurface: M3PaletteColor;
+    inversePrimary: M3PaletteColor;
 
     surfaceTint: string;
 
@@ -114,14 +137,6 @@ declare module "@mui/material/styles" {
 
     outline?: string;
     shadow?: string;
-  }
-}
-declare module "@mui/material/styles/createTheme" {
-  interface ThemeOptions {
-    tones?: M3ThemeTones;
-  }
-  interface Theme {
-    tones?: M3ThemeTones;
   }
 }
 declare module "@mui/material/Button" {
@@ -359,5 +374,6 @@ export const getDesignTokens = (
       },
       divider: scheme.outline,
     },
+
     tones,
   }) as ThemeOptions;

@@ -99,12 +99,24 @@ const OutputsPage = ({
     >
       <Breadcrumbs title={title} />
       <Spacer y={6} />
-      <Typography variant="h5" component="h2" fontWeight="bold">
+      <Typography
+        variant="h5"
+        component="h2"
+        sx={{
+          fontWeight: "bold",
+        }}
+      >
         Outputs
       </Typography>
       <TimelineList groups={outputGroups} />
       <Spacer y={6} />
-      <Typography variant="h5" component="h2" fontWeight="bold">
+      <Typography
+        variant="h5"
+        component="h2"
+        sx={{
+          fontWeight: "bold",
+        }}
+      >
         Archived
       </Typography>
       <Spacer y={4} />

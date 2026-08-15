@@ -15,7 +15,7 @@ const IframeContainer = styled("div")(({ theme }) => ({
   width: "100%",
   paddingTop: "56.25%", // 16:9 aspect ratio
   overflow: "hidden",
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius: `calc(${theme.vars.shape.borderRadius} * 2)`,
 }));
 
 const StyledIframe = styled("iframe")({

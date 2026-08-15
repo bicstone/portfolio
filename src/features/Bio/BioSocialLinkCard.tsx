@@ -60,7 +60,6 @@ export const BioSocialLinkCard = ({
         <Typography
           variant="body2"
           component="h2"
-          fontWeight="bold"
           css={(theme) => ({
             [theme.breakpoints.down("sm")]: {
               fontSize: theme.typography.caption.fontSize,
@@ -69,17 +68,22 @@ export const BioSocialLinkCard = ({
               whiteSpace: "nowrap",
             },
           })}
+          sx={{
+            fontWeight: "bold",
+          }}
         >
           {title}
         </Typography>
         <Typography
           variant="caption"
-          color="text.secondary"
           css={(theme) => ({
             [theme.breakpoints.down("sm")]: {
               display: "none",
             },
           })}
+          sx={{
+            color: "text.secondary",
+          }}
         >
           {subTitle}
         </Typography>

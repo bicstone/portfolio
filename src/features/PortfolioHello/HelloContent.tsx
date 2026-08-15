@@ -8,12 +8,16 @@ import { BicstoneIcon } from "@/components/icons/BicstoneIcon";
 import { SITE_METADATA } from "@/constants/SITE_METADATA";
 
 export const HelloContent = (): React.JSX.Element => (
-  <Grid container spacing={2} justifyContent="center" alignItems="center">
+  <Grid
+    container
+    spacing={2}
+    sx={{
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
     <Grid
-      item
-      xs={12}
-      sm={3}
-      md={2}
+      size={{ xs: 12, sm: 3, md: 2 }}
       component="aside"
       css={{ textAlign: "center" }}
     >
@@ -26,7 +30,7 @@ export const HelloContent = (): React.JSX.Element => (
         })}
       />
     </Grid>
-    <Grid item xs={12} sm={9} md={10}>
+    <Grid size={{ xs: 12, sm: 9, md: 10 }}>
       <Card variant="elevation">
         <CardActionArea
           href={SITE_METADATA.profileLink}
@@ -41,8 +45,10 @@ export const HelloContent = (): React.JSX.Element => (
               <Typography
                 component="h2"
                 variant="h6"
-                fontWeight="bold"
                 gutterBottom
+                sx={{
+                  fontWeight: "bold",
+                }}
               >
                 大石 貴則 (@bicstone)
               </Typography>
@@ -52,8 +58,10 @@ export const HelloContent = (): React.JSX.Element => (
                 <Typography
                   variant="body2"
                   component="h2"
-                  color="text.secondary"
                   gutterBottom
+                  sx={{
+                    color: "text.secondary",
+                  }}
                 >
                   Webエンジニア ･ Certified ScrumMaster ･ アマチュア技術広報 ･
                   電気工事士 ･

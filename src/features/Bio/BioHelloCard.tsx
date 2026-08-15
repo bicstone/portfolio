@@ -21,8 +21,10 @@ export const BioHelloCard = (props: CardProps): React.JSX.Element => (
           <Typography
             component="h2"
             variant="h6"
-            fontWeight="bold"
             gutterBottom
+            sx={{
+              fontWeight: "bold",
+            }}
           >
             {TRANSLATION.hello.title}
           </Typography>
@@ -32,7 +34,6 @@ export const BioHelloCard = (props: CardProps): React.JSX.Element => (
             <Typography
               variant="body2"
               component="h2"
-              color="text.secondary"
               css={(theme) => ({
                 display: "-webkit-box",
                 maxHeight: "5rem",
@@ -43,6 +44,9 @@ export const BioHelloCard = (props: CardProps): React.JSX.Element => (
                 WebkitLineClamp: 4,
                 wordBreak: "break-all",
               })}
+              sx={{
+                color: "text.secondary",
+              }}
             >
               Webエンジニア ･ Certified ScrumMaster ･ アマチュア技術広報 ･
               電気工事士 ･

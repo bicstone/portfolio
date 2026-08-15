@@ -26,7 +26,13 @@ const NotFound = (): React.JSX.Element => (
           height: theme.spacing(20),
         })}
       />
-      <Typography variant="h4" component="h1" paragraph>
+      <Typography
+        variant="h4"
+        component="h1"
+        sx={{
+          marginBottom: "16px",
+        }}
+      >
         {TRANSLATION.notFound.title}
       </Typography>
       <Typography variant="body1">

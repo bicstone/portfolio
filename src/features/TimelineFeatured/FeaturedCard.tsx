@@ -3,7 +3,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- mui types are not compatible with emotion
 const StyledCardActionArea = styled(CardActionArea)(({ theme }) => ({
-  borderRadius: theme.shape.borderRadius * 2,
+  borderRadius: `calc(${theme.vars.shape.borderRadius} * 2)`,
   boxShadow: theme.shadows[1],
   display: "block",
   height: 0,

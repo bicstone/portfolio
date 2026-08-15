@@ -58,7 +58,9 @@ export const Header = (): React.JSX.Element => {
               color="textPrimary"
               variant="h6"
               component="h1"
-              fontWeight="bold"
+              sx={{
+                fontWeight: "bold",
+              }}
             >
               大石 貴則 (@bicstone)
             </Typography>

@@ -1,4 +1,4 @@
-import createExtendTheme from "@mui/material/styles/experimental_extendTheme";
+import { createTheme } from "@mui/material/styles";
 import { useMemo } from "react";
 
 import { m3Components } from "./M3Components";
@@ -6,20 +6,16 @@ import { getDesignTokens } from "./M3Theme";
 import { FONT_FAMILY } from "./constants";
 import { darkColorTokens, lightColorTokens } from "./defaultColorTokens";
 
-import type { CssVarsTheme, Theme } from "@mui/material/styles";
+import type { Theme } from "@mui/material/styles";
 
-// css vars types
-import type {} from "@mui/material/themeCssVarsAugmentation";
-
-export type CustomTheme = Omit<Theme, "palette"> & CssVarsTheme;
-
-export const useTheme = (): CustomTheme => {
+export const useTheme = (): Theme => {
   const lightTheme = getDesignTokens("light", lightColorTokens);
   const darkTheme = getDesignTokens("dark", darkColorTokens);
 
   const theme = useMemo(
     () =>
-      createExtendTheme({
+      createTheme({
+        cssVariables: true,
         colorSchemes: {
           light: {
             palette: {

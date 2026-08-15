@@ -1,6 +1,6 @@
 import { ThemeProvider as EmotionThemeProvider, Global } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles/CssVarsProvider";
+import { ThemeProvider } from "@mui/material/styles";
 
 import { FONT_FAMILY } from "./constants";
 import { useTheme } from "./useTheme";
@@ -24,7 +24,7 @@ export const CustomThemeProvider = ({
 
   return (
     <EmotionThemeProvider theme={theme}>
-      <CssVarsProvider
+      <ThemeProvider
         defaultMode="light"
         modeStorageKey="mui-mode-disabled"
         theme={theme}
@@ -52,7 +52,7 @@ export const CustomThemeProvider = ({
         />
         <CssBaseline />
         {children}
-      </CssVarsProvider>
+      </ThemeProvider>
     </EmotionThemeProvider>
   );
 };
