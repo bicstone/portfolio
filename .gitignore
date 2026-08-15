@@ -177,3 +177,8 @@ Temporary Items
 
 # text lint
 .textlintcache
+
+# wrangler (Cloudflare Workers)
+.wrangler/
+.dev.vars
+.dev.vars.*

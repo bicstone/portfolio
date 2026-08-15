@@ -20,8 +20,6 @@ declare global {
 
 dotenv.config({ path: `.env` });
 
-const pathPrefix = process.env.PATH_PREFIX ?? "/";
-const trailingSlash = "never";
 const contentPaths = [
   "speakerdeck",
   "zenn",
@@ -33,8 +31,7 @@ const contentPaths = [
 ];
 
 const config: GatsbyConfig = {
-  trailingSlash,
-  pathPrefix,
+  trailingSlash: "never",
 
   siteMetadata: {
     title: SITE_METADATA.title,
@@ -106,16 +103,6 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-remove-serviceworker`,
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-        bucketName: process.env.AWS_S3_BUCKET_NAME,
-        region: process.env.AWS_REGION,
-        protocol: "https",
-        hostname: new URL(SITE_METADATA.siteUrl).hostname,
-        acl: null,
-      },
-    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-sitemap`,

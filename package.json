@@ -14,7 +14,8 @@
     "format": "prettier --cache --write .",
     "graphql": "graphql-codegen",
     "typecheck": "tsc -p . --noEmit",
-    "deploy": "gatsby-plugin-s3 deploy",
+    "cloudflare:dev": "wrangler dev",
+    "cloudflare:deploy": "wrangler deploy",
     "prepare": "husky",
     "preinstall": "npx only-allow pnpm"
   },
@@ -38,7 +39,6 @@
     "gatsby-plugin-google-tagmanager": "5.16.0",
     "gatsby-plugin-image": "3.16.0",
     "gatsby-plugin-remove-serviceworker": "1.0.0",
-    "gatsby-plugin-s3": "0.4.1",
     "gatsby-plugin-sharp": "5.16.0",
     "gatsby-plugin-sitemap": "6.16.0",
     "gatsby-source-filesystem": "5.16.0",
@@ -74,7 +74,8 @@
     "globals": "17.5.0",
     "husky": "9.1.7",
     "prettier": "3.8.3",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "4.123.0"
   },
   "repository": {
     "type": "git",

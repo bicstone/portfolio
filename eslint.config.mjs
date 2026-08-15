@@ -103,6 +103,7 @@ export default [
   {
     ignores: [
       ".cache/",
+      ".wrangler/",
       "pnpm-lock.yaml",
       "public/",
       "src/generated/",
