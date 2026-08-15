@@ -4,13 +4,23 @@
     {
       "groupName": "dependencies",
       "matchDepTypes": ["dependencies"],
-      "matchPackagePatterns": ["*"],
+      "matchPackageNames": ["*"],
       "matchUpdateTypes": ["minor", "patch"]
     },
     {
       "groupName": "dependencies",
-      "matchPackagePrefixes": ["@mui/lab"],
+      "matchPackageNames": ["@mui/lab{/,}**"],
       "matchUpdateTypes": ["major", "minor", "patch"]
+    },
+    {
+      "description": "eslint-plugin-react と eslint-plugin-jsx-a11y が ESLint v10 に未対応のため、対応されるまで v9 系に固定する",
+      "matchPackageNames": ["eslint", "@eslint/js"],
+      "allowedVersions": "<10"
+    },
+    {
+      "description": "typescript-eslint の peerDependencies が typescript >=4.8.4 <6.1.0 のため、対応されるまで v6.0 系に固定する",
+      "matchPackageNames": ["typescript"],
+      "allowedVersions": "<6.1"
     }
   ]
 }
