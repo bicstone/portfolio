@@ -1,15 +1,15 @@
-onlyBuiltDependencies:
-  - "@parcel/watcher"
-  - esbuild
-  - lmdb
-  - msgpackr-extract
-  - sharp
-  - workerd
+minimumReleaseAge: 10080
 
-ignoredBuiltDependencies:
-  - core-js
-  - core-js-pure
-  - es5-ext
-  - gatsby
-  - gatsby-cli
-  - gatsby-plugin-fix-fouc
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  sharp: true
+  workerd: true
+  core-js: false
+  core-js-pure: false
+  es5-ext: false
+  gatsby: false
+  gatsby-cli: false
+  gatsby-plugin-fix-fouc: false
