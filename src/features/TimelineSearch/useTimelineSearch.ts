@@ -1,6 +1,6 @@
 import Fuse, { type Expression, type FuseResult } from "fuse.js";
 import { useStaticQuery, graphql } from "gatsby";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 import type { Search, UseSearchQuery } from "@/generated/graphqlTypes";
 
@@ -15,7 +15,6 @@ export const useTimelineSearch = (props: {
   readonly result?: Array<FuseResult<SearchResult>>;
 } => {
   const { keyword } = props;
-  const [fuse, setFuse] = useState<Fuse<SearchResult>>();
 
   const data = useStaticQuery<UseSearchQuery>(graphql`
     query UseSearch {
@@ -31,17 +30,17 @@ export const useTimelineSearch = (props: {
   `);
   const searchItems = data.allSearch.nodes;
 
-  useEffect(() => {
-    setFuse(
+  const fuse = useMemo(
+    () =>
       new Fuse(searchItems, {
         findAllMatches: true,
         ignoreLocation: true,
         keys: ["title", "excerpt", "url", "slug"],
       }),
-    );
-  }, [searchItems]);
+    [searchItems],
+  );
 
-  const result = fuse?.search(keyword);
+  const result = fuse.search(keyword);
 
   return { result } as const;
 };
