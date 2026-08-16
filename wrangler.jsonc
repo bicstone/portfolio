@@ -3,7 +3,7 @@
   "name": "portfolio",
   "compatibility_date": "2026-08-15",
   "workers_dev": false,
-  "preview_urls": false,
+  "preview_urls": true,
   "routes": [{ "pattern": "bicstone.me", "custom_domain": true }],
   "assets": {
     "directory": "./public",
