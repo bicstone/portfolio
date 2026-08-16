@@ -105,6 +105,29 @@ const Container = forwardRef<
 
 Container.displayName = "Container";
 
+interface FallBackProps {
+  minHeightSingleColumn: number;
+  minHeightDoubleColumn: number;
+}
+
+const FallBack = ({
+  minHeightSingleColumn,
+  minHeightDoubleColumn,
+}: FallBackProps): React.JSX.Element => (
+  <div
+    aria-busy="true"
+    css={(theme) => ({
+      // prevent flickering caused by virtual scrolling
+      height: minHeightDoubleColumn,
+      minHeight: minHeightDoubleColumn,
+      [theme.breakpoints.down("md")]: {
+        height: minHeightSingleColumn,
+        minHeight: minHeightSingleColumn,
+      },
+    })}
+  />
+);
+
 export interface TimelineVirtualizedListProps {
   items:
     | TimelineVirtualizedListTimelineFragment
@@ -117,23 +140,16 @@ export const TimelineVirtualizedList = ({
   const minHeightSingleColumn = (CARD_HEIGHT + 24) * (items.nodes.length + 1);
   const minHeightDoubleColumn = minHeightSingleColumn / 2;
 
-  const FallBack = (): React.JSX.Element => (
-    <div
-      aria-busy="true"
-      css={(theme) => ({
-        // prevent flickering caused by virtual scrolling
-        height: minHeightDoubleColumn,
-        minHeight: minHeightDoubleColumn,
-        [theme.breakpoints.down("md")]: {
-          height: minHeightSingleColumn,
-          minHeight: minHeightSingleColumn,
-        },
-      })}
-    />
-  );
-
   return (
-    <NoSsr defer fallback={<FallBack />}>
+    <NoSsr
+      defer
+      fallback={
+        <FallBack
+          minHeightSingleColumn={minHeightSingleColumn}
+          minHeightDoubleColumn={minHeightDoubleColumn}
+        />
+      }
+    >
       <VirtuosoGrid
         data={[...items.nodes]}
         components={{
