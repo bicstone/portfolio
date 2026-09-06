@@ -61,7 +61,7 @@
     "@types/js-yaml": "4.0.9",
     "@types/node": "24.13.3",
     "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.4",
+    "@types/react-dom": "19.2.5",
     "dotenv": "17.4.2",
     "eslint": "9.39.5",
     "eslint-config-love": "154.1.0",
@@ -74,7 +74,7 @@
     "husky": "9.1.7",
     "prettier": "3.9.6",
     "typescript": "6.0.3",
-    "wrangler": "4.125.0"
+    "wrangler": "4.127.1"
   },
   "repository": {
     "type": "git",
