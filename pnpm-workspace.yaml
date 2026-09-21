@@ -13,3 +13,4 @@ allowBuilds:
   gatsby: false
   gatsby-cli: false
   gatsby-plugin-fix-fouc: false
+  unrs-resolver: false
