@@ -1,8 +1,10 @@
 import love from "eslint-config-love";
+import importX from "eslint-plugin-import-x";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import regexp from "eslint-plugin-regexp";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import reactPackageJson from "react/package.json" with { type: "json" };
 
 const files = ["**/*.js", "**/*.ts", "**/*.tsx"];
 
@@ -40,12 +42,13 @@ export default [
       },
     },
     plugins: {
+      "import-x": importX,
       "react-hooks": reactHooks,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
       // import order
-      "import/order": [
+      "import-x/order": [
         "error",
         {
           groups: [
@@ -95,7 +98,7 @@ export default [
     },
     settings: {
       react: {
-        version: "detect",
+        version: reactPackageJson.version,
       },
     },
     files,
