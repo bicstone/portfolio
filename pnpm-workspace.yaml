@@ -1,5 +1,32 @@
 minimumReleaseAge: 10080
 
+# Gatsby が .cache にコピーするランタイム (gatsby/cache-dir, dev-404-page) は gatsby の依存をプロジェクトルートから解決する。
+# Gatsby の CacheFolderResolver は NODE_PATH に `node_modules/.pnpm` が含まれるかで pnpm を判定するが、
+# pnpm 12.3.4 より後の版 (少なくとも 12.12.1 以降) は bin シムが `node_modules/.bin/../.pnpm` 形式の NODE_PATH を設定するため判定が外れ、ビルドが失敗する。
+# 判定に依存しないよう、cache-dir が参照する依存をルートに hoist する。Gatsby を廃止したら削除する。
+publicHoistPattern:
+  - "@gatsbyjs/reach-router"
+  - "@gatsbyjs/webpack-hot-middleware"
+  - anser
+  - css.escape
+  - deepmerge
+  - error-stack-parser
+  - event-source-polyfill
+  - fs-extra
+  - gatsby-core-utils
+  - gatsby-legacy-polyfills
+  - gatsby-link
+  - gatsby-react-router-scroll
+  - gatsby-script
+  - lodash
+  - mitt
+  - node-html-parser
+  - platform
+  - prop-types
+  - query-string
+  - shallow-compare
+  - style-to-object
+
 allowBuilds:
   "@parcel/watcher": true
   esbuild: true
