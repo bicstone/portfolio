@@ -65,7 +65,7 @@
     "dotenv": "18.0.9",
     "eslint": "10.14.0",
     "eslint-config-love": "158.0.0",
-    "eslint-plugin-import-x": "4.17.1",
+    "eslint-plugin-import-x": "4.18.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
@@ -74,7 +74,7 @@
     "husky": "9.1.7",
     "prettier": "3.9.10",
     "typescript": "6.0.3",
-    "wrangler": "4.156.0"
+    "wrangler": "4.158.0"
   },
   "repository": {
     "type": "git",
