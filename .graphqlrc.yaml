@@ -18,3 +18,5 @@ extensions:
       preResolveTypes: false
       maybeValue: T
       immutableTypes: true
+      scalars:
+        Date: string
