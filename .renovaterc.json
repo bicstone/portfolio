@@ -16,6 +16,11 @@
       "description": "typescript-eslint の peerDependencies が typescript >=4.8.4 <6.1.0 のため、対応されるまで v6.0 系に固定する",
       "matchPackageNames": ["typescript"],
       "allowedVersions": "<6.1"
+    },
+    {
+      "description": "Gatsby が Node.js v26 に対応していないため、対応されるまで Node.js と @types/node を v24 系に固定する",
+      "matchPackageNames": ["node", "@types/node"],
+      "allowedVersions": "<25"
     }
   ]
 }
