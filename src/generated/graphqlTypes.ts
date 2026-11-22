@@ -1,10 +1,9 @@
+/** Internal type. DO NOT USE DIRECTLY. */
+type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+/** Internal type. DO NOT USE DIRECTLY. */
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 export type Maybe<T> = T;
 export type InputMaybe<T> = T;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
-export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: { input: string; output: string; }
@@ -12,9 +11,9 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  Date: { input: any; output: any; }
-  GatsbyImageData: { input: any; output: any; }
-  JSON: { input: any; output: any; }
+  Date: { input: string; output: string; }
+  GatsbyImageData: { input: unknown; output: unknown; }
+  JSON: { input: unknown; output: unknown; }
 };
 
 export type AvifOptions = {
@@ -2555,7 +2554,6 @@ export type Query = {
   readonly allSitePlugin: SitePluginConnection;
   readonly allSlidesYaml: SlidesYamlConnection;
   readonly allSpeakerDecksYaml: SpeakerDecksYamlConnection;
-  readonly allStaticImage: StaticImageConnection;
   readonly allTimeline: TimelineConnection;
   readonly articlesYaml: Maybe<ArticlesYaml>;
   readonly directory: Maybe<Directory>;
@@ -2575,7 +2573,6 @@ export type Query = {
   readonly sitePlugin: Maybe<SitePlugin>;
   readonly slidesYaml: Maybe<SlidesYaml>;
   readonly speakerDecksYaml: Maybe<SpeakerDecksYaml>;
-  readonly staticImage: Maybe<StaticImage>;
   readonly timeline: Maybe<Timeline>;
 };
 
@@ -2721,14 +2718,6 @@ export type QueryAllSpeakerDecksYamlArgs = {
   limit: InputMaybe<Scalars['Int']['input']>;
   skip: InputMaybe<Scalars['Int']['input']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SpeakerDecksYamlSortInput>>>;
-};
-
-
-export type QueryAllStaticImageArgs = {
-  filter: InputMaybe<StaticImageFilterInput>;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  skip: InputMaybe<Scalars['Int']['input']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<StaticImageSortInput>>>;
 };
 
 
@@ -3053,47 +3042,6 @@ export type QuerySpeakerDecksYamlArgs = {
   parent: InputMaybe<NodeFilterInput>;
   playerId: InputMaybe<StringQueryOperatorInput>;
   title: InputMaybe<StringQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryStaticImageArgs = {
-  absolutePath: InputMaybe<StringQueryOperatorInput>;
-  accessTime: InputMaybe<DateQueryOperatorInput>;
-  atime: InputMaybe<DateQueryOperatorInput>;
-  atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  base: InputMaybe<StringQueryOperatorInput>;
-  birthTime: InputMaybe<DateQueryOperatorInput>;
-  birthtime: InputMaybe<DateQueryOperatorInput>;
-  birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  blksize: InputMaybe<IntQueryOperatorInput>;
-  blocks: InputMaybe<IntQueryOperatorInput>;
-  changeTime: InputMaybe<DateQueryOperatorInput>;
-  children: InputMaybe<NodeFilterListInput>;
-  ctime: InputMaybe<DateQueryOperatorInput>;
-  ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  dev: InputMaybe<IntQueryOperatorInput>;
-  dir: InputMaybe<StringQueryOperatorInput>;
-  ext: InputMaybe<StringQueryOperatorInput>;
-  extension: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  ino: InputMaybe<FloatQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  mode: InputMaybe<IntQueryOperatorInput>;
-  modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  mtime: InputMaybe<DateQueryOperatorInput>;
-  mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  name: InputMaybe<StringQueryOperatorInput>;
-  nlink: InputMaybe<IntQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
-  prettySize: InputMaybe<StringQueryOperatorInput>;
-  rdev: InputMaybe<IntQueryOperatorInput>;
-  relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  relativePath: InputMaybe<StringQueryOperatorInput>;
-  root: InputMaybe<StringQueryOperatorInput>;
-  size: InputMaybe<IntQueryOperatorInput>;
-  sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  uid: InputMaybe<IntQueryOperatorInput>;
 };
 
 
@@ -4138,7 +4086,6 @@ export type SpeakerDecksYaml = Node & {
   readonly parent: Maybe<Node>;
   readonly playerId: Scalars['String']['output'];
   readonly title: Scalars['String']['output'];
-  readonly url: Scalars['String']['output'];
 };
 
 
@@ -4202,7 +4149,6 @@ export type SpeakerDecksYamlFieldSelector = {
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly playerId: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
-  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 export type SpeakerDecksYamlFilterInput = {
@@ -4213,7 +4159,6 @@ export type SpeakerDecksYamlFilterInput = {
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly playerId: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
-  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 export type SpeakerDecksYamlFilterListInput = {
@@ -4269,313 +4214,6 @@ export type SpeakerDecksYamlSortInput = {
   readonly parent: InputMaybe<NodeSortInput>;
   readonly playerId: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
-  readonly url: InputMaybe<SortOrderEnum>;
-};
-
-export type StaticImage = Node & {
-  readonly absolutePath: Maybe<Scalars['String']['output']>;
-  readonly accessTime: Maybe<Scalars['Date']['output']>;
-  readonly atime: Maybe<Scalars['Date']['output']>;
-  readonly atimeMs: Maybe<Scalars['Float']['output']>;
-  readonly base: Maybe<Scalars['String']['output']>;
-  readonly birthTime: Maybe<Scalars['Date']['output']>;
-  readonly birthtime: Maybe<Scalars['Date']['output']>;
-  readonly birthtimeMs: Maybe<Scalars['Float']['output']>;
-  readonly blksize: Maybe<Scalars['Int']['output']>;
-  readonly blocks: Maybe<Scalars['Int']['output']>;
-  readonly changeTime: Maybe<Scalars['Date']['output']>;
-  readonly children: ReadonlyArray<Node>;
-  readonly ctime: Maybe<Scalars['Date']['output']>;
-  readonly ctimeMs: Maybe<Scalars['Float']['output']>;
-  readonly dev: Maybe<Scalars['Int']['output']>;
-  readonly dir: Maybe<Scalars['String']['output']>;
-  readonly ext: Maybe<Scalars['String']['output']>;
-  readonly extension: Maybe<Scalars['String']['output']>;
-  readonly id: Scalars['ID']['output'];
-  readonly ino: Maybe<Scalars['Float']['output']>;
-  readonly internal: Internal;
-  readonly mode: Maybe<Scalars['Int']['output']>;
-  readonly modifiedTime: Maybe<Scalars['Date']['output']>;
-  readonly mtime: Maybe<Scalars['Date']['output']>;
-  readonly mtimeMs: Maybe<Scalars['Float']['output']>;
-  readonly name: Maybe<Scalars['String']['output']>;
-  readonly nlink: Maybe<Scalars['Int']['output']>;
-  readonly parent: Maybe<Node>;
-  readonly prettySize: Maybe<Scalars['String']['output']>;
-  readonly rdev: Maybe<Scalars['Int']['output']>;
-  readonly relativeDirectory: Maybe<Scalars['String']['output']>;
-  readonly relativePath: Maybe<Scalars['String']['output']>;
-  readonly root: Maybe<Scalars['String']['output']>;
-  readonly size: Maybe<Scalars['Int']['output']>;
-  readonly sourceInstanceName: Maybe<Scalars['String']['output']>;
-  readonly uid: Maybe<Scalars['Int']['output']>;
-};
-
-
-export type StaticImageAccessTimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageAtimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageBirthTimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageBirthtimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageChangeTimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageCtimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageModifiedTimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-
-export type StaticImageMtimeArgs = {
-  difference: InputMaybe<Scalars['String']['input']>;
-  formatString: InputMaybe<Scalars['String']['input']>;
-  fromNow: InputMaybe<Scalars['Boolean']['input']>;
-  locale: InputMaybe<Scalars['String']['input']>;
-};
-
-export type StaticImageConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
-  readonly edges: ReadonlyArray<StaticImageEdge>;
-  readonly group: ReadonlyArray<StaticImageGroupConnection>;
-  readonly max: Maybe<Scalars['Float']['output']>;
-  readonly min: Maybe<Scalars['Float']['output']>;
-  readonly nodes: ReadonlyArray<StaticImage>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']['output']>;
-  readonly totalCount: Scalars['Int']['output'];
-};
-
-
-export type StaticImageConnectionDistinctArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-export type StaticImageConnectionGroupArgs = {
-  field: StaticImageFieldSelector;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  skip: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type StaticImageConnectionMaxArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-export type StaticImageConnectionMinArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-export type StaticImageConnectionSumArgs = {
-  field: StaticImageFieldSelector;
-};
-
-export type StaticImageEdge = {
-  readonly next: Maybe<StaticImage>;
-  readonly node: StaticImage;
-  readonly previous: Maybe<StaticImage>;
-};
-
-export type StaticImageFieldSelector = {
-  readonly absolutePath: InputMaybe<FieldSelectorEnum>;
-  readonly accessTime: InputMaybe<FieldSelectorEnum>;
-  readonly atime: InputMaybe<FieldSelectorEnum>;
-  readonly atimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly base: InputMaybe<FieldSelectorEnum>;
-  readonly birthTime: InputMaybe<FieldSelectorEnum>;
-  readonly birthtime: InputMaybe<FieldSelectorEnum>;
-  readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly blksize: InputMaybe<FieldSelectorEnum>;
-  readonly blocks: InputMaybe<FieldSelectorEnum>;
-  readonly changeTime: InputMaybe<FieldSelectorEnum>;
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly ctime: InputMaybe<FieldSelectorEnum>;
-  readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly dev: InputMaybe<FieldSelectorEnum>;
-  readonly dir: InputMaybe<FieldSelectorEnum>;
-  readonly ext: InputMaybe<FieldSelectorEnum>;
-  readonly extension: InputMaybe<FieldSelectorEnum>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly ino: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly mode: InputMaybe<FieldSelectorEnum>;
-  readonly modifiedTime: InputMaybe<FieldSelectorEnum>;
-  readonly mtime: InputMaybe<FieldSelectorEnum>;
-  readonly mtimeMs: InputMaybe<FieldSelectorEnum>;
-  readonly name: InputMaybe<FieldSelectorEnum>;
-  readonly nlink: InputMaybe<FieldSelectorEnum>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly prettySize: InputMaybe<FieldSelectorEnum>;
-  readonly rdev: InputMaybe<FieldSelectorEnum>;
-  readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
-  readonly relativePath: InputMaybe<FieldSelectorEnum>;
-  readonly root: InputMaybe<FieldSelectorEnum>;
-  readonly size: InputMaybe<FieldSelectorEnum>;
-  readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
-  readonly uid: InputMaybe<FieldSelectorEnum>;
-};
-
-export type StaticImageFilterInput = {
-  readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
-  readonly accessTime: InputMaybe<DateQueryOperatorInput>;
-  readonly atime: InputMaybe<DateQueryOperatorInput>;
-  readonly atimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly base: InputMaybe<StringQueryOperatorInput>;
-  readonly birthTime: InputMaybe<DateQueryOperatorInput>;
-  readonly birthtime: InputMaybe<DateQueryOperatorInput>;
-  readonly birthtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly blksize: InputMaybe<IntQueryOperatorInput>;
-  readonly blocks: InputMaybe<IntQueryOperatorInput>;
-  readonly changeTime: InputMaybe<DateQueryOperatorInput>;
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly ctime: InputMaybe<DateQueryOperatorInput>;
-  readonly ctimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly dev: InputMaybe<IntQueryOperatorInput>;
-  readonly dir: InputMaybe<StringQueryOperatorInput>;
-  readonly ext: InputMaybe<StringQueryOperatorInput>;
-  readonly extension: InputMaybe<StringQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly ino: InputMaybe<FloatQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly mode: InputMaybe<IntQueryOperatorInput>;
-  readonly modifiedTime: InputMaybe<DateQueryOperatorInput>;
-  readonly mtime: InputMaybe<DateQueryOperatorInput>;
-  readonly mtimeMs: InputMaybe<FloatQueryOperatorInput>;
-  readonly name: InputMaybe<StringQueryOperatorInput>;
-  readonly nlink: InputMaybe<IntQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-  readonly prettySize: InputMaybe<StringQueryOperatorInput>;
-  readonly rdev: InputMaybe<IntQueryOperatorInput>;
-  readonly relativeDirectory: InputMaybe<StringQueryOperatorInput>;
-  readonly relativePath: InputMaybe<StringQueryOperatorInput>;
-  readonly root: InputMaybe<StringQueryOperatorInput>;
-  readonly size: InputMaybe<IntQueryOperatorInput>;
-  readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
-  readonly uid: InputMaybe<IntQueryOperatorInput>;
-};
-
-export type StaticImageGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']['output']>;
-  readonly edges: ReadonlyArray<StaticImageEdge>;
-  readonly field: Scalars['String']['output'];
-  readonly fieldValue: Maybe<Scalars['String']['output']>;
-  readonly group: ReadonlyArray<StaticImageGroupConnection>;
-  readonly max: Maybe<Scalars['Float']['output']>;
-  readonly min: Maybe<Scalars['Float']['output']>;
-  readonly nodes: ReadonlyArray<StaticImage>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']['output']>;
-  readonly totalCount: Scalars['Int']['output'];
-};
-
-
-export type StaticImageGroupConnectionDistinctArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-export type StaticImageGroupConnectionGroupArgs = {
-  field: StaticImageFieldSelector;
-  limit: InputMaybe<Scalars['Int']['input']>;
-  skip: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-export type StaticImageGroupConnectionMaxArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-export type StaticImageGroupConnectionMinArgs = {
-  field: StaticImageFieldSelector;
-};
-
-
-export type StaticImageGroupConnectionSumArgs = {
-  field: StaticImageFieldSelector;
-};
-
-export type StaticImageSortInput = {
-  readonly absolutePath: InputMaybe<SortOrderEnum>;
-  readonly accessTime: InputMaybe<SortOrderEnum>;
-  readonly atime: InputMaybe<SortOrderEnum>;
-  readonly atimeMs: InputMaybe<SortOrderEnum>;
-  readonly base: InputMaybe<SortOrderEnum>;
-  readonly birthTime: InputMaybe<SortOrderEnum>;
-  readonly birthtime: InputMaybe<SortOrderEnum>;
-  readonly birthtimeMs: InputMaybe<SortOrderEnum>;
-  readonly blksize: InputMaybe<SortOrderEnum>;
-  readonly blocks: InputMaybe<SortOrderEnum>;
-  readonly changeTime: InputMaybe<SortOrderEnum>;
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly ctime: InputMaybe<SortOrderEnum>;
-  readonly ctimeMs: InputMaybe<SortOrderEnum>;
-  readonly dev: InputMaybe<SortOrderEnum>;
-  readonly dir: InputMaybe<SortOrderEnum>;
-  readonly ext: InputMaybe<SortOrderEnum>;
-  readonly extension: InputMaybe<SortOrderEnum>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly ino: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly mode: InputMaybe<SortOrderEnum>;
-  readonly modifiedTime: InputMaybe<SortOrderEnum>;
-  readonly mtime: InputMaybe<SortOrderEnum>;
-  readonly mtimeMs: InputMaybe<SortOrderEnum>;
-  readonly name: InputMaybe<SortOrderEnum>;
-  readonly nlink: InputMaybe<SortOrderEnum>;
-  readonly parent: InputMaybe<NodeSortInput>;
-  readonly prettySize: InputMaybe<SortOrderEnum>;
-  readonly rdev: InputMaybe<SortOrderEnum>;
-  readonly relativeDirectory: InputMaybe<SortOrderEnum>;
-  readonly relativePath: InputMaybe<SortOrderEnum>;
-  readonly root: InputMaybe<SortOrderEnum>;
-  readonly size: InputMaybe<SortOrderEnum>;
-  readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
-  readonly uid: InputMaybe<SortOrderEnum>;
 };
 
 export type StringQueryOperatorInput = {
@@ -4758,395 +4396,96 @@ export type GatsbyPluginFeedQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GatsbyPluginFeedQuery = { readonly allTimeline: { readonly nodes: ReadonlyArray<
-      | (
-        { readonly __typename: 'ArticlesYaml' }
-        & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
-      )
-      | (
-        { readonly __typename: 'NotesYaml' }
-        & Pick<NotesYaml, 'url' | 'title' | 'date'>
-      )
-      | (
-        { readonly __typename: 'OthersYaml' }
-        & Pick<OthersYaml, 'url' | 'title' | 'date'>
-      )
-      | (
-        { readonly __typename: 'PresentationsYaml' }
-        & Pick<PresentationsYaml, 'url' | 'title' | 'date'>
-      )
-      | (
-        { readonly __typename: 'SlidesYaml' }
-        & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-      )
+      | { readonly __typename: 'ArticlesYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'NotesYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'OthersYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'PresentationsYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'SlidesYaml', readonly url: string, readonly title: string, readonly date: string }
     > } };
 
 export type GatsbyPluginSitemapQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GatsbyPluginSitemapQuery = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
+export type GatsbyPluginSitemapQuery = { readonly site: { readonly buildTime: string } };
 
 export type OnCreatePagesStatefullyQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OnCreatePagesStatefullyQuery = {
-    readonly timelineItems: { readonly nodes: ReadonlyArray<
-        | (
-          { readonly __typename: 'ArticlesYaml' }
-          & Pick<ArticlesYaml, 'url' | 'title' | 'date'>
-        )
-        | (
-          { readonly __typename: 'NotesYaml' }
-          & Pick<NotesYaml, 'url' | 'title' | 'date'>
-        )
-        | (
-          { readonly __typename: 'OthersYaml' }
-          & Pick<OthersYaml, 'url' | 'title' | 'date'>
-        )
-        | (
-          { readonly __typename: 'PresentationsYaml' }
-          & Pick<PresentationsYaml, 'url' | 'title' | 'date'>
-        )
-        | (
-          { readonly __typename: 'SlidesYaml' }
-          & Pick<SlidesYaml, 'url' | 'title' | 'date'>
-        )
-      > },
-    readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'title' | 'url'>> },
-  };
+export type OnCreatePagesStatefullyQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<
+      | { readonly __typename: 'ArticlesYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'NotesYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'OthersYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'PresentationsYaml', readonly url: string, readonly title: string, readonly date: string }
+      | { readonly __typename: 'SlidesYaml', readonly url: string, readonly title: string, readonly date: string }
+    > }, readonly qiitaItems: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly url: string }> } };
 
-export type TalkCardFragment = Pick<SpeakerDecksYaml, 'title' | 'playerId'>;
+export type TalkCardFragment = { readonly title: string, readonly playerId: string };
 
-export type TalksListFragment = { readonly nodes: ReadonlyArray<Pick<SpeakerDecksYaml, 'title' | 'playerId'>> };
+export type TalksListFragment = { readonly nodes: ReadonlyArray<{ readonly title: string, readonly playerId: string }> };
 
-export type TimelineArticleCardFragment = Pick<ArticlesYaml, 'title' | 'date' | 'url'>;
+export type TimelineArticleCardFragment = { readonly title: string, readonly date: string, readonly url: string };
 
-export type TimelineItemCardFragment = Pick<QiitaJson, 'title' | 'url'>;
+export type TimelineItemCardFragment = { readonly title: string, readonly url: string };
 
-export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<(
-    { dateYear: TimelineGroupConnection['fieldValue'] }
-    & { readonly nodes: ReadonlyArray<
-      | (
-        { readonly __typename: 'ArticlesYaml' }
-        & Pick<
-          ArticlesYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'NotesYaml' }
-        & Pick<
-          NotesYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'OthersYaml' }
-        & Pick<
-          OthersYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'PresentationsYaml' }
-        & Pick<
-          PresentationsYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'SlidesYaml' }
-        & Pick<
-          SlidesYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-    > }
-  )> };
+export type TimelineListTimelineFragment = { readonly group: ReadonlyArray<{ readonly dateYear: string, readonly nodes: ReadonlyArray<
+      | { readonly __typename: 'ArticlesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'NotesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'OthersYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'PresentationsYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'SlidesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+    > }> };
 
-export type TimelineListOutputFragment = { readonly group: ReadonlyArray<(
-    { dateYear: OutputGroupConnection['fieldValue'] }
-    & { readonly nodes: ReadonlyArray<
-      | (
-        { readonly __typename: 'ArticlesYaml' }
-        & Pick<
-          ArticlesYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'NotesYaml' }
-        & Pick<
-          NotesYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'OthersYaml' }
-        & Pick<
-          OthersYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'PresentationsYaml' }
-        & Pick<
-          PresentationsYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-      | (
-        { readonly __typename: 'SlidesYaml' }
-        & Pick<
-          SlidesYaml,
-          | 'id'
-          | 'title'
-          | 'date'
-          | 'url'
-        >
-      )
-    > }
-  )> };
+export type TimelineListOutputFragment = { readonly group: ReadonlyArray<{ readonly dateYear: string, readonly nodes: ReadonlyArray<
+      | { readonly __typename: 'ArticlesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'NotesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'OthersYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'PresentationsYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      | { readonly __typename: 'SlidesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+    > }> };
 
-export type TimelineNoteCardFragment = Pick<NotesYaml, 'title' | 'date' | 'url'>;
+export type TimelineNoteCardFragment = { readonly title: string, readonly date: string, readonly url: string };
 
-export type TimelineOtherCardFragment = Pick<OthersYaml, 'title' | 'date' | 'url'>;
+export type TimelineOtherCardFragment = { readonly title: string, readonly date: string, readonly url: string };
 
-export type TimelinePresentationCardFragment = Pick<PresentationsYaml, 'title' | 'date' | 'url'>;
+export type TimelinePresentationCardFragment = { readonly title: string, readonly date: string, readonly url: string };
 
-export type TimelineSlideCardFragment = Pick<SlidesYaml, 'title' | 'date' | 'url'>;
+export type TimelineSlideCardFragment = { readonly title: string, readonly date: string, readonly url: string };
 
 export type TimelineVirtualizedListTimelineFragment = { readonly nodes: ReadonlyArray<
-    | (
-      { readonly __typename: 'ArticlesYaml' }
-      & Pick<
-        ArticlesYaml,
-        | 'id'
-        | 'title'
-        | 'date'
-        | 'url'
-      >
-      & { dateX: ArticlesYaml['date'] }
-    )
-    | (
-      { readonly __typename: 'NotesYaml' }
-      & Pick<
-        NotesYaml,
-        | 'id'
-        | 'title'
-        | 'date'
-        | 'url'
-      >
-      & { dateX: NotesYaml['date'] }
-    )
-    | (
-      { readonly __typename: 'OthersYaml' }
-      & Pick<
-        OthersYaml,
-        | 'id'
-        | 'title'
-        | 'date'
-        | 'url'
-      >
-      & { dateX: OthersYaml['date'] }
-    )
-    | (
-      { readonly __typename: 'PresentationsYaml' }
-      & Pick<
-        PresentationsYaml,
-        | 'id'
-        | 'title'
-        | 'date'
-        | 'url'
-      >
-      & { dateX: PresentationsYaml['date'] }
-    )
-    | (
-      { readonly __typename: 'SlidesYaml' }
-      & Pick<
-        SlidesYaml,
-        | 'id'
-        | 'title'
-        | 'date'
-        | 'url'
-      >
-      & { dateX: SlidesYaml['date'] }
-    )
+    | { readonly __typename: 'ArticlesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+    | { readonly __typename: 'NotesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+    | { readonly __typename: 'OthersYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+    | { readonly __typename: 'PresentationsYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+    | { readonly __typename: 'SlidesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
   > };
 
-export type TimelineVirtualizedListArchivedFragment = { readonly nodes: ReadonlyArray<(
-    { readonly __typename: 'QiitaJson' }
-    & Pick<QiitaJson, 'id' | 'title' | 'url'>
-    & { dateX: QiitaJson['created_at'] }
-  )> };
+export type TimelineVirtualizedListArchivedFragment = { readonly nodes: ReadonlyArray<{ readonly __typename: 'QiitaJson', readonly id: string, readonly title: string, readonly url: string, readonly dateX: string }> };
 
-export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> };
+export type TimelineArchivedListFragment = { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string, readonly url: string }> };
 
 export type UseSearchQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<Pick<
-        Search,
-        | 'title'
-        | 'excerpt'
-        | 'url'
-        | 'slug'
-      >> } };
+export type UseSearchQuery = { readonly allSearch: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly excerpt: string, readonly url: string, readonly slug: string }> } };
 
 export type IndexPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type IndexPageQuery = {
-    readonly timelineItems: { readonly nodes: ReadonlyArray<
-        | (
-          { readonly __typename: 'ArticlesYaml' }
-          & Pick<
-            ArticlesYaml,
-            | 'id'
-            | 'title'
-            | 'date'
-            | 'url'
-          >
-          & { dateX: ArticlesYaml['date'] }
-        )
-        | (
-          { readonly __typename: 'NotesYaml' }
-          & Pick<
-            NotesYaml,
-            | 'id'
-            | 'title'
-            | 'date'
-            | 'url'
-          >
-          & { dateX: NotesYaml['date'] }
-        )
-        | (
-          { readonly __typename: 'OthersYaml' }
-          & Pick<
-            OthersYaml,
-            | 'id'
-            | 'title'
-            | 'date'
-            | 'url'
-          >
-          & { dateX: OthersYaml['date'] }
-        )
-        | (
-          { readonly __typename: 'PresentationsYaml' }
-          & Pick<
-            PresentationsYaml,
-            | 'id'
-            | 'title'
-            | 'date'
-            | 'url'
-          >
-          & { dateX: PresentationsYaml['date'] }
-        )
-        | (
-          { readonly __typename: 'SlidesYaml' }
-          & Pick<
-            SlidesYaml,
-            | 'id'
-            | 'title'
-            | 'date'
-            | 'url'
-          >
-          & { dateX: SlidesYaml['date'] }
-        )
-      > },
-    readonly qiitaItems: { readonly nodes: ReadonlyArray<(
-        { readonly __typename: 'QiitaJson' }
-        & Pick<QiitaJson, 'id' | 'title' | 'url'>
-        & { dateX: QiitaJson['created_at'] }
-      )> },
-    readonly speakerDecksItems: { readonly nodes: ReadonlyArray<Pick<SpeakerDecksYaml, 'title' | 'playerId'>> },
-  };
+export type IndexPageQuery = { readonly timelineItems: { readonly nodes: ReadonlyArray<
+      | { readonly __typename: 'ArticlesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+      | { readonly __typename: 'NotesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+      | { readonly __typename: 'OthersYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+      | { readonly __typename: 'PresentationsYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+      | { readonly __typename: 'SlidesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string, readonly dateX: string }
+    > }, readonly qiitaItems: { readonly nodes: ReadonlyArray<{ readonly __typename: 'QiitaJson', readonly id: string, readonly title: string, readonly url: string, readonly dateX: string }> }, readonly speakerDecksItems: { readonly nodes: ReadonlyArray<{ readonly title: string, readonly playerId: string }> } };
 
 export type OutputsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type OutputsPageQuery = {
-    readonly outputs: { readonly group: ReadonlyArray<(
-        { dateYear: OutputGroupConnection['fieldValue'] }
-        & { readonly nodes: ReadonlyArray<
-          | (
-            { readonly __typename: 'ArticlesYaml' }
-            & Pick<
-              ArticlesYaml,
-              | 'id'
-              | 'title'
-              | 'date'
-              | 'url'
-            >
-          )
-          | (
-            { readonly __typename: 'NotesYaml' }
-            & Pick<
-              NotesYaml,
-              | 'id'
-              | 'title'
-              | 'date'
-              | 'url'
-            >
-          )
-          | (
-            { readonly __typename: 'OthersYaml' }
-            & Pick<
-              OthersYaml,
-              | 'id'
-              | 'title'
-              | 'date'
-              | 'url'
-            >
-          )
-          | (
-            { readonly __typename: 'PresentationsYaml' }
-            & Pick<
-              PresentationsYaml,
-              | 'id'
-              | 'title'
-              | 'date'
-              | 'url'
-            >
-          )
-          | (
-            { readonly __typename: 'SlidesYaml' }
-            & Pick<
-              SlidesYaml,
-              | 'id'
-              | 'title'
-              | 'date'
-              | 'url'
-            >
-          )
-        > }
-      )> },
-    readonly qiitaItems: { readonly nodes: ReadonlyArray<Pick<QiitaJson, 'id' | 'title' | 'url'>> },
-    readonly site: Maybe<Pick<Site, 'buildTime'>>,
-  };
+export type OutputsPageQuery = { readonly outputs: { readonly group: ReadonlyArray<{ readonly dateYear: string, readonly nodes: ReadonlyArray<
+        | { readonly __typename: 'ArticlesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+        | { readonly __typename: 'NotesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+        | { readonly __typename: 'OthersYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+        | { readonly __typename: 'PresentationsYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+        | { readonly __typename: 'SlidesYaml', readonly id: string, readonly title: string, readonly date: string, readonly url: string }
+      > }> }, readonly qiitaItems: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly title: string, readonly url: string }> }, readonly site: { readonly buildTime: string } };
