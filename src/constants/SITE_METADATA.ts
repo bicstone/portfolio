@@ -14,5 +14,4 @@ export const SITE_METADATA = {
   defaultLanguage: "ja",
   tileColor: "#81c784",
   maskColor: "#2d1e1e",
-  profileLink: "https://bicstone.me/cv",
 } as const satisfies Record<string, string>;
