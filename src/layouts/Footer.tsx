@@ -4,7 +4,6 @@ import { Link as RouterLink } from "gatsby";
 
 import { BackToTop } from "./BackToTop";
 
-import { SITE_METADATA } from "@/constants/SITE_METADATA";
 import happyBusy from "@/layouts/banners/happy-busy.png";
 
 /**
@@ -36,15 +35,6 @@ export const Footer = (): React.JSX.Element => {
         </Link>
         <Link component={RouterLink} color="inherit" to="/outputs">
           アウトプット
-        </Link>
-        <Link
-          color="inherit"
-          href={SITE_METADATA.profileLink}
-          rel="external noopener follow me"
-          target="_blank"
-          title="外部リンクのため、別ウインドウで開きます"
-        >
-          プロフィール
         </Link>
         <Link
           color="inherit"
