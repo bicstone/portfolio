@@ -20,6 +20,7 @@ Astroで生成した静的サイトをCloudflare Workers (Static Assets)で配�
 ### ツール
 
 - ESLint
+- Vitest
 - prettier (フォーマットを自動化することで省力化)
 
 ### CI / CDツール
@@ -78,6 +79,12 @@ pnpm run format:fix
 
 ```shell
 pnpm run typecheck
+```
+
+### テスト
+
+```shell
+pnpm run test
 ```
 
 ### Cloudflare Workersでのローカル配信

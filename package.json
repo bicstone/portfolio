@@ -13,17 +13,20 @@
     "format": "prettier --cache --check .",
     "format:fix": "prettier --cache --write .",
     "typecheck": "astro check --minimumFailingSeverity hint",
+    "test": "vitest run",
     "cloudflare:dev": "wrangler dev",
     "cloudflare:deploy": "wrangler deploy",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "astro": "7.4.13",
+    "fast-xml-parser": "5.12.1",
     "yaml": "2.9.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@types/node": "26.6.6",
+    "@vitest/eslint-plugin": "1.6.28",
     "eslint": "10.14.0",
     "eslint-config-love": "158.0.0",
     "eslint-plugin-astro": "3.2.1",
@@ -32,6 +35,7 @@
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.2",
     "typescript": "6.0.3",
+    "vitest": "5.1.1",
     "wrangler": "4.158.0"
   },
   "repository": {

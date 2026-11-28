@@ -3,6 +3,9 @@ import { file } from "astro/loaders";
 import { z } from "astro/zod";
 import { parse } from "yaml";
 
+import { remoteLoader } from "./loaders/remote";
+import { fetchZennArticles } from "./loaders/zenn";
+
 const parseWithUrlId =
   (getUrl: (entry: Record<string, unknown>) => unknown) =>
   (text: string): Array<Record<string, unknown>> => {
@@ -67,4 +70,13 @@ const outputs = defineCollection({
   }),
 });
 
-export const collections = { talks, outputs };
+const zenn = defineCollection({
+  loader: remoteLoader("zenn", async () => await fetchZennArticles("bicstone")),
+  schema: z.object({
+    title: z.string(),
+    url: z.url(),
+    date: z.date(),
+  }),
+});
+
+export const collections = { talks, outputs, zenn };
