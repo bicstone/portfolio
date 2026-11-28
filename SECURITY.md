@@ -2,9 +2,9 @@
 
 ## Reporting a Vulnerability
 
-You can report a vulnerability by contacting us via email at [Oishi Takanori](https://github.com/bicstone).
+Please report vulnerabilities privately through [GitHub's private vulnerability reporting](https://github.com/bicstone/portfolio/security/advisories/new).
 
-You may optionally encrypt your report with GPG, using my key [EA52 C9F1 C3C9 396D](https://pgp.mit.edu/pks/lookup?op=get&search=0xEA52C9F1C3C9396D) .
+You may optionally encrypt your report with GPG, using my key [EA52 C9F1 C3C9 396D](https://bicstone.me/takanori0014.asc).
 
 <details>
 
