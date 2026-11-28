@@ -1,0 +1,114 @@
+# --- 正規化 ---
+/index.html / 301
+/index.htm / 301
+
+# --- サイト内 ---
+/outlook-imap-error /outlook-imap-no-longer-exist 301
+
+# --- ファビコン ---
+/favicon.ico https://static.bicstone.me/favicon.ico 301
+
+# --- プロフィール ---
+/privacy https://bicstone.notion.site/106009431fdc809c87c3f4fee24b7dfe 301
+
+# --- サイト内の旧パス ---
+/blog https://bicstone.me/outputs 301
+
+# --- Zenn ---
+/flex-item-overflow-hidden https://zenn.dev/bicstone/articles/flex-item-overflow-hidden 301
+/webkit-line-clamp https://zenn.dev/bicstone/articles/webkit-line-clamp 301
+/npm-private-packages-ci https://zenn.dev/bicstone/articles/npm-private-packages-ci 301
+/react-forward-ref-generic-type https://zenn.dev/hacobell_dev/articles/react-forward-ref-generic-type 301
+/fist-to-five https://zenn.dev/bicstone/articles/fist-to-five 301
+/sailboat-retrospective https://zenn.dev/hacobell_dev/articles/sailboat-retrospective 301
+/git-submodules-ssh https://zenn.dev/bicstone/articles/git-submodules-ssh 301
+/code-review-comment-prefix https://zenn.dev/hacobell_dev/articles/code-review-comment-prefix 301
+/gatsby-plugin-fix-fouc https://zenn.dev/bicstone/articles/gatsby-plugin-fix-fouc 301
+/nuxt-ssg-preview https://zenn.dev/hacobell_dev/articles/nuxt-ssg-preview 301
+/yarn-install-5-minutes https://zenn.dev/bicstone/articles/yarn-install-5-minutes 301
+/graphql-dedupe-fragments https://zenn.dev/bicstone/articles/graphql-dedupe-fragments 301
+/code-review-blocker https://zenn.dev/hacobell_dev/articles/code-review-blocker 301
+/gatsby-timezone https://zenn.dev/bicstone/articles/gatsby-timezone 301
+/github-pr-with-zero-diff https://zenn.dev/bicstone/articles/github-pr-with-zero-diff 301
+/js-async-domcontentloaded https://zenn.dev/bicstone/articles/js-async-domcontentloaded 301
+
+# --- Speaker Deck ---
+/becoming-an-oss-maintainer https://speakerdeck.com/bicstone/becoming-an-oss-maintainer 301
+/fist-to-five-lt https://speakerdeck.com/bicstone/fist-to-five 301
+
+# --- note ---
+/bus-seats-decrease https://note.com/bicstone/n/n20ac6eae2e69 301
+/qualified-electrician https://note.com/bicstone/n/na05da668f858 301
+/dishwasher-on-washing-machine https://note.com/bicstone/n/na24752eab32b 301
+/chrome-hsts-error https://note.com/bicstone/n/n3f149a0ca8c3 301
+/bus-commuter-pass https://note.com/bicstone/n/nf8657250d897 301
+/tobus-commuter-pass https://note.com/bicstone/n/nf8657250d897 301
+/fractal-design-node-202 https://note.com/bicstone/n/n127dff9aa379 301
+/sst-ar11 https://note.com/bicstone/n/n127dff9aa379 301
+/webgl-chrome https://note.com/bicstone/n/ncae93f5e2801 301
+/silencio-s600 https://note.com/bicstone/n/n46ef9e584159 301
+/chrome-movie-freeze https://note.com/bicstone/n/n9acccbddf621 301
+
+# --- Qiita ---
+/ag-grid-filtered-row-count https://qiita.com/bicstone/items/fe329a6aa7eb4120b4c4 301
+/ag-grid-action-row https://qiita.com/bicstone/items/f12073c8c8093bd8da77 301
+/react-use-unique-id https://qiita.com/bicstone/items/1689b9a278d2939fdf35 301
+/django-datatables-view-100-over https://qiita.com/bicstone/items/70e5fbaed37799484e0a 301
+/remember-wovn-ignore https://qiita.com/bicstone/items/197350d50e79ac00bb8e 301
+/vue-empty-string-truthy https://qiita.com/bicstone/items/0bca7652fa65c5f5e85d 301
+/django-template-isdebug https://qiita.com/bicstone/items/adf1d31d47e31fbfe215 301
+/django-required-login https://qiita.com/bicstone/items/b1b45ec1de34f74d8a4b 301
+/django-nocache https://qiita.com/bicstone/items/77930ded65dbfa5a1344 301
+/django-foreign-key-exception-catch https://qiita.com/bicstone/items/9831638a13754b949145 301
+/vagrant-apache-failure https://qiita.com/bicstone/items/13e92f09c27ecdd36ab4 301
+/vagrant-laravel-slow https://qiita.com/bicstone/items/5e07bd7b29c8c95721f4 301
+/docker-eset-firewall-detected https://qiita.com/bicstone/items/10fa085291e5b0d3426f 301
+/python-zipfile-shift-jis https://qiita.com/bicstone/items/14ef11e80cf8d36004c2 301
+/xserver-pre-ssl https://qiita.com/bicstone/items/25f86b63880214f5c96e 301
+/javascript-blob-to-file https://qiita.com/bicstone/items/5796124885a3ea92adc2 301
+/mysql-auto-increment-reset https://qiita.com/bicstone/items/480d7a443eebd0a856e2 301
+/enablesendfile-js-broken https://qiita.com/bicstone/items/16ccb0350a16ab6b42aa 301
+/wordpress-uppercase-letter https://qiita.com/bicstone/items/6c4f86383b4b275209f0 301
+/pci-gw-ush300n https://qiita.com/bicstone/items/d64592e98a0e5fe47ce8 301
+/cursor-text https://qiita.com/bicstone/items/b2fdca68fc3ad5b025f6 301
+/shortcode-insert https://qiita.com/bicstone/items/fc1fdcad5dcd4e150ebd 301
+/un-packer https://qiita.com/bicstone/items/aec6d731d11231d1342c 301
+/tinymce-table-resize https://qiita.com/bicstone/items/255d17cde327884fe893 301
+/invalid-certificate-chain https://qiita.com/bicstone/items/d1b463f8c4792abc9808 301
+/real-time-find-and-replace-doesnt-work https://qiita.com/bicstone/items/ab8aacfa48d3c3f96a61 301
+/batch-file-auto-update https://qiita.com/bicstone/items/54a0345880b705580cf5 301
+/wordpress-update-post https://qiita.com/bicstone/items/a05d609910a650825e60 301
+/block-adblock https://qiita.com/bicstone/items/916f1485e5d9fae997c8 301
+/siteguard-environment-variable https://qiita.com/bicstone/items/3d88fb943d7f08eb3335 301
+/sakura-gzip https://qiita.com/bicstone/items/521a2a9b8ae17463ee58 301
+/notification-dll https://qiita.com/bicstone/items/2aa601a3ed70be72de16 301
+/nadeshico-wave-dash https://qiita.com/bicstone/items/925b8a6df4c2faaca10a 301
+/simplexml-load-file-hyphen https://qiita.com/bicstone/items/ece07d9b83efce1dd1c1 301
+/add-network-place-error https://qiita.com/bicstone/items/d44645f94592a393978d 301
+/vb-serial-port-freeze https://qiita.com/bicstone/items/e5e7bcc1add4bb86ce36 301
+/550-parameter-is-incorrect-ftp https://qiita.com/bicstone/items/286f11196f3c973c56a3 301
+/bitlocker-relocked https://qiita.com/bicstone/items/e968f50f70a4d595f0d5 301
+/cannot-login-windows10 https://qiita.com/bicstone/items/a85ff5dbed08f053d0a0 301
+/mixhost-spam-mail https://qiita.com/bicstone/items/4412f2d4aa0e74fd7ceb 301
+/php-allow-url-fopen https://qiita.com/bicstone/items/42ed2bcae109504f2a52 301
+/tt-rss-install https://qiita.com/bicstone/items/528b9a9301b6ee6a81ef 301
+/wordpress-4-9-6-use-next-comment https://qiita.com/bicstone/items/19fa23e68a03cad425dd 301
+/amazon-cfd https://qiita.com/bicstone/items/cf62714d3b6088015477 301
+/chatwork-contact-search https://qiita.com/bicstone/items/c8dc680004fc0710923e 301
+/outlook-com-backup https://qiita.com/bicstone/items/91a19495be26a27930ee 301
+/outlook-imap-no-longer-exist https://qiita.com/bicstone/items/6c832e000bc15befe66c 301
+/does-my-browser-support-webgl https://qiita.com/bicstone/items/c572aae30cabb442caca 301
+/github-gitattributes https://qiita.com/bicstone/items/6f22697d6fdf35f97b42 301
+/twitter-card-not-working https://qiita.com/bicstone/items/1d73fee09ebfb8f0ec9f 301
+/tooltip-accessibility https://qiita.com/bicstone/items/a5404ebf6d7314ce5bc2 301
+/improved-form-ui https://qiita.com/bicstone/items/3f9f0202729f31371a55 301
+/svn-e120106 https://qiita.com/bicstone/items/a5a38357d8da812bda0e 301
+/netwalker-recovery https://qiita.com/bicstone/items/ffd46d74450f18fff014 301
+/backlog-notify-v4 https://qiita.com/bicstone/items/c72d184d7327c7b1d649 301
+/github-backlog-notify https://qiita.com/bicstone/items/c72d184d7327c7b1d649 301
+/react-admin-japanese https://qiita.com/bicstone/items/817a19e0c5a33aff9ac1 301
+
+# --- 末尾の正規化 (ワイルドカードを含むため最後に記述する) ---
+/*/index.html /:splat 301
+/*/index.htm /:splat 301
+/*/ /:splat 301
