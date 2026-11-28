@@ -3,6 +3,7 @@ import { file } from "astro/loaders";
 import { z } from "astro/zod";
 import { parse } from "yaml";
 
+import { fetchQiitaArticles } from "./loaders/qiita";
 import { remoteLoader } from "./loaders/remote";
 import { fetchZennArticles } from "./loaders/zenn";
 
@@ -79,4 +80,16 @@ const zenn = defineCollection({
   }),
 });
 
-export const collections = { talks, outputs, zenn };
+const qiita = defineCollection({
+  loader: remoteLoader(
+    "qiita",
+    async () => await fetchQiitaArticles("bicstone"),
+  ),
+  schema: z.object({
+    title: z.string(),
+    url: z.url(),
+    date: z.date(),
+  }),
+});
+
+export const collections = { talks, outputs, zenn, qiita };
