@@ -1,6 +1,0 @@
-[submodule "static"]
-	path = static
-	url = https://github.com/bicstone/portfolio-static.git
-[submodule "content"]
-	path = content
-	url = https://github.com/bicstone/portfolio-content.git

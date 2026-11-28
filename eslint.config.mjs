@@ -10,6 +10,6 @@ export default [
   ...astro.configs.recommended,
   ...astro.configs["jsx-a11y-strict"],
   {
-    ignores: [".astro/", ".wrangler/", "dist/", "static/", "content/"],
+    ignores: [".astro/", ".wrangler/", "dist/"],
   },
 ];

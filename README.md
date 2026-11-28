@@ -85,16 +85,9 @@ pnpm run cloudflare:deploy
 
 Vite の既定値 (Baseline Widely Available) に従います。
 
-## Submodule について
-
-`content` ディレクトリ及び `static` ディレクトリは、著作権などが複雑になるのを避けるため、非公開リポジトリで管理しています。
-
-`static` は空のディレクトリを作成してください。
-
 ## ライセンス
 
 - ディレクトリ内に LICENSE ファイルがある場合、そのライセンスに従います。
-- Git Submodule で参照しているプライベートリポジトリは [ライセンスなし(未公開)](https://choosealicense.com/no-permission/) です。
 - その他は MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)
