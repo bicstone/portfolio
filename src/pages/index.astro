@@ -1,29 +1,18 @@
 ---
-// リニューアル作業中の仮ページ。トップページの実装で置き換える。
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>大石 貴則 (@bicstone)</title>
-    <link
-      rel="icon"
-      href="https://static.bicstone.me/favicon.ico"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      href="https://static.bicstone.me/favicon.svg"
-      type="image/svg+xml"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="https://static.bicstone.me/apple-touch-icon.png"
-    />
-  </head>
-  <body>
-    <h1>大石 貴則</h1>
+<BaseLayout>
+  <main class="placeholder">
+    <h1>大石貴則</h1>
     <p>リニューアル準備中です。</p>
-  </body>
-</html>
+  </main>
+</BaseLayout>
+
+<style>
+  .placeholder {
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding: var(--space-32) var(--space-16);
+  }
+</style>

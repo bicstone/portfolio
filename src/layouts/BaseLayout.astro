@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const siteTitle = "大石貴則 (@bicstone)";
+const ogImage = "https://static.bicstone.me/og_image.png";
+
+const {
+  title,
+  description = "ものづくりの現場から来た、仕様まで読むWebエンジニア大石貴則 (@bicstone)のポートフォリオです。",
+} = Astro.props;
+
+const fullTitle = title === undefined ? siteTitle : `${title} - ${siteTitle}`;
+const pathname = Astro.url.pathname
+  .replace(/\.html$/u, "")
+  .replace(/\/index$/u, "/");
+const canonical = new URL(pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#1a1a1a"
+      media="(prefers-color-scheme: dark)"
+    />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link
+      rel="icon"
+      href="https://static.bicstone.me/favicon.ico"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="https://static.bicstone.me/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://static.bicstone.me/apple-touch-icon.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="bicstone" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteTitle} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={siteTitle} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@bicstone_me" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

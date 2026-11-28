@@ -1,0 +1,71 @@
+@import "./tokens.css";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-body);
+    letter-spacing: 0.02em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  ul,
+  ol,
+  dl,
+  figure {
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /*
+   * リンクとフォーカスの表示は、デジタル庁デザインシステムのリンクの実装に基づく。
+   * https://github.com/digital-go-jp/design-system-example-components-html/blob/bd70c65891c50cdea00897baebb7f269d3635cb6/src/components/link/link.css
+   * MIT License, Copyright (c) 2025 デジタル庁
+   * https://github.com/digital-go-jp/design-system-example-components-html/blob/bd70c65891c50cdea00897baebb7f269d3635cb6/LICENSE
+   */
+  a {
+    color: var(--color-key);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  @media (hover: hover) {
+    a:hover {
+      text-decoration-thickness: 3px;
+    }
+  }
+
+  :focus-visible {
+    outline: 4px solid var(--color-focus-outline);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-focus-ring);
+  }
+
+  a:focus-visible {
+    border-radius: 4px;
+    background-color: var(--color-focus-ring);
+    color: var(--color-focus-text);
+  }
+}

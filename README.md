@@ -87,7 +87,6 @@ Vite の既定値 (Baseline Widely Available) に従います。
 
 ## ライセンス
 
-- ディレクトリ内に LICENSE ファイルがある場合、そのライセンスに従います。
-- その他は MIT License
+MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)
