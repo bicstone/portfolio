@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
-    "@types/node": "24.19.2",
+    "@types/node": "26.6.6",
     "eslint": "10.14.0",
     "eslint-config-love": "158.0.0",
     "eslint-plugin-astro": "3.2.1",
@@ -40,11 +40,11 @@
     "url": "https://github.com/bicstone/portfolio/issues"
   },
   "volta": {
-    "node": "24.22.2",
+    "node": "26.13.1",
     "pnpm": "12.18.0"
   },
   "engines": {
-    "node": "24.22.2",
+    "node": "26.13.1",
     "pnpm": "12.18.0"
   },
   "packageManager": "pnpm@12.18.0"
