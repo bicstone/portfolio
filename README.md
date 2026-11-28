@@ -62,6 +62,18 @@ pnpm run lint
 pnpm run lint:fix
 ```
 
+### フォーマッターによる検証
+
+```shell
+pnpm run format
+```
+
+### フォーマッターによる検証(自動修正モード)
+
+```shell
+pnpm run format:fix
+```
+
 ### TypeScriptによる型検証
 
 ```shell

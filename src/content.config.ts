@@ -49,7 +49,7 @@ const talks = defineCollection({
 
 const outputs = defineCollection({
   loader: file("src/data/outputs.yaml", {
-    parser: parseWithUrlId((entry) => entry.url),
+    parser: parseWithUrlId((entry) => entry["url"]),
   }),
   schema: z.object({
     title: z.string(),
