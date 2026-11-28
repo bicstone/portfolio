@@ -1,5 +1,3 @@
-.astro
-dist
 pnpm-lock.yaml
 static
 content

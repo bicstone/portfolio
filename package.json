@@ -14,7 +14,6 @@
     "typecheck": "astro check",
     "cloudflare:dev": "wrangler dev",
     "cloudflare:deploy": "wrangler deploy",
-    "prepare": "husky",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
@@ -27,7 +26,6 @@
     "eslint-config-love": "158.0.0",
     "eslint-plugin-astro": "3.2.1",
     "eslint-plugin-jsx-a11y": "6.10.2",
-    "husky": "9.1.7",
     "prettier": "3.9.10",
     "prettier-plugin-astro": "1.1.2",
     "typescript": "6.0.3",

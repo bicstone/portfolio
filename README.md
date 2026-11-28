@@ -24,7 +24,6 @@ Astro で生成した静的サイトを Cloudflare Workers (Static Assets) で�
 
 ### CI / CD ツール
 
-- husky (ローカル環境での CI)
 - GitHub Actions (CI / CD)
 - FOSSA (ライセンスの管理)
 - Renovate (ライブラリ管理)
