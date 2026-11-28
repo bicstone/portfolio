@@ -1,0 +1,52 @@
+:root {
+  color-scheme: light dark;
+
+  /*
+   * 色の値は、デジタル庁デザインシステムのデザイントークンに基づく。
+   * MIT License, Copyright (c) 2023 デジタル庁
+   * https://github.com/digital-go-jp/design-tokens/blob/a96c66793fef07af96b16f5e87f688a263b66df0/LICENSE
+   */
+  --color-bg: light-dark(#ffffff, #1a1a1a);
+  --color-text: light-dark(#1a1a1a, #f2f2f2);
+  --color-text-sub: light-dark(#4d4d4d, #b3b3b3);
+  --color-key: light-dark(#197a4b, #71c598);
+  --color-on-key: light-dark(#ffffff, #1a1a1a);
+  --color-border: light-dark(#949494, #666666);
+  --color-divider: light-dark(#cccccc, #4d4d4d);
+  --color-grid: light-dark(#e6f5ec, #08351f);
+  --color-thumb: light-dark(#115a36, #0c472a);
+  --color-on-thumb: light-dark(#ffffff, #f2f2f2);
+  --color-focus-ring: #ffd43d;
+  --color-focus-outline: #000000;
+  --color-focus-text: #000000;
+
+  --font-family: "BIZ UDPGothic", system-ui, sans-serif;
+
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+  --font-size-18: 1.125rem;
+  --font-size-20: 1.25rem;
+  --font-size-24: 1.5rem;
+  --font-size-28: 1.75rem;
+  --font-size-32: 2rem;
+  --font-size-36: 2.25rem;
+  --font-size-48: 3rem;
+  --font-size-57: 3.5625rem;
+
+  --line-height-dense: 1.3;
+  --line-height-display: 1.4;
+  --line-height-heading: 1.5;
+  --line-height-body: 1.7;
+
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-48: 3rem;
+  --space-64: 4rem;
+  --space-80: 5rem;
+
+  --content-max-width: 70rem;
+}

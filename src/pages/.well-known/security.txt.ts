@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 // https://www.rfc-editor.org/rfc/rfc9116
-// Expires はビルドのたびに更新し、RFC の推奨どおり 1 年未満にする
+// Expiresはビルドのたびに更新し、RFCの推奨どおり1年未満にする
 const EXPIRES_IN_DAYS = 180;
 const MILLISECONDS_PER_DAY = 86_400_000;
 

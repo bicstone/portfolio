@@ -1,30 +1,30 @@
-# Oishi Takanori (@bicstone) ポートフォリオ
+# Oishi Takanori (@bicstone)ポートフォリオ
 
-![GitHub Actions による本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-cloudflare.yml/badge.svg?branch=main)
+![GitHub Actionsによる本番環境へのデプロイの結果](https://github.com/bicstone/portfolio/actions/workflows/deploy-to-cloudflare.yml/badge.svg?branch=main)
 [![FOSSAによる依存関係のライセンススキャン結果](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_shield)
-[![Javascript Standard Style を採用しています](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Javascript Standard Styleを採用しています](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-2020 年に作成したポートフォリオサイトです。
+2020年に作成したポートフォリオサイトです。
 
 ## 構成
 
-Astro で生成した静的サイトを Cloudflare Workers (Static Assets) で配信しています。ブラウザに配信する JavaScript はありません。
+Astroで生成した静的サイトをCloudflare Workers (Static Assets)で配信しています。ブラウザに配信するJavaScriptはありません。
 
 ## 使用技術
 
 ### 言語 / FW
 
-- TypeScript (strict モード)
-- Astro (JavaScript を配信せずに静的サイトを生成できるため選定)
+- TypeScript (strictモード)
+- Astro (JavaScriptを配信せずに静的サイトを生成できるため選定)
 
 ### ツール
 
 - ESLint
 - prettier (フォーマットを自動化することで省力化)
 
-### CI / CD ツール
+### CI / CDツール
 
-- lefthook (コミット前に lint と整形を自動で実行)
+- lefthook (コミット前にlintと整形を自動で実行)
 - GitHub Actions (CI / CD)
 - FOSSA (ライセンスの管理)
 - Renovate (ライブラリ管理)
@@ -62,20 +62,20 @@ pnpm run lint
 pnpm run lint:fix
 ```
 
-### TypeScript による型検証
+### TypeScriptによる型検証
 
 ```shell
 pnpm run typecheck
 ```
 
-### Cloudflare Workers でのローカル配信
+### Cloudflare Workersでのローカル配信
 
 ```shell
 pnpm run build
 pnpm run cloudflare:dev
 ```
 
-### Cloudflare Workers への deploy
+### Cloudflare Workersへのdeploy
 
 ```shell
 pnpm run cloudflare:deploy
@@ -83,11 +83,10 @@ pnpm run cloudflare:deploy
 
 ## 動作対象ブラウザ
 
-Vite の既定値 (Baseline Widely Available) に従います。
+Viteの既定値(Baseline Widely Available)に従います。
 
 ## ライセンス
 
-- ディレクトリ内に LICENSE ファイルがある場合、そのライセンスに従います。
-- その他は MIT License
+MIT License
 
 [![FOSSAによる依存関係のライセンス集計](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbicstone%2Fportfolio?ref=badge_large)

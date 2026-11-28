@@ -108,7 +108,7 @@
 /github-backlog-notify https://qiita.com/bicstone/items/c72d184d7327c7b1d649 301
 /react-admin-japanese https://qiita.com/bicstone/items/817a19e0c5a33aff9ac1 301
 
-# --- 末尾の正規化 (ワイルドカードを含むため最後に記述する) ---
+# --- 末尾の正規化(ワイルドカードを含むため最後に記述する) ---
 /*/index.html /:splat 301
 /*/index.htm /:splat 301
 /*/ /:splat 301
