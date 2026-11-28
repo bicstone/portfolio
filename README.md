@@ -24,6 +24,7 @@ Astro で生成した静的サイトを Cloudflare Workers (Static Assets) で�
 
 ### CI / CD ツール
 
+- lefthook (コミット前に lint と整形を自動で実行)
 - GitHub Actions (CI / CD)
 - FOSSA (ライセンスの管理)
 - Renovate (ライブラリ管理)

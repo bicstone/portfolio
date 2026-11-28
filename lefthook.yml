@@ -1,0 +1,13 @@
+# https://lefthook.dev/
+pre-commit:
+  # ESLint の自動修正のあとに Prettier で整形するため、順番に実行する
+  piped: true
+  jobs:
+    - name: eslint
+      glob: "*.{js,mjs,ts,astro}"
+      run: pnpm exec eslint --fix {staged_files}
+      stage_fixed: true
+
+    - name: prettier
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
