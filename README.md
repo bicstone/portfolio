@@ -89,8 +89,6 @@ Vite の既定値 (Baseline Widely Available) に従います。
 
 `content` ディレクトリ及び `static` ディレクトリは、著作権などが複雑になるのを避けるため、非公開リポジトリで管理しています。
 
-`content` は `content-sample` ディレクトリをコピーして作成してください。
-
 `static` は空のディレクトリを作成してください。
 
 ## ライセンス
