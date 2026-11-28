@@ -1,6 +1,5 @@
 # https://lefthook.dev/
 pre-commit:
-  # ESLint の自動修正のあとに Prettier で整形するため、順番に実行する
   piped: true
   jobs:
     - name: eslint
