@@ -1,0 +1,85 @@
+- title: Stage 3でも仕様は変わる。それでもTC39のプロポーザルをJavaScriptで先取りするための判断基準
+  date: 2026-11-22T07:00:00+09:00
+  kind: blog
+  site: Findy Tech Blog
+  url: https://tech.findy.co.jp/entry/2026/11/22/070000
+- title: TS 7.0 で baseUrl が使えなくなった今、パスエイリアスをどうするか
+  date: 2026-11-01T08:00:00+09:00
+  kind: blog
+  site: Findy Tech Blog
+  url: https://tech.findy.co.jp/entry/2026/11/01/080000
+- title: TSKaigi 2026に協賛・参加しました 〜TypeScriptエコシステムのNative化を感じた注目セッション〜
+  date: 2026-05-26T07:00:00+09:00
+  kind: blog
+  site: Findy Tech Blog
+  url: https://tech.findy.co.jp/entry/20260526070000
+- title: プロパティの順序で型推論が壊れる!? TypeScript6.0の修正からContext-Sensitivityの仕組みを追う
+  date: 2026-05-23T07:00:00+09:00
+  kind: blog
+  site: Findy Tech Blog
+  url: https://tech.findy.co.jp/entry/2026/05/23/070000
+- title: TSKaigi Hokuriku 2025 に参加・登壇しました
+  date: 2025-12-03T07:00:00+09:00
+  kind: blog
+  site: Findy Tech Blog
+  url: https://tech.findy.co.jp/entry/2025/12/03/070000
+- title: エンジニアの日常 エンジニアの人生を変えたイベント Part2
+  date: 2025-09-09T09:00:00+09:00
+  kind: blog
+  site: Findy Tech Blog
+  url: https://tech.findy.co.jp/entry/2025/09/09/090000
+- title: "技術書典 #18 「テック転生」共著"
+  date: 2025-05-31T00:00:00+09:00
+  kind: book
+  site: 技術書典
+  url: https://techbookfest.org/product/hSRz7Ks1gD7NPgR8NTkpPL
+- title: もしもいま、Webフロントエンドをイチから学び直すとしたら？ 現役Webエンジニア・大石貴則さんが考える学習ロードマップ
+  date: 2025-02-27T08:30:00+09:00
+  kind: media
+  site: Findy Engineer Lab
+  url: https://findy-code.io/engineer-lab/techtensei-bicstone-me
+- title: モノづくりを愛する機械設計エンジニアが、趣味で始めたWebエンジニアに転身した理由
+  date: 2025-02-12T08:30:00+09:00
+  kind: media
+  site: Findy Engineer Lab
+  url: https://findy-code.io/engineer-lab/turningpoint-bicstone-me
+- title: Findy Tools 1st Anniversary Top Contributor Award
+  date: 2025-01-23T00:00:00+09:00
+  kind: award
+  site: Findy Tools
+  url: https://note.com/bicstone/n/ncbb30801311d
+- title: Agile Advent Calendar 2024
+  date: 2024-12-01T00:00:00+09:00
+  kind: advent-calendar
+  site: Adventar
+  url: https://adventar.org/calendars/10757
+- title: 回帰テストの工数を削減 物流プラットフォーム「ハコベル」におけるMagicPodの活用事例
+  date: 2024-07-23T09:00:00+09:00
+  kind: contribution
+  site: Findy Tools
+  url: https://findy-tools.io/products/magicpod/6/155
+- title: 認証を任せて価値提供に集中 物流業界向けSaaS「ハコベル配車計画」におけるAuth0の活用事例
+  date: 2024-07-23T09:00:00+09:00
+  kind: contribution
+  site: Findy Tools
+  url: https://findy-tools.io/products/auth0/35/177
+- title: デプロイの属人性解消 物流プラットフォーム「ハコベル」におけるCodemagicの活用事例
+  date: 2024-07-23T09:00:00+09:00
+  kind: contribution
+  site: Findy Tools
+  url: https://findy-tools.io/products/codemagic/337/178
+- title: Next.js人気に押されているけど、それでもGatsbyが好きな7つの理由
+  date: 2024-07-09T08:30:00+09:00
+  kind: media
+  site: Findy Engineer Lab
+  url: https://findy-code.io/engineer-lab/gatsby_bicstone_me
+- title: 「モノづくり」への憧れがアウトプットの原動力
+  date: 2024-02-26T08:30:00+09:00
+  kind: media
+  site: Findy Engineer Lab
+  url: https://findy-code.io/engineer-lab/bicstone_me
+- title: 全部俺 Webフロントエンドエンジニアのメモ Advent Calendar 2022
+  date: 2022-12-01T00:00:00+09:00
+  kind: advent-calendar
+  site: Qiita
+  url: https://qiita.com/advent-calendar/2022/bicstone

@@ -169,6 +169,9 @@ importers:
       astro:
         specifier: 7.4.13
         version: 7.4.13(@types/node@26.6.6)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.1)
+      yaml:
+        specifier: 2.9.1
+        version: 2.9.1
     devDependencies:
       '@astrojs/check':
         specifier: 0.9.12
