@@ -3,7 +3,6 @@ import { describe, expect, it, vi } from "vitest";
 import { fetchZennArticles } from "./zenn";
 
 const FEED = `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>feed</title><item><title><![CDATA[Article]]></title><link>https://zenn.dev/bicstone/articles/article</link><pubDate>Mon, 22 Dec 2025 03:00:00 GMT</pubDate></item></channel></rss>`;
-const NOT_FOUND = 404;
 
 describe(fetchZennArticles, () => {
   it("fetches every article from the feed", async () => {
@@ -26,17 +25,5 @@ describe(fetchZennArticles, () => {
     expect(fetchMock.mock.calls.map(([input]) => input)).toStrictEqual([
       "https://zenn.dev/bicstone/feed?all=1",
     ]);
-  });
-
-  it("throws when the feed is not found", async () => {
-    expect.hasAssertions();
-
-    vi.spyOn(globalThis, "fetch").mockResolvedValue(
-      new Response("", { status: NOT_FOUND, statusText: "Not Found" }),
-    );
-
-    await expect(fetchZennArticles("unknown")).rejects.toThrow(
-      "404 Not Found: https://zenn.dev/unknown/feed?all=1",
-    );
   });
 });

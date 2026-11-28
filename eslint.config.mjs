@@ -36,10 +36,6 @@ export default [
       "vitest/prefer-called-once": "off",
       "vitest/prefer-to-be-falsy": "off",
       "vitest/prefer-to-be-truthy": "off",
-      "vitest/consistent-test-it": [
-        "error",
-        { fn: "it", withinDescribe: "it" },
-      ],
     },
   },
   {

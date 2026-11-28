@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 
 import {
+  fetchOk,
   loadWithFallback,
   type RemoteEntry,
   type RemoteLoaderContext,
@@ -46,6 +47,7 @@ const createContext = (
 
 const fetched: RemoteEntry[] = [{ id: "new", data: { title: "New" } }];
 const cached = { old: { title: "Old" } };
+const NOT_FOUND = 404;
 
 describe(loadWithFallback, () => {
   it("replaces the stored entries with the fetched entries", async () => {
@@ -109,5 +111,19 @@ describe(loadWithFallback, () => {
 
     expect(clear).not.toHaveBeenCalled();
     expect(Object.fromEntries(store)).toStrictEqual(cached);
+  });
+});
+
+describe(fetchOk, () => {
+  it("throws with the status and URL when the response is not OK", async () => {
+    expect.hasAssertions();
+
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response("", { status: NOT_FOUND, statusText: "Not Found" }),
+    );
+
+    await expect(fetchOk("https://example.com/feed")).rejects.toThrow(
+      "404 Not Found: https://example.com/feed",
+    );
   });
 });
