@@ -1,14 +1,3 @@
-# Cloudflare Workers (Static Assets) のリダイレクト定義
-#
-# 上から順に評価され、最初に一致した規則が適用される。
-# 個別の規則を先に、ワイルドカードを含む規則を後に記述すること。
-#
-# 上限: 静的 2,000 / 動的 (splat, placeholder を含むもの) 100
-# https://developers.cloudflare.com/workers/static-assets/redirects/
-#
-# なお `/` や拡張子を持たないパスから index.html への書き換えは
-# Workers が自動的に行うため、ここに記述する必要はない。
-
 # --- 正規化 ---
 /index.html / 301
 /index.htm / 301
