@@ -1,0 +1,15 @@
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  Connection: keep-alive
+  Content-Security-Policy: base-uri 'none'; child-src 'self' blob:; connect-src https: https://*; default-src https: https://*; font-src https: https://*; form-action 'none'; frame-ancestors 'none'; frame-src https: https://*; img-src data: https: https://*; manifest-src 'self' https://bicstone.me https://bicstone.me/*; media-src data: https: https://*; object-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' https: https://*; script-src-elem 'unsafe-inline' 'unsafe-eval' https: https://*; style-src 'unsafe-inline' https: https://*; upgrade-insecure-requests; worker-src 'self' blob: https://bicstone.me https://bicstone.me/*; report-uri https://o1173829.ingest.sentry.io/api/6269370/security/?sentry_key=5d824bb42be0445f834cc7b59a6d2cf2
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+  Referrer-Policy: origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  X-Hello-Human: Hey there! I'm Oishi Takanori.
+
+/_astro/*
+  ! Cache-Control
+  Cache-Control: public, max-age=31536000, immutable
