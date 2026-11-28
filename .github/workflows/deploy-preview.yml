@@ -1,8 +1,8 @@
 name: Deploy preview to Cloudflare Workers (renewal-2026)
 
-# renewal-2026 ブランチの内容を、本番に切り替えずにプレビュー用のバージョンとしてアップロードする。
-# `wrangler versions upload` は本番のトラフィックを切り替えないため、本番には影響しない。
-# プレビュー URL: https://renewal-2026-<Worker 名>.<アカウントのサブドメイン>.workers.dev
+# renewal-2026ブランチの内容を、本番に切り替えずにプレビュー用のバージョンとしてアップロードする。
+# `wrangler versions upload`は本番のトラフィックを切り替えないため、本番には影響しない。
+# プレビューURL: https://renewal-2026-<Worker名>.<アカウントのサブドメイン>.workers.dev
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
       - run: pnpm run build
 
       - name: Upload preview version
-        # pipefail を有効にし、wrangler の失敗を tee で握りつぶさないようにする
+        # pipefailを有効にし、wranglerの失敗をteeで握りつぶさないようにする
         shell: bash
         run: |
           pnpm exec wrangler versions upload \
