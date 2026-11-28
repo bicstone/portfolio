@@ -1,5 +1,11 @@
 {
   "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "checkJs": true,
+    "erasableSyntaxOnly": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedSideEffectImports": true
+  },
   "include": [".astro/types.d.ts", "**/*", "src/pages/.well-known/**/*"],
   "exclude": ["dist"]
 }

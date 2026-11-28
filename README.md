@@ -62,6 +62,18 @@ pnpm run lint
 pnpm run lint:fix
 ```
 
+### 整形の検証
+
+```shell
+pnpm run format:check
+```
+
+### 整形(自動修正モード)
+
+```shell
+pnpm run format
+```
+
 ### TypeScriptによる型検証
 
 ```shell

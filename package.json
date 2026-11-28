@@ -8,10 +8,11 @@
     "dev": "astro dev --port 10014",
     "build": "astro build",
     "preview": "astro preview --port 20014",
-    "lint": "eslint --cache",
+    "lint": "eslint --cache --max-warnings 0",
     "lint:fix": "pnpm run lint --fix",
     "format": "prettier --cache --write .",
-    "typecheck": "astro check",
+    "format:check": "prettier --cache --check .",
+    "typecheck": "astro check --minimumFailingSeverity hint",
     "cloudflare:dev": "wrangler dev",
     "cloudflare:deploy": "wrangler deploy",
     "preinstall": "npx only-allow pnpm"

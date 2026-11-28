@@ -9,15 +9,16 @@ interface Props {
 const siteTitle = "大石貴則 (@bicstone)";
 const ogImage = "https://static.bicstone.me/og_image.png";
 
+const { props } = Astro;
 const {
   title,
   description = "ものづくりの現場から来た、仕様まで読むWebエンジニア大石貴則 (@bicstone)のポートフォリオです。",
-} = Astro.props;
+} = props;
 
 const fullTitle = title === undefined ? siteTitle : `${title} - ${siteTitle}`;
 const pathname = Astro.url.pathname
-  .replace(/\.html$/u, "")
-  .replace(/\/index$/u, "/");
+  .replace(/\.html$/v, "")
+  .replace(/\/index$/v, "/");
 const canonical = new URL(pathname, Astro.site);
 ---
 
@@ -25,47 +26,47 @@ const canonical = new URL(pathname, Astro.site);
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="color-scheme" content="light dark" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta content="light dark" name="color-scheme" />
     <meta
-      name="theme-color"
       content="#ffffff"
       media="(prefers-color-scheme: light)"
+      name="theme-color"
     />
     <meta
-      name="theme-color"
       content="#1a1a1a"
       media="(prefers-color-scheme: dark)"
+      name="theme-color"
     />
     <title>{fullTitle}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    <meta content={description} name="description" />
+    <link href={canonical} rel="canonical" />
     <link
-      rel="icon"
       href="https://static.bicstone.me/favicon.ico"
+      rel="icon"
       sizes="32x32"
     />
     <link
-      rel="icon"
       href="https://static.bicstone.me/favicon.svg"
+      rel="icon"
       type="image/svg+xml"
     />
     <link
-      rel="apple-touch-icon"
       href="https://static.bicstone.me/apple-touch-icon.png"
+      rel="apple-touch-icon"
     />
-    <meta name="apple-mobile-web-app-title" content="bicstone" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={siteTitle} />
-    <meta property="og:title" content={fullTitle} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content={siteTitle} />
-    <meta property="og:locale" content="ja_JP" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@bicstone_me" />
+    <meta content="bicstone" name="apple-mobile-web-app-title" />
+    <meta content="website" property="og:type" />
+    <meta content={siteTitle} property="og:site_name" />
+    <meta content={fullTitle} property="og:title" />
+    <meta content={description} property="og:description" />
+    <meta content={canonical} property="og:url" />
+    <meta content={ogImage} property="og:image" />
+    <meta content={siteTitle} property="og:image:alt" />
+    <meta content="ja_JP" property="og:locale" />
+    <meta content="summary" name="twitter:card" />
+    <meta content="@bicstone_me" name="twitter:site" />
   </head>
   <body>
     <slot />
