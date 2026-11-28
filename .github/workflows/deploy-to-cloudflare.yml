@@ -31,31 +31,11 @@ jobs:
           node-version-file: ".node-version"
           cache: "pnpm"
 
-      - uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: |
-            public
-            .cache
-          key: gatsby-v2-${{ github.sha }}
-          restore-keys: |
-            gatsby-v2-
-
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run build
-        env:
-          GTM_ID: ${{ vars.GTM_ID }}
-
-      - run: rm -f ./public/.git ./public/.gitignore
 
       - run: pnpm run cloudflare:deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-
-      - uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: |
-            public
-            .cache
-          key: gatsby-v2-${{ github.sha }}

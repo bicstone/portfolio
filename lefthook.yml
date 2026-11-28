@@ -1,0 +1,12 @@
+# https://lefthook.dev/
+pre-commit:
+  piped: true
+  jobs:
+    - name: eslint
+      glob: "*.{js,mjs,ts,astro}"
+      run: pnpm exec eslint --fix {staged_files}
+      stage_fixed: true
+
+    - name: prettier
+      run: pnpm exec prettier --write --ignore-unknown {staged_files}
+      stage_fixed: true
