@@ -8,26 +8,19 @@
 
 ## 構成
 
-Gatsby.js + Cloudflare Workers (Static Assets) を用いた Jamstack 構成としました。
+Astro で生成した静的サイトを Cloudflare Workers (Static Assets) で配信しています。ブラウザに配信する JavaScript はありません。
 
 ## 使用技術
 
 ### 言語 / FW
 
 - TypeScript (strict モード)
-- React.js
-- Gatsby.js (プラグインを活用し高速に構築ができるため選定)
-- MUI material (一覧性の高いダッシュボード風のデザインにするため選定)
-- Emotion
-- React Virtuoso
+- Astro (JavaScript を配信せずに静的サイトを生成できるため選定)
 
 ### ツール
 
-- Webpack
-- Babel
 - ESLint
 - prettier (フォーマットを自動化することで省力化)
-- graphql-code-generator (型を自動生成することで省力化)
 
 ### CI / CD ツール
 
@@ -36,18 +29,12 @@ Gatsby.js + Cloudflare Workers (Static Assets) を用いた Jamstack 構成と�
 - FOSSA (ライセンスの管理)
 - Renovate (ライブラリ管理)
 
-### その他
-
-- Google Tag Manager
-- Google Analytics
-- Sentry
-
 ## タスクランナー
 
 ### ローカルサーバーを立ち上げ
 
 ```shell
-pnpm run develop
+pnpm run dev
 ```
 
 ### プロダクションビルド
@@ -60,13 +47,7 @@ pnpm run build
 
 ```shell
 pnpm run build
-pnpm run serve
-```
-
-### キャッシュのクリア
-
-```shell
-pnpm run clean
+pnpm run preview
 ```
 
 ### リンターによる静的解析
@@ -87,12 +68,6 @@ pnpm run lint:fix
 pnpm run typecheck
 ```
 
-### GraphQL の型情報を取り込む
-
-```shell
-pnpm run graphql
-```
-
 ### Cloudflare Workers でのローカル配信
 
 ```shell
@@ -108,7 +83,7 @@ pnpm run cloudflare:deploy
 
 ## 動作対象ブラウザ
 
-package.json の browserslist を参照
+Vite の既定値 (Baseline Widely Available) に従います。
 
 ## Submodule について
 

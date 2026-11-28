@@ -32,6 +32,3 @@ jobs:
       - run: pnpm run lint
 
       - run: pnpm run build
-        env:
-          # 本番の値は deploy ワークフローで設定する。ここではビルドが通ることのみを確認する
-          GTM_ID: GTM-XXXXXXX

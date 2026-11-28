@@ -38,11 +38,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run build
-        env:
-          # プレビューでは本番のアクセス解析に計測を送らないよう、ダミーの値を渡す
-          GTM_ID: GTM-XXXXXXX
-
-      - run: rm -f ./public/.git ./public/.gitignore
 
       - name: Upload preview version
         # pipefail を有効にし、wrangler の失敗を tee で握りつぶさないようにする
